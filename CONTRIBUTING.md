@@ -40,7 +40,7 @@ registry/            component metadata (docs, READMEs, CLI) + extracted API
 apps/docs            Next.js documentation site with live demos
 apps/playground      Vite component laboratory
 apps/storybook       Storybook + visual regression
-examples/            travel, dashboard, marketplace, directory, editorial, nextjs (CLI)
+examples/            travel, car-rental, shop, watch, crypto, dashboard, marketplace, directory, editorial, nextjs (CLI)
 ```
 
 ## Component checklist

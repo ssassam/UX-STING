@@ -30,6 +30,22 @@ function bodyRows() {
 }
 
 describe("DataTable", () => {
+  it("keeps a custom page size selectable in the rows-per-page menu", () => {
+    render(
+      <DataTable
+        label="Places"
+        data={places}
+        columns={columns}
+        getRowId={(p) => p.id}
+        pageSize={12}
+      />,
+    );
+    expect(bodyRows()).toHaveLength(12);
+    const select = screen.getByRole("combobox", { name: /rows per page/i }) as HTMLSelectElement;
+    expect(select.value).toBe("12");
+    expect([...select.options].map((o) => o.value)).toEqual(["10", "12", "25", "50"]);
+  });
+
   it("paginates and sorts with aria-sort", async () => {
     const user = userEvent.setup();
     render(

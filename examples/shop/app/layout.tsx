@@ -1,0 +1,34 @@
+import { ThemeScript } from "@ux-sting/react/provider";
+import { SkipLink } from "@ux-sting/react/skip-link";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { SiteFooter } from "../components/site-footer";
+import { SiteHeader } from "../components/site-header";
+import { Providers } from "./providers";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: { default: "Maison Nord — objects for everyday rituals", template: "%s · Maison Nord" },
+  description: "Handmade homeware from independent workshops. A UX-STING e-commerce template.",
+};
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript storageKey="nord-color-mode" />
+      </head>
+      <body className="flex min-h-dvh flex-col">
+        <SkipLink />
+        <Providers>
+          <SiteHeader />
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
+            {children}
+          </main>
+          <SiteFooter />
+        </Providers>
+      </body>
+    </html>
+  );
+}

@@ -1,4 +1,4 @@
-name: Deploy travel demo to GitHub Pages
+name: Deploy demos to GitHub Pages
 
 on:
   push:
@@ -27,13 +27,11 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build UX-STING packages
         run: pnpm build
-      - name: Export the Wayfare travel site
-        run: pnpm --filter @ux-sting/example-travel build
-        env:
-          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - name: Export all demo sites
+        run: scripts/build-pages.sh /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: examples/travel/out
+          path: pages-dist
 
   deploy:
     needs: build

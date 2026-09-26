@@ -23,7 +23,7 @@
     "size": "node scripts/bundle-size.ts",
     "registry": "node scripts/build-registry.ts",
     "readmes": "node scripts/extract-api.ts && node scripts/generate-readmes.ts",
-    "icons": "node scripts/generate-icons.mjs",
+    "icons": "node scripts/generate-icons.mjs && prettier --write --log-level warn packages/icons/src",
     "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test",
     "api": "node scripts/extract-api.ts",
     "ux-audit": "node scripts/ux-audit.ts"

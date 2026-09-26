@@ -93,6 +93,10 @@ export function DataTable<T>({
     onChange: onPageChange,
   });
   const [pageSize, setPageSize] = useState(pageSizeProp || 0);
+  // The initial page size is always selectable, even when it is not a default option.
+  const sizeOptions = [...new Set([...pageSizeOptions, pageSizeProp || 0])]
+    .filter((n) => n > 0)
+    .sort((a, b) => a - b);
   const [hidden, setHidden] = useState<Set<string>>(
     () => new Set(columns.filter((c) => c.hidden).map((c) => c.id)),
   );
@@ -369,7 +373,7 @@ export function DataTable<T>({
                 setPage(1);
               }}
             >
-              {pageSizeOptions.map((n) => (
+              {sizeOptions.map((n) => (
                 <option key={n} value={n}>
                   {n}
                 </option>

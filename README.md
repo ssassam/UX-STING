@@ -50,9 +50,19 @@ import { Button } from "@ux-sting/react/button";
 
 ## Showcase
 
-[**Wayfare**](examples/travel) ([live demo](https://ssassam.github.io/UX-STING/)) — a complete travel booking site built only with UX-STING: search, filters, maps, galleries, booking and checkout, with a live theme switcher.
+Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
+
+| Demo | What it shows | Live |
+| --- | --- | --- |
+| [**Wayfare**](examples/travel) — travel booking | Hero search, destinations, stay search with filters and map, booking, checkout | [open](https://ssassam.github.io/UX-STING/) |
+| [**Drivo**](examples/car-rental) — car rental | Pick-up search, fleet filters, car details, protection and extras, checkout | [open](https://ssassam.github.io/UX-STING/cars/) |
+| [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://ssassam.github.io/UX-STING/shop/) |
+| [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
+| [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
 
 <img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare travel site homepage built with UX-STING" width="640">
+
+Build all of them as one static site with `scripts/build-pages.sh` (output in `pages-dist/`).
 
 ## Documentation
 
