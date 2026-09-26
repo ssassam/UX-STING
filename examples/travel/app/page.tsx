@@ -79,7 +79,7 @@ export default function HomePage() {
           aria-hidden
           className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
         />
-        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-16 pt-20 text-white sm:px-6 md:pb-24 md:pt-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-12 pt-12 text-white sm:px-6 sm:pt-20 md:pb-24 md:pt-28">
           <div className="grid max-w-3xl gap-4">
             <Text size="sm" weight="semibold" className="uppercase tracking-widest text-white/90">
               Stays · Tours · Destinations
@@ -96,7 +96,7 @@ export default function HomePage() {
             </p>
           </div>
           <HeroSearch />
-          <StatGroup className="max-w-2xl text-white [&_dd]:text-white [&_dt]:text-white/85">
+          <StatGroup className="max-w-2xl grid-cols-3 gap-3 text-white sm:grid-cols-3 sm:gap-6 lg:grid-cols-3 [&_dd]:text-xl [&_dd]:text-white sm:[&_dd]:text-2xl [&_dt]:text-xs [&_dt]:leading-snug [&_dt]:text-white/85 sm:[&_dt]:text-sm">
             <Stat label="Travellers hosted" value="2.4M" />
             <Stat label="Average rating" value="4.8/5" />
             <Stat label="Destinations" value="80+" />
@@ -147,9 +147,9 @@ export default function HomePage() {
         href="/search"
         hrefLabel="Browse all stays"
       >
-        <ul className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
           {featured.map((s) => (
-            <li key={s.id} className="grid">
+            <li key={s.id} className="grid w-[80%] shrink-0 snap-start sm:w-auto">
               <StayCard stay={s} />
             </li>
           ))}
@@ -161,7 +161,7 @@ export default function HomePage() {
           <Heading level={2} size="xl" id="promise-title" className="text-balance">
             Book with confidence
           </Heading>
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4">
             {promises.map((p) => (
               <li key={p.title} className="grid content-start gap-2">
                 <span className="flex size-11 items-center justify-center rounded-xl bg-background text-primary [&_svg]:size-5">
@@ -184,9 +184,9 @@ export default function HomePage() {
         href="/tours"
         hrefLabel="All tours"
       >
-        <ul className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
           {tours.map((t) => (
-            <li key={t.id} className="grid">
+            <li key={t.id} className="grid w-[80%] shrink-0 snap-start sm:w-auto">
               <TourCard tour={t} />
             </li>
           ))}

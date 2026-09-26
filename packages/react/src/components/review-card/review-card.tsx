@@ -39,7 +39,10 @@ export function ReviewCard({
   const text = long && !expanded ? `${body.slice(0, truncateAt).trimEnd()}…` : body;
   return (
     <article
-      className={cn("grid gap-3 rounded-xl border border-border bg-card p-card-p", className)}
+      className={cn(
+        "grid content-start gap-3 rounded-xl border border-border bg-card p-card-p",
+        className,
+      )}
     >
       <header className="flex items-start gap-3">
         <Avatar src={author.avatar} name={author.name} alt="" size="sm" />

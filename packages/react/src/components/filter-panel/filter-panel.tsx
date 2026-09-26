@@ -62,12 +62,17 @@ export function FilterPanel({
     <>
       <aside
         aria-label={typeof title === "string" ? title : undefined}
-        className={cn("hidden w-full flex-col gap-4 lg:flex", className)}
+        className={cn(
+          // Follows the page while results scroll; scrolls itself if taller than the viewport.
+          // Offset defaults to below a 4rem sticky header; override with --ui-sticky-offset.
+          "hidden w-full flex-col gap-4 lg:sticky lg:top-(--ui-sticky-offset,5rem) lg:flex lg:max-h-[calc(100dvh-var(--ui-sticky-offset,5rem)-1rem)] lg:self-start lg:overflow-y-auto lg:pe-1",
+          className,
+        )}
       >
         {header}
         <div className="grid divide-y divide-border">{children}</div>
       </aside>
-      <div className="lg:hidden">
+      <div className="sticky top-(--ui-sticky-offset-mobile,4rem) z-(--ui-z-sticky) bg-background/95 py-2 backdrop-blur lg:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" startIcon={<SlidersHorizontalIcon />}>

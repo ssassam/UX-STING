@@ -15,9 +15,8 @@ export function Testimonials() {
     <Carousel label="Traveller reviews" loop>
       <CarouselContent itemsPerView={3}>
         {testimonials.map((t, i) => (
-          <CarouselItem key={t.name} index={i} className="h-full">
+          <CarouselItem key={t.name} index={i}>
             <ReviewCard
-              className="h-full"
               author={{ name: t.name, subtitle: t.trip }}
               rating={t.rating}
               date={{ display: t.display, dateTime: t.date }}

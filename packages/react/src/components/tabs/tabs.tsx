@@ -45,7 +45,9 @@ export const TabsList = forwardRef<
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        "flex max-w-full shrink-0 overflow-x-auto data-[orientation=vertical]:flex-col data-[orientation=vertical]:overflow-visible",
+        // Scrolls sideways when tabs overflow, without a visible scrollbar (Windows
+        // shows one for the 1px indicator otherwise) and never vertically.
+        "ui-scrollbar-none flex max-w-full shrink-0 overflow-x-auto overflow-y-hidden data-[orientation=vertical]:flex-col data-[orientation=vertical]:overflow-visible",
         variant === "line" &&
           "gap-4 border-b border-border data-[orientation=vertical]:border-b-0 data-[orientation=vertical]:border-e",
         variant === "pills" && "gap-1",

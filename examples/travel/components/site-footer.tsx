@@ -55,8 +55,8 @@ export function SiteFooter() {
   const { theme, setTheme } = useSiteTheme();
   return (
     <footer className="mt-16 border-t border-border bg-muted/40 pb-[env(safe-area-inset-bottom)]">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
-        <div className="grid content-start gap-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))] md:gap-10">
+        <div className="grid content-start gap-4 max-md:col-span-2">
           <NextLink
             href="/"
             className="flex w-fit items-center gap-2 rounded-sm text-lg font-bold outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -112,7 +112,19 @@ export function SiteFooter() {
           </NextLink>
           ).
         </p>
-        <p>Built with the UX-STING design system.</p>
+        <p>
+          Built with the{" "}
+          <a
+            href="https://github.com/ssassam/UX-STING"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-sm font-medium text-foreground underline underline-offset-2 outline-none hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            UX-STING design system
+            <span className="sr-only"> on GitHub (opens in a new tab)</span>
+          </a>{" "}
+          · open source on GitHub.
+        </p>
       </div>
     </footer>
   );

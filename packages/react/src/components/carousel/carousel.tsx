@@ -132,7 +132,10 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(function Carousel
 
 export const CarouselContent = forwardRef<
   HTMLDivElement,
-  HTMLAttributes<HTMLDivElement> & { itemsPerView?: 1 | 2 | 3 | 4 }
+  HTMLAttributes<HTMLDivElement> & {
+    /** Items per view on large screens; phones show one (with a peek), tablets two. */
+    itemsPerView?: 1 | 2 | 3 | 4;
+  }
 >(function CarouselContent({ itemsPerView = 1, className, children, ...props }, ref) {
   const { trackRef, setCount, setIndex, playing, autoplay } = useCarousel();
   const count = Children.toArray(children).filter(isValidElement).length;
@@ -166,9 +169,11 @@ export const CarouselContent = forwardRef<
       tabIndex={0}
       className={cn(
         "ui-scroll-snap flex gap-4 overflow-x-auto rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        itemsPerView === 2 && "[&>*]:basis-[calc((100%-1rem)/2)]",
-        itemsPerView === 3 && "[&>*]:basis-[calc((100%-2rem)/3)]",
-        itemsPerView === 4 && "[&>*]:basis-[calc((100%-3rem)/4)]",
+        // Multi-item carousels stay readable on phones: one item plus a peek of
+        // the next, then two per view from `sm`, and the full count from `lg`.
+        itemsPerView > 1 && "[&>*]:basis-[85%] sm:[&>*]:basis-[calc((100%-1rem)/2)]",
+        itemsPerView === 3 && "lg:[&>*]:basis-[calc((100%-2rem)/3)]",
+        itemsPerView === 4 && "lg:[&>*]:basis-[calc((100%-3rem)/4)]",
         className,
       )}
       {...props}
@@ -190,7 +195,8 @@ export const CarouselItem = forwardRef<
       role="group"
       aria-roledescription="slide"
       aria-label={index !== undefined ? messages.slideOf(index + 1, count) : undefined}
-      className={cn("min-w-0 shrink-0 grow-0 basis-full", className)}
+      // Items are equal height: the item stretches with the track and its content fills it.
+      className={cn("flex min-w-0 shrink-0 grow-0 basis-full flex-col *:flex-1", className)}
       {...props}
     />
   );

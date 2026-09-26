@@ -34,8 +34,8 @@ export function TourCard({ tour, headingLevel = 3 }: { tour: Tour; headingLevel?
           {tour.summary}
         </Text>
         <ReviewStars value={tour.rating} count={tour.reviews} size="sm" showValue />
-        <div className="mt-auto flex flex-wrap items-end justify-between gap-2 pt-2">
-          <Text size="sm" variant="muted" className="flex items-center gap-3">
+        <div className="mt-auto grid gap-2 border-t border-border pt-3">
+          <Text size="sm" variant="muted" className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1">
               <CalendarDaysIcon aria-hidden className="size-4" /> {tour.days} days
             </span>

@@ -80,7 +80,7 @@ Play/pause control required for auto-advancing content (WCAG 2.2.2).
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `itemsPerView` | `1 \| 2 \| 3 \| 4` | `1` |  |
+| `itemsPerView` | `1 \| 2 \| 3 \| 4` | `1` | Items per view on large screens; phones show one (with a peek), tablets two. |
 
 _Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

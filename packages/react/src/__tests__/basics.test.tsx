@@ -235,3 +235,12 @@ describe("ImageGallery", () => {
     expect(container.querySelector("ul")?.className).not.toContain("row-span-2");
   });
 });
+
+describe("control styles", () => {
+  it("only tints read-only text fields, never buttons styled as controls", async () => {
+    const { controlVariants } = await import("../lib/control.js");
+    const classes = controlVariants();
+    expect(classes).not.toMatch(/(^|\s)read-only:/);
+    expect(classes).toContain("[&:is(input,textarea):read-only]:bg-surface");
+  });
+});

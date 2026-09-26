@@ -11,7 +11,10 @@ export const controlVariants = createVariants({
     "transition-[border-color,box-shadow] duration-(--ui-duration-fast) placeholder:text-muted-foreground",
     "outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30",
     "aria-invalid:border-destructive aria-invalid:focus-visible:ring-destructive/30",
-    "disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-60 read-only:bg-surface",
+    "disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-60",
+    // `:read-only` also matches buttons (e.g. date and select triggers), so
+    // only tint genuinely read-only text fields.
+    "[&:is(input,textarea):read-only]:bg-surface",
   ],
   variants: {
     size: {

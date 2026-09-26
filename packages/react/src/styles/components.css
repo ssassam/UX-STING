@@ -334,6 +334,12 @@
   .ui-scroll-snap::-webkit-scrollbar {
     display: none;
   }
+  .ui-scrollbar-none {
+    scrollbar-width: none;
+  }
+  .ui-scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
   .ui-scroll-snap > * {
     scroll-snap-align: start;
   }

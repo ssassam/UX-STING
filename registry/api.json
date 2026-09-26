@@ -8934,7 +8934,8 @@
           "name": "itemsPerView",
           "type": "1 | 2 | 3 | 4",
           "required": false,
-          "default": "1"
+          "default": "1",
+          "description": "Items per view on large screens; phones show one (with a peek), tablets two."
         }
       ],
       "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
