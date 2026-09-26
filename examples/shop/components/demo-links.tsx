@@ -1,4 +1,6 @@
-/** Links between the UX-STING demo sites (all hosted on GitHub Pages). */
+import { ExternalLinkIcon } from "@ux-sting/icons";
+
+/** Links between the UX-STING demo sites (all hosted on GitHub Pages); open in a new tab. */
 const SITE = "https://ssassam.github.io/UX-STING";
 
 export const demos = [
@@ -20,9 +22,13 @@ export function DemoLinks({ current }: { current: (typeof demos)[number]["id"] }
             <li key={d.id}>
               <a
                 href={d.href}
-                className="rounded-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1 rounded-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {d.label}
+                <ExternalLinkIcon aria-hidden className="size-3.5" />
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </li>
           ))}

@@ -6,6 +6,7 @@ import { Separator } from "@ux-sting/react/separator";
 import { Text } from "@ux-sting/react/typography";
 import NextLink from "next/link";
 import { THEMES, useSiteTheme, type ThemeName } from "../app/providers";
+import { DemoLinks } from "./demo-links";
 
 const columns = [
   {
@@ -55,7 +56,7 @@ export function SiteFooter() {
   const { theme, setTheme } = useSiteTheme();
   return (
     <footer className="mt-16 border-t border-border bg-muted/40 pb-[env(safe-area-inset-bottom)]">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))] md:gap-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] md:gap-10">
         <div className="grid content-start gap-4 max-md:col-span-2">
           <NextLink
             href="/"
@@ -102,6 +103,7 @@ export function SiteFooter() {
             </ul>
           </nav>
         ))}
+        <DemoLinks current="travel" />
       </div>
       <Separator />
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-6 text-sm text-muted-foreground sm:px-6">
