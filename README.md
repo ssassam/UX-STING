@@ -50,7 +50,7 @@ import { Button } from "@ux-sting/react/button";
 
 ## Showcase
 
-[**Wayfare**](examples/travel) — a complete travel booking site built only with UX-STING: search, filters, maps, galleries, booking and checkout, with a live theme switcher.
+[**Wayfare**](examples/travel) ([live demo](https://ssassam.github.io/UX-STING/)) — a complete travel booking site built only with UX-STING: search, filters, maps, galleries, booking and checkout, with a live theme switcher.
 
 <img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare travel site homepage built with UX-STING" width="640">
 

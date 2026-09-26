@@ -12,3 +12,4 @@ test-results
 apps/docs/demos/index.ts
 apps/docs/demos/sources.json
 apps/storybook/visual/__screenshots__
+out/

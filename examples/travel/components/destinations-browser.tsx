@@ -7,6 +7,7 @@ import { Heading, Text } from "@ux-sting/react/typography";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { destinations, tripStyles, type TripStyle } from "../lib/data";
+import { withBase } from "../lib/base";
 import { sized } from "../lib/photos";
 
 const regions = ["All regions", ...new Set(destinations.map((d) => d.region))];
@@ -96,7 +97,7 @@ export function DestinationsBrowser() {
             <li key={d.slug}>
               <CityCard
                 name={d.name}
-                href={`/destinations/${d.slug}`}
+                href={withBase(`/destinations/${d.slug}`)}
                 image={{ src: sized(d.image, 960), alt: "" }}
                 count={`${d.country} · from €${d.fromPrice}`}
               />

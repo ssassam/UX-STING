@@ -29,6 +29,7 @@ import { StayCard } from "../components/stay-card";
 import { Testimonials } from "../components/testimonials";
 import { TourCard } from "../components/tour-card";
 import { destinations, faqs, stays, tours, tripStyles, type TripStyle } from "../lib/data";
+import { withBase } from "../lib/base";
 import { photos, sized } from "../lib/photos";
 
 const styleIcons: Record<TripStyle, ReactNode> = {
@@ -115,7 +116,7 @@ export default function HomePage() {
             <li key={d.slug}>
               <CityCard
                 name={d.name}
-                href={`/destinations/${d.slug}`}
+                href={withBase(`/destinations/${d.slug}`)}
                 image={{ src: sized(d.image, 960), alt: "" }}
                 count={`${d.country} · from €${d.fromPrice}`}
               />
@@ -130,7 +131,7 @@ export default function HomePage() {
             <li key={s.id}>
               <CategoryCard
                 name={s.name}
-                href={`/destinations?style=${s.id}`}
+                href={withBase(`/destinations/?style=${s.id}`)}
                 icon={styleIcons[s.id]}
                 count={`${s.count} trips`}
               />

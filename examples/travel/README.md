@@ -34,6 +34,16 @@ pnpm --filter @ux-sting/example-travel dev   # http://localhost:3000
 - **Content:** everything lives in `lib/data.ts`. Replace it with your CMS or booking API; pages only read typed `Destination`, `Stay` and `Tour` objects.
 - **Photos:** real photos of each place from Wikimedia Commons, listed in `lib/photos.ts` with author and license, and credited on `/credits` as their CC licenses require. Keep the credits if you reuse them, or swap in your own photos. `Image` and the cards show a neutral placeholder if a photo fails to load.
 
+## Live demo on GitHub Pages
+
+`.github/workflows/pages.yml` exports this site as static files and deploys it on every push. Turn it on once in the repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**. The site is then served at `https://<owner>.github.io/<repo>/`.
+
+To try the static export locally:
+
+```bash
+PAGES_BASE_PATH=/UX-STING pnpm --filter @ux-sting/example-travel build   # output in examples/travel/out
+```
+
 ## Quality
 
 Every page passes the repository's browser audit (axe checks including colour contrast, and no horizontal overflow) at 390 px and 1280 px, in light and dark mode:

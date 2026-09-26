@@ -9,6 +9,7 @@ export default tseslint.config(
     ignores: [
       "**/dist/**",
       "**/.next/**",
+      "examples/*/out/**",
       "**/node_modules/**",
       "**/storybook-static/**",
       "**/*.d.ts",
