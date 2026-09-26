@@ -70,10 +70,21 @@ jobs:
       - run: pnpm build
       - run: npx playwright install --with-deps chromium
       - run: pnpm --filter @ux-sting/storybook build
-      # Reference screenshots are platform-specific and not committed yet, so
-      # missing ones are created on the fly (smoke test). Commit them from a CI
-      # artifact to turn this into a real regression check.
-      - run: pnpm --filter @ux-sting/storybook test:visual --update-snapshots=missing
+      # Reference screenshots are platform-specific, so they are generated here
+      # (Linux Chromium) the first time and uploaded as the `visual-baselines`
+      # artifact; commit them to apps/storybook/visual/__screenshots__ to make
+      # this a real regression check.
+      - name: Visual regression
+        run: |
+          if [ ! -d apps/storybook/visual/__screenshots__ ]; then
+            pnpm --filter @ux-sting/storybook test:visual:update
+          fi
+          pnpm --filter @ux-sting/storybook test:visual
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-baselines
+          path: apps/storybook/visual/__screenshots__
       - uses: actions/upload-artifact@v4
         if: always()
         with:
