@@ -125,19 +125,24 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
     };
   }, []);
 
-  const focusFirstError = (errs: FormErrors) => {
-    requestAnimationFrame(() => {
-      if (summaryRef.current) {
-        summaryRef.current.focus();
-        return;
-      }
-      const firstName = Object.keys(errs).find((k) => errs[k]);
+  // Focus moves after React has committed the error state, so the summary (or
+  // the first invalid field) is guaranteed to be in the DOM. Scheduling it on
+  // an animation frame instead could run before the render on slow devices.
+  const [focusRequest, setFocusRequest] = useState<{ errors: FormErrors } | null>(null);
+  useEffect(() => {
+    if (!focusRequest) return;
+    if (summaryRef.current) {
+      summaryRef.current.focus();
+    } else {
+      const firstName = Object.keys(focusRequest.errors).find((k) => focusRequest.errors[k]);
       const el = firstName
         ? formRef.current?.querySelector<HTMLElement>(`[name="${CSS.escape(firstName)}"]`)
         : null;
       el?.focus();
-    });
-  };
+    }
+    setFocusRequest(null);
+  }, [focusRequest]);
+  const focusFirstError = (errs: FormErrors) => setFocusRequest({ errors: errs });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

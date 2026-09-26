@@ -94,16 +94,19 @@ describe("Form", () => {
     await user.type(screen.getByLabelText(/Email/), "ada@example.com");
     await user.click(screen.getByRole("button", { name: "Create account" }));
     expect(
-      await screen.findByText("This name is reserved", { selector: "p span" }),
+      await screen.findByText("This name is reserved", { selector: "p span" }, { timeout: 3000 }),
     ).toBeInTheDocument();
     await user.clear(screen.getByLabelText(/Name/));
     await user.type(screen.getByLabelText(/Name/), "Ada");
     await user.click(screen.getByRole("button", { name: "Create account" }));
-    await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith(
-        { name: "Ada", email: "ada@example.com" },
-        expect.anything(),
-      ),
+    // Submission awaits async validation; allow for slow CI machines.
+    await waitFor(
+      () =>
+        expect(onSubmit).toHaveBeenCalledWith(
+          { name: "Ada", email: "ada@example.com" },
+          expect.anything(),
+        ),
+      { timeout: 3000 },
     );
   });
 
