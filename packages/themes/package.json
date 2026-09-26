@@ -1,0 +1,35 @@
+{
+  "name": "@unified-ui/themes",
+  "version": "0.1.0",
+  "description": "Theme engine and presets for unified-ui (default, neutral, modern, compact, soft, high-contrast).",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./themes.css": "./dist/themes.css",
+    "./*.css": "./dist/*.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "dependencies": {
+    "@unified-ui/tokens": "workspace:^"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "typescript": "~6.0.3"
+  }
+}

@@ -1,0 +1,162 @@
+/*
+ * unified-ui component styles that are not expressible as utilities:
+ * base defaults, keyframe animations keyed on data-state, responsive layout
+ * variables and touch hit areas. Plain CSS — no Tailwind required.
+ */
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--ui-border);
+  }
+
+  .ui-root,
+  :root[data-ui-theme] body {
+    background-color: var(--ui-background);
+    color: var(--ui-foreground);
+    font-family: var(--ui-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(button, [role="button"], a, summary, label[for]) {
+    touch-action: manipulation;
+  }
+
+  :where(h1, h2, h3, h4) {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* ---------- Keyframes ---------- */
+  @keyframes ui-fade-in { from { opacity: 0; } }
+  @keyframes ui-fade-out { to { opacity: 0; } }
+  @keyframes ui-pop-in { from { opacity: 0; transform: scale(0.96) translate(var(--ui-enter-x, 0), var(--ui-enter-y, 0)); } }
+  @keyframes ui-pop-out { to { opacity: 0; transform: scale(0.96); } }
+  @keyframes ui-slide-in { from { transform: translate(var(--ui-slide-x, 0), var(--ui-slide-y, 0)); } }
+  @keyframes ui-slide-out { to { transform: translate(var(--ui-slide-x, 0), var(--ui-slide-y, 0)); } }
+  @keyframes ui-collapse-down { from { height: 0; opacity: 0; } to { height: var(--ui-collapse-height); } }
+  @keyframes ui-collapse-up { from { height: var(--ui-collapse-height); } to { height: 0; opacity: 0; } }
+  @keyframes ui-shimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+  @keyframes ui-spin { to { transform: rotate(360deg); } }
+  @keyframes ui-indeterminate { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+  @keyframes ui-toast-in { from { opacity: 0; transform: translateY(var(--ui-toast-enter, 0.75rem)) scale(0.98); } }
+
+  /* ---------- Overlay scrims ---------- */
+  .ui-anim-overlay[data-state="open"] { animation: ui-fade-in var(--ui-duration-normal) var(--ui-ease-out); }
+  .ui-anim-overlay[data-state="closed"] { animation: ui-fade-out var(--ui-duration-exit-normal) var(--ui-ease-in); }
+
+  /* ---------- Popovers, menus, dialogs: fade + scale from the trigger side ---------- */
+  .ui-anim-pop[data-state="open"],
+  .ui-anim-pop[data-state="delayed-open"],
+  .ui-anim-pop[data-state="instant-open"] { animation: ui-pop-in var(--ui-duration-fast) var(--ui-ease-out); }
+  .ui-anim-pop[data-state="closed"] { animation: ui-pop-out var(--ui-duration-exit-fast) var(--ui-ease-in); }
+  .ui-anim-pop[data-side="top"] { --ui-enter-y: 0.25rem; }
+  .ui-anim-pop[data-side="bottom"] { --ui-enter-y: -0.25rem; }
+  .ui-anim-pop[data-side="left"] { --ui-enter-x: 0.25rem; }
+  .ui-anim-pop[data-side="right"] { --ui-enter-x: -0.25rem; }
+
+  /* ---------- Sheets & drawers: slide from their edge (logical in RTL) ---------- */
+  .ui-anim-sheet[data-state="open"] { animation: ui-slide-in var(--ui-duration-slow) var(--ui-ease-out); }
+  .ui-anim-sheet[data-state="closed"] { animation: ui-slide-out var(--ui-duration-exit-slow) var(--ui-ease-in); }
+  .ui-anim-sheet[data-side="top"] { --ui-slide-y: -100%; }
+  .ui-anim-sheet[data-side="bottom"] { --ui-slide-y: 100%; }
+  .ui-anim-sheet[data-side="start"] { --ui-slide-x: -100%; }
+  .ui-anim-sheet[data-side="end"] { --ui-slide-x: 100%; }
+  [dir="rtl"] .ui-anim-sheet[data-side="start"] { --ui-slide-x: 100%; }
+  [dir="rtl"] .ui-anim-sheet[data-side="end"] { --ui-slide-x: -100%; }
+
+  /* ---------- Accordion & collapsible height animation ---------- */
+  .ui-anim-collapse { overflow: hidden; }
+  .ui-anim-collapse[data-state="open"] { animation: ui-collapse-down var(--ui-duration-normal) var(--ui-ease-out); }
+  .ui-anim-collapse[data-state="closed"] { animation: ui-collapse-up var(--ui-duration-exit-normal) var(--ui-ease-in); }
+  .ui-anim-collapse { --ui-collapse-height: var(--radix-accordion-content-height, var(--radix-collapsible-content-height, auto)); }
+
+  .ui-anim-toast { animation: ui-toast-in var(--ui-duration-slow) var(--ui-ease-emphasized); }
+  .ui-anim-toast[data-state="closed"] { animation: ui-fade-out var(--ui-duration-exit-normal) var(--ui-ease-in) forwards; }
+
+  .ui-spin { animation: ui-spin 0.8s linear infinite; }
+  .ui-indeterminate { animation: ui-indeterminate 1.4s var(--ui-ease-in-out) infinite; }
+
+  .ui-skeleton {
+    background: linear-gradient(90deg, var(--ui-muted) 25%, var(--ui-subtle) 45%, var(--ui-muted) 65%);
+    background-size: 300% 100%;
+    animation: ui-shimmer 1.6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-spin,
+    .ui-indeterminate { animation-duration: 2.4s; }
+    .ui-skeleton { animation: none; }
+  }
+
+  /* ---------- Responsive layout via CSS variables (see responsiveVars) ---------- */
+  .ui-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--ui-cols, 1), minmax(0, 1fr));
+    gap: var(--ui-gap, 0);
+    --ui-cols: var(--ui-cols-base, 1);
+    --ui-gap: var(--ui-gap-base, 0);
+  }
+  .ui-grid[data-auto-fit] {
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--ui-min-child), 100%), 1fr));
+  }
+  .ui-stack {
+    display: flex;
+    flex-direction: var(--ui-direction, column);
+    gap: var(--ui-gap, 0);
+    --ui-direction: var(--ui-direction-base, column);
+    --ui-gap: var(--ui-gap-base, 0);
+  }
+  @media (min-width: 40rem) {
+    .ui-grid { --ui-cols: var(--ui-cols-sm, var(--ui-cols-base, 1)); --ui-gap: var(--ui-gap-sm, var(--ui-gap-base, 0)); }
+    .ui-stack { --ui-direction: var(--ui-direction-sm, var(--ui-direction-base, column)); --ui-gap: var(--ui-gap-sm, var(--ui-gap-base, 0)); }
+  }
+  @media (min-width: 48rem) {
+    .ui-grid { --ui-cols: var(--ui-cols-md, var(--ui-cols-sm, var(--ui-cols-base, 1))); --ui-gap: var(--ui-gap-md, var(--ui-gap-sm, var(--ui-gap-base, 0))); }
+    .ui-stack { --ui-direction: var(--ui-direction-md, var(--ui-direction-sm, var(--ui-direction-base, column))); --ui-gap: var(--ui-gap-md, var(--ui-gap-sm, var(--ui-gap-base, 0))); }
+  }
+  @media (min-width: 64rem) {
+    .ui-grid { --ui-cols: var(--ui-cols-lg, var(--ui-cols-md, var(--ui-cols-sm, var(--ui-cols-base, 1)))); --ui-gap: var(--ui-gap-lg, var(--ui-gap-md, var(--ui-gap-sm, var(--ui-gap-base, 0)))); }
+    .ui-stack { --ui-direction: var(--ui-direction-lg, var(--ui-direction-md, var(--ui-direction-sm, var(--ui-direction-base, column)))); --ui-gap: var(--ui-gap-lg, var(--ui-gap-md, var(--ui-gap-sm, var(--ui-gap-base, 0)))); }
+  }
+  @media (min-width: 80rem) {
+    .ui-grid { --ui-cols: var(--ui-cols-xl, var(--ui-cols-lg, var(--ui-cols-md, var(--ui-cols-sm, var(--ui-cols-base, 1))))); }
+  }
+
+  /* ---------- Touch targets: expand hit areas to 44px on coarse pointers ---------- */
+  .ui-hit-area { position: relative; }
+  .ui-hit-area::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: max(100%, var(--ui-target-min));
+    height: max(100%, var(--ui-target-min));
+    transform: translate(-50%, -50%);
+  }
+  @media (pointer: coarse) {
+    .ui-hit-area::after {
+      width: max(100%, var(--ui-target-touch));
+      height: max(100%, var(--ui-target-touch));
+    }
+  }
+
+  /* Long user content (URLs, IDs) wraps instead of overflowing. */
+  .ui-wrap-anywhere { overflow-wrap: anywhere; min-width: 0; }
+
+  /* Hide number input spinners; NumberInput renders accessible steppers. */
+  .ui-number-input::-webkit-outer-spin-button,
+  .ui-number-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .ui-number-input { -moz-appearance: textfield; appearance: textfield; }
+
+  /* Hide scrollbars on scroll-snap carousels while keeping them scrollable. */
+  .ui-scroll-snap { scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .ui-scroll-snap::-webkit-scrollbar { display: none; }
+  .ui-scroll-snap > * { scroll-snap-align: start; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-scroll-snap { scroll-behavior: smooth; }
+  }
+}
