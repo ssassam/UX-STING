@@ -1,6 +1,6 @@
 # unified-ui
 
-An accessible, themeable, tree-shakeable React UI system for Next.js and any React app — **one coherent framework** that combines the customization model of shadcn/ui, the accessibility primitives of Radix UI, the breadth of MUI, the token system of Chakra UI and the modern visual language of HeroUI, behind its own API.
+An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
 - **~95 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, and commerce / local-discovery / editorial patterns
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens

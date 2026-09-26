@@ -1,7 +1,7 @@
 {
   "name": "unified-ui",
   "version": "0.1.0",
-  "description": "CLI for unified-ui: copy accessible, themeable React components into your project (shadcn-style).",
+  "description": "CLI for unified-ui: copy accessible, themeable React components into your project.",
   "license": "MIT",
   "type": "module",
   "bin": {

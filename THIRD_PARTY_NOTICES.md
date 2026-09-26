@@ -35,23 +35,6 @@ Build/dev-only tools (TypeScript, Tailwind CSS, Vite, Vitest, Testing
 Library, axe-core (MPL-2.0, used only in tests), ESLint, Prettier,
 Storybook, Playwright, Next.js, Turborepo) are not redistributed.
 
-## Reference projects (design and API research — no code copied)
-
-unified-ui studied the public documentation, APIs and accessibility behavior
-of the following projects. Component implementations in this repository are
-original; where APIs look familiar (e.g. compound components such as
-`DialogTrigger`/`DialogContent`, the `asChild` pattern, the `cn()` helper,
-the copy-into-your-project CLI model), they follow widely used conventions.
-
-| Project | License | Influence |
-| --- | --- | --- |
-| [shadcn/ui](https://github.com/shadcn-ui/ui) — Copyright (c) 2023 shadcn | MIT | Copy-the-source distribution model, compound component naming, CLI workflow |
-| [Radix UI Primitives](https://github.com/radix-ui/primitives) — Copyright (c) 2022 WorkOS | MIT | Accessibility primitives (runtime dependency, see above), `asChild`/Slot pattern |
-| [MUI / Material UI](https://github.com/mui/material-ui) — Copyright (c) 2014 Call-Em-All | MIT | Component breadth (data grid, date pickers, steppers), migration mapping |
-| [Chakra UI](https://github.com/chakra-ui/chakra-ui) — Copyright (c) 2019 Chakra Systems Inc. | MIT | Token/theme system, responsive props, `useDisclosure`/`useControllableState` concepts |
-| [HeroUI](https://github.com/heroui-inc/heroui) — Copyright (c) 2020 Next UI Inc. | MIT | Visual direction (soft surfaces, motion), Tailwind-based theming |
-| [React Spectrum / React Aria](https://github.com/adobe/react-spectrum) — Copyright Adobe | Apache-2.0 | Keyboard and i18n behavior references (calendar, number parsing, RTL) |
-
 ## Adapted guidance
 
 ### UI/UX Pro Max skill — MIT License

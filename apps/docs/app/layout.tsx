@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "unified-ui — accessible React UI system", template: "%s · unified-ui" },
   description:
-    "Accessible, themeable, tree-shakeable React components with design tokens, RTL, dark mode and a shadcn-style CLI.",
+    "Accessible, themeable, tree-shakeable React components with design tokens, RTL, dark mode and a copy-into-your-project CLI.",
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };

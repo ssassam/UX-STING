@@ -1,6 +1,6 @@
 # UX quality rules
 
-unified-ui bakes a prioritized UX rulebook into its tokens, components and CI. The priority order and many rules are adapted from the MIT-licensed [UI/UX Pro Max skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (see `THIRD_PARTY_NOTICES.md`), mapped to how this system enforces them.
+unified-ui bakes a prioritized UX rulebook into its tokens, components and CI. Each rule is mapped to how this system enforces it.
 
 ## Priorities
 

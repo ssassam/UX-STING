@@ -1,16 +1,14 @@
 # Introduction
 
-unified-ui is an independent React UI system. It combines ideas that proved themselves across the ecosystem into **one coherent framework**:
+unified-ui is a design system and React component library built as **one coherent framework**:
 
-| Idea | Inspired by | How unified-ui applies it |
-| --- | --- | --- |
-| Own your components | shadcn/ui | `npx unified-ui add dialog` copies readable source into your repo |
-| Accessible primitives | Radix UI, React Aria | Radix handles focus, dismissal and ARIA for overlays and menus; our own headless logic covers the rest |
-| Breadth | MUI | ~95 component families from layout to data grids, date pickers and commerce/local-discovery patterns |
-| Design tokens | Chakra UI | Semantic CSS variables, responsive props, density and theme presets |
-| Modern visual language | HeroUI | Soft surfaces, subtle borders, controlled shadows, refined motion |
-
-The public API — names, props, variants, tokens — belongs to unified-ui. None of the five libraries is a runtime dependency; Radix primitives are used internally where they are the best accessible foundation.
+| Pillar | How unified-ui applies it |
+| --- | --- |
+| Own your components | `npx unified-ui add dialog` copies readable source into your repo |
+| Accessible primitives | Focus management, dismissal, keyboard support and ARIA patterns built into every interactive component |
+| Breadth | ~95 component families from layout to data grids, date pickers and commerce/local-discovery patterns |
+| Design tokens | Semantic CSS variables, responsive props, density and theme presets |
+| Visual language | Soft surfaces, subtle borders, controlled shadows, refined motion |
 
 ## Principles
 

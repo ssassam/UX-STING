@@ -12,10 +12,7 @@ const pillars = [
     "Accessible by default",
     "WCAG 2.2 AA: focus management, keyboard support, ARIA patterns and contrast-tested tokens.",
   ],
-  [
-    "Own your components",
-    "Import from the package or copy source with `npx unified-ui add` — shadcn-style.",
-  ],
+  ["Own your components", "Import from the package or copy source with `npx unified-ui add`."],
   [
     "Tokens & themes",
     "Semantic CSS variables, six presets, custom themes, dark, high-contrast and density modes.",
