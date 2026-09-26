@@ -70,10 +70,10 @@ jobs:
       - run: pnpm build
       - run: npx playwright install --with-deps chromium
       - run: pnpm --filter @ux-sting/storybook build
-      # Reference screenshots are platform-specific, so they are generated here
-      # (Linux Chromium) the first time and uploaded as the `visual-baselines`
-      # artifact; commit them to apps/storybook/visual/__screenshots__ to make
-      # this a real regression check.
+      # Compares every story against the committed Linux Chromium references in
+      # apps/storybook/visual/__screenshots__ (they are regenerated only if the
+      # folder is missing). After an intended visual change, download the
+      # `visual-baselines` artifact from a run and commit it.
       - name: Visual regression
         run: |
           if [ ! -d apps/storybook/visual/__screenshots__ ]; then
