@@ -48,6 +48,12 @@ import { Button } from "@ux-sting/react/button";
 | `docs/` | Guides (also rendered by the docs site) |
 | `registry/` | Component metadata and extracted API |
 
+## Showcase
+
+[**Wayfare**](examples/travel) — a complete travel booking site built only with UX-STING: search, filters, maps, galleries, booking and checkout, with a live theme switcher.
+
+<img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare travel site homepage built with UX-STING" width="640">
+
 ## Documentation
 
 Guides live in [`docs/`](docs/introduction.md) and in the docs app (`pnpm --filter @ux-sting/docs dev`):

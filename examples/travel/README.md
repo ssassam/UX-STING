@@ -7,6 +7,12 @@ pnpm install
 pnpm --filter @ux-sting/example-travel dev   # http://localhost:3000
 ```
 
+## Screenshots
+
+| Home (desktop) | Destination (desktop) | Stay (phone) |
+| --- | --- | --- |
+| <img src="screenshots/home-desktop.webp" alt="Wayfare homepage with a beach hero, search form, destination cards, featured stays and tours" width="320"> | <img src="screenshots/destination-desktop.webp" alt="Kyoto destination page with a photo mosaic, key facts and tabs" width="320"> | <img src="screenshots/stay-mobile.webp" alt="Riad Yasmine stay page on a phone with photos, rooms, reviews and a booking card" width="160"> |
+
 ## Pages
 
 | Route | What it shows | Key components |
