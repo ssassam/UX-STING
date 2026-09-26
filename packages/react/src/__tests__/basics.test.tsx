@@ -29,6 +29,7 @@ import {
   Text,
   Toggle,
 } from "../index.js";
+import { ImageGallery } from "../components/media/image-gallery.js";
 
 describe("Button", () => {
   it("renders variants and handles clicks", async () => {
@@ -162,6 +163,11 @@ describe("display components", () => {
     expect(bar).toHaveAttribute("aria-valuetext", "40%");
   });
 
+  it("Progress uses its label as the accessible name without an id", () => {
+    render(<Progress value={60} label="Trip countdown" />);
+    expect(screen.getByRole("progressbar", { name: "Trip countdown" })).toBeInTheDocument();
+  });
+
   it("Stepper marks the current step", () => {
     render(
       <Stepper current={1} steps={[{ title: "Cart" }, { title: "Shipping" }, { title: "Pay" }]} />,
@@ -208,5 +214,24 @@ describe("display components", () => {
       </main>,
     );
     await act(async () => expectNoA11yViolations(container));
+  });
+});
+
+describe("ImageGallery", () => {
+  const images = Array.from({ length: 7 }, (_, i) => ({
+    src: `/p${i}.jpg`,
+    alt: `Photo ${i + 1}`,
+  }));
+
+  it("mosaic shows one large + four and a +n tile, never leaving gaps", () => {
+    render(<ImageGallery images={images} layout="mosaic" />);
+    expect(screen.getAllByRole("listitem")).toHaveLength(5);
+    expect(screen.getByText("+2")).toBeInTheDocument();
+  });
+
+  it("mosaic falls back to a plain grid for fewer than five images", () => {
+    const { container } = render(<ImageGallery images={images.slice(0, 3)} layout="mosaic" />);
+    expect(screen.getAllByRole("listitem")).toHaveLength(3);
+    expect(container.querySelector("ul")?.className).not.toContain("row-span-2");
   });
 });

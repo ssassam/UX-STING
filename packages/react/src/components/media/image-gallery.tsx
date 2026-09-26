@@ -8,7 +8,11 @@ export interface ImageGalleryProps {
   images: LightboxImage[];
   /** Grid columns on ≥ sm screens. */
   columns?: 2 | 3 | 4;
-  /** `mosaic` makes the first image larger. */
+  /**
+   * `mosaic` shows one large image plus groups of four (four columns from
+   * `sm`), so the grid never has gaps; extra images go behind the "+n" tile.
+   * With fewer than five images it falls back to `grid`.
+   */
   layout?: "grid" | "mosaic";
   ratio?: number;
   className?: string;
@@ -27,16 +31,27 @@ export function ImageGallery({
 }: ImageGalleryProps) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  const shown = max ? images.slice(0, max) : images;
+  const limit = Math.min(max ?? images.length, images.length);
+  const mosaic = layout === "mosaic" && limit >= 5;
+  // Mosaic: 1 large (2×2) + multiples of 4 small tiles fill 2 and 4 columns exactly.
+  const count = mosaic ? 1 + Math.floor((limit - 1) / 4) * 4 : limit;
+  const shown = images.slice(0, count);
   const rest = images.length - shown.length;
+  const cols = mosaic
+    ? 4
+    : layout === "mosaic"
+      ? limit === 4
+        ? 2
+        : Math.min(Math.max(limit, 2), 3)
+      : columns;
   return (
     <>
       <ul
         className={cn(
           "grid grid-cols-2 gap-2",
-          columns === 3 && "sm:grid-cols-3",
-          columns === 4 && "sm:grid-cols-4",
-          layout === "mosaic" && "[&>li:first-child]:col-span-2 [&>li:first-child]:row-span-2",
+          cols === 3 && "sm:grid-cols-3",
+          cols === 4 && "sm:grid-cols-4",
+          mosaic && "[&>li:first-child]:col-span-2 [&>li:first-child]:row-span-2",
           className,
         )}
       >
@@ -53,7 +68,7 @@ export function ImageGallery({
               <Image
                 src={image.src}
                 alt={image.alt}
-                ratio={layout === "mosaic" && i === 0 ? undefined : ratio}
+                ratio={mosaic && i === 0 ? undefined : ratio}
                 containerClassName="size-full"
                 className="transition-transform duration-(--ui-duration-slow) hover:scale-[1.03]"
               />

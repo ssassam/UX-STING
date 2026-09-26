@@ -32,7 +32,7 @@ npx ux-sting add form
 
 ### Form
 
-Accessible form with zero-config validation: fields are validated on submit and re-validated on blur (not on every keystroke). After a failed submit, focus moves to the `FormErrorSummary` (or the first invalid field).
+Accessible form with zero-config validation: fields are validated on submit and re-validated on blur (not on every keystroke). An error is cleared as soon as the field becomes valid while the user edits it, so fixing a field never shifts the layout under the pointer on blur. After a failed submit, focus moves to the `FormErrorSummary` (or the first invalid field).
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |

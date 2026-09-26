@@ -53,7 +53,7 @@ Thumbnail grid that opens a Lightbox. Each thumbnail is a button.
 | `images` * | `LightboxImage[]` | — |  |
 | `className` | `string` | — |  |
 | `columns` | `2 \| 3 \| 4` | `3` | Grid columns on ≥ sm screens. |
-| `layout` | `"grid" \| "mosaic"` | `"grid"` | `mosaic` makes the first image larger. |
+| `layout` | `"grid" \| "mosaic"` | `"grid"` | `mosaic` shows one large image plus groups of four (four columns from `sm`), so the grid never has gaps; extra images go behind the "+n" tile. With fewer than five images it falls back to `grid`. |
 | `max` | `number` | — | Maximum thumbnails shown; the last one shows "+n". |
 | `ratio` | `number` | `4 / 3` |  |
 

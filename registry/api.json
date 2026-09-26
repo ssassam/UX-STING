@@ -951,7 +951,7 @@
     },
     "Form": {
       "kind": "component",
-      "description": "Accessible form with zero-config validation: fields are validated on\nsubmit and re-validated on blur (not on every keystroke). After a failed\nsubmit, focus moves to the `FormErrorSummary` (or the first invalid field).",
+      "description": "Accessible form with zero-config validation: fields are validated on\nsubmit and re-validated on blur (not on every keystroke). An error is\ncleared as soon as the field becomes valid while the user edits it, so\nfixing a field never shifts the layout under the pointer on blur. After a\nfailed submit, focus moves to the `FormErrorSummary` (or the first invalid\nfield).",
       "props": [
         {
           "name": "errors",
@@ -9021,7 +9021,7 @@
           "type": "\"grid\" | \"mosaic\"",
           "required": false,
           "default": "\"grid\"",
-          "description": "`mosaic` makes the first image larger."
+          "description": "`mosaic` shows one large image plus groups of four (four columns from\n`sm`), so the grid never has gaps; extra images go behind the \"+n\" tile.\nWith fewer than five images it falls back to `grid`."
         },
         {
           "name": "max",

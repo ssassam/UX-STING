@@ -116,6 +116,33 @@ describe("Form", () => {
     await user.tab();
     expect(email).toHaveAttribute("aria-invalid", "true");
   });
+
+  it("clears an error as soon as the field is fixed, before blur", async () => {
+    const user = userEvent.setup();
+    render(<SignUp />);
+    const email = screen.getByLabelText(/Email/);
+    await user.type(email, "not-an-email");
+    await user.tab();
+    expect(email).toHaveAttribute("aria-invalid", "true");
+    await user.clear(email);
+    await user.type(email, "ada@example.com");
+    expect(email).not.toHaveAttribute("aria-invalid");
+  });
+
+  it("clears a required checkbox error when it is ticked", async () => {
+    const user = userEvent.setup();
+    render(
+      <Form>
+        <FormErrorSummary />
+        <Checkbox name="terms" value="yes" required label="I agree" />
+        <Button type="submit">Send</Button>
+      </Form>,
+    );
+    await user.click(screen.getByRole("button", { name: "Send" }));
+    await waitFor(() => expect(screen.getByRole("alert")).toBeInTheDocument());
+    await user.click(screen.getByRole("checkbox", { name: "I agree" }));
+    await waitFor(() => expect(screen.queryByRole("alert")).not.toBeInTheDocument());
+  });
 });
 
 describe("inputs", () => {

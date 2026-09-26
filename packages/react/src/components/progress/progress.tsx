@@ -1,5 +1,5 @@
 import { clamp, cn, createVariants, type VariantProps } from "@ux-sting/utils";
-import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
+import { forwardRef, useId, type HTMLAttributes, type ReactNode } from "react";
 
 export const progressVariants = createVariants({
   base: "relative w-full overflow-hidden rounded-full bg-muted",
@@ -49,7 +49,8 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
   const indeterminate = value === null;
   const pct = indeterminate ? 0 : clamp((value / max) * 100, 0, 100);
   const text = indeterminate ? undefined : (formatValue?.(value, max) ?? `${Math.round(pct)}%`);
-  const labelId = id ? `${id}-label` : undefined;
+  const autoId = useId();
+  const labelId = `${id ?? autoId}-label`;
   const bar = (
     <div
       ref={ref}
@@ -59,7 +60,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
       aria-valuemax={max}
       aria-valuenow={indeterminate ? undefined : value}
       aria-valuetext={text}
-      aria-labelledby={label && labelId ? labelId : undefined}
+      aria-labelledby={label ? labelId : undefined}
       data-state={indeterminate ? "indeterminate" : pct >= 100 ? "complete" : "loading"}
       className={progressVariants({ size, className })}
       {...props}

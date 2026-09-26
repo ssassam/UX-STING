@@ -80,8 +80,11 @@ function collectNativeErrors(form: HTMLFormElement): FormErrors {
 
 /**
  * Accessible form with zero-config validation: fields are validated on
- * submit and re-validated on blur (not on every keystroke). After a failed
- * submit, focus moves to the `FormErrorSummary` (or the first invalid field).
+ * submit and re-validated on blur (not on every keystroke). An error is
+ * cleared as soon as the field becomes valid while the user edits it, so
+ * fixing a field never shifts the layout under the pointer on blur. After a
+ * failed submit, focus moves to the `FormErrorSummary` (or the first invalid
+ * field).
  */
 export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
   {
@@ -92,6 +95,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
     className,
     children,
     onBlur,
+    onInput,
+    onChange,
+    onClick,
     ...props
   },
   ref,
@@ -170,6 +176,13 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
     });
   };
 
+  /** Clears (never adds) an error once its field becomes valid during editing. */
+  const clearIfFixed = (target: EventTarget) => {
+    const el = target as HTMLInputElement;
+    if (validationBehavior !== "aria" || !el.name || !el.willValidate || !el.validity.valid) return;
+    setInternalErrors((prev) => (prev[el.name] ? { ...prev, [el.name]: undefined } : prev));
+  };
+
   const formContext = useMemo<FormContextValue>(
     () => ({ errors, registerField }),
     [errors, registerField],
@@ -197,6 +210,23 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
           aria-busy={submitting || undefined}
           onSubmit={handleSubmit}
           onBlur={handleBlur}
+          onInput={(event) => {
+            onInput?.(event);
+            clearIfFixed(event.target);
+          }}
+          onChange={(event) => {
+            onChange?.(event);
+            clearIfFixed(event.target);
+          }}
+          onClick={(event) => {
+            onClick?.(event);
+            // Custom checkboxes/radios update a hidden native input and
+            // dispatch a click on it; clear its error once it is satisfied.
+            const t = event.target as HTMLInputElement;
+            if (t.tagName === "INPUT" && (t.type === "checkbox" || t.type === "radio")) {
+              clearIfFixed(t);
+            }
+          }}
           className={cn("grid gap-(--ui-stack-gap)", className)}
           {...props}
         >
