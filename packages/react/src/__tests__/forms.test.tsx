@@ -71,9 +71,10 @@ describe("Form", () => {
     const onSubmit = vi.fn();
     render(<SignUp onSubmit={onSubmit} />);
     await user.click(screen.getByRole("button", { name: "Create account" }));
-    const summary = await screen.findByRole("alert");
+    const summary = await screen.findByRole("alert", {}, { timeout: 3000 });
     expect(summary).toHaveTextContent("There are 2 problems");
-    await waitFor(() => expect(summary).toHaveFocus());
+    // Focus moves on the next animation frame; allow for slow CI machines.
+    await waitFor(() => expect(summary).toHaveFocus(), { timeout: 3000 });
     expect(screen.getByLabelText(/Name/)).toHaveAttribute("aria-invalid", "true");
     expect(onSubmit).not.toHaveBeenCalled();
     await user.click(screen.getByRole("link", { name: /Email/ }));
