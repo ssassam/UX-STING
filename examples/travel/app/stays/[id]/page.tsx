@@ -17,6 +17,7 @@ import { BookingCard } from "../../../components/booking-card";
 import { Breadcrumbs } from "../../../components/breadcrumbs";
 import { StayCard } from "../../../components/stay-card";
 import { CURRENCY, getDestination, getStay, stays, testimonials } from "../../../lib/data";
+import { absolute, jsonLd, pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return stays.map((s) => ({ id: s.id }));
@@ -28,7 +29,14 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const s = getStay((await params).id);
-  return s ? { title: s.name, description: s.description } : {};
+  return s
+    ? pageMeta({
+        title: s.name,
+        description: s.description,
+        path: `stays/${s.id}`,
+        image: { url: s.image.src, alt: s.image.alt },
+      })
+    : {};
 }
 
 export default async function StayPage({ params }: { params: Promise<{ id: string }> }) {
@@ -44,6 +52,29 @@ export default async function StayPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-28 pt-8 sm:px-6 lg:pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@type": "Hotel",
+          name: stay.name,
+          description: stay.description,
+          image: stay.image.src,
+          url: absolute(`stays/${stay.id}`),
+          starRating: { "@type": "Rating", ratingValue: stay.stars },
+          priceRange: `From €${stay.nightly} per night`,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: `${stay.area}, ${d.name}`,
+            addressCountry: d.country,
+          },
+          amenityFeature: stay.amenities.map((a) => ({
+            "@type": "LocationFeatureSpecification",
+            name: a,
+            value: true,
+          })),
+        })}
+      />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

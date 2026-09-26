@@ -1,2 +1,11 @@
 @import "tailwindcss";
 @import "@ux-sting/react/tailwind.css";
+
+/*
+ * Drivo dark mode: red *text* on near-black needs a lighter red than the
+ * button fill to stay above 4.5:1, so text-level primary uses red-400.
+ */
+[data-theme="dark"] .text-primary,
+[data-theme="dark"] .hover\:text-primary:hover {
+  color: var(--ui-red-400);
+}

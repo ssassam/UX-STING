@@ -9,6 +9,7 @@ import { ChartCard } from "../../../components/chart-card";
 import { NewsItem } from "../../../components/news-list";
 import { coins, formatUsd, getCoin, stats } from "../../../lib/market";
 import { articles } from "../../../lib/news";
+import { pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return coins.map((c) => ({ id: c.id }));
@@ -20,7 +21,13 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const c = getCoin((await params).id);
-  return c ? { title: `${c.name} (${c.symbol}) price`, description: c.about } : {};
+  return c
+    ? pageMeta({
+        title: `${c.name} (${c.symbol}) price chart and news`,
+        description: `${c.about} Interactive chart, key stats and news (sample data).`,
+        path: `coin/${c.id}`,
+      })
+    : {};
 }
 
 export default async function CoinPage({ params }: { params: Promise<{ id: string }> }) {

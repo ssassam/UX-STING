@@ -2,8 +2,13 @@ import { Heading, Text } from "@ux-sting/react/typography";
 import { Suspense } from "react";
 import { CreditsGallery } from "../../components/credits-gallery";
 import { photos } from "../../lib/photos";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "Photo credits" };
+export const metadata = pageMeta({
+  title: "Photo credits",
+  description: "Authors and licenses of the Wikimedia Commons photos used on this site.",
+  path: "credits",
+});
 
 export default function CreditsPage() {
   const list = Object.values(photos).sort((a, b) => a.title.localeCompare(b.title));

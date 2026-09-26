@@ -32,6 +32,12 @@ import { Preorder } from "../components/preorder";
 import { Section } from "../components/section";
 import { Showcase } from "../components/showcase";
 import { SiteHeader } from "../components/site-header";
+import { jsonLd, pageMeta, SITE_URL } from "../lib/seo";
+
+export const metadata = pageMeta({
+  description:
+    "Pulse One smartwatch: 14-day battery, dual-band GPS, heart, sleep and stress tracking. Pre-order from €249.",
+});
 
 const features = [
   {
@@ -115,6 +121,27 @@ export default function Page() {
     <>
       <SiteHeader />
       <main id="main" tabIndex={-1} className="grid gap-24 pb-8 outline-none">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLd({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Pulse One",
+            description:
+              "Smartwatch with a 14-day battery, dual-band GPS and heart, sleep and stress tracking.",
+            url: SITE_URL,
+            image: new URL("og.jpg", SITE_URL).toString(),
+            brand: { "@type": "Brand", name: "Pulse" },
+            offers: {
+              "@type": "AggregateOffer",
+              priceCurrency: "EUR",
+              lowPrice: 249,
+              highPrice: 369,
+              offerCount: 4,
+              availability: "https://schema.org/PreOrder",
+            },
+          })}
+        />
         <Hero />
         <Section
           id="features"

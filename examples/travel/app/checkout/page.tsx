@@ -1,7 +1,13 @@
 import { Suspense } from "react";
 import { Checkout } from "../../components/checkout";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "Checkout" };
+export const metadata = pageMeta({
+  title: "Checkout",
+  description: "Confirm and pay for your booking.",
+  path: "checkout",
+  noindex: true,
+});
 
 export default function CheckoutPage() {
   return (

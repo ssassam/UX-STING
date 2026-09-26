@@ -11,6 +11,12 @@ import { CoinsTable } from "../components/coins-table";
 import { NewsItem } from "../components/news-list";
 import { coins, formatPct, formatUsd, stats, totalMarketCap } from "../lib/market";
 import { articles } from "../lib/news";
+import { jsonLd, pageMeta, SITE_NAME, SITE_URL } from "../lib/seo";
+
+export const metadata = pageMeta({
+  description:
+    "Crypto market overview with interactive price charts, top movers, a sortable asset table and news (sample data).",
+});
 
 export default function MarketsPage() {
   const withChange = coins
@@ -25,6 +31,16 @@ export default function MarketsPage() {
   const fearGreed = 62;
   return (
     <div className="mx-auto grid max-w-screen-2xl grid-cols-[minmax(0,1fr)] gap-6 px-4 py-6 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          description: "Crypto market analytics and news (sample data).",
+        })}
+      />
       <div className="grid gap-1">
         <Heading level={1} size="2xl">
           Market overview

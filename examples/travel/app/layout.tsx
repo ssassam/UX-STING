@@ -4,15 +4,27 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import { SITE_NAME, SITE_URL } from "../lib/seo";
 import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  robots: { index: true, follow: true },
   title: { default: "Wayfare — stays, tours and destinations", template: "%s · Wayfare" },
   description:
     "Plan and book stays, guided tours and trips to the world's best destinations. A UX-STING travel template.",
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

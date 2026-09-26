@@ -6,6 +6,12 @@ import { ProductCard } from "../components/product-card";
 import { Section } from "../components/section";
 import { categories, makers, products } from "../lib/data";
 import { photos, sized } from "../lib/photos";
+import { jsonLd, pageMeta, SITE_NAME, SITE_URL } from "../lib/seo";
+
+export const metadata = pageMeta({
+  description:
+    "Slow objects for everyday rituals: handmade stoneware, linen, brass and plants from 23 independent workshops.",
+});
 
 const perks = [
   {
@@ -33,6 +39,21 @@ export default function HomePage() {
   const bestsellers = products.slice(0, 8);
   return (
     <div className="grid gap-20 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description: "Handmade homeware from independent workshops.",
+            },
+            { "@type": "OnlineStore", name: SITE_NAME, url: SITE_URL },
+          ],
+        })}
+      />
       <section
         aria-labelledby="hero-title"
         className="mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,1fr)] items-center gap-8 px-4 pt-8 sm:px-6 md:grid-cols-2 md:pt-14"

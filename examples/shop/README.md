@@ -10,3 +10,8 @@ pnpm --filter @ux-sting/example-shop dev
 - Cart state (saved in the browser): `app/providers.tsx`.
 - Catalogue: `lib/data.ts`.
 - Live demo: https://ssassam.github.io/UX-STING/shop/
+
+## Screenshots
+
+<img src="screenshots/home-desktop.webp" alt="Maison Nord — e-commerce: Home" width="320"> <img src="screenshots/product-desktop.webp" alt="Maison Nord — e-commerce: Product" width="320"> <img src="screenshots/home-mobile.webp" alt="Maison Nord — e-commerce: Phone" width="160">
+

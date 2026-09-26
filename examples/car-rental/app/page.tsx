@@ -31,6 +31,12 @@ import { Section } from "../components/section";
 import { withBase } from "../lib/base";
 import { cars, categories, faqs, locations, reviews, type Category } from "../lib/data";
 import { photos } from "../lib/photos";
+import { jsonLd, pageMeta, SITE_NAME, SITE_URL } from "../lib/seo";
+
+export const metadata = pageMeta({
+  description:
+    "Rent economy, electric, premium and family cars across France with unlimited kilometres, free cancellation and contactless pick-up.",
+});
 
 const categoryIcons: Record<Category, ReactNode> = {
   economy: <CarIcon />,
@@ -82,6 +88,21 @@ export default function HomePage() {
   const popular = cars.filter((c) => c.popular);
   return (
     <div className="grid gap-20 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description: "Car rental across France.",
+            },
+            { "@type": "AutoRental", name: SITE_NAME, url: SITE_URL, areaServed: "FR" },
+          ],
+        })}
+      />
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
         <img
           src={photos.hero.src}

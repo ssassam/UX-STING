@@ -9,6 +9,7 @@ import NextLink from "next/link";
 import { useMemo, useState } from "react";
 import { getCoin } from "../lib/market";
 import { articles, publishedAt, timeAgo, topics, type Article, type Topic } from "../lib/news";
+import { sized } from "../lib/photos";
 
 const sentiment = {
   bullish: { label: "Bullish", variant: "success", icon: <TrendingUpIcon /> },
@@ -16,38 +17,66 @@ const sentiment = {
   neutral: { label: "Neutral", variant: "default", icon: <MinusIcon /> },
 } as const;
 
-export function NewsItem({ a, headingLevel = 3 }: { a: Article; headingLevel?: 2 | 3 }) {
+export function NewsItem({
+  a,
+  headingLevel = 3,
+  featured = false,
+}: {
+  a: Article;
+  headingLevel?: 2 | 3;
+  featured?: boolean;
+}) {
   const H = headingLevel === 2 ? "h2" : "h3";
   const s = sentiment[a.sentiment];
   return (
-    <article className="grid gap-2 py-4">
-      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-        <span className="font-medium text-foreground">{a.source}</span>
-        <span aria-hidden>·</span>
-        <time dateTime={publishedAt(a).toISOString()}>{timeAgo(a)}</time>
-        <span aria-hidden>·</span>
-        <span>{a.readMinutes} min read</span>
-        <Badge size="sm" variant={s.variant} icon={s.icon}>
-          {s.label}
-        </Badge>
+    <article
+      className={
+        featured
+          ? "grid gap-4 py-4 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-center"
+          : "grid gap-4 py-4 sm:grid-cols-[11rem_minmax(0,1fr)] sm:items-start"
+      }
+    >
+      <img
+        src={sized(a.image, featured ? 960 : 500)}
+        alt={a.image.alt}
+        loading="lazy"
+        className={`w-full rounded-lg bg-muted object-cover ${featured ? "aspect-16/9" : "aspect-16/10"}`}
+      />
+      <div className="grid min-w-0 gap-2">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+          <span className="font-medium text-foreground">{a.source}</span>
+          <span aria-hidden>·</span>
+          <time dateTime={publishedAt(a).toISOString()}>{timeAgo(a)}</time>
+          <span aria-hidden>·</span>
+          <span>{a.readMinutes} min read</span>
+          <Badge size="sm" variant={s.variant} icon={s.icon}>
+            {s.label}
+          </Badge>
+        </div>
+        <H
+          className={`font-semibold leading-snug text-balance ${featured ? "text-2xl" : "text-md"}`}
+        >
+          {a.title}
+        </H>
+        <p className={featured ? "text-md text-muted-foreground" : "text-sm text-muted-foreground"}>
+          {a.summary}
+        </p>
+        <ul aria-label="Related assets" className="flex flex-wrap gap-1.5">
+          {a.coins.map((id) => {
+            const c = getCoin(id)!;
+            return (
+              <li key={id}>
+                <NextLink
+                  href={`/coin/${id}`}
+                  className="inline-flex h-6 items-center rounded-full border border-border px-2 text-xs font-medium outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {c.symbol}
+                </NextLink>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <H className="text-md font-semibold leading-snug text-balance">{a.title}</H>
-      <p className="text-sm text-muted-foreground">{a.summary}</p>
-      <ul aria-label="Related assets" className="flex flex-wrap gap-1.5">
-        {a.coins.map((id) => {
-          const c = getCoin(id)!;
-          return (
-            <li key={id}>
-              <NextLink
-                href={`/coin/${id}`}
-                className="inline-flex h-6 items-center rounded-full border border-border px-2 text-xs font-medium outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                {c.symbol}
-              </NextLink>
-            </li>
-          );
-        })}
-      </ul>
     </article>
   );
 }
@@ -112,9 +141,9 @@ export function NewsList({ pageSize = 6 }: { pageSize?: number }) {
       </p>
       {list.length ? (
         <ul className="grid divide-y divide-border">
-          {list.slice((current - 1) * pageSize, current * pageSize).map((a) => (
+          {list.slice((current - 1) * pageSize, current * pageSize).map((a, i) => (
             <li key={a.id}>
-              <NewsItem a={a} headingLevel={2} />
+              <NewsItem a={a} headingLevel={2} featured={current === 1 && i === 0 && !q} />
             </li>
           ))}
         </ul>

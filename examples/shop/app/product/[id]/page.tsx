@@ -13,6 +13,7 @@ import { Breadcrumbs } from "../../../components/breadcrumbs";
 import { ProductBuy } from "../../../components/product-buy";
 import { ProductCard } from "../../../components/product-card";
 import { categories, getProduct, products } from "../../../lib/data";
+import { absolute, jsonLd, pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return products.map((p) => ({ id: p.id }));
@@ -24,7 +25,14 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const p = getProduct((await params).id);
-  return p ? { title: p.name, description: p.description } : {};
+  return p
+    ? pageMeta({
+        title: p.name,
+        description: p.description,
+        path: `product/${p.id}`,
+        image: { url: p.photo.src, alt: p.photo.alt },
+      })
+    : {};
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -37,6 +45,26 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     .slice(0, 4);
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-12 px-4 py-8 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.name,
+          description: product.description,
+          image: product.photo.src,
+          url: absolute(`product/${product.id}`),
+          brand: { "@type": "Brand", name: "Maison Nord" },
+          color: product.colors.map((c) => c.name).join(", "),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "EUR",
+            price: product.price,
+            availability:
+              product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+          },
+        })}
+      />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

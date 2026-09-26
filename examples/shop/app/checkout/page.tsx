@@ -1,6 +1,12 @@
 import { Checkout } from "../../components/checkout";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "Checkout" };
+export const metadata = pageMeta({
+  title: "Checkout",
+  description: "Complete your order.",
+  path: "checkout",
+  noindex: true,
+});
 
 export default function CheckoutPage() {
   return (

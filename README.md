@@ -60,9 +60,56 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 | [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
 | [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
 
-<img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare travel site homepage built with UX-STING" width="640">
+### Screenshots
+
+**Wayfare — travel booking** · [live demo](https://ssassam.github.io/UX-STING/)
+
+<p>
+  <a href="examples/travel/screenshots/home-desktop.webp"><img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare — travel booking: Home screenshot" width="300"></a>
+  <a href="examples/travel/screenshots/destination-desktop.webp"><img src="examples/travel/screenshots/destination-desktop.webp" alt="Wayfare — travel booking: Destination screenshot" width="300"></a>
+  <a href="examples/travel/screenshots/home-mobile.webp"><img src="examples/travel/screenshots/home-mobile.webp" alt="Wayfare — travel booking: Phone screenshot" width="160"></a>
+</p>
+
+**Drivo — car rental** · [live demo](https://ssassam.github.io/UX-STING/cars/)
+
+<p>
+  <a href="examples/car-rental/screenshots/home-desktop.webp"><img src="examples/car-rental/screenshots/home-desktop.webp" alt="Drivo — car rental: Home screenshot" width="300"></a>
+  <a href="examples/car-rental/screenshots/car-desktop.webp"><img src="examples/car-rental/screenshots/car-desktop.webp" alt="Drivo — car rental: Car details screenshot" width="300"></a>
+  <a href="examples/car-rental/screenshots/home-mobile.webp"><img src="examples/car-rental/screenshots/home-mobile.webp" alt="Drivo — car rental: Phone screenshot" width="160"></a>
+</p>
+
+**Maison Nord — e-commerce** · [live demo](https://ssassam.github.io/UX-STING/shop/)
+
+<p>
+  <a href="examples/shop/screenshots/home-desktop.webp"><img src="examples/shop/screenshots/home-desktop.webp" alt="Maison Nord — e-commerce: Home screenshot" width="300"></a>
+  <a href="examples/shop/screenshots/product-desktop.webp"><img src="examples/shop/screenshots/product-desktop.webp" alt="Maison Nord — e-commerce: Product screenshot" width="300"></a>
+  <a href="examples/shop/screenshots/home-mobile.webp"><img src="examples/shop/screenshots/home-mobile.webp" alt="Maison Nord — e-commerce: Phone screenshot" width="160"></a>
+</p>
+
+**Pulse One — product launch** · [live demo](https://ssassam.github.io/UX-STING/watch/)
+
+<p>
+  <a href="examples/watch/screenshots/home-desktop.webp"><img src="examples/watch/screenshots/home-desktop.webp" alt="Pulse One — product launch: Home screenshot" width="300"></a>
+  <a href="examples/watch/screenshots/home-mobile.webp"><img src="examples/watch/screenshots/home-mobile.webp" alt="Pulse One — product launch: Phone screenshot" width="160"></a>
+</p>
+
+**Chainlens — crypto analytics & news** · [live demo](https://ssassam.github.io/UX-STING/crypto/)
+
+<p>
+  <a href="examples/crypto/screenshots/home-desktop.webp"><img src="examples/crypto/screenshots/home-desktop.webp" alt="Chainlens — crypto analytics & news: Home screenshot" width="300"></a>
+  <a href="examples/crypto/screenshots/news-desktop.webp"><img src="examples/crypto/screenshots/news-desktop.webp" alt="Chainlens — crypto analytics & news: News screenshot" width="300"></a>
+  <a href="examples/crypto/screenshots/home-mobile.webp"><img src="examples/crypto/screenshots/home-mobile.webp" alt="Chainlens — crypto analytics & news: Phone screenshot" width="160"></a>
+</p>
 
 Build all of them as one static site with `scripts/build-pages.sh` (output in `pages-dist/`).
+
+### SEO
+
+Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all five:
+
+**https://ssassam.github.io/UX-STING/sitemap-index.xml**
+
+To speed up indexing, add `https://ssassam.github.io/UX-STING/` as a URL-prefix property in [Google Search Console](https://search.google.com/search-console) (and [Bing Webmaster Tools](https://www.bing.com/webmasters)), then submit the sitemap index above.
 
 ## Documentation
 

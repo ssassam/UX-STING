@@ -3,8 +3,13 @@ import { Suspense } from "react";
 import { CreditsGallery } from "../../components/credits-gallery";
 import { destinations, stays, tours } from "../../lib/data";
 import { photos, type Photo } from "../../lib/photos";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "Photo credits" };
+export const metadata = pageMeta({
+  title: "Photo credits",
+  description: "Authors and licenses of the Wikimedia Commons photos used on this site.",
+  path: "credits",
+});
 
 /** Every photo shown on the site, attributed as its license requires. */
 function usedPhotos(): Photo[] {

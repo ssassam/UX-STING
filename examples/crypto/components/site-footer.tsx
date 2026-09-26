@@ -1,5 +1,6 @@
 import { Separator } from "@ux-sting/react/separator";
 import { Text } from "@ux-sting/react/typography";
+import NextLink from "next/link";
 import { DemoLinks } from "./demo-links";
 
 export function SiteFooter() {
@@ -12,6 +13,12 @@ export function SiteFooter() {
             All prices, charts and headlines on this site are generated sample data for a UX-STING
             template. They are not real market data and are not financial advice.
           </Text>
+          <NextLink
+            href="/credits"
+            className="w-fit rounded-sm text-sm text-muted-foreground underline underline-offset-2 outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Photo credits
+          </NextLink>
         </div>
         <DemoLinks current="crypto" />
       </div>

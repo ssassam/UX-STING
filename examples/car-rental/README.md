@@ -9,3 +9,8 @@ pnpm --filter @ux-sting/example-car-rental dev
 - Brand theme: `app/providers.tsx` (orange on slate).
 - Fleet, locations, extras and protection plans: `lib/data.ts`.
 - Live demo: https://ssassam.github.io/UX-STING/cars/
+
+## Screenshots
+
+<img src="screenshots/home-desktop.webp" alt="Drivo — car rental: Home" width="320"> <img src="screenshots/car-desktop.webp" alt="Drivo — car rental: Car details" width="320"> <img src="screenshots/home-mobile.webp" alt="Drivo — car rental: Phone" width="160">
+

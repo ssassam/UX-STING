@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "../../../components/breadcrumbs";
 import { TourBooking } from "../../../components/tour-booking";
 import { getDestination, getTour, tours } from "../../../lib/data";
+import { pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return tours.map((t) => ({ id: t.id }));
@@ -20,7 +21,14 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const t = getTour((await params).id);
-  return t ? { title: t.title, description: t.summary } : {};
+  return t
+    ? pageMeta({
+        title: t.title,
+        description: t.summary,
+        path: `tours/${t.id}`,
+        image: { url: t.image.src, alt: t.image.alt },
+      })
+    : {};
 }
 
 export default async function TourPage({ params }: { params: Promise<{ id: string }> }) {

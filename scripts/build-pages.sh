@@ -26,3 +26,15 @@ build shop /shop
 build watch /watch
 build crypto /crypto
 touch "$OUT/.nojekyll"
+
+# One sitemap index for all demos — submit this URL in Google Search Console.
+SITE="https://ssassam.github.io$BASE"
+{
+  echo '<?xml version="1.0" encoding="UTF-8"?>'
+  echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+  for sub in "" /cars /shop /watch /crypto; do
+    echo "  <sitemap><loc>$SITE$sub/sitemap.xml</loc></sitemap>"
+  done
+  echo '</sitemapindex>'
+} > "$OUT/sitemap-index.xml"
+echo "wrote sitemap-index.xml"

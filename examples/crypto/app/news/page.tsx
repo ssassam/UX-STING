@@ -1,7 +1,12 @@
 import { Heading, Text } from "@ux-sting/react/typography";
 import { NewsList } from "../../components/news-list";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "News" };
+export const metadata = pageMeta({
+  title: "Crypto news",
+  description: "Crypto market headlines by topic with sentiment tags (sample data).",
+  path: "news",
+});
 
 export default function NewsPage() {
   return (

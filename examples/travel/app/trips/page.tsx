@@ -10,8 +10,14 @@ import { Heading, Text } from "@ux-sting/react/typography";
 import NextLink from "next/link";
 import { getDestination, getStay, getTour } from "../../lib/data";
 import { sized } from "../../lib/photos";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "My trips" };
+export const metadata = pageMeta({
+  title: "My trips",
+  description: "Upcoming, past and saved trips.",
+  path: "trips",
+  noindex: true,
+});
 
 const upcoming = [
   {

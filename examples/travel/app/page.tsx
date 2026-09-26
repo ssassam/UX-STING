@@ -31,6 +31,12 @@ import { TourCard } from "../components/tour-card";
 import { destinations, faqs, stays, tours, tripStyles, type TripStyle } from "../lib/data";
 import { withBase } from "../lib/base";
 import { photos, sized } from "../lib/photos";
+import { jsonLd, pageMeta, SITE_NAME, SITE_URL } from "../lib/seo";
+
+export const metadata = pageMeta({
+  description:
+    "Plan and book hand-picked stays, small-group tours and trips to the world's best destinations — with free cancellation and 24/7 support.",
+});
 
 const styleIcons: Record<TripStyle, ReactNode> = {
   beach: <TreePalmIcon />,
@@ -68,6 +74,21 @@ export default function HomePage() {
   const featured = stays.filter((s) => s.featured).slice(0, 4);
   return (
     <div className="grid gap-20 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description: "Hand-picked stays and small-group tours.",
+            },
+            { "@type": "TravelAgency", name: SITE_NAME, url: SITE_URL },
+          ],
+        })}
+      />
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
         <img
           src={photos.hero.src}

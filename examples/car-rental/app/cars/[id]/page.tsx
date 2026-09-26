@@ -14,6 +14,7 @@ import { CarCard } from "../../../components/car-card";
 import { CarSpecs } from "../../../components/car-specs";
 import { RentalCard } from "../../../components/rental-card";
 import { cars, categories, CURRENCY, getCar, reviews } from "../../../lib/data";
+import { absolute, jsonLd, pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return cars.map((c) => ({ id: c.id }));
@@ -26,10 +27,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const c = getCar((await params).id);
   return c
-    ? {
+    ? pageMeta({
         title: `Rent a ${c.name}`,
-        description: `${c.name} ${c.similar}, from €${c.pricePerDay}/day.`,
-      }
+        description: `${c.name} ${c.similar} from €${c.pricePerDay}/day: ${c.seats} seats, ${c.transmission.toLowerCase()}, ${c.fuel.toLowerCase()}. Unlimited kilometres and free cancellation.`,
+        path: `cars/${c.id}`,
+        image: { url: c.photo.src, alt: c.photo.alt },
+      })
     : {};
 }
 
@@ -40,6 +43,30 @@ export default async function CarPage({ params }: { params: Promise<{ id: string
   const similar = cars.filter((c) => c.category === car.category && c.id !== car.id).slice(0, 3);
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-28 pt-8 sm:px-6 lg:pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: `${car.name} rental`,
+          description: `${car.name} ${car.similar}. ${car.seats} seats, ${car.transmission}, ${car.fuel}.`,
+          image: car.photo.src,
+          url: absolute(`cars/${car.id}`),
+          brand: { "@type": "Brand", name: "Drivo" },
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "EUR",
+            price: car.pricePerDay,
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: car.pricePerDay,
+              priceCurrency: "EUR",
+              unitCode: "DAY",
+            },
+            availability: "https://schema.org/InStock",
+          },
+        })}
+      />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

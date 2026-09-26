@@ -1,8 +1,13 @@
 import { Heading, Text } from "@ux-sting/react/typography";
 import { TourCard } from "../../components/tour-card";
 import { tours } from "../../lib/data";
+import { pageMeta } from "../../lib/seo";
 
-export const metadata = { title: "Guided tours" };
+export const metadata = pageMeta({
+  title: "Guided tours",
+  description: "Small-group tours with expert local guides — sailing, trekking, food and culture.",
+  path: "tours",
+});
 
 export default function ToursPage() {
   return (

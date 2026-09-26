@@ -16,6 +16,7 @@ import { Breadcrumbs } from "../../../components/breadcrumbs";
 import { StayCard } from "../../../components/stay-card";
 import { TourCard } from "../../../components/tour-card";
 import { destinations, getDestination, staysIn, toursIn, tripStyles } from "../../../lib/data";
+import { pageMeta } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
@@ -27,7 +28,14 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const d = getDestination((await params).slug);
-  return d ? { title: `${d.name}, ${d.country}`, description: d.tagline } : {};
+  return d
+    ? pageMeta({
+        title: `${d.name}, ${d.country} — travel guide, stays and tours`,
+        description: `${d.tagline}. ${d.description}`,
+        path: `destinations/${d.slug}`,
+        image: { url: d.image.src, alt: d.image.alt },
+      })
+    : {};
 }
 
 export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {

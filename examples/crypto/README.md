@@ -10,3 +10,8 @@ pnpm --filter @ux-sting/example-crypto dev
 
 - Chart: `components/price-chart.tsx` (dependency-free SVG).
 - Live demo: https://ssassam.github.io/UX-STING/crypto/
+
+## Screenshots
+
+<img src="screenshots/home-desktop.webp" alt="Chainlens — crypto analytics & news: Home" width="320"> <img src="screenshots/news-desktop.webp" alt="Chainlens — crypto analytics & news: News" width="320"> <img src="screenshots/home-mobile.webp" alt="Chainlens — crypto analytics & news: Phone" width="160">
+
