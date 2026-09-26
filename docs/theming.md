@@ -17,6 +17,34 @@ Themes are sets of CSS variables. Components never change — only tokens do.
 | `soft` | Teal primary, larger radius, softer borders and tinted surfaces |
 | `high-contrast` | AAA-level text contrast, strong borders and focus rings |
 
+## Company-style presets
+
+Seven presets reproduce the look of widely used enterprise design systems, so a product can match an existing ecosystem without restyling any component:
+
+```tsx
+<UIProvider theme="fluent">…</UIProvider>
+```
+
+| Preset | Style of | Character | Reference |
+| --- | --- | --- | --- |
+| `material` | Material Design 3 (Google) | Tonal purple, tinted surfaces, rounded shapes, Roboto | [m3.material.io](https://m3.material.io) |
+| `fluent` | Fluent 2 (Microsoft) | Communication blue, 4px corners, Segoe UI | [fluent2.microsoft.design](https://fluent2.microsoft.design) |
+| `carbon` | Carbon (IBM) | Square corners, flat surfaces, IBM Plex Sans/Mono | [carbondesignsystem.com](https://carbondesignsystem.com) |
+| `polaris` | Polaris (Shopify) | Ink-black primary, green success, compact admin density | [polaris.shopify.com](https://polaris.shopify.com) |
+| `apple` | Human Interface Guidelines (Apple) | System blue, generous rounding, spacious density, SF system font | [developer.apple.com/design](https://developer.apple.com/design/human-interface-guidelines) |
+| `baseweb` | Base Web (Uber) | Black primary, tight corners, flat utilitarian surfaces | [baseweb.design](https://baseweb.design) |
+| `stripe` | Stripe | Blurple primary, navy-slate text, soft layered shadows | [stripe.com](https://stripe.com) |
+
+These presets are unofficial approximations built only from unified-ui tokens. They are not affiliated with or endorsed by Google, Microsoft, IBM, Shopify, Apple, Uber or Stripe, and they copy no code or assets. Fonts are referenced by name with system fallbacks: load Roboto, IBM Plex or Inter yourself (all under the SIL Open Font License) if you want them exactly. SF Pro and Segoe UI are only used when already installed on the device, as their licenses do not allow bundling. Every preset passes the same WCAG AA contrast tests as the built-in ones, in light and dark mode.
+
+Each preset is a starting point — extend it like any other theme:
+
+```ts
+import { createTheme, presetConfigs } from "@unified-ui/themes";
+
+const brand = createTheme({ ...presetConfigs.carbon, name: "brand", primary: "teal" });
+```
+
 ## Custom themes
 
 Pass a config object; the provider generates scoped CSS (light, dark and high-contrast variants):
@@ -31,6 +59,7 @@ Pass a config object; the provider generates scoped CSS (light, dark and high-co
     density: "comfortable",
     fontFamily: { sans: "Inter, system-ui, sans-serif" },
     colors: { light: { ring: "oklch(0.6 0.2 350)" } },
+    vars: { "shadow-md": "none" }, // any other token, without the --ui- prefix
   }}
 >
 ```

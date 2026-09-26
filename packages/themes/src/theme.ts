@@ -35,6 +35,11 @@ export interface ThemeConfig {
     dark?: Partial<SemanticColors>;
     highContrast?: Partial<SemanticColors>;
   };
+  /**
+   * Any other token overrides, keyed without the `--ui-` prefix,
+   * e.g. `{ "shadow-md": "none", "font-mono": "IBM Plex Mono" }`.
+   */
+  vars?: Record<string, string>;
 }
 
 export interface ResolvedTheme {
@@ -66,6 +71,7 @@ export function createTheme(config: ThemeConfig): ResolvedTheme {
     if (value) vars[cssVarName(`font-${key}`)] = value;
   }
   if (config.density) Object.assign(vars, densityVars(config.density));
+  for (const [key, value] of Object.entries(config.vars ?? {})) vars[cssVarName(key)] = value;
 
   return {
     name: config.name,

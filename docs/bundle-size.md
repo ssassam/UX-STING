@@ -103,5 +103,5 @@
 
 | File | Raw | Gzipped |
 | --- | ---: | ---: |
-| `@unified-ui/react/styles.css` | 147.3 kB | 18.6 kB |
-| `@unified-ui/react/components.css` | 8.0 kB | 2.2 kB |
+| `@unified-ui/react/styles.css` | 201.7 kB | 20.7 kB |
+| `@unified-ui/react/components.css` | 8.8 kB | 2.2 kB |

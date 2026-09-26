@@ -4,7 +4,7 @@ An accessible, themeable, tree-shakeable design system and React component libra
 
 - **~95 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, and commerce / local-discovery / editorial patterns
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
-- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 6 presets, custom themes, light/dark/high-contrast, 3 densities
+- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 13 presets (including Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles), custom themes, light/dark/high-contrast, 3 densities
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
 - **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
 - **Own your code** — `npx unified-ui add dialog` copies source into your project, with a lockfile that protects your edits

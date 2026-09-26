@@ -93,7 +93,21 @@ export function SiteHeader({
               onChange={(e) => controls.onThemeChange(e.target.value)}
               className="w-32"
             >
-              {["default", "neutral", "modern", "compact", "soft", "high-contrast"].map((t) => (
+              {[
+                "default",
+                "neutral",
+                "modern",
+                "compact",
+                "soft",
+                "high-contrast",
+                "material",
+                "fluent",
+                "carbon",
+                "polaris",
+                "apple",
+                "baseweb",
+                "stripe",
+              ].map((t) => (
                 <option key={t} value={t}>
                   {t}
                 </option>

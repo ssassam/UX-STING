@@ -1,7 +1,7 @@
 {
   "name": "@unified-ui/themes",
   "version": "0.1.0",
-  "description": "Theme engine and presets for unified-ui (default, neutral, modern, compact, soft, high-contrast).",
+  "description": "Theme engine and presets for unified-ui (default, neutral, modern, compact, soft, high-contrast, plus Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles).",
   "license": "MIT",
   "type": "module",
   "sideEffects": [

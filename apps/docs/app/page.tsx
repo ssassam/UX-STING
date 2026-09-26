@@ -15,7 +15,7 @@ const pillars = [
   ["Own your components", "Import from the package or copy source with `npx unified-ui add`."],
   [
     "Tokens & themes",
-    "Semantic CSS variables, six presets, custom themes, dark, high-contrast and density modes.",
+    "Semantic CSS variables, 13 presets including enterprise styles, custom themes, dark, high-contrast and density modes.",
   ],
   [
     "Global-ready",
