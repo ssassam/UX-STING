@@ -9,6 +9,7 @@ import { ArrowUpIcon } from "./icons/arrow-up.js";
 import { ArrowUpDownIcon } from "./icons/arrow-up-down.js";
 import { ArrowUpRightIcon } from "./icons/arrow-up-right.js";
 import { AtSignIcon } from "./icons/at-sign.js";
+import { BadgePercentIcon } from "./icons/badge-percent.js";
 import { BathIcon } from "./icons/bath.js";
 import { BedIcon } from "./icons/bed.js";
 import { BellIcon } from "./icons/bell.js";
@@ -36,6 +37,7 @@ import { ClockIcon } from "./icons/clock.js";
 import { CloudIcon } from "./icons/cloud.js";
 import { CoffeeIcon } from "./icons/coffee.js";
 import { CommandIcon } from "./icons/command.js";
+import { CompassIcon } from "./icons/compass.js";
 import { CopyIcon } from "./icons/copy.js";
 import { CreditCardIcon } from "./icons/credit-card.js";
 import { CrownIcon } from "./icons/crown.js";
@@ -58,6 +60,7 @@ import { GlobeIcon } from "./icons/globe.js";
 import { Grid3x3Icon } from "./icons/grid-3x-3.js";
 import { GripVerticalIcon } from "./icons/grip-vertical.js";
 import { HashIcon } from "./icons/hash.js";
+import { HeadphonesIcon } from "./icons/headphones.js";
 import { HeartIcon } from "./icons/heart.js";
 import { HelpCircleIcon } from "./icons/help-circle.js";
 import { HomeIcon } from "./icons/home.js";
@@ -67,9 +70,11 @@ import { InboxIcon } from "./icons/inbox.js";
 import { InfoIcon } from "./icons/info.js";
 import { ItalicIcon } from "./icons/italic.js";
 import { KeyIcon } from "./icons/key.js";
+import { LandmarkIcon } from "./icons/landmark.js";
 import { LanguagesIcon } from "./icons/languages.js";
 import { LayoutDashboardIcon } from "./icons/layout-dashboard.js";
 import { LayoutGridIcon } from "./icons/layout-grid.js";
+import { LeafIcon } from "./icons/leaf.js";
 import { LinkIcon } from "./icons/link.js";
 import { ListIcon } from "./icons/list.js";
 import { ListFilterIcon } from "./icons/list-filter.js";
@@ -77,6 +82,7 @@ import { Loader2Icon } from "./icons/loader-2.js";
 import { LockIcon } from "./icons/lock.js";
 import { LogInIcon } from "./icons/log-in.js";
 import { LogOutIcon } from "./icons/log-out.js";
+import { LuggageIcon } from "./icons/luggage.js";
 import { MailIcon } from "./icons/mail.js";
 import { MapIcon } from "./icons/map.js";
 import { MapPinIcon } from "./icons/map-pin.js";
@@ -87,6 +93,7 @@ import { MicIcon } from "./icons/mic.js";
 import { MinusIcon } from "./icons/minus.js";
 import { MonitorIcon } from "./icons/monitor.js";
 import { MoonIcon } from "./icons/moon.js";
+import { MountainIcon } from "./icons/mountain.js";
 import { NavigationIcon } from "./icons/navigation.js";
 import { NewspaperIcon } from "./icons/newspaper.js";
 import { PackageIcon } from "./icons/package.js";
@@ -95,12 +102,16 @@ import { PauseIcon } from "./icons/pause.js";
 import { PencilIcon } from "./icons/pencil.js";
 import { PhoneIcon } from "./icons/phone.js";
 import { PizzaIcon } from "./icons/pizza.js";
+import { PlaneIcon } from "./icons/plane.js";
+import { PlaneTakeoffIcon } from "./icons/plane-takeoff.js";
 import { PlayIcon } from "./icons/play.js";
 import { PlusIcon } from "./icons/plus.js";
 import { PlusCircleIcon } from "./icons/plus-circle.js";
 import { PrinterIcon } from "./icons/printer.js";
+import { QuoteIcon } from "./icons/quote.js";
 import { RefreshCwIcon } from "./icons/refresh-cw.js";
 import { RotateCcwIcon } from "./icons/rotate-ccw.js";
+import { RouteIcon } from "./icons/route.js";
 import { SaveIcon } from "./icons/save.js";
 import { SearchIcon } from "./icons/search.js";
 import { SendIcon } from "./icons/send.js";
@@ -108,12 +119,14 @@ import { SettingsIcon } from "./icons/settings.js";
 import { Share2Icon } from "./icons/share-2.js";
 import { ShieldIcon } from "./icons/shield.js";
 import { ShieldCheckIcon } from "./icons/shield-check.js";
+import { ShipIcon } from "./icons/ship.js";
 import { ShoppingBagIcon } from "./icons/shopping-bag.js";
 import { ShoppingCartIcon } from "./icons/shopping-cart.js";
 import { SkipBackIcon } from "./icons/skip-back.js";
 import { SkipForwardIcon } from "./icons/skip-forward.js";
 import { SlidersHorizontalIcon } from "./icons/sliders-horizontal.js";
 import { SmartphoneIcon } from "./icons/smartphone.js";
+import { SnowflakeIcon } from "./icons/snowflake.js";
 import { SparklesIcon } from "./icons/sparkles.js";
 import { SquareIcon } from "./icons/square.js";
 import { StarIcon } from "./icons/star.js";
@@ -122,12 +135,17 @@ import { StoreIcon } from "./icons/store.js";
 import { SunIcon } from "./icons/sun.js";
 import { SunMoonIcon } from "./icons/sun-moon.js";
 import { TableIcon } from "./icons/table.js";
-import { TagIcon } from "./icons/tag.js";
 import { TabletIcon } from "./icons/tablet.js";
+import { TagIcon } from "./icons/tag.js";
+import { TentIcon } from "./icons/tent.js";
+import { TicketIcon } from "./icons/ticket.js";
+import { TrainFrontIcon } from "./icons/train-front.js";
 import { Trash2Icon } from "./icons/trash-2.js";
+import { TreePalmIcon } from "./icons/tree-palm.js";
 import { TrendingDownIcon } from "./icons/trending-down.js";
 import { TrendingUpIcon } from "./icons/trending-up.js";
 import { TruckIcon } from "./icons/truck.js";
+import { UmbrellaIcon } from "./icons/umbrella.js";
 import { UnderlineIcon } from "./icons/underline.js";
 import { UploadIcon } from "./icons/upload.js";
 import { UploadCloudIcon } from "./icons/upload-cloud.js";
@@ -140,6 +158,7 @@ import { VideoIcon } from "./icons/video.js";
 import { Volume2Icon } from "./icons/volume-2.js";
 import { VolumeXIcon } from "./icons/volume-x.js";
 import { WalletIcon } from "./icons/wallet.js";
+import { WavesIcon } from "./icons/waves.js";
 import { WifiIcon } from "./icons/wifi.js";
 import { XIcon } from "./icons/x.js";
 import { XCircleIcon } from "./icons/x-circle.js";
@@ -158,6 +177,7 @@ export const iconRegistry = {
   "arrow-up-down": ArrowUpDownIcon,
   "arrow-up-right": ArrowUpRightIcon,
   "at-sign": AtSignIcon,
+  "badge-percent": BadgePercentIcon,
   bath: BathIcon,
   bed: BedIcon,
   bell: BellIcon,
@@ -185,6 +205,7 @@ export const iconRegistry = {
   cloud: CloudIcon,
   coffee: CoffeeIcon,
   command: CommandIcon,
+  compass: CompassIcon,
   copy: CopyIcon,
   "credit-card": CreditCardIcon,
   crown: CrownIcon,
@@ -207,6 +228,7 @@ export const iconRegistry = {
   "grid-3x-3": Grid3x3Icon,
   "grip-vertical": GripVerticalIcon,
   hash: HashIcon,
+  headphones: HeadphonesIcon,
   heart: HeartIcon,
   "help-circle": HelpCircleIcon,
   home: HomeIcon,
@@ -216,9 +238,11 @@ export const iconRegistry = {
   info: InfoIcon,
   italic: ItalicIcon,
   key: KeyIcon,
+  landmark: LandmarkIcon,
   languages: LanguagesIcon,
   "layout-dashboard": LayoutDashboardIcon,
   "layout-grid": LayoutGridIcon,
+  leaf: LeafIcon,
   link: LinkIcon,
   list: ListIcon,
   "list-filter": ListFilterIcon,
@@ -226,6 +250,7 @@ export const iconRegistry = {
   lock: LockIcon,
   "log-in": LogInIcon,
   "log-out": LogOutIcon,
+  luggage: LuggageIcon,
   mail: MailIcon,
   map: MapIcon,
   "map-pin": MapPinIcon,
@@ -236,6 +261,7 @@ export const iconRegistry = {
   minus: MinusIcon,
   monitor: MonitorIcon,
   moon: MoonIcon,
+  mountain: MountainIcon,
   navigation: NavigationIcon,
   newspaper: NewspaperIcon,
   package: PackageIcon,
@@ -244,12 +270,16 @@ export const iconRegistry = {
   pencil: PencilIcon,
   phone: PhoneIcon,
   pizza: PizzaIcon,
+  plane: PlaneIcon,
+  "plane-takeoff": PlaneTakeoffIcon,
   play: PlayIcon,
   plus: PlusIcon,
   "plus-circle": PlusCircleIcon,
   printer: PrinterIcon,
+  quote: QuoteIcon,
   "refresh-cw": RefreshCwIcon,
   "rotate-ccw": RotateCcwIcon,
+  route: RouteIcon,
   save: SaveIcon,
   search: SearchIcon,
   send: SendIcon,
@@ -257,12 +287,14 @@ export const iconRegistry = {
   "share-2": Share2Icon,
   shield: ShieldIcon,
   "shield-check": ShieldCheckIcon,
+  ship: ShipIcon,
   "shopping-bag": ShoppingBagIcon,
   "shopping-cart": ShoppingCartIcon,
   "skip-back": SkipBackIcon,
   "skip-forward": SkipForwardIcon,
   "sliders-horizontal": SlidersHorizontalIcon,
   smartphone: SmartphoneIcon,
+  snowflake: SnowflakeIcon,
   sparkles: SparklesIcon,
   square: SquareIcon,
   star: StarIcon,
@@ -271,12 +303,17 @@ export const iconRegistry = {
   sun: SunIcon,
   "sun-moon": SunMoonIcon,
   table: TableIcon,
-  tag: TagIcon,
   tablet: TabletIcon,
+  tag: TagIcon,
+  tent: TentIcon,
+  ticket: TicketIcon,
+  "train-front": TrainFrontIcon,
   "trash-2": Trash2Icon,
+  "tree-palm": TreePalmIcon,
   "trending-down": TrendingDownIcon,
   "trending-up": TrendingUpIcon,
   truck: TruckIcon,
+  umbrella: UmbrellaIcon,
   underline: UnderlineIcon,
   upload: UploadIcon,
   "upload-cloud": UploadCloudIcon,
@@ -289,6 +326,7 @@ export const iconRegistry = {
   "volume-2": Volume2Icon,
   "volume-x": VolumeXIcon,
   wallet: WalletIcon,
+  waves: WavesIcon,
   wifi: WifiIcon,
   x: XIcon,
   "x-circle": XCircleIcon,

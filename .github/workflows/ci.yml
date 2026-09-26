@@ -45,6 +45,8 @@ jobs:
           npx playwright install --with-deps chromium
           (cd apps/docs && npx next start -p 3100 &) && sleep 5
           node scripts/browser-audit.ts http://localhost:3100 / /components /components/button /components/data-table /components/form /docs/accessibility
+          (cd examples/travel && npx next start -p 3200 &) && sleep 5
+          node scripts/browser-audit.ts http://localhost:3200 / /destinations /destinations/santorini /search /stays/riad-yasmine /tours/atlas-and-sahara "/checkout?stay=riad-yasmine" /trips
         env:
           AUDIT_QUICK: "1"
           NO_SHOTS: "1"

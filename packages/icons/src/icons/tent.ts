@@ -1,0 +1,4 @@
+// Generated from Lucide (ISC License). Do not edit by hand.
+import { createIcon } from "../create-icon.js";
+
+export const TentIcon = createIcon("tent", [["path",{"d":"M3.5 21 14 3"}],["path",{"d":"M20.5 21 10 3"}],["path",{"d":"M15.5 21 12 15l-3.5 6"}],["path",{"d":"M2 21h20"}]]);

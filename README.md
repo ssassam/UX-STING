@@ -44,7 +44,7 @@ import { Button } from "@ux-sting/react/button";
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |
 | `apps/storybook` | Storybook + visual regression |
-| `examples/*` | SaaS dashboard, marketplace, local directory, editorial site, CLI starter |
+| `examples/*` | Travel booking site, SaaS dashboard, marketplace, local directory, editorial site, CLI starter |
 | `docs/` | Guides (also rendered by the docs site) |
 | `registry/` | Component metadata and extracted API |
 
