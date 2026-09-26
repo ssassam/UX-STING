@@ -1,0 +1,35 @@
+name: Bug report
+description: Something doesn't work as documented
+labels: [bug]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      placeholder: e.g. Combobox
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal code or a link to a reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options: [Accessibility, Keyboard, RTL / i18n, Dark mode / theming, Responsive / mobile, SSR / RSC, CLI, Types, Other]
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: React 19, Next.js 16, Chrome 140, VoiceOver…

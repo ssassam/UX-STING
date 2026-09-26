@@ -44,7 +44,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
           striped && "[&_tbody_tr:nth-child(even)]:bg-surface",
           stickyHeader && "[&_thead_th]:sticky [&_thead_th]:top-0 [&_thead_th]:z-10 [&_thead_th]:bg-background",
           responsive === "stack" &&
-            "max-md:[&_thead]:sr-only max-md:[&_tbody_tr]:grid max-md:[&_tbody_tr]:gap-1 max-md:[&_tbody_tr]:rounded-lg max-md:[&_tbody_tr]:border max-md:[&_tbody_tr]:border-border max-md:[&_tbody_tr]:p-3 max-md:[&_tbody]:grid max-md:[&_tbody]:gap-3 max-md:[&_td]:flex max-md:[&_td]:justify-between max-md:[&_td]:gap-4 max-md:[&_td]:border-0 max-md:[&_td]:p-0 max-md:[&_td[data-label]]:before:content-[attr(data-label)] max-md:[&_td]:before:font-medium max-md:[&_td]:before:text-muted-foreground",
+            "max-md:block max-md:[&_tbody]:w-full max-md:[&_thead]:sr-only max-md:[&_tbody_tr]:grid max-md:[&_tbody_tr]:gap-1 max-md:[&_tbody_tr]:rounded-lg max-md:[&_tbody_tr]:border max-md:[&_tbody_tr]:border-border max-md:[&_tbody_tr]:p-3 max-md:[&_tbody]:grid max-md:[&_tbody]:gap-3 max-md:[&_td]:flex max-md:[&_td]:justify-between max-md:[&_td]:gap-4 max-md:[&_td]:border-0 max-md:[&_td]:p-0 max-md:[&_td[data-label]]:before:content-[attr(data-label)] max-md:[&_td]:before:font-medium max-md:[&_td]:before:text-muted-foreground",
           className,
         )}
         {...props}

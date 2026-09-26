@@ -230,6 +230,7 @@ export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(func
           if (!e.defaultPrevented) ctx.handleKeyDown(e);
         }}
         className={cn(
+          // ux-audit-ignore: the caret and highlighted option indicate focus inside the palette
           "flex h-11 w-full bg-transparent py-3 text-md outline-none placeholder:text-muted-foreground disabled:opacity-50 sm:text-sm",
           className,
         )}
@@ -248,7 +249,8 @@ export const CommandList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     <div
       ref={ref}
       id={ctx.listId}
-      role="listbox"
+      // An empty listbox is invalid; while there are no options the list only hosts status messages.
+      role={ctx.visibleCount > 0 ? "listbox" : undefined}
       aria-label={ctx.label}
       aria-busy={ctx.loading || undefined}
       className={cn("max-h-80 scroll-py-1 overflow-y-auto overflow-x-hidden p-1", className)}
@@ -387,5 +389,6 @@ export const CommandSeparator = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
 ) {
   const ctx = useCommand();
   if (ctx.search) return null;
-  return <div ref={ref} role="separator" className={cn(menuSeparatorClass, className)} {...props} />;
+  // Listboxes may only contain options and groups, so the separator is purely visual.
+  return <div ref={ref} aria-hidden className={cn(menuSeparatorClass, className)} {...props} />;
 });

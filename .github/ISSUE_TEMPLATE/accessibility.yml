@@ -1,0 +1,21 @@
+name: Accessibility issue
+description: A barrier for keyboard, screen reader, low vision or motor users
+labels: [a11y]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+    validations:
+      required: true
+  - type: input
+    id: wcag
+    attributes:
+      label: WCAG success criterion (if known)
+      placeholder: e.g. 2.4.7 Focus Visible
+  - type: textarea
+    id: details
+    attributes:
+      label: What happens and with which assistive technology?
+    validations:
+      required: true

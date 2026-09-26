@@ -67,12 +67,12 @@ export function OpenStatus({ periods, labels = {}, className, ...props }: OpenSt
     return new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }).format(new Date(2024, 0, 1, h, m));
   };
   return (
-    <span className={cn("inline-flex items-center gap-1.5 text-sm", className)} {...props}>
-      <span aria-hidden className={cn("size-2 rounded-full", status.open ? "bg-success" : "bg-destructive")} />
+    <span className={cn("inline-block text-sm", className)} {...props}>
+      <span aria-hidden className={cn("me-1.5 inline-block size-2 rounded-full align-middle", status.open ? "bg-success" : "bg-destructive")} />
       <span className={cn("font-medium", status.open ? "text-success" : "text-destructive")}>{status.open ? (labels.open ?? "Open") : (labels.closed ?? "Closed")}</span>
       {status.next ? (
         <span className="text-muted-foreground">
-          · {status.open ? (labels.closes ?? ((t) => `closes ${t}`))(fmt(status.next)) : (labels.opens ?? ((t) => `opens ${t}`))(fmt(status.next))}
+          {" "}· {status.open ? (labels.closes ?? ((t) => `closes ${t}`))(fmt(status.next)) : (labels.opens ?? ((t) => `opens ${t}`))(fmt(status.next))}
         </span>
       ) : null}
     </span>

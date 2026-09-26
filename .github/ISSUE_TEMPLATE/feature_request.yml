@@ -1,0 +1,21 @@
+name: Feature / component request
+description: Propose a new component, variant or capability
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to build? Which existing components fall short?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      description: Follow docs/api-consistency.md (variant, size, asChild, controlled/uncontrolled).
+  - type: textarea
+    id: a11y
+    attributes:
+      label: Accessibility pattern
+      description: Relevant WAI-ARIA pattern and keyboard interactions.

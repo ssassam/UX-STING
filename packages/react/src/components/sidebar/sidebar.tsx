@@ -28,6 +28,8 @@ interface SidebarContextValue {
 }
 
 const SidebarContext = createContext<SidebarContextValue | null>(null);
+/** `true` inside SidebarGroup, whose items render as list items. */
+const SidebarListContext = createContext(false);
 
 export function useSidebar(): SidebarContextValue {
   const ctx = useContext(SidebarContext);
@@ -146,7 +148,9 @@ export const SidebarGroup = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEle
           {label}
         </div>
       ) : null}
-      <ul className="grid gap-0.5">{children}</ul>
+      <ul className="grid gap-0.5">
+        <SidebarListContext.Provider value>{children}</SidebarListContext.Provider>
+      </ul>
     </div>
   );
 });
@@ -167,6 +171,8 @@ export const SidebarItem = forwardRef<HTMLElement, SidebarItemProps>(function Si
   ref,
 ) {
   const { collapsed } = useSidebar();
+  const inList = useContext(SidebarListContext);
+  const Wrapper = inList ? "li" : "div";
   const Comp = asChild ? Slot : href ? "a" : "button";
   const content = (
     <Comp
@@ -196,7 +202,7 @@ export const SidebarItem = forwardRef<HTMLElement, SidebarItemProps>(function Si
   );
   const label = tooltip ?? (typeof children === "string" ? children : undefined);
   return (
-    <li>
+    <Wrapper>
       {collapsed && label ? (
         <Tooltip content={label} side="right">
           {content}
@@ -204,7 +210,7 @@ export const SidebarItem = forwardRef<HTMLElement, SidebarItemProps>(function Si
       ) : (
         content
       )}
-    </li>
+    </Wrapper>
   );
 });
 
@@ -236,7 +242,22 @@ export const SidebarTrigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes
   );
 });
 
-/** Main content area next to the sidebar. */
-export const SidebarInset = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(function SidebarInset({ className, ...props }, ref) {
-  return <main ref={ref} id="main" tabIndex={-1} className={cn("flex min-w-0 flex-1 flex-col bg-background outline-none", className)} {...props} />;
+/**
+ * Main content area next to the sidebar. Renders `<main id="main">` (the
+ * SkipLink target); pass `as="div"` when a `<main>` already exists.
+ */
+export const SidebarInset = forwardRef<HTMLElement, HTMLAttributes<HTMLElement> & { as?: "main" | "div" | "section" }>(function SidebarInset(
+  { as: Comp = "main", className, ...props },
+  ref,
+) {
+  return (
+    <Comp
+      ref={ref as never}
+      id={Comp === "main" ? "main" : undefined}
+      tabIndex={Comp === "main" ? -1 : undefined}
+      // ux-audit-ignore: <main tabIndex=-1> is a programmatic skip-link target
+      className={cn("flex min-w-0 flex-1 flex-col bg-background outline-none", className)}
+      {...props}
+    />
+  );
 });

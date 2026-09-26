@@ -146,8 +146,11 @@ export const CarouselContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDiv
           else if (ref) ref.current = node;
         }}
         aria-live={autoplay && playing ? "off" : "polite"}
+        // The scroll container must be keyboard-reachable (WCAG 2.1.1); arrows are handled by Carousel.
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
         className={cn(
-          "ui-scroll-snap flex gap-4 overflow-x-auto rounded-lg",
+          "ui-scroll-snap flex gap-4 overflow-x-auto rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
           itemsPerView === 2 && "[&>*]:basis-[calc((100%-1rem)/2)]",
           itemsPerView === 3 && "[&>*]:basis-[calc((100%-2rem)/3)]",
           itemsPerView === 4 && "[&>*]:basis-[calc((100%-3rem)/4)]",

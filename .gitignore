@@ -9,3 +9,5 @@ coverage
 next-env.d.ts
 playwright-report
 test-results
+apps/docs/demos/index.ts
+apps/docs/demos/sources.json

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useLayoutEffect } from "react";
 
 /** `useLayoutEffect` in the browser, `useEffect` on the server (no SSR warning). */

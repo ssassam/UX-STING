@@ -15,6 +15,7 @@ export const SheetTrigger = DialogPrimitive.Trigger;
 export const SheetClose = DialogPrimitive.Close;
 
 export const sheetVariants = createVariants({
+  // ux-audit-ignore: sheet content receives programmatic focus only
   base: "ui-anim-sheet fixed z-(--ui-z-modal) flex flex-col bg-popover text-popover-foreground shadow-xl outline-none",
   variants: {
     side: {

@@ -23,6 +23,7 @@ export function SearchResult({ title, href, description, path, query = "", meta,
       <div className="grid min-w-0 flex-1 gap-1">
         {path ? <div className="truncate text-xs text-muted-foreground">{path}</div> : null}
         <h3 className="text-md font-semibold leading-snug">
+          {/* ux-audit-ignore: the article shows a has-[a:focus-visible] ring */}
           <a href={href} className="text-primary outline-none after:absolute after:inset-0 group-hover:underline">
             <Highlight text={title} query={query} />
           </a>

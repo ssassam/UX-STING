@@ -109,7 +109,10 @@ export const CardLink = forwardRef<HTMLAnchorElement, HTMLAttributes<HTMLAnchorE
     return (
       <Comp
         ref={ref}
-        className={cn("outline-none after:absolute after:inset-0 after:content-[''] hover:underline", className)}
+        className={cn(
+          "outline-none after:absolute after:inset-0 after:rounded-[inherit] after:content-[''] hover:underline focus-visible:after:ring-2 focus-visible:after:ring-ring",
+          className,
+        )}
         {...props}
       />
     );

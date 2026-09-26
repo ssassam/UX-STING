@@ -211,7 +211,7 @@ export function DataTable<T>({
   }
 
   return (
-    <div className={cn("grid gap-3", className)}>
+    <div className={cn("grid grid-cols-[minmax(0,1fr)] gap-3", className)}>
       {searchable || toolbar || columnToggle || (bulkActions && selectionCount > 0) ? (
         <div className="flex flex-wrap items-center gap-2">
           {selectionCount > 0 && bulkActions ? (

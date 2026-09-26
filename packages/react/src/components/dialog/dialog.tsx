@@ -24,6 +24,7 @@ export const DialogOverlay = forwardRef<HTMLDivElement, ComponentPropsWithoutRef
 export const dialogContentVariants = createVariants({
   base: [
     "ui-anim-pop fixed start-1/2 top-1/2 z-(--ui-z-modal) flex max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 flex-col rtl:translate-x-1/2",
+    // ux-audit-ignore: dialog content receives programmatic focus only
     "rounded-xl border border-border bg-popover text-popover-foreground shadow-xl outline-none",
   ],
   variants: {

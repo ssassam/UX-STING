@@ -117,7 +117,7 @@ export interface HotelCardProps extends BusinessCardProps {
 export function HotelCard({ nightlyPrice, stars, meta, category, ...props }: HotelCardProps) {
   return (
     <BusinessCard
-      category={category ?? (stars ? `${"★".repeat(stars)}` : undefined)}
+      category={category ?? (stars ? `${stars}-star hotel` : undefined)}
       meta={
         <>
           {meta}

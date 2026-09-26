@@ -1,0 +1,26 @@
+{
+  "name": "unified-ui",
+  "version": "0.1.0",
+  "description": "CLI for unified-ui: copy accessible, themeable React components into your project (shadcn-style).",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "unified-ui": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "registry.json"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/build-registry.ts && tsc -p tsconfig.build.json && node ./scripts/add-shebang.mjs",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "~6.0.3"
+  }
+}

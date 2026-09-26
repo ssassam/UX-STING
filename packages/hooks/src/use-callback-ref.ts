@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useRef } from "react";
 import { useIsomorphicLayoutEffect } from "./use-isomorphic-layout-effect.js";
 

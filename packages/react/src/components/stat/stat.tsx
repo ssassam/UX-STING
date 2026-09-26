@@ -24,10 +24,10 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
   const good = trend === "neutral" ? null : (trend === "up") === (trendMeaning === "positive-up");
   return (
     <div ref={ref} className={cn("grid gap-1", className)} {...props}>
-      <div className="flex items-center justify-between gap-2">
-        <dt className="text-sm font-medium text-muted-foreground">{label}</dt>
-        {icon ? <span className="text-muted-foreground [&_svg]:size-4">{icon}</span> : null}
-      </div>
+      <dt className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground">
+        {label}
+        {icon ? <span aria-hidden className="[&_svg]:size-4">{icon}</span> : null}
+      </dt>
       <dd className="text-2xl font-semibold tracking-tight tabular-nums">{value}</dd>
       {delta || helpText ? (
         <dd className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">

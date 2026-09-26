@@ -1,0 +1,33 @@
+{
+  "name": "@unified-ui/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "node ../../scripts/extract-api.ts && node ./scripts/collect-demos.ts",
+    "predev": "node ./scripts/collect-demos.ts",
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "node ./scripts/collect-demos.ts && tsc --noEmit"
+  },
+  "dependencies": {
+    "@unified-ui/icons": "workspace:^",
+    "@unified-ui/react": "workspace:^",
+    "@unified-ui/themes": "workspace:^",
+    "@unified-ui/tokens": "workspace:^",
+    "@unified-ui/utils": "workspace:^",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@unified-ui/hooks": "workspace:^"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3"
+  }
+}

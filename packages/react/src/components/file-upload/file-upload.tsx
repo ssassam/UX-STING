@@ -171,7 +171,7 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   const { locale } = useLocale();
   const messages = useMessages();
   return (
-    <div ref={ref} className={cn("grid gap-3", className)}>
+    <div ref={ref} className={cn("grid grid-cols-[minmax(0,1fr)] gap-3", className)}>
       <Dropzone
         {...props}
         onFilesAccepted={(files) => {

@@ -28,7 +28,7 @@ export default tseslint.config(
       // Components forward arbitrary ARIA/handlers; these rules misfire on primitives that receive them via props.
       "jsx-a11y/no-autofocus": "off",
       "jsx-a11y/label-has-associated-control": "off",
-      "jsx-a11y/no-noninteractive-tabindex": ["error", { roles: ["region", "tabpanel", "alert", "separator"], tags: ["main", "li", "section"] }],
+      "jsx-a11y/no-noninteractive-tabindex": ["error", { roles: ["region", "tabpanel", "alert", "separator"], tags: ["main", "li", "section", "pre"] }],
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-static-element-interactions": "off",

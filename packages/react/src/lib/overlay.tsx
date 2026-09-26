@@ -7,6 +7,7 @@ import { useMessages } from "../provider/context.js";
 export const overlayClass = "ui-anim-overlay fixed inset-0 z-(--ui-z-overlay) bg-overlay";
 
 export const floatingSurfaceClass =
+  // ux-audit-ignore: popover surfaces receive programmatic focus only
   "ui-anim-pop z-(--ui-z-popover) rounded-lg border border-border bg-popover text-popover-foreground shadow-lg outline-none";
 
 /** Accessible close button used by dialogs, sheets and drawers. */

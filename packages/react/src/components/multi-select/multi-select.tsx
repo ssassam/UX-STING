@@ -86,6 +86,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(function
               aria-describedby={fieldProps["aria-describedby"]}
               aria-label={aria["aria-label"]}
               aria-labelledby={aria["aria-labelledby"]}
+              // ux-audit-ignore: the wrapper shows a focus-within ring
               className="flex h-6 min-w-16 flex-1 items-center justify-between gap-2 rounded-sm px-1.5 text-start text-sm text-muted-foreground outline-none"
             >
               <span className="truncate">{selected.length ? messages.selected(selected.length) : placeholder}</span>
