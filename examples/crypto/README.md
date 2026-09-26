@@ -13,5 +13,9 @@ pnpm --filter @ux-sting/example-crypto dev
 
 ## Screenshots
 
-<img src="screenshots/home-desktop.webp" alt="Chainlens — crypto analytics & news: Home" width="320"> <img src="screenshots/news-desktop.webp" alt="Chainlens — crypto analytics & news: News" width="320"> <img src="screenshots/home-mobile.webp" alt="Chainlens — crypto analytics & news: Phone" width="160">
+<table>
+<tr><td width="50%" align="center"><a href="screenshots/1-markets.webp"><img src="screenshots/1-markets.webp" alt="Market overview" width="100%"></a><br><sub>Market overview</sub></td><td width="50%" align="center"><a href="screenshots/2-chart.webp"><img src="screenshots/2-chart.webp" alt="Interactive price chart" width="100%"></a><br><sub>Interactive price chart</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/3-assets.webp"><img src="screenshots/3-assets.webp" alt="Sortable asset table" width="100%"></a><br><sub>Sortable asset table</sub></td><td width="50%" align="center"><a href="screenshots/4-coin.webp"><img src="screenshots/4-coin.webp" alt="Coin page" width="100%"></a><br><sub>Coin page</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/5-news.webp"><img src="screenshots/5-news.webp" alt="News with images" width="100%"></a><br><sub>News with images</sub></td><td width="50%" align="center"><a href="screenshots/6-light-mode.webp"><img src="screenshots/6-light-mode.webp" alt="Light mode" width="100%"></a><br><sub>Light mode</sub></td></tr>
+</table>
 

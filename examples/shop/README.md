@@ -13,5 +13,9 @@ pnpm --filter @ux-sting/example-shop dev
 
 ## Screenshots
 
-<img src="screenshots/home-desktop.webp" alt="Maison Nord — e-commerce: Home" width="320"> <img src="screenshots/product-desktop.webp" alt="Maison Nord — e-commerce: Product" width="320"> <img src="screenshots/home-mobile.webp" alt="Maison Nord — e-commerce: Phone" width="160">
+<table>
+<tr><td width="50%" align="center"><a href="screenshots/1-home.webp"><img src="screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="screenshots/2-bestsellers.webp"><img src="screenshots/2-bestsellers.webp" alt="Bestsellers" width="100%"></a><br><sub>Bestsellers</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/3-catalogue.webp"><img src="screenshots/3-catalogue.webp" alt="Catalogue with filters" width="100%"></a><br><sub>Catalogue with filters</sub></td><td width="50%" align="center"><a href="screenshots/4-product.webp"><img src="screenshots/4-product.webp" alt="Product page" width="100%"></a><br><sub>Product page</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/5-cart.webp"><img src="screenshots/5-cart.webp" alt="Cart drawer" width="100%"></a><br><sub>Cart drawer</sub></td><td width="50%" align="center"><a href="screenshots/6-checkout.webp"><img src="screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
+</table>
 

@@ -62,44 +62,45 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 
 ### Screenshots
 
-**Wayfare — travel booking** · [live demo](https://ssassam.github.io/UX-STING/)
+#### Wayfare — travel booking · [live demo](https://ssassam.github.io/UX-STING/)
 
-<p>
-  <a href="examples/travel/screenshots/home-desktop.webp"><img src="examples/travel/screenshots/home-desktop.webp" alt="Wayfare — travel booking: Home screenshot" width="300"></a>
-  <a href="examples/travel/screenshots/destination-desktop.webp"><img src="examples/travel/screenshots/destination-desktop.webp" alt="Wayfare — travel booking: Destination screenshot" width="300"></a>
-  <a href="examples/travel/screenshots/home-mobile.webp"><img src="examples/travel/screenshots/home-mobile.webp" alt="Wayfare — travel booking: Phone screenshot" width="160"></a>
-</p>
+<table>
+<tr><td width="50%" align="center"><a href="examples/travel/screenshots/1-home.webp"><img src="examples/travel/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/2-destinations.webp"><img src="examples/travel/screenshots/2-destinations.webp" alt="Popular destinations" width="100%"></a><br><sub>Popular destinations</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/travel/screenshots/3-search.webp"><img src="examples/travel/screenshots/3-search.webp" alt="Stay search with filters" width="100%"></a><br><sub>Stay search with filters</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/4-destination.webp"><img src="examples/travel/screenshots/4-destination.webp" alt="Destination guide" width="100%"></a><br><sub>Destination guide</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/travel/screenshots/5-stay.webp"><img src="examples/travel/screenshots/5-stay.webp" alt="Stay details and booking" width="100%"></a><br><sub>Stay details and booking</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/6-checkout.webp"><img src="examples/travel/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
+</table>
 
-**Drivo — car rental** · [live demo](https://ssassam.github.io/UX-STING/cars/)
+#### Drivo — car rental · [live demo](https://ssassam.github.io/UX-STING/cars/)
 
-<p>
-  <a href="examples/car-rental/screenshots/home-desktop.webp"><img src="examples/car-rental/screenshots/home-desktop.webp" alt="Drivo — car rental: Home screenshot" width="300"></a>
-  <a href="examples/car-rental/screenshots/car-desktop.webp"><img src="examples/car-rental/screenshots/car-desktop.webp" alt="Drivo — car rental: Car details screenshot" width="300"></a>
-  <a href="examples/car-rental/screenshots/home-mobile.webp"><img src="examples/car-rental/screenshots/home-mobile.webp" alt="Drivo — car rental: Phone screenshot" width="160"></a>
-</p>
+<table>
+<tr><td width="50%" align="center"><a href="examples/car-rental/screenshots/1-home.webp"><img src="examples/car-rental/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/car-rental/screenshots/2-popular.webp"><img src="examples/car-rental/screenshots/2-popular.webp" alt="Most booked cars" width="100%"></a><br><sub>Most booked cars</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/car-rental/screenshots/3-fleet.webp"><img src="examples/car-rental/screenshots/3-fleet.webp" alt="Fleet with filters" width="100%"></a><br><sub>Fleet with filters</sub></td><td width="50%" align="center"><a href="examples/car-rental/screenshots/4-car.webp"><img src="examples/car-rental/screenshots/4-car.webp" alt="Car details" width="100%"></a><br><sub>Car details</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/car-rental/screenshots/5-booking.webp"><img src="examples/car-rental/screenshots/5-booking.webp" alt="Specs, protection and extras" width="100%"></a><br><sub>Specs, protection and extras</sub></td><td width="50%" align="center"><a href="examples/car-rental/screenshots/6-checkout.webp"><img src="examples/car-rental/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
+</table>
 
-**Maison Nord — e-commerce** · [live demo](https://ssassam.github.io/UX-STING/shop/)
+#### Maison Nord — e-commerce · [live demo](https://ssassam.github.io/UX-STING/shop/)
 
-<p>
-  <a href="examples/shop/screenshots/home-desktop.webp"><img src="examples/shop/screenshots/home-desktop.webp" alt="Maison Nord — e-commerce: Home screenshot" width="300"></a>
-  <a href="examples/shop/screenshots/product-desktop.webp"><img src="examples/shop/screenshots/product-desktop.webp" alt="Maison Nord — e-commerce: Product screenshot" width="300"></a>
-  <a href="examples/shop/screenshots/home-mobile.webp"><img src="examples/shop/screenshots/home-mobile.webp" alt="Maison Nord — e-commerce: Phone screenshot" width="160"></a>
-</p>
+<table>
+<tr><td width="50%" align="center"><a href="examples/shop/screenshots/1-home.webp"><img src="examples/shop/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/shop/screenshots/2-bestsellers.webp"><img src="examples/shop/screenshots/2-bestsellers.webp" alt="Bestsellers" width="100%"></a><br><sub>Bestsellers</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/shop/screenshots/3-catalogue.webp"><img src="examples/shop/screenshots/3-catalogue.webp" alt="Catalogue with filters" width="100%"></a><br><sub>Catalogue with filters</sub></td><td width="50%" align="center"><a href="examples/shop/screenshots/4-product.webp"><img src="examples/shop/screenshots/4-product.webp" alt="Product page" width="100%"></a><br><sub>Product page</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/shop/screenshots/5-cart.webp"><img src="examples/shop/screenshots/5-cart.webp" alt="Cart drawer" width="100%"></a><br><sub>Cart drawer</sub></td><td width="50%" align="center"><a href="examples/shop/screenshots/6-checkout.webp"><img src="examples/shop/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
+</table>
 
-**Pulse One — product launch** · [live demo](https://ssassam.github.io/UX-STING/watch/)
+#### Pulse One — product launch · [live demo](https://ssassam.github.io/UX-STING/watch/)
 
-<p>
-  <a href="examples/watch/screenshots/home-desktop.webp"><img src="examples/watch/screenshots/home-desktop.webp" alt="Pulse One — product launch: Home screenshot" width="300"></a>
-  <a href="examples/watch/screenshots/home-mobile.webp"><img src="examples/watch/screenshots/home-mobile.webp" alt="Pulse One — product launch: Phone screenshot" width="160"></a>
-</p>
+<table>
+<tr><td width="50%" align="center"><a href="examples/watch/screenshots/1-hero.webp"><img src="examples/watch/screenshots/1-hero.webp" alt="Hero with finish picker" width="100%"></a><br><sub>Hero with finish picker</sub></td><td width="50%" align="center"><a href="examples/watch/screenshots/2-features.webp"><img src="examples/watch/screenshots/2-features.webp" alt="Features" width="100%"></a><br><sub>Features</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/watch/screenshots/3-showcase.webp"><img src="examples/watch/screenshots/3-showcase.webp" alt="Feature showcase" width="100%"></a><br><sub>Feature showcase</sub></td><td width="50%" align="center"><a href="examples/watch/screenshots/4-specs.webp"><img src="examples/watch/screenshots/4-specs.webp" alt="Specs comparison" width="100%"></a><br><sub>Specs comparison</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/watch/screenshots/5-preorder.webp"><img src="examples/watch/screenshots/5-preorder.webp" alt="Pre-order configurator" width="100%"></a><br><sub>Pre-order configurator</sub></td><td width="50%" align="center"><a href="examples/watch/screenshots/6-reviews.webp"><img src="examples/watch/screenshots/6-reviews.webp" alt="Reviews and FAQ" width="100%"></a><br><sub>Reviews and FAQ</sub></td></tr>
+</table>
 
-**Chainlens — crypto analytics & news** · [live demo](https://ssassam.github.io/UX-STING/crypto/)
+#### Chainlens — crypto analytics & news · [live demo](https://ssassam.github.io/UX-STING/crypto/)
 
-<p>
-  <a href="examples/crypto/screenshots/home-desktop.webp"><img src="examples/crypto/screenshots/home-desktop.webp" alt="Chainlens — crypto analytics & news: Home screenshot" width="300"></a>
-  <a href="examples/crypto/screenshots/news-desktop.webp"><img src="examples/crypto/screenshots/news-desktop.webp" alt="Chainlens — crypto analytics & news: News screenshot" width="300"></a>
-  <a href="examples/crypto/screenshots/home-mobile.webp"><img src="examples/crypto/screenshots/home-mobile.webp" alt="Chainlens — crypto analytics & news: Phone screenshot" width="160"></a>
-</p>
+<table>
+<tr><td width="50%" align="center"><a href="examples/crypto/screenshots/1-markets.webp"><img src="examples/crypto/screenshots/1-markets.webp" alt="Market overview" width="100%"></a><br><sub>Market overview</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/2-chart.webp"><img src="examples/crypto/screenshots/2-chart.webp" alt="Interactive price chart" width="100%"></a><br><sub>Interactive price chart</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/crypto/screenshots/3-assets.webp"><img src="examples/crypto/screenshots/3-assets.webp" alt="Sortable asset table" width="100%"></a><br><sub>Sortable asset table</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/4-coin.webp"><img src="examples/crypto/screenshots/4-coin.webp" alt="Coin page" width="100%"></a><br><sub>Coin page</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/crypto/screenshots/5-news.webp"><img src="examples/crypto/screenshots/5-news.webp" alt="News with images" width="100%"></a><br><sub>News with images</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/6-light-mode.webp"><img src="examples/crypto/screenshots/6-light-mode.webp" alt="Light mode" width="100%"></a><br><sub>Light mode</sub></td></tr>
+</table>
 
 Build all of them as one static site with `scripts/build-pages.sh` (output in `pages-dist/`).
 

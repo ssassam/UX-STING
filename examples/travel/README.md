@@ -9,7 +9,11 @@ pnpm --filter @ux-sting/example-travel dev   # http://localhost:3000
 
 ## Screenshots
 
-<img src="screenshots/home-desktop.webp" alt="Wayfare — travel booking: Home" width="320"> <img src="screenshots/destination-desktop.webp" alt="Wayfare — travel booking: Destination" width="320"> <img src="screenshots/home-mobile.webp" alt="Wayfare — travel booking: Phone" width="160">
+<table>
+<tr><td width="50%" align="center"><a href="screenshots/1-home.webp"><img src="screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="screenshots/2-destinations.webp"><img src="screenshots/2-destinations.webp" alt="Popular destinations" width="100%"></a><br><sub>Popular destinations</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/3-search.webp"><img src="screenshots/3-search.webp" alt="Stay search with filters" width="100%"></a><br><sub>Stay search with filters</sub></td><td width="50%" align="center"><a href="screenshots/4-destination.webp"><img src="screenshots/4-destination.webp" alt="Destination guide" width="100%"></a><br><sub>Destination guide</sub></td></tr>
+<tr><td width="50%" align="center"><a href="screenshots/5-stay.webp"><img src="screenshots/5-stay.webp" alt="Stay details and booking" width="100%"></a><br><sub>Stay details and booking</sub></td><td width="50%" align="center"><a href="screenshots/6-checkout.webp"><img src="screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
+</table>
 
 ## Pages
 
