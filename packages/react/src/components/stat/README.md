@@ -1,6 +1,6 @@
 # Stat
 
-> Data display · `@unified-ui/react/stat`
+> Data display · `@ux-sting/react/stat`
 
 Key figures with trend (Stat, StatCard, StatGroup, Metric).
 
@@ -13,13 +13,13 @@ Use for dashboard KPIs.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Stat, Metric, StatCard } from "@unified-ui/react/stat";
+import { Stat, Metric, StatCard } from "@ux-sting/react/stat";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add stat
+npx ux-sting add stat
 ```
 
 ## Accessibility

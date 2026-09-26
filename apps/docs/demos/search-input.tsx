@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SearchInput } from "@unified-ui/react/search-input";
+import { SearchInput } from "@ux-sting/react/search-input";
 
 export function Basic() {
   return <SearchInput className="max-w-sm" placeholder="Search restaurants, cafés…" shortcut="/" />;

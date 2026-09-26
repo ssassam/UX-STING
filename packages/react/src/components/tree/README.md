@@ -1,6 +1,6 @@
 # Tree
 
-> Data display · `@unified-ui/react/tree`
+> Data display · `@ux-sting/react/tree`
 
 Hierarchical list with expand/collapse, selection and typeahead.
 
@@ -13,13 +13,13 @@ Use for file browsers and nested categories.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Tree } from "@unified-ui/react/tree";
+import { Tree } from "@ux-sting/react/tree";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add tree
+npx ux-sting add tree
 ```
 
 ## Accessibility

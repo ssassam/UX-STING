@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { Heading } from "@unified-ui/react/typography";
+import { Heading } from "@ux-sting/react/typography";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocsLayout } from "../../../site/docs-nav";

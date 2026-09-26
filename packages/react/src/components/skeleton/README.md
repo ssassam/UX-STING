@@ -1,6 +1,6 @@
 # Skeleton
 
-> Feedback · `@unified-ui/react/skeleton`
+> Feedback · `@ux-sting/react/skeleton`
 
 Placeholder shapes that reserve layout while content loads.
 
@@ -13,13 +13,13 @@ Use for lists, cards and tables while data loads.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Skeleton, SkeletonText } from "@unified-ui/react/skeleton";
+import { Skeleton, SkeletonText } from "@ux-sting/react/skeleton";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add skeleton
+npx ux-sting add skeleton
 ```
 
 ## Accessibility

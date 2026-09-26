@@ -1,6 +1,6 @@
 # DropdownMenu
 
-> Overlays · `@unified-ui/react/dropdown-menu`
+> Overlays · `@ux-sting/react/dropdown-menu`
 
 Menu of actions with items, checkboxes, radios, shortcuts and submenus (also exported as Dropdown).
 
@@ -13,13 +13,13 @@ Use for overflow actions and "more" menus.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuGroup } from "@unified-ui/react/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuGroup } from "@ux-sting/react/dropdown-menu";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add dropdown-menu
+npx ux-sting add dropdown-menu
 ```
 
 ## Accessibility

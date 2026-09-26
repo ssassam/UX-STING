@@ -1,5 +1,5 @@
 "use client";
-import { FeaturedBadge, PremiumBadge, VerifiedBadge } from "@unified-ui/react/premium-badge";
+import { FeaturedBadge, PremiumBadge, VerifiedBadge } from "@ux-sting/react/premium-badge";
 
 export function Basic() {
   return (

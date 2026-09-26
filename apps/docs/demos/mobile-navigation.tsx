@@ -1,6 +1,6 @@
 "use client";
-import { MobileNavigation, MobileNavigationItem } from "@unified-ui/react/mobile-navigation";
-import { HeartIcon, HomeIcon, SearchIcon, UserIcon } from "@unified-ui/icons";
+import { MobileNavigation, MobileNavigationItem } from "@ux-sting/react/mobile-navigation";
+import { HeartIcon, HomeIcon, SearchIcon, UserIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

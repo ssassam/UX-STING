@@ -1,6 +1,6 @@
 # VisuallyHidden
 
-> Theming · `@unified-ui/react/visually-hidden`
+> Theming · `@ux-sting/react/visually-hidden`
 
 Hides content visually while keeping it available to screen readers.
 
@@ -13,13 +13,13 @@ Use to add context to icon-only or visual-only UI.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { VisuallyHidden } from "@unified-ui/react/visually-hidden";
+import { VisuallyHidden } from "@ux-sting/react/visually-hidden";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add visually-hidden
+npx ux-sting add visually-hidden
 ```
 
 ## Accessibility

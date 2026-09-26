@@ -1,5 +1,5 @@
-import { Slot } from "@unified-ui/primitives";
-import { cn, responsiveVars, type Responsive } from "@unified-ui/utils";
+import { Slot } from "@ux-sting/primitives";
+import { cn, responsiveVars, type Responsive } from "@ux-sting/utils";
 import { forwardRef, type CSSProperties, type ElementType, type HTMLAttributes } from "react";
 import type { PolymorphicProps } from "../../lib/polymorphic.js";
 import { space } from "../stack/stack.js";

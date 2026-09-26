@@ -1,6 +1,6 @@
 "use client";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { createContext, forwardRef, useContext, type ComponentPropsWithoutRef } from "react";
 
 type TabsVariant = "line" | "pills" | "enclosed";

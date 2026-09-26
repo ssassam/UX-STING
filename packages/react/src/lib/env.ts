@@ -4,5 +4,5 @@ export const isDev =
   "production";
 
 export function devWarn(message: string): void {
-  if (isDev) console.warn(`[unified-ui] ${message}`);
+  if (isDev) console.warn(`[ux-sting] ${message}`);
 }

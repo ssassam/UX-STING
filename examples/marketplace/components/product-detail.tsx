@@ -1,31 +1,31 @@
 "use client";
-import { ShieldCheckIcon, ShoppingCartIcon, TruckIcon } from "@unified-ui/icons";
-import { Badge } from "@unified-ui/react/badge";
+import { ShieldCheckIcon, ShoppingCartIcon, TruckIcon } from "@ux-sting/icons";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@unified-ui/react/breadcrumb";
-import { Button } from "@unified-ui/react/button";
+} from "@ux-sting/react/breadcrumb";
+import { Button } from "@ux-sting/react/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@unified-ui/react/carousel";
-import { Field } from "@unified-ui/react/field";
-import { ImageGallery } from "@unified-ui/react/media";
-import { NumberInput } from "@unified-ui/react/number-input";
-import { Price } from "@unified-ui/react/price";
-import { RadioCard, RadioGroup } from "@unified-ui/react/radio-group";
-import { ReviewStars } from "@unified-ui/react/rating";
-import { ReviewCard } from "@unified-ui/react/review-card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
-import { toast } from "@unified-ui/react/toast";
-import { Heading, Text } from "@unified-ui/react/typography";
+} from "@ux-sting/react/carousel";
+import { Field } from "@ux-sting/react/field";
+import { ImageGallery } from "@ux-sting/react/media";
+import { NumberInput } from "@ux-sting/react/number-input";
+import { Price } from "@ux-sting/react/price";
+import { RadioCard, RadioGroup } from "@ux-sting/react/radio-group";
+import { ReviewStars } from "@ux-sting/react/rating";
+import { ReviewCard } from "@ux-sting/react/review-card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
+import { toast } from "@ux-sting/react/toast";
+import { Heading, Text } from "@ux-sting/react/typography";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useCart } from "../app/providers";

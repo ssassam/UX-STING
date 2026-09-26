@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { ReviewCard } from "@unified-ui/react/review-card";
+import { Button } from "@ux-sting/react/button";
+import { ReviewCard } from "@ux-sting/react/review-card";
 
 export function Basic() {
   return (

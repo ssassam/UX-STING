@@ -1,7 +1,7 @@
 /**
- * @unified-ui/react — every component, re-exported for convenience.
+ * @ux-sting/react — every component, re-exported for convenience.
  * For the smallest client bundles import per component:
- * `import { Button } from "@unified-ui/react/button"`.
+ * `import { Button } from "@ux-sting/react/button"`.
  */
 export * from "./provider/index.js";
 export * from "./components/accordion/index.js";

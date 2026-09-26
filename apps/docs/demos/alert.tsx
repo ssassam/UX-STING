@@ -1,6 +1,6 @@
 "use client";
-import { Alert, AlertActions, AlertDescription, AlertTitle, Banner } from "@unified-ui/react/alert";
-import { Button } from "@unified-ui/react/button";
+import { Alert, AlertActions, AlertDescription, AlertTitle, Banner } from "@ux-sting/react/alert";
+import { Button } from "@ux-sting/react/button";
 
 export function Variants() {
   return (

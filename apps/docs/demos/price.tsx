@@ -1,5 +1,5 @@
 "use client";
-import { Currency, Price, PriceLevel, PriceRange } from "@unified-ui/react/price";
+import { Currency, Price, PriceLevel, PriceRange } from "@ux-sting/react/price";
 
 export function Variants() {
   return (

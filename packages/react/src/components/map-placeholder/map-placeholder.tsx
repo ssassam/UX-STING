@@ -1,6 +1,6 @@
 "use client";
-import { MapIcon, MapPinIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { MapIcon, MapPinIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 
 export interface MapPin {

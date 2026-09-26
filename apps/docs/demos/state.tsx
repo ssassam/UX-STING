@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { EmptyState, ErrorState, LoadingState, SuccessState } from "@unified-ui/react/state";
-import { SearchIcon } from "@unified-ui/icons";
+import { Button } from "@ux-sting/react/button";
+import { EmptyState, ErrorState, LoadingState, SuccessState } from "@ux-sting/react/state";
+import { SearchIcon } from "@ux-sting/icons";
 
 export function Empty() {
   return (

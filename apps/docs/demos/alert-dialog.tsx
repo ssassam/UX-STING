@@ -9,9 +9,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@unified-ui/react/alert-dialog";
-import { Button } from "@unified-ui/react/button";
-import { toast } from "@unified-ui/react/toast";
+} from "@ux-sting/react/alert-dialog";
+import { Button } from "@ux-sting/react/button";
+import { toast } from "@ux-sting/react/toast";
 
 export function Destructive() {
   return (

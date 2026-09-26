@@ -1,6 +1,6 @@
 # ContextMenu
 
-> Overlays · `@unified-ui/react/context-menu`
+> Overlays · `@ux-sting/react/context-menu`
 
 Right-click / long-press menu.
 
@@ -13,13 +13,13 @@ Use as a shortcut to actions that are also available elsewhere.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ContextMenu, ContextMenuTrigger, ContextMenuGroup } from "@unified-ui/react/context-menu";
+import { ContextMenu, ContextMenuTrigger, ContextMenuGroup } from "@ux-sting/react/context-menu";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add context-menu
+npx ux-sting add context-menu
 ```
 
 ## Accessibility

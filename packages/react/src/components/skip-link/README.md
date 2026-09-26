@@ -1,6 +1,6 @@
 # SkipLink
 
-> Navigation · `@unified-ui/react/skip-link`
+> Navigation · `@ux-sting/react/skip-link`
 
 Visually hidden link that appears on focus to skip to main content.
 
@@ -13,13 +13,13 @@ Render as the first element of every page layout.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { SkipLink } from "@unified-ui/react/skip-link";
+import { SkipLink } from "@ux-sting/react/skip-link";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add skip-link
+npx ux-sting add skip-link
 ```
 
 ## Accessibility

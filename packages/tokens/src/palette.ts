@@ -48,7 +48,7 @@ export function createScale(hue: number, peakChroma: number, hueShift = 0): Colo
 }
 
 /**
- * The unified-ui base palette. Neutrals carry a faint cool tint; accents are
+ * The ux-sting base palette. Neutrals carry a faint cool tint; accents are
  * tuned so that step 600 passes WCAG AA against white text.
  */
 export const palette = {

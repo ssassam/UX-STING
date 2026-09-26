@@ -1,6 +1,6 @@
 # Design tokens
 
-Tokens are defined in TypeScript (`@unified-ui/tokens`) and compiled to CSS variables prefixed with `--ui-` (change `PREFIX` in `css.ts` to rebrand).
+Tokens are defined in TypeScript (`@ux-sting/tokens`) and compiled to CSS variables prefixed with `--ui-` (change `PREFIX` in `css.ts` to rebrand).
 
 ## Semantic colors
 
@@ -42,5 +42,5 @@ Twelve 11-step OKLCH scales (`gray`, `slate`, `blue`, `indigo`, `violet`, `pink`
 ## Using tokens in TypeScript
 
 ```ts
-import { palette, spacing, contrastRatio, createLightColors } from "@unified-ui/tokens";
+import { palette, spacing, contrastRatio, createLightColors } from "@ux-sting/tokens";
 ```

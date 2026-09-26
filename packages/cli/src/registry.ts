@@ -45,7 +45,7 @@ export function resolveItems(registry: Registry, names: string[]): RegistryItem[
     if (!item) {
       const suggestion = [...byName.keys()].find((k) => k.includes(name) || name.includes(k));
       throw new Error(
-        `Unknown component "${name}"${suggestion ? ` — did you mean "${suggestion}"?` : ""}. Run \`unified-ui list\`.`,
+        `Unknown component "${name}"${suggestion ? ` — did you mean "${suggestion}"?` : ""}. Run \`ux-sting list\`.`,
       );
     }
     seen.add(name);

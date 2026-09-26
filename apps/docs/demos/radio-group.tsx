@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { Radio, RadioCard, RadioGroup } from "@unified-ui/react/radio-group";
+import { Field } from "@ux-sting/react/field";
+import { Radio, RadioCard, RadioGroup } from "@ux-sting/react/radio-group";
 
 export function Basic() {
   return (

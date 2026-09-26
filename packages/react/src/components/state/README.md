@@ -1,6 +1,6 @@
 # EmptyState
 
-> Feedback · `@unified-ui/react/state`
+> Feedback · `@ux-sting/react/state`
 
 EmptyState, ErrorState, SuccessState and LoadingState templates.
 
@@ -13,13 +13,13 @@ Use whenever a view has no data, failed, or finished — always offer a next ste
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { EmptyState, ErrorState, SuccessState } from "@unified-ui/react/state";
+import { EmptyState, ErrorState, SuccessState } from "@ux-sting/react/state";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add state
+npx ux-sting add state
 ```
 
 ## Accessibility

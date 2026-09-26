@@ -44,7 +44,7 @@ const rules: Rule[] = [
   },
   {
     id: "emoji-icon",
-    message: "Use SVG icons from @unified-ui/icons, not emoji.",
+    message: "Use SVG icons from @ux-sting/icons, not emoji.",
     test: (l, f) => EMOJI.test(l) && !f.includes("messages"),
   },
   {

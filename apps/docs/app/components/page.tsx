@@ -1,5 +1,5 @@
-import { Card, CardDescription, CardHeader, CardLink, CardTitle } from "@unified-ui/react/card";
-import { Heading, Text } from "@unified-ui/react/typography";
+import { Card, CardDescription, CardHeader, CardLink, CardTitle } from "@ux-sting/react/card";
+import { Heading, Text } from "@ux-sting/react/typography";
 import type { Metadata } from "next";
 import { DocsLayout } from "../../site/docs-nav";
 import { componentsByCategory } from "../../site/nav";
@@ -13,7 +13,7 @@ export default function ComponentsIndex() {
         <header className="grid gap-2">
           <Heading level={1}>Components</Heading>
           <Text variant="muted">
-            Every component works from the package (`@unified-ui/react/&lt;name&gt;`) or as copied
+            Every component works from the package (`@ux-sting/react/&lt;name&gt;`) or as copied
             source via the CLI.
           </Text>
         </header>

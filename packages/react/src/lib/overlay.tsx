@@ -1,6 +1,6 @@
 "use client";
-import { XIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { XIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { useMessages } from "../provider/context.js";
 

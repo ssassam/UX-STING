@@ -1,4 +1,4 @@
-import { getThemeScript, type ColorMode } from "@unified-ui/utils";
+import { getThemeScript, type ColorMode } from "@ux-sting/utils";
 
 export interface ThemeScriptProps {
   storageKey?: string;

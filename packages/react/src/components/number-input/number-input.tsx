@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { MinusIcon, PlusIcon } from "@unified-ui/icons";
-import { clamp, cn, snapToStep } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { MinusIcon, PlusIcon } from "@ux-sting/icons";
+import { clamp, cn, snapToStep } from "@ux-sting/utils";
 import { forwardRef, useEffect, useState, type KeyboardEvent } from "react";
 import { useLocale, useMessages } from "../../provider/context.js";
 import { Input, type InputProps } from "../input/input.js";

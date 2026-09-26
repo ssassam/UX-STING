@@ -1,10 +1,10 @@
 # Introduction
 
-unified-ui is a design system and React component library built as **one coherent framework**:
+UX-STING is a design system and React component library built as **one coherent framework**:
 
-| Pillar | How unified-ui applies it |
+| Pillar | How UX-STING applies it |
 | --- | --- |
-| Own your components | `npx unified-ui add dialog` copies readable source into your repo |
+| Own your components | `npx ux-sting add dialog` copies readable source into your repo |
 | Accessible primitives | Focus management, dismissal, keyboard support and ARIA patterns built into every interactive component |
 | Breadth | ~95 component families from layout to data grids, date pickers and commerce/local-discovery patterns |
 | Design tokens | Semantic CSS variables, responsive props, density and theme presets |
@@ -23,15 +23,15 @@ unified-ui is a design system and React component library built as **one coheren
 
 | Package | Purpose |
 | --- | --- |
-| `@unified-ui/react` | All React components, per-component entry points, styles |
-| `@unified-ui/tokens` | Palettes, semantic colors, scales → TypeScript + CSS variables + Tailwind v4 theme |
-| `@unified-ui/themes` | Theme engine and presets |
-| `@unified-ui/primitives` | Headless building blocks: Slot, Portal, VisuallyHidden, roving focus, calendar math |
-| `@unified-ui/hooks` | Controllable state, disclosure, media queries, hotkeys, clipboard… |
-| `@unified-ui/utils` | `cn`, `createVariants`, keyboard/focus/responsive/format helpers |
-| `@unified-ui/icons` | Tree-shakeable SVG icons (Lucide data) and `<Icon name>` |
-| `@unified-ui/core` | Framework-agnostic entry: tokens + themes + utils |
-| `unified-ui` (CLI) | `init`, `add`, `list`, `diff` |
+| `@ux-sting/react` | All React components, per-component entry points, styles |
+| `@ux-sting/tokens` | Palettes, semantic colors, scales → TypeScript + CSS variables + Tailwind v4 theme |
+| `@ux-sting/themes` | Theme engine and presets |
+| `@ux-sting/primitives` | Headless building blocks: Slot, Portal, VisuallyHidden, roving focus, calendar math |
+| `@ux-sting/hooks` | Controllable state, disclosure, media queries, hotkeys, clipboard… |
+| `@ux-sting/utils` | `cn`, `createVariants`, keyboard/focus/responsive/format helpers |
+| `@ux-sting/icons` | Tree-shakeable SVG icons (Lucide data) and `<Icon name>` |
+| `@ux-sting/core` | Framework-agnostic entry: tokens + themes + utils |
+| `ux-sting` (CLI) | `init`, `add`, `list`, `diff` |
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 /**
- * Generates tree-shakeable icon modules for @unified-ui/icons from Lucide's
+ * Generates tree-shakeable icon modules for @ux-sting/icons from Lucide's
  * icon node data (ISC License — see packages/icons/LICENSE-lucide).
  * Run with `pnpm icons` after changing the ICONS list.
  */

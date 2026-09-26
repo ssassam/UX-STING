@@ -1,7 +1,7 @@
-import { Badge } from "@unified-ui/react/badge";
-import { BusinessCard } from "@unified-ui/react/business-card";
-import { Grid } from "@unified-ui/react/grid";
-import { Heading } from "@unified-ui/react/typography";
+import { Badge } from "@ux-sting/react/badge";
+import { BusinessCard } from "@ux-sting/react/business-card";
+import { Grid } from "@ux-sting/react/grid";
+import { Heading } from "@ux-sting/react/typography";
 
 export const metadata = { title: "Listings" };
 

@@ -1,6 +1,6 @@
 # Sidebar
 
-> Navigation · `@unified-ui/react/sidebar`
+> Navigation · `@ux-sting/react/sidebar`
 
 Collapsible app sidebar (icon rail on desktop, sheet on mobile) with groups, items, badges and shortcut.
 
@@ -13,13 +13,13 @@ Use for dashboards and apps with many sections.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { SidebarProvider, Sidebar, SidebarHeader } from "@unified-ui/react/sidebar";
+import { SidebarProvider, Sidebar, SidebarHeader } from "@ux-sting/react/sidebar";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add sidebar
+npx ux-sting add sidebar
 ```
 
 ## Accessibility

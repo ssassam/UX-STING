@@ -1,6 +1,6 @@
 # Rating
 
-> Patterns · `@unified-ui/react/rating`
+> Patterns · `@ux-sting/react/rating`
 
 Interactive Rating (radio group) and read-only ReviewStars with fractional fill.
 
@@ -13,13 +13,13 @@ Use for reviews and feedback.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Rating, ReviewStars } from "@unified-ui/react/rating";
+import { Rating, ReviewStars } from "@ux-sting/react/rating";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add rating
+npx ux-sting add rating
 ```
 
 ## Accessibility

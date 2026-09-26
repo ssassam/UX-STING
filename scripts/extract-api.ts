@@ -1,8 +1,8 @@
 /**
  * Extracts component prop tables from the TypeScript sources of
- * @unified-ui/react using the compiler API. Output: registry/api.json.
+ * @ux-sting/react using the compiler API. Output: registry/api.json.
  *
- * Only props declared by unified-ui (or the Radix primitive a component
+ * Only props declared by ux-sting (or the Radix primitive a component
  * wraps) are listed — inherited HTML attributes are summarised instead.
  */
 import { writeFileSync } from "node:fs";

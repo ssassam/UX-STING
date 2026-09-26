@@ -1,4 +1,4 @@
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 
 export interface HighlightProps {
   text: string;

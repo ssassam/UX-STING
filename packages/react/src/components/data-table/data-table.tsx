@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
+import { useControllableState } from "@ux-sting/hooks";
 import { Columns3Icon } from "./columns-icon.js";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { useMessages } from "../../provider/context.js";
 import { Button } from "../button/button.js";

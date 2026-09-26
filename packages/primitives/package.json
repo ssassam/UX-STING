@@ -1,7 +1,7 @@
 {
-  "name": "@unified-ui/primitives",
+  "name": "@ux-sting/primitives",
   "version": "0.1.0",
-  "description": "Headless, accessible building blocks for unified-ui: Slot, VisuallyHidden, Portal, roving focus, calendar math and collections.",
+  "description": "Headless, accessible building blocks for ux-sting: Slot, VisuallyHidden, Portal, roving focus, calendar math and collections.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -22,8 +22,8 @@
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
   "dependencies": {
-    "@unified-ui/hooks": "workspace:^",
-    "@unified-ui/utils": "workspace:^"
+    "@ux-sting/hooks": "workspace:^",
+    "@ux-sting/utils": "workspace:^"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",

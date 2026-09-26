@@ -1,12 +1,7 @@
 "use client";
 import { DirectionProvider } from "@radix-ui/react-direction";
-import { createTheme, themeToCss, type ThemeConfig } from "@unified-ui/themes";
-import {
-  getDirection,
-  resolveColorMode,
-  type ColorMode,
-  type DensityMode,
-} from "@unified-ui/utils";
+import { createTheme, themeToCss, type ThemeConfig } from "@ux-sting/themes";
+import { getDirection, resolveColorMode, type ColorMode, type DensityMode } from "@ux-sting/utils";
 import {
   useEffect,
   useMemo,

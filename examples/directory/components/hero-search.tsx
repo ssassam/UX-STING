@@ -1,9 +1,9 @@
 "use client";
-import { SearchIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { Combobox } from "@unified-ui/react/combobox";
-import { Field } from "@unified-ui/react/field";
-import { SearchInput } from "@unified-ui/react/search-input";
+import { SearchIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { Combobox } from "@ux-sting/react/combobox";
+import { Field } from "@ux-sting/react/field";
+import { SearchInput } from "@ux-sting/react/search-input";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { cities } from "../lib/data";

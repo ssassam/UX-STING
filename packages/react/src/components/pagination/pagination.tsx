@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { ChevronLeftIcon, ChevronRightIcon, EllipsisIcon } from "@unified-ui/icons";
-import { cn, getPaginationRange } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { ChevronLeftIcon, ChevronRightIcon, EllipsisIcon } from "@ux-sting/icons";
+import { cn, getPaginationRange } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { useLocale, useMessages } from "../../provider/context.js";
 import { buttonVariants } from "../button/button.variants.js";

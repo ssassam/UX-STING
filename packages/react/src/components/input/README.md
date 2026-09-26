@@ -1,6 +1,6 @@
 # Input
 
-> Forms · `@unified-ui/react/input`
+> Forms · `@ux-sting/react/input`
 
 Single-line text input with sizes, filled variant and invalid state.
 
@@ -13,13 +13,13 @@ Use for short free-text values. Set a semantic `type` and `autoComplete`.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Input } from "@unified-ui/react/input";
+import { Input } from "@ux-sting/react/input";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add input
+npx ux-sting add input
 ```
 
 ## Accessibility

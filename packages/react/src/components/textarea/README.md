@@ -1,6 +1,6 @@
 # Textarea
 
-> Forms · `@unified-ui/react/textarea`
+> Forms · `@ux-sting/react/textarea`
 
 Multi-line input with optional auto-resize and live character count.
 
@@ -13,13 +13,13 @@ Use for messages, descriptions and reviews.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Textarea } from "@unified-ui/react/textarea";
+import { Textarea } from "@ux-sting/react/textarea";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add textarea
+npx ux-sting add textarea
 ```
 
 ## Accessibility

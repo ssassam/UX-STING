@@ -1,5 +1,5 @@
 "use client";
-import { Switch } from "@unified-ui/react/switch";
+import { Switch } from "@ux-sting/react/switch";
 
 export function Basic() {
   return (

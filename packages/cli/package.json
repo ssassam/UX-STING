@@ -1,11 +1,11 @@
 {
-  "name": "unified-ui",
+  "name": "ux-sting",
   "version": "0.1.0",
-  "description": "CLI for unified-ui: copy accessible, themeable React components into your project.",
+  "description": "CLI for ux-sting: copy accessible, themeable React components into your project.",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "unified-ui": "./dist/index.js"
+    "ux-sting": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [

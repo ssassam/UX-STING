@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Field } from "@unified-ui/react/field";
-import { Textarea } from "@unified-ui/react/textarea";
+import { Field } from "@ux-sting/react/field";
+import { Textarea } from "@ux-sting/react/textarea";
 
 export function AutoResize() {
   const [value, setValue] = useState("");

@@ -1,4 +1,4 @@
-# Contributing to unified-ui
+# Contributing to UX-STING
 
 Thanks for helping! This guide covers setup, conventions and the review checklist.
 
@@ -21,9 +21,9 @@ Useful scripts:
 | `pnpm readmes` | Regenerates component READMEs and `registry/api.json` from source |
 | `pnpm registry` | Rebuilds the CLI registry |
 | `pnpm size` | Bundle size per component entry point |
-| `pnpm --filter @unified-ui/docs dev` | Documentation site |
-| `pnpm --filter @unified-ui/playground dev` | Component lab |
-| `pnpm --filter @unified-ui/storybook dev` | Storybook |
+| `pnpm --filter @ux-sting/docs dev` | Documentation site |
+| `pnpm --filter @ux-sting/playground dev` | Component lab |
+| `pnpm --filter @ux-sting/storybook dev` | Storybook |
 
 ## Project layout
 
@@ -35,7 +35,7 @@ packages/hooks       React hooks
 packages/primitives  Slot, Portal, VisuallyHidden, roving focus, calendar math
 packages/icons       generated icons
 packages/react       components, provider, styles
-packages/cli         the `unified-ui` CLI and registry
+packages/cli         the `ux-sting` CLI and registry
 registry/            component metadata (docs, READMEs, CLI) + extracted API
 apps/docs            Next.js documentation site with live demos
 apps/playground      Vite component laboratory

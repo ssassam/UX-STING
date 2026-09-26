@@ -1,6 +1,6 @@
 "use client";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { floatingSurfaceClass } from "../../lib/overlay.js";
 import { usePortalContainer } from "../../provider/context.js";

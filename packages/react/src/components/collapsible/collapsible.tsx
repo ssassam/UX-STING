@@ -1,6 +1,6 @@
 "use client";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 
 /** A single show/hide region controlled by a trigger (`aria-expanded`). */

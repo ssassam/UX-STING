@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@unified-ui/react/collapsible";
-import { ChevronsUpDownIcon } from "@unified-ui/icons";
+import { Button } from "@ux-sting/react/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@ux-sting/react/collapsible";
+import { ChevronsUpDownIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

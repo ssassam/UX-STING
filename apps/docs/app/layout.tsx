@@ -1,5 +1,5 @@
-import { SkipLink } from "@unified-ui/react/skip-link";
-import { ThemeScript } from "@unified-ui/react/provider";
+import { SkipLink } from "@ux-sting/react/skip-link";
+import { ThemeScript } from "@ux-sting/react/provider";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { components, guides } from "../site/nav";
@@ -7,7 +7,7 @@ import { Providers } from "../site/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "unified-ui — accessible React UI system", template: "%s · unified-ui" },
+  title: { default: "UX-STING — accessible React design system", template: "%s · UX-STING" },
   description:
     "Accessible, themeable, tree-shakeable React components with design tokens, RTL, dark mode and a copy-into-your-project CLI.",
 };

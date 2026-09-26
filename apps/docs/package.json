@@ -1,5 +1,5 @@
 {
-  "name": "@unified-ui/docs",
+  "name": "@ux-sting/docs",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,15 +12,15 @@
     "typecheck": "node ./scripts/collect-demos.ts && tsc --noEmit"
   },
   "dependencies": {
-    "@unified-ui/icons": "workspace:^",
-    "@unified-ui/react": "workspace:^",
-    "@unified-ui/themes": "workspace:^",
-    "@unified-ui/tokens": "workspace:^",
-    "@unified-ui/utils": "workspace:^",
+    "@ux-sting/icons": "workspace:^",
+    "@ux-sting/react": "workspace:^",
+    "@ux-sting/themes": "workspace:^",
+    "@ux-sting/tokens": "workspace:^",
+    "@ux-sting/utils": "workspace:^",
     "next": "^16.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "@unified-ui/hooks": "workspace:^"
+    "@ux-sting/hooks": "workspace:^"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

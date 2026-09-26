@@ -14,7 +14,7 @@ beforeEach(() => {
   cwd = mkdtempSync(join(tmpdir(), "uui-"));
   writeFileSync(
     join(cwd, "package.json"),
-    JSON.stringify({ name: "app", dependencies: { "@unified-ui/utils": "^0.1.0" } }),
+    JSON.stringify({ name: "app", dependencies: { "@ux-sting/utils": "^0.1.0" } }),
   );
   writeFileSync(join(cwd, "globals.css"), '@import "tailwindcss";\nbody {}\n');
   vi.spyOn(console, "log").mockImplementation(() => {});
@@ -45,21 +45,19 @@ describe("cli", () => {
 
   it("strips .js from relative imports", () => {
     expect(
-      transformSource('import { a } from "./a.js";\nimport x from "@unified-ui/utils";', {
+      transformSource('import { a } from "./a.js";\nimport x from "@ux-sting/utils";', {
         importExtensions: false,
       }),
-    ).toBe('import { a } from "./a";\nimport x from "@unified-ui/utils";');
+    ).toBe('import { a } from "./a";\nimport x from "@ux-sting/utils";');
   });
 
   it("init writes config, provider, styles and css imports", async () => {
     await init({ cwd, css: "globals.css", dir: "components/ui", install: false, registry });
-    expect(JSON.parse(readFileSync(join(cwd, "unified-ui.json"), "utf8")).dir).toBe(
-      "components/ui",
-    );
+    expect(JSON.parse(readFileSync(join(cwd, "ux-sting.json"), "utf8")).dir).toBe("components/ui");
     expect(existsSync(join(cwd, "components/ui/provider/ui-provider.tsx"))).toBe(true);
     const css = readFileSync(join(cwd, "globals.css"), "utf8");
-    expect(css).toMatch(/@import "tailwindcss";\n\/\* unified-ui \*\//);
-    expect(css).toContain('@import "./components/ui/styles/unified-ui.css";');
+    expect(css).toMatch(/@import "tailwindcss";\n\/\* ux-sting \*\//);
+    expect(css).toContain('@import "./components/ui/styles/ux-sting.css";');
   });
 
   it("add copies components with dependencies and protects local edits", async () => {
@@ -70,7 +68,7 @@ describe("cli", () => {
     expect(existsSync(join(cwd, "components/ui/lib/overlay.tsx"))).toBe(true);
     expect(readFileSync(dialog, "utf8")).not.toMatch(/from "\.\.?\/[^"]+\.js"/);
     expect(result.dependencies).toContain("@radix-ui/react-dialog@^1.1.23");
-    expect(result.dependencies.some((d) => d.startsWith("@unified-ui/utils"))).toBe(false);
+    expect(result.dependencies.some((d) => d.startsWith("@ux-sting/utils"))).toBe(false);
 
     writeFileSync(dialog, readFileSync(dialog, "utf8") + "\n// my change\n");
     const again = await add(["dialog"], { cwd, install: false, registry });

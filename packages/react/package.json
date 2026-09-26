@@ -1,7 +1,7 @@
 {
-  "name": "@unified-ui/react",
+  "name": "@ux-sting/react",
   "version": "0.1.0",
-  "description": "unified-ui React components: accessible, themeable, tree-shakeable and SSR/RSC-friendly.",
+  "description": "ux-sting React components: accessible, themeable, tree-shakeable and SSR/RSC-friendly.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
@@ -55,12 +55,12 @@
     "@radix-ui/react-tabs": "^1.1.21",
     "@radix-ui/react-toggle-group": "^1.1.19",
     "@radix-ui/react-tooltip": "^1.2.16",
-    "@unified-ui/hooks": "workspace:^",
-    "@unified-ui/icons": "workspace:^",
-    "@unified-ui/primitives": "workspace:^",
-    "@unified-ui/themes": "workspace:^",
-    "@unified-ui/tokens": "workspace:^",
-    "@unified-ui/utils": "workspace:^"
+    "@ux-sting/hooks": "workspace:^",
+    "@ux-sting/icons": "workspace:^",
+    "@ux-sting/primitives": "workspace:^",
+    "@ux-sting/themes": "workspace:^",
+    "@ux-sting/tokens": "workspace:^",
+    "@ux-sting/utils": "workspace:^"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",

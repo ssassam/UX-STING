@@ -1,9 +1,9 @@
 "use client";
-import { SearchInput } from "@unified-ui/react/search-input";
-import { SearchResult, SearchResults } from "@unified-ui/react/search-result";
-import { EmptyState } from "@unified-ui/react/state";
-import { Heading } from "@unified-ui/react/typography";
-import { fuzzyScore } from "@unified-ui/utils";
+import { SearchInput } from "@ux-sting/react/search-input";
+import { SearchResult, SearchResults } from "@ux-sting/react/search-result";
+import { EmptyState } from "@ux-sting/react/state";
+import { Heading } from "@ux-sting/react/typography";
+import { fuzzyScore } from "@ux-sting/utils";
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { articles, formatDate } from "../lib/data";

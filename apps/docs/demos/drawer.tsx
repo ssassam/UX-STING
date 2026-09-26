@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
+import { Button } from "@ux-sting/react/button";
 import {
   Drawer,
   DrawerBody,
@@ -10,7 +10,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@unified-ui/react/drawer";
+} from "@ux-sting/react/drawer";
 
 export function Basic() {
   return (

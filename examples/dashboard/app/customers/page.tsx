@@ -1,5 +1,5 @@
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge } from "@unified-ui/react/badge";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Table,
   TableBody,
@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@unified-ui/react/table";
-import { Heading } from "@unified-ui/react/typography";
+} from "@ux-sting/react/table";
+import { Heading } from "@ux-sting/react/typography";
 import { bookings } from "../../lib/data";
 
 export const metadata = { title: "Customers" };

@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { RangeSlider, Slider } from "@unified-ui/react/slider";
+import { Field } from "@ux-sting/react/field";
+import { RangeSlider, Slider } from "@ux-sting/react/slider";
 
 const eur = (v: number) =>
   new Intl.NumberFormat("en", {

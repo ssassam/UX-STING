@@ -1,5 +1,5 @@
-import { Slot } from "@unified-ui/primitives";
-import { cn, responsiveVars } from "@unified-ui/utils";
+import { Slot } from "@ux-sting/primitives";
+import { cn, responsiveVars } from "@ux-sting/utils";
 import { forwardRef, type CSSProperties, type ElementType } from "react";
 import type { SpaceToken, StackProps } from "./stack.types.js";
 

@@ -1,6 +1,6 @@
 # Accordion
 
-> Data display · `@unified-ui/react/accordion`
+> Data display · `@ux-sting/react/accordion`
 
 Stacked disclosures (single or multiple), default/separated/bordered.
 
@@ -13,13 +13,13 @@ Use for FAQs and secondary details.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Accordion, AccordionItem, AccordionTrigger } from "@unified-ui/react/accordion";
+import { Accordion, AccordionItem, AccordionTrigger } from "@ux-sting/react/accordion";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add accordion
+npx ux-sting add accordion
 ```
 
 ## Accessibility

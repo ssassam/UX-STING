@@ -1,5 +1,5 @@
-import { Slot } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { Slot } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type LiHTMLAttributes, type ReactNode } from "react";
 
 export interface ListProps extends HTMLAttributes<HTMLUListElement> {

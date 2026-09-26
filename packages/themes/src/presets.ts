@@ -1,4 +1,4 @@
-import { createScale, palette, white } from "@unified-ui/tokens";
+import { createScale, palette, white } from "@ux-sting/tokens";
 import { createTheme, type ThemeConfig } from "./theme.js";
 
 const g = palette.gray;

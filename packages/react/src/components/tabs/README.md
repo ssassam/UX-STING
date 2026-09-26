@@ -1,6 +1,6 @@
 # Tabs
 
-> Navigation · `@unified-ui/react/tabs`
+> Navigation · `@ux-sting/react/tabs`
 
 Switch between related views (line, pills, enclosed; horizontal or vertical).
 
@@ -15,13 +15,13 @@ Use for peer views of the same object.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add tabs
+npx ux-sting add tabs
 ```
 
 ## Accessibility

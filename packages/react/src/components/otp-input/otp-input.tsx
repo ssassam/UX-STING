@@ -1,6 +1,6 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useRef, type ClipboardEvent, type KeyboardEvent } from "react";
 import { useFieldControlProps } from "../../lib/field.js";
 

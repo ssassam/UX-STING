@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { HStack, Spacer, Stack } from "@unified-ui/react/stack";
+import { Button } from "@ux-sting/react/button";
+import { HStack, Spacer, Stack } from "@ux-sting/react/stack";
 
 const Item = ({ children }: { children: React.ReactNode }) => (
   <div className="rounded-md bg-primary-subtle px-4 py-3 text-sm font-medium text-primary-subtle-foreground">

@@ -1,4 +1,4 @@
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import type { ReactNode } from "react";
 import { Avatar } from "../avatar/avatar.js";
 import { Card } from "../card/card.js";

@@ -1,7 +1,7 @@
 "use client";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import { useControllableState } from "@unified-ui/hooks";
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

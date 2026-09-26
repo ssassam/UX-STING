@@ -1,8 +1,8 @@
 "use client";
-import { HeartIcon, HomeIcon, MapPinIcon, SearchIcon, UserIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
-import { MobileNavigation, MobileNavigationItem } from "@unified-ui/react/mobile-navigation";
+import { HeartIcon, HomeIcon, MapPinIcon, SearchIcon, UserIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
+import { MobileNavigation, MobileNavigationItem } from "@ux-sting/react/mobile-navigation";
 import {
   Navbar,
   NavbarActions,
@@ -11,7 +11,7 @@ import {
   NavbarLink,
   NavbarMobileLink,
   NavbarMobileMenu,
-} from "@unified-ui/react/navbar";
+} from "@ux-sting/react/navbar";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 

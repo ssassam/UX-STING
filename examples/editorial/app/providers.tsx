@@ -1,6 +1,6 @@
 "use client";
-import { UIProvider } from "@unified-ui/react/provider";
-import { Toaster } from "@unified-ui/react/toast";
+import { UIProvider } from "@ux-sting/react/provider";
+import { Toaster } from "@ux-sting/react/toast";
 import type { ReactNode } from "react";
 
 export function Providers({ children }: { children: ReactNode }) {

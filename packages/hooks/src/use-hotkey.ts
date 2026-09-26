@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { matchesShortcut } from "@unified-ui/utils";
+import { matchesShortcut } from "@ux-sting/utils";
 import { useCallbackRef } from "./use-callback-ref.js";
 
 export interface UseHotkeyOptions {

@@ -1,7 +1,7 @@
 {
-  "name": "@unified-ui/core",
+  "name": "@ux-sting/core",
   "version": "0.1.0",
-  "description": "Framework-agnostic entry point for unified-ui: tokens, theme engine and utilities in one import.",
+  "description": "Framework-agnostic entry point for ux-sting: tokens, theme engine and utilities in one import.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -22,9 +22,9 @@
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
   "dependencies": {
-    "@unified-ui/themes": "workspace:^",
-    "@unified-ui/tokens": "workspace:^",
-    "@unified-ui/utils": "workspace:^"
+    "@ux-sting/themes": "workspace:^",
+    "@ux-sting/tokens": "workspace:^",
+    "@ux-sting/utils": "workspace:^"
   },
   "peerDependencies": {},
   "devDependencies": {

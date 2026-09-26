@@ -1,5 +1,5 @@
 /**
- * Builds the CSS entry points of @unified-ui/react:
+ * Builds the CSS entry points of @ux-sting/react:
  *  - dist/components.css  plain CSS (animations, layout helpers, hit areas)
  *  - dist/tailwind.css    for Tailwind v4 apps: tokens + theme + component CSS + @source
  *  - dist/styles.css      standalone, precompiled stylesheet for apps without Tailwind
@@ -16,10 +16,10 @@ copyFileSync(`${root}src/styles/components.css`, `${dist}components.css`);
 
 writeFileSync(
   `${dist}tailwind.css`,
-  `/* unified-ui for Tailwind CSS v4: @import "@unified-ui/react/tailwind.css"; after @import "tailwindcss"; */
-@import "@unified-ui/tokens/tokens.css";
-@import "@unified-ui/tokens/tailwind.css";
-@import "@unified-ui/themes/themes.css";
+  `/* ux-sting for Tailwind CSS v4: @import "@ux-sting/react/tailwind.css"; after @import "tailwindcss"; */
+@import "@ux-sting/tokens/tokens.css";
+@import "@ux-sting/tokens/tailwind.css";
+@import "@ux-sting/themes/themes.css";
 @import "./components.css";
 @source "./components";
 `,
@@ -29,9 +29,9 @@ const entry = `${dist}.styles-entry.css`;
 writeFileSync(
   entry,
   `@import "tailwindcss";
-@import "@unified-ui/tokens/tokens.css";
-@import "@unified-ui/tokens/tailwind.css";
-@import "@unified-ui/themes/themes.css";
+@import "@ux-sting/tokens/tokens.css";
+@import "@ux-sting/tokens/tailwind.css";
+@import "@ux-sting/themes/themes.css";
 @import "./components.css";
 @source "./components";
 `,
@@ -45,4 +45,4 @@ execFileSync(process.execPath, [cli, "-i", entry, "-o", `${dist}styles.css`, "--
   cwd: root,
   stdio: "inherit",
 });
-console.log("@unified-ui/react: wrote styles.css, tailwind.css, components.css");
+console.log("@ux-sting/react: wrote styles.css, tailwind.css, components.css");

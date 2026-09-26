@@ -1,6 +1,6 @@
 "use client";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 
 export interface ScrollAreaProps extends ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {

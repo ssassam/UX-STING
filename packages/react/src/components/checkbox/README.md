@@ -1,6 +1,6 @@
 # Checkbox
 
-> Forms · `@unified-ui/react/checkbox`
+> Forms · `@ux-sting/react/checkbox`
 
 Binary or indeterminate choice, plus CheckboxGroup for multiple values.
 
@@ -15,13 +15,13 @@ Use for independent options and consent inside forms.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Checkbox, CheckboxGroup } from "@unified-ui/react/checkbox";
+import { Checkbox, CheckboxGroup } from "@ux-sting/react/checkbox";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add checkbox
+npx ux-sting add checkbox
 ```
 
 ## Accessibility

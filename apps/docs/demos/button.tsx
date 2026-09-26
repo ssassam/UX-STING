@@ -1,12 +1,6 @@
 "use client";
-import { Button, ButtonGroup, IconButton } from "@unified-ui/react/button";
-import {
-  ArrowRightIcon,
-  DownloadIcon,
-  PlusIcon,
-  SettingsIcon,
-  Trash2Icon,
-} from "@unified-ui/icons";
+import { Button, ButtonGroup, IconButton } from "@ux-sting/react/button";
+import { ArrowRightIcon, DownloadIcon, PlusIcon, SettingsIcon, Trash2Icon } from "@ux-sting/icons";
 
 export function Variants() {
   return (

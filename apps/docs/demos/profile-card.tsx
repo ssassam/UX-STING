@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { VerifiedBadge } from "@unified-ui/react/premium-badge";
-import { ProfileCard } from "@unified-ui/react/profile-card";
+import { Button } from "@ux-sting/react/button";
+import { VerifiedBadge } from "@ux-sting/react/premium-badge";
+import { ProfileCard } from "@ux-sting/react/profile-card";
 
 export function Layouts() {
   return (

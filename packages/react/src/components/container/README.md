@@ -1,6 +1,6 @@
 # Container
 
-> Foundations · `@unified-ui/react/container`
+> Foundations · `@ux-sting/react/container`
 
 Centers content with a consistent max width and responsive gutters.
 
@@ -13,13 +13,13 @@ Use once per page section to align content to the layout grid.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Container } from "@unified-ui/react/container";
+import { Container } from "@ux-sting/react/container";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add container
+npx ux-sting add container
 ```
 
 ## Accessibility

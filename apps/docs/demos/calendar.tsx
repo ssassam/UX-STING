@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Calendar, MonthPicker, YearPicker, type DateRange } from "@unified-ui/react/calendar";
+import { Calendar, MonthPicker, YearPicker, type DateRange } from "@ux-sting/react/calendar";
 
 export function Single() {
   const [date, setDate] = useState<Date | null>(new Date());

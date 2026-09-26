@@ -1,6 +1,6 @@
 # NavigationMenu
 
-> Navigation · `@unified-ui/react/navigation-menu`
+> Navigation · `@ux-sting/react/navigation-menu`
 
 Website navigation with dropdown panels (mega menus).
 
@@ -13,13 +13,13 @@ Use for marketing sites with grouped destinations.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@unified-ui/react/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@ux-sting/react/navigation-menu";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add navigation-menu
+npx ux-sting add navigation-menu
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 # ColorModeToggle
 
-> Theming · `@unified-ui/react/color-mode-toggle`
+> Theming · `@ux-sting/react/color-mode-toggle`
 
 Button switching between light and dark mode via UIProvider.
 
@@ -13,13 +13,13 @@ Use in headers and settings.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add color-mode-toggle
+npx ux-sting add color-mode-toggle
 ```
 
 ## Accessibility

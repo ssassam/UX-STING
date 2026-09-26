@@ -1,5 +1,5 @@
 "use client";
-import { Grid, GridItem } from "@unified-ui/react/grid";
+import { Grid, GridItem } from "@ux-sting/react/grid";
 
 const Cell = ({ children }: { children: React.ReactNode }) => (
   <div className="flex h-20 items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">

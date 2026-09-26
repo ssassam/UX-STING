@@ -1,6 +1,6 @@
 # List
 
-> Data display · `@unified-ui/react/list`
+> Data display · `@ux-sting/react/list`
 
 Semantic list with rich rows (start, title, description, end).
 
@@ -13,13 +13,13 @@ Use for settings rows, contacts and simple feeds.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { List, ListItem } from "@unified-ui/react/list";
+import { List, ListItem } from "@ux-sting/react/list";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add list
+npx ux-sting add list
 ```
 
 ## Accessibility

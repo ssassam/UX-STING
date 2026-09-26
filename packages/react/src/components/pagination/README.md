@@ -1,6 +1,6 @@
 # Pagination
 
-> Navigation · `@unified-ui/react/pagination`
+> Navigation · `@ux-sting/react/pagination`
 
 Page navigation with crawlable links or buttons, ellipses and a compact mobile mode.
 
@@ -15,13 +15,13 @@ Use for search results and listings; link mode for SEO.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Pagination } from "@unified-ui/react/pagination";
+import { Pagination } from "@ux-sting/react/pagination";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add pagination
+npx ux-sting add pagination
 ```
 
 ## Accessibility
@@ -45,7 +45,7 @@ Page navigation. Use `getHref` for SEO-friendly links (listings, search) or `onP
 | `getHref` | `(page: number) => string` | — | Link mode (crawlable): return the URL for a page. |
 | `onPageChange` | `(page: number) => void` | — |  |
 | `page` | `number` | — |  |
-| `renderLink` | `(props: { href: string; className: string; children: ReactNode; "aria-current"?: "page"; "aria-label": string }) => ReactNode` | — | Render links with a router component, e.g. Next.js `Link`. |
+| `renderLink` | `(props: { href: string; className: string; children: ReactNode; "aria-current"?: "page"; "aria-label": string; }) => ReactNode` | — | Render links with a router component, e.g. Next.js `Link`. |
 | `siblings` | `number` | `1` |  |
 | `size` | `"sm" \| "md"` | `"md"` |  |
 | `variant` | `"default" \| "compact"` | `"default"` | `compact` shows "Page x of y" (auto on small screens). |

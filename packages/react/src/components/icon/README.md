@@ -1,6 +1,6 @@
 # Icon
 
-> Theming · `@unified-ui/react/icon`
+> Theming · `@ux-sting/react/icon`
 
 Dynamic `<Icon name="search" />` and `createIcon` for custom glyphs.
 
@@ -13,13 +13,13 @@ Use for data-driven icons; import icons directly for smallest bundles.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Icon } from "@unified-ui/react/icon";
+import { Icon } from "@ux-sting/react/icon";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add icon
+npx ux-sting add icon
 ```
 
 ## Accessibility
@@ -30,7 +30,7 @@ npx unified-ui add icon
 
 ### Icon
 
-Renders an icon by name: `<Icon name="search" />`. Convenient for data-driven UIs, but it references every icon — prefer direct imports (`import { SearchIcon } from "@unified-ui/icons"`) for the smallest bundles.
+Renders an icon by name: `<Icon name="search" />`. Convenient for data-driven UIs, but it references every icon — prefer direct imports (`import { SearchIcon } from "@ux-sting/icons"`) for the smallest bundles.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |

@@ -120,7 +120,7 @@ export function generateTokensCss(): string {
   const hc = createHighContrastColors();
 
   return [
-    "/* unified-ui design tokens — generated file, do not edit by hand. */",
+    "/* ux-sting design tokens — generated file, do not edit by hand. */",
     toCssBlock(':root, [data-theme="light"]', {
       "color-scheme": "light",
       ...staticVars(),
@@ -173,7 +173,7 @@ export function generateTailwindCss(): string {
   for (const [key, value] of Object.entries(zIndex)) lines.push(`  --z-index-${key}: ${value};`);
 
   return [
-    "/* unified-ui Tailwind CSS v4 theme — generated file, do not edit by hand. */",
+    "/* ux-sting Tailwind CSS v4 theme — generated file, do not edit by hand. */",
     '@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));',
     "",
     "@theme inline {",

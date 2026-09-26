@@ -1,7 +1,7 @@
 "use client";
-import { UIProvider } from "@unified-ui/react/provider";
-import { Toaster } from "@unified-ui/react/toast";
-import { TooltipProvider } from "@unified-ui/react/tooltip";
+import { UIProvider } from "@ux-sting/react/provider";
+import { Toaster } from "@ux-sting/react/toast";
+import { TooltipProvider } from "@ux-sting/react/tooltip";
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface CartLine {

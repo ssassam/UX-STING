@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FileUpload, type UploadItem } from "@unified-ui/react/file-upload";
+import { FileUpload, type UploadItem } from "@ux-sting/react/file-upload";
 
 export function Basic() {
   const [items, setItems] = useState<UploadItem[]>([]);

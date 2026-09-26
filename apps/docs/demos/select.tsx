@@ -1,5 +1,5 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
+import { Field } from "@ux-sting/react/field";
 import {
   Select,
   SelectContent,
@@ -9,7 +9,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@unified-ui/react/select";
+} from "@ux-sting/react/select";
 
 export function Basic() {
   return (

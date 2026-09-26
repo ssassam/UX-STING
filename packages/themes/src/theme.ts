@@ -16,7 +16,7 @@ import {
   type PaletteName,
   type RadiusPreset,
   type SemanticColors,
-} from "@unified-ui/tokens";
+} from "@ux-sting/tokens";
 
 export interface ThemeConfig {
   /** Unique theme name; used as `data-ui-theme="<name>"`. */

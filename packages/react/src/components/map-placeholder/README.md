@@ -1,6 +1,6 @@
 # MapPlaceholder
 
-> Patterns · `@unified-ui/react/map-placeholder`
+> Patterns · `@ux-sting/react/map-placeholder`
 
 Dependency-free map stand-in with accessible pins, plus MapPanel list/map layout.
 
@@ -13,13 +13,13 @@ Use before integrating a map provider, or as a lightweight static map.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { MapPlaceholder, MapPanel } from "@unified-ui/react/map-placeholder";
+import { MapPlaceholder, MapPanel } from "@ux-sting/react/map-placeholder";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add map-placeholder
+npx ux-sting add map-placeholder
 ```
 
 ## Accessibility

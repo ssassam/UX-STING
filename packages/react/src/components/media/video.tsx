@@ -1,4 +1,4 @@
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type AudioHTMLAttributes, type VideoHTMLAttributes } from "react";
 
 export interface MediaTrack {

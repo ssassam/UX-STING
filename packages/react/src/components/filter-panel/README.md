@@ -1,6 +1,6 @@
 # FilterPanel
 
-> Patterns · `@unified-ui/react/filter-panel`
+> Patterns · `@ux-sting/react/filter-panel`
 
 Sidebar filters on desktop and a sheet on mobile from the same children; FilterSection and FilterChips.
 
@@ -13,13 +13,13 @@ Use for search and listing pages.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { FilterPanel, FilterSection, FilterChips } from "@unified-ui/react/filter-panel";
+import { FilterPanel, FilterSection, FilterChips } from "@ux-sting/react/filter-panel";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add filter-panel
+npx ux-sting add filter-panel
 ```
 
 ## Accessibility

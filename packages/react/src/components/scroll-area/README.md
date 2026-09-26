@@ -1,6 +1,6 @@
 # ScrollArea
 
-> Foundations · `@unified-ui/react/scroll-area`
+> Foundations · `@ux-sting/react/scroll-area`
 
 Cross-browser styled scroll container that keeps native scrolling behavior.
 
@@ -15,13 +15,13 @@ Use for constrained regions such as sidebars, menus and chat logs.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ScrollArea, ScrollBar } from "@unified-ui/react/scroll-area";
+import { ScrollArea, ScrollBar } from "@ux-sting/react/scroll-area";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add scroll-area
+npx ux-sting add scroll-area
 ```
 
 ## Accessibility

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@unified-ui/react/button";
-import { Stepper } from "@unified-ui/react/stepper";
+import { Button } from "@ux-sting/react/button";
+import { Stepper } from "@ux-sting/react/stepper";
 
 const steps = [
   { title: "Business details", description: "Name & category" },

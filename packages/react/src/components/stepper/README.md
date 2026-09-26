@@ -1,6 +1,6 @@
 # Stepper
 
-> Navigation · `@unified-ui/react/stepper`
+> Navigation · `@ux-sting/react/stepper`
 
 Progress through a multi-step flow with completed, current, upcoming and error states.
 
@@ -13,13 +13,13 @@ Use for checkout, onboarding and multi-step forms.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Stepper } from "@unified-ui/react/stepper";
+import { Stepper } from "@ux-sting/react/stepper";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add stepper
+npx ux-sting add stepper
 ```
 
 ## Accessibility

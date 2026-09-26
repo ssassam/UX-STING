@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, type KeyboardEvent as ReactKeyboardEvent, type RefObject } from "react";
-import { getNextIndex, type NavigationOptions } from "@unified-ui/utils";
+import { getNextIndex, type NavigationOptions } from "@ux-sting/utils";
 
 export interface UseRovingFocusOptions extends NavigationOptions {
   /** CSS selector for the focusable items inside the container. */

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { useLocale } from "../../provider/context.js";
 

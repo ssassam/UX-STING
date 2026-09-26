@@ -1,9 +1,9 @@
 "use client";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { useControllableState } from "@unified-ui/hooks";
-import { CalendarIcon } from "@unified-ui/icons";
-import { toISODate } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { CalendarIcon } from "@ux-sting/icons";
+import { toISODate } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useState, type ReactNode } from "react";
 import { controlVariants, type ControlSize } from "../../lib/control.js";
 import { useFieldControlProps } from "../../lib/field.js";

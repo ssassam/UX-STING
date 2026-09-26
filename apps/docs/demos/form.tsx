@@ -1,10 +1,10 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Field, Fieldset } from "@unified-ui/react/field";
-import { Form, FormErrorSummary, useFormState } from "@unified-ui/react/form";
-import { Input } from "@unified-ui/react/input";
-import { PasswordInput } from "@unified-ui/react/password-input";
-import { toast } from "@unified-ui/react/toast";
+import { Button } from "@ux-sting/react/button";
+import { Field, Fieldset } from "@ux-sting/react/field";
+import { Form, FormErrorSummary, useFormState } from "@ux-sting/react/form";
+import { Input } from "@ux-sting/react/input";
+import { PasswordInput } from "@ux-sting/react/password-input";
+import { toast } from "@ux-sting/react/toast";
 
 function SubmitButton() {
   const { submitting } = useFormState();

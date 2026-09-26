@@ -1,5 +1,5 @@
 "use client";
-import { CircularProgress, Progress } from "@unified-ui/react/progress";
+import { CircularProgress, Progress } from "@ux-sting/react/progress";
 
 export function Linear() {
   return (

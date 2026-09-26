@@ -1,7 +1,7 @@
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge } from "@unified-ui/react/badge";
-import { List, ListItem } from "@unified-ui/react/list";
-import { Heading } from "@unified-ui/react/typography";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge } from "@ux-sting/react/badge";
+import { List, ListItem } from "@ux-sting/react/list";
+import { Heading } from "@ux-sting/react/typography";
 
 export const metadata = { title: "Inbox" };
 

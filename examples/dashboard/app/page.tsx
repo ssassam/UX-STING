@@ -1,8 +1,8 @@
-import { CalendarIcon, EyeIcon, StarIcon, WalletIcon } from "@unified-ui/icons";
-import { Card, CardContent, CardHeader, CardTitle } from "@unified-ui/react/card";
-import { StatCard } from "@unified-ui/react/stat";
-import { Timeline, TimelineItem } from "@unified-ui/react/timeline";
-import { Heading, Text } from "@unified-ui/react/typography";
+import { CalendarIcon, EyeIcon, StarIcon, WalletIcon } from "@ux-sting/icons";
+import { Card, CardContent, CardHeader, CardTitle } from "@ux-sting/react/card";
+import { StatCard } from "@ux-sting/react/stat";
+import { Timeline, TimelineItem } from "@ux-sting/react/timeline";
+import { Heading, Text } from "@ux-sting/react/typography";
 import { Suspense } from "react";
 import { BookingsTable } from "../components/bookings-table";
 import { NewListingDialog } from "../components/new-listing-dialog";

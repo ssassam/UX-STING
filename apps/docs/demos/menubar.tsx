@@ -11,7 +11,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@unified-ui/react/menubar";
+} from "@ux-sting/react/menubar";
 
 export function Basic() {
   return (

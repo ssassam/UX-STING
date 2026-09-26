@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "@unified-ui/react/container";
+import { Container } from "@ux-sting/react/container";
 
 export function Sizes() {
   return (

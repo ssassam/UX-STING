@@ -4,7 +4,7 @@ export * from "./use-controllable-state.js";
 export * from "./use-disclosure.js";
 export * from "./use-media-query.js";
 export * from "./use-merged-refs.js";
-export { mergeRefs, setRef } from "@unified-ui/utils";
+export { mergeRefs, setRef } from "@ux-sting/utils";
 export * from "./use-debounce.js";
 export * from "./use-clipboard.js";
 export * from "./use-event-listener.js";

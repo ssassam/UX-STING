@@ -1,6 +1,6 @@
 # OpeningHours
 
-> Patterns · `@unified-ui/react/opening-hours`
+> Patterns · `@ux-sting/react/opening-hours`
 
 Weekly hours table and live OpenStatus ("Open · closes 6 PM"), overnight-aware.
 
@@ -13,13 +13,13 @@ Use on business pages and cards.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { OpeningHours, OpenStatus } from "@unified-ui/react/opening-hours";
+import { OpeningHours, OpenStatus } from "@ux-sting/react/opening-hours";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add opening-hours
+npx ux-sting add opening-hours
 ```
 
 ## Accessibility
@@ -47,7 +47,7 @@ _Also accepts 278 standard HTML/React attributes (className, style, aria-*, even
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `periods` * | `OpeningPeriod[]` | — |  |
-| `labels` | `{ open?: string; closed?: string; closes?: (time: string) => string; opens?: (time: string) => string }` | `{}` | Localized labels. |
+| `labels` | `{ open?: string; closed?: string; closes?: (time: string) => string; opens?: (time: string) => string; }` | `{}` | Localized labels. |
 
 _Also accepts 278 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

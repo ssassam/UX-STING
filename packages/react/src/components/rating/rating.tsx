@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { StarIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { StarIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useId, useState, type HTMLAttributes } from "react";
 import { useLocale, useMessages } from "../../provider/context.js";
 

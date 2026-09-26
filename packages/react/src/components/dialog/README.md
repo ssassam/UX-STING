@@ -1,6 +1,6 @@
 # Dialog
 
-> Overlays · `@unified-ui/react/dialog`
+> Overlays · `@ux-sting/react/dialog`
 
 Modal window for focused tasks (also exported as Modal).
 
@@ -15,13 +15,13 @@ Use Dialog for focused actions that need full attention: edit, create, confirm d
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Dialog, DialogTrigger, DialogClose } from "@unified-ui/react/dialog";
+import { Dialog, DialogTrigger, DialogClose } from "@ux-sting/react/dialog";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add dialog
+npx ux-sting add dialog
 ```
 
 ## Accessibility

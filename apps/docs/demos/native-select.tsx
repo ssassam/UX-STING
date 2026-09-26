@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { NativeSelect } from "@unified-ui/react/native-select";
+import { Field } from "@ux-sting/react/field";
+import { NativeSelect } from "@ux-sting/react/native-select";
 
 export function Basic() {
   return (

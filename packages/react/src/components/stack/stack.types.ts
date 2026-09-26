@@ -1,4 +1,4 @@
-import type { Responsive } from "@unified-ui/utils";
+import type { Responsive } from "@ux-sting/utils";
 import type { ElementType } from "react";
 import type { PolymorphicProps } from "../../lib/polymorphic.js";
 

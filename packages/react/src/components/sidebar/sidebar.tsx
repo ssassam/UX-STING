@@ -1,9 +1,9 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { useBreakpoint, useControllableState, useHotkey } from "@unified-ui/hooks";
+import { useBreakpoint, useControllableState, useHotkey } from "@ux-sting/hooks";
 import { PanelIcon } from "./panel-icon.js";
-import { Slot } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { Slot } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

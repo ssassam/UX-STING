@@ -38,7 +38,7 @@ for (const meta of components) {
   const lines: string[] = [
     `# ${meta.title}`,
     "",
-    `> ${CATEGORY_LABELS[meta.category]} · \`@unified-ui/react/${meta.name}\``,
+    `> ${CATEGORY_LABELS[meta.category]} · \`@ux-sting/react/${meta.name}\``,
     "",
     meta.description,
     "",
@@ -57,13 +57,13 @@ for (const meta of components) {
         .slice(0, 3)
         .map(([n]) => n)
         .join(", ") || primary
-    } } from "@unified-ui/react/${meta.name}";`,
+    } } from "@ux-sting/react/${meta.name}";`,
     "```",
     "",
     "Or copy the source into your project and own it:",
     "",
     "```bash",
-    `npx unified-ui add ${meta.name}`,
+    `npx ux-sting add ${meta.name}`,
     "```",
     "",
     "## Accessibility",

@@ -1,6 +1,6 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { ChevronLeftIcon, ChevronRightIcon } from "@unified-ui/icons";
+import { useControllableState } from "@ux-sting/hooks";
+import { ChevronLeftIcon, ChevronRightIcon } from "@ux-sting/icons";
 import {
   addDays,
   addMonths,
@@ -15,8 +15,8 @@ import {
   startOfMonth,
   startOfWeek,
   type WeekDay,
-} from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+} from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useLocale, useMessages } from "../../provider/context.js";
 

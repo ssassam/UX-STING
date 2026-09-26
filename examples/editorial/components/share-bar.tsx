@@ -1,8 +1,8 @@
 "use client";
-import { CopyIcon, MailIcon, Share2Icon } from "@unified-ui/icons";
-import { ButtonGroup, IconButton } from "@unified-ui/react/button";
-import { toast } from "@unified-ui/react/toast";
-import { Tooltip } from "@unified-ui/react/tooltip";
+import { CopyIcon, MailIcon, Share2Icon } from "@ux-sting/icons";
+import { ButtonGroup, IconButton } from "@ux-sting/react/button";
+import { toast } from "@ux-sting/react/toast";
+import { Tooltip } from "@ux-sting/react/tooltip";
 
 export function ShareBar({ title }: { title: string }) {
   const url = typeof window === "undefined" ? "" : window.location.href;

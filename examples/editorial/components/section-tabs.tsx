@@ -1,6 +1,6 @@
 "use client";
-import { ArticleCard } from "@unified-ui/react/article-card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
+import { ArticleCard } from "@ux-sting/react/article-card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
 import { articles, formatDate, sections } from "../lib/data";
 
 /** Tab values become DOM ids — keep them free of spaces. */

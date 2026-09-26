@@ -1,6 +1,6 @@
 # ArticleCard
 
-> Patterns · `@unified-ui/react/article-card`
+> Patterns · `@ux-sting/react/article-card`
 
 Editorial card with image, category, author, date and reading time (vertical, horizontal, featured).
 
@@ -13,13 +13,13 @@ Use for blogs, news and guides.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ArticleCard } from "@unified-ui/react/article-card";
+import { ArticleCard } from "@ux-sting/react/article-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add article-card
+npx ux-sting add article-card
 ```
 
 ## Accessibility

@@ -1,5 +1,5 @@
-import { Button } from "@unified-ui/react/button";
-import { EmptyState } from "@unified-ui/react/state";
+import { Button } from "@ux-sting/react/button";
+import { EmptyState } from "@ux-sting/react/state";
 
 export default function NotFound() {
   return (

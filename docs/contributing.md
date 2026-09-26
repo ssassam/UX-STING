@@ -11,7 +11,7 @@ pnpm test           # unit, interaction, a11y, CLI tests
 pnpm typecheck
 pnpm lint
 pnpm ux-audit
-pnpm --filter @unified-ui/docs dev
+pnpm --filter @ux-sting/docs dev
 ```
 
 ## Adding a component

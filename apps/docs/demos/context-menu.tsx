@@ -5,7 +5,7 @@ import {
   ContextMenuItem,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from "@unified-ui/react/context-menu";
+} from "@ux-sting/react/context-menu";
 
 export function Basic() {
   return (

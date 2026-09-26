@@ -1,16 +1,16 @@
-import { ArticleCard } from "@unified-ui/react/article-card";
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge } from "@unified-ui/react/badge";
+import { ArticleCard } from "@ux-sting/react/article-card";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@unified-ui/react/breadcrumb";
-import { Image } from "@unified-ui/react/media";
-import { ProfileCard } from "@unified-ui/react/profile-card";
-import { Blockquote, Heading, Prose, Text } from "@unified-ui/react/typography";
+} from "@ux-sting/react/breadcrumb";
+import { Image } from "@ux-sting/react/media";
+import { ProfileCard } from "@ux-sting/react/profile-card";
+import { Blockquote, Heading, Prose, Text } from "@ux-sting/react/typography";
 import type { Metadata } from "next";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";

@@ -1,5 +1,5 @@
 "use client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
 
 function Demo({ variant }: { variant: "line" | "pills" | "enclosed" }) {
   return (

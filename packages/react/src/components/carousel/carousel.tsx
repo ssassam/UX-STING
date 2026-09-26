@@ -1,7 +1,7 @@
 "use client";
-import { useInterval, usePrefersReducedMotion } from "@unified-ui/hooks";
-import { ChevronLeftIcon, ChevronRightIcon, PauseIcon, PlayIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useInterval, usePrefersReducedMotion } from "@ux-sting/hooks";
+import { ChevronLeftIcon, ChevronRightIcon, PauseIcon, PlayIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import {
   Children,
   createContext,

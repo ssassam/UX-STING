@@ -1,6 +1,6 @@
 "use client";
-import { AlertCircleIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { AlertCircleIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

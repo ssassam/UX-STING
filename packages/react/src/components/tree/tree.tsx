@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { ChevronRightIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { ChevronRightIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { useLocale } from "../../provider/context.js";
 

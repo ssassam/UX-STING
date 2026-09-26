@@ -1,7 +1,7 @@
 "use client";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { ChevronDownIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ChevronDownIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 
 /**

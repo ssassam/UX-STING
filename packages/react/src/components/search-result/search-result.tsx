@@ -1,4 +1,4 @@
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 import { Highlight } from "../highlight/highlight.js";
 

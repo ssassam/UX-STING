@@ -1,7 +1,7 @@
 "use client";
-import { XIcon } from "@unified-ui/icons";
-import { useControllableState } from "@unified-ui/hooks";
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { XIcon } from "@ux-sting/icons";
+import { useControllableState } from "@ux-sting/hooks";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { useMessages } from "../../provider/context.js";
 

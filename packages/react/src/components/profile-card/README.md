@@ -1,6 +1,6 @@
 # ProfileCard
 
-> Patterns · `@unified-ui/react/profile-card`
+> Patterns · `@ux-sting/react/profile-card`
 
 Person or organization summary with stats and actions.
 
@@ -13,13 +13,13 @@ Use for team pages, hosts, sellers and authors.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ProfileCard } from "@unified-ui/react/profile-card";
+import { ProfileCard } from "@ux-sting/react/profile-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add profile-card
+npx ux-sting add profile-card
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 /**
- * Reports the minified + gzipped size of each @unified-ui/react entry point
- * (React, react-dom excluded; @unified-ui/* and Radix dependencies included),
+ * Reports the minified + gzipped size of each @ux-sting/react entry point
+ * (React, react-dom excluded; @ux-sting/* and Radix dependencies included),
  * plus the CSS entry points. Fails if any entry exceeds its budget.
  */
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
@@ -38,12 +38,12 @@ rows.sort((a, b) => b.gzip - a.gzip);
 const lines = [
   "| Entry point | Minified | Gzipped |",
   "| --- | ---: | ---: |",
-  ...rows.map((r) => `| \`@unified-ui/react/${r.name}\` | ${kb(r.min)} kB | ${kb(r.gzip)} kB |`),
+  ...rows.map((r) => `| \`@ux-sting/react/${r.name}\` | ${kb(r.min)} kB | ${kb(r.gzip)} kB |`),
 ];
 
 const css = ["styles.css", "components.css"].map((f) => {
   const content = readFileSync(join(dist, f));
-  return `| \`@unified-ui/react/${f}\` | ${kb(content.length)} kB | ${kb(gzipSync(content).length)} kB |`;
+  return `| \`@ux-sting/react/${f}\` | ${kb(content.length)} kB | ${kb(gzipSync(content).length)} kB |`;
 });
 
 const total = rows.reduce((n, r) => n + r.gzip, 0);

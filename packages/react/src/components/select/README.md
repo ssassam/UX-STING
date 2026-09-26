@@ -1,6 +1,6 @@
 # Select
 
-> Forms · `@unified-ui/react/select`
+> Forms · `@ux-sting/react/select`
 
 Custom single-select listbox with groups, typeahead and collision-aware positioning.
 
@@ -15,13 +15,13 @@ Use for choosing one option from 5–15 options.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { SelectTrigger, Select, SelectGroup } from "@unified-ui/react/select";
+import { SelectTrigger, Select, SelectGroup } from "@ux-sting/react/select";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add select
+npx ux-sting add select
 ```
 
 ## Accessibility

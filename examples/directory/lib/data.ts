@@ -1,4 +1,4 @@
-import type { OpeningPeriod } from "@unified-ui/react/opening-hours";
+import type { OpeningPeriod } from "@ux-sting/react/opening-hours";
 
 export interface Place {
   slug: string;

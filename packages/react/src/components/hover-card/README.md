@@ -1,6 +1,6 @@
 # HoverCard
 
-> Overlays · `@unified-ui/react/hover-card`
+> Overlays · `@ux-sting/react/hover-card`
 
 Rich preview for sighted pointer users (profile previews).
 
@@ -13,13 +13,13 @@ Use as an enhancement for links that already work on their own.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@unified-ui/react/hover-card";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@ux-sting/react/hover-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add hover-card
+npx ux-sting add hover-card
 ```
 
 ## Accessibility

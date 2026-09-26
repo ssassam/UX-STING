@@ -1,5 +1,5 @@
-import { Badge } from "@unified-ui/react/badge";
-import { Heading, Text } from "@unified-ui/react/typography";
+import { Badge } from "@ux-sting/react/badge";
+import { Heading, Text } from "@ux-sting/react/typography";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import api from "../../../../../registry/api.json";
@@ -74,7 +74,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ name
         <header id="overview" className="grid gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{CATEGORY_LABELS[meta.category]}</Badge>
-            <Badge variant="outline">@unified-ui/react/{meta.name}</Badge>
+            <Badge variant="outline">@ux-sting/react/{meta.name}</Badge>
           </div>
           <Heading level={1}>{meta.title}</Heading>
           <Text size="lg" variant="muted">
@@ -103,13 +103,13 @@ export default async function ComponentPage({ params }: { params: Promise<{ name
           </Text>
           <CodeBlock
             language="tsx"
-            code={`import { ${importNames} } from "@unified-ui/react/${meta.name}";`}
+            code={`import { ${importNames} } from "@ux-sting/react/${meta.name}";`}
             className="my-0"
           />
           <Text size="sm" variant="muted">
             … or copy the source into your project and own it:
           </Text>
-          <CodeBlock language="bash" code={`npx unified-ui add ${meta.name}`} className="my-0" />
+          <CodeBlock language="bash" code={`npx ux-sting add ${meta.name}`} className="my-0" />
         </section>
 
         <section id="examples" aria-labelledby="examples-h" className="grid gap-4">

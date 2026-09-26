@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HomeIcon, InboxIcon, SettingsIcon } from "@unified-ui/icons";
+import { HomeIcon, InboxIcon, SettingsIcon } from "@ux-sting/icons";
 import {
   Sidebar,
   SidebarContent,

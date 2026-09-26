@@ -1,7 +1,7 @@
 "use client";
-import { NavigationRail, NavigationRailItem } from "@unified-ui/react/navigation-rail";
-import { CountBadge } from "@unified-ui/react/badge";
-import { BellIcon, CalendarIcon, HomeIcon, SettingsIcon } from "@unified-ui/icons";
+import { NavigationRail, NavigationRailItem } from "@ux-sting/react/navigation-rail";
+import { CountBadge } from "@ux-sting/react/badge";
+import { BellIcon, CalendarIcon, HomeIcon, SettingsIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

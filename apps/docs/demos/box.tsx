@@ -1,5 +1,5 @@
 "use client";
-import { Box } from "@unified-ui/react/box";
+import { Box } from "@ux-sting/react/box";
 
 export function Basic() {
   return (

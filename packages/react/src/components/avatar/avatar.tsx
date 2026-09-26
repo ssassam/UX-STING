@@ -1,5 +1,5 @@
 "use client";
-import { cn, createVariants, getInitials, type VariantProps } from "@unified-ui/utils";
+import { cn, createVariants, getInitials, type VariantProps } from "@ux-sting/utils";
 import {
   Children,
   forwardRef,

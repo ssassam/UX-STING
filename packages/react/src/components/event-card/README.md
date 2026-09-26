@@ -1,6 +1,6 @@
 # EventCard
 
-> Patterns · `@unified-ui/react/event-card`
+> Patterns · `@ux-sting/react/event-card`
 
 Event listing with localized date block, time range and venue.
 
@@ -13,13 +13,13 @@ Use for events, classes and bookings.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { EventCard } from "@unified-ui/react/event-card";
+import { EventCard } from "@ux-sting/react/event-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add event-card
+npx ux-sting add event-card
 ```
 
 ## Accessibility

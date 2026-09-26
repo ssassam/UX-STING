@@ -1,5 +1,5 @@
 "use client";
-import { Spinner } from "@unified-ui/react/spinner";
+import { Spinner } from "@ux-sting/react/spinner";
 
 export function Sizes() {
   return (

@@ -1,9 +1,9 @@
 "use client";
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge } from "@unified-ui/react/badge";
-import { List, ListItem } from "@unified-ui/react/list";
-import { Switch } from "@unified-ui/react/switch";
-import { ChevronRightIcon } from "@unified-ui/icons";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge } from "@ux-sting/react/badge";
+import { List, ListItem } from "@ux-sting/react/list";
+import { Switch } from "@ux-sting/react/switch";
+import { ChevronRightIcon } from "@ux-sting/icons";
 
 export function Rows() {
   return (

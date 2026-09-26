@@ -1,6 +1,6 @@
 "use client";
-import { useMergedRefs } from "@unified-ui/hooks";
-import { cn } from "@unified-ui/utils";
+import { useMergedRefs } from "@ux-sting/hooks";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useCallback, useEffect, useRef, type TextareaHTMLAttributes } from "react";
 import { controlVariants } from "../../lib/control.js";
 import { useFieldControlProps } from "../../lib/field.js";

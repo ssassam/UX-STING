@@ -1,6 +1,6 @@
 # ProductCard
 
-> Patterns · `@unified-ui/react/product-card`
+> Patterns · `@ux-sting/react/product-card`
 
 Marketplace product tile with price, rating, badges and actions.
 
@@ -13,13 +13,13 @@ Use in product grids and recommendations.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ProductCard } from "@unified-ui/react/product-card";
+import { ProductCard } from "@ux-sting/react/product-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add product-card
+npx ux-sting add product-card
 ```
 
 ## Accessibility

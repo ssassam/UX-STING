@@ -11,11 +11,11 @@ import {
   StoreIcon,
   UserIcon,
   UsersIcon,
-} from "@unified-ui/icons";
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge, CountBadge } from "@unified-ui/react/badge";
-import { Button, IconButton } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+} from "@ux-sting/icons";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge, CountBadge } from "@ux-sting/react/badge";
+import { Button, IconButton } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
   CommandDialog,
   CommandEmpty,
@@ -23,7 +23,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@unified-ui/react/command";
+} from "@ux-sting/react/command";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,7 +31,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@unified-ui/react/dropdown-menu";
+} from "@ux-sting/react/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -42,8 +42,8 @@ import {
   SidebarItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@unified-ui/react/sidebar";
-import { Kbd } from "@unified-ui/react/typography";
+} from "@ux-sting/react/sidebar";
+import { Kbd } from "@ux-sting/react/typography";
 import NextLink from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";

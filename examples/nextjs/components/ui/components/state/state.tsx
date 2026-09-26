@@ -1,5 +1,5 @@
-import { AlertTriangleIcon, CheckCircle2Icon, InboxIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { AlertTriangleIcon, CheckCircle2Icon, InboxIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { Spinner } from "../spinner/spinner";
 

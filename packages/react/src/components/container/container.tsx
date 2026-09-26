@@ -1,5 +1,5 @@
-import { Slot } from "@unified-ui/primitives";
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { Slot } from "@ux-sting/primitives";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type ElementType } from "react";
 import type { PolymorphicProps } from "../../lib/polymorphic.js";
 

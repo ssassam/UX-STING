@@ -1,6 +1,6 @@
 # AlertDialog
 
-> Overlays · `@unified-ui/react/alert-dialog`
+> Overlays · `@ux-sting/react/alert-dialog`
 
 Interrupting confirmation for consequential or destructive actions.
 
@@ -13,13 +13,13 @@ Use before deleting, discarding changes or irreversible actions.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { AlertDialog, AlertDialogTrigger, AlertDialogContent } from "@unified-ui/react/alert-dialog";
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent } from "@ux-sting/react/alert-dialog";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add alert-dialog
+npx ux-sting add alert-dialog
 ```
 
 ## Accessibility

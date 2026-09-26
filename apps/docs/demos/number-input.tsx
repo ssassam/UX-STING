@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { NumberInput } from "@unified-ui/react/number-input";
+import { Field } from "@ux-sting/react/field";
+import { NumberInput } from "@ux-sting/react/number-input";
 
 export function Basic() {
   return (

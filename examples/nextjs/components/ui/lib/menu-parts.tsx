@@ -1,6 +1,6 @@
 "use client";
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CheckIcon, ChevronRightIcon, CircleIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import {
   forwardRef,
   type ComponentPropsWithoutRef,

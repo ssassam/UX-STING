@@ -1,5 +1,5 @@
-import { MapPinIcon, NavigationIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { MapPinIcon, NavigationIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 
 export interface LocationProps extends HTMLAttributes<HTMLElement> {

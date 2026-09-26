@@ -1,6 +1,6 @@
 # PasswordInput
 
-> Forms · `@unified-ui/react/password-input`
+> Forms · `@ux-sting/react/password-input`
 
 Password field with an accessible show/hide toggle.
 
@@ -13,13 +13,13 @@ Use for sign-in and account creation.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { PasswordInput } from "@unified-ui/react/password-input";
+import { PasswordInput } from "@ux-sting/react/password-input";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add password-input
+npx ux-sting add password-input
 ```
 
 ## Accessibility

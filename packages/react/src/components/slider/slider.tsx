@@ -1,6 +1,6 @@
 "use client";
 import * as SliderPrimitive from "@radix-ui/react-slider";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { useLocale } from "../../provider/context.js";
 

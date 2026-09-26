@@ -1,11 +1,11 @@
 "use client";
-import { MailIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { Card } from "@unified-ui/react/card";
-import { Field } from "@unified-ui/react/field";
-import { Form } from "@unified-ui/react/form";
-import { Input } from "@unified-ui/react/input";
-import { SuccessState } from "@unified-ui/react/state";
+import { MailIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { Card } from "@ux-sting/react/card";
+import { Field } from "@ux-sting/react/field";
+import { Form } from "@ux-sting/react/form";
+import { Input } from "@ux-sting/react/input";
+import { SuccessState } from "@ux-sting/react/state";
 import { useState } from "react";
 
 export function Newsletter() {

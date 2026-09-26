@@ -1,6 +1,6 @@
 "use client";
-import { CategoryCard, CityCard } from "@unified-ui/react/category-card";
-import { BedIcon, CoffeeIcon, DumbbellIcon, UtensilsIcon } from "@unified-ui/icons";
+import { CategoryCard, CityCard } from "@ux-sting/react/category-card";
+import { BedIcon, CoffeeIcon, DumbbellIcon, UtensilsIcon } from "@ux-sting/icons";
 import { img } from "./_data";
 
 export function Categories() {

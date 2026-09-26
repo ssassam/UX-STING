@@ -1,6 +1,6 @@
 # TimePicker
 
-> Date & time · `@unified-ui/react/time-picker`
+> Date & time · `@ux-sting/react/time-picker`
 
 Searchable time selector with locale-formatted options and min/max/step.
 
@@ -13,13 +13,13 @@ Use for appointment times and opening hours.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { TimePicker } from "@unified-ui/react/time-picker";
+import { TimePicker } from "@ux-sting/react/time-picker";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add time-picker
+npx ux-sting add time-picker
 ```
 
 ## Accessibility

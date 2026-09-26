@@ -1,5 +1,5 @@
 "use client";
-import { Audio, Image, ImageGallery, Video } from "@unified-ui/react/media";
+import { Audio, Image, ImageGallery, Video } from "@ux-sting/react/media";
 import { img } from "./_data";
 
 const gallery = [

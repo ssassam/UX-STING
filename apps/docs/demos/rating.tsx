@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Rating, ReviewStars } from "@unified-ui/react/rating";
+import { Rating, ReviewStars } from "@ux-sting/react/rating";
 
 export function Interactive() {
   const [value, setValue] = useState(3);

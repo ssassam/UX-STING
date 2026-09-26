@@ -1,10 +1,10 @@
 "use client";
-import { HeartIcon, ShoppingCartIcon } from "@unified-ui/icons";
-import { Badge } from "@unified-ui/react/badge";
-import { Button, IconButton } from "@unified-ui/react/button";
-import { Price } from "@unified-ui/react/price";
-import { ProductCard } from "@unified-ui/react/product-card";
-import { toast } from "@unified-ui/react/toast";
+import { HeartIcon, ShoppingCartIcon } from "@ux-sting/icons";
+import { Badge } from "@ux-sting/react/badge";
+import { Button, IconButton } from "@ux-sting/react/button";
+import { Price } from "@ux-sting/react/price";
+import { ProductCard } from "@ux-sting/react/product-card";
+import { toast } from "@ux-sting/react/toast";
 import { useState } from "react";
 import { useCart } from "../app/providers";
 import type { Product } from "../lib/data";

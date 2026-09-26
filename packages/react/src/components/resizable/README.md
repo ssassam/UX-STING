@@ -1,6 +1,6 @@
 # Resizable
 
-> Foundations · `@unified-ui/react/resizable`
+> Foundations · `@ux-sting/react/resizable`
 
 Split views with draggable, keyboard-accessible handles.
 
@@ -15,13 +15,13 @@ Use for editors, master–detail views and IDE-like layouts on larger screens.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@unified-ui/react/resizable";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@ux-sting/react/resizable";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add resizable
+npx ux-sting add resizable
 ```
 
 ## Accessibility

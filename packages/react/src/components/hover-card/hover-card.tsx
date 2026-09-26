@@ -1,6 +1,6 @@
 "use client";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { floatingSurfaceClass } from "../../lib/overlay.js";
 import { usePortalContainer } from "../../provider/context.js";

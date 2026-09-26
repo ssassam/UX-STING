@@ -1,15 +1,15 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Field, Fieldset } from "@unified-ui/react/field";
-import { Form } from "@unified-ui/react/form";
-import { Input } from "@unified-ui/react/input";
-import { List, ListItem } from "@unified-ui/react/list";
-import { NativeSelect } from "@unified-ui/react/native-select";
-import { Switch } from "@unified-ui/react/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
-import { TimePicker } from "@unified-ui/react/time-picker";
-import { toast } from "@unified-ui/react/toast";
-import { Heading } from "@unified-ui/react/typography";
+import { Button } from "@ux-sting/react/button";
+import { Field, Fieldset } from "@ux-sting/react/field";
+import { Form } from "@ux-sting/react/form";
+import { Input } from "@ux-sting/react/input";
+import { List, ListItem } from "@ux-sting/react/list";
+import { NativeSelect } from "@ux-sting/react/native-select";
+import { Switch } from "@ux-sting/react/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
+import { TimePicker } from "@ux-sting/react/time-picker";
+import { toast } from "@ux-sting/react/toast";
+import { Heading } from "@ux-sting/react/typography";
 
 export default function SettingsPage() {
   return (

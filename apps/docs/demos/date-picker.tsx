@@ -1,6 +1,6 @@
 "use client";
-import { DatePicker, DateRangePicker, DateTimePicker } from "@unified-ui/react/date-picker";
-import { Field } from "@unified-ui/react/field";
+import { DatePicker, DateRangePicker, DateTimePicker } from "@ux-sting/react/date-picker";
+import { Field } from "@ux-sting/react/field";
 
 export function Basic() {
   return (

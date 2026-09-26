@@ -1,8 +1,8 @@
 "use client";
-import { Badge } from "@unified-ui/react/badge";
-import { Button } from "@unified-ui/react/button";
-import { DataTable, type DataTableColumn } from "@unified-ui/react/data-table";
-import { toast } from "@unified-ui/react/toast";
+import { Badge } from "@ux-sting/react/badge";
+import { Button } from "@ux-sting/react/button";
+import { DataTable, type DataTableColumn } from "@ux-sting/react/data-table";
+import { toast } from "@ux-sting/react/toast";
 import { useState } from "react";
 import { bookings as initial, type Booking } from "../lib/data";
 

@@ -1,6 +1,6 @@
 # ReviewCard
 
-> Patterns · `@unified-ui/react/review-card`
+> Patterns · `@ux-sting/react/review-card`
 
 Customer review with rating, expandable text and footer (owner reply).
 
@@ -13,13 +13,13 @@ Use on business, product and service pages.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { ReviewCard } from "@unified-ui/react/review-card";
+import { ReviewCard } from "@ux-sting/react/review-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add review-card
+npx ux-sting add review-card
 ```
 
 ## Accessibility

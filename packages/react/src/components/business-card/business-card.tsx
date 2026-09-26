@@ -1,4 +1,4 @@
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import type { ReactNode } from "react";
 import { Card, CardLink } from "../card/card.js";
 import { Image } from "../media/image.js";

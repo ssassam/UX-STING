@@ -1,6 +1,6 @@
 # Button
 
-> Buttons · `@unified-ui/react/button`
+> Buttons · `@ux-sting/react/button`
 
 Primary action element with variants, sizes, icons and loading state. Also IconButton and ButtonGroup.
 
@@ -15,13 +15,13 @@ Use for actions (submit, open, save). Keep one `default` (primary) button per vi
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Button, IconButton, ButtonGroup } from "@unified-ui/react/button";
+import { Button, IconButton, ButtonGroup } from "@ux-sting/react/button";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add button
+npx ux-sting add button
 ```
 
 ## Accessibility

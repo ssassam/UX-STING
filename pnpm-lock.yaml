@@ -89,22 +89,22 @@ importers:
 
   apps/docs:
     dependencies:
-      '@unified-ui/hooks':
+      '@ux-sting/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/themes':
+      '@ux-sting/themes':
         specifier: workspace:^
         version: link:../../packages/themes
-      '@unified-ui/tokens':
+      '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../../packages/tokens
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -138,16 +138,16 @@ importers:
 
   apps/playground:
     dependencies:
-      '@unified-ui/hooks':
+      '@ux-sting/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       react:
@@ -181,10 +181,10 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
       react:
@@ -227,13 +227,13 @@ importers:
 
   examples/dashboard:
     dependencies:
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -267,13 +267,13 @@ importers:
 
   examples/directory:
     dependencies:
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -307,13 +307,13 @@ importers:
 
   examples/editorial:
     dependencies:
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -347,13 +347,13 @@ importers:
 
   examples/marketplace:
     dependencies:
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/react':
+      '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -405,22 +405,22 @@ importers:
       '@radix-ui/react-tabs':
         specifier: ^1.1.21
         version: 1.1.21(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@unified-ui/hooks':
+      '@ux-sting/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@unified-ui/primitives':
+      '@ux-sting/primitives':
         specifier: workspace:^
         version: link:../../packages/primitives
-      '@unified-ui/themes':
+      '@ux-sting/themes':
         specifier: workspace:^
         version: link:../../packages/themes
-      '@unified-ui/tokens':
+      '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../../packages/tokens
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../../packages/utils
       next:
@@ -463,13 +463,13 @@ importers:
 
   packages/core:
     dependencies:
-      '@unified-ui/themes':
+      '@ux-sting/themes':
         specifier: workspace:^
         version: link:../themes
-      '@unified-ui/tokens':
+      '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../tokens
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../utils
     devDependencies:
@@ -479,7 +479,7 @@ importers:
 
   packages/hooks:
     dependencies:
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../utils
       react:
@@ -502,10 +502,10 @@ importers:
 
   packages/primitives:
     dependencies:
-      '@unified-ui/hooks':
+      '@ux-sting/hooks':
         specifier: workspace:^
         version: link:../hooks
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../utils
       react:
@@ -581,22 +581,22 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.16
         version: 1.2.16(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@unified-ui/hooks':
+      '@ux-sting/hooks':
         specifier: workspace:^
         version: link:../hooks
-      '@unified-ui/icons':
+      '@ux-sting/icons':
         specifier: workspace:^
         version: link:../icons
-      '@unified-ui/primitives':
+      '@ux-sting/primitives':
         specifier: workspace:^
         version: link:../primitives
-      '@unified-ui/themes':
+      '@ux-sting/themes':
         specifier: workspace:^
         version: link:../themes
-      '@unified-ui/tokens':
+      '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../tokens
-      '@unified-ui/utils':
+      '@ux-sting/utils':
         specifier: workspace:^
         version: link:../utils
       react:
@@ -618,7 +618,7 @@ importers:
 
   packages/themes:
     dependencies:
-      '@unified-ui/tokens':
+      '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../tokens
     devDependencies:

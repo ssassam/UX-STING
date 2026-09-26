@@ -1,6 +1,6 @@
 # Switch
 
-> Forms · `@unified-ui/react/switch`
+> Forms · `@ux-sting/react/switch`
 
 On/off control that takes effect immediately.
 
@@ -15,13 +15,13 @@ Use for settings and preferences.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Switch } from "@unified-ui/react/switch";
+import { Switch } from "@ux-sting/react/switch";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add switch
+npx ux-sting add switch
 ```
 
 ## Accessibility

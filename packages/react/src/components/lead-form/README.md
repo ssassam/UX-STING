@@ -1,6 +1,6 @@
 # LeadForm
 
-> Patterns · `@unified-ui/react/lead-form`
+> Patterns · `@ux-sting/react/lead-form`
 
 Contact/quote form with validation and success state, plus ClaimBusiness call-to-action.
 
@@ -13,13 +13,13 @@ Use for lead generation and business claiming flows.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { LeadForm, ClaimBusiness } from "@unified-ui/react/lead-form";
+import { LeadForm, ClaimBusiness } from "@ux-sting/react/lead-form";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add lead-form
+npx ux-sting add lead-form
 ```
 
 ## Accessibility

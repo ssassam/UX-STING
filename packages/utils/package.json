@@ -1,7 +1,7 @@
 {
-  "name": "@unified-ui/utils",
+  "name": "@ux-sting/utils",
   "version": "0.1.0",
-  "description": "Framework-agnostic utilities for unified-ui: class merging, variants, keyboard, focus, responsive, formatting and theme helpers.",
+  "description": "Framework-agnostic utilities for ux-sting: class merging, variants, keyboard, focus, responsive, formatting and theme helpers.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,

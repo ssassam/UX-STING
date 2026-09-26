@@ -1,5 +1,5 @@
 "use client";
-import { ScrollArea } from "@unified-ui/react/scroll-area";
+import { ScrollArea } from "@ux-sting/react/scroll-area";
 
 export function Basic() {
   return (

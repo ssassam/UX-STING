@@ -1,6 +1,6 @@
 "use client";
-import { EyeIcon, EyeOffIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { EyeIcon, EyeOffIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useState } from "react";
 import { useMessages } from "../../provider/context.js";
 import { Input, type InputProps } from "../input/input.js";

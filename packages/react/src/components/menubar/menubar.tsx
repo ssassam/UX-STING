@@ -1,6 +1,6 @@
 "use client";
 import * as P from "@radix-ui/react-menubar";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import {
   forwardRef,
   type ComponentPropsWithoutRef,

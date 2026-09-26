@@ -9,7 +9,7 @@ export interface DynamicIconProps extends IconProps {
 /**
  * Renders an icon by name: `<Icon name="search" />`. Convenient for
  * data-driven UIs, but it references every icon — prefer direct imports
- * (`import { SearchIcon } from "@unified-ui/icons"`) for the smallest bundles.
+ * (`import { SearchIcon } from "@ux-sting/icons"`) for the smallest bundles.
  */
 export const Icon = forwardRef<SVGSVGElement, DynamicIconProps>(function Icon(
   { name, ...props },

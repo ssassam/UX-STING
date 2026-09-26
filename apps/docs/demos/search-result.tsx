@@ -1,8 +1,8 @@
 "use client";
-import { Badge } from "@unified-ui/react/badge";
-import { ReviewStars } from "@unified-ui/react/rating";
-import { SearchResult, SearchResults } from "@unified-ui/react/search-result";
-import { NativeSelect } from "@unified-ui/react/native-select";
+import { Badge } from "@ux-sting/react/badge";
+import { ReviewStars } from "@ux-sting/react/rating";
+import { SearchResult, SearchResults } from "@ux-sting/react/search-result";
+import { NativeSelect } from "@ux-sting/react/native-select";
 
 export function Results() {
   return (

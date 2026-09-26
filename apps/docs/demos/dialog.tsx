@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
+import { Button } from "@ux-sting/react/button";
 import {
   Dialog,
   DialogBody,
@@ -10,10 +10,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@unified-ui/react/dialog";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
-import { Textarea } from "@unified-ui/react/textarea";
+} from "@ux-sting/react/dialog";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
+import { Textarea } from "@ux-sting/react/textarea";
 
 export function Basic() {
   return (

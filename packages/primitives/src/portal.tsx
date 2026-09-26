@@ -1,7 +1,7 @@
 "use client";
 import { useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { useIsomorphicLayoutEffect } from "@unified-ui/hooks";
+import { useIsomorphicLayoutEffect } from "@ux-sting/hooks";
 
 export interface PortalProps {
   children?: ReactNode;

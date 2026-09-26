@@ -1,9 +1,9 @@
 ---
-name: unified-ui
-description: "Build, review or extend interfaces with the unified-ui React system in this repository — choosing components, applying tokens/themes, and running the UX quality checks. Use when creating pages, components, examples or docs demos, fixing accessibility/responsive/RTL issues, or adding a new component to packages/react. Adapted from the MIT-licensed UI/UX Pro Max skill (see THIRD_PARTY_NOTICES.md)."
+name: UX-STING
+description: "Build, review or extend interfaces with the UX-STING React system in this repository — choosing components, applying tokens/themes, and running the UX quality checks. Use when creating pages, components, examples or docs demos, fixing accessibility/responsive/RTL issues, or adding a new component to packages/react. Adapted from the MIT-licensed UI/UX Pro Max skill (see THIRD_PARTY_NOTICES.md)."
 ---
 
-# unified-ui — building and reviewing UI
+# UX-STING — building and reviewing UI
 
 Use this skill whenever a task changes how something in this repo **looks, feels, moves, or is interacted with**. Skip it for pure build tooling or non-visual scripts.
 
@@ -26,7 +26,7 @@ Use this skill whenever a task changes how something in this repo **looks, feels
 | Loading > 1s, content-shaped | `Skeleton` | spinner-only screens |
 | No data / error | `EmptyState` / `ErrorState` with an action | blank areas |
 
-Import per component: `import { Button } from "@unified-ui/react/button"`.
+Import per component: `import { Button } from "@ux-sting/react/button"`.
 
 ## 2. Rules by priority (fix in this order)
 
@@ -59,7 +59,7 @@ Run the automated checks:
 ```bash
 pnpm typecheck && pnpm lint && pnpm test
 pnpm ux-audit                                  # static UX rules
-pnpm --filter @unified-ui/docs build && (cd apps/docs && npx next start -p 3100 &)
+pnpm --filter @ux-sting/docs build && (cd apps/docs && npx next start -p 3100 &)
 node scripts/browser-audit.ts http://localhost:3100 /components/<name>   # axe incl. contrast + overflow at 390/1280px, light/dark
 ```
 
@@ -72,7 +72,7 @@ Then walk the pre-delivery checklist:
 - [ ] Reduced motion: nothing essential depends on animation; autoplay stops
 - [ ] Touch: targets ≥ 44px, no hover-only affordances, drag has alternatives
 - [ ] Forms: visible labels, specific errors with recovery, error summary focus after failed submit
-- [ ] Icons from `@unified-ui/icons` only; decorative icons hidden; icon buttons named
+- [ ] Icons from `@ux-sting/icons` only; decorative icons hidden; icon buttons named
 - [ ] RTL (`locale="ar"`) layout and keyboard mirroring checked
 - [ ] Only semantic tokens — `pnpm ux-audit` passes
 

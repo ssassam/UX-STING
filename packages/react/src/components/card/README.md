@@ -1,6 +1,6 @@
 # Card
 
-> Data display · `@unified-ui/react/card`
+> Data display · `@ux-sting/react/card`
 
 Composable content container: header, title, description, action, media, content, footer and stretched link.
 
@@ -13,13 +13,13 @@ Use to group related content and for listing items.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Card, CardHeader, CardTitle } from "@unified-ui/react/card";
+import { Card, CardHeader, CardTitle } from "@ux-sting/react/card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add card
+npx ux-sting add card
 ```
 
 ## Accessibility

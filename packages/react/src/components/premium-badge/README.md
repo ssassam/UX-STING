@@ -1,6 +1,6 @@
 # PremiumBadge
 
-> Patterns · `@unified-ui/react/premium-badge`
+> Patterns · `@ux-sting/react/premium-badge`
 
 PremiumBadge, VerifiedBadge and FeaturedBadge.
 
@@ -13,13 +13,13 @@ Use to mark paid, verified or featured listings.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { PremiumBadge, VerifiedBadge, FeaturedBadge } from "@unified-ui/react/premium-badge";
+import { PremiumBadge, VerifiedBadge, FeaturedBadge } from "@ux-sting/react/premium-badge";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add premium-badge
+npx ux-sting add premium-badge
 ```
 
 ## Accessibility

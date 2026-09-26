@@ -1,5 +1,5 @@
 {
-  "name": "@unified-ui/playground",
+  "name": "@ux-sting/playground",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,10 +12,10 @@
     "typecheck": "node ../docs/scripts/collect-demos.ts && tsc --noEmit"
   },
   "dependencies": {
-    "@unified-ui/icons": "workspace:^",
-    "@unified-ui/react": "workspace:^",
-    "@unified-ui/hooks": "workspace:^",
-    "@unified-ui/utils": "workspace:^",
+    "@ux-sting/icons": "workspace:^",
+    "@ux-sting/react": "workspace:^",
+    "@ux-sting/hooks": "workspace:^",
+    "@ux-sting/utils": "workspace:^",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

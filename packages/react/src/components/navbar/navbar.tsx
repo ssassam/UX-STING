@@ -1,8 +1,8 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { MenuIcon } from "@unified-ui/icons";
-import { Slot } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { MenuIcon } from "@ux-sting/icons";
+import { Slot } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

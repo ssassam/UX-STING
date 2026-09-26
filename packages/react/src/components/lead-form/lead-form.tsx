@@ -1,6 +1,6 @@
 "use client";
-import { CheckCircle2Icon, Building2Icon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CheckCircle2Icon, Building2Icon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { useState, type ReactNode } from "react";
 import { Button } from "../button/button.js";
 import { Card } from "../card/card.js";

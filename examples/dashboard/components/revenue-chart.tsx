@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@unified-ui/react/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@ux-sting/react/card";
 import { revenueByMonth } from "../lib/data";
 
 const eur = (v: number) =>

@@ -1,6 +1,6 @@
 "use client";
-import { Metric, Stat, StatCard, StatGroup } from "@unified-ui/react/stat";
-import { EyeIcon, StarIcon, UsersIcon, WalletIcon } from "@unified-ui/icons";
+import { Metric, Stat, StatCard, StatGroup } from "@ux-sting/react/stat";
+import { EyeIcon, StarIcon, UsersIcon, WalletIcon } from "@ux-sting/icons";
 
 export function Cards() {
   return (

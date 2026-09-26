@@ -1,7 +1,7 @@
-import { ArticleCard } from "@unified-ui/react/article-card";
-import { List, ListItem } from "@unified-ui/react/list";
-import { Separator } from "@unified-ui/react/separator";
-import { Heading } from "@unified-ui/react/typography";
+import { ArticleCard } from "@ux-sting/react/article-card";
+import { List, ListItem } from "@ux-sting/react/list";
+import { Separator } from "@ux-sting/react/separator";
+import { Heading } from "@ux-sting/react/typography";
 import { Newsletter } from "../components/newsletter";
 import { SectionTabs } from "../components/section-tabs";
 import { articles, formatDate } from "../lib/data";

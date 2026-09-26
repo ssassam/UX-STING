@@ -1,6 +1,6 @@
 # Avatar
 
-> Data display · `@unified-ui/react/avatar`
+> Data display · `@ux-sting/react/avatar`
 
 Image with initials fallback, presence status and AvatarGroup overflow.
 
@@ -13,13 +13,13 @@ Use for people, businesses and brands.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Avatar, AvatarGroup } from "@unified-ui/react/avatar";
+import { Avatar, AvatarGroup } from "@ux-sting/react/avatar";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add avatar
+npx ux-sting add avatar
 ```
 
 ## Accessibility

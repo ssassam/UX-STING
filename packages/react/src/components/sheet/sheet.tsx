@@ -1,6 +1,6 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef, type HTMLAttributes } from "react";
 import { CloseButton, overlayClass } from "../../lib/overlay.js";
 import { usePortalContainer } from "../../provider/context.js";

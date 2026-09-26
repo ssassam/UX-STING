@@ -1,1 +1,1 @@
-export { VisuallyHidden } from "@unified-ui/primitives";
+export { VisuallyHidden } from "@ux-sting/primitives";

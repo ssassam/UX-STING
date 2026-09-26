@@ -1,6 +1,6 @@
 # NavigationRail
 
-> Navigation · `@unified-ui/react/navigation-rail`
+> Navigation · `@ux-sting/react/navigation-rail`
 
 Compact vertical navigation (icon + label) for tablets.
 
@@ -13,13 +13,13 @@ Use between phone bottom navigation and desktop sidebars.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { NavigationRail, NavigationRailItem } from "@unified-ui/react/navigation-rail";
+import { NavigationRail, NavigationRailItem } from "@ux-sting/react/navigation-rail";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add navigation-rail
+npx ux-sting add navigation-rail
 ```
 
 ## Accessibility

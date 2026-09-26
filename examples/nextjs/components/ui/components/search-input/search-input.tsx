@@ -1,13 +1,13 @@
 "use client";
-import { useControllableState, useMergedRefs } from "@unified-ui/hooks";
-import { SearchIcon, XIcon } from "@unified-ui/icons";
-import { cn, formatShortcut } from "@unified-ui/utils";
+import { useControllableState, useMergedRefs } from "@ux-sting/hooks";
+import { SearchIcon, XIcon } from "@ux-sting/icons";
+import { cn, formatShortcut } from "@ux-sting/utils";
 import { forwardRef, useRef, type ChangeEvent, type KeyboardEvent, type ReactNode } from "react";
 import { useMessages } from "../../provider/context";
 import { Input, type InputProps } from "../input/input";
 import { InputGroup, InputGroupAction, InputGroupAddon } from "../input-group/input-group";
 import { Spinner } from "../spinner/spinner";
-import { useHotkey } from "@unified-ui/hooks";
+import { useHotkey } from "@ux-sting/hooks";
 
 export interface SearchInputProps extends Omit<
   InputProps,

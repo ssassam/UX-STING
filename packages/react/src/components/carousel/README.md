@@ -1,6 +1,6 @@
 # Carousel
 
-> Media · `@unified-ui/react/carousel`
+> Media · `@ux-sting/react/carousel`
 
 Scroll-snap carousel with controls, dots and pausable autoplay.
 
@@ -15,13 +15,13 @@ Use for galleries and featured content on small screens.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Carousel, CarouselPrevious, CarouselNext } from "@unified-ui/react/carousel";
+import { Carousel, CarouselPrevious, CarouselNext } from "@ux-sting/react/carousel";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add carousel
+npx ux-sting add carousel
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 # MobileNavigation
 
-> Navigation · `@unified-ui/react/mobile-navigation`
+> Navigation · `@ux-sting/react/mobile-navigation`
 
 Bottom tab bar for top-level destinations on phones.
 
@@ -13,13 +13,13 @@ Use for 3–5 top-level destinations in mobile-first apps.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { MobileNavigation, MobileNavigationItem } from "@unified-ui/react/mobile-navigation";
+import { MobileNavigation, MobileNavigationItem } from "@ux-sting/react/mobile-navigation";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add mobile-navigation
+npx ux-sting add mobile-navigation
 ```
 
 ## Accessibility

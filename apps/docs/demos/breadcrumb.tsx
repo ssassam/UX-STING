@@ -6,7 +6,7 @@ import {
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@unified-ui/react/breadcrumb";
+} from "@ux-sting/react/breadcrumb";
 
 export function Basic() {
   return (

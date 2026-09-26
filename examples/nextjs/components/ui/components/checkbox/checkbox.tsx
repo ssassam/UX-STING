@@ -1,7 +1,7 @@
 "use client";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { CheckIcon, MinusIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CheckIcon, MinusIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,
@@ -12,7 +12,7 @@ import {
   type ReactNode,
 } from "react";
 import { useFieldControlProps } from "../../lib/field";
-import { useControllableState } from "@unified-ui/hooks";
+import { useControllableState } from "@ux-sting/hooks";
 
 export interface CheckboxProps extends ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
   /** Inline label rendered next to the box (clickable). */

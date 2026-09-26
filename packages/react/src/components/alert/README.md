@@ -1,6 +1,6 @@
 # Alert
 
-> Feedback · `@unified-ui/react/alert`
+> Feedback · `@ux-sting/react/alert`
 
 Inline contextual message (info, success, warning, destructive) and page-level Banner.
 
@@ -13,13 +13,13 @@ Use for messages tied to a section or the whole page.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Alert, AlertTitle, AlertDescription } from "@unified-ui/react/alert";
+import { Alert, AlertTitle, AlertDescription } from "@ux-sting/react/alert";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add alert
+npx ux-sting add alert
 ```
 
 ## Accessibility

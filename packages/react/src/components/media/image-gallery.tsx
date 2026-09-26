@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { useState } from "react";
 import { Image } from "./image.js";
 import { Lightbox, type LightboxImage } from "./lightbox.js";

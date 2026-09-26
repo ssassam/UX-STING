@@ -1,6 +1,6 @@
 # Progress
 
-> Feedback · `@unified-ui/react/progress`
+> Feedback · `@ux-sting/react/progress`
 
 Linear and circular progress, determinate or indeterminate.
 
@@ -13,13 +13,13 @@ Use for uploads and multi-step processes with known progress.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Progress, CircularProgress } from "@unified-ui/react/progress";
+import { Progress, CircularProgress } from "@ux-sting/react/progress";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add progress
+npx ux-sting add progress
 ```
 
 ## Accessibility

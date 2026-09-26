@@ -1,4 +1,4 @@
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes } from "react";
 
 export const spinnerVariants = createVariants({

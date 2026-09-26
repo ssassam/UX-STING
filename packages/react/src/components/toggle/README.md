@@ -1,6 +1,6 @@
 # Toggle
 
-> Buttons · `@unified-ui/react/toggle`
+> Buttons · `@ux-sting/react/toggle`
 
 Two-state button (`aria-pressed`) and ToggleGroup with roving focus.
 
@@ -15,13 +15,13 @@ Use for formatting toolbars, view switches (list/grid) and filters that apply im
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Toggle, ToggleGroup, ToggleGroupItem } from "@unified-ui/react/toggle";
+import { Toggle, ToggleGroup, ToggleGroupItem } from "@ux-sting/react/toggle";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add toggle
+npx ux-sting add toggle
 ```
 
 ## Accessibility

@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, AvatarGroup } from "@unified-ui/react/avatar";
+import { Avatar, AvatarGroup } from "@ux-sting/react/avatar";
 
 export function Sizes() {
   return (

@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { toast } from "@unified-ui/react/toast";
+import { Button } from "@ux-sting/react/button";
+import { toast } from "@ux-sting/react/toast";
 
 export function Variants() {
   return (

@@ -6,11 +6,11 @@ import {
   UtensilsIcon,
   WrenchIcon,
 } from "./icons";
-import { CategoryCard, CityCard } from "@unified-ui/react/category-card";
-import { Container } from "@unified-ui/react/container";
-import { Grid } from "@unified-ui/react/grid";
-import { ClaimBusiness } from "@unified-ui/react/lead-form";
-import { Heading, Text } from "@unified-ui/react/typography";
+import { CategoryCard, CityCard } from "@ux-sting/react/category-card";
+import { Container } from "@ux-sting/react/container";
+import { Grid } from "@ux-sting/react/grid";
+import { ClaimBusiness } from "@ux-sting/react/lead-form";
+import { Heading, Text } from "@ux-sting/react/typography";
 import { HeroSearch } from "../components/hero-search";
 import { PlaceCard } from "../components/place-card";
 import { categories, cities, places } from "../lib/data";

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type InputHTMLAttributes } from "react";
 import { controlVariants, type ControlSize } from "../../lib/control.js";
 import { useFieldControlProps } from "../../lib/field.js";

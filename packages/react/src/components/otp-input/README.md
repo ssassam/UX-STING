@@ -1,6 +1,6 @@
 # OTPInput
 
-> Forms · `@unified-ui/react/otp-input`
+> Forms · `@ux-sting/react/otp-input`
 
 One-time code entry with paste, SMS autofill and grouping.
 
@@ -13,13 +13,13 @@ Use for verification codes and PINs.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { OTPInput } from "@unified-ui/react/otp-input";
+import { OTPInput } from "@ux-sting/react/otp-input";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add otp-input
+npx ux-sting add otp-input
 ```
 
 ## Accessibility

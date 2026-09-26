@@ -1,8 +1,8 @@
 {
-  "name": "unified-ui-monorepo",
+  "name": "ux-sting-monorepo",
   "private": true,
   "version": "0.0.0",
-  "description": "unified-ui — an accessible, themeable, tree-shakeable React UI system.",
+  "description": "ux-sting — an accessible, themeable, tree-shakeable React UI system.",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.33.0",

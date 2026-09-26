@@ -1,4 +1,4 @@
-import type { ComboboxOption } from "@unified-ui/react/combobox";
+import type { ComboboxOption } from "@ux-sting/react/combobox";
 
 export const cities: ComboboxOption[] = [
   { value: "casablanca", label: "Casablanca", group: "Morocco", description: "3.7M people" },

@@ -1,7 +1,7 @@
 "use client";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { controlVariants, type ControlSize } from "../../lib/control.js";
 import { useFieldControlProps } from "../../lib/field.js";

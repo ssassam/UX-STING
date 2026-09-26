@@ -1,6 +1,6 @@
 # FileUpload
 
-> Forms · `@unified-ui/react/file-upload`
+> Forms · `@ux-sting/react/file-upload`
 
 Dropzone and managed file list with validation, progress and removal.
 
@@ -13,13 +13,13 @@ Use for documents, photos and attachments.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Dropzone, FileUpload } from "@unified-ui/react/file-upload";
+import { Dropzone, FileUpload } from "@ux-sting/react/file-upload";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add file-upload
+npx ux-sting add file-upload
 ```
 
 ## Accessibility

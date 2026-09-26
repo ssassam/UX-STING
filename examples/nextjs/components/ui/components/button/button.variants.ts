@@ -1,4 +1,4 @@
-import { createVariants } from "@unified-ui/utils";
+import { createVariants } from "@ux-sting/utils";
 
 export const buttonVariants = createVariants({
   base: [

@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Checkbox } from "@unified-ui/react/checkbox";
-import { FilterChips, FilterPanel, FilterSection } from "@unified-ui/react/filter-panel";
-import { Rating } from "@unified-ui/react/rating";
-import { RangeSlider } from "@unified-ui/react/slider";
-import { Switch } from "@unified-ui/react/switch";
+import { Checkbox } from "@ux-sting/react/checkbox";
+import { FilterChips, FilterPanel, FilterSection } from "@ux-sting/react/filter-panel";
+import { Rating } from "@ux-sting/react/rating";
+import { RangeSlider } from "@ux-sting/react/slider";
+import { Switch } from "@ux-sting/react/switch";
 
 const options = ["Wi-Fi", "Terrace", "Parking", "Pet friendly"];
 

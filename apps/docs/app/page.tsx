@@ -1,8 +1,8 @@
-import { Badge } from "@unified-ui/react/badge";
-import { Button } from "@unified-ui/react/button";
-import { Card, CardDescription, CardHeader, CardLink, CardTitle } from "@unified-ui/react/card";
-import { Container } from "@unified-ui/react/container";
-import { Heading, Text } from "@unified-ui/react/typography";
+import { Badge } from "@ux-sting/react/badge";
+import { Button } from "@ux-sting/react/button";
+import { Card, CardDescription, CardHeader, CardLink, CardTitle } from "@ux-sting/react/card";
+import { Container } from "@ux-sting/react/container";
+import { Heading, Text } from "@ux-sting/react/typography";
 import { CodeBlock } from "../site/code-block";
 import { FirstDemo } from "../site/demo";
 import { componentsByCategory } from "../site/nav";
@@ -12,7 +12,7 @@ const pillars = [
     "Accessible by default",
     "WCAG 2.2 AA: focus management, keyboard support, ARIA patterns and contrast-tested tokens.",
   ],
-  ["Own your components", "Import from the package or copy source with `npx unified-ui add`."],
+  ["Own your components", "Import from the package or copy source with `npx ux-sting add`."],
   [
     "Tokens & themes",
     "Semantic CSS variables, 13 presets including enterprise styles, custom themes, dark, high-contrast and density modes.",
@@ -62,12 +62,12 @@ export default function Home() {
           <div className="min-w-0">
             <CodeBlock
               language="bash"
-              code={"npx unified-ui init\nnpx unified-ui add button dialog data-table"}
+              code={"npx ux-sting init\nnpx ux-sting add button dialog data-table"}
             />
             <CodeBlock
               language="tsx"
               code={
-                'import { Button } from "@unified-ui/react/button";\n\n<Button loading>Save</Button>'
+                'import { Button } from "@ux-sting/react/button";\n\n<Button loading>Save</Button>'
               }
             />
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
       <Container className="grid gap-12 py-16">
         <section aria-labelledby="pillars" className="grid gap-6">
           <Heading id="pillars" level={2}>
-            Why unified-ui
+            Why UX-STING
           </Heading>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map(([title, text]) => (

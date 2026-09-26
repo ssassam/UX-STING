@@ -1,6 +1,6 @@
 "use client";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useId, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { useField, useFieldControlProps } from "../../lib/field.js";
 

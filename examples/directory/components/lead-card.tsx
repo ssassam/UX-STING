@@ -1,8 +1,8 @@
 "use client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@unified-ui/react/card";
-import { DatePicker } from "@unified-ui/react/date-picker";
-import { Field } from "@unified-ui/react/field";
-import { LeadForm } from "@unified-ui/react/lead-form";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@ux-sting/react/card";
+import { DatePicker } from "@ux-sting/react/date-picker";
+import { Field } from "@ux-sting/react/field";
+import { LeadForm } from "@ux-sting/react/lead-form";
 import type { Place } from "../lib/data";
 
 export function LeadCard({ place }: { place: Place }) {

@@ -1,6 +1,6 @@
 # Timeline
 
-> Data display · `@unified-ui/react/timeline`
+> Data display · `@ux-sting/react/timeline`
 
 Chronological events with icons and times.
 
@@ -13,13 +13,13 @@ Use for activity logs, order tracking and history.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Timeline, TimelineItem } from "@unified-ui/react/timeline";
+import { Timeline, TimelineItem } from "@ux-sting/react/timeline";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add timeline
+npx ux-sting add timeline
 ```
 
 ## Accessibility

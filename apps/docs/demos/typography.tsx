@@ -9,7 +9,7 @@ import {
   Link,
   Prose,
   Text,
-} from "@unified-ui/react/typography";
+} from "@ux-sting/react/typography";
 
 export function Headings() {
   return (
@@ -44,8 +44,8 @@ export function TextStyles() {
 export function Inline() {
   return (
     <Text>
-      Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to search, run <Code>pnpm add @unified-ui/react</Code>, or
-      read the <Link href="#docs">documentation</Link> and the{" "}
+      Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to search, run <Code>pnpm add @ux-sting/react</Code>, or read
+      the <Link href="#docs">documentation</Link> and the{" "}
       <Link href="https://www.w3.org/WAI/" external>
         WCAG guide
       </Link>

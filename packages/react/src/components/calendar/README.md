@@ -1,6 +1,6 @@
 # Calendar
 
-> Date & time · `@unified-ui/react/calendar`
+> Date & time · `@ux-sting/react/calendar`
 
 Accessible month grid for single dates and ranges; also MonthPicker and YearPicker.
 
@@ -13,13 +13,13 @@ Use inline for availability views or inside date pickers.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Calendar, MonthPicker, YearPicker } from "@unified-ui/react/calendar";
+import { Calendar, MonthPicker, YearPicker } from "@ux-sting/react/calendar";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add calendar
+npx ux-sting add calendar
 ```
 
 ## Accessibility

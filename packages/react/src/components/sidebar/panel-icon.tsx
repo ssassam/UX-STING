@@ -1,4 +1,4 @@
-import { createIcon } from "@unified-ui/icons";
+import { createIcon } from "@ux-sting/icons";
 
 /** Sidebar toggle glyph (panel with a left column). */
 export const PanelIcon = createIcon("panel-left", [

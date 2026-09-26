@@ -1,5 +1,5 @@
-import { CheckIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CheckIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 
 export interface StepperStep {

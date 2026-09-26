@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { CopyIcon, PencilIcon, Trash2Icon } from "@unified-ui/icons";
+import { CopyIcon, PencilIcon, Trash2Icon } from "@ux-sting/icons";
 import { Button } from "../button/button.js";
 import {
   DropdownMenu,

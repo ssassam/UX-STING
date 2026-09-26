@@ -1,6 +1,6 @@
 # Popover
 
-> Overlays · `@unified-ui/react/popover`
+> Overlays · `@ux-sting/react/popover`
 
 Non-modal floating panel anchored to a trigger.
 
@@ -13,13 +13,13 @@ Use for pickers, quick settings and small forms.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Popover, PopoverTrigger, PopoverAnchor } from "@unified-ui/react/popover";
+import { Popover, PopoverTrigger, PopoverAnchor } from "@ux-sting/react/popover";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add popover
+npx ux-sting add popover
 ```
 
 ## Accessibility

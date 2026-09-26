@@ -1,6 +1,6 @@
 # Drawer
 
-> Overlays · `@unified-ui/react/drawer`
+> Overlays · `@ux-sting/react/drawer`
 
 Bottom drawer with drag-to-dismiss handle for mobile-first flows.
 
@@ -13,13 +13,13 @@ Use Drawer when content should remain spatially connected to the current page on
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Drawer, DrawerTrigger, DrawerClose } from "@unified-ui/react/drawer";
+import { Drawer, DrawerTrigger, DrawerClose } from "@ux-sting/react/drawer";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add drawer
+npx ux-sting add drawer
 ```
 
 ## Accessibility

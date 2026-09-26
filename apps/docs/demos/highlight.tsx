@@ -1,5 +1,5 @@
 "use client";
-import { Highlight } from "@unified-ui/react/highlight";
+import { Highlight } from "@ux-sting/react/highlight";
 
 export function Basic() {
   return (

@@ -1,6 +1,6 @@
 "use client";
-import { Timeline, TimelineItem } from "@unified-ui/react/timeline";
-import { CheckIcon, PackageIcon, TruckIcon } from "@unified-ui/icons";
+import { Timeline, TimelineItem } from "@ux-sting/react/timeline";
+import { CheckIcon, PackageIcon, TruckIcon } from "@ux-sting/icons";
 
 export function Tracking() {
   return (

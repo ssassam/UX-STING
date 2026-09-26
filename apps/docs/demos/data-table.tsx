@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@unified-ui/react/badge";
-import { Button } from "@unified-ui/react/button";
-import { DataGrid, DataTable, type DataTableColumn } from "@unified-ui/react/data-table";
-import { ReviewStars } from "@unified-ui/react/rating";
-import { toast } from "@unified-ui/react/toast";
+import { Badge } from "@ux-sting/react/badge";
+import { Button } from "@ux-sting/react/button";
+import { DataGrid, DataTable, type DataTableColumn } from "@ux-sting/react/data-table";
+import { ReviewStars } from "@ux-sting/react/rating";
+import { toast } from "@ux-sting/react/toast";
 import { placeRows, type PlaceRow } from "./_places";
 
 const columns: DataTableColumn<PlaceRow>[] = [

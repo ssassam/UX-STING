@@ -1,6 +1,6 @@
 "use client";
-import { Location, LocationCard } from "@unified-ui/react/location";
-import { MapPlaceholder } from "@unified-ui/react/map-placeholder";
+import { Location, LocationCard } from "@ux-sting/react/location";
+import { MapPlaceholder } from "@ux-sting/react/map-placeholder";
 
 export function Basic() {
   return (

@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { PasswordInput } from "@unified-ui/react/password-input";
+import { Field } from "@ux-sting/react/field";
+import { PasswordInput } from "@ux-sting/react/password-input";
 
 export function Basic() {
   return (

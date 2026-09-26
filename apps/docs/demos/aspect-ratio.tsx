@@ -1,5 +1,5 @@
 "use client";
-import { AspectRatio } from "@unified-ui/react/aspect-ratio";
+import { AspectRatio } from "@ux-sting/react/aspect-ratio";
 
 export function Basic() {
   return (

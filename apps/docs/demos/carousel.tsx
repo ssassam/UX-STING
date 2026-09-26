@@ -7,8 +7,8 @@ import {
   CarouselNext,
   CarouselPlayToggle,
   CarouselPrevious,
-} from "@unified-ui/react/carousel";
-import { Image } from "@unified-ui/react/media";
+} from "@ux-sting/react/carousel";
+import { Image } from "@ux-sting/react/media";
 import { img } from "./_data";
 
 const photos = [

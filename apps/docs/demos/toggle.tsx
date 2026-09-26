@@ -1,6 +1,6 @@
 "use client";
-import { Toggle, ToggleGroup, ToggleGroupItem } from "@unified-ui/react/toggle";
-import { BoldIcon, ItalicIcon, LayoutGridIcon, ListIcon, UnderlineIcon } from "@unified-ui/icons";
+import { Toggle, ToggleGroup, ToggleGroupItem } from "@ux-sting/react/toggle";
+import { BoldIcon, ItalicIcon, LayoutGridIcon, ListIcon, UnderlineIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

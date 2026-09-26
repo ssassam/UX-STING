@@ -1,6 +1,6 @@
 # InputGroup
 
-> Forms · `@unified-ui/react/input-group`
+> Forms · `@ux-sting/react/input-group`
 
 Wraps an input with leading/trailing addons (icons, units, buttons).
 
@@ -13,13 +13,13 @@ Use for currency prefixes, unit suffixes and inline actions.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { InputGroup, InputGroupAddon, InputGroupAction } from "@unified-ui/react/input-group";
+import { InputGroup, InputGroupAddon, InputGroupAction } from "@ux-sting/react/input-group";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add input-group
+npx ux-sting add input-group
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Chip, Tag } from "@unified-ui/react/tag";
+import { Chip, Tag } from "@ux-sting/react/tag";
 
 export function Tags() {
   const [tags, setTags] = useState(["Vegan", "Outdoor seating", "Free Wi-Fi"]);

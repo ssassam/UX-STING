@@ -1,6 +1,6 @@
 # DataTable
 
-> Data display · `@unified-ui/react/data-table`
+> Data display · `@ux-sting/react/data-table`
 
 Sorting, search, filtering, pagination, row selection, bulk actions, column visibility, loading and empty states. DataGrid adds cell navigation.
 
@@ -15,13 +15,13 @@ Use for admin lists and dashboards; `manual` mode for server-side data.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { DataTable, DataGrid } from "@unified-ui/react/data-table";
+import { DataTable, DataGrid } from "@ux-sting/react/data-table";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add data-table
+npx ux-sting add data-table
 ```
 
 ## Accessibility

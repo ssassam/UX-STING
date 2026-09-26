@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+import { Button } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
   Navbar,
   NavbarActions,
@@ -9,8 +9,8 @@ import {
   NavbarLink,
   NavbarMobileLink,
   NavbarMobileMenu,
-} from "@unified-ui/react/navbar";
-import { HomeIcon, MapPinIcon, NavigationIcon as CompassIcon } from "@unified-ui/icons";
+} from "@ux-sting/react/navbar";
+import { HomeIcon, MapPinIcon, NavigationIcon as CompassIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

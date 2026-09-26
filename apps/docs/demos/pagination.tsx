@@ -1,5 +1,5 @@
 "use client";
-import { Pagination } from "@unified-ui/react/pagination";
+import { Pagination } from "@ux-sting/react/pagination";
 
 export function Buttons() {
   return <Pagination totalPages={24} defaultPage={8} />;

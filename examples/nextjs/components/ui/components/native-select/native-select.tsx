@@ -1,6 +1,6 @@
 "use client";
-import { ChevronDownIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ChevronDownIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type SelectHTMLAttributes } from "react";
 import { controlVariants, type ControlSize } from "../../lib/control";
 import { useFieldControlProps } from "../../lib/field";

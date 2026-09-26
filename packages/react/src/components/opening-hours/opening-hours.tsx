@@ -1,6 +1,6 @@
 "use client";
-import { getWeekdayNames, getWeekStart } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { getWeekdayNames, getWeekStart } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { useEffect, useState, type HTMLAttributes } from "react";
 import { useLocale } from "../../provider/context.js";
 

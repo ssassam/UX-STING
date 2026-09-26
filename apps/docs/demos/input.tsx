@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
 
 export function Sizes() {
   return (

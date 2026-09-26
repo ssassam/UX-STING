@@ -1,7 +1,7 @@
 "use client";
-import { Avatar } from "@unified-ui/react/avatar";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@unified-ui/react/hover-card";
-import { Link } from "@unified-ui/react/typography";
+import { Avatar } from "@ux-sting/react/avatar";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@ux-sting/react/hover-card";
+import { Link } from "@ux-sting/react/typography";
 
 export function Basic() {
   return (

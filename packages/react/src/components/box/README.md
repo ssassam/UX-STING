@@ -1,6 +1,6 @@
 # Box
 
-> Foundations · `@unified-ui/react/box`
+> Foundations · `@ux-sting/react/box`
 
 The lowest-level layout primitive: a div (or any element via `as`) with `asChild` support.
 
@@ -15,13 +15,13 @@ Use when you need a semantic wrapper element with styling and no layout opinion.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Box } from "@unified-ui/react/box";
+import { Box } from "@ux-sting/react/box";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add box
+npx ux-sting add box
 ```
 
 ## Accessibility

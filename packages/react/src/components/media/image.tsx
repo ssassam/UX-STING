@@ -1,6 +1,6 @@
 "use client";
-import { ImageIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ImageIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useState, type ImgHTMLAttributes, type ReactNode } from "react";
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {

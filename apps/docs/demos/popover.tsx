@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
-import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@unified-ui/react/popover";
+import { Button } from "@ux-sting/react/button";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
+import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@ux-sting/react/popover";
 
 export function Basic() {
   return (

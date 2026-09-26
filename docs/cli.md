@@ -1,18 +1,18 @@
 # CLI
 
-The `unified-ui` CLI copies component source into your project — you own it and can change anything.
+The `ux-sting` CLI copies component source into your project — you own it and can change anything.
 
 ```bash
-npx unified-ui init
-npx unified-ui add button
-npx unified-ui add dialog data-table form
-npx unified-ui list
-npx unified-ui diff
+npx ux-sting init
+npx ux-sting add button
+npx ux-sting add dialog data-table form
+npx ux-sting list
+npx ux-sting diff
 ```
 
 ## init
 
-- Writes `unified-ui.json`:
+- Writes `ux-sting.json`:
 
 ```json
 {
@@ -22,9 +22,9 @@ npx unified-ui diff
 }
 ```
 
-- Copies the `provider` (UIProvider, messages) and `styles/unified-ui.css` (animations, layout variables, hit areas).
+- Copies the `provider` (UIProvider, messages) and `styles/ux-sting.css` (animations, layout variables, hit areas).
 - Adds the token, Tailwind theme and theme-preset imports to your global CSS right after `@import "tailwindcss"`.
-- Installs `@unified-ui/tokens`, `themes`, `utils`, `hooks`, `primitives`, `icons` with your package manager (pnpm, yarn, bun or npm — detected from the lockfile).
+- Installs `@ux-sting/tokens`, `themes`, `utils`, `hooks`, `primitives`, `icons` with your package manager (pnpm, yarn, bun or npm — detected from the lockfile).
 
 Options: `--dir <path>`, `--css <file>`, `--force`, `--no-install`, `--cwd <path>`.
 
@@ -37,7 +37,7 @@ Copies components **and their registry dependencies** (other components, shared 
 
 ### Your changes are protected
 
-`unified-ui.lock.json` stores a hash of each file as installed. On the next `add`:
+`ux-sting.lock.json` stores a hash of each file as installed. On the next `add`:
 
 | Situation | Result |
 | --- | --- |
@@ -58,4 +58,4 @@ Prints every component grouped by category.
 
 ## Registries
 
-`--registry <file|url>` (or `"registry"` in `unified-ui.json`) points the CLI at a custom registry JSON — handy for company forks. Build the registry with `pnpm registry`.
+`--registry <file|url>` (or `"registry"` in `ux-sting.json`) points the CLI at a custom registry JSON — handy for company forks. Build the registry with `pnpm registry`.

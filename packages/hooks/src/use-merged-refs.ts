@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, type Ref, type RefCallback } from "react";
-import { mergeRefs } from "@unified-ui/utils";
+import { mergeRefs } from "@ux-sting/utils";
 
 /** Combines multiple refs into one stable callback ref. */
 export function useMergedRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {

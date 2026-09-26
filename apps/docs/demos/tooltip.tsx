@@ -1,7 +1,7 @@
 "use client";
-import { IconButton } from "@unified-ui/react/button";
-import { Tooltip } from "@unified-ui/react/tooltip";
-import { CopyIcon, HeartIcon, Share2Icon } from "@unified-ui/icons";
+import { IconButton } from "@ux-sting/react/button";
+import { Tooltip } from "@ux-sting/react/tooltip";
+import { CopyIcon, HeartIcon, Share2Icon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

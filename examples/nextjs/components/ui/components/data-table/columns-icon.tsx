@@ -1,4 +1,4 @@
-import { createIcon } from "@unified-ui/icons";
+import { createIcon } from "@ux-sting/icons";
 
 export const Columns3Icon = createIcon("columns-3", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2" }],

@@ -1,6 +1,6 @@
 # Menubar
 
-> Navigation · `@unified-ui/react/menubar`
+> Navigation · `@ux-sting/react/menubar`
 
 Desktop-application style menu bar.
 
@@ -13,13 +13,13 @@ Use in editors and complex tools on desktop.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Menubar, MenubarTrigger, MenubarMenu } from "@unified-ui/react/menubar";
+import { Menubar, MenubarTrigger, MenubarMenu } from "@ux-sting/react/menubar";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add menubar
+npx ux-sting add menubar
 ```
 
 ## Accessibility

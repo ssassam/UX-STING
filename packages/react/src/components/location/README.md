@@ -1,6 +1,6 @@
 # Location
 
-> Patterns · `@unified-ui/react/location`
+> Patterns · `@ux-sting/react/location`
 
 Address line with distance and LocationCard with directions.
 
@@ -13,13 +13,13 @@ Use on listing cards and business pages.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Location, LocationCard } from "@unified-ui/react/location";
+import { Location, LocationCard } from "@ux-sting/react/location";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add location
+npx ux-sting add location
 ```
 
 ## Accessibility

@@ -8,8 +8,8 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
-import { mergeRefs } from "@unified-ui/utils";
-import { cn } from "@unified-ui/utils";
+import { mergeRefs } from "@ux-sting/utils";
+import { cn } from "@ux-sting/utils";
 
 type AnyProps = Record<string, unknown>;
 

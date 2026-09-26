@@ -1,6 +1,6 @@
 "use client";
-import { Badge } from "@unified-ui/react/badge";
-import { Button, IconButton } from "@unified-ui/react/button";
+import { Badge } from "@ux-sting/react/badge";
+import { Button, IconButton } from "@ux-sting/react/button";
 import {
   Card,
   CardAction,
@@ -11,8 +11,8 @@ import {
   CardLink,
   CardMedia,
   CardTitle,
-} from "@unified-ui/react/card";
-import { EllipsisIcon } from "@unified-ui/icons";
+} from "@ux-sting/react/card";
+import { EllipsisIcon } from "@ux-sting/icons";
 import { img } from "./_data";
 
 export function Composition() {

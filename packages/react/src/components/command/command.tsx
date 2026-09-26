@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from "@unified-ui/hooks";
-import { SearchIcon } from "@unified-ui/icons";
-import { cn, fuzzyScore } from "@unified-ui/utils";
+import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from "@ux-sting/hooks";
+import { SearchIcon } from "@ux-sting/icons";
+import { cn, fuzzyScore } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

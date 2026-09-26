@@ -1,5 +1,5 @@
 "use client";
-import { Skeleton, SkeletonText } from "@unified-ui/react/skeleton";
+import { Skeleton, SkeletonText } from "@ux-sting/react/skeleton";
 
 export function CardPlaceholder() {
   return (

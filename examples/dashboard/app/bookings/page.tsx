@@ -1,4 +1,4 @@
-import { Heading, Text } from "@unified-ui/react/typography";
+import { Heading, Text } from "@ux-sting/react/typography";
 import { BookingsTable } from "../../components/bookings-table";
 
 export const metadata = { title: "Bookings" };

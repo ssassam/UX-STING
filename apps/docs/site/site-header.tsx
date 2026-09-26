@@ -1,7 +1,7 @@
 "use client";
-import { MapPinIcon, SearchIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+import { MapPinIcon, SearchIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
   CommandDialog,
   CommandEmpty,
@@ -9,7 +9,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@unified-ui/react/command";
+} from "@ux-sting/react/command";
 import {
   Navbar,
   NavbarActions,
@@ -18,9 +18,9 @@ import {
   NavbarLink,
   NavbarMobileLink,
   NavbarMobileMenu,
-} from "@unified-ui/react/navbar";
-import { NativeSelect } from "@unified-ui/react/native-select";
-import { Kbd } from "@unified-ui/react/typography";
+} from "@ux-sting/react/navbar";
+import { NativeSelect } from "@ux-sting/react/native-select";
+import { Kbd } from "@ux-sting/react/typography";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -60,7 +60,7 @@ export function SiteHeader({
             className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <MapPinIcon className="size-5 text-primary" />
-            unified-ui
+            UX-STING
           </a>
         </NavbarBrand>
         <NavbarContent>
@@ -139,7 +139,7 @@ export function SiteHeader({
             </NativeSelect>
           </div>
           <ColorModeToggle />
-          <NavbarMobileMenu title="unified-ui">
+          <NavbarMobileMenu title="UX-STING">
             <NavbarMobileLink href="/docs/introduction">Docs</NavbarMobileLink>
             <NavbarMobileLink href="/components">Components</NavbarMobileLink>
             <NavbarMobileLink href="/docs/patterns">Patterns</NavbarMobileLink>

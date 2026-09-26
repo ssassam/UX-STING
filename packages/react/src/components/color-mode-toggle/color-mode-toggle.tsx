@@ -1,6 +1,6 @@
 "use client";
-import { MoonIcon, SunIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { MoonIcon, SunIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { ButtonHTMLAttributes } from "react";
 import { useColorMode } from "../../provider/context.js";
 

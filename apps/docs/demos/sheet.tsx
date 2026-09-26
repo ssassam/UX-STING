@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Checkbox } from "@unified-ui/react/checkbox";
+import { Button } from "@ux-sting/react/button";
+import { Checkbox } from "@ux-sting/react/checkbox";
 import {
   Sheet,
   SheetBody,
@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@unified-ui/react/sheet";
+} from "@ux-sting/react/sheet";
 
 export function Sides() {
   return (

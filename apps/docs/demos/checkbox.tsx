@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Checkbox, CheckboxGroup } from "@unified-ui/react/checkbox";
+import { Checkbox, CheckboxGroup } from "@ux-sting/react/checkbox";
 
 export function Basic() {
   return (

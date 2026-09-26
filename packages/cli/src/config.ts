@@ -5,7 +5,7 @@ export interface Config {
   $schema?: string;
   /** Directory (relative to project root) where components are copied. */
   dir: string;
-  /** Global stylesheet that receives the unified-ui imports. */
+  /** Global stylesheet that receives the ux-sting imports. */
   css?: string;
   /** Keep `.js` extensions in relative imports (needed for Node ESM builds). */
   importExtensions: boolean;
@@ -13,8 +13,8 @@ export interface Config {
   registry?: string;
 }
 
-export const CONFIG_FILE = "unified-ui.json";
-export const LOCK_FILE = "unified-ui.lock.json";
+export const CONFIG_FILE = "ux-sting.json";
+export const LOCK_FILE = "ux-sting.lock.json";
 
 export const defaultConfig = (cwd: string): Config => ({
   dir: existsSync(join(cwd, "src")) ? "src/components/ui" : "components/ui",

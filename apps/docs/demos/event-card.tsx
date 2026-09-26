@@ -1,9 +1,9 @@
 "use client";
-import { Avatar, AvatarGroup } from "@unified-ui/react/avatar";
-import { Button } from "@unified-ui/react/button";
-import { EventCard } from "@unified-ui/react/event-card";
-import { FeaturedBadge } from "@unified-ui/react/premium-badge";
-import { Price } from "@unified-ui/react/price";
+import { Avatar, AvatarGroup } from "@ux-sting/react/avatar";
+import { Button } from "@ux-sting/react/button";
+import { EventCard } from "@ux-sting/react/event-card";
+import { FeaturedBadge } from "@ux-sting/react/premium-badge";
+import { Price } from "@ux-sting/react/price";
 import { img } from "./_data";
 
 export function Basic() {

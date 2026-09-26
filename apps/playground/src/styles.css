@@ -1,4 +1,4 @@
 @import "tailwindcss";
-@import "@unified-ui/react/tailwind.css";
+@import "@ux-sting/react/tailwind.css";
 
 @source "../../docs/demos";

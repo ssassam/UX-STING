@@ -1,13 +1,13 @@
 import { add, diff, init, list } from "./commands.js";
 import { bold, dim, log } from "./log.js";
 
-const HELP = `${bold("unified-ui")} — copy accessible React components into your project
+const HELP = `${bold("ux-sting")} — copy accessible React components into your project
 
 ${bold("Usage")}
-  npx unified-ui init [--dir <path>] [--css <file>] [--force]
-  npx unified-ui add <component...> [--overwrite] [--dry-run]
-  npx unified-ui list
-  npx unified-ui diff [component...]
+  npx ux-sting init [--dir <path>] [--css <file>] [--force]
+  npx ux-sting add <component...> [--overwrite] [--dry-run]
+  npx ux-sting list
+  npx ux-sting diff [component...]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -82,7 +82,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
         return 0;
       default:
         log.error(`Unknown command "${command}".`);
-        log.info(dim("Run `unified-ui --help`."));
+        log.info(dim("Run `ux-sting --help`."));
         return 1;
     }
   } catch (error) {
@@ -93,7 +93,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
 
 const isEntry =
   import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith("/unified-ui") ||
+  process.argv[1]?.endsWith("/ux-sting") ||
   process.argv[1]?.endsWith("cli/dist/index.js");
 if (isEntry) {
   if (process.argv.includes("--help")) {

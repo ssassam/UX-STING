@@ -1,5 +1,5 @@
 "use client";
-import { Badge } from "@unified-ui/react/badge";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Sidebar,
   SidebarContent,
@@ -10,7 +10,7 @@ import {
   SidebarItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@unified-ui/react/sidebar";
+} from "@ux-sting/react/sidebar";
 
 import {
   CalendarIcon,
@@ -20,7 +20,7 @@ import {
   SettingsIcon,
   StoreIcon,
   UsersIcon,
-} from "@unified-ui/icons";
+} from "@ux-sting/icons";
 
 export function AppShell() {
   return (

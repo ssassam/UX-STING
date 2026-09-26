@@ -1,4 +1,4 @@
-import { createVariants } from "@unified-ui/utils";
+import { createVariants } from "@ux-sting/utils";
 
 /**
  * Shared visual language for text-like controls. Mobile uses 16px text to

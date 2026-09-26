@@ -1,6 +1,6 @@
 # Image
 
-> Media · `@unified-ui/react/media`
+> Media · `@ux-sting/react/media`
 
 Image (reserved ratio, lazy, fallback), ImageGallery, Lightbox, Video (captions) and Audio (transcript).
 
@@ -13,13 +13,13 @@ Use for all content media.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Image, ImageGallery, Lightbox } from "@unified-ui/react/media";
+import { Image, ImageGallery, Lightbox } from "@ux-sting/react/media";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add media
+npx ux-sting add media
 ```
 
 ## Accessibility

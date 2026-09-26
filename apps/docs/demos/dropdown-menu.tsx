@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@unified-ui/react/button";
+import { Button } from "@ux-sting/react/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -15,8 +15,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@unified-ui/react/dropdown-menu";
-import { CopyIcon, EllipsisIcon, PencilIcon, Share2Icon, Trash2Icon } from "@unified-ui/icons";
+} from "@ux-sting/react/dropdown-menu";
+import { CopyIcon, EllipsisIcon, PencilIcon, Share2Icon, Trash2Icon } from "@ux-sting/icons";
 
 export function Actions() {
   return (

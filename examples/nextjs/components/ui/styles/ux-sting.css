@@ -1,5 +1,5 @@
 /*
- * unified-ui component styles that are not expressible as utilities:
+ * ux-sting component styles that are not expressible as utilities:
  * base defaults, keyframe animations keyed on data-state, responsive layout
  * variables and touch hit areas. Plain CSS — no Tailwind required.
  */

@@ -1,6 +1,6 @@
 # Stack
 
-> Foundations · `@unified-ui/react/stack`
+> Foundations · `@ux-sting/react/stack`
 
 Flex layout with token-based, responsive gap and direction. Also exports HStack, VStack, Flex and Spacer.
 
@@ -15,13 +15,13 @@ Use for one-dimensional layouts: form fields, button rows, card content.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Stack, Spacer, HStack } from "@unified-ui/react/stack";
+import { Stack, Spacer, HStack } from "@ux-sting/react/stack";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add stack
+npx ux-sting add stack
 ```
 
 ## Accessibility

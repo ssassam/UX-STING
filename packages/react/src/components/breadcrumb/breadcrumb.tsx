@@ -1,6 +1,6 @@
-import { ChevronRightIcon, EllipsisIcon } from "@unified-ui/icons";
-import { Slot } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { ChevronRightIcon, EllipsisIcon } from "@ux-sting/icons";
+import { Slot } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import {
   forwardRef,
   type AnchorHTMLAttributes,

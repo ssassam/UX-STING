@@ -1,6 +1,6 @@
 "use client";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useId, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { useFieldControlProps } from "../../lib/field.js";
 

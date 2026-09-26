@@ -1,6 +1,6 @@
 # AspectRatio
 
-> Foundations · `@unified-ui/react/aspect-ratio`
+> Foundations · `@ux-sting/react/aspect-ratio`
 
 Reserves space for media at a fixed ratio to prevent layout shift.
 
@@ -13,13 +13,13 @@ Use around images, videos, maps and embeds whose size is known in advance.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { AspectRatio } from "@unified-ui/react/aspect-ratio";
+import { AspectRatio } from "@ux-sting/react/aspect-ratio";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add aspect-ratio
+npx ux-sting add aspect-ratio
 ```
 
 ## Accessibility

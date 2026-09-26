@@ -1,5 +1,5 @@
 "use client";
-import { ClaimBusiness, LeadForm } from "@unified-ui/react/lead-form";
+import { ClaimBusiness, LeadForm } from "@ux-sting/react/lead-form";
 
 export function Contact() {
   return (

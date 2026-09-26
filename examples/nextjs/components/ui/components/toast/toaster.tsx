@@ -1,13 +1,7 @@
 "use client";
-import { useHotkey } from "@unified-ui/hooks";
-import {
-  AlertTriangleIcon,
-  CheckCircle2Icon,
-  InfoIcon,
-  XCircleIcon,
-  XIcon,
-} from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useHotkey } from "@ux-sting/hooks";
+import { AlertTriangleIcon, CheckCircle2Icon, InfoIcon, XCircleIcon, XIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { useMessages } from "../../provider/context";

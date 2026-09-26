@@ -1,7 +1,7 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { FileIcon, UploadCloudIcon, XIcon } from "@unified-ui/icons";
-import { cn, formatFileSize } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { FileIcon, UploadCloudIcon, XIcon } from "@ux-sting/icons";
+import { cn, formatFileSize } from "@ux-sting/utils";
 import { forwardRef, useId, useRef, useState, type DragEvent, type ReactNode } from "react";
 import { useFieldControlProps } from "../../lib/field.js";
 import { useLocale, useMessages } from "../../provider/context.js";

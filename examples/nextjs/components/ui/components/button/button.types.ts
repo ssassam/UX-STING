@@ -1,4 +1,4 @@
-import type { VariantProps } from "@unified-ui/utils";
+import type { VariantProps } from "@ux-sting/utils";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { buttonVariants } from "./button.variants";
 

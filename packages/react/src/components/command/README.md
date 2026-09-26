@@ -1,6 +1,6 @@
 # Command
 
-> Command & search · `@unified-ui/react/command`
+> Command & search · `@ux-sting/react/command`
 
 Keyboard-first command palette with fuzzy search, groups, shortcuts, async loading and CommandDialog (⌘K).
 
@@ -13,13 +13,13 @@ Use for global search, quick actions and power-user navigation.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Command, CommandInput, CommandList } from "@unified-ui/react/command";
+import { Command, CommandInput, CommandList } from "@ux-sting/react/command";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add command
+npx ux-sting add command
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 # MultiSelect
 
-> Forms · `@unified-ui/react/multi-select`
+> Forms · `@ux-sting/react/multi-select`
 
 Searchable multiple selection with removable chips and a max limit.
 
@@ -13,13 +13,13 @@ Use for tags, amenities, categories and assignees.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { MultiSelect } from "@unified-ui/react/multi-select";
+import { MultiSelect } from "@ux-sting/react/multi-select";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add multi-select
+npx ux-sting add multi-select
 ```
 
 ## Accessibility

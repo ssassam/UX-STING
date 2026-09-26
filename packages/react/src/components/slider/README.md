@@ -1,6 +1,6 @@
 # Slider
 
-> Forms · `@unified-ui/react/slider`
+> Forms · `@ux-sting/react/slider`
 
 Single value or range selection along a track (RangeSlider).
 
@@ -13,13 +13,13 @@ Use for approximate values: price ranges, distance, volume.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Slider, RangeSlider } from "@unified-ui/react/slider";
+import { Slider, RangeSlider } from "@ux-sting/react/slider";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add slider
+npx ux-sting add slider
 ```
 
 ## Accessibility

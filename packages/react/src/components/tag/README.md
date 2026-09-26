@@ -1,6 +1,6 @@
 # Tag
 
-> Data display · `@unified-ui/react/tag`
+> Data display · `@ux-sting/react/tag`
 
 Categorization label (optionally removable) and selectable Chip.
 
@@ -13,13 +13,13 @@ Use Tag for applied filters/keywords and Chip for quick filter toggles.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Tag, Chip } from "@unified-ui/react/tag";
+import { Tag, Chip } from "@ux-sting/react/tag";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add tag
+npx ux-sting add tag
 ```
 
 ## Accessibility

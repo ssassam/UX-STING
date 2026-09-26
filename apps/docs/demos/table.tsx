@@ -1,5 +1,5 @@
 "use client";
-import { Badge } from "@unified-ui/react/badge";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Table,
   TableBody,
@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@unified-ui/react/table";
+} from "@ux-sting/react/table";
 import { placeRows } from "./_places";
 
 export function Basic() {

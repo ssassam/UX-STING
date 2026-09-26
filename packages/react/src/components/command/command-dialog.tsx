@@ -1,8 +1,8 @@
 "use client";
-import { useControllableState, useHotkey } from "@unified-ui/hooks";
+import { useControllableState, useHotkey } from "@ux-sting/hooks";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { VisuallyHidden } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { VisuallyHidden } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import type { ReactNode } from "react";
 import { overlayClass } from "../../lib/overlay.js";
 import { usePortalContainer } from "../../provider/context.js";

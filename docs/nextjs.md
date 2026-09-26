@@ -1,6 +1,6 @@
 # Next.js & React Server Components
 
-unified-ui is designed for the App Router.
+UX-STING is designed for the App Router.
 
 ## Server vs client components
 
@@ -16,7 +16,7 @@ Server components can render client components freely, so a server `page.tsx` ca
 
 ```tsx
 // app/layout.tsx
-import { ThemeScript, UIProvider } from "@unified-ui/react/provider";
+import { ThemeScript, UIProvider } from "@ux-sting/react/provider";
 import "./globals.css";
 
 export default function RootLayout({ children }) {

@@ -1,6 +1,6 @@
 # UX quality rules
 
-unified-ui bakes a prioritized UX rulebook into its tokens, components and CI. Each rule is mapped to how this system enforces it.
+UX-STING bakes a prioritized UX rulebook into its tokens, components and CI. Each rule is mapped to how this system enforces it.
 
 ## Priorities
 
@@ -72,7 +72,7 @@ unified-ui bakes a prioritized UX rulebook into its tokens, components and CI. E
 
 ## Pre-delivery checklist
 
-Use this before shipping a screen built with unified-ui:
+Use this before shipping a screen built with UX-STING:
 
 - [ ] Tested at 375px width and in landscape; no horizontal scroll
 - [ ] Keyboard-only pass: every action reachable, focus always visible and never hidden

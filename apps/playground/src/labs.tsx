@@ -3,11 +3,11 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@unified-ui/react/accordion";
-import { Alert, AlertDescription, AlertTitle } from "@unified-ui/react/alert";
-import { Avatar } from "@unified-ui/react/avatar";
-import { Badge } from "@unified-ui/react/badge";
-import { Button } from "@unified-ui/react/button";
+} from "@ux-sting/react/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@ux-sting/react/alert";
+import { Avatar } from "@ux-sting/react/avatar";
+import { Badge } from "@ux-sting/react/badge";
+import { Button } from "@ux-sting/react/button";
 import {
   Card,
   CardContent,
@@ -15,21 +15,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@unified-ui/react/card";
-import { Checkbox } from "@unified-ui/react/checkbox";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
-import { Pagination } from "@unified-ui/react/pagination";
-import { Progress } from "@unified-ui/react/progress";
-import { Slider } from "@unified-ui/react/slider";
-import { Spinner } from "@unified-ui/react/spinner";
-import { EmptyState } from "@unified-ui/react/state";
-import { Stepper } from "@unified-ui/react/stepper";
-import { Switch } from "@unified-ui/react/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
-import { Chip, Tag } from "@unified-ui/react/tag";
-import { Toggle } from "@unified-ui/react/toggle";
-import { ArrowRightIcon, BoldIcon, PlusIcon } from "@unified-ui/icons";
+} from "@ux-sting/react/card";
+import { Checkbox } from "@ux-sting/react/checkbox";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
+import { Pagination } from "@ux-sting/react/pagination";
+import { Progress } from "@ux-sting/react/progress";
+import { Slider } from "@ux-sting/react/slider";
+import { Spinner } from "@ux-sting/react/spinner";
+import { EmptyState } from "@ux-sting/react/state";
+import { Stepper } from "@ux-sting/react/stepper";
+import { Switch } from "@ux-sting/react/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
+import { Chip, Tag } from "@ux-sting/react/tag";
+import { Toggle } from "@ux-sting/react/toggle";
+import { ArrowRightIcon, BoldIcon, PlusIcon } from "@ux-sting/icons";
 import type { ReactNode } from "react";
 
 export type Control =

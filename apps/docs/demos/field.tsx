@@ -1,6 +1,6 @@
 "use client";
-import { Field, FieldDescription, FieldError, FieldLabel } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
 
 export function Basic() {
   return (

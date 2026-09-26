@@ -1,5 +1,5 @@
-import { ThemeScript } from "@unified-ui/react/provider";
-import { SkipLink } from "@unified-ui/react/skip-link";
+import { ThemeScript } from "@ux-sting/react/provider";
+import { SkipLink } from "@ux-sting/react/skip-link";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Header } from "../components/header";

@@ -1,7 +1,7 @@
 "use client";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ChevronDownIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { createContext, forwardRef, useContext, type ComponentPropsWithoutRef } from "react";
 
 const AccordionContext = createContext<{ variant: "default" | "separated" | "bordered" }>({

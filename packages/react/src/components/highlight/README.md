@@ -1,6 +1,6 @@
 # Highlight
 
-> Command & search · `@unified-ui/react/highlight`
+> Command & search · `@ux-sting/react/highlight`
 
 Highlights matched terms (accent-insensitive) with <mark>.
 
@@ -13,13 +13,13 @@ Use in search results and suggestions.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Highlight } from "@unified-ui/react/highlight";
+import { Highlight } from "@ux-sting/react/highlight";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add highlight
+npx ux-sting add highlight
 ```
 
 ## Accessibility

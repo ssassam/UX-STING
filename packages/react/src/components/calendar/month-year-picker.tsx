@@ -1,8 +1,8 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { ChevronLeftIcon, ChevronRightIcon } from "@unified-ui/icons";
-import { getMonthNames } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { ChevronLeftIcon, ChevronRightIcon } from "@ux-sting/icons";
+import { getMonthNames } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { useState } from "react";
 import { useLocale, useMessages } from "../../provider/context.js";
 

@@ -1,6 +1,6 @@
 # Typography
 
-> Typography · `@unified-ui/react/typography`
+> Typography · `@ux-sting/react/typography`
 
 Text, Heading, Label, Caption, Code, Kbd, Link, Blockquote and Prose.
 
@@ -13,13 +13,13 @@ Use for all text so sizes, colors and rhythm stay consistent with tokens.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Text, Heading, Label } from "@unified-ui/react/typography";
+import { Text, Heading, Label } from "@ux-sting/react/typography";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add typography
+npx ux-sting add typography
 ```
 
 ## Accessibility

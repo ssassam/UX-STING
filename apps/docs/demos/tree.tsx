@@ -1,6 +1,6 @@
 "use client";
-import { Tree, type TreeNode } from "@unified-ui/react/tree";
-import { FileTextIcon, FolderIcon } from "@unified-ui/icons";
+import { Tree, type TreeNode } from "@ux-sting/react/tree";
+import { FileTextIcon, FolderIcon } from "@ux-sting/icons";
 
 const nodes: TreeNode[] = [
   {

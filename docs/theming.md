@@ -35,12 +35,12 @@ Seven presets reproduce the look of widely used enterprise design systems, so a 
 | `baseweb` | Base Web (Uber) | Black primary, tight corners, flat utilitarian surfaces | [baseweb.design](https://baseweb.design) |
 | `stripe` | Stripe | Blurple primary, navy-slate text, soft layered shadows | [stripe.com](https://stripe.com) |
 
-These presets are unofficial approximations built only from unified-ui tokens. They are not affiliated with or endorsed by Google, Microsoft, IBM, Shopify, Apple, Uber or Stripe, and they copy no code or assets. Fonts are referenced by name with system fallbacks: load Roboto, IBM Plex or Inter yourself (all under the SIL Open Font License) if you want them exactly. SF Pro and Segoe UI are only used when already installed on the device, as their licenses do not allow bundling. Every preset passes the same WCAG AA contrast tests as the built-in ones, in light and dark mode.
+These presets are unofficial approximations built only from UX-STING tokens. They are not affiliated with or endorsed by Google, Microsoft, IBM, Shopify, Apple, Uber or Stripe, and they copy no code or assets. Fonts are referenced by name with system fallbacks: load Roboto, IBM Plex or Inter yourself (all under the SIL Open Font License) if you want them exactly. SF Pro and Segoe UI are only used when already installed on the device, as their licenses do not allow bundling. Every preset passes the same WCAG AA contrast tests as the built-in ones, in light and dark mode.
 
 Each preset is a starting point — extend it like any other theme:
 
 ```ts
-import { createTheme, presetConfigs } from "@unified-ui/themes";
+import { createTheme, presetConfigs } from "@ux-sting/themes";
 
 const brand = createTheme({ ...presetConfigs.carbon, name: "brand", primary: "teal" });
 ```
@@ -67,7 +67,7 @@ Pass a config object; the provider generates scoped CSS (light, dark and high-co
 Prefer static CSS in production? Generate it once:
 
 ```ts
-import { createTheme, themeToCss } from "@unified-ui/themes";
+import { createTheme, themeToCss } from "@ux-sting/themes";
 
 const css = themeToCss(createTheme({ name: "brand", primary: "teal" }));
 ```
@@ -97,4 +97,4 @@ Providers nest. A section can use a different theme, color mode or density than 
 
 ## Contrast guarantees
 
-Every preset is tested in light and dark mode: all text pairs must reach 4.5:1 and focus rings/inputs 3:1 (`packages/themes/src/themes.test.ts`). Run the same check for custom themes with `contrastRatio()` from `@unified-ui/tokens`.
+Every preset is tested in light and dark mode: all text pairs must reach 4.5:1 and focus rings/inputs 3:1 (`packages/themes/src/themes.test.ts`). Run the same check for custom themes with `contrastRatio()` from `@ux-sting/tokens`.

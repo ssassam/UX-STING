@@ -24,25 +24,25 @@ export interface CommonOptions {
 
 /** Packages every project needs, independent of the components added. */
 const BASE_PACKAGES = [
-  "@unified-ui/tokens",
-  "@unified-ui/themes",
-  "@unified-ui/utils",
-  "@unified-ui/hooks",
-  "@unified-ui/primitives",
-  "@unified-ui/icons",
+  "@ux-sting/tokens",
+  "@ux-sting/themes",
+  "@ux-sting/utils",
+  "@ux-sting/hooks",
+  "@ux-sting/primitives",
+  "@ux-sting/icons",
 ];
 
-const CSS_MARKER = "/* unified-ui */";
+const CSS_MARKER = "/* ux-sting */";
 
 function cssImports(config: Config): string {
   const componentsCss = config.css
-    ? relative(dirname(config.css), join(config.dir, "styles/unified-ui.css")).replace(/\\/g, "/")
-    : join(config.dir, "styles/unified-ui.css");
+    ? relative(dirname(config.css), join(config.dir, "styles/ux-sting.css")).replace(/\\/g, "/")
+    : join(config.dir, "styles/ux-sting.css");
   return [
     CSS_MARKER,
-    '@import "@unified-ui/tokens/tokens.css";',
-    '@import "@unified-ui/tokens/tailwind.css";',
-    '@import "@unified-ui/themes/themes.css";',
+    '@import "@ux-sting/tokens/tokens.css";',
+    '@import "@ux-sting/tokens/tailwind.css";',
+    '@import "@ux-sting/themes/themes.css";',
     `@import "${componentsCss.startsWith(".") ? componentsCss : `./${componentsCss}`}";`,
   ].join("\n");
 }
@@ -77,7 +77,7 @@ export async function init(
     const cssFile = join(cwd, config.css);
     const css = readFileSync(cssFile, "utf8");
     if (css.includes(CSS_MARKER)) {
-      log.info(dim(`${config.css} already imports unified-ui styles.`));
+      log.info(dim(`${config.css} already imports ux-sting styles.`));
     } else {
       const tailwindImport = /@import\s+["']tailwindcss["'];?\n?/.exec(css);
       const block = cssImports(config);
@@ -85,7 +85,7 @@ export async function init(
         ? css.replace(tailwindImport[0], `${tailwindImport[0]}${block}\n`)
         : `@import "tailwindcss";\n${block}\n${css}`;
       writeFileSync(cssFile, next);
-      log.success(`Added unified-ui styles to ${config.css}`);
+      log.success(`Added ux-sting styles to ${config.css}`);
     }
   } else {
     log.warn(
@@ -96,7 +96,7 @@ export async function init(
   const deps = [...new Set([...missingDependencies(cwd, BASE_PACKAGES), ...copied.dependencies])];
   installOrPrint(cwd, deps, options.install);
   log.info(
-    `\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (import from "./${config.dir}/provider") and run ${green("npx unified-ui add button")}.`,
+    `\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (import from "./${config.dir}/provider") and run ${green("npx ux-sting add button")}.`,
   );
   return config;
 }
@@ -140,9 +140,8 @@ export interface AddResult {
 export async function add(names: string[], options: AddOptions): Promise<AddResult> {
   const { cwd } = options;
   const config = readConfig(cwd);
-  if (!config) throw new Error(`Missing ${CONFIG_FILE}. Run \`npx unified-ui init\` first.`);
-  if (!names.length)
-    throw new Error("Specify at least one component, e.g. `unified-ui add button`.");
+  if (!config) throw new Error(`Missing ${CONFIG_FILE}. Run \`npx ux-sting init\` first.`);
+  if (!names.length) throw new Error("Specify at least one component, e.g. `ux-sting add button`.");
   const registry = await loadRegistry(options.registry ?? config.registry);
   const items = resolveItems(registry, names);
   const lock = readLock(cwd);
@@ -188,9 +187,7 @@ export async function add(names: string[], options: AddOptions): Promise<AddResu
     );
   for (const f of result.written) log.success(dim(f));
   for (const f of result.skipped)
-    log.warn(
-      `${f} ${yellow("has local changes — skipped (use --overwrite or `unified-ui diff`)")}`,
-    );
+    log.warn(`${f} ${yellow("has local changes — skipped (use --overwrite or `ux-sting diff`)")}`);
   if (result.unchanged.length && !options.silentHeader)
     log.info(dim(`${result.unchanged.length} file(s) already up to date`));
   if (!options.dryRun && !options.silentInstall)
@@ -222,7 +219,7 @@ export interface DiffEntry {
 export async function diff(names: string[], options: CommonOptions): Promise<DiffEntry[]> {
   const { cwd } = options;
   const config = readConfig(cwd);
-  if (!config) throw new Error(`Missing ${CONFIG_FILE}. Run \`npx unified-ui init\` first.`);
+  if (!config) throw new Error(`Missing ${CONFIG_FILE}. Run \`npx ux-sting init\` first.`);
   const registry = await loadRegistry(options.registry ?? config.registry);
   const lock: Lock = readLock(cwd);
   const installedItems = new Set(Object.values(lock).map((l) => l.item));

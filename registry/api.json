@@ -11139,7 +11139,7 @@
   "icon": {
     "Icon": {
       "kind": "component",
-      "description": "Renders an icon by name: `<Icon name=\"search\" />`. Convenient for\ndata-driven UIs, but it references every icon — prefer direct imports\n(`import { SearchIcon } from \"@unified-ui/icons\"`) for the smallest bundles.",
+      "description": "Renders an icon by name: `<Icon name=\"search\" />`. Convenient for\ndata-driven UIs, but it references every icon — prefer direct imports\n(`import { SearchIcon } from \"@ux-sting/icons\"`) for the smallest bundles.",
       "props": [
         {
           "name": "name",

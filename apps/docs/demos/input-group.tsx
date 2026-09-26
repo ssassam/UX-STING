@@ -1,9 +1,9 @@
 "use client";
-import { Button } from "@unified-ui/react/button";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
-import { InputGroup, InputGroupAction, InputGroupAddon } from "@unified-ui/react/input-group";
-import { AtSignIcon, CopyIcon } from "@unified-ui/icons";
+import { Button } from "@ux-sting/react/button";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
+import { InputGroup, InputGroupAction, InputGroupAddon } from "@ux-sting/react/input-group";
+import { AtSignIcon, CopyIcon } from "@ux-sting/icons";
 
 export function Addons() {
   return (

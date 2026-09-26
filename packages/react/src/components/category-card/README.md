@@ -1,6 +1,6 @@
 # CategoryCard
 
-> Patterns · `@unified-ui/react/category-card`
+> Patterns · `@ux-sting/react/category-card`
 
 Category tile (icon + name + count) and CityCard (image with scrim).
 
@@ -13,13 +13,13 @@ Use for browse-by-category and destination grids.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { CategoryCard, CityCard } from "@unified-ui/react/category-card";
+import { CategoryCard, CityCard } from "@ux-sting/react/category-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add category-card
+npx ux-sting add category-card
 ```
 
 ## Accessibility

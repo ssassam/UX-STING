@@ -1,5 +1,5 @@
 "use client";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@unified-ui/react/resizable";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@ux-sting/react/resizable";
 
 export function Basic() {
   return (

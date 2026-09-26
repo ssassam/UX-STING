@@ -18,8 +18,8 @@ export default function Home() {
         <div>
           <Heading level={1}>Workspace</Heading>
           <Text variant="muted">
-            Every component on this page was copied into <code>components/ui</code> by the
-            unified-ui CLI.
+            Every component on this page was copied into <code>components/ui</code> by the UX-STING
+            CLI.
           </Text>
         </div>
         <InviteDialog />
@@ -42,12 +42,12 @@ export default function Home() {
             <CardHeader>
               <CardTitle as="h2">Generated with the CLI</CardTitle>
               <CardDescription>
-                npx unified-ui init · npx unified-ui add button card dialog form data-table …
+                npx ux-sting init · npx ux-sting add button card dialog form data-table …
               </CardDescription>
             </CardHeader>
             <CardContent className="text-sm">
-              Edit anything in <code>components/ui</code>. <code>unified-ui.lock.json</code>{" "}
-              remembers what was installed, so future
+              Edit anything in <code>components/ui</code>. <code>ux-sting.lock.json</code> remembers
+              what was installed, so future
               <code> add</code> runs never overwrite your changes silently.
             </CardContent>
           </Card>

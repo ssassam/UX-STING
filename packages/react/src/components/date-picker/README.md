@@ -1,6 +1,6 @@
 # DatePicker
 
-> Date & time · `@unified-ui/react/date-picker`
+> Date & time · `@ux-sting/react/date-picker`
 
 Date, date range and date-time pickers in a popover calendar.
 
@@ -15,13 +15,13 @@ Use for bookings, filters and scheduling.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { DatePicker, DateRangePicker, DateTimePicker } from "@unified-ui/react/date-picker";
+import { DatePicker, DateRangePicker, DateTimePicker } from "@ux-sting/react/date-picker";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add date-picker
+npx ux-sting add date-picker
 ```
 
 ## Accessibility

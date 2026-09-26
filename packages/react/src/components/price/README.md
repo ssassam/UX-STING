@@ -1,6 +1,6 @@
 # Price
 
-> Patterns · `@unified-ui/react/price`
+> Patterns · `@ux-sting/react/price`
 
 Locale-aware Price (discounts, periods), PriceRange, PriceLevel ($$) and Currency.
 
@@ -13,13 +13,13 @@ Use anywhere money is shown.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Price, Currency, PriceRange } from "@unified-ui/react/price";
+import { Price, Currency, PriceRange } from "@ux-sting/react/price";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add price
+npx ux-sting add price
 ```
 
 ## Accessibility

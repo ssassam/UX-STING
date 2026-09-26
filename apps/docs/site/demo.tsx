@@ -1,8 +1,8 @@
 "use client";
-import { MonitorIcon, MoonIcon, SmartphoneIcon, SunIcon, TabletIcon } from "@unified-ui/icons";
-import { UIProvider, useColorMode } from "@unified-ui/react/provider";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@unified-ui/react/tabs";
-import { ToggleGroup, ToggleGroupItem } from "@unified-ui/react/toggle";
+import { MonitorIcon, MoonIcon, SmartphoneIcon, SunIcon, TabletIcon } from "@ux-sting/icons";
+import { UIProvider, useColorMode } from "@ux-sting/react/provider";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ux-sting/react/tabs";
+import { ToggleGroup, ToggleGroupItem } from "@ux-sting/react/toggle";
 import { lazy, Suspense, useEffect, useMemo, useState, type ComponentType } from "react";
 import { demoLoaders, demoOrder, type DemoModule } from "../demos/index";
 import sources from "../demos/sources.json";

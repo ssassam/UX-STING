@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@unified-ui/react/accordion";
+} from "@ux-sting/react/accordion";
 
 const faq = [
   ["Is parking available?", "Yes — free parking for guests behind the building."],

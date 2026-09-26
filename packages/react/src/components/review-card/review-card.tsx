@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { useState, type ReactNode } from "react";
 import { Avatar } from "../avatar/avatar.js";
 import { ReviewStars } from "../rating/rating.js";

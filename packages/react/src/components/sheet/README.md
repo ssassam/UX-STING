@@ -1,6 +1,6 @@
 # Sheet
 
-> Overlays · `@unified-ui/react/sheet`
+> Overlays · `@ux-sting/react/sheet`
 
 Edge-anchored panel (start, end, top, bottom) with logical sides for RTL.
 
@@ -13,13 +13,13 @@ Use Sheet for mobile-oriented contextual panels: filters, navigation, details.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Sheet, SheetTrigger, SheetClose } from "@unified-ui/react/sheet";
+import { Sheet, SheetTrigger, SheetClose } from "@ux-sting/react/sheet";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add sheet
+npx ux-sting add sheet
 ```
 
 ## Accessibility

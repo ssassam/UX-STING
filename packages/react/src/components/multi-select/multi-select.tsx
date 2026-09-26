@@ -1,8 +1,8 @@
 "use client";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { useControllableState } from "@unified-ui/hooks";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, useState, type ReactNode } from "react";
 import { useFieldControlProps } from "../../lib/field.js";
 import { floatingSurfaceClass } from "../../lib/overlay.js";

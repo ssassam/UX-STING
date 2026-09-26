@@ -1,5 +1,5 @@
 "use client";
-import { ArticleCard } from "@unified-ui/react/article-card";
+import { ArticleCard } from "@ux-sting/react/article-card";
 import { img } from "./_data";
 
 const author = { name: "Leila Mansouri", avatar: "https://i.pravatar.cc/80?img=45" };

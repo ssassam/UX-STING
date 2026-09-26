@@ -1,6 +1,6 @@
 # NumberInput
 
-> Forms · `@unified-ui/react/number-input`
+> Forms · `@ux-sting/react/number-input`
 
 Locale-aware numeric input with steppers, clamping and keyboard support.
 
@@ -15,13 +15,13 @@ Use for quantities, guests, prices and other bounded numbers.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { NumberInput } from "@unified-ui/react/number-input";
+import { NumberInput } from "@ux-sting/react/number-input";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add number-input
+npx ux-sting add number-input
 ```
 
 ## Accessibility

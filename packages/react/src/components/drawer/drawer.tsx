@@ -1,7 +1,7 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { useControllableState, usePrefersReducedMotion } from "@unified-ui/hooks";
-import { cn } from "@unified-ui/utils";
+import { useControllableState, usePrefersReducedMotion } from "@ux-sting/hooks";
+import { cn } from "@ux-sting/utils";
 import {
   createContext,
   forwardRef,

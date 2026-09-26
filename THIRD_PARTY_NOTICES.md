@@ -1,7 +1,7 @@
 # Third-party notices
 
-unified-ui is original work licensed under MIT (see `LICENSE`). This file
-lists third-party software and material that unified-ui depends on,
+UX-STING is original work licensed under MIT (see `LICENSE`). This file
+lists third-party software and material that UX-STING depends on,
 redistributes, or adapted, together with their licenses. Licenses were
 checked against each project's repository at the time of writing.
 
@@ -27,7 +27,7 @@ copyright notice and this permission notice appear in all copies.
 
 | Package | License | Used for |
 | --- | --- | --- |
-| `@radix-ui/react-*` (accordion, alert-dialog, checkbox, collapsible, context-menu, dialog, direction, dropdown-menu, hover-card, menubar, navigation-menu, popover, radio-group, scroll-area, select, slider, switch, tabs, toggle-group, tooltip) — Copyright (c) 2022 WorkOS | MIT | Accessible behavior (focus management, dismissal, ARIA) behind unified-ui's own API |
+| `@radix-ui/react-*` (accordion, alert-dialog, checkbox, collapsible, context-menu, dialog, direction, dropdown-menu, hover-card, menubar, navigation-menu, popover, radio-group, scroll-area, select, slider, switch, tabs, toggle-group, tooltip) — Copyright (c) 2022 WorkOS | MIT | Accessible behavior (focus management, dismissal, ARIA) behind ux-sting's own API |
 | `tailwind-merge` — Copyright (c) 2021 Dany Castillo | MIT | Class conflict resolution in `cn()` |
 | `react`, `react-dom` (peer) — Copyright (c) Meta Platforms, Inc. | MIT | — |
 
@@ -41,7 +41,7 @@ Storybook, Playwright, Next.js, Turborepo) are not redistributed.
 
 The prioritized UX rule categories, several rule descriptions and the
 pre-delivery checklist in `docs/ux-quality.md` and
-`.claude/skills/unified-ui/SKILL.md` are adapted from
+`.claude/skills/ux-sting/SKILL.md` are adapted from
 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 (`.claude/skills/ui-ux-pro-max/SKILL.md` and its `references/`).
 

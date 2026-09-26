@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@unified-ui/react/navigation-menu";
+} from "@ux-sting/react/navigation-menu";
 
 const categories = [
   ["Restaurants", "Dine in, take away and delivery"],

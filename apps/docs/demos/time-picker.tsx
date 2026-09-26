@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { TimePicker } from "@unified-ui/react/time-picker";
+import { Field } from "@ux-sting/react/field";
+import { TimePicker } from "@ux-sting/react/time-picker";
 
 export function Basic() {
   return (

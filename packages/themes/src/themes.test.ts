@@ -1,4 +1,4 @@
-import { CONTRAST_PAIRS, contrastRatio } from "@unified-ui/tokens";
+import { CONTRAST_PAIRS, contrastRatio } from "@ux-sting/tokens";
 import { describe, expect, it } from "vitest";
 import { createTheme, PRESET_NAMES, presets, themeToCss, themeToVars } from "./index.js";
 

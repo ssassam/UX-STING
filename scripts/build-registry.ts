@@ -1,5 +1,5 @@
 /**
- * Builds the component registry used by the CLI (`unified-ui add`) and the
+ * Builds the component registry used by the CLI (`ux-sting add`) and the
  * docs site. Dependencies are computed from import statements, so the
  * registry never drifts from the source.
  *
@@ -142,7 +142,7 @@ items.push({
   registryDependencies: [],
   files: [
     {
-      path: "styles/unified-ui.css",
+      path: "styles/ux-sting.css",
       content: readFileSync(join(src, "styles/components.css"), "utf8"),
     },
   ],
@@ -157,7 +157,7 @@ for (const item of items) {
   }
 }
 
-const registry = { name: "unified-ui", version: reactPkg.version as string, items };
+const registry = { name: "ux-sting", version: reactPkg.version as string, items };
 writeFileSync(join(root, "packages/cli/registry.json"), JSON.stringify(registry));
 const components_ = items.filter((i) => i.type === "component").length;
 console.log(

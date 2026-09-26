@@ -1,6 +1,6 @@
 # SearchResult
 
-> Patterns · `@unified-ui/react/search-result`
+> Patterns · `@ux-sting/react/search-result`
 
 Search hit with highlighted terms and SearchResults container with announced summary.
 
@@ -13,13 +13,13 @@ Use for site search and directory results.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { SearchResult, SearchResults } from "@unified-ui/react/search-result";
+import { SearchResult, SearchResults } from "@ux-sting/react/search-result";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add search-result
+npx ux-sting add search-result
 ```
 
 ## Accessibility

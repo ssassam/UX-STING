@@ -1,8 +1,8 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { useControllableState } from "@unified-ui/hooks";
-import { ChevronLeftIcon, ChevronRightIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { ChevronLeftIcon, ChevronRightIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { KeyboardEvent } from "react";
 import { CloseButton } from "../../lib/overlay.js";
 import { useLocale, useMessages, usePortalContainer } from "../../provider/context.js";

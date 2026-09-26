@@ -1,6 +1,6 @@
 "use client";
-import { Field } from "@unified-ui/react/field";
-import { MultiSelect } from "@unified-ui/react/multi-select";
+import { Field } from "@ux-sting/react/field";
+import { MultiSelect } from "@ux-sting/react/multi-select";
 import { amenities } from "./_data";
 
 export function Basic() {

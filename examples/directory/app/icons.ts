@@ -5,4 +5,4 @@ export {
   ShoppingBagIcon,
   UtensilsIcon,
   SettingsIcon as WrenchIcon,
-} from "@unified-ui/icons";
+} from "@ux-sting/icons";

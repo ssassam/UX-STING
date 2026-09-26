@@ -1,5 +1,5 @@
-import { Slot, Slottable } from "@unified-ui/primitives";
-import { cn } from "@unified-ui/utils";
+import { Slot, Slottable } from "@ux-sting/primitives";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ElementType } from "react";
 import { Spinner } from "../spinner/spinner";
 import type { ButtonProps, IconButtonProps } from "./button.types";

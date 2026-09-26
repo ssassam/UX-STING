@@ -1,6 +1,6 @@
 "use client";
-import { Autocomplete } from "@unified-ui/react/autocomplete";
-import { Field } from "@unified-ui/react/field";
+import { Autocomplete } from "@ux-sting/react/autocomplete";
+import { Field } from "@ux-sting/react/field";
 
 const suggestions = [
   "Pizza",

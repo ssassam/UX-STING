@@ -1,16 +1,16 @@
 "use client";
-import { ShoppingCartIcon, StoreIcon, UserIcon } from "@unified-ui/icons";
-import { CountBadge } from "@unified-ui/react/badge";
-import { Button, IconButton } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+import { ShoppingCartIcon, StoreIcon, UserIcon } from "@ux-sting/icons";
+import { CountBadge } from "@ux-sting/react/badge";
+import { Button, IconButton } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
   Navbar,
   NavbarActions,
   NavbarBrand,
   NavbarMobileLink,
   NavbarMobileMenu,
-} from "@unified-ui/react/navbar";
-import { SearchInput } from "@unified-ui/react/search-input";
+} from "@ux-sting/react/navbar";
+import { SearchInput } from "@ux-sting/react/search-input";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "../app/providers";

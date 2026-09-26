@@ -1,7 +1,7 @@
 "use client";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { useControllableState } from "@unified-ui/hooks";
-import { cn, fuzzyScore } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { cn, fuzzyScore } from "@ux-sting/utils";
 import { forwardRef, useId, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
 import { menuItemClass } from "../../lib/menu-styles.js";
 import { floatingSurfaceClass } from "../../lib/overlay.js";

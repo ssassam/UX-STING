@@ -1,5 +1,5 @@
-import { CrownIcon, ShieldCheckIcon, SparklesIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { CrownIcon, ShieldCheckIcon, SparklesIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 
 interface StatusBadgeProps extends HTMLAttributes<HTMLSpanElement> {

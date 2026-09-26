@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Field } from "@unified-ui/react/field";
-import { OTPInput } from "@unified-ui/react/otp-input";
+import { Field } from "@ux-sting/react/field";
+import { OTPInput } from "@ux-sting/react/otp-input";
 
 export function Basic() {
   const [done, setDone] = useState<string | null>(null);

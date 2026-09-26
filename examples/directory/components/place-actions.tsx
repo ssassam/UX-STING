@@ -1,7 +1,7 @@
 "use client";
-import { HeartIcon, NavigationIcon, PhoneIcon, Share2Icon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { toast } from "@unified-ui/react/toast";
+import { HeartIcon, NavigationIcon, PhoneIcon, Share2Icon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { toast } from "@ux-sting/react/toast";
 import type { Place } from "../lib/data";
 
 /** Sticky bottom action bar on phones (respects the safe area). */

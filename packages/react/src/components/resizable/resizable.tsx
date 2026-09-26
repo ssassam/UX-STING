@@ -1,6 +1,6 @@
 "use client";
-import { useControllableState } from "@unified-ui/hooks";
-import { clamp, cn } from "@unified-ui/utils";
+import { useControllableState } from "@ux-sting/hooks";
+import { clamp, cn } from "@ux-sting/utils";
 import {
   Children,
   cloneElement,

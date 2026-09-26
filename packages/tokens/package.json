@@ -1,7 +1,7 @@
 {
-  "name": "@unified-ui/tokens",
+  "name": "@ux-sting/tokens",
   "version": "0.1.0",
-  "description": "Design tokens for unified-ui: palettes, semantic colors, spacing, typography, motion and more — as TypeScript and CSS variables.",
+  "description": "Design tokens for ux-sting: palettes, semantic colors, spacing, typography, motion and more — as TypeScript and CSS variables.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [

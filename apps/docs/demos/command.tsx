@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@unified-ui/react/button";
+import { Button } from "@ux-sting/react/button";
 import {
   Command,
   CommandDialog,
@@ -11,9 +11,9 @@ import {
   CommandList,
   CommandLoading,
   CommandSeparator,
-} from "@unified-ui/react/command";
-import { Kbd } from "@unified-ui/react/typography";
-import { CalendarIcon, MapPinIcon, PlusIcon, SettingsIcon, UserIcon } from "@unified-ui/icons";
+} from "@ux-sting/react/command";
+import { Kbd } from "@ux-sting/react/typography";
+import { CalendarIcon, MapPinIcon, PlusIcon, SettingsIcon, UserIcon } from "@ux-sting/icons";
 
 function Items({ onSelect }: { onSelect?: (v: string) => void }) {
   return (

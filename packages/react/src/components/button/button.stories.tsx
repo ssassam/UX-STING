@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactNode } from "react";
-import { ArrowRightIcon, PlusIcon, Trash2Icon } from "@unified-ui/icons";
+import { ArrowRightIcon, PlusIcon, Trash2Icon } from "@ux-sting/icons";
 import { Button, IconButton } from "./button.js";
 import { ButtonGroup } from "./button-group.js";
 

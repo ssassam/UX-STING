@@ -1,6 +1,6 @@
 # SearchInput
 
-> Forms · `@unified-ui/react/search-input`
+> Forms · `@ux-sting/react/search-input`
 
 Search field with icon, clear button, loading state and optional global shortcut.
 
@@ -13,13 +13,13 @@ Use for search boxes in headers, tables and directories.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { SearchInput } from "@unified-ui/react/search-input";
+import { SearchInput } from "@ux-sting/react/search-input";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add search-input
+npx ux-sting add search-input
 ```
 
 ## Accessibility

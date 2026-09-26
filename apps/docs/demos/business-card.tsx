@@ -4,13 +4,13 @@ import {
   HotelCard,
   RestaurantCard,
   ServiceCard,
-} from "@unified-ui/react/business-card";
-import { IconButton } from "@unified-ui/react/button";
-import { OpenStatus } from "@unified-ui/react/opening-hours";
-import { PremiumBadge, VerifiedBadge } from "@unified-ui/react/premium-badge";
-import { Price } from "@unified-ui/react/price";
-import { Tag } from "@unified-ui/react/tag";
-import { HeartIcon } from "@unified-ui/icons";
+} from "@ux-sting/react/business-card";
+import { IconButton } from "@ux-sting/react/button";
+import { OpenStatus } from "@ux-sting/react/opening-hours";
+import { PremiumBadge, VerifiedBadge } from "@ux-sting/react/premium-badge";
+import { Price } from "@ux-sting/react/price";
+import { Tag } from "@ux-sting/react/tag";
+import { HeartIcon } from "@ux-sting/icons";
 import { img } from "./_data";
 
 const periods = [0, 1, 2, 3, 4, 5, 6].map((day) => ({ day, open: "08:00", close: "22:00" }));

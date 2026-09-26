@@ -1,6 +1,6 @@
 # BusinessCard
 
-> Patterns · `@unified-ui/react/business-card`
+> Patterns · `@ux-sting/react/business-card`
 
 Generic listing card for businesses and places, with PlaceCard, RestaurantCard, HotelCard and ServiceCard presets.
 
@@ -13,13 +13,13 @@ Use in directories, local discovery and search results.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { BusinessCard, PlaceCard, RestaurantCard } from "@unified-ui/react/business-card";
+import { BusinessCard, PlaceCard, RestaurantCard } from "@ux-sting/react/business-card";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add business-card
+npx ux-sting add business-card
 ```
 
 ## Accessibility

@@ -1,7 +1,7 @@
 "use client";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
-import { ChevronDownIcon, SlidersHorizontalIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ChevronDownIcon, SlidersHorizontalIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import { useState, type ReactNode } from "react";
 import { useMessages } from "../../provider/context.js";
 import { Button } from "../button/button.js";

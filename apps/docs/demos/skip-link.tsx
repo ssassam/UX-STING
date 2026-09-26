@@ -1,5 +1,5 @@
 "use client";
-import { SkipLink } from "@unified-ui/react/skip-link";
+import { SkipLink } from "@ux-sting/react/skip-link";
 
 export function Basic() {
   return (

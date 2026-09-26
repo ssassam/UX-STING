@@ -1,7 +1,7 @@
 "use client";
-import { PlusIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { Combobox } from "@unified-ui/react/combobox";
+import { PlusIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { Combobox } from "@ux-sting/react/combobox";
 import {
   Dialog,
   DialogBody,
@@ -11,13 +11,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@unified-ui/react/dialog";
-import { Field } from "@unified-ui/react/field";
-import { Form, FormErrorSummary } from "@unified-ui/react/form";
-import { Input } from "@unified-ui/react/input";
-import { NumberInput } from "@unified-ui/react/number-input";
-import { Textarea } from "@unified-ui/react/textarea";
-import { toast } from "@unified-ui/react/toast";
+} from "@ux-sting/react/dialog";
+import { Field } from "@ux-sting/react/field";
+import { Form, FormErrorSummary } from "@ux-sting/react/form";
+import { Input } from "@ux-sting/react/input";
+import { NumberInput } from "@ux-sting/react/number-input";
+import { Textarea } from "@ux-sting/react/textarea";
+import { toast } from "@ux-sting/react/toast";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 

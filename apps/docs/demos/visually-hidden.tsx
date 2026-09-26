@@ -1,6 +1,6 @@
 "use client";
-import { VisuallyHidden } from "@unified-ui/react/visually-hidden";
-import { Trash2Icon } from "@unified-ui/icons";
+import { VisuallyHidden } from "@ux-sting/react/visually-hidden";
+import { Trash2Icon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

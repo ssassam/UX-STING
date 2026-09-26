@@ -1,6 +1,6 @@
 # Form
 
-> Forms · `@unified-ui/react/form`
+> Forms · `@ux-sting/react/form`
 
 Accessible form with zero-config constraint validation, validate-on-blur, async submit and an error summary.
 
@@ -13,13 +13,13 @@ Use for every data-entry form. Works standalone or with external errors (server,
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Form, FormErrorSummary } from "@unified-ui/react/form";
+import { Form, FormErrorSummary } from "@ux-sting/react/form";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add form
+npx ux-sting add form
 ```
 
 ## Accessibility

@@ -1,7 +1,7 @@
 "use client";
-import { NewspaperIcon, SearchIcon } from "@unified-ui/icons";
-import { Button } from "@unified-ui/react/button";
-import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
+import { NewspaperIcon, SearchIcon } from "@ux-sting/icons";
+import { Button } from "@ux-sting/react/button";
+import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
   CommandDialog,
   CommandEmpty,
@@ -9,14 +9,14 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@unified-ui/react/command";
+} from "@ux-sting/react/command";
 import {
   Navbar,
   NavbarActions,
   NavbarBrand,
   NavbarMobileLink,
   NavbarMobileMenu,
-} from "@unified-ui/react/navbar";
+} from "@ux-sting/react/navbar";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,7 +24,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@unified-ui/react/navigation-menu";
+} from "@ux-sting/react/navigation-menu";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

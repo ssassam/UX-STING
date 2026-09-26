@@ -1,11 +1,11 @@
 "use client";
-import { HeartIcon } from "@unified-ui/icons";
-import { BusinessCard } from "@unified-ui/react/business-card";
-import { IconButton } from "@unified-ui/react/button";
-import { OpenStatus } from "@unified-ui/react/opening-hours";
-import { PremiumBadge, VerifiedBadge } from "@unified-ui/react/premium-badge";
-import { Tag } from "@unified-ui/react/tag";
-import { toast } from "@unified-ui/react/toast";
+import { HeartIcon } from "@ux-sting/icons";
+import { BusinessCard } from "@ux-sting/react/business-card";
+import { IconButton } from "@ux-sting/react/button";
+import { OpenStatus } from "@ux-sting/react/opening-hours";
+import { PremiumBadge, VerifiedBadge } from "@ux-sting/react/premium-badge";
+import { Tag } from "@ux-sting/react/tag";
+import { toast } from "@ux-sting/react/toast";
 import NextLink from "next/link";
 import { useState } from "react";
 import type { Place } from "../lib/data";

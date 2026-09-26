@@ -1,6 +1,6 @@
 # Grid
 
-> Foundations · `@unified-ui/react/grid`
+> Foundations · `@ux-sting/react/grid`
 
 CSS grid with responsive columns, gaps and auto-fill by minimum child width.
 
@@ -13,13 +13,13 @@ Use for card grids, dashboards and galleries.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Grid, GridItem } from "@unified-ui/react/grid";
+import { Grid, GridItem } from "@ux-sting/react/grid";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add grid
+npx ux-sting add grid
 ```
 
 ## Accessibility

@@ -1,5 +1,5 @@
 "use client";
-import { Separator } from "@unified-ui/react/separator";
+import { Separator } from "@ux-sting/react/separator";
 
 export function Basic() {
   return (

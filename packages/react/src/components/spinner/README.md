@@ -1,6 +1,6 @@
 # Spinner
 
-> Feedback · `@unified-ui/react/spinner`
+> Feedback · `@ux-sting/react/spinner`
 
 Indeterminate activity indicator.
 
@@ -15,13 +15,13 @@ Use for short waits inside buttons or small areas.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Spinner } from "@unified-ui/react/spinner";
+import { Spinner } from "@ux-sting/react/spinner";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add spinner
+npx ux-sting add spinner
 ```
 
 ## Accessibility

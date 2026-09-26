@@ -1,6 +1,6 @@
 "use client";
-import { Badge, CountBadge } from "@unified-ui/react/badge";
-import { CheckIcon } from "@unified-ui/icons";
+import { Badge, CountBadge } from "@ux-sting/react/badge";
+import { CheckIcon } from "@ux-sting/icons";
 
 export function Variants() {
   return (

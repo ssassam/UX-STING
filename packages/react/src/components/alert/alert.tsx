@@ -1,5 +1,5 @@
-import { AlertTriangleIcon, CheckCircle2Icon, InfoIcon, XCircleIcon } from "@unified-ui/icons";
-import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { AlertTriangleIcon, CheckCircle2Icon, InfoIcon, XCircleIcon } from "@ux-sting/icons";
+import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 
 export const alertVariants = createVariants({

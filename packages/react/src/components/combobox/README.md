@@ -1,6 +1,6 @@
 # Combobox
 
-> Forms · `@unified-ui/react/combobox`
+> Forms · `@ux-sting/react/combobox`
 
 Searchable single-select with groups, descriptions, async results and form submission.
 
@@ -13,13 +13,13 @@ Use for long lists: countries, categories, users, cities.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Combobox } from "@unified-ui/react/combobox";
+import { Combobox } from "@ux-sting/react/combobox";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add combobox
+npx ux-sting add combobox
 ```
 
 ## Accessibility

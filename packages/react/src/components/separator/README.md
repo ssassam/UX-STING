@@ -1,6 +1,6 @@
 # Separator
 
-> Foundations · `@unified-ui/react/separator`
+> Foundations · `@ux-sting/react/separator`
 
 Horizontal or vertical divider, optionally with a centered label.
 
@@ -13,13 +13,13 @@ Use to separate groups of content or menu sections.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Separator } from "@unified-ui/react/separator";
+import { Separator } from "@ux-sting/react/separator";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add separator
+npx ux-sting add separator
 ```
 
 ## Accessibility

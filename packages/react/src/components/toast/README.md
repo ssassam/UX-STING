@@ -1,6 +1,6 @@
 # Toast
 
-> Feedback · `@unified-ui/react/toast`
+> Feedback · `@ux-sting/react/toast`
 
 Sonner-style notifications: `toast.success()`, promise toasts, actions (Undo), queueing.
 
@@ -15,13 +15,13 @@ Use for brief confirmations and background results.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Toaster } from "@unified-ui/react/toast";
+import { Toaster } from "@ux-sting/react/toast";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add toast
+npx ux-sting add toast
 ```
 
 ## Accessibility

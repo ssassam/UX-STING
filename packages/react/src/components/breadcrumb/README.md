@@ -1,6 +1,6 @@
 # Breadcrumb
 
-> Navigation · `@unified-ui/react/breadcrumb`
+> Navigation · `@ux-sting/react/breadcrumb`
 
 Hierarchy trail with separators (flipped in RTL) and ellipsis.
 
@@ -13,13 +13,13 @@ Use on pages 3+ levels deep.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Breadcrumb, BreadcrumbSeparator, BreadcrumbEllipsis } from "@unified-ui/react/breadcrumb";
+import { Breadcrumb, BreadcrumbSeparator, BreadcrumbEllipsis } from "@ux-sting/react/breadcrumb";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add breadcrumb
+npx ux-sting add breadcrumb
 ```
 
 ## Accessibility

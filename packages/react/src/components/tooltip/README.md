@@ -1,6 +1,6 @@
 # Tooltip
 
-> Overlays · `@unified-ui/react/tooltip`
+> Overlays · `@ux-sting/react/tooltip`
 
 Short supplementary label on hover and keyboard focus.
 
@@ -15,13 +15,13 @@ Use to name icon buttons or show shortcuts.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Tooltip, TooltipProvider, TooltipRoot } from "@unified-ui/react/tooltip";
+import { Tooltip, TooltipProvider, TooltipRoot } from "@ux-sting/react/tooltip";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add tooltip
+npx ux-sting add tooltip
 ```
 
 ## Accessibility

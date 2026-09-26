@@ -1,7 +1,7 @@
 "use client";
-import { useClipboard } from "@unified-ui/hooks";
-import { CheckIcon, CopyIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { useClipboard } from "@ux-sting/hooks";
+import { CheckIcon, CopyIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 
 export function CodeBlock({
   code,

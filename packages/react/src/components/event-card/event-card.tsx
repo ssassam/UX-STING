@@ -1,6 +1,6 @@
 "use client";
-import { ClockIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ClockIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import type { ReactNode } from "react";
 import { useLocale } from "../../provider/context.js";
 import { Card, CardLink } from "../card/card.js";

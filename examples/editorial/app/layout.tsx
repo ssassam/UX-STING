@@ -1,5 +1,5 @@
-import { ThemeScript } from "@unified-ui/react/provider";
-import { SkipLink } from "@unified-ui/react/skip-link";
+import { ThemeScript } from "@ux-sting/react/provider";
+import { SkipLink } from "@ux-sting/react/skip-link";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Masthead } from "../components/masthead";
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </main>
           <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-            Built with unified-ui
+            Built with UX-STING
           </footer>
         </Providers>
       </body>

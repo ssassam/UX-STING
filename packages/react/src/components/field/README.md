@@ -1,6 +1,6 @@
 # Field
 
-> Forms · `@unified-ui/react/field`
+> Forms · `@ux-sting/react/field`
 
 Connects label, control, helper text and error: ids, aria-describedby, aria-invalid, required and disabled.
 
@@ -13,13 +13,13 @@ Wrap every form control in a Field so labelling and errors are always correct.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Field, FieldLabel, FieldDescription } from "@unified-ui/react/field";
+import { Field, FieldLabel, FieldDescription } from "@ux-sting/react/field";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add field
+npx ux-sting add field
 ```
 
 ## Accessibility

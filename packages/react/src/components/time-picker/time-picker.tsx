@@ -1,5 +1,5 @@
 "use client";
-import { ClockIcon } from "@unified-ui/icons";
+import { ClockIcon } from "@ux-sting/icons";
 import { forwardRef, useMemo } from "react";
 import { useLocale } from "../../provider/context.js";
 import { Combobox, type ComboboxProps } from "../combobox/combobox.js";

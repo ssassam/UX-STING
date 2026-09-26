@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext } from "react";
-import type { ColorMode, DensityMode } from "@unified-ui/utils";
+import type { ColorMode, DensityMode } from "@ux-sting/utils";
 import { en, type Messages } from "./messages.js";
 
 export interface UIContextValue {

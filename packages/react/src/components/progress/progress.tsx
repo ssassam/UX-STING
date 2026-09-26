@@ -1,4 +1,4 @@
-import { clamp, cn, createVariants, type VariantProps } from "@unified-ui/utils";
+import { clamp, cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 
 export const progressVariants = createVariants({

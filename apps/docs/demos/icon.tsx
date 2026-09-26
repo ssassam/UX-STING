@@ -1,6 +1,6 @@
 "use client";
-import { Icon } from "@unified-ui/react/icon";
-import { SearchIcon, StarIcon } from "@unified-ui/icons";
+import { Icon } from "@ux-sting/react/icon";
+import { SearchIcon, StarIcon } from "@ux-sting/icons";
 
 export function Basic() {
   return (

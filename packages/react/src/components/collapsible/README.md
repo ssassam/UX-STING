@@ -1,6 +1,6 @@
 # Collapsible
 
-> Data display · `@unified-ui/react/collapsible`
+> Data display · `@ux-sting/react/collapsible`
 
 A single show/hide region.
 
@@ -13,13 +13,13 @@ Use for "show more" sections and advanced options.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@unified-ui/react/collapsible";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@ux-sting/react/collapsible";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add collapsible
+npx ux-sting add collapsible
 ```
 
 ## Accessibility

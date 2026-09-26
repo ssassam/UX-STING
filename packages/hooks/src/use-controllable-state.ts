@@ -12,7 +12,7 @@ export interface UseControllableStateOptions<T> {
 }
 
 /**
- * Unifies controlled and uncontrolled state. Every stateful unified-ui
+ * Unifies controlled and uncontrolled state. Every stateful ux-sting
  * component uses this so `value`/`defaultValue`/`onChange` behave identically.
  */
 export function useControllableState<T>({

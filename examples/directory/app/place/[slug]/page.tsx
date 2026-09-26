@@ -1,24 +1,24 @@
-import { Badge } from "@unified-ui/react/badge";
+import { Badge } from "@ux-sting/react/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@unified-ui/react/breadcrumb";
-import { Card, CardContent, CardHeader, CardTitle } from "@unified-ui/react/card";
-import { Container } from "@unified-ui/react/container";
-import { ClaimBusiness } from "@unified-ui/react/lead-form";
-import { LocationCard } from "@unified-ui/react/location";
-import { MapPlaceholder } from "@unified-ui/react/map-placeholder";
-import { ImageGallery } from "@unified-ui/react/media";
-import { OpeningHours, OpenStatus } from "@unified-ui/react/opening-hours";
-import { PremiumBadge, VerifiedBadge } from "@unified-ui/react/premium-badge";
-import { PriceLevel } from "@unified-ui/react/price";
-import { ReviewStars } from "@unified-ui/react/rating";
-import { ReviewCard } from "@unified-ui/react/review-card";
-import { Tag } from "@unified-ui/react/tag";
-import { Heading, Text } from "@unified-ui/react/typography";
+} from "@ux-sting/react/breadcrumb";
+import { Card, CardContent, CardHeader, CardTitle } from "@ux-sting/react/card";
+import { Container } from "@ux-sting/react/container";
+import { ClaimBusiness } from "@ux-sting/react/lead-form";
+import { LocationCard } from "@ux-sting/react/location";
+import { MapPlaceholder } from "@ux-sting/react/map-placeholder";
+import { ImageGallery } from "@ux-sting/react/media";
+import { OpeningHours, OpenStatus } from "@ux-sting/react/opening-hours";
+import { PremiumBadge, VerifiedBadge } from "@ux-sting/react/premium-badge";
+import { PriceLevel } from "@ux-sting/react/price";
+import { ReviewStars } from "@ux-sting/react/rating";
+import { ReviewCard } from "@ux-sting/react/review-card";
+import { Tag } from "@ux-sting/react/tag";
+import { Heading, Text } from "@ux-sting/react/typography";
 import type { Metadata } from "next";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";

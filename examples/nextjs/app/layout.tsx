@@ -4,7 +4,7 @@ import { ThemeScript, UIProvider } from "@/components/ui/provider";
 import { Toaster } from "@/components/ui/components/toast";
 import "./globals.css";
 
-export const metadata: Metadata = { title: "unified-ui starter (copied source)" };
+export const metadata: Metadata = { title: "UX-STING starter (copied source)" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -1,5 +1,5 @@
-import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from "@unified-ui/icons";
-import { cn } from "@unified-ui/utils";
+import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from "@ux-sting/icons";
+import { cn } from "@ux-sting/utils";
 import {
   forwardRef,
   type HTMLAttributes,

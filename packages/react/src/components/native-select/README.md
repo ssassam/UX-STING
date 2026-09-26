@@ -1,6 +1,6 @@
 # NativeSelect
 
-> Forms · `@unified-ui/react/native-select`
+> Forms · `@ux-sting/react/native-select`
 
 Styled native <select>: zero JS, OS pickers on mobile.
 
@@ -13,13 +13,13 @@ Use in server-rendered forms and mobile-first flows.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { NativeSelect } from "@unified-ui/react/native-select";
+import { NativeSelect } from "@ux-sting/react/native-select";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add native-select
+npx ux-sting add native-select
 ```
 
 ## Accessibility

@@ -1,17 +1,17 @@
 import { demoLoaders, demoOrder, type DemoModule } from "@demos/index";
-import { MonitorIcon, SmartphoneIcon, TabletIcon } from "@unified-ui/icons";
-import { Badge } from "@unified-ui/react/badge";
-import { Field } from "@unified-ui/react/field";
-import { Input } from "@unified-ui/react/input";
-import { NativeSelect } from "@unified-ui/react/native-select";
-import { UIProvider } from "@unified-ui/react/provider";
-import { SearchInput } from "@unified-ui/react/search-input";
-import { Slider } from "@unified-ui/react/slider";
-import { Switch } from "@unified-ui/react/switch";
-import { Toaster } from "@unified-ui/react/toast";
-import { ToggleGroup, ToggleGroupItem } from "@unified-ui/react/toggle";
-import { TooltipProvider } from "@unified-ui/react/tooltip";
-import { cn } from "@unified-ui/utils";
+import { MonitorIcon, SmartphoneIcon, TabletIcon } from "@ux-sting/icons";
+import { Badge } from "@ux-sting/react/badge";
+import { Field } from "@ux-sting/react/field";
+import { Input } from "@ux-sting/react/input";
+import { NativeSelect } from "@ux-sting/react/native-select";
+import { UIProvider } from "@ux-sting/react/provider";
+import { SearchInput } from "@ux-sting/react/search-input";
+import { Slider } from "@ux-sting/react/slider";
+import { Switch } from "@ux-sting/react/switch";
+import { Toaster } from "@ux-sting/react/toast";
+import { ToggleGroup, ToggleGroupItem } from "@ux-sting/react/toggle";
+import { TooltipProvider } from "@ux-sting/react/tooltip";
+import { cn } from "@ux-sting/utils";
 import { lazy, Suspense, useMemo, useState, type ComponentType, type CSSProperties } from "react";
 import { labs, type Control } from "./labs";
 
@@ -146,7 +146,7 @@ export function App() {
       <TooltipProvider>
         <div className="grid min-h-dvh grid-rows-[auto_1fr] bg-surface">
           <header className="flex flex-wrap items-center gap-3 border-b border-border bg-background px-4 py-3">
-            <h1 className="me-auto text-md font-semibold">unified-ui lab</h1>
+            <h1 className="me-auto text-md font-semibold">UX-STING lab</h1>
             <NativeSelect
               size="sm"
               aria-label="Theme"

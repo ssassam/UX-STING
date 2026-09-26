@@ -1,6 +1,6 @@
 # Table
 
-> Data display · `@unified-ui/react/table`
+> Data display · `@ux-sting/react/table`
 
 Semantic table primitives with sortable headers, density-aware cells and stacked mobile layout.
 
@@ -13,13 +13,13 @@ Use for static or server-rendered tabular data.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Table, TableHeader, TableBody } from "@unified-ui/react/table";
+import { Table, TableHeader, TableBody } from "@ux-sting/react/table";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add table
+npx ux-sting add table
 ```
 
 ## Accessibility

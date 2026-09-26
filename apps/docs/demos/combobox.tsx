@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Combobox } from "@unified-ui/react/combobox";
-import { Field } from "@unified-ui/react/field";
+import { Combobox } from "@ux-sting/react/combobox";
+import { Field } from "@ux-sting/react/field";
 import { cities } from "./_data";
 
 export function Basic() {

@@ -1,5 +1,5 @@
 "use client";
-import { OpeningHours, OpenStatus, type OpeningPeriod } from "@unified-ui/react/opening-hours";
+import { OpeningHours, OpenStatus, type OpeningPeriod } from "@ux-sting/react/opening-hours";
 
 const periods: OpeningPeriod[] = [1, 2, 3, 4, 5]
   .map((day) => ({ day, open: "08:00", close: "19:00" }))

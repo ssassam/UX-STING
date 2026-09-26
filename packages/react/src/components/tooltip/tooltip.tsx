@@ -1,6 +1,6 @@
 "use client";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { cn } from "@unified-ui/utils";
+import { cn } from "@ux-sting/utils";
 import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { usePortalContainer } from "../../provider/context.js";
 

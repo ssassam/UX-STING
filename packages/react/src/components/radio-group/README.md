@@ -1,6 +1,6 @@
 # RadioGroup
 
-> Forms · `@unified-ui/react/radio-group`
+> Forms · `@ux-sting/react/radio-group`
 
 Single choice from a small set; includes Radio and card-style RadioCard.
 
@@ -15,13 +15,13 @@ Use for 2–6 mutually exclusive options that should all be visible.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { RadioGroup, Radio, RadioGroupItem } from "@unified-ui/react/radio-group";
+import { RadioGroup, Radio, RadioGroupItem } from "@ux-sting/react/radio-group";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add radio-group
+npx ux-sting add radio-group
 ```
 
 ## Accessibility

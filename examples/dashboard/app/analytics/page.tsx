@@ -1,7 +1,7 @@
-import { Progress } from "@unified-ui/react/progress";
-import { Card, CardContent, CardHeader, CardTitle } from "@unified-ui/react/card";
-import { Stat, StatGroup } from "@unified-ui/react/stat";
-import { Heading } from "@unified-ui/react/typography";
+import { Progress } from "@ux-sting/react/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "@ux-sting/react/card";
+import { Stat, StatGroup } from "@ux-sting/react/stat";
+import { Heading } from "@ux-sting/react/typography";
 import { RevenueChart } from "../../components/revenue-chart";
 
 export const metadata = { title: "Analytics" };

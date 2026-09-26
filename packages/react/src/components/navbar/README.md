@@ -1,6 +1,6 @@
 # Navbar
 
-> Navigation · `@unified-ui/react/navbar`
+> Navigation · `@ux-sting/react/navbar`
 
 Site/app header with brand, links, actions and a mobile menu sheet.
 
@@ -13,13 +13,13 @@ Use as the primary top navigation on every page, in the same place.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Navbar, NavbarMobileMenu, NavbarBrand } from "@unified-ui/react/navbar";
+import { Navbar, NavbarMobileMenu, NavbarBrand } from "@ux-sting/react/navbar";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add navbar
+npx ux-sting add navbar
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 # Autocomplete
 
-> Forms · `@unified-ui/react/autocomplete`
+> Forms · `@ux-sting/react/autocomplete`
 
 Free-text input with fuzzy suggestions (the value need not be a suggestion).
 
@@ -15,13 +15,13 @@ Use for search boxes with suggestions, addresses and tags.
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Autocomplete } from "@unified-ui/react/autocomplete";
+import { Autocomplete } from "@ux-sting/react/autocomplete";
 ```
 
 Or copy the source into your project and own it:
 
 ```bash
-npx unified-ui add autocomplete
+npx ux-sting add autocomplete
 ```
 
 ## Accessibility

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { MapPanel, MapPlaceholder } from "@unified-ui/react/map-placeholder";
+import { MapPanel, MapPlaceholder } from "@ux-sting/react/map-placeholder";
 
 const pins = [
   { id: "1", x: 30, y: 40, label: "Café Atlas" },

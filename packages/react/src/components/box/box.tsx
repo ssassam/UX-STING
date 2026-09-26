@@ -1,4 +1,4 @@
-import { Slot } from "@unified-ui/primitives";
+import { Slot } from "@ux-sting/primitives";
 import { forwardRef, type ElementType } from "react";
 import type { PolymorphicProps } from "../../lib/polymorphic.js";
 
