@@ -12,7 +12,15 @@ import type { Place } from "../lib/data";
 
 const km = (v: number) => (v < 1 ? `${Math.round(v * 1000)} m` : `${v.toFixed(1)} km`);
 
-export function PlaceCard({ place, layout = "vertical", headingLevel = 3 }: { place: Place; layout?: "vertical" | "horizontal"; headingLevel?: 2 | 3 }) {
+export function PlaceCard({
+  place,
+  layout = "vertical",
+  headingLevel = 3,
+}: {
+  place: Place;
+  layout?: "vertical" | "horizontal";
+  headingLevel?: 2 | 3;
+}) {
   const [saved, setSaved] = useState(false);
   return (
     <BusinessCard
@@ -20,13 +28,19 @@ export function PlaceCard({ place, layout = "vertical", headingLevel = 3 }: { pl
       headingLevel={headingLevel}
       name={place.name}
       href={`/place/${place.slug}`}
-      renderLink={({ href, children, className }) => <NextLink href={href} className={className}>{children}</NextLink>}
+      renderLink={({ href, children, className }) => (
+        <NextLink href={href} className={className}>
+          {children}
+        </NextLink>
+      )}
       image={{ src: place.image, alt: "" }}
       category={place.category}
       rating={place.rating}
       reviewCount={place.reviews}
       priceLevel={place.priceLevel}
-      priceLevelLabel={["Inexpensive", "Moderate", "Expensive", "Very expensive"][place.priceLevel - 1]}
+      priceLevelLabel={
+        ["Inexpensive", "Moderate", "Expensive", "Very expensive"][place.priceLevel - 1]
+      }
       address={`${place.address}, ${place.area}`}
       distance={km(place.distanceKm)}
       status={<OpenStatus periods={place.hours} />}
@@ -38,7 +52,11 @@ export function PlaceCard({ place, layout = "vertical", headingLevel = 3 }: { pl
           </>
         ) : undefined
       }
-      tags={place.amenities.slice(0, 3).map((a) => <Tag key={a} size="sm">{a}</Tag>)}
+      tags={place.amenities.slice(0, 3).map((a) => (
+        <Tag key={a} size="sm">
+          {a}
+        </Tag>
+      ))}
       actions={
         <IconButton
           aria-label={saved ? `Remove ${place.name} from saved` : `Save ${place.name}`}

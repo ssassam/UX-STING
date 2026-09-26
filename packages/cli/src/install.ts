@@ -32,6 +32,10 @@ export function installCommand(pm: PackageManager, deps: string[]): string[] {
 export function install(cwd: string, deps: string[]): boolean {
   if (!deps.length) return true;
   const [cmd, ...args] = installCommand(detectPackageManager(cwd), deps);
-  const result = spawnSync(cmd!, args, { cwd, stdio: "inherit", shell: process.platform === "win32" });
+  const result = spawnSync(cmd!, args, {
+    cwd,
+    stdio: "inherit",
+    shell: process.platform === "win32",
+  });
   return result.status === 0;
 }

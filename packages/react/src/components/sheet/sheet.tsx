@@ -22,7 +22,8 @@ export const sheetVariants = createVariants({
       start: "inset-y-0 start-0 h-dvh w-[min(24rem,calc(100vw-3rem))] border-e border-border",
       end: "inset-y-0 end-0 h-dvh w-[min(24rem,calc(100vw-3rem))] border-s border-border",
       top: "inset-x-0 top-0 max-h-[85dvh] border-b border-border",
-      bottom: "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t border-border pb-[env(safe-area-inset-bottom)]",
+      bottom:
+        "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t border-border pb-[env(safe-area-inset-bottom)]",
     },
     size: { sm: "", md: "", lg: "", xl: "" },
   },
@@ -35,7 +36,8 @@ export const sheetVariants = createVariants({
 });
 
 export interface SheetContentProps
-  extends ComponentPropsWithoutRef<typeof DialogPrimitive.Content>,
+  extends
+    ComponentPropsWithoutRef<typeof DialogPrimitive.Content>,
     VariantProps<typeof sheetVariants> {
   showClose?: boolean;
 }
@@ -48,7 +50,12 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(functi
   return (
     <DialogPrimitive.Portal container={container}>
       <DialogPrimitive.Overlay className={overlayClass} />
-      <DialogPrimitive.Content ref={ref} data-side={side} className={sheetVariants({ side, size, className })} {...props}>
+      <DialogPrimitive.Content
+        ref={ref}
+        data-side={side}
+        className={sheetVariants({ side, size, className })}
+        {...props}
+      >
         {children}
         {showClose ? (
           <DialogPrimitive.Close asChild>
@@ -60,26 +67,67 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(functi
   );
 });
 
-export const SheetHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SheetHeader({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("grid gap-1 border-b border-border px-5 py-4 pe-12", className)} {...props} />;
-});
-
-export const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SheetBody({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("min-h-0 flex-1 overflow-y-auto px-5 py-4", className)} {...props} />;
-});
-
-export const SheetFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SheetFooter({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("flex gap-2 border-t border-border px-5 py-4 [&>*]:flex-1 sm:[&>*]:flex-none sm:justify-end", className)} {...props} />;
-});
-
-export const SheetTitle = forwardRef<HTMLHeadingElement, ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-  function SheetTitle({ className, ...props }, ref) {
-    return <DialogPrimitive.Title ref={ref} className={cn("text-lg font-semibold", className)} {...props} />;
+export const SheetHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SheetHeader({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("grid gap-1 border-b border-border px-5 py-4 pe-12", className)}
+        {...props}
+      />
+    );
   },
 );
 
-export const SheetDescription = forwardRef<HTMLParagraphElement, ComponentPropsWithoutRef<typeof DialogPrimitive.Description>>(
-  function SheetDescription({ className, ...props }, ref) {
-    return <DialogPrimitive.Description ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />;
+export const SheetBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SheetBody({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("min-h-0 flex-1 overflow-y-auto px-5 py-4", className)}
+        {...props}
+      />
+    );
   },
 );
+
+export const SheetFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SheetFooter({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "flex gap-2 border-t border-border px-5 py-4 [&>*]:flex-1 sm:[&>*]:flex-none sm:justify-end",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+
+export const SheetTitle = forwardRef<
+  HTMLHeadingElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(function SheetTitle({ className, ...props }, ref) {
+  return (
+    <DialogPrimitive.Title
+      ref={ref}
+      className={cn("text-lg font-semibold", className)}
+      {...props}
+    />
+  );
+});
+
+export const SheetDescription = forwardRef<
+  HTMLParagraphElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(function SheetDescription({ className, ...props }, ref) {
+  return (
+    <DialogPrimitive.Description
+      ref={ref}
+      className={cn("text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  );
+});

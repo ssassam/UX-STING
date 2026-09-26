@@ -2,9 +2,29 @@
 import { NewspaperIcon, SearchIcon } from "@unified-ui/icons";
 import { Button } from "@unified-ui/react/button";
 import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@unified-ui/react/command";
-import { Navbar, NavbarActions, NavbarBrand, NavbarMobileLink, NavbarMobileMenu } from "@unified-ui/react/navbar";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@unified-ui/react/navigation-menu";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@unified-ui/react/command";
+import {
+  Navbar,
+  NavbarActions,
+  NavbarBrand,
+  NavbarMobileLink,
+  NavbarMobileMenu,
+} from "@unified-ui/react/navbar";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@unified-ui/react/navigation-menu";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,7 +37,10 @@ export function Masthead() {
     <>
       <Navbar maxWidth="lg">
         <NavbarBrand asChild>
-          <NextLink href="/" className="rounded-sm font-serif text-lg outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <NextLink
+            href="/"
+            className="rounded-sm font-serif text-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
             <NewspaperIcon className="size-5" /> The Medina Review
           </NextLink>
         </NavbarBrand>
@@ -33,7 +56,9 @@ export function Masthead() {
                         <NavigationMenuLink asChild>
                           <NextLink href={`/search?q=${encodeURIComponent(s)}`}>
                             <span className="block font-medium">{s}</span>
-                            <span className="block text-muted-foreground">{articles.filter((a) => a.category === s).length} stories</span>
+                            <span className="block text-muted-foreground">
+                              {articles.filter((a) => a.category === s).length} stories
+                            </span>
                           </NextLink>
                         </NavigationMenuLink>
                       </li>
@@ -45,7 +70,13 @@ export function Masthead() {
           </NavigationMenu>
         </div>
         <NavbarActions>
-          <Button variant="ghost" size="sm" startIcon={<SearchIcon />} onClick={() => setOpen(true)} aria-label="Search stories">
+          <Button
+            variant="ghost"
+            size="sm"
+            startIcon={<SearchIcon />}
+            onClick={() => setOpen(true)}
+            aria-label="Search stories"
+          >
             <span className="hidden sm:inline">Search</span>
           </Button>
           <ColorModeToggle />
@@ -64,7 +95,15 @@ export function Masthead() {
           <CommandEmpty />
           <CommandGroup heading="Stories">
             {articles.map((a) => (
-              <CommandItem key={a.slug} value={a.title} keywords={[a.category, a.author.name]} onSelect={() => { setOpen(false); router.push(`/article/${a.slug}`); }} />
+              <CommandItem
+                key={a.slug}
+                value={a.title}
+                keywords={[a.category, a.author.name]}
+                onSelect={() => {
+                  setOpen(false);
+                  router.push(`/article/${a.slug}`);
+                }}
+              />
             ))}
           </CommandGroup>
         </CommandList>

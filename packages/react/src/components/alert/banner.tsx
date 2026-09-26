@@ -20,7 +20,8 @@ export const bannerVariants = createVariants({
   defaultVariants: { variant: "default" },
 });
 
-export interface BannerProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof bannerVariants> {
+export interface BannerProps
+  extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof bannerVariants> {
   icon?: ReactNode;
   action?: ReactNode;
   dismissible?: boolean;
@@ -31,14 +32,35 @@ export interface BannerProps extends HTMLAttributes<HTMLDivElement>, VariantProp
 
 /** Page-level announcement, typically above the navbar. */
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
-  { variant, icon, action, dismissible, open: openProp, defaultOpen = true, onOpenChange, className, children, ...props },
+  {
+    variant,
+    icon,
+    action,
+    dismissible,
+    open: openProp,
+    defaultOpen = true,
+    onOpenChange,
+    className,
+    children,
+    ...props
+  },
   ref,
 ) {
   const messages = useMessages();
-  const [open, setOpen] = useControllableState({ value: openProp, defaultValue: defaultOpen, onChange: onOpenChange });
+  const [open, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: defaultOpen,
+    onChange: onOpenChange,
+  });
   if (!open) return null;
   return (
-    <div ref={ref} role="region" aria-label={props["aria-label"] ?? "Announcement"} className={bannerVariants({ variant, className })} {...props}>
+    <div
+      ref={ref}
+      role="region"
+      aria-label={props["aria-label"] ?? "Announcement"}
+      className={bannerVariants({ variant, className })}
+      {...props}
+    >
       {icon}
       <div className="min-w-0 flex-1">{children}</div>
       {action}
@@ -47,7 +69,9 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
           type="button"
           aria-label={messages.close}
           onClick={() => setOpen(false)}
-          className={cn("ui-hit-area inline-flex size-6 items-center justify-center rounded-sm opacity-80 outline-none hover:opacity-100 focus-visible:ring-2 focus-visible:ring-current")}
+          className={cn(
+            "ui-hit-area inline-flex size-6 items-center justify-center rounded-sm opacity-80 outline-none hover:opacity-100 focus-visible:ring-2 focus-visible:ring-current",
+          )}
         >
           <XIcon size="sm" />
         </button>

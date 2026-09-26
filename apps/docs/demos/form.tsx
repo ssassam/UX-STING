@@ -9,7 +9,12 @@ import { toast } from "@unified-ui/react/toast";
 function SubmitButton() {
   const { submitting } = useFormState();
   return (
-    <Button type="submit" loading={submitting} loadingText="Creating account…" className="justify-self-start">
+    <Button
+      type="submit"
+      loading={submitting}
+      loadingText="Creating account…"
+      className="justify-self-start"
+    >
       Create account
     </Button>
   );
@@ -19,7 +24,11 @@ export function Validation() {
   return (
     <Form
       className="max-w-md"
-      validate={(values) => (String(values.email).endsWith("@example.com") ? { email: "Use your work email, not example.com." } : undefined)}
+      validate={(values) =>
+        String(values.email).endsWith("@example.com")
+          ? { email: "Use your work email, not example.com." }
+          : undefined
+      }
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 800));
         toast.success("Account created", { description: String(values.email) });

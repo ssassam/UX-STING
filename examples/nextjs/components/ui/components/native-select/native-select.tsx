@@ -21,10 +21,17 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(fun
   const fieldProps = useFieldControlProps({ ...props, "aria-invalid": invalid || undefined });
   return (
     <div className={cn("relative w-full", className)}>
-      <select ref={ref} className={cn(controlVariants({ size }), "appearance-none pe-9")} {...fieldProps}>
+      <select
+        ref={ref}
+        className={cn(controlVariants({ size }), "appearance-none pe-9")}
+        {...fieldProps}
+      >
         {children}
       </select>
-      <ChevronDownIcon aria-hidden className="pointer-events-none absolute end-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+      <ChevronDownIcon
+        aria-hidden
+        className="pointer-events-none absolute end-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+      />
     </div>
   );
 });

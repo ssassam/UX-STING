@@ -4,3 +4,9 @@ node_modules
 pnpm-lock.yaml
 storybook-static
 packages/icons/src/icons
+apps/docs/demos/index.ts
+apps/docs/demos/sources.json
+packages/cli/registry.json
+registry/api.json
+docs/bundle-size.md
+**/*.md

@@ -41,7 +41,14 @@ export function Providers({ children, entries }: { children: ReactNode; entries:
       <TooltipProvider delayDuration={300}>
         <SiteHeader
           entries={entries}
-          controls={{ theme, density, locale, onThemeChange: setTheme, onDensityChange: setDensity, onLocaleChange: setLocale }}
+          controls={{
+            theme,
+            density,
+            locale,
+            onThemeChange: setTheme,
+            onDensityChange: setDensity,
+            onLocaleChange: setLocale,
+          }}
         />
         {children}
         <Toaster />

@@ -23,16 +23,42 @@ export interface VideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
  * only allowed muted and respects reduced motion (use `autoPlay` sparingly).
  */
 export const Video = forwardRef<HTMLVideoElement, VideoProps>(function Video(
-  { ratio = 16 / 9, tracks = [], controls = true, preload = "metadata", playsInline = true, className, children, ...props },
+  {
+    ratio = 16 / 9,
+    tracks = [],
+    controls = true,
+    preload = "metadata",
+    playsInline = true,
+    className,
+    children,
+    ...props
+  },
   ref,
 ) {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-black" style={{ aspectRatio: String(ratio) }}>
+    <div
+      className="relative overflow-hidden rounded-lg bg-black"
+      style={{ aspectRatio: String(ratio) }}
+    >
       {/* Caption tracks are passed via `tracks`. */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video ref={ref} controls={controls} preload={preload} playsInline={playsInline} className={cn("size-full", className)} {...props}>
+      <video
+        ref={ref}
+        controls={controls}
+        preload={preload}
+        playsInline={playsInline}
+        className={cn("size-full", className)}
+        {...props}
+      >
         {tracks.map((t) => (
-          <track key={t.src} kind={t.kind ?? "captions"} src={t.src} srcLang={t.srcLang} label={t.label} default={t.default} />
+          <track
+            key={t.src}
+            kind={t.kind ?? "captions"}
+            src={t.src}
+            srcLang={t.srcLang}
+            label={t.label}
+            default={t.default}
+          />
         ))}
         {children}
       </video>
@@ -50,7 +76,15 @@ export interface AudioProps extends AudioHTMLAttributes<HTMLAudioElement> {
 
 /** Native audio player with visible title and optional transcript link. */
 export const Audio = forwardRef<HTMLAudioElement, AudioProps>(function Audio(
-  { title, transcriptHref, transcriptLabel = "Transcript", controls = true, preload = "metadata", className, ...props },
+  {
+    title,
+    transcriptHref,
+    transcriptLabel = "Transcript",
+    controls = true,
+    preload = "metadata",
+    className,
+    ...props
+  },
   ref,
 ) {
   return (
@@ -58,7 +92,14 @@ export const Audio = forwardRef<HTMLAudioElement, AudioProps>(function Audio(
       {title ? <figcaption className="text-sm font-medium">{title}</figcaption> : null}
       {/* Audio uses a transcript link (`transcriptHref`) instead of a caption track. */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <audio ref={ref} controls={controls} preload={preload} className="w-full" aria-label={title} {...props} />
+      <audio
+        ref={ref}
+        controls={controls}
+        preload={preload}
+        className="w-full"
+        aria-label={title}
+        {...props}
+      />
       {transcriptHref ? (
         <a href={transcriptHref} className="text-sm text-primary underline underline-offset-4">
           {transcriptLabel}

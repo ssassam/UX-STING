@@ -12,14 +12,17 @@ export function Tags() {
         </Tag>
       ))}
       <Tag variant="success">Open</Tag>
-      <Tag variant="outline" size="sm">Small</Tag>
+      <Tag variant="outline" size="sm">
+        Small
+      </Tag>
     </div>
   );
 }
 
 export function Chips() {
   const [selected, setSelected] = useState<string[]>(["Open now"]);
-  const toggle = (c: string) => setSelected((s) => (s.includes(c) ? s.filter((x) => x !== c) : [...s, c]));
+  const toggle = (c: string) =>
+    setSelected((s) => (s.includes(c) ? s.filter((x) => x !== c) : [...s, c]));
   return (
     <div role="group" aria-label="Quick filters" className="flex flex-wrap gap-2">
       {["Open now", "Top rated", "Delivery", "$$", "Kids friendly"].map((c) => (

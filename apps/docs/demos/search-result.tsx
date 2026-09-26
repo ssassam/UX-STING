@@ -15,9 +15,35 @@ export function Results() {
         </NativeSelect>
       }
     >
-      <SearchResult query="coffee" href="#" title="Café Atlas — specialty coffee" path="Casablanca › Cafés" description="Single-origin coffee roasted weekly, pastries baked in house." meta={<><ReviewStars value={4.6} size="sm" showValue /><Badge variant="success" size="sm">Open</Badge></>} />
-      <SearchResult query="coffee" href="#" title="Blue Door Coffee Bar" path="Tangier › Cafés" description="Pour-over and cold brew with a view of the port." />
-      <SearchResult query="coffee" href="#" title="Guide: where to find great coffee in Rabat" path="Guides" description="Our editors picked eight coffee shops worth the detour." />
+      <SearchResult
+        query="coffee"
+        href="#"
+        title="Café Atlas — specialty coffee"
+        path="Casablanca › Cafés"
+        description="Single-origin coffee roasted weekly, pastries baked in house."
+        meta={
+          <>
+            <ReviewStars value={4.6} size="sm" showValue />
+            <Badge variant="success" size="sm">
+              Open
+            </Badge>
+          </>
+        }
+      />
+      <SearchResult
+        query="coffee"
+        href="#"
+        title="Blue Door Coffee Bar"
+        path="Tangier › Cafés"
+        description="Pour-over and cold brew with a view of the port."
+      />
+      <SearchResult
+        query="coffee"
+        href="#"
+        title="Guide: where to find great coffee in Rabat"
+        path="Guides"
+        description="Our editors picked eight coffee shops worth the detour."
+      />
     </SearchResults>
   );
 }

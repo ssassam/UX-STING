@@ -18,7 +18,11 @@ function mergeProps(slotProps: AnyProps, childProps: AnyProps): AnyProps {
   for (const key of Object.keys(childProps)) {
     const slotValue = slotProps[key];
     const childValue = childProps[key];
-    if (/^on[A-Z]/.test(key) && typeof slotValue === "function" && typeof childValue === "function") {
+    if (
+      /^on[A-Z]/.test(key) &&
+      typeof slotValue === "function" &&
+      typeof childValue === "function"
+    ) {
       merged[key] = (...args: unknown[]) => {
         (childValue as (...a: unknown[]) => void)(...args);
         const event = args[0] as { defaultPrevented?: boolean } | undefined;
@@ -48,7 +52,10 @@ function isSlottable(child: ReactNode): child is ReactElement<{ children?: React
 
 function getElementRef(element: ReactElement): Ref<unknown> | undefined {
   // React 19 exposes ref as a prop; React 18 on the element.
-  return (element.props as { ref?: Ref<unknown> }).ref ?? (element as unknown as { ref?: Ref<unknown> }).ref;
+  return (
+    (element.props as { ref?: Ref<unknown> }).ref ??
+    (element as unknown as { ref?: Ref<unknown> }).ref
+  );
 }
 
 /**
@@ -77,7 +84,9 @@ export const Slot = forwardRef<HTMLElement, SlotProps>(function Slot({ children,
   }
   return cloneElement(children, {
     ...mergeProps(props as AnyProps, children.props as AnyProps),
-    ref: ref ? mergeRefs(ref, getElementRef(children) as Ref<HTMLElement>) : getElementRef(children),
+    ref: ref
+      ? mergeRefs(ref, getElementRef(children) as Ref<HTMLElement>)
+      : getElementRef(children),
   } as AnyProps);
 });
 

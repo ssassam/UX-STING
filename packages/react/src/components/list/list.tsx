@@ -19,7 +19,8 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
       className={cn(
         "flex flex-col",
         variant === "divided" && "divide-y divide-border",
-        variant === "bordered" && "divide-y divide-border overflow-hidden rounded-lg border border-border",
+        variant === "bordered" &&
+          "divide-y divide-border overflow-hidden rounded-lg border border-border",
         className,
       )}
       {...props}
@@ -56,7 +57,12 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListIt
   return (
     <li ref={ref} className={cn(!asChild && rowClass, className)} {...props}>
       {asChild ? (
-        <Slot className={cn(rowClass, "outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring")}>
+        <Slot
+          className={cn(
+            rowClass,
+            "outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring",
+          )}
+        >
           {children}
         </Slot>
       ) : (

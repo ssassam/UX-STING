@@ -17,7 +17,14 @@ export interface ImageGalleryProps {
 }
 
 /** Thumbnail grid that opens a Lightbox. Each thumbnail is a button. */
-export function ImageGallery({ images, columns = 3, layout = "grid", ratio = 4 / 3, className, max }: ImageGalleryProps) {
+export function ImageGallery({
+  images,
+  columns = 3,
+  layout = "grid",
+  ratio = 4 / 3,
+  className,
+  max,
+}: ImageGalleryProps) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const shown = max ? images.slice(0, max) : images;
@@ -43,15 +50,29 @@ export function ImageGallery({ images, columns = 3, layout = "grid", ratio = 4 /
               }}
               className="relative block size-full overflow-hidden rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <Image src={image.src} alt={image.alt} ratio={layout === "mosaic" && i === 0 ? undefined : ratio} containerClassName="size-full" className="transition-transform duration-(--ui-duration-slow) hover:scale-[1.03]" />
+              <Image
+                src={image.src}
+                alt={image.alt}
+                ratio={layout === "mosaic" && i === 0 ? undefined : ratio}
+                containerClassName="size-full"
+                className="transition-transform duration-(--ui-duration-slow) hover:scale-[1.03]"
+              />
               {rest > 0 && i === shown.length - 1 ? (
-                <span className="absolute inset-0 flex items-center justify-center bg-black/55 text-lg font-semibold text-white">+{rest}</span>
+                <span className="absolute inset-0 flex items-center justify-center bg-black/55 text-lg font-semibold text-white">
+                  +{rest}
+                </span>
               ) : null}
             </button>
           </li>
         ))}
       </ul>
-      <Lightbox images={images} open={open} onOpenChange={setOpen} index={index} onIndexChange={setIndex} />
+      <Lightbox
+        images={images}
+        open={open}
+        onOpenChange={setOpen}
+        index={index}
+        onIndexChange={setIndex}
+      />
     </>
   );
 }

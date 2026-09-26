@@ -21,55 +21,118 @@ const iconTone = {
   loading: "bg-primary-subtle text-primary-subtle-foreground",
 };
 
-const StateBase = forwardRef<HTMLDivElement, StateProps & { tone: keyof typeof iconTone }>(function StateBase(
-  { tone, icon, title, description, actions, size = "md", headingLevel = 3, className, children, ...props },
-  ref,
-) {
-  const Heading = `h${headingLevel}` as const;
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "flex flex-col items-center justify-center text-center",
-        size === "sm" ? "gap-2 px-4 py-6" : size === "lg" ? "gap-4 px-6 py-16" : "gap-3 px-6 py-10",
-        className,
-      )}
-      {...props}
-    >
-      {icon !== null ? (
-        <div className={cn("flex items-center justify-center rounded-full [&_svg]:size-6", size === "sm" ? "size-10" : "size-12", iconTone[tone])}>
-          {icon}
+const StateBase = forwardRef<HTMLDivElement, StateProps & { tone: keyof typeof iconTone }>(
+  function StateBase(
+    {
+      tone,
+      icon,
+      title,
+      description,
+      actions,
+      size = "md",
+      headingLevel = 3,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    const Heading = `h${headingLevel}` as const;
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "flex flex-col items-center justify-center text-center",
+          size === "sm"
+            ? "gap-2 px-4 py-6"
+            : size === "lg"
+              ? "gap-4 px-6 py-16"
+              : "gap-3 px-6 py-10",
+          className,
+        )}
+        {...props}
+      >
+        {icon !== null ? (
+          <div
+            className={cn(
+              "flex items-center justify-center rounded-full [&_svg]:size-6",
+              size === "sm" ? "size-10" : "size-12",
+              iconTone[tone],
+            )}
+          >
+            {icon}
+          </div>
+        ) : null}
+        <div className="grid max-w-md gap-1">
+          <Heading
+            className={cn("font-semibold text-foreground", size === "lg" ? "text-xl" : "text-md")}
+          >
+            {title}
+          </Heading>
+          {description ? <p className="text-sm text-muted-foreground">{description}</p> : null}
         </div>
-      ) : null}
-      <div className="grid max-w-md gap-1">
-        <Heading className={cn("font-semibold text-foreground", size === "lg" ? "text-xl" : "text-md")}>{title}</Heading>
-        {description ? <p className="text-sm text-muted-foreground">{description}</p> : null}
+        {children}
+        {actions ? (
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-2">{actions}</div>
+        ) : null}
       </div>
-      {children}
-      {actions ? <div className="mt-2 flex flex-wrap items-center justify-center gap-2">{actions}</div> : null}
-    </div>
-  );
-});
+    );
+  },
+);
 
 /** No data yet / no results. Always offer a next step. */
-export const EmptyState = forwardRef<HTMLDivElement, StateProps>(function EmptyState({ icon, ...props }, ref) {
+export const EmptyState = forwardRef<HTMLDivElement, StateProps>(function EmptyState(
+  { icon, ...props },
+  ref,
+) {
   return <StateBase ref={ref} tone="empty" icon={icon ?? <InboxIcon />} {...props} />;
 });
 
 /** Failure with a recovery path (retry, edit, contact support). */
-export const ErrorState = forwardRef<HTMLDivElement, StateProps>(function ErrorState({ icon, ...props }, ref) {
-  return <StateBase ref={ref} role="alert" tone="error" icon={icon ?? <AlertTriangleIcon />} {...props} />;
+export const ErrorState = forwardRef<HTMLDivElement, StateProps>(function ErrorState(
+  { icon, ...props },
+  ref,
+) {
+  return (
+    <StateBase
+      ref={ref}
+      role="alert"
+      tone="error"
+      icon={icon ?? <AlertTriangleIcon />}
+      {...props}
+    />
+  );
 });
 
-export const SuccessState = forwardRef<HTMLDivElement, StateProps>(function SuccessState({ icon, ...props }, ref) {
-  return <StateBase ref={ref} role="status" tone="success" icon={icon ?? <CheckCircle2Icon />} {...props} />;
+export const SuccessState = forwardRef<HTMLDivElement, StateProps>(function SuccessState(
+  { icon, ...props },
+  ref,
+) {
+  return (
+    <StateBase
+      ref={ref}
+      role="status"
+      tone="success"
+      icon={icon ?? <CheckCircle2Icon />}
+      {...props}
+    />
+  );
 });
 
 /** Blocking load (> 1s). Prefer skeletons for content-shaped loading. */
-export const LoadingState = forwardRef<HTMLDivElement, Omit<StateProps, "title"> & { title?: ReactNode }>(
-  function LoadingState({ icon, title = "Loading", ...props }, ref) {
-    return (
-      <StateBase ref={ref} role="status" aria-live="polite" tone="loading" icon={icon ?? <Spinner size="lg" label={null} />} title={title} {...props} />
-    );
-  },
-);
+export const LoadingState = forwardRef<
+  HTMLDivElement,
+  Omit<StateProps, "title"> & { title?: ReactNode }
+>(function LoadingState({ icon, title = "Loading", ...props }, ref) {
+  return (
+    <StateBase
+      ref={ref}
+      role="status"
+      aria-live="polite"
+      tone="loading"
+      icon={icon ?? <Spinner size="lg" label={null} />}
+      title={title}
+      {...props}
+    />
+  );
+});

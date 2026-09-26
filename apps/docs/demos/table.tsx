@@ -1,6 +1,14 @@
 "use client";
 import { Badge } from "@unified-ui/react/badge";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@unified-ui/react/table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@unified-ui/react/table";
 import { placeRows } from "./_places";
 
 export function Basic() {
@@ -22,7 +30,17 @@ export function Basic() {
             <TableCell>{p.city}</TableCell>
             <TableCell align="end">{p.rating.toFixed(1)}</TableCell>
             <TableCell>
-              <Badge variant={p.status === "published" ? "success" : p.status === "draft" ? "secondary" : "warning"}>{p.status}</Badge>
+              <Badge
+                variant={
+                  p.status === "published"
+                    ? "success"
+                    : p.status === "draft"
+                      ? "secondary"
+                      : "warning"
+                }
+              >
+                {p.status}
+              </Badge>
             </TableCell>
           </TableRow>
         ))}
@@ -42,11 +60,17 @@ export function StackedOnMobile() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {[["Nadia", "Apr 12", "€240"], ["Tom", "Apr 14", "€120"], ["Aya", "Apr 20", "€360"]].map(([g, d, t]) => (
+        {[
+          ["Nadia", "Apr 12", "€240"],
+          ["Tom", "Apr 14", "€120"],
+          ["Aya", "Apr 20", "€360"],
+        ].map(([g, d, t]) => (
           <TableRow key={g}>
             <TableCell data-label="Guest">{g}</TableCell>
             <TableCell data-label="Date">{d}</TableCell>
-            <TableCell data-label="Total" align="end">{t}</TableCell>
+            <TableCell data-label="Total" align="end">
+              {t}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

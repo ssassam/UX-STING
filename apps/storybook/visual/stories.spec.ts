@@ -7,10 +7,14 @@ interface IndexEntry {
   tags?: string[];
 }
 
-const index = JSON.parse(readFileSync(new URL("../storybook-static/index.json", import.meta.url), "utf8")) as {
+const index = JSON.parse(
+  readFileSync(new URL("../storybook-static/index.json", import.meta.url), "utf8"),
+) as {
   entries: Record<string, IndexEntry>;
 };
-const stories = Object.values(index.entries).filter((e) => e.type === "story" && !e.tags?.includes("no-visual"));
+const stories = Object.values(index.entries).filter(
+  (e) => e.type === "story" && !e.tags?.includes("no-visual"),
+);
 
 for (const story of stories) {
   for (const mode of ["light", "dark"] as const) {

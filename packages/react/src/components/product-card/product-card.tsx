@@ -25,14 +25,38 @@ export interface ProductCardProps {
 }
 
 /** Marketplace product tile with stretched link and independent actions. */
-export function ProductCard({ name, href, image, price, brand, rating, reviewCount, badges, action, secondaryAction, meta, headingLevel = 3, className }: ProductCardProps) {
+export function ProductCard({
+  name,
+  href,
+  image,
+  price,
+  brand,
+  rating,
+  reviewCount,
+  badges,
+  action,
+  secondaryAction,
+  meta,
+  headingLevel = 3,
+  className,
+}: ProductCardProps) {
   const Heading = `h${headingLevel}` as const;
   return (
     <Card interactive={Boolean(href)} variant="ghost" className={cn("gap-3 rounded-xl", className)}>
       <div className="relative overflow-hidden rounded-xl bg-muted">
-        <Image src={image.src} alt={image.alt} ratio={1} radius="none" className="transition-transform duration-(--ui-duration-slow) group-hover/card:scale-[1.03]" />
-        {badges ? <div className="absolute start-2 top-2 flex flex-wrap gap-1">{badges}</div> : null}
-        {secondaryAction ? <div className="absolute end-2 top-2 z-[2]">{secondaryAction}</div> : null}
+        <Image
+          src={image.src}
+          alt={image.alt}
+          ratio={1}
+          radius="none"
+          className="transition-transform duration-(--ui-duration-slow) group-hover/card:scale-[1.03]"
+        />
+        {badges ? (
+          <div className="absolute start-2 top-2 flex flex-wrap gap-1">{badges}</div>
+        ) : null}
+        {secondaryAction ? (
+          <div className="absolute end-2 top-2 z-[2]">{secondaryAction}</div>
+        ) : null}
       </div>
       <div className="grid gap-1 px-0.5">
         {brand ? <p className="text-xs text-muted-foreground">{brand}</p> : null}

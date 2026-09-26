@@ -1,6 +1,16 @@
 "use client";
 import { Button } from "@unified-ui/react/button";
-import { Dialog, DialogBody, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@unified-ui/react/dialog";
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@unified-ui/react/dialog";
 import { Field } from "@unified-ui/react/field";
 import { Input } from "@unified-ui/react/input";
 import { Textarea } from "@unified-ui/react/textarea";
@@ -46,11 +56,15 @@ export function Sizes() {
           <DialogContent size={size}>
             <DialogHeader>
               <DialogTitle>Size {size}</DialogTitle>
-              <DialogDescription>Dialogs never exceed the viewport and scroll their body.</DialogDescription>
+              <DialogDescription>
+                Dialogs never exceed the viewport and scroll their body.
+              </DialogDescription>
             </DialogHeader>
             <DialogBody>
               {Array.from({ length: 12 }, (_, i) => (
-                <p key={i} className="py-2">Paragraph {i + 1}</p>
+                <p key={i} className="py-2">
+                  Paragraph {i + 1}
+                </p>
               ))}
             </DialogBody>
           </DialogContent>

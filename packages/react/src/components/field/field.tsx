@@ -1,7 +1,13 @@
 "use client";
 import { AlertCircleIcon } from "@unified-ui/icons";
 import { cn } from "@unified-ui/utils";
-import { forwardRef, useEffect, type FieldsetHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
+import {
+  forwardRef,
+  useEffect,
+  type FieldsetHTMLAttributes,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import {
   FieldContext,
   useField,
@@ -12,7 +18,8 @@ import {
 } from "../../lib/field.js";
 import { Label, type LabelProps } from "../typography/typography.js";
 
-export interface FieldProps extends Omit<HTMLAttributes<HTMLDivElement>, "id">, UseFieldStateOptions {
+export interface FieldProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, "id">, UseFieldStateOptions {
   /** Convenience: renders a FieldLabel. */
   label?: ReactNode;
   /** Convenience: renders a FieldDescription (helper text). */
@@ -27,7 +34,21 @@ export interface FieldProps extends Omit<HTMLAttributes<HTMLDivElement>, "id">, 
  * automatically. Errors come from `error` or the parent `Form` by `name`.
  */
 export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
-  { id, name, error, invalid, required, disabled, readOnly, label, description, orientation = "vertical", className, children, ...props },
+  {
+    id,
+    name,
+    error,
+    invalid,
+    required,
+    disabled,
+    readOnly,
+    label,
+    description,
+    orientation = "vertical",
+    className,
+    children,
+    ...props
+  },
   ref,
 ) {
   const field = useFieldState({ id, name, error, invalid, required, disabled, readOnly });
@@ -47,7 +68,8 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
         data-disabled={field.disabled ? "" : undefined}
         className={cn(
           "grid gap-1.5",
-          orientation === "horizontal" && "sm:grid-cols-[minmax(8rem,1fr)_2fr] sm:items-start sm:gap-x-4 [&>label]:sm:pt-2",
+          orientation === "horizontal" &&
+            "sm:grid-cols-[minmax(8rem,1fr)_2fr] sm:items-start sm:gap-x-4 [&>label]:sm:pt-2",
           className,
         )}
         {...props}
@@ -63,16 +85,32 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
 
 export const FieldLabel = forwardRef<HTMLLabelElement, LabelProps>(function FieldLabel(props, ref) {
   const field = useField();
-  return <Label ref={ref} htmlFor={field?.id} required={field?.required} disabled={field?.disabled} {...props} />;
+  return (
+    <Label
+      ref={ref}
+      htmlFor={field?.id}
+      required={field?.required}
+      disabled={field?.disabled}
+      {...props}
+    />
+  );
 });
 
-export const FieldDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
-  function FieldDescription({ className, ...props }, ref) {
-    const field = useField();
-    useRegisterDescription(field);
-    return <p ref={ref} id={field?.descriptionId} className={cn("text-sm text-muted-foreground", className)} {...props} />;
-  },
-);
+export const FieldDescription = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement>
+>(function FieldDescription({ className, ...props }, ref) {
+  const field = useField();
+  useRegisterDescription(field);
+  return (
+    <p
+      ref={ref}
+      id={field?.descriptionId}
+      className={cn("text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  );
+});
 
 /**
  * Error message placed below the control and referenced by it. Renders the
@@ -87,7 +125,10 @@ export const FieldError = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLPa
       <p
         ref={ref}
         id={field?.errorId}
-        className={cn("flex items-start gap-1.5 text-sm font-medium text-destructive [&_svg]:mt-0.5 [&_svg]:size-4 [&_svg]:shrink-0", className)}
+        className={cn(
+          "flex items-start gap-1.5 text-sm font-medium text-destructive [&_svg]:mt-0.5 [&_svg]:size-4 [&_svg]:shrink-0",
+          className,
+        )}
         {...props}
       >
         <AlertCircleIcon />
@@ -111,7 +152,9 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(function 
 ) {
   return (
     <fieldset ref={ref} className={cn("grid min-w-0 gap-4", className)} {...props}>
-      <legend className={cn("mb-1 text-md font-semibold", hideLegend && "sr-only")}>{legend}</legend>
+      <legend className={cn("mb-1 text-md font-semibold", hideLegend && "sr-only")}>
+        {legend}
+      </legend>
       {description ? <p className="-mt-3 text-sm text-muted-foreground">{description}</p> : null}
       {children}
     </fieldset>

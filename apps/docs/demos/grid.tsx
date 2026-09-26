@@ -2,7 +2,9 @@
 import { Grid, GridItem } from "@unified-ui/react/grid";
 
 const Cell = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex h-20 items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">{children}</div>
+  <div className="flex h-20 items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">
+    {children}
+  </div>
 );
 
 export function Responsive() {

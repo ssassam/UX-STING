@@ -1,6 +1,12 @@
 "use client";
 import * as P from "@radix-ui/react-context-menu";
-import type { ComponentPropsWithoutRef, ElementType, ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import type {
+  ComponentPropsWithoutRef,
+  ElementType,
+  ForwardRefExoticComponent,
+  ReactNode,
+  RefAttributes,
+} from "react";
 import { createMenuParts, type MenuItemExtraProps } from "../../lib/menu-parts.js";
 
 /**
@@ -9,7 +15,9 @@ import { createMenuParts, type MenuItemExtraProps } from "../../lib/menu-parts.j
  */
 const parts = createMenuParts(P);
 
-type Part<T extends ElementType, Extra = object> = ForwardRefExoticComponent<ComponentPropsWithoutRef<T> & Extra & RefAttributes<HTMLDivElement>>;
+type Part<T extends ElementType, Extra = object> = ForwardRefExoticComponent<
+  ComponentPropsWithoutRef<T> & Extra & RefAttributes<HTMLDivElement>
+>;
 
 export const ContextMenu = P.Root;
 export const ContextMenuTrigger = P.Trigger;
@@ -22,6 +30,9 @@ export const ContextMenuCheckboxItem = parts.CheckboxItem as Part<typeof P.Check
 export const ContextMenuRadioItem = parts.RadioItem as Part<typeof P.RadioItem>;
 export const ContextMenuLabel = parts.Label as Part<typeof P.Label, { inset?: boolean }>;
 export const ContextMenuSeparator = parts.Separator as Part<typeof P.Separator>;
-export const ContextMenuSubTrigger = parts.SubTrigger as Part<typeof P.SubTrigger, { icon?: ReactNode; inset?: boolean }>;
+export const ContextMenuSubTrigger = parts.SubTrigger as Part<
+  typeof P.SubTrigger,
+  { icon?: ReactNode; inset?: boolean }
+>;
 export const ContextMenuSubContent = parts.SubContent as Part<typeof P.SubContent>;
 export const ContextMenuShortcut = parts.Shortcut;

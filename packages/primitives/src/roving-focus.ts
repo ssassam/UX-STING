@@ -13,7 +13,10 @@ export interface UseRovingFocusOptions extends NavigationOptions {
  */
 export function useRovingFocus(
   containerRef: RefObject<HTMLElement | null>,
-  { itemSelector = "[data-roving-item]:not([disabled]):not([aria-disabled=true])", ...options }: UseRovingFocusOptions = {},
+  {
+    itemSelector = "[data-roving-item]:not([disabled]):not([aria-disabled=true])",
+    ...options
+  }: UseRovingFocusOptions = {},
 ) {
   return useCallback(
     (event: ReactKeyboardEvent) => {

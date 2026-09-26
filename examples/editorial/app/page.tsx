@@ -25,15 +25,24 @@ export default function Home() {
           readingTime={`${featured!.readingMinutes} min read`}
         />
         <section aria-labelledby="trending" className="grid content-start gap-3">
-          <Heading id="trending" level={2} size="sm">Trending</Heading>
+          <Heading id="trending" level={2} size="sm">
+            Trending
+          </Heading>
           <List variant="divided">
             {rest.slice(0, 4).map((a, i) => (
               <ListItem key={a.slug} asChild>
                 <a href={`/article/${a.slug}`}>
-                  <span aria-hidden className="text-2xl font-semibold tabular-nums text-muted-foreground">{i + 1}</span>
+                  <span
+                    aria-hidden
+                    className="text-2xl font-semibold tabular-nums text-muted-foreground"
+                  >
+                    {i + 1}
+                  </span>
                   <span className="grid">
                     <span className="font-medium">{a.title}</span>
-                    <span className="text-xs text-muted-foreground">{a.category} · {a.readingMinutes} min</span>
+                    <span className="text-xs text-muted-foreground">
+                      {a.category} · {a.readingMinutes} min
+                    </span>
                   </span>
                 </a>
               </ListItem>
@@ -43,7 +52,9 @@ export default function Home() {
       </div>
       <Separator />
       <section aria-labelledby="latest" className="grid gap-6">
-        <Heading id="latest" level={2} size="md">Latest</Heading>
+        <Heading id="latest" level={2} size="md">
+          Latest
+        </Heading>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((a) => (
             <ArticleCard
@@ -60,7 +71,9 @@ export default function Home() {
         </div>
       </section>
       <section aria-labelledby="by-section" className="grid gap-4">
-        <Heading id="by-section" level={2} size="md">By section</Heading>
+        <Heading id="by-section" level={2} size="md">
+          By section
+        </Heading>
         <SectionTabs />
       </section>
       <Newsletter />

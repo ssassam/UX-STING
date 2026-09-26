@@ -16,9 +16,33 @@ import { Avatar } from "@unified-ui/react/avatar";
 import { Badge, CountBadge } from "@unified-ui/react/badge";
 import { Button, IconButton } from "@unified-ui/react/button";
 import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@unified-ui/react/command";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@unified-ui/react/dropdown-menu";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarInset, SidebarItem, SidebarProvider, SidebarTrigger } from "@unified-ui/react/sidebar";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@unified-ui/react/command";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@unified-ui/react/dropdown-menu";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+  SidebarInset,
+  SidebarItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@unified-ui/react/sidebar";
 import { Kbd } from "@unified-ui/react/typography";
 import NextLink from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -44,7 +68,9 @@ export function Shell({ children }: { children: ReactNode }) {
           <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground [&_svg]:size-4">
             <StoreIcon />
           </span>
-          <span className="truncate font-semibold group-data-collapsed/sidebar:sr-only">Atlas Admin</span>
+          <span className="truncate font-semibold group-data-collapsed/sidebar:sr-only">
+            Atlas Admin
+          </span>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup label="Workspace">
@@ -57,8 +83,18 @@ export function Shell({ children }: { children: ReactNode }) {
               >
                 <NextLink href={item.href}>
                   {item.icon}
-                  <span className="flex-1 truncate group-data-collapsed/sidebar:sr-only">{item.label}</span>
-                  {item.badge ? <Badge size="sm" variant="secondary" className="group-data-collapsed/sidebar:hidden">{item.badge}</Badge> : null}
+                  <span className="flex-1 truncate group-data-collapsed/sidebar:sr-only">
+                    {item.label}
+                  </span>
+                  {item.badge ? (
+                    <Badge
+                      size="sm"
+                      variant="secondary"
+                      className="group-data-collapsed/sidebar:hidden"
+                    >
+                      {item.badge}
+                    </Badge>
+                  ) : null}
                 </NextLink>
               </SidebarItem>
             ))}
@@ -76,7 +112,14 @@ export function Shell({ children }: { children: ReactNode }) {
       <SidebarInset>
         <header className="sticky top-0 z-(--ui-z-header) flex h-14 items-center gap-2 border-b border-border bg-background/90 px-3 backdrop-blur sm:px-4">
           <SidebarTrigger />
-          <Button variant="outline" size="sm" className="ms-1 w-full min-w-0 max-w-64 shrink justify-start text-muted-foreground" startIcon={<SearchIcon />} onClick={() => setPaletteOpen(true)} aria-label="Search">
+          <Button
+            variant="outline"
+            size="sm"
+            className="ms-1 w-full min-w-0 max-w-64 shrink justify-start text-muted-foreground"
+            startIcon={<SearchIcon />}
+            onClick={() => setPaletteOpen(true)}
+            aria-label="Search"
+          >
             <span className="flex-1 text-start">Search…</span>
             <Kbd className="hidden sm:inline-flex">⌘K</Kbd>
           </Button>
@@ -84,9 +127,16 @@ export function Shell({ children }: { children: ReactNode }) {
             <ColorModeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <IconButton aria-label="Notifications, 3 unread" variant="ghost" className="relative">
+                <IconButton
+                  aria-label="Notifications, 3 unread"
+                  variant="ghost"
+                  className="relative"
+                >
                   <BellIcon />
-                  <CountBadge count={3} className="absolute -end-0.5 -top-0.5 h-4 min-w-4 px-1 text-[0.625rem]" />
+                  <CountBadge
+                    count={3}
+                    className="absolute -end-0.5 -top-0.5 h-4 min-w-4 px-1 text-[0.625rem]"
+                  />
                 </IconButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-72">
@@ -98,16 +148,24 @@ export function Shell({ children }: { children: ReactNode }) {
             </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button type="button" aria-label="Account menu" className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <button
+                  type="button"
+                  aria-label="Account menu"
+                  className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
                   <Avatar size="sm" name="Salma Idrissi" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Salma Idrissi</DropdownMenuLabel>
                 <DropdownMenuItem icon={<UserIcon />}>Profile</DropdownMenuItem>
-                <DropdownMenuItem icon={<SettingsIcon />} onSelect={() => router.push("/settings")}>Settings</DropdownMenuItem>
+                <DropdownMenuItem icon={<SettingsIcon />} onSelect={() => router.push("/settings")}>
+                  Settings
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem icon={<LogOutIcon />} variant="destructive">Sign out</DropdownMenuItem>
+                <DropdownMenuItem icon={<LogOutIcon />} variant="destructive">
+                  Sign out
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -120,12 +178,34 @@ export function Shell({ children }: { children: ReactNode }) {
           <CommandEmpty />
           <CommandGroup heading="Pages">
             {nav.map((item) => (
-              <CommandItem key={item.href} value={item.label} icon={item.icon} onSelect={() => { setPaletteOpen(false); router.push(item.href); }} />
+              <CommandItem
+                key={item.href}
+                value={item.label}
+                icon={item.icon}
+                onSelect={() => {
+                  setPaletteOpen(false);
+                  router.push(item.href);
+                }}
+              />
             ))}
           </CommandGroup>
           <CommandGroup heading="Actions">
-            <CommandItem value="Create listing" keywords={["new", "add"]} onSelect={() => { setPaletteOpen(false); router.push("/?new=1"); }} />
-            <CommandItem value="Settings" icon={<SettingsIcon />} onSelect={() => { setPaletteOpen(false); router.push("/settings"); }} />
+            <CommandItem
+              value="Create listing"
+              keywords={["new", "add"]}
+              onSelect={() => {
+                setPaletteOpen(false);
+                router.push("/?new=1");
+              }}
+            />
+            <CommandItem
+              value="Settings"
+              icon={<SettingsIcon />}
+              onSelect={() => {
+                setPaletteOpen(false);
+                router.push("/settings");
+              }}
+            />
           </CommandGroup>
         </CommandList>
       </CommandDialog>

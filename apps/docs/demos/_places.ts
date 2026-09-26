@@ -9,9 +9,48 @@ export interface PlaceRow {
   updated: Date;
 }
 
-const names = ["Café Atlas", "Riad Zitoun", "La Sqala", "Bab Food", "Pâtisserie Amoud", "Le Petit Rocher", "Dar Cherifa", "Blue Door", "Sahara Grill", "Olive & Co", "Medina Books", "Surf House"];
-const categories = ["Café", "Hotel", "Restaurant", "Restaurant", "Bakery", "Bar", "Guesthouse", "Café", "Restaurant", "Deli", "Bookstore", "Hostel"];
-const cities = ["Casablanca", "Marrakech", "Casablanca", "Rabat", "Casablanca", "Rabat", "Marrakech", "Tangier", "Agadir", "Rabat", "Fès", "Taghazout"];
+const names = [
+  "Café Atlas",
+  "Riad Zitoun",
+  "La Sqala",
+  "Bab Food",
+  "Pâtisserie Amoud",
+  "Le Petit Rocher",
+  "Dar Cherifa",
+  "Blue Door",
+  "Sahara Grill",
+  "Olive & Co",
+  "Medina Books",
+  "Surf House",
+];
+const categories = [
+  "Café",
+  "Hotel",
+  "Restaurant",
+  "Restaurant",
+  "Bakery",
+  "Bar",
+  "Guesthouse",
+  "Café",
+  "Restaurant",
+  "Deli",
+  "Bookstore",
+  "Hostel",
+];
+const cities = [
+  "Casablanca",
+  "Marrakech",
+  "Casablanca",
+  "Rabat",
+  "Casablanca",
+  "Rabat",
+  "Marrakech",
+  "Tangier",
+  "Agadir",
+  "Rabat",
+  "Fès",
+  "Taghazout",
+];
 
 export const placeRows: PlaceRow[] = names.map((name, i) => ({
   id: String(i + 1),

@@ -7,11 +7,17 @@ export function DocsNav({ current }: { current?: string }) {
   return (
     <nav aria-label="Documentation" className="grid gap-6 text-sm">
       <div>
-        <p className="mb-1 px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Guides</p>
+        <p className="mb-1 px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          Guides
+        </p>
         <ul>
           {guides.map((g) => (
             <li key={g.slug}>
-              <a href={`/docs/${g.slug}`} aria-current={current === `/docs/${g.slug}` ? "page" : undefined} className={linkClass}>
+              <a
+                href={`/docs/${g.slug}`}
+                aria-current={current === `/docs/${g.slug}` ? "page" : undefined}
+                className={linkClass}
+              >
                 {g.title}
               </a>
             </li>
@@ -20,11 +26,17 @@ export function DocsNav({ current }: { current?: string }) {
       </div>
       {componentsByCategory().map(({ category, label, items }) => (
         <div key={category}>
-          <p className="mb-1 px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{label}</p>
+          <p className="mb-1 px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {label}
+          </p>
           <ul>
             {items.map((c) => (
               <li key={c.name}>
-                <a href={`/components/${c.name}`} aria-current={current === `/components/${c.name}` ? "page" : undefined} className={linkClass}>
+                <a
+                  href={`/components/${c.name}`}
+                  aria-current={current === `/components/${c.name}` ? "page" : undefined}
+                  className={linkClass}
+                >
                   {c.title}
                 </a>
               </li>
@@ -36,7 +48,15 @@ export function DocsNav({ current }: { current?: string }) {
   );
 }
 
-export function DocsLayout({ current, children, toc }: { current?: string; children: ReactNode; toc?: ReactNode }) {
+export function DocsLayout({
+  current,
+  children,
+  toc,
+}: {
+  current?: string;
+  children: ReactNode;
+  toc?: ReactNode;
+}) {
   return (
     <div className="mx-auto grid max-w-[90rem] gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)_13rem]">
       <aside aria-label="Documentation navigation" className="hidden lg:block">

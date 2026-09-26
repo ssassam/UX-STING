@@ -1,5 +1,13 @@
 "use client";
-import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPlayToggle, CarouselPrevious } from "@unified-ui/react/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselDots,
+  CarouselItem,
+  CarouselNext,
+  CarouselPlayToggle,
+  CarouselPrevious,
+} from "@unified-ui/react/carousel";
 import { Image } from "@unified-ui/react/media";
 import { img } from "./_data";
 

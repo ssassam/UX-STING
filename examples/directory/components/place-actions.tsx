@@ -12,12 +12,25 @@ export function PlaceActions({ place }: { place: Place }) {
         <Button asChild className="flex-1 md:flex-none" startIcon={<PhoneIcon />}>
           <a href={`tel:${place.phone.replace(/\s/g, "")}`}>Call</a>
         </Button>
-        <Button asChild variant="outline" className="flex-1 md:flex-none" startIcon={<NavigationIcon />}>
-          <a href={`https://maps.google.com/?q=${encodeURIComponent(`${place.name} ${place.address} ${place.city}`)}`} target="_blank" rel="noopener noreferrer">
+        <Button
+          asChild
+          variant="outline"
+          className="flex-1 md:flex-none"
+          startIcon={<NavigationIcon />}
+        >
+          <a
+            href={`https://maps.google.com/?q=${encodeURIComponent(`${place.name} ${place.address} ${place.city}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Directions
           </a>
         </Button>
-        <Button variant="outline" aria-label="Save" onClick={() => toast.success("Saved", { description: place.name })}>
+        <Button
+          variant="outline"
+          aria-label="Save"
+          onClick={() => toast.success("Saved", { description: place.name })}
+        >
           <HeartIcon />
         </Button>
         <Button

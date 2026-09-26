@@ -7,7 +7,10 @@ import { useLocale, useMessages } from "../../provider/context.js";
 import { Input, type InputProps } from "../input/input.js";
 import { InputGroup, InputGroupAction } from "../input-group/input-group.js";
 
-export interface NumberInputProps extends Omit<InputProps, "type" | "value" | "defaultValue" | "onChange" | "min" | "max" | "step"> {
+export interface NumberInputProps extends Omit<
+  InputProps,
+  "type" | "value" | "defaultValue" | "onChange" | "min" | "max" | "step"
+> {
   value?: number | null;
   defaultValue?: number | null;
   onValueChange?: (value: number | null) => void;
@@ -39,13 +42,34 @@ function parseLocaleNumber(input: string, locale: string): number | null {
  * (ArrowUp/Down, PageUp/Down, Home/End). Exposes `role="spinbutton"`.
  */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(function NumberInput(
-  { value: valueProp, defaultValue = null, onValueChange, min = -Infinity, max = Infinity, step = 1, formatOptions, hideSteppers, size = "md", className, onBlur, disabled, ...props },
+  {
+    value: valueProp,
+    defaultValue = null,
+    onValueChange,
+    min = -Infinity,
+    max = Infinity,
+    step = 1,
+    formatOptions,
+    hideSteppers,
+    size = "md",
+    className,
+    onBlur,
+    disabled,
+    ...props
+  },
   ref,
 ) {
   const { locale } = useLocale();
   const messages = useMessages();
-  const [value, setValue] = useControllableState<number | null>({ value: valueProp, defaultValue, onChange: onValueChange });
-  const format = (n: number | null) => (n === null ? "" : new Intl.NumberFormat(locale, { maximumFractionDigits: 20, ...formatOptions }).format(n));
+  const [value, setValue] = useControllableState<number | null>({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
+  const format = (n: number | null) =>
+    n === null
+      ? ""
+      : new Intl.NumberFormat(locale, { maximumFractionDigits: 20, ...formatOptions }).format(n);
   const [text, setText] = useState(format(value));
   const [editing, setEditing] = useState(false);
 
@@ -55,7 +79,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
   }, [value, editing, locale]);
 
   const commit = (n: number | null) => {
-    const next = n === null ? null : clamp(snapToStep(n, step, Number.isFinite(min) ? min : 0), min, max);
+    const next =
+      n === null ? null : clamp(snapToStep(n, step, Number.isFinite(min) ? min : 0), min, max);
     setValue(next);
     setText(format(next));
   };
@@ -86,7 +111,11 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
       <Input
         ref={ref}
         role="spinbutton"
-        inputMode={formatOptions?.maximumFractionDigits === 0 || Number.isInteger(step) ? "numeric" : "decimal"}
+        inputMode={
+          formatOptions?.maximumFractionDigits === 0 || Number.isInteger(step)
+            ? "numeric"
+            : "decimal"
+        }
         size={size}
         value={text}
         disabled={disabled}
@@ -110,10 +139,24 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
       />
       {hideSteppers ? null : (
         <InputGroupAction>
-          <button type="button" tabIndex={-1} aria-label={messages.decrement} className={stepperClass} disabled={disabled || (value !== null && value <= min)} onClick={() => increment(-step)}>
+          <button
+            type="button"
+            tabIndex={-1}
+            aria-label={messages.decrement}
+            className={stepperClass}
+            disabled={disabled || (value !== null && value <= min)}
+            onClick={() => increment(-step)}
+          >
             <MinusIcon />
           </button>
-          <button type="button" tabIndex={-1} aria-label={messages.increment} className={cn(stepperClass)} disabled={disabled || (value !== null && value >= max)} onClick={() => increment(step)}>
+          <button
+            type="button"
+            tabIndex={-1}
+            aria-label={messages.increment}
+            className={cn(stepperClass)}
+            disabled={disabled || (value !== null && value >= max)}
+            onClick={() => increment(step)}
+          >
             <PlusIcon />
           </button>
         </InputGroupAction>

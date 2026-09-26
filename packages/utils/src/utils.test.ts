@@ -41,7 +41,8 @@ describe("createVariants", () => {
       "btn border h-8 w-full border-dashed",
     );
   });
-  it("merges className last", () => expect(button({ className: "h-12" })).toBe("btn bg-primary h-12"));
+  it("merges className last", () =>
+    expect(button({ className: "h-12" })).toBe("btn bg-primary h-12"));
 });
 
 describe("keyboard", () => {
@@ -66,7 +67,10 @@ describe("keyboard", () => {
 describe("responsive", () => {
   it("creates css vars", () => {
     expect(responsiveVars("cols", 3)).toEqual({ "--cols-base": "3" });
-    expect(responsiveVars("cols", { base: 1, md: 2 })).toEqual({ "--cols-base": "1", "--cols-md": "2" });
+    expect(responsiveVars("cols", { base: 1, md: 2 })).toEqual({
+      "--cols-base": "1",
+      "--cols-md": "2",
+    });
   });
   it("resolves mobile-first", () => {
     expect(resolveResponsive({ base: 1, md: 3 }, "lg")).toBe(3);

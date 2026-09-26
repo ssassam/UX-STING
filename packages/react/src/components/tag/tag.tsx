@@ -21,7 +21,8 @@ export const tagVariants = createVariants({
   defaultVariants: { variant: "default", size: "md" },
 });
 
-export interface TagProps extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagVariants> {
+export interface TagProps
+  extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagVariants> {
   icon?: ReactNode;
   /** Makes the tag removable; renders an accessible remove button. */
   onRemove?: () => void;
@@ -43,7 +44,9 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
         <button
           type="button"
           onClick={onRemove}
-          aria-label={messages.removeItem(removeLabel ?? (typeof children === "string" ? children : ""))}
+          aria-label={messages.removeItem(
+            removeLabel ?? (typeof children === "string" ? children : ""),
+          )}
           className="ui-hit-area -me-1 inline-flex size-4 items-center justify-center rounded-xs opacity-70 outline-none hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring"
         >
           <XIcon />
@@ -75,7 +78,11 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
         "inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border-strong bg-background font-medium text-foreground transition-colors",
         "outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50",
         "data-selected:border-primary data-selected:bg-primary-subtle data-selected:text-primary-subtle-foreground [&_svg]:size-4",
-        size === "sm" ? "h-7 px-2.5 text-xs" : size === "lg" ? "h-10 px-4 text-sm" : "h-8 px-3 text-sm",
+        size === "sm"
+          ? "h-7 px-2.5 text-xs"
+          : size === "lg"
+            ? "h-10 px-4 text-sm"
+            : "h-8 px-3 text-sm",
         className,
       )}
       {...props}

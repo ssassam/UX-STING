@@ -1,6 +1,14 @@
 "use client";
 import { cn, createVariants, getInitials, type VariantProps } from "@unified-ui/utils";
-import { Children, forwardRef, isValidElement, useState, type HTMLAttributes, type ReactElement, type ReactNode } from "react";
+import {
+  Children,
+  forwardRef,
+  isValidElement,
+  useState,
+  type HTMLAttributes,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 
 export const avatarVariants = createVariants({
   base: "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden bg-muted font-medium text-muted-foreground align-middle",
@@ -17,7 +25,8 @@ export const avatarVariants = createVariants({
   defaultVariants: { size: "md", shape: "circle" },
 });
 
-export interface AvatarProps extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof avatarVariants> {
+export interface AvatarProps
+  extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof avatarVariants> {
   src?: string;
   /** Person or entity name: used for alt text and initials fallback. */
   name?: string;
@@ -45,8 +54,17 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   const showImage = Boolean(src) && failedSrc !== src;
   const loaded = loadedSrc === src;
   return (
-    <span ref={ref} className={cn(avatarVariants({ size, shape }), "overflow-visible", className)} {...props}>
-      <span className={cn("flex size-full items-center justify-center overflow-hidden", shape === "square" ? "rounded-lg" : "rounded-full")}>
+    <span
+      ref={ref}
+      className={cn(avatarVariants({ size, shape }), "overflow-visible", className)}
+      {...props}
+    >
+      <span
+        className={cn(
+          "flex size-full items-center justify-center overflow-hidden",
+          shape === "square" ? "rounded-lg" : "rounded-full",
+        )}
+      >
         {showImage ? (
           <img
             src={src}
@@ -70,7 +88,10 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
         <span
           role="img"
           aria-label={statusLabel ?? status}
-          className={cn("absolute bottom-0 end-0 size-[28%] min-h-2 min-w-2 rounded-full ring-2 ring-background", statusColor[status])}
+          className={cn(
+            "absolute bottom-0 end-0 size-[28%] min-h-2 min-w-2 rounded-full ring-2 ring-background",
+            statusColor[status],
+          )}
         />
       ) : null}
     </span>
@@ -93,12 +114,26 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
   const visible = items.slice(0, max);
   const rest = items.length - visible.length;
   return (
-    <div ref={ref} role="group" className={cn("flex items-center -space-x-2 rtl:space-x-reverse", className)} {...props}>
+    <div
+      ref={ref}
+      role="group"
+      className={cn("flex items-center -space-x-2 rtl:space-x-reverse", className)}
+      {...props}
+    >
       {visible.map((child, i) => (
-        <Avatar key={child.key ?? i} {...child.props} size={size} className={cn("ring-2 ring-background", child.props.className)} />
+        <Avatar
+          key={child.key ?? i}
+          {...child.props}
+          size={size}
+          className={cn("ring-2 ring-background", child.props.className)}
+        />
       ))}
       {rest > 0 ? (
-        <span className={cn(avatarVariants({ size }), "ring-2 ring-background")} role="img" aria-label={moreLabel(rest)}>
+        <span
+          className={cn(avatarVariants({ size }), "ring-2 ring-background")}
+          role="img"
+          aria-label={moreLabel(rest)}
+        >
           <span aria-hidden>+{rest}</span>
         </span>
       ) : null}

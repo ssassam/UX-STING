@@ -32,7 +32,8 @@ export function parseArgs(argv: string[]): Parsed {
       const [key, inline] = arg.slice(2).split("=");
       const next = argv[i + 1];
       if (inline !== undefined) parsed.flags[key!] = inline;
-      else if (["dir", "css", "cwd", "registry"].includes(key!) && next && !next.startsWith("-")) parsed.flags[key!] = argv[++i]!;
+      else if (["dir", "css", "cwd", "registry"].includes(key!) && next && !next.startsWith("-"))
+        parsed.flags[key!] = argv[++i]!;
       else parsed.flags[key!] = true;
     } else if (arg === "-y") parsed.flags.yes = true;
     else if (arg === "-h") parsed.flags.help = true;
@@ -53,10 +54,19 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
   try {
     switch (command) {
       case "init":
-        await init({ ...common, dir: flags.dir as string | undefined, css: flags.css as string | undefined, force: Boolean(flags.force) });
+        await init({
+          ...common,
+          dir: flags.dir as string | undefined,
+          css: flags.css as string | undefined,
+          force: Boolean(flags.force),
+        });
         return 0;
       case "add":
-        await add(args, { ...common, overwrite: Boolean(flags.overwrite), dryRun: Boolean(flags["dry-run"]) });
+        await add(args, {
+          ...common,
+          overwrite: Boolean(flags.overwrite),
+          dryRun: Boolean(flags["dry-run"]),
+        });
         return 0;
       case "list":
       case "ls":
@@ -81,7 +91,10 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
   }
 }
 
-const isEntry = import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith("/unified-ui") || process.argv[1]?.endsWith("cli/dist/index.js");
+const isEntry =
+  import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith("/unified-ui") ||
+  process.argv[1]?.endsWith("cli/dist/index.js");
 if (isEntry) {
   if (process.argv.includes("--help")) {
     log.info(HELP);

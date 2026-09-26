@@ -13,7 +13,9 @@ describe("useControllableState", () => {
 
   it("works controlled", () => {
     const onChange = vi.fn();
-    const { result } = renderHook(() => useControllableState({ value: 5, defaultValue: 1, onChange }));
+    const { result } = renderHook(() =>
+      useControllableState({ value: 5, defaultValue: 1, onChange }),
+    );
     act(() => result.current[1](6));
     expect(result.current[0]).toBe(5);
     expect(onChange).toHaveBeenCalledWith(6);

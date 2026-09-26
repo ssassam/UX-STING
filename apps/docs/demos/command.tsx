@@ -1,7 +1,17 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@unified-ui/react/button";
-import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandLoading, CommandSeparator } from "@unified-ui/react/command";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandLoading,
+  CommandSeparator,
+} from "@unified-ui/react/command";
 import { Kbd } from "@unified-ui/react/typography";
 import { CalendarIcon, MapPinIcon, PlusIcon, SettingsIcon, UserIcon } from "@unified-ui/icons";
 
@@ -11,8 +21,18 @@ function Items({ onSelect }: { onSelect?: (v: string) => void }) {
       <CommandEmpty />
       <CommandGroup heading="Suggestions">
         <CommandItem value="Add a place" icon={<PlusIcon />} shortcut="⌘N" onSelect={onSelect} />
-        <CommandItem value="Bookings" keywords={["reservations", "calendar"]} icon={<CalendarIcon />} onSelect={onSelect} />
-        <CommandItem value="Nearby" keywords={["map", "location"]} icon={<MapPinIcon />} onSelect={onSelect} />
+        <CommandItem
+          value="Bookings"
+          keywords={["reservations", "calendar"]}
+          icon={<CalendarIcon />}
+          onSelect={onSelect}
+        />
+        <CommandItem
+          value="Nearby"
+          keywords={["map", "location"]}
+          icon={<MapPinIcon />}
+          onSelect={onSelect}
+        />
       </CommandGroup>
       <CommandSeparator />
       <CommandGroup heading="Account">
@@ -34,7 +54,9 @@ export function Inline() {
           <Items onSelect={setLast} />
         </CommandList>
       </Command>
-      <p className="text-sm text-muted-foreground" role="status">{last ? `Ran: ${last}` : "Try “resv” (matches keywords)"}</p>
+      <p className="text-sm text-muted-foreground" role="status">
+        {last ? `Ran: ${last}` : "Try “resv” (matches keywords)"}
+      </p>
     </div>
   );
 }
@@ -60,13 +82,20 @@ export function Async() {
   const [results, setResults] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   return (
-    <Command label="Search places" shouldFilter={false} loading={loading} className="max-w-md rounded-lg border border-border">
+    <Command
+      label="Search places"
+      shouldFilter={false}
+      loading={loading}
+      className="max-w-md rounded-lg border border-border"
+    >
       <CommandInput
         placeholder="Search places (simulated API)…"
         onValueChange={(q) => {
           setLoading(true);
           setTimeout(() => {
-            setResults(q ? ["Café", "Riad", "Restaurant", "Rooftop bar"].map((r) => `${r} “${q}”`) : []);
+            setResults(
+              q ? ["Café", "Riad", "Restaurant", "Rooftop bar"].map((r) => `${r} “${q}”`) : [],
+            );
             setLoading(false);
           }, 500);
         }}

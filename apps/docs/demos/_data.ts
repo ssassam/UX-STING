@@ -13,9 +13,19 @@ export const cities: ComboboxOption[] = [
   { value: "dubai", label: "Dubai", group: "UAE" },
 ];
 
-export const amenities: ComboboxOption[] = ["Wi-Fi", "Parking", "Terrace", "Pet friendly", "Vegan options", "Live music", "Kids menu", "Delivery"].map((label) => ({
+export const amenities: ComboboxOption[] = [
+  "Wi-Fi",
+  "Parking",
+  "Terrace",
+  "Pet friendly",
+  "Vegan options",
+  "Live music",
+  "Kids menu",
+  "Delivery",
+].map((label) => ({
   value: label.toLowerCase().replace(/\s+/g, "-"),
   label,
 }));
 
-export const img = (id: string, w = 800) => `https://images.unsplash.com/${id}?w=${w}&q=70&auto=format&fit=crop`;
+export const img = (id: string, w = 800) =>
+  `https://images.unsplash.com/${id}?w=${w}&q=70&auto=format&fit=crop`;

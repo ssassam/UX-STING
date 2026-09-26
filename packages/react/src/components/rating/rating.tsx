@@ -31,25 +31,40 @@ export const ReviewStars = forwardRef<HTMLSpanElement, ReviewStarsProps>(functio
   const nf = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
   return (
     <span ref={ref} className={cn("inline-flex items-center gap-1.5", className)} {...props}>
-      <span role="img" aria-label={messages.rating(Number(value.toFixed(1)), max)} className="relative inline-flex">
+      <span
+        role="img"
+        aria-label={messages.rating(Number(value.toFixed(1)), max)}
+        className="relative inline-flex"
+      >
         <span className="flex text-border-strong" aria-hidden>
           {Array.from({ length: max }, (_, i) => (
             <StarIcon key={i} className={cn(sizeClass[size], "fill-current")} />
           ))}
         </span>
-        <span className="absolute inset-0 flex overflow-hidden text-warning" style={{ width: `${(Math.max(0, Math.min(value, max)) / max) * 100}%` }} aria-hidden>
+        <span
+          className="absolute inset-0 flex overflow-hidden text-warning"
+          style={{ width: `${(Math.max(0, Math.min(value, max)) / max) * 100}%` }}
+          aria-hidden
+        >
           {Array.from({ length: max }, (_, i) => (
             <StarIcon key={i} className={cn(sizeClass[size], "shrink-0 fill-current")} />
           ))}
         </span>
       </span>
-      {showValue ? <span className="text-sm font-semibold tabular-nums">{nf.format(value)}</span> : null}
-      {count !== undefined ? <span className="text-sm tabular-nums text-muted-foreground">({nf.format(count)})</span> : null}
+      {showValue ? (
+        <span className="text-sm font-semibold tabular-nums">{nf.format(value)}</span>
+      ) : null}
+      {count !== undefined ? (
+        <span className="text-sm tabular-nums text-muted-foreground">({nf.format(count)})</span>
+      ) : null}
     </span>
   );
 });
 
-export interface RatingProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
+export interface RatingProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "onChange" | "defaultValue"
+> {
   value?: number;
   defaultValue?: number;
   onValueChange?: (value: number) => void;
@@ -67,10 +82,26 @@ export interface RatingProps extends Omit<HTMLAttributes<HTMLDivElement>, "onCha
  * keyboard accessible (arrows) and form-submittable.
  */
 export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
-  { value: valueProp, defaultValue = 0, onValueChange, max = 5, size = "lg", readOnly, disabled, name, label = "Rating", className, ...props },
+  {
+    value: valueProp,
+    defaultValue = 0,
+    onValueChange,
+    max = 5,
+    size = "lg",
+    readOnly,
+    disabled,
+    name,
+    label = "Rating",
+    className,
+    ...props
+  },
   ref,
 ) {
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   const [hover, setHover] = useState<number | null>(null);
   const messages = useMessages();
   const autoName = `rating${useId().replace(/:/g, "")}`;
@@ -90,7 +121,11 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
       {Array.from({ length: max }, (_, i) => {
         const star = i + 1;
         return (
-          <label key={star} className="ui-hit-area relative cursor-pointer rounded-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring" onPointerEnter={() => !disabled && setHover(star)}>
+          <label
+            key={star}
+            className="ui-hit-area relative cursor-pointer rounded-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring"
+            onPointerEnter={() => !disabled && setHover(star)}
+          >
             <input
               type="radio"
               className="sr-only"
@@ -101,7 +136,14 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
               aria-label={messages.rating(star, max)}
               onChange={() => setValue(star)}
             />
-            <StarIcon aria-hidden className={cn(sizeClass[size], "transition-colors", star <= shown ? "fill-warning text-warning" : "text-border-strong")} />
+            <StarIcon
+              aria-hidden
+              className={cn(
+                sizeClass[size],
+                "transition-colors",
+                star <= shown ? "fill-warning text-warning" : "text-border-strong",
+              )}
+            />
           </label>
         );
       })}

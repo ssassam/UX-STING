@@ -3828,7 +3828,7 @@
         },
         {
           "name": "renderLink",
-          "type": "(props: { href: string; className: string; children: ReactNode; \"aria-current\"?: \"page\"; \"aria-label\": string }) => ReactNode",
+          "type": "(props: { href: string; className: string; children: ReactNode; \"aria-current\"?: \"page\"; \"aria-label\": string; }) => ReactNode",
           "required": false,
           "description": "Render links with a router component, e.g. Next.js `Link`."
         },
@@ -10697,7 +10697,7 @@
         },
         {
           "name": "labels",
-          "type": "{ open?: string; closed?: string; closes?: (time: string) => string; opens?: (time: string) => string }",
+          "type": "{ open?: string; closed?: string; closes?: (time: string) => string; opens?: (time: string) => string; }",
           "required": false,
           "default": "{}",
           "description": "Localized labels."

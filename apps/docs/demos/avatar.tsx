@@ -5,7 +5,12 @@ export function Sizes() {
   return (
     <div className="flex items-end gap-3">
       {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-        <Avatar key={size} size={size} name="Yasmine Benali" src="https://i.pravatar.cc/160?img=47" />
+        <Avatar
+          key={size}
+          size={size}
+          name="Yasmine Benali"
+          src="https://i.pravatar.cc/160?img=47"
+        />
       ))}
     </div>
   );
@@ -17,7 +22,12 @@ export function Fallbacks() {
       <Avatar name="Omar Haddad" />
       <Avatar name="Broken Image" src="https://example.invalid/x.png" />
       <Avatar name="Atlas Café" shape="square" />
-      <Avatar name="Lina" src="https://i.pravatar.cc/160?img=32" status="online" statusLabel="Online" />
+      <Avatar
+        name="Lina"
+        src="https://i.pravatar.cc/160?img=32"
+        status="online"
+        statusLabel="Online"
+      />
       <Avatar name="Karim" status="busy" statusLabel="Busy" />
     </div>
   );

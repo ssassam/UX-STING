@@ -9,7 +9,8 @@ export const spinnerVariants = createVariants({
   defaultVariants: { size: "md" },
 });
 
-export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof spinnerVariants> {
+export interface SpinnerProps
+  extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof spinnerVariants> {
   /** Accessible label. Pass `null` when a parent already announces loading. */
   label?: string | null;
 }

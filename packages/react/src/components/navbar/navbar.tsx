@@ -3,11 +3,22 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { MenuIcon } from "@unified-ui/icons";
 import { Slot } from "@unified-ui/primitives";
 import { cn } from "@unified-ui/utils";
-import { createContext, forwardRef, useContext, useState, type AnchorHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
+import {
+  createContext,
+  forwardRef,
+  useContext,
+  useState,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import { CloseButton, overlayClass } from "../../lib/overlay.js";
 import { useMessages, usePortalContainer } from "../../provider/context.js";
 
-const NavbarContext = createContext<{ mobileOpen: boolean; setMobileOpen: (open: boolean) => void }>({
+const NavbarContext = createContext<{
+  mobileOpen: boolean;
+  setMobileOpen: (open: boolean) => void;
+}>({
   mobileOpen: false,
   setMobileOpen: () => {},
 });
@@ -38,7 +49,9 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar(
         className={cn(
           "z-(--ui-z-header) w-full border-b border-border",
           sticky && "sticky top-0",
-          blurred ? "bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70" : "bg-background",
+          blurred
+            ? "bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
+            : "bg-background",
           className,
         )}
         {...props}
@@ -58,19 +71,25 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar(
   );
 });
 
-export const NavbarBrand = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { asChild?: boolean }>(function NavbarBrand(
-  { asChild, className, ...props },
-  ref,
-) {
+export const NavbarBrand = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { asChild?: boolean }
+>(function NavbarBrand({ asChild, className, ...props }, ref) {
   const Comp = asChild ? Slot : "div";
-  return <Comp ref={ref} className={cn("flex shrink-0 items-center gap-2 font-semibold", className)} {...props} />;
+  return (
+    <Comp
+      ref={ref}
+      className={cn("flex shrink-0 items-center gap-2 font-semibold", className)}
+      {...props}
+    />
+  );
 });
 
 /** Primary links; hidden below `md` (they move into NavbarMobileMenu). */
-export const NavbarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement> & { label?: string }>(function NavbarContent(
-  { label = "Main", className, children, ...props },
-  ref,
-) {
+export const NavbarContent = forwardRef<
+  HTMLElement,
+  HTMLAttributes<HTMLElement> & { label?: string }
+>(function NavbarContent({ label = "Main", className, children, ...props }, ref) {
   return (
     <nav ref={ref} aria-label={label} className={cn("hidden flex-1 md:flex", className)} {...props}>
       <ul className="flex items-center gap-1">{children}</ul>
@@ -104,12 +123,13 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(functio
   );
 });
 
-export const NavbarActions = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function NavbarActions(
-  { className, ...props },
-  ref,
-) {
-  return <div ref={ref} className={cn("ms-auto flex items-center gap-2", className)} {...props} />;
-});
+export const NavbarActions = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function NavbarActions({ className, ...props }, ref) {
+    return (
+      <div ref={ref} className={cn("ms-auto flex items-center gap-2", className)} {...props} />
+    );
+  },
+);
 
 export interface NavbarMobileMenuProps {
   children: ReactNode;
@@ -141,12 +161,18 @@ export function NavbarMobileMenu({ children, title, className }: NavbarMobileMen
           )}
         >
           <div className="flex h-16 items-center justify-between border-b border-border px-4">
-            <DialogPrimitive.Title className="font-semibold">{title ?? messages.openMenu}</DialogPrimitive.Title>
+            <DialogPrimitive.Title className="font-semibold">
+              {title ?? messages.openMenu}
+            </DialogPrimitive.Title>
             <DialogPrimitive.Close asChild>
               <CloseButton />
             </DialogPrimitive.Close>
           </div>
-          <nav aria-label="Mobile" className="flex-1 overflow-y-auto p-3" onClick={(e) => (e.target as HTMLElement).closest("a") && setMobileOpen(false)}>
+          <nav
+            aria-label="Mobile"
+            className="flex-1 overflow-y-auto p-3"
+            onClick={(e) => (e.target as HTMLElement).closest("a") && setMobileOpen(false)}
+          >
             {children}
           </nav>
         </DialogPrimitive.Content>
@@ -156,20 +182,19 @@ export function NavbarMobileMenu({ children, title, className }: NavbarMobileMen
 }
 
 /** Link row for the mobile menu. */
-export const NavbarMobileLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(function NavbarMobileLink(
-  { active, asChild, className, ...props },
-  ref,
-) {
-  const Comp = asChild ? Slot : "a";
-  return (
-    <Comp
-      ref={ref}
-      aria-current={active ? "page" : undefined}
-      className={cn(
-        "flex min-h-11 items-center gap-3 rounded-md px-3 text-md font-medium outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring aria-[current=page]:bg-primary-subtle aria-[current=page]:text-primary-subtle-foreground [&_svg]:size-5",
-        className,
-      )}
-      {...props}
-    />
-  );
-});
+export const NavbarMobileLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
+  function NavbarMobileLink({ active, asChild, className, ...props }, ref) {
+    const Comp = asChild ? Slot : "a";
+    return (
+      <Comp
+        ref={ref}
+        aria-current={active ? "page" : undefined}
+        className={cn(
+          "flex min-h-11 items-center gap-3 rounded-md px-3 text-md font-medium outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring aria-[current=page]:bg-primary-subtle aria-[current=page]:text-primary-subtle-foreground [&_svg]:size-5",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);

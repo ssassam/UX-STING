@@ -20,13 +20,27 @@ export function Empty() {
 }
 
 export function Error() {
-  return <ErrorState title="We couldn't load reviews" description="The server did not respond." actions={<Button variant="outline">Try again</Button>} />;
+  return (
+    <ErrorState
+      title="We couldn't load reviews"
+      description="The server did not respond."
+      actions={<Button variant="outline">Try again</Button>}
+    />
+  );
 }
 
 export function Success() {
-  return <SuccessState title="Your listing is live" description="Customers can now find you in search." actions={<Button>View listing</Button>} />;
+  return (
+    <SuccessState
+      title="Your listing is live"
+      description="Customers can now find you in search."
+      actions={<Button>View listing</Button>}
+    />
+  );
 }
 
 export function Loading() {
-  return <LoadingState title="Preparing your report" description="This usually takes a few seconds." />;
+  return (
+    <LoadingState title="Preparing your report" description="This usually takes a few seconds." />
+  );
 }

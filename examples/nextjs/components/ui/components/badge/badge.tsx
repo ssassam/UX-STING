@@ -24,7 +24,8 @@ export const badgeVariants = createVariants({
   defaultVariants: { variant: "default", size: "md" },
 });
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof badgeVariants> {
+export interface BadgeProps
+  extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof badgeVariants> {
   asChild?: boolean;
   /** Status dot before the label — pair with text, never color alone. */
   dot?: boolean;

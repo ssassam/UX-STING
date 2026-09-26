@@ -12,7 +12,10 @@ const registry = join(__dirname, "../registry.json");
 
 beforeEach(() => {
   cwd = mkdtempSync(join(tmpdir(), "uui-"));
-  writeFileSync(join(cwd, "package.json"), JSON.stringify({ name: "app", dependencies: { "@unified-ui/utils": "^0.1.0" } }));
+  writeFileSync(
+    join(cwd, "package.json"),
+    JSON.stringify({ name: "app", dependencies: { "@unified-ui/utils": "^0.1.0" } }),
+  );
   writeFileSync(join(cwd, "globals.css"), '@import "tailwindcss";\nbody {}\n');
   vi.spyOn(console, "log").mockImplementation(() => {});
 });
@@ -23,7 +26,9 @@ afterEach(() => {
 
 describe("cli", () => {
   it("parses arguments", () => {
-    expect(parseArgs(["add", "button", "card", "--overwrite", "--dir", "ui", "--no-install"])).toEqual({
+    expect(
+      parseArgs(["add", "button", "card", "--overwrite", "--dir", "ui", "--no-install"]),
+    ).toEqual({
       command: "add",
       args: ["button", "card"],
       flags: { overwrite: true, dir: "ui", install: false },
@@ -39,14 +44,18 @@ describe("cli", () => {
   });
 
   it("strips .js from relative imports", () => {
-    expect(transformSource('import { a } from "./a.js";\nimport x from "@unified-ui/utils";', { importExtensions: false })).toBe(
-      'import { a } from "./a";\nimport x from "@unified-ui/utils";',
-    );
+    expect(
+      transformSource('import { a } from "./a.js";\nimport x from "@unified-ui/utils";', {
+        importExtensions: false,
+      }),
+    ).toBe('import { a } from "./a";\nimport x from "@unified-ui/utils";');
   });
 
   it("init writes config, provider, styles and css imports", async () => {
     await init({ cwd, css: "globals.css", dir: "components/ui", install: false, registry });
-    expect(JSON.parse(readFileSync(join(cwd, "unified-ui.json"), "utf8")).dir).toBe("components/ui");
+    expect(JSON.parse(readFileSync(join(cwd, "unified-ui.json"), "utf8")).dir).toBe(
+      "components/ui",
+    );
     expect(existsSync(join(cwd, "components/ui/provider/ui-provider.tsx"))).toBe(true);
     const css = readFileSync(join(cwd, "globals.css"), "utf8");
     expect(css).toMatch(/@import "tailwindcss";\n\/\* unified-ui \*\//);

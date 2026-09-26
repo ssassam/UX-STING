@@ -1,13 +1,25 @@
 import { Slot } from "@unified-ui/primitives";
 import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
-import { forwardRef, type ElementType, type HTMLAttributes, type LabelHTMLAttributes, type AnchorHTMLAttributes, type BlockquoteHTMLAttributes } from "react";
+import {
+  forwardRef,
+  type ElementType,
+  type HTMLAttributes,
+  type LabelHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type BlockquoteHTMLAttributes,
+} from "react";
 import type { PolymorphicProps } from "../../lib/polymorphic";
 
 export const textVariants = createVariants({
   base: "",
   variants: {
     size: { xs: "text-xs", sm: "text-sm", md: "text-md", lg: "text-lg", xl: "text-xl" },
-    weight: { normal: "font-normal", medium: "font-medium", semibold: "font-semibold", bold: "font-bold" },
+    weight: {
+      normal: "font-normal",
+      medium: "font-medium",
+      semibold: "font-semibold",
+      bold: "font-bold",
+    },
     variant: {
       default: "text-foreground",
       muted: "text-muted-foreground",
@@ -25,7 +37,10 @@ export const textVariants = createVariants({
   defaultVariants: { variant: "inherit" },
 });
 
-export type TextProps<E extends ElementType = "p"> = PolymorphicProps<E, VariantProps<typeof textVariants>>;
+export type TextProps<E extends ElementType = "p"> = PolymorphicProps<
+  E,
+  VariantProps<typeof textVariants>
+>;
 
 /** Body text. Renders a `<p>` by default; use `as="span"` inline. */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(
@@ -33,7 +48,13 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(
   ref,
 ) {
   const Comp: ElementType = asChild ? Slot : (as ?? "p");
-  return <Comp ref={ref} className={textVariants({ size, weight, variant, align, truncate, tabular, className })} {...props} />;
+  return (
+    <Comp
+      ref={ref}
+      className={textVariants({ size, weight, variant, align, truncate, tabular, className })}
+      {...props}
+    />
+  );
 });
 
 export const headingVariants = createVariants({
@@ -54,7 +75,8 @@ export const headingVariants = createVariants({
 
 const levelToSize = { 1: "2xl", 2: "xl", 3: "lg", 4: "md", 5: "sm", 6: "xs" } as const;
 
-export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement>, VariantProps<typeof headingVariants> {
+export interface HeadingProps
+  extends HTMLAttributes<HTMLHeadingElement>, VariantProps<typeof headingVariants> {
   /** Semantic level (h1–h6). Visual size is independent — keep a logical outline. */
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   asChild?: boolean;
@@ -65,7 +87,13 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(function Hea
   ref,
 ) {
   const Comp: ElementType = asChild ? Slot : (`h${level}` as const);
-  return <Comp ref={ref} className={headingVariants({ size: size ?? levelToSize[level], className })} {...props} />;
+  return (
+    <Comp
+      ref={ref}
+      className={headingVariants({ size: size ?? levelToSize[level], className })}
+      {...props}
+    />
+  );
 });
 
 export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
@@ -98,21 +126,42 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
   );
 });
 
-export const Caption = forwardRef<HTMLElement, TextProps>(function Caption({ className, ...props }, ref) {
-  return <Text ref={ref} as="span" size="xs" variant="muted" className={cn("leading-4", className)} {...props} />;
-});
-
-export const Code = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(function Code({ className, ...props }, ref) {
+export const Caption = forwardRef<HTMLElement, TextProps>(function Caption(
+  { className, ...props },
+  ref,
+) {
   return (
-    <code
+    <Text
       ref={ref}
-      className={cn("rounded-sm bg-muted px-1.5 py-0.5 font-mono text-[0.875em] text-foreground ui-wrap-anywhere", className)}
+      as="span"
+      size="xs"
+      variant="muted"
+      className={cn("leading-4", className)}
       {...props}
     />
   );
 });
 
-export const Kbd = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(function Kbd({ className, ...props }, ref) {
+export const Code = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(function Code(
+  { className, ...props },
+  ref,
+) {
+  return (
+    <code
+      ref={ref}
+      className={cn(
+        "rounded-sm bg-muted px-1.5 py-0.5 font-mono text-[0.875em] text-foreground ui-wrap-anywhere",
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+
+export const Kbd = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(function Kbd(
+  { className, ...props },
+  ref,
+) {
   return (
     <kbd
       ref={ref}
@@ -137,7 +186,8 @@ export const linkVariants = createVariants({
   defaultVariants: { variant: "default" },
 });
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof linkVariants> {
+export interface LinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof linkVariants> {
   /** Render a router link (e.g. Next.js `Link`) as the child. */
   asChild?: boolean;
   /** Opens in a new tab with safe `rel` and an accessible hint. */
@@ -147,7 +197,15 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>, Vari
 }
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
-  { asChild, external, externalLabel = "(opens in a new tab)", variant, className, children, ...props },
+  {
+    asChild,
+    external,
+    externalLabel = "(opens in a new tab)",
+    variant,
+    className,
+    children,
+    ...props
+  },
   ref,
 ) {
   const Comp: ElementType = asChild ? Slot : "a";
@@ -160,21 +218,26 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   );
 });
 
-export const Blockquote = forwardRef<HTMLQuoteElement, BlockquoteHTMLAttributes<HTMLQuoteElement>>(function Blockquote(
+export const Blockquote = forwardRef<HTMLQuoteElement, BlockquoteHTMLAttributes<HTMLQuoteElement>>(
+  function Blockquote({ className, ...props }, ref) {
+    return (
+      <blockquote
+        ref={ref}
+        className={cn(
+          "border-s-2 border-primary ps-4 text-lg italic leading-relaxed text-foreground",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+
+/** Long-form content wrapper with readable measure and rhythm. */
+export const Prose = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function Prose(
   { className, ...props },
   ref,
 ) {
-  return (
-    <blockquote
-      ref={ref}
-      className={cn("border-s-2 border-primary ps-4 text-lg italic leading-relaxed text-foreground", className)}
-      {...props}
-    />
-  );
-});
-
-/** Long-form content wrapper with readable measure and rhythm. */
-export const Prose = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function Prose({ className, ...props }, ref) {
   return (
     <div
       ref={ref}

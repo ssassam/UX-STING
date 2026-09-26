@@ -14,12 +14,18 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
-  "dependencies": {"@unified-ui/themes": "workspace:^", "@unified-ui/tokens": "workspace:^", "@unified-ui/utils": "workspace:^"},
+  "dependencies": {
+    "@unified-ui/themes": "workspace:^",
+    "@unified-ui/tokens": "workspace:^",
+    "@unified-ui/utils": "workspace:^"
+  },
   "peerDependencies": {},
   "devDependencies": {
     "typescript": "~6.0.3"

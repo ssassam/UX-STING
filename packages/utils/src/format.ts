@@ -1,4 +1,18 @@
-const RTL_LANGS = new Set(["ar", "arc", "dv", "fa", "ha", "he", "khw", "ks", "ku", "ps", "sd", "ur", "yi"]);
+const RTL_LANGS = new Set([
+  "ar",
+  "arc",
+  "dv",
+  "fa",
+  "ha",
+  "he",
+  "khw",
+  "ks",
+  "ku",
+  "ps",
+  "sd",
+  "ur",
+  "yi",
+]);
 
 /** Returns the writing direction for a BCP 47 locale. */
 export function getDirection(locale: string): "ltr" | "rtl" {
@@ -29,7 +43,9 @@ export function formatCurrency(
 }
 
 export function formatCompact(value: number, locale?: string) {
-  return new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 }).format(value);
+  return new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 }).format(
+    value,
+  );
 }
 
 export function formatPercent(value: number, locale?: string, fractionDigits = 0) {
@@ -57,7 +73,11 @@ const RELATIVE_UNITS: Array<[Intl.RelativeTimeFormatUnit, number]> = [
   ["second", 1],
 ];
 
-export function formatRelativeTime(value: Date | number, locale?: string, now: Date | number = Date.now()) {
+export function formatRelativeTime(
+  value: Date | number,
+  locale?: string,
+  now: Date | number = Date.now(),
+) {
   const seconds = Math.round((new Date(value).getTime() - new Date(now).getTime()) / 1000);
   const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
   for (const [unit, size] of RELATIVE_UNITS) {

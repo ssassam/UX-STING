@@ -15,8 +15,12 @@ export function Basic() {
       }
       footer={
         <div className="flex gap-2">
-          <Button size="xs" variant="outline">Helpful (12)</Button>
-          <Button size="xs" variant="ghost">Report</Button>
+          <Button size="xs" variant="outline">
+            Helpful (12)
+          </Button>
+          <Button size="xs" variant="ghost">
+            Report
+          </Button>
         </div>
       }
     />

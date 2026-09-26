@@ -9,10 +9,14 @@ export function Variants() {
       <Badge variant="secondary">Secondary</Badge>
       <Badge variant="outline">Outline</Badge>
       <Badge variant="primary">Primary</Badge>
-      <Badge variant="success" dot>Open</Badge>
+      <Badge variant="success" dot>
+        Open
+      </Badge>
       <Badge variant="warning">Pending</Badge>
       <Badge variant="destructive">Closed</Badge>
-      <Badge variant="info" icon={<CheckIcon />}>Verified</Badge>
+      <Badge variant="info" icon={<CheckIcon />}>
+        Verified
+      </Badge>
     </div>
   );
 }

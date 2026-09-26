@@ -1,7 +1,16 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
-import { addMonths, getMonthGrid, getWeekStart, parseISODate, Slot, Slottable, toISODate, VisuallyHidden } from "./index.js";
+import {
+  addMonths,
+  getMonthGrid,
+  getWeekStart,
+  parseISODate,
+  Slot,
+  Slottable,
+  toISODate,
+  VisuallyHidden,
+} from "./index.js";
 
 describe("Slot", () => {
   it("merges props, classes, handlers and refs onto the child", () => {
@@ -41,7 +50,11 @@ describe("Slot", () => {
 
 describe("VisuallyHidden", () => {
   it("keeps text accessible", () => {
-    render(<button><VisuallyHidden>Close</VisuallyHidden></button>);
+    render(
+      <button>
+        <VisuallyHidden>Close</VisuallyHidden>
+      </button>,
+    );
     expect(screen.getByRole("button", { name: "Close" })).toBeInTheDocument();
   });
 });

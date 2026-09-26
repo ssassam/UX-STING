@@ -13,7 +13,10 @@ export function useMediaQuery(query: string, defaultValue = false): boolean {
       mql.addEventListener("change", onChange);
       return () => mql.removeEventListener("change", onChange);
     },
-    () => (typeof window !== "undefined" && window.matchMedia ? window.matchMedia(query).matches : defaultValue),
+    () =>
+      typeof window !== "undefined" && window.matchMedia
+        ? window.matchMedia(query).matches
+        : defaultValue,
     () => defaultValue,
   );
 }

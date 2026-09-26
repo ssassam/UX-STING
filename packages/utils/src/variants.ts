@@ -20,9 +20,8 @@ export type VariantFn<V extends VariantDefinitions> = ((
 ) => string) & { variants: V; defaultVariants: VariantSelection<V> };
 
 /** Extracts the variant props accepted by a function made with `createVariants`. */
-export type VariantProps<F> = F extends VariantFn<infer V>
-  ? { [K in keyof V]?: BooleanKey<keyof V[K]> }
-  : never;
+export type VariantProps<F> =
+  F extends VariantFn<infer V> ? { [K in keyof V]?: BooleanKey<keyof V[K]> } : never;
 
 /**
  * Type-safe variant factory. Produces a function mapping variant props to a

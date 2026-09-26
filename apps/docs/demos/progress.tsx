@@ -16,7 +16,14 @@ export function Circular() {
   return (
     <div className="flex items-center gap-6">
       <CircularProgress value={72} showValue aria-label="Goal" />
-      <CircularProgress value={40} size={64} thickness={6} variant="success" showValue aria-label="Occupancy" />
+      <CircularProgress
+        value={40}
+        size={64}
+        thickness={6}
+        variant="success"
+        showValue
+        aria-label="Occupancy"
+      />
       <CircularProgress aria-label="Loading" />
     </div>
   );

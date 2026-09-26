@@ -8,19 +8,31 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "unified-ui — accessible React UI system", template: "%s · unified-ui" },
-  description: "Accessible, themeable, tree-shakeable React components with design tokens, RTL, dark mode and a shadcn-style CLI.",
+  description:
+    "Accessible, themeable, tree-shakeable React components with design tokens, RTL, dark mode and a shadcn-style CLI.",
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 const entries = [
   ...guides.map((g) => ({ href: `/docs/${g.slug}`, title: g.title, group: "Guides" })),
-  ...components.map((c) => ({ href: `/components/${c.name}`, title: c.title, group: "Components", keywords: [c.name, c.category, c.description] })),
+  ...components.map((c) => ({
+    href: `/components/${c.name}`,
+    title: c.title,
+    group: "Components",
+    keywords: [c.name, c.category, c.description],
+  })),
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-ui-theme="default" data-density="comfortable" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="light"
+      data-ui-theme="default"
+      data-density="comfortable"
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
       </head>

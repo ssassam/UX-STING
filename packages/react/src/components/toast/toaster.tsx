@@ -1,6 +1,12 @@
 "use client";
 import { useHotkey } from "@unified-ui/hooks";
-import { AlertTriangleIcon, CheckCircle2Icon, InfoIcon, XCircleIcon, XIcon } from "@unified-ui/icons";
+import {
+  AlertTriangleIcon,
+  CheckCircle2Icon,
+  InfoIcon,
+  XCircleIcon,
+  XIcon,
+} from "@unified-ui/icons";
 import { cn } from "@unified-ui/utils";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
@@ -8,7 +14,8 @@ import { useMessages } from "../../provider/context.js";
 import { Spinner } from "../spinner/spinner.js";
 import { defaultToaster, type ToastData, type ToasterStore } from "./toast-store.js";
 
-export type ToasterPosition = "top-start" | "top-center" | "top-end" | "bottom-start" | "bottom-center" | "bottom-end";
+export type ToasterPosition =
+  "top-start" | "top-center" | "top-end" | "bottom-start" | "bottom-center" | "bottom-end";
 
 export interface ToasterProps {
   position?: ToasterPosition;
@@ -36,7 +43,8 @@ const positionClass: Record<ToasterPosition, string> = {
   "top-center": "top-0 start-1/2 -translate-x-1/2 items-center rtl:translate-x-1/2",
   "top-end": "top-0 end-0 items-end",
   "bottom-start": "bottom-0 start-0 items-start flex-col-reverse",
-  "bottom-center": "bottom-0 start-1/2 -translate-x-1/2 items-center flex-col-reverse rtl:translate-x-1/2",
+  "bottom-center":
+    "bottom-0 start-1/2 -translate-x-1/2 items-center flex-col-reverse rtl:translate-x-1/2",
   "bottom-end": "bottom-0 end-0 items-end flex-col-reverse",
 };
 
@@ -45,21 +53,33 @@ const positionClass: Record<ToasterPosition, string> = {
  * hovered or focused, support actions like "Undo", and can be reached via
  * the hotkey (default Alt+T).
  */
-export function Toaster({ position = "bottom-end", visibleToasts = 3, duration = 5000, hotkey = "alt+t", toaster = defaultToaster, className }: ToasterProps) {
+export function Toaster({
+  position = "bottom-end",
+  visibleToasts = 3,
+  duration = 5000,
+  hotkey = "alt+t",
+  toaster = defaultToaster,
+  className,
+}: ToasterProps) {
   const toasts = useSyncExternalStore(toaster.subscribe, toaster.getToasts, toaster.getToasts);
   const [paused, setPaused] = useState(false);
   const [mounted, setMounted] = useState(false);
   const regionRef = useRef<HTMLOListElement>(null);
   const messages = useMessages();
   useEffect(() => setMounted(true), []);
-  useHotkey(hotkey, () => regionRef.current?.querySelector<HTMLElement>("li")?.focus(), { enableInInputs: true });
+  useHotkey(hotkey, () => regionRef.current?.querySelector<HTMLElement>("li")?.focus(), {
+    enableInInputs: true,
+  });
 
   const visible = toasts.filter((t) => t.open).slice(-visibleToasts);
   const closing = toasts.filter((t) => !t.open);
 
   if (!mounted) return null;
   return createPortal(
-    <section aria-label={`${messages.notifications} (${hotkey.replace("alt", "Alt").replace("+", "+").toUpperCase()})`} tabIndex={-1}>
+    <section
+      aria-label={`${messages.notifications} (${hotkey.replace("alt", "Alt").replace("+", "+").toUpperCase()})`}
+      tabIndex={-1}
+    >
       <ol
         ref={regionRef}
         onMouseEnter={() => setPaused(true)}
@@ -74,7 +94,13 @@ export function Toaster({ position = "bottom-end", visibleToasts = 3, duration =
         )}
       >
         {[...visible, ...closing].map((t) => (
-          <ToastItem key={t.id} data={t} paused={paused} defaultDuration={duration} toaster={toaster} />
+          <ToastItem
+            key={t.id}
+            data={t}
+            paused={paused}
+            defaultDuration={duration}
+            toaster={toaster}
+          />
         ))}
       </ol>
     </section>,
@@ -82,7 +108,17 @@ export function Toaster({ position = "bottom-end", visibleToasts = 3, duration =
   );
 }
 
-function ToastItem({ data, paused, defaultDuration, toaster }: { data: ToastData; paused: boolean; defaultDuration: number; toaster: ToasterStore }) {
+function ToastItem({
+  data,
+  paused,
+  defaultDuration,
+  toaster,
+}: {
+  data: ToastData;
+  paused: boolean;
+  defaultDuration: number;
+  toaster: ToasterStore;
+}) {
   const messages = useMessages();
   const remaining = useRef(data.duration ?? defaultDuration);
   const started = useRef(Date.now());
@@ -123,7 +159,9 @@ function ToastItem({ data, paused, defaultDuration, toaster }: { data: ToastData
       {data.icon ?? icons[data.variant]}
       <div className="grid min-w-0 flex-1 gap-1">
         <div className="text-sm font-semibold">{data.title}</div>
-        {data.description ? <div className="text-sm text-muted-foreground">{data.description}</div> : null}
+        {data.description ? (
+          <div className="text-sm text-muted-foreground">{data.description}</div>
+        ) : null}
         {data.action || data.cancel ? (
           <div className="mt-1 flex gap-2">
             {data.action ? (

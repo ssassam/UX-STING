@@ -38,7 +38,9 @@ writeFileSync(
 );
 
 const require = createRequire(import.meta.url);
-const cli = require.resolve("@tailwindcss/cli/package.json").replace(/package\.json$/, "dist/index.mjs");
+const cli = require
+  .resolve("@tailwindcss/cli/package.json")
+  .replace(/package\.json$/, "dist/index.mjs");
 execFileSync(process.execPath, [cli, "-i", entry, "-o", `${dist}styles.css`, "--minify"], {
   cwd: root,
   stdio: "inherit",

@@ -27,8 +27,18 @@ export interface DrawerProps extends ComponentPropsWithoutRef<typeof DialogPrimi
   closeThreshold?: number;
 }
 
-export function Drawer({ open: openProp, defaultOpen = false, onOpenChange, children, ...props }: DrawerProps) {
-  const [open, setOpen] = useControllableState({ value: openProp, defaultValue: defaultOpen, onChange: onOpenChange });
+export function Drawer({
+  open: openProp,
+  defaultOpen = false,
+  onOpenChange,
+  children,
+  ...props
+}: DrawerProps) {
+  const [open, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: defaultOpen,
+    onChange: onOpenChange,
+  });
   return (
     <DrawerContext.Provider value={{ setOpen }}>
       <DialogPrimitive.Root open={open} onOpenChange={setOpen} {...props}>
@@ -84,7 +94,10 @@ export const DrawerContent = forwardRef<
         )}
         style={{
           transform: offset ? `translateY(${offset}px)` : undefined,
-          transition: dragging || reducedMotion ? "none" : "transform var(--ui-duration-normal) var(--ui-ease-out)",
+          transition:
+            dragging || reducedMotion
+              ? "none"
+              : "transform var(--ui-duration-normal) var(--ui-ease-out)",
           ...style,
         }}
         {...props}
@@ -105,26 +118,58 @@ export const DrawerContent = forwardRef<
   );
 });
 
-export const DrawerHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function DrawerHeader({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("grid gap-1 px-5 pb-2 text-center sm:text-start", className)} {...props} />;
-});
-
-export const DrawerBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function DrawerBody({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("min-h-0 flex-1 overflow-y-auto px-5 py-2", className)} {...props} />;
-});
-
-export const DrawerFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function DrawerFooter({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("flex flex-col gap-2 px-5 py-4", className)} {...props} />;
-});
-
-export const DrawerTitle = forwardRef<HTMLHeadingElement, ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-  function DrawerTitle({ className, ...props }, ref) {
-    return <DialogPrimitive.Title ref={ref} className={cn("text-lg font-semibold", className)} {...props} />;
+export const DrawerHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function DrawerHeader({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("grid gap-1 px-5 pb-2 text-center sm:text-start", className)}
+        {...props}
+      />
+    );
   },
 );
 
-export const DrawerDescription = forwardRef<HTMLParagraphElement, ComponentPropsWithoutRef<typeof DialogPrimitive.Description>>(
-  function DrawerDescription({ className, ...props }, ref) {
-    return <DialogPrimitive.Description ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />;
+export const DrawerBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function DrawerBody({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("min-h-0 flex-1 overflow-y-auto px-5 py-2", className)}
+        {...props}
+      />
+    );
   },
 );
+
+export const DrawerFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function DrawerFooter({ className, ...props }, ref) {
+    return <div ref={ref} className={cn("flex flex-col gap-2 px-5 py-4", className)} {...props} />;
+  },
+);
+
+export const DrawerTitle = forwardRef<
+  HTMLHeadingElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(function DrawerTitle({ className, ...props }, ref) {
+  return (
+    <DialogPrimitive.Title
+      ref={ref}
+      className={cn("text-lg font-semibold", className)}
+      {...props}
+    />
+  );
+});
+
+export const DrawerDescription = forwardRef<
+  HTMLParagraphElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(function DrawerDescription({ className, ...props }, ref) {
+  return (
+    <DialogPrimitive.Description
+      ref={ref}
+      className={cn("text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  );
+});

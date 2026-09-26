@@ -106,7 +106,7 @@ const DARK_SELECTOR = '[data-theme="dark"], .dark';
  * element that declares them, so they are re-declared on every element that
  * can change their inputs: the root, themed scopes and explicit scopes.
  */
-export const SCOPE_SELECTOR = ':root, [data-ui-theme], [data-ui-scope]';
+export const SCOPE_SELECTOR = ":root, [data-ui-theme], [data-ui-scope]";
 
 export function derivedVars(): CssVars {
   return prefixed("radius", radius);
@@ -121,7 +121,7 @@ export function generateTokensCss(): string {
 
   return [
     "/* unified-ui design tokens — generated file, do not edit by hand. */",
-    toCssBlock(":root, [data-theme=\"light\"]", {
+    toCssBlock(':root, [data-theme="light"]', {
       "color-scheme": "light",
       ...staticVars(),
       ...colorVars(light),
@@ -147,14 +147,18 @@ export function generateTokensCss(): string {
 export function generateTailwindCss(): string {
   const lines: string[] = [];
   for (const name of SEMANTIC_COLORS) lines.push(`  --color-${name}: var(${cssVarName(name)});`);
-  for (const key of Object.keys(radius)) lines.push(`  --radius-${key}: var(${cssVarName(`radius-${key}`)});`);
-  for (const key of Object.keys(shadow)) lines.push(`  --shadow-${key}: var(${cssVarName(`shadow-${key}`)});`);
-  for (const key of Object.keys(fontFamily)) lines.push(`  --font-${key}: var(${cssVarName(`font-${key}`)});`);
+  for (const key of Object.keys(radius))
+    lines.push(`  --radius-${key}: var(${cssVarName(`radius-${key}`)});`);
+  for (const key of Object.keys(shadow))
+    lines.push(`  --shadow-${key}: var(${cssVarName(`shadow-${key}`)});`);
+  for (const key of Object.keys(fontFamily))
+    lines.push(`  --font-${key}: var(${cssVarName(`font-${key}`)});`);
   for (const key of Object.keys(fontSize)) {
     lines.push(`  --text-${key}: var(${cssVarName(`text-${key}`)});`);
     lines.push(`  --text-${key}--line-height: var(${cssVarName(`text-${key}-leading`)});`);
   }
-  for (const key of Object.keys(easing)) lines.push(`  --ease-${key}: var(${cssVarName(`ease-${key}`)});`);
+  for (const key of Object.keys(easing))
+    lines.push(`  --ease-${key}: var(${cssVarName(`ease-${key}`)});`);
   for (const key of ["xs", "sm", "md", "lg", "xl"]) {
     lines.push(`  --spacing-control-${key}: var(${cssVarName(`height-${key}`)});`);
   }
@@ -162,7 +166,8 @@ export function generateTailwindCss(): string {
     if (key.startsWith("height-")) continue;
     lines.push(`  --spacing-${key}: var(${cssVarName(key)});`);
   }
-  for (const key of Object.keys(iconSize)) lines.push(`  --spacing-icon-${key}: var(${cssVarName(`icon-${key}`)});`);
+  for (const key of Object.keys(iconSize))
+    lines.push(`  --spacing-icon-${key}: var(${cssVarName(`icon-${key}`)});`);
   lines.push(`  --spacing-target-min: var(${cssVarName("target-min")});`);
   lines.push(`  --spacing-target-touch: var(${cssVarName("target-touch")});`);
   for (const [key, value] of Object.entries(zIndex)) lines.push(`  --z-index-${key}: ${value};`);

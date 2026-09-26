@@ -44,7 +44,9 @@ export function resolveItems(registry: Registry, names: string[]): RegistryItem[
     const item = byName.get(name);
     if (!item) {
       const suggestion = [...byName.keys()].find((k) => k.includes(name) || name.includes(k));
-      throw new Error(`Unknown component "${name}"${suggestion ? ` — did you mean "${suggestion}"?` : ""}. Run \`unified-ui list\`.`);
+      throw new Error(
+        `Unknown component "${name}"${suggestion ? ` — did you mean "${suggestion}"?` : ""}. Run \`unified-ui list\`.`,
+      );
     }
     seen.add(name);
     for (const dep of item.registryDependencies) visit(dep, [...trail, name]);

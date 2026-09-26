@@ -43,7 +43,9 @@ export function componentsByCategory() {
   return categoryOrder.map((category) => ({
     category,
     label: CATEGORY_LABELS[category],
-    items: components.filter((c) => c.category === category).sort((a, b) => a.title.localeCompare(b.title)),
+    items: components
+      .filter((c) => c.category === category)
+      .sort((a, b) => a.title.localeCompare(b.title)),
   }));
 }
 

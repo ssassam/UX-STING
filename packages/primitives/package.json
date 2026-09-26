@@ -14,13 +14,21 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
-  "dependencies": {"@unified-ui/hooks": "workspace:^", "@unified-ui/utils": "workspace:^"},
-  "peerDependencies": {"react": "^18.2.0 || ^19.0.0", "react-dom": "^18.2.0 || ^19.0.0"},
+  "dependencies": {
+    "@unified-ui/hooks": "workspace:^",
+    "@unified-ui/utils": "workspace:^"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
   "devDependencies": {
     "typescript": "~6.0.3"
   }

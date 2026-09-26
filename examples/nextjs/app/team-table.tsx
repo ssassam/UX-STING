@@ -19,9 +19,24 @@ const members: Member[] = [
 const columns: DataTableColumn<Member>[] = [
   { id: "name", header: "Name", accessor: "name", sortable: true },
   { id: "role", header: "Role", accessor: "role", sortable: true },
-  { id: "status", header: "Status", accessor: "status", cell: (m) => <Badge variant={m.status === "active" ? "success" : "warning"}>{m.status}</Badge> },
+  {
+    id: "status",
+    header: "Status",
+    accessor: "status",
+    cell: (m) => <Badge variant={m.status === "active" ? "success" : "warning"}>{m.status}</Badge>,
+  },
 ];
 
 export function TeamTable() {
-  return <DataTable label="Team members" data={members} columns={columns} getRowId={(m) => m.id} searchable selectable pageSize={false} />;
+  return (
+    <DataTable
+      label="Team members"
+      data={members}
+      columns={columns}
+      getRowId={(m) => m.id}
+      searchable
+      selectable
+      pageSize={false}
+    />
+  );
 }

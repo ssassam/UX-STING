@@ -8,8 +8,18 @@ import { ChevronRightIcon } from "@unified-ui/icons";
 export function Rows() {
   return (
     <List variant="bordered" className="max-w-md">
-      <ListItem start={<Avatar size="sm" name="Nadia Amrani" />} title="Nadia Amrani" description="Booked 2 nights" end={<Badge variant="success">Paid</Badge>} />
-      <ListItem start={<Avatar size="sm" name="Tom Becker" />} title="Tom Becker" description="Requested a quote" end={<Badge variant="warning">New</Badge>} />
+      <ListItem
+        start={<Avatar size="sm" name="Nadia Amrani" />}
+        title="Nadia Amrani"
+        description="Booked 2 nights"
+        end={<Badge variant="success">Paid</Badge>}
+      />
+      <ListItem
+        start={<Avatar size="sm" name="Tom Becker" />}
+        title="Tom Becker"
+        description="Requested a quote"
+        end={<Badge variant="warning">New</Badge>}
+      />
       <ListItem asChild>
         <a href="#customers">
           <span className="flex-1 text-sm font-medium">View all customers</span>
@@ -23,8 +33,16 @@ export function Rows() {
 export function Settings() {
   return (
     <List variant="divided" className="max-w-md">
-      <ListItem title="Booking requests" description="Allow guests to request bookings" end={<Switch aria-label="Booking requests" defaultChecked />} />
-      <ListItem title="Instant book" description="Confirm automatically" end={<Switch aria-label="Instant book" />} />
+      <ListItem
+        title="Booking requests"
+        description="Allow guests to request bookings"
+        end={<Switch aria-label="Booking requests" defaultChecked />}
+      />
+      <ListItem
+        title="Instant book"
+        description="Confirm automatically"
+        end={<Switch aria-label="Instant book" />}
+      />
     </List>
   );
 }

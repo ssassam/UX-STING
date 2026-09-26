@@ -77,8 +77,12 @@ export function createTheme(config: ThemeConfig): ResolvedTheme {
 }
 
 /** CSS variables for a theme in a given mode (for inline `style` usage). */
-export function themeToVars(theme: ResolvedTheme, mode: "light" | "dark" | "high-contrast" = "light"): CssVars {
-  const colors = mode === "dark" ? theme.dark : mode === "high-contrast" ? theme.highContrast : theme.light;
+export function themeToVars(
+  theme: ResolvedTheme,
+  mode: "light" | "dark" | "high-contrast" = "light",
+): CssVars {
+  const colors =
+    mode === "dark" ? theme.dark : mode === "high-contrast" ? theme.highContrast : theme.light;
   return { ...theme.vars, ...colorVars(colors) };
 }
 
@@ -89,7 +93,12 @@ export function themeToVars(theme: ResolvedTheme, mode: "light" | "dark" | "high
  */
 export function themeToCss(theme: ResolvedTheme): string {
   const t = `[data-ui-theme="${theme.name}"]`;
-  const dark = [`${t}[data-theme="dark"]`, `${t} [data-theme="dark"]`, `${t}.dark`, `${t} .dark`].join(", ");
+  const dark = [
+    `${t}[data-theme="dark"]`,
+    `${t} [data-theme="dark"]`,
+    `${t}.dark`,
+    `${t} .dark`,
+  ].join(", ");
   const hc = [`${t}[data-theme="high-contrast"]`, `${t} [data-theme="high-contrast"]`].join(", ");
   const system = [`${t}[data-theme="system"]`, `${t} [data-theme="system"]`].join(", ");
   return [

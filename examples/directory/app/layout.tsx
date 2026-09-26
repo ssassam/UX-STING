@@ -6,7 +6,9 @@ import { BottomNav, SiteHeader } from "../components/site-chrome";
 import { Providers } from "./providers";
 import "./globals.css";
 
-export const metadata: Metadata = { title: { default: "Citywise — local directory example", template: "%s · Citywise" } };
+export const metadata: Metadata = {
+  title: { default: "Citywise — local directory example", template: "%s · Citywise" },
+};
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -4,7 +4,9 @@ export type Breakpoint = (typeof BREAKPOINTS)[number];
 /** A value that may vary by breakpoint: `3` or `{ base: 1, md: 2, lg: 3 }`. */
 export type Responsive<T> = T | Partial<Record<Breakpoint, T>>;
 
-export function isResponsiveObject<T>(value: Responsive<T>): value is Partial<Record<Breakpoint, T>> {
+export function isResponsiveObject<T>(
+  value: Responsive<T>,
+): value is Partial<Record<Breakpoint, T>> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 

@@ -30,11 +30,19 @@ interface ExportDoc {
 }
 
 const configPath = join(root, "packages/react/tsconfig.build.json");
-const config = ts.getParsedCommandLineOfConfigFile(configPath, {}, { ...ts.sys, onUnRecoverableConfigFileDiagnostic: () => {} })!;
-const program = ts.createProgram({ rootNames: config.fileNames, options: { ...config.options, noEmit: true } });
+const config = ts.getParsedCommandLineOfConfigFile(
+  configPath,
+  {},
+  { ...ts.sys, onUnRecoverableConfigFileDiagnostic: () => {} },
+)!;
+const program = ts.createProgram({
+  rootNames: config.fileNames,
+  options: { ...config.options, noEmit: true },
+});
 const checker = program.getTypeChecker();
 
-const isOwned = (file: string) => file.includes("/packages/") && !file.includes("node_modules") || file.includes("@radix-ui");
+const isOwned = (file: string) =>
+  (file.includes("/packages/") && !file.includes("node_modules")) || file.includes("@radix-ui");
 
 function findImplementation(decl: ts.Declaration): ts.FunctionLikeDeclaration | undefined {
   if (ts.isFunctionDeclaration(decl)) return decl;
@@ -77,12 +85,17 @@ function propsTypeOf(type: ts.Type): ts.Type | undefined {
 function describeExport(symbol: ts.Symbol): ExportDoc | undefined {
   const resolved = symbol.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(symbol) : symbol;
   const decl = resolved.valueDeclaration ?? resolved.declarations?.[0];
-  if (!decl || !(resolved.flags & (ts.SymbolFlags.Variable | ts.SymbolFlags.Function))) return undefined;
+  if (!decl || !(resolved.flags & (ts.SymbolFlags.Variable | ts.SymbolFlags.Function)))
+    return undefined;
   const type = checker.getTypeOfSymbolAtLocation(resolved, decl);
   const name = symbol.getName();
   const isComponent = /^[A-Z]/.test(name) && type.getCallSignatures().length > 0;
   if (!isComponent) {
-    return { kind: type.getCallSignatures().length ? "function" : "constant", description: docOf(resolved), props: [] };
+    return {
+      kind: type.getCallSignatures().length ? "function" : "constant",
+      description: docOf(resolved),
+      props: [],
+    };
   }
   const propsType = propsTypeOf(type);
   const defaults = defaultsOf(findImplementation(decl));
@@ -97,10 +110,22 @@ function describeExport(symbol: ts.Symbol): ExportDoc | undefined {
     }
     if (prop.getName().startsWith("__")) continue;
     const ptype = checker.getTypeOfSymbolAtLocation(prop, pdecl!);
-    const annotated = pdecl && (ts.isPropertySignature(pdecl) || ts.isPropertyDeclaration(pdecl)) && pdecl.type ? pdecl.type.getText().replace(/\s+/g, " ") : undefined;
+    const annotated =
+      pdecl && (ts.isPropertySignature(pdecl) || ts.isPropertyDeclaration(pdecl)) && pdecl.type
+        ? pdecl.type.getText().replace(/\s+/g, " ")
+        : undefined;
     props.push({
       name: prop.getName(),
-      type: (annotated ?? checker.typeToString(checker.getNonNullableType(ptype), pdecl, ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope)).replace(/ \| undefined$/, "").slice(0, 220),
+      type: (
+        annotated ??
+        checker.typeToString(
+          checker.getNonNullableType(ptype),
+          pdecl,
+          ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope,
+        )
+      )
+        .replace(/ \| undefined$/, "")
+        .slice(0, 220),
       required: !(prop.flags & ts.SymbolFlags.Optional),
       default: defaults.get(prop.getName()),
       description: docOf(prop),
@@ -111,7 +136,9 @@ function describeExport(symbol: ts.Symbol): ExportDoc | undefined {
     kind: "component",
     description: docOf(resolved),
     props,
-    inherits: inherited ? `${inherited} standard HTML/React attributes (className, style, aria-*, event handlers…)` : undefined,
+    inherits: inherited
+      ? `${inherited} standard HTML/React attributes (className, style, aria-*, event handlers…)`
+      : undefined,
   };
 }
 

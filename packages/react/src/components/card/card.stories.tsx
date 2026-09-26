@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardLink, CardTitle } from "./card.js";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardLink,
+  CardTitle,
+} from "./card.js";
 
 const meta = { title: "Data display/Card", component: Card } satisfies Meta<typeof Card>;
 export default meta;
@@ -25,12 +33,20 @@ export const Interactive: Story = {
   render: () => (
     <Card interactive className="max-w-xs">
       <CardHeader>
-        <CardTitle><CardLink href="#">Café Atlas</CardLink></CardTitle>
+        <CardTitle>
+          <CardLink href="#">Café Atlas</CardLink>
+        </CardTitle>
         <CardDescription>Whole card is clickable via one link.</CardDescription>
       </CardHeader>
     </Card>
   ),
 };
-export const FocusVisible: Story = { ...Interactive, parameters: { pseudo: { focusVisible: ["a"] } } };
-export const Mobile: Story = { ...Variants, parameters: { viewport: { defaultViewport: "mobile" } } };
+export const FocusVisible: Story = {
+  ...Interactive,
+  parameters: { pseudo: { focusVisible: ["a"] } },
+};
+export const Mobile: Story = {
+  ...Variants,
+  parameters: { viewport: { defaultViewport: "mobile" } },
+};
 export const DarkMode: Story = { ...Variants, globals: { mode: "dark" } };

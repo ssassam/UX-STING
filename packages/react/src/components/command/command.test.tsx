@@ -2,9 +2,22 @@ import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { expectNoA11yViolations } from "../../test-utils.js";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./command.js";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "./command.js";
 
-function Palette({ onSelect = vi.fn(), loading = false }: { onSelect?: (v: string) => void; loading?: boolean }) {
+function Palette({
+  onSelect = vi.fn(),
+  loading = false,
+}: {
+  onSelect?: (v: string) => void;
+  loading?: boolean;
+}) {
   return (
     <Command label="Commands" loading={loading}>
       <CommandInput />
@@ -39,13 +52,20 @@ describe("Command", () => {
     render(<Palette onSelect={onSelect} />);
     const input = screen.getByRole("combobox");
     await user.click(input);
-    expect(input).toHaveAttribute("aria-activedescendant", screen.getByRole("option", { name: "Dashboard" }).id);
+    expect(input).toHaveAttribute(
+      "aria-activedescendant",
+      screen.getByRole("option", { name: "Dashboard" }).id,
+    );
     await user.keyboard("{ArrowDown}{ArrowDown}");
-    expect(input.getAttribute("aria-activedescendant")).toBe(screen.getByRole("option", { name: "Create project" }).id);
+    expect(input.getAttribute("aria-activedescendant")).toBe(
+      screen.getByRole("option", { name: "Create project" }).id,
+    );
     await user.keyboard("{Enter}");
     expect(onSelect).toHaveBeenCalledWith("Create project");
     await user.keyboard("{ArrowDown}");
-    expect(input.getAttribute("aria-activedescendant")).toBe(screen.getByRole("option", { name: "Dashboard" }).id);
+    expect(input.getAttribute("aria-activedescendant")).toBe(
+      screen.getByRole("option", { name: "Dashboard" }).id,
+    );
   });
 
   it("shows empty state", async () => {

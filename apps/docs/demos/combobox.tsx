@@ -8,7 +8,13 @@ export function Basic() {
   const [value, setValue] = useState<string | null>("rabat");
   return (
     <Field label="City" description={`Selected: ${value ?? "none"}`} className="max-w-xs">
-      <Combobox options={cities} value={value} onValueChange={setValue} placeholder="Choose a city" clearable />
+      <Combobox
+        options={cities}
+        value={value}
+        onValueChange={setValue}
+        placeholder="Choose a city"
+        clearable
+      />
     </Field>
   );
 }

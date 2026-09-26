@@ -9,7 +9,10 @@ import { useMessages, usePortalContainer } from "../../provider/context.js";
 import { Input, type InputProps } from "../input/input.js";
 import { Spinner } from "../spinner/spinner.js";
 
-export interface AutocompleteProps extends Omit<InputProps, "value" | "defaultValue" | "onChange" | "onSelect"> {
+export interface AutocompleteProps extends Omit<
+  InputProps,
+  "value" | "defaultValue" | "onChange" | "onSelect"
+> {
   /** Suggestions. Filtered locally unless `onSearchChange` handles it. */
   suggestions: string[];
   value?: string;
@@ -30,10 +33,27 @@ export interface AutocompleteProps extends Omit<InputProps, "value" | "defaultVa
  * Implements the ARIA combobox pattern with `aria-activedescendant`.
  */
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(function Autocomplete(
-  { suggestions, value: valueProp, defaultValue = "", onValueChange, onSelect, filterLocally = true, loading, emptyText, limit = 8, className, onKeyDown, ...props },
+  {
+    suggestions,
+    value: valueProp,
+    defaultValue = "",
+    onValueChange,
+    onSelect,
+    filterLocally = true,
+    loading,
+    emptyText,
+    limit = 8,
+    className,
+    onKeyDown,
+    ...props
+  },
   ref,
 ) {
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const listId = `ac${useId().replace(/:/g, "")}`;
@@ -98,7 +118,13 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(func
             onKeyDown={handleKeyDown}
             {...props}
           />
-          {loading ? <Spinner size="sm" label={null} className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground" /> : null}
+          {loading ? (
+            <Spinner
+              size="sm"
+              label={null}
+              className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+            />
+          ) : null}
         </div>
       </PopoverPrimitive.Anchor>
       <PopoverPrimitive.Portal container={container}>
@@ -107,7 +133,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(func
           sideOffset={6}
           onOpenAutoFocus={(e) => e.preventDefault()}
           onInteractOutside={(e) => {
-            if ((e.target as HTMLElement).closest?.(`[aria-controls="${listId}"]`)) e.preventDefault();
+            if ((e.target as HTMLElement).closest?.(`[aria-controls="${listId}"]`))
+              e.preventDefault();
           }}
           className={cn(floatingSurfaceClass, "w-(--radix-popover-trigger-width) p-1")}
         >

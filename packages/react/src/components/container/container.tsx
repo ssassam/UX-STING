@@ -18,7 +18,10 @@ export const containerVariants = createVariants({
   defaultVariants: { size: "xl" },
 });
 
-export type ContainerProps<E extends ElementType = "div"> = PolymorphicProps<E, VariantProps<typeof containerVariants>>;
+export type ContainerProps<E extends ElementType = "div"> = PolymorphicProps<
+  E,
+  VariantProps<typeof containerVariants>
+>;
 
 /** Centers content with a consistent max width and responsive gutters. */
 export const Container = forwardRef<HTMLElement, ContainerProps>(function Container(

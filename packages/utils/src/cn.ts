@@ -1,14 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 export type ClassValue =
-  | string
-  | number
-  | bigint
-  | boolean
-  | null
-  | undefined
-  | ClassDictionary
-  | ClassValue[];
+  string | number | bigint | boolean | null | undefined | ClassDictionary | ClassValue[];
 export type ClassDictionary = Record<string, unknown>;
 
 function toVal(value: ClassValue): string {

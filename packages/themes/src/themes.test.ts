@@ -17,7 +17,13 @@ describe("theme presets", () => {
 
 describe("createTheme", () => {
   it("resolves radius, density and fonts", () => {
-    const theme = createTheme({ name: "brand", primary: "pink", radius: "1rem", density: "compact", fontFamily: { sans: "Inter" } });
+    const theme = createTheme({
+      name: "brand",
+      primary: "pink",
+      radius: "1rem",
+      density: "compact",
+      fontFamily: { sans: "Inter" },
+    });
     const vars = themeToVars(theme);
     expect(vars["--ui-radius"]).toBe("1rem");
     expect(vars["--ui-height-md"]).toBe("2rem");

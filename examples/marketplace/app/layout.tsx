@@ -6,7 +6,9 @@ import { Header } from "../components/header";
 import { Providers } from "./providers";
 import "./globals.css";
 
-export const metadata: Metadata = { title: { default: "Souk & Co — marketplace example", template: "%s · Souk & Co" } };
+export const metadata: Metadata = {
+  title: { default: "Souk & Co — marketplace example", template: "%s · Souk & Co" },
+};
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -19,7 +21,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SkipLink />
         <Providers>
           <Header />
-          <main id="main" tabIndex={-1} className="mx-auto w-full max-w-7xl px-4 py-6 outline-none sm:px-6">
+          <main
+            id="main"
+            tabIndex={-1}
+            className="mx-auto w-full max-w-7xl px-4 py-6 outline-none sm:px-6"
+          >
             {children}
           </main>
         </Providers>

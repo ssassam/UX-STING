@@ -49,36 +49,60 @@ export interface SidebarProviderProps extends HTMLAttributes<HTMLDivElement> {
  * Application shell with a collapsible side navigation. On desktop the
  * sidebar collapses to an icon rail; below `md` it becomes a slide-in sheet.
  */
-export const SidebarProvider = forwardRef<HTMLDivElement, SidebarProviderProps>(function SidebarProvider(
-  { collapsed: collapsedProp, defaultCollapsed = false, onCollapsedChange, shortcut = "mod+b", className, children, ...props },
-  ref,
-) {
-  const [collapsed, setCollapsed] = useControllableState({ value: collapsedProp, defaultValue: defaultCollapsed, onChange: onCollapsedChange });
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const isDesktop = useBreakpoint("md", true);
-  const toggle = () => (isDesktop ? setCollapsed(!collapsed) : setMobileOpen(!mobileOpen));
-  useHotkey(shortcut || "", toggle, { enabled: Boolean(shortcut) });
-  return (
-    <SidebarContext.Provider value={{ collapsed, setCollapsed, mobileOpen, setMobileOpen, isDesktop, toggle }}>
-      <div
-        ref={ref}
-        data-collapsed={collapsed ? "" : undefined}
-        className={cn("group/sidebar flex min-h-dvh w-full bg-surface", className)}
-        style={{ "--ui-sidebar-width": "16rem", "--ui-sidebar-width-collapsed": "3.75rem" } as CSSProperties}
-        {...props}
+export const SidebarProvider = forwardRef<HTMLDivElement, SidebarProviderProps>(
+  function SidebarProvider(
+    {
+      collapsed: collapsedProp,
+      defaultCollapsed = false,
+      onCollapsedChange,
+      shortcut = "mod+b",
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    const [collapsed, setCollapsed] = useControllableState({
+      value: collapsedProp,
+      defaultValue: defaultCollapsed,
+      onChange: onCollapsedChange,
+    });
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const isDesktop = useBreakpoint("md", true);
+    const toggle = () => (isDesktop ? setCollapsed(!collapsed) : setMobileOpen(!mobileOpen));
+    useHotkey(shortcut || "", toggle, { enabled: Boolean(shortcut) });
+    return (
+      <SidebarContext.Provider
+        value={{ collapsed, setCollapsed, mobileOpen, setMobileOpen, isDesktop, toggle }}
       >
-        {children}
-      </div>
-    </SidebarContext.Provider>
-  );
-});
+        <div
+          ref={ref}
+          data-collapsed={collapsed ? "" : undefined}
+          className={cn("group/sidebar flex min-h-dvh w-full bg-surface", className)}
+          style={
+            {
+              "--ui-sidebar-width": "16rem",
+              "--ui-sidebar-width-collapsed": "3.75rem",
+            } as CSSProperties
+          }
+          {...props}
+        >
+          {children}
+        </div>
+      </SidebarContext.Provider>
+    );
+  },
+);
 
 export interface SidebarProps extends HTMLAttributes<HTMLElement> {
   /** Accessible name for the navigation landmark. */
   label?: string;
 }
 
-export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar({ label = "Sidebar", className, children, ...props }, ref) {
+export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar(
+  { label = "Sidebar", className, children, ...props },
+  ref,
+) {
   const { collapsed, mobileOpen, setMobileOpen } = useSidebar();
   const container = usePortalContainer();
   const panelClass = "flex h-full flex-col gap-2 bg-background text-foreground";
@@ -121,30 +145,76 @@ export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar({ 
 
 function SidebarForceExpanded({ children }: { children: ReactNode }) {
   const ctx = useSidebar();
-  return <SidebarContext.Provider value={{ ...ctx, collapsed: false }}>{children}</SidebarContext.Provider>;
+  return (
+    <SidebarContext.Provider value={{ ...ctx, collapsed: false }}>
+      {children}
+    </SidebarContext.Provider>
+  );
 }
 
-export const SidebarHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SidebarHeader({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("flex h-16 shrink-0 items-center gap-2 border-b border-border px-3", className)} {...props} />;
-});
+export const SidebarHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SidebarHeader({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "flex h-16 shrink-0 items-center gap-2 border-b border-border px-3",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
 
-export const SidebarContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SidebarContent({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overflow-x-hidden px-2 py-2", className)} {...props} />;
-});
+export const SidebarContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SidebarContent({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overflow-x-hidden px-2 py-2",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
 
-export const SidebarFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function SidebarFooter({ className, ...props }, ref) {
-  return <div ref={ref} className={cn("mt-auto flex flex-col gap-2 border-t border-border p-2", className)} {...props} />;
-});
+export const SidebarFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function SidebarFooter({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("mt-auto flex flex-col gap-2 border-t border-border p-2", className)}
+        {...props}
+      />
+    );
+  },
+);
 
-export const SidebarGroup = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { label?: ReactNode }>(function SidebarGroup(
-  { label, className, children, ...props },
-  ref,
-) {
+export const SidebarGroup = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { label?: ReactNode }
+>(function SidebarGroup({ label, className, children, ...props }, ref) {
   const { collapsed } = useSidebar();
   return (
-    <div ref={ref} role="group" aria-label={typeof label === "string" ? label : undefined} className={cn("grid gap-1", className)} {...props}>
+    <div
+      ref={ref}
+      role="group"
+      aria-label={typeof label === "string" ? label : undefined}
+      className={cn("grid gap-1", className)}
+      {...props}
+    >
       {label ? (
-        <div aria-hidden className={cn("px-2 text-xs font-medium text-muted-foreground transition-opacity", collapsed && "sr-only")}>
+        <div
+          aria-hidden
+          className={cn(
+            "px-2 text-xs font-medium text-muted-foreground transition-opacity",
+            collapsed && "sr-only",
+          )}
+        >
           {label}
         </div>
       ) : null}
@@ -194,7 +264,9 @@ export const SidebarItem = forwardRef<HTMLElement, SidebarItemProps>(function Si
       ) : (
         <>
           {icon}
-          <span className={cn("flex-1 truncate text-start", collapsed && "sr-only")}>{children}</span>
+          <span className={cn("flex-1 truncate text-start", collapsed && "sr-only")}>
+            {children}
+          </span>
           {badge && !collapsed ? <span className="ms-auto">{badge}</span> : null}
         </>
       )}
@@ -215,10 +287,10 @@ export const SidebarItem = forwardRef<HTMLElement, SidebarItemProps>(function Si
 });
 
 /** Button that collapses (desktop) or opens (mobile) the sidebar. */
-export const SidebarTrigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(function SidebarTrigger(
-  { className, onClick, ...props },
-  ref,
-) {
+export const SidebarTrigger = forwardRef<
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>(function SidebarTrigger({ className, onClick, ...props }, ref) {
   const { toggle, collapsed, isDesktop, mobileOpen } = useSidebar();
   const messages = useMessages();
   return (
@@ -246,10 +318,10 @@ export const SidebarTrigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes
  * Main content area next to the sidebar. Renders `<main id="main">` (the
  * SkipLink target); pass `as="div"` when a `<main>` already exists.
  */
-export const SidebarInset = forwardRef<HTMLElement, HTMLAttributes<HTMLElement> & { as?: "main" | "div" | "section" }>(function SidebarInset(
-  { as: Comp = "main", className, ...props },
-  ref,
-) {
+export const SidebarInset = forwardRef<
+  HTMLElement,
+  HTMLAttributes<HTMLElement> & { as?: "main" | "div" | "section" }
+>(function SidebarInset({ as: Comp = "main", className, ...props }, ref) {
   return (
     <Comp
       ref={ref as never}

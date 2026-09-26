@@ -24,7 +24,10 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function R
       ref={ref}
       orientation={orientation}
       aria-labelledby={field ? undefined : props["aria-labelledby"]}
-      className={cn(orientation === "horizontal" ? "flex flex-wrap gap-x-6 gap-y-3" : "grid gap-3", className)}
+      className={cn(
+        orientation === "horizontal" ? "flex flex-wrap gap-x-6 gap-y-3" : "grid gap-3",
+        className,
+      )}
       {...rest}
     />
   );

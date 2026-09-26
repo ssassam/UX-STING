@@ -57,7 +57,9 @@ export function SearchView() {
   }, [q, category, city, openNow, minRating, prices, selectedAmenities, distance, sort]);
 
   const chips = [
-    ...(category ? [{ id: "category", label: categories.find((c) => c.id === category)?.name ?? category }] : []),
+    ...(category
+      ? [{ id: "category", label: categories.find((c) => c.id === category)?.name ?? category }]
+      : []),
     ...(city ? [{ id: "city", label: cities.find((c) => c.id === city)?.name ?? city }] : []),
     ...(openNow ? [{ id: "open", label: "Open now" }] : []),
     ...(minRating ? [{ id: "rating", label: `${minRating}+ stars` }] : []),
@@ -81,51 +83,121 @@ export function SearchView() {
     else if (id === "rating") setMinRating(0);
     else if (id === "distance") setDistance(10);
     else if (id.startsWith("price:")) setPrices((p) => p.filter((x) => x !== Number(id.slice(6))));
-    else if (id.startsWith("amenity:")) setSelectedAmenities((a) => a.filter((x) => x !== id.slice(8)));
+    else if (id.startsWith("amenity:"))
+      setSelectedAmenities((a) => a.filter((x) => x !== id.slice(8)));
   };
 
   const list = results.length ? (
     <div className={view === "grid" ? "grid gap-4 sm:grid-cols-2 xl:grid-cols-3" : "grid gap-4"}>
-      {results.map((p) => <PlaceCard key={p.slug} place={p} layout={view === "grid" ? "vertical" : "horizontal"} headingLevel={2} />)}
+      {results.map((p) => (
+        <PlaceCard
+          key={p.slug}
+          place={p}
+          layout={view === "grid" ? "vertical" : "horizontal"}
+          headingLevel={2}
+        />
+      ))}
     </div>
   ) : (
-    <EmptyState title="No places match your filters" description="Widen the distance or remove a filter." actions={<Button variant="outline" onClick={clearAll}>Clear all filters</Button>} />
+    <EmptyState
+      title="No places match your filters"
+      description="Widen the distance or remove a filter."
+      actions={
+        <Button variant="outline" onClick={clearAll}>
+          Clear all filters
+        </Button>
+      }
+    />
   );
 
   return (
     <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6">
       <div className="grid gap-3">
-        <Heading level={1} size="lg">{category ? categories.find((c) => c.id === category)?.name : "Search places"}{city ? ` in ${cities.find((c) => c.id === city)?.name}` : ""}</Heading>
-        <SearchInput value={q} onValueChange={setQ} placeholder="Search by name, category or neighbourhood" className="max-w-xl" />
-        <div role="group" aria-label="Categories" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+        <Heading level={1} size="lg">
+          {category ? categories.find((c) => c.id === category)?.name : "Search places"}
+          {city ? ` in ${cities.find((c) => c.id === city)?.name}` : ""}
+        </Heading>
+        <SearchInput
+          value={q}
+          onValueChange={setQ}
+          placeholder="Search by name, category or neighbourhood"
+          className="max-w-xl"
+        />
+        <div
+          role="group"
+          aria-label="Categories"
+          className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1"
+        >
           {categories.map((c) => (
-            <Chip key={c.id} selected={category === c.id} onClick={() => setCategory(category === c.id ? null : c.id)}>{c.name}</Chip>
+            <Chip
+              key={c.id}
+              selected={category === c.id}
+              onClick={() => setCategory(category === c.id ? null : c.id)}
+            >
+              {c.name}
+            </Chip>
           ))}
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[16rem_minmax(0,1fr)]">
-        <FilterPanel activeCount={chips.length} onClear={clearAll} applyLabel={`Show ${results.length} places`}>
+        <FilterPanel
+          activeCount={chips.length}
+          onClear={clearAll}
+          applyLabel={`Show ${results.length} places`}
+        >
           <FilterSection title="Availability">
             <Switch label="Open now" checked={openNow} onCheckedChange={setOpenNow} />
           </FilterSection>
           <FilterSection title="Distance">
-            <Slider aria-label="Maximum distance" value={[distance]} onValueChange={([v]) => setDistance(v ?? 10)} min={1} max={10} formatValue={(v) => (v >= 10 ? "Any distance" : `Within ${v} km`)} showValue />
+            <Slider
+              aria-label="Maximum distance"
+              value={[distance]}
+              onValueChange={([v]) => setDistance(v ?? 10)}
+              min={1}
+              max={10}
+              formatValue={(v) => (v >= 10 ? "Any distance" : `Within ${v} km`)}
+              showValue
+            />
           </FilterSection>
           <FilterSection title="Rating">
-            <Rating label="Minimum rating" size="md" value={minRating} onValueChange={setMinRating} />
+            <Rating
+              label="Minimum rating"
+              size="md"
+              value={minRating}
+              onValueChange={setMinRating}
+            />
           </FilterSection>
           <FilterSection title="Price" activeCount={prices.length}>
             <div role="group" aria-label="Price level" className="flex gap-2">
               {[1, 2, 3, 4].map((p) => (
-                <Chip key={p} size="sm" selected={prices.includes(p)} aria-label={["Inexpensive", "Moderate", "Expensive", "Very expensive"][p - 1]} onClick={() => setPrices(prices.includes(p) ? prices.filter((x) => x !== p) : [...prices, p])}>
+                <Chip
+                  key={p}
+                  size="sm"
+                  selected={prices.includes(p)}
+                  aria-label={["Inexpensive", "Moderate", "Expensive", "Very expensive"][p - 1]}
+                  onClick={() =>
+                    setPrices(prices.includes(p) ? prices.filter((x) => x !== p) : [...prices, p])
+                  }
+                >
                   {"$".repeat(p)}
                 </Chip>
               ))}
             </div>
           </FilterSection>
-          <FilterSection title="Amenities" activeCount={selectedAmenities.length} defaultOpen={false}>
-            <CheckboxGroup legend="Amenities" className="[&>legend]:sr-only" value={selectedAmenities} onValueChange={setSelectedAmenities}>
-              {amenities.map((a) => <Checkbox key={a} value={a} label={a} />)}
+          <FilterSection
+            title="Amenities"
+            activeCount={selectedAmenities.length}
+            defaultOpen={false}
+          >
+            <CheckboxGroup
+              legend="Amenities"
+              className="[&>legend]:sr-only"
+              value={selectedAmenities}
+              onValueChange={setSelectedAmenities}
+            >
+              {amenities.map((a) => (
+                <Checkbox key={a} value={a} label={a} />
+              ))}
             </CheckboxGroup>
           </FilterSection>
         </FilterPanel>
@@ -134,16 +206,35 @@ export function SearchView() {
           summary={`${results.length} ${results.length === 1 ? "place" : "places"}`}
           toolbar={
             <div className="flex items-center gap-2">
-              <NativeSelect size="sm" aria-label="Sort by" value={sort} onChange={(e) => setSort(e.target.value)} className="w-40">
+              <NativeSelect
+                size="sm"
+                aria-label="Sort by"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                className="w-40"
+              >
                 <option value="relevance">Relevance</option>
                 <option value="rating">Highest rated</option>
                 <option value="distance">Nearest</option>
                 <option value="reviews">Most reviewed</option>
               </NativeSelect>
-              <ToggleGroup type="single" size="sm" variant="outline" value={view} onValueChange={(v) => v && setView(v as typeof view)} aria-label="View">
-                <ToggleGroupItem value="list" aria-label="List view"><ListIcon /></ToggleGroupItem>
-                <ToggleGroupItem value="grid" aria-label="Grid view"><LayoutGridIcon /></ToggleGroupItem>
-                <ToggleGroupItem value="map" aria-label="Map view"><MapIcon /></ToggleGroupItem>
+              <ToggleGroup
+                type="single"
+                size="sm"
+                variant="outline"
+                value={view}
+                onValueChange={(v) => v && setView(v as typeof view)}
+                aria-label="View"
+              >
+                <ToggleGroupItem value="list" aria-label="List view">
+                  <ListIcon />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="grid" aria-label="Grid view">
+                  <LayoutGridIcon />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="map" aria-label="Map view">
+                  <MapIcon />
+                </ToggleGroupItem>
               </ToggleGroup>
             </div>
           }
@@ -156,10 +247,18 @@ export function SearchView() {
                 <MapPlaceholder
                   label={`Map of ${results.length} results`}
                   className="h-72 lg:h-full"
-                  pins={results.map((p) => ({ id: p.slug, label: p.name, x: p.pin.x, y: p.pin.y, active: activePin === p.slug }))}
+                  pins={results.map((p) => ({
+                    id: p.slug,
+                    label: p.name,
+                    x: p.pin.x,
+                    y: p.pin.y,
+                    active: activePin === p.slug,
+                  }))}
                   onPinClick={(id) => {
                     setActivePin(id);
-                    document.getElementById(`result-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    document
+                      .getElementById(`result-${id}`)
+                      ?.scrollIntoView({ behavior: "smooth", block: "center" });
                   }}
                 />
               }

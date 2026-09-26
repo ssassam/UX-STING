@@ -22,15 +22,36 @@ export function SearchResultsView() {
   );
   return (
     <div className="mx-auto grid max-w-3xl grid-cols-[minmax(0,1fr)] gap-6">
-      <Heading level={1} size="lg">Search</Heading>
+      <Heading level={1} size="lg">
+        Search
+      </Heading>
       <SearchInput value={q} onValueChange={setQ} placeholder="Search stories" />
-      <SearchResults summary={q ? `${results.length} results for “${q}”` : `${results.length} stories`}>
+      <SearchResults
+        summary={q ? `${results.length} results for “${q}”` : `${results.length} stories`}
+      >
         {results.length ? (
           results.map((a) => (
-            <SearchResult headingLevel={2} key={a.slug} href={`/article/${a.slug}`} title={a.title} description={a.excerpt} query={q} path={`${a.category} › ${formatDate(a.date)}`} meta={<span>{a.author.name} · {a.readingMinutes} min read</span>} />
+            <SearchResult
+              headingLevel={2}
+              key={a.slug}
+              href={`/article/${a.slug}`}
+              title={a.title}
+              description={a.excerpt}
+              query={q}
+              path={`${a.category} › ${formatDate(a.date)}`}
+              meta={
+                <span>
+                  {a.author.name} · {a.readingMinutes} min read
+                </span>
+              }
+            />
           ))
         ) : (
-          <EmptyState headingLevel={2} title="No stories found" description="Try a different keyword or browse the sections." />
+          <EmptyState
+            headingLevel={2}
+            title="No stories found"
+            description="Try a different keyword or browse the sections."
+          />
         )}
       </SearchResults>
     </div>

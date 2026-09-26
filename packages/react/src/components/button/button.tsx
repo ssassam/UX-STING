@@ -66,7 +66,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
     <Button
       ref={ref}
       size={size}
-      className={cn(iconButtonSizes[size ?? "md"], shape === "circle" && "rounded-full", "ui-hit-area", className)}
+      className={cn(
+        iconButtonSizes[size ?? "md"],
+        shape === "circle" && "rounded-full",
+        "ui-hit-area",
+        className,
+      )}
       {...props}
     >
       {children}

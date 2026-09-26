@@ -22,11 +22,20 @@ export function Destructive() {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Delete “Café Atlas”?</AlertDialogTitle>
-          <AlertDialogDescription>The listing, its photos and 128 reviews will be permanently removed.</AlertDialogDescription>
+          <AlertDialogDescription>
+            The listing, its photos and 128 reviews will be permanently removed.
+          </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Keep listing</AlertDialogCancel>
-          <AlertDialogAction variant="destructive" onClick={() => toast("Listing deleted", { action: { label: "Undo", onClick: () => toast.success("Restored") } })}>
+          <AlertDialogAction
+            variant="destructive"
+            onClick={() =>
+              toast("Listing deleted", {
+                action: { label: "Undo", onClick: () => toast.success("Restored") },
+              })
+            }
+          >
             Delete
           </AlertDialogAction>
         </AlertDialogFooter>

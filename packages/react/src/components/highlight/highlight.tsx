@@ -8,11 +8,17 @@ export interface HighlightProps {
   markClassName?: string;
 }
 
-const normalize = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const normalize = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 
 /** Highlights matched terms with `<mark>` (search results, command menus). */
 export function Highlight({ text, query, className, markClassName }: HighlightProps) {
-  const terms = (Array.isArray(query) ? query : query.split(/\s+/)).map((t) => normalize(t.trim())).filter(Boolean);
+  const terms = (Array.isArray(query) ? query : query.split(/\s+/))
+    .map((t) => normalize(t.trim()))
+    .filter(Boolean);
   if (!terms.length) return <span className={className}>{text}</span>;
   const normalized = normalize(text);
   const ranges: Array<[number, number]> = [];
@@ -38,7 +44,13 @@ export function Highlight({ text, query, className, markClassName }: HighlightPr
     <span className={className}>
       {parts.map((p, i) =>
         p.match ? (
-          <mark key={i} className={cn("rounded-xs bg-warning-subtle px-0.5 text-warning-subtle-foreground", markClassName)}>
+          <mark
+            key={i}
+            className={cn(
+              "rounded-xs bg-warning-subtle px-0.5 text-warning-subtle-foreground",
+              markClassName,
+            )}
+          >
             {p.text}
           </mark>
         ) : (

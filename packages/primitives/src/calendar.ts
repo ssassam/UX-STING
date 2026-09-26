@@ -33,7 +33,11 @@ export function addYears(date: Date, amount: number): Date {
 
 export function isSameDay(a: Date | null | undefined, b: Date | null | undefined): boolean {
   return Boolean(
-    a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(),
+    a &&
+    b &&
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate(),
   );
 }
 
@@ -45,13 +49,20 @@ export function compareDays(a: Date, b: Date): number {
   return startOfDay(a).getTime() - startOfDay(b).getTime();
 }
 
-export function isWithinRange(date: Date, start: Date | null | undefined, end: Date | null | undefined): boolean {
+export function isWithinRange(
+  date: Date,
+  start: Date | null | undefined,
+  end: Date | null | undefined,
+): boolean {
   if (!start || !end) return false;
   const [lo, hi] = compareDays(start, end) <= 0 ? [start, end] : [end, start];
   return compareDays(date, lo) >= 0 && compareDays(date, hi) <= 0;
 }
 
-export function isDateDisabled(date: Date, { min, max }: { min?: Date | null; max?: Date | null } = {}): boolean {
+export function isDateDisabled(
+  date: Date,
+  { min, max }: { min?: Date | null; max?: Date | null } = {},
+): boolean {
   return Boolean((min && compareDays(date, min) < 0) || (max && compareDays(date, max) > 0));
 }
 
@@ -63,7 +74,9 @@ export function startOfWeek(date: Date, weekStartsOn: WeekDay = 0): Date {
 /** Returns 6 weeks × 7 days covering the month (stable grid height). */
 export function getMonthGrid(month: Date, weekStartsOn: WeekDay = 0): Date[][] {
   const first = startOfWeek(startOfMonth(month), weekStartsOn);
-  return Array.from({ length: 6 }, (_, w) => Array.from({ length: 7 }, (_, d) => addDays(first, w * 7 + d)));
+  return Array.from({ length: 6 }, (_, w) =>
+    Array.from({ length: 7 }, (_, d) => addDays(first, w * 7 + d)),
+  );
 }
 
 /** First day of week for a locale (Intl weekInfo when available). */

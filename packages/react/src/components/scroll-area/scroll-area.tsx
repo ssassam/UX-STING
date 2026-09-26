@@ -15,7 +15,11 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(function S
   ref,
 ) {
   return (
-    <ScrollAreaPrimitive.Root ref={ref} className={cn("relative overflow-hidden", className)} {...props}>
+    <ScrollAreaPrimitive.Root
+      ref={ref}
+      className={cn("relative overflow-hidden", className)}
+      {...props}
+    >
       <ScrollAreaPrimitive.Viewport
         className="size-full rounded-[inherit] outline-none focus-visible:ring-2 focus-visible:ring-ring"
         tabIndex={ariaLabel ? 0 : undefined}
@@ -41,7 +45,9 @@ export const ScrollBar = forwardRef<
       orientation={orientation}
       className={cn(
         "flex touch-none select-none p-px transition-colors",
-        orientation === "vertical" ? "h-full w-2.5 border-s border-s-transparent" : "h-2.5 flex-col border-t border-t-transparent",
+        orientation === "vertical"
+          ? "h-full w-2.5 border-s border-s-transparent"
+          : "h-2.5 flex-col border-t border-t-transparent",
         className,
       )}
       {...props}

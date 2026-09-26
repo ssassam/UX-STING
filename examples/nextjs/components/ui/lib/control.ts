@@ -21,7 +21,8 @@ export const controlVariants = createVariants({
     },
     variant: {
       default: "",
-      filled: "border-transparent bg-muted shadow-none hover:bg-secondary-hover focus-visible:bg-background",
+      filled:
+        "border-transparent bg-muted shadow-none hover:bg-secondary-hover focus-visible:bg-background",
     },
   },
   defaultVariants: { size: "md", variant: "default" },

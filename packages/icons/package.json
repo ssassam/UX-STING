@@ -22,7 +22,10 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist", "LICENSE-lucide"],
+  "files": [
+    "dist",
+    "LICENSE-lucide"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"

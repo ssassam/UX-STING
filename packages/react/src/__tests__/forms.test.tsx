@@ -45,7 +45,9 @@ describe("Field", () => {
         <Textarea />
       </Field>,
     );
-    expect(screen.getByRole("textbox", { name: "Message" })).toHaveAccessibleDescription("Max 500 characters");
+    expect(screen.getByRole("textbox", { name: "Message" })).toHaveAccessibleDescription(
+      "Max 500 characters",
+    );
     await act(async () => expectNoA11yViolations(container));
   });
 });
@@ -53,7 +55,10 @@ describe("Field", () => {
 describe("Form", () => {
   function SignUp({ onSubmit = vi.fn() }: { onSubmit?: (v: Record<string, unknown>) => void }) {
     return (
-      <Form onSubmit={onSubmit} validate={(v) => (v.name === "admin" ? { name: "This name is reserved" } : undefined)}>
+      <Form
+        onSubmit={onSubmit}
+        validate={(v) => (v.name === "admin" ? { name: "This name is reserved" } : undefined)}
+      >
         <FormErrorSummary />
         <Field name="name" label="Name" required>
           <Input />
@@ -88,11 +93,18 @@ describe("Form", () => {
     await user.type(screen.getByLabelText(/Name/), "admin");
     await user.type(screen.getByLabelText(/Email/), "ada@example.com");
     await user.click(screen.getByRole("button", { name: "Create account" }));
-    expect(await screen.findByText("This name is reserved", { selector: "p span" })).toBeInTheDocument();
+    expect(
+      await screen.findByText("This name is reserved", { selector: "p span" }),
+    ).toBeInTheDocument();
     await user.clear(screen.getByLabelText(/Name/));
     await user.type(screen.getByLabelText(/Name/), "Ada");
     await user.click(screen.getByRole("button", { name: "Create account" }));
-    await waitFor(() => expect(onSubmit).toHaveBeenCalledWith({ name: "Ada", email: "ada@example.com" }, expect.anything()));
+    await waitFor(() =>
+      expect(onSubmit).toHaveBeenCalledWith(
+        { name: "Ada", email: "ada@example.com" },
+        expect.anything(),
+      ),
+    );
   });
 
   it("validates on blur, not on each keystroke", async () => {
@@ -114,7 +126,10 @@ describe("inputs", () => {
     expect(input).toHaveAttribute("type", "password");
     await user.click(screen.getByRole("button", { name: "Show password" }));
     expect(input).toHaveAttribute("type", "text");
-    expect(screen.getByRole("button", { name: "Hide password" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "Hide password" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
   });
 
   it("SearchInput clears with Escape and the clear button", async () => {
@@ -135,7 +150,13 @@ describe("inputs", () => {
     const onValueChange = vi.fn();
     render(
       <UIProvider locale="fr-FR">
-        <NumberInput aria-label="Guests" defaultValue={2} min={1} max={4} onValueChange={onValueChange} />
+        <NumberInput
+          aria-label="Guests"
+          defaultValue={2}
+          min={1}
+          max={4}
+          onValueChange={onValueChange}
+        />
       </UIProvider>,
     );
     const input = screen.getByRole("spinbutton", { name: "Guests" });
@@ -210,7 +231,14 @@ describe("inputs", () => {
     const user = userEvent.setup({ applyAccept: false });
     const accepted = vi.fn();
     const rejected = vi.fn();
-    const { container } = render(<Dropzone accept="image/*" maxSize={1000} onFilesAccepted={accepted} onFilesRejected={rejected} />);
+    const { container } = render(
+      <Dropzone
+        accept="image/*"
+        maxSize={1000}
+        onFilesAccepted={accepted}
+        onFilesRejected={rejected}
+      />,
+    );
     expect(screen.getByRole("button", { name: "Browse files" })).toBeInTheDocument();
     const input = container.querySelector('input[type="file"]') as HTMLInputElement;
     const good = new File(["x"], "a.png", { type: "image/png" });
@@ -251,7 +279,9 @@ describe("Combobox", () => {
     await user.keyboard("par");
     expect(screen.queryByRole("option", { name: /Rabat/ })).toBeNull();
     await user.keyboard("{Enter}");
-    await waitFor(() => expect(screen.getByText("par", { selector: "output" })).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("par", { selector: "output" })).toBeInTheDocument(),
+    );
     expect(screen.getByRole("combobox", { name: "City" })).toHaveTextContent("Paris");
   });
 });
@@ -260,7 +290,13 @@ describe("Calendar", () => {
   it("navigates days with arrows and selects with Enter", async () => {
     const user = userEvent.setup();
     const onValueChange = vi.fn();
-    render(<Calendar today={new Date(2026, 0, 15)} defaultMonth={new Date(2026, 0, 1)} onValueChange={onValueChange} />);
+    render(
+      <Calendar
+        today={new Date(2026, 0, 15)}
+        defaultMonth={new Date(2026, 0, 1)}
+        onValueChange={onValueChange}
+      />,
+    );
     const today = screen.getByRole("button", { name: /15/ });
     expect(today).toHaveAttribute("aria-current", "date");
     today.focus();
@@ -275,7 +311,11 @@ describe("Calendar", () => {
     const onValueChange = vi.fn();
     render(
       <UIProvider locale="ar-MA">
-        <Calendar today={new Date(2026, 0, 15)} defaultMonth={new Date(2026, 0, 1)} onValueChange={onValueChange} />
+        <Calendar
+          today={new Date(2026, 0, 15)}
+          defaultMonth={new Date(2026, 0, 1)}
+          onValueChange={onValueChange}
+        />
       </UIProvider>,
     );
     const grid = screen.getByRole("grid");
@@ -287,7 +327,13 @@ describe("Calendar", () => {
   });
 
   it("respects min/max and disabled dates", () => {
-    render(<Calendar defaultMonth={new Date(2026, 0, 1)} min={new Date(2026, 0, 10)} isDisabled={(d) => d.getDay() === 0} />);
+    render(
+      <Calendar
+        defaultMonth={new Date(2026, 0, 1)}
+        min={new Date(2026, 0, 10)}
+        isDisabled={(d) => d.getDay() === 0}
+      />,
+    );
     expect(screen.getByRole("button", { name: /January 9/ })).toBeDisabled();
     expect(screen.getByRole("button", { name: /Sunday, January 11/ })).toBeDisabled();
     expect(screen.getByRole("button", { name: /Monday, January 12/ })).toBeEnabled();

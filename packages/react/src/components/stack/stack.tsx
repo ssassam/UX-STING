@@ -5,8 +5,21 @@ import type { SpaceToken, StackProps } from "./stack.types.js";
 
 export const space = (token: SpaceToken) => `var(--ui-space-${token.replace(".", "_")})`;
 
-const alignMap = { start: "items-start", center: "items-center", end: "items-end", stretch: "items-stretch", baseline: "items-baseline" };
-const justifyMap = { start: "justify-start", center: "justify-center", end: "justify-end", between: "justify-between", around: "justify-around", evenly: "justify-evenly" };
+const alignMap = {
+  start: "items-start",
+  center: "items-center",
+  end: "items-end",
+  stretch: "items-stretch",
+  baseline: "items-baseline",
+};
+const justifyMap = {
+  start: "justify-start",
+  center: "justify-center",
+  end: "justify-end",
+  between: "justify-between",
+  around: "justify-around",
+  evenly: "justify-evenly",
+};
 
 /**
  * Flex layout with token-based, responsive `gap` and `direction`. Responsive
@@ -20,15 +33,30 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(
   return (
     <Comp
       ref={ref}
-      className={cn("ui-stack", align && alignMap[align], justify && justifyMap[justify], wrap && "flex-wrap", className)}
-      style={{ ...responsiveVars("ui-gap", gap, space), ...responsiveVars("ui-direction", direction), ...style } as CSSProperties}
+      className={cn(
+        "ui-stack",
+        align && alignMap[align],
+        justify && justifyMap[justify],
+        wrap && "flex-wrap",
+        className,
+      )}
+      style={
+        {
+          ...responsiveVars("ui-gap", gap, space),
+          ...responsiveVars("ui-direction", direction),
+          ...style,
+        } as CSSProperties
+      }
       {...props}
     />
   );
 });
 
 /** Horizontal Stack. */
-export const HStack = forwardRef<HTMLElement, StackProps>(function HStack({ align = "center", ...props }, ref) {
+export const HStack = forwardRef<HTMLElement, StackProps>(function HStack(
+  { align = "center", ...props },
+  ref,
+) {
   return <Stack ref={ref} direction="row" align={align} {...props} />;
 });
 
@@ -38,7 +66,10 @@ export const VStack = forwardRef<HTMLElement, StackProps>(function VStack(props,
 });
 
 /** Flex: a Stack defaulting to a row, with no gap. */
-export const Flex = forwardRef<HTMLElement, StackProps>(function Flex({ gap = "0", ...props }, ref) {
+export const Flex = forwardRef<HTMLElement, StackProps>(function Flex(
+  { gap = "0", ...props },
+  ref,
+) {
   return <Stack ref={ref} direction={props.direction ?? "row"} gap={gap} {...props} />;
 });
 

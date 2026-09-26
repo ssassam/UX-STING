@@ -2,12 +2,12 @@ import type { VariantProps } from "@unified-ui/utils";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { buttonVariants } from "./button.variants";
 
-export type ButtonVariant = "default" | "secondary" | "outline" | "ghost" | "link" | "destructive" | "success" | "warning";
+export type ButtonVariant =
+  "default" | "secondary" | "outline" | "ghost" | "link" | "destructive" | "success" | "warning";
 export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   /** Render the child element (e.g. a link) with button styles. */
   asChild?: boolean;
   /** Shows a spinner, sets `aria-busy` and prevents interaction. */
@@ -22,7 +22,10 @@ export interface ButtonProps
   active?: boolean;
 }
 
-export interface IconButtonProps extends Omit<ButtonProps, "startIcon" | "endIcon" | "loadingText" | "fullWidth"> {
+export interface IconButtonProps extends Omit<
+  ButtonProps,
+  "startIcon" | "endIcon" | "loadingText" | "fullWidth"
+> {
   /** Required accessible name — icon-only buttons must be labelled. */
   "aria-label": string;
   /** Shape; `circle` for floating actions. */

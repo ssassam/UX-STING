@@ -10,12 +10,16 @@ export const buttonVariants = createVariants({
   ],
   variants: {
     variant: {
-      default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary-hover data-active:bg-primary-hover",
-      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover data-active:bg-secondary-hover",
-      outline: "border border-border-strong bg-background text-foreground shadow-xs hover:bg-accent hover:text-accent-foreground data-active:bg-accent",
+      default:
+        "bg-primary text-primary-foreground shadow-xs hover:bg-primary-hover data-active:bg-primary-hover",
+      secondary:
+        "bg-secondary text-secondary-foreground hover:bg-secondary-hover data-active:bg-secondary-hover",
+      outline:
+        "border border-border-strong bg-background text-foreground shadow-xs hover:bg-accent hover:text-accent-foreground data-active:bg-accent",
       ghost: "text-foreground hover:bg-accent hover:text-accent-foreground data-active:bg-accent",
       link: "h-auto! px-0! text-primary underline-offset-4 hover:underline active:scale-100",
-      destructive: "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive-hover",
+      destructive:
+        "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive-hover",
       success: "bg-success text-success-foreground shadow-xs hover:bg-success-hover",
       warning: "bg-warning text-warning-foreground shadow-xs hover:bg-warning-hover",
     },

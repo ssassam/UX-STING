@@ -18,8 +18,7 @@ const indicatorColor = {
 };
 
 export interface ProgressProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "children">,
-    VariantProps<typeof progressVariants> {
+  extends Omit<HTMLAttributes<HTMLDivElement>, "children">, VariantProps<typeof progressVariants> {
   /** Current value; omit or pass `null` for an indeterminate bar. */
   value?: number | null;
   max?: number;
@@ -33,7 +32,18 @@ export interface ProgressProps
 
 /** Linear progress. Server-safe; uses native `progressbar` semantics. */
 export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progress(
-  { value = null, max = 100, size, variant = "default", label, showValue, formatValue, className, id, ...props },
+  {
+    value = null,
+    max = 100,
+    size,
+    variant = "default",
+    label,
+    showValue,
+    formatValue,
+    className,
+    id,
+    ...props
+  },
   ref,
 ) {
   const indeterminate = value === null;
@@ -68,8 +78,16 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
   return (
     <div className="grid gap-1.5">
       <div className="flex items-center justify-between gap-2 text-sm">
-        {label ? <span id={labelId} className="font-medium">{label}</span> : <span />}
-        {showValue && text ? <span className="tabular-nums text-muted-foreground">{text}</span> : null}
+        {label ? (
+          <span id={labelId} className="font-medium">
+            {label}
+          </span>
+        ) : (
+          <span />
+        )}
+        {showValue && text ? (
+          <span className="tabular-nums text-muted-foreground">{text}</span>
+        ) : null}
       </div>
       {bar}
     </div>
@@ -94,42 +112,71 @@ const strokeColor = {
   info: "stroke-info",
 };
 
-export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps>(function CircularProgress(
-  { value = null, max = 100, size = 48, thickness = 4, variant = "default", showValue, className, children, ...props },
-  ref,
-) {
-  const indeterminate = value === null;
-  const pct = indeterminate ? 25 : clamp((value / max) * 100, 0, 100);
-  const r = (size - thickness) / 2;
-  const circumference = 2 * Math.PI * r;
-  return (
-    <div
-      ref={ref}
-      role="progressbar"
-      aria-valuemin={0}
-      aria-valuemax={max}
-      aria-valuenow={indeterminate ? undefined : value}
-      className={cn("relative inline-flex items-center justify-center", className)}
-      style={{ width: size, height: size }}
-      {...props}
-    >
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={cn("-rotate-90", indeterminate && "ui-spin")} aria-hidden>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" strokeWidth={thickness} className="stroke-muted" />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          strokeWidth={thickness}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference * (1 - pct / 100)}
-          className={cn(strokeColor[variant], "transition-[stroke-dashoffset] duration-(--ui-duration-slow)")}
-        />
-      </svg>
-      {children ?? (showValue && !indeterminate ? (
-        <span className="absolute text-xs font-semibold tabular-nums">{Math.round(pct)}%</span>
-      ) : null)}
-    </div>
-  );
-});
+export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps>(
+  function CircularProgress(
+    {
+      value = null,
+      max = 100,
+      size = 48,
+      thickness = 4,
+      variant = "default",
+      showValue,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    const indeterminate = value === null;
+    const pct = indeterminate ? 25 : clamp((value / max) * 100, 0, 100);
+    const r = (size - thickness) / 2;
+    const circumference = 2 * Math.PI * r;
+    return (
+      <div
+        ref={ref}
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={max}
+        aria-valuenow={indeterminate ? undefined : value}
+        className={cn("relative inline-flex items-center justify-center", className)}
+        style={{ width: size, height: size }}
+        {...props}
+      >
+        <svg
+          width={size}
+          height={size}
+          viewBox={`0 0 ${size} ${size}`}
+          className={cn("-rotate-90", indeterminate && "ui-spin")}
+          aria-hidden
+        >
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            fill="none"
+            strokeWidth={thickness}
+            className="stroke-muted"
+          />
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            fill="none"
+            strokeWidth={thickness}
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={circumference * (1 - pct / 100)}
+            className={cn(
+              strokeColor[variant],
+              "transition-[stroke-dashoffset] duration-(--ui-duration-slow)",
+            )}
+          />
+        </svg>
+        {children ??
+          (showValue && !indeterminate ? (
+            <span className="absolute text-xs font-semibold tabular-nums">{Math.round(pct)}%</span>
+          ) : null)}
+      </div>
+    );
+  },
+);

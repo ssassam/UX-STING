@@ -17,7 +17,12 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from "react";
-import { menuItemClass, menuLabelClass, menuSeparatorClass, menuShortcutClass } from "../../lib/menu-styles.js";
+import {
+  menuItemClass,
+  menuLabelClass,
+  menuSeparatorClass,
+  menuShortcutClass,
+} from "../../lib/menu-styles.js";
 import { useMessages } from "../../provider/context.js";
 import { Spinner } from "../spinner/spinner.js";
 
@@ -45,7 +50,8 @@ interface CommandContextValue {
   label?: string;
 }
 
-const defaultFilter = (value: string, search: string, keywords: string[]) => fuzzyScore(search, value, keywords);
+const defaultFilter = (value: string, search: string, keywords: string[]) =>
+  fuzzyScore(search, value, keywords);
 
 const CommandContext = createContext<CommandContextValue | null>(null);
 const GroupContext = createContext<string | undefined>(undefined);
@@ -79,10 +85,27 @@ export interface CommandProps extends Omit<HTMLAttributes<HTMLDivElement>, "onCh
  * Autocomplete.
  */
 export const Command = forwardRef<HTMLDivElement, CommandProps>(function Command(
-  { search: searchProp, defaultSearch = "", onSearchChange, shouldFilter = true, filter = defaultFilter, loop = true, loading = false, label, className, children, onKeyDown, ...props },
+  {
+    search: searchProp,
+    defaultSearch = "",
+    onSearchChange,
+    shouldFilter = true,
+    filter = defaultFilter,
+    loop = true,
+    loading = false,
+    label,
+    className,
+    children,
+    onKeyDown,
+    ...props
+  },
   ref,
 ) {
-  const [search, setSearch] = useControllableState({ value: searchProp, defaultValue: defaultSearch, onChange: onSearchChange });
+  const [search, setSearch] = useControllableState({
+    value: searchProp,
+    defaultValue: defaultSearch,
+    onChange: onSearchChange,
+  });
   const [activeId, setActiveId] = useState<string | null>(null);
   const [version, setVersion] = useState(0);
   const items = useRef(new Map<string, ItemRecord>());
@@ -114,14 +137,17 @@ export const Command = forwardRef<HTMLDivElement, CommandProps>(function Command
   }, [search, shouldFilter, filter, version]);
 
   const getNavigable = useCallback(() => {
-    return Array.from(rootRef.current?.querySelectorAll<HTMLElement>("[data-command-item]:not([data-disabled]):not([hidden])") ?? []);
+    return Array.from(
+      rootRef.current?.querySelectorAll<HTMLElement>(
+        "[data-command-item]:not([data-disabled]):not([hidden])",
+      ) ?? [],
+    );
   }, []);
 
   // Highlight the first match whenever the results change.
   useIsomorphicLayoutEffect(() => {
     const [first] = getNavigable();
     if (!activeId || !visible.set.has(activeId)) setActiveId(first?.id ?? null);
-     
   }, [visible]);
 
   useEffect(() => {
@@ -139,7 +165,9 @@ export const Command = forwardRef<HTMLDivElement, CommandProps>(function Command
     const index = nodes.findIndex((n) => n.id === activeId);
     const move = (next: number) => {
       event.preventDefault();
-      const clamped = loop ? (next + nodes.length) % nodes.length : Math.max(0, Math.min(nodes.length - 1, next));
+      const clamped = loop
+        ? (next + nodes.length) % nodes.length
+        : Math.max(0, Math.min(nodes.length - 1, next));
       setActiveId(nodes[clamped]?.id ?? null);
     };
     switch (event.key) {
@@ -181,10 +209,14 @@ export const Command = forwardRef<HTMLDivElement, CommandProps>(function Command
       <div
         ref={mergedRef}
         data-command-root=""
-        className={cn("flex size-full flex-col overflow-hidden rounded-lg bg-popover text-popover-foreground", className)}
+        className={cn(
+          "flex size-full flex-col overflow-hidden rounded-lg bg-popover text-popover-foreground",
+          className,
+        )}
         onKeyDown={(e) => {
           onKeyDown?.(e);
-          if (!e.defaultPrevented && (e.target as HTMLElement).tagName !== "INPUT") handleKeyDown(e);
+          if (!e.defaultPrevented && (e.target as HTMLElement).tagName !== "INPUT")
+            handleKeyDown(e);
         }}
         {...props}
       >
@@ -194,7 +226,10 @@ export const Command = forwardRef<HTMLDivElement, CommandProps>(function Command
   );
 });
 
-export interface CommandInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
+export interface CommandInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "value" | "onChange"
+> {
   value?: string;
   onValueChange?: (value: string) => void;
 }
@@ -207,7 +242,11 @@ export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(func
   const messages = useMessages();
   return (
     <div className="flex items-center gap-2 border-b border-border px-3">
-      {ctx.loading ? <Spinner size="sm" label={null} /> : <SearchIcon className="size-4 shrink-0 text-muted-foreground" />}
+      {ctx.loading ? (
+        <Spinner size="sm" label={null} />
+      ) : (
+        <SearchIcon className="size-4 shrink-0 text-muted-foreground" />
+      )}
       <input
         ref={ref}
         role="combobox"
@@ -240,53 +279,63 @@ export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(func
   );
 });
 
-export const CommandList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function CommandList(
-  { className, ...props },
-  ref,
-) {
-  const ctx = useCommand();
-  return (
-    <div
-      ref={ref}
-      id={ctx.listId}
-      // An empty listbox is invalid; while there are no options the list only hosts status messages.
-      role={ctx.visibleCount > 0 ? "listbox" : undefined}
-      aria-label={ctx.label}
-      aria-busy={ctx.loading || undefined}
-      className={cn("max-h-80 scroll-py-1 overflow-y-auto overflow-x-hidden p-1", className)}
-      {...props}
-    />
-  );
-});
+export const CommandList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function CommandList({ className, ...props }, ref) {
+    const ctx = useCommand();
+    return (
+      <div
+        ref={ref}
+        id={ctx.listId}
+        // An empty listbox is invalid; while there are no options the list only hosts status messages.
+        role={ctx.visibleCount > 0 ? "listbox" : undefined}
+        aria-label={ctx.label}
+        aria-busy={ctx.loading || undefined}
+        className={cn("max-h-80 scroll-py-1 overflow-y-auto overflow-x-hidden p-1", className)}
+        {...props}
+      />
+    );
+  },
+);
 
-export const CommandEmpty = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function CommandEmpty(
-  { className, children, ...props },
-  ref,
-) {
-  const ctx = useCommand();
-  const messages = useMessages();
-  if (ctx.loading || ctx.visibleCount > 0) return null;
-  return (
-    <div ref={ref} role="status" className={cn("py-8 text-center text-sm text-muted-foreground", className)} {...props}>
-      {children ?? messages.noResults}
-    </div>
-  );
-});
+export const CommandEmpty = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function CommandEmpty({ className, children, ...props }, ref) {
+    const ctx = useCommand();
+    const messages = useMessages();
+    if (ctx.loading || ctx.visibleCount > 0) return null;
+    return (
+      <div
+        ref={ref}
+        role="status"
+        className={cn("py-8 text-center text-sm text-muted-foreground", className)}
+        {...props}
+      >
+        {children ?? messages.noResults}
+      </div>
+    );
+  },
+);
 
-export const CommandLoading = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function CommandLoading(
-  { className, children, ...props },
-  ref,
-) {
-  const ctx = useCommand();
-  const messages = useMessages();
-  if (!ctx.loading) return null;
-  return (
-    <div ref={ref} role="status" className={cn("flex items-center justify-center gap-2 py-6 text-sm text-muted-foreground", className)} {...props}>
-      <Spinner size="sm" label={null} />
-      {children ?? messages.loading}
-    </div>
-  );
-});
+export const CommandLoading = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function CommandLoading({ className, children, ...props }, ref) {
+    const ctx = useCommand();
+    const messages = useMessages();
+    if (!ctx.loading) return null;
+    return (
+      <div
+        ref={ref}
+        role="status"
+        className={cn(
+          "flex items-center justify-center gap-2 py-6 text-sm text-muted-foreground",
+          className,
+        )}
+        {...props}
+      >
+        <Spinner size="sm" label={null} />
+        {children ?? messages.loading}
+      </div>
+    );
+  },
+);
 
 export interface CommandGroupProps extends HTMLAttributes<HTMLDivElement> {
   heading?: ReactNode;
@@ -352,7 +401,7 @@ export const CommandItem = forwardRef<HTMLDivElement, CommandItemProps>(function
         disabled,
         onSelect: (v) => onSelectRef.current?.(v),
       }),
-     
+
     [id, value, keywordKey, groupId, disabled, ctx.register],
   );
 
@@ -383,12 +432,11 @@ export const CommandItem = forwardRef<HTMLDivElement, CommandItemProps>(function
   );
 });
 
-export const CommandSeparator = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function CommandSeparator(
-  { className, ...props },
-  ref,
-) {
-  const ctx = useCommand();
-  if (ctx.search) return null;
-  // Listboxes may only contain options and groups, so the separator is purely visual.
-  return <div ref={ref} aria-hidden className={cn(menuSeparatorClass, className)} {...props} />;
-});
+export const CommandSeparator = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function CommandSeparator({ className, ...props }, ref) {
+    const ctx = useCommand();
+    if (ctx.search) return null;
+    // Listboxes may only contain options and groups, so the separator is purely visual.
+    return <div ref={ref} aria-hidden className={cn(menuSeparatorClass, className)} {...props} />;
+  },
+);

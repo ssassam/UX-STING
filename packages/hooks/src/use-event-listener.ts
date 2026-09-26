@@ -5,7 +5,9 @@ import { useCallbackRef } from "./use-callback-ref.js";
 export function useEventListener<K extends keyof WindowEventMap>(
   type: K,
   handler: (event: WindowEventMap[K]) => void,
-  target: Window | Document | HTMLElement | null | undefined = typeof window !== "undefined" ? window : undefined,
+  target: Window | Document | HTMLElement | null | undefined = typeof window !== "undefined"
+    ? window
+    : undefined,
   options?: AddEventListenerOptions,
 ): void {
   const stable = useCallbackRef(handler);

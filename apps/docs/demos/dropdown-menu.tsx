@@ -22,13 +22,19 @@ export function Actions() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" endIcon={<EllipsisIcon />}>Actions</Button>
+        <Button variant="outline" endIcon={<EllipsisIcon />}>
+          Actions
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
         <DropdownMenuLabel>Listing</DropdownMenuLabel>
         <DropdownMenuGroup>
-          <DropdownMenuItem icon={<PencilIcon />} shortcut="⌘E">Edit</DropdownMenuItem>
-          <DropdownMenuItem icon={<CopyIcon />} shortcut="⌘D">Duplicate</DropdownMenuItem>
+          <DropdownMenuItem icon={<PencilIcon />} shortcut="⌘E">
+            Edit
+          </DropdownMenuItem>
+          <DropdownMenuItem icon={<CopyIcon />} shortcut="⌘D">
+            Duplicate
+          </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger icon={<Share2Icon />}>Share</DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
@@ -38,7 +44,9 @@ export function Actions() {
           </DropdownMenuSub>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive" icon={<Trash2Icon />}>Delete</DropdownMenuItem>
+        <DropdownMenuItem variant="destructive" icon={<Trash2Icon />}>
+          Delete
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -53,7 +61,9 @@ export function Options() {
         <Button variant="outline">View options</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuCheckboxItem checked={openNow} onCheckedChange={setOpenNow}>Open now</DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={openNow} onCheckedChange={setOpenNow}>
+          Open now
+        </DropdownMenuCheckboxItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Sort by</DropdownMenuLabel>
         <DropdownMenuRadioGroup value={sort} onValueChange={setSort}>

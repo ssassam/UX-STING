@@ -24,7 +24,8 @@ const defaultIcons = {
   destructive: <XCircleIcon />,
 };
 
-export interface AlertProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof alertVariants> {
+export interface AlertProps
+  extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof alertVariants> {
   /** Custom icon, or `false` to hide it. Icons pair color with shape. */
   icon?: ReactNode | false;
   /**
@@ -44,7 +45,10 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
     <div
       ref={ref}
       role={live ? (variant === "destructive" ? "alert" : "status") : undefined}
-      className={alertVariants({ variant, className: cn(!resolvedIcon && "grid-cols-1", className) })}
+      className={alertVariants({
+        variant,
+        className: cn(!resolvedIcon && "grid-cols-1", className),
+      })}
       {...props}
     >
       {resolvedIcon}
@@ -57,22 +61,27 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
  * Alert title. Renders a `<p>` by default so alerts never break the page's
  * heading outline; pass `as="h2"`… when the alert is a document section.
  */
-export const AlertTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement> & { as?: "p" | "h2" | "h3" | "h4" }>(
-  function AlertTitle({ as: Comp = "p", className, ...props }, ref) {
-    return <Comp ref={ref} className={cn("font-semibold leading-snug", className)} {...props} />;
+export const AlertTitle = forwardRef<
+  HTMLHeadingElement,
+  HTMLAttributes<HTMLHeadingElement> & { as?: "p" | "h2" | "h3" | "h4" }
+>(function AlertTitle({ as: Comp = "p", className, ...props }, ref) {
+  return <Comp ref={ref} className={cn("font-semibold leading-snug", className)} {...props} />;
+});
+
+export const AlertDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function AlertDescription({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={cn("leading-relaxed opacity-95 [&_p]:leading-relaxed", className)}
+        {...props}
+      />
+    );
   },
 );
 
-export const AlertDescription = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function AlertDescription(
-  { className, ...props },
-  ref,
-) {
-  return <div ref={ref} className={cn("leading-relaxed opacity-95 [&_p]:leading-relaxed", className)} {...props} />;
-});
-
-export const AlertActions = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function AlertActions(
-  { className, ...props },
-  ref,
-) {
-  return <div ref={ref} className={cn("mt-2 flex flex-wrap gap-2", className)} {...props} />;
-});
+export const AlertActions = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  function AlertActions({ className, ...props }, ref) {
+    return <div ref={ref} className={cn("mt-2 flex flex-wrap gap-2", className)} {...props} />;
+  },
+);

@@ -1,12 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandLoading, CommandSeparator } from "./command.js";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandLoading,
+  CommandSeparator,
+} from "./command.js";
 
 const meta = { title: "Command/Command", component: Command } satisfies Meta<typeof Command>;
 export default meta;
 type Story = StoryObj;
 
 const Demo = ({ loading, search }: { loading?: boolean; search?: string }) => (
-  <Command label="Commands" loading={loading} defaultSearch={search} className="max-w-md rounded-lg border border-border">
+  <Command
+    label="Commands"
+    loading={loading}
+    defaultSearch={search}
+    className="max-w-md rounded-lg border border-border"
+  >
     <CommandInput />
     <CommandList>
       <CommandLoading />

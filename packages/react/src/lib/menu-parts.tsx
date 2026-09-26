@@ -1,7 +1,13 @@
 "use client";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "@unified-ui/icons";
 import { cn } from "@unified-ui/utils";
-import { forwardRef, type ComponentPropsWithoutRef, type ElementType, type HTMLAttributes, type ReactNode } from "react";
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ElementType,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import { usePortalContainer } from "../provider/context.js";
 import {
   menuContentClass,
@@ -42,12 +48,24 @@ export interface MenuItemExtraProps {
 
 type Props = { className?: string; children?: ReactNode };
 
-export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults: Record<string, unknown> = {}) {
-  const Content = forwardRef<HTMLDivElement, Props>(function MenuContent({ className, ...props }, ref) {
+export function createMenuParts<P extends MenuPrimitives>(
+  P: P,
+  contentDefaults: Record<string, unknown> = {},
+) {
+  const Content = forwardRef<HTMLDivElement, Props>(function MenuContent(
+    { className, ...props },
+    ref,
+  ) {
     const container = usePortalContainer();
     return (
       <P.Portal container={container}>
-        <P.Content ref={ref} className={cn(menuContentClass, className)} collisionPadding={8} {...contentDefaults} {...props} />
+        <P.Content
+          ref={ref}
+          className={cn(menuContentClass, className)}
+          collisionPadding={8}
+          {...contentDefaults}
+          {...props}
+        />
       </P.Portal>
     );
   });
@@ -57,7 +75,12 @@ export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults:
     ref,
   ) {
     return (
-      <P.Item ref={ref} data-variant={variant} className={cn(menuItemClass, inset && "ps-8", className)} {...props}>
+      <P.Item
+        ref={ref}
+        data-variant={variant}
+        className={cn(menuItemClass, inset && "ps-8", className)}
+        {...props}
+      >
         {icon}
         {children}
         {shortcut ? <span className={menuShortcutClass}>{shortcut}</span> : null}
@@ -65,7 +88,10 @@ export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults:
     );
   });
 
-  const CheckboxItem = forwardRef<HTMLDivElement, Props>(function MenuCheckboxItem({ className, children, ...props }, ref) {
+  const CheckboxItem = forwardRef<HTMLDivElement, Props>(function MenuCheckboxItem(
+    { className, children, ...props },
+    ref,
+  ) {
     return (
       <P.CheckboxItem ref={ref} className={cn(menuItemClass, "ps-8", className)} {...props}>
         <span className={cn(menuIndicatorClass, "absolute start-2")}>
@@ -78,7 +104,10 @@ export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults:
     );
   });
 
-  const RadioItem = forwardRef<HTMLDivElement, Props>(function MenuRadioItem({ className, children, ...props }, ref) {
+  const RadioItem = forwardRef<HTMLDivElement, Props>(function MenuRadioItem(
+    { className, children, ...props },
+    ref,
+  ) {
     return (
       <P.RadioItem ref={ref} className={cn(menuItemClass, "ps-8", className)} {...props}>
         <span className={cn(menuIndicatorClass, "absolute start-2")}>
@@ -91,28 +120,42 @@ export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults:
     );
   });
 
-  const Label = forwardRef<HTMLDivElement, Props & { inset?: boolean }>(function MenuLabel({ className, inset, ...props }, ref) {
-    return <P.Label ref={ref} className={cn(menuLabelClass, inset && "ps-8", className)} {...props} />;
-  });
-
-  const Separator = forwardRef<HTMLDivElement, Props>(function MenuSeparator({ className, ...props }, ref) {
-    return <P.Separator ref={ref} className={cn(menuSeparatorClass, className)} {...props} />;
-  });
-
-  const SubTrigger = forwardRef<HTMLDivElement, Props & { icon?: ReactNode; inset?: boolean }>(function MenuSubTrigger(
-    { className, icon, inset, children, ...props },
+  const Label = forwardRef<HTMLDivElement, Props & { inset?: boolean }>(function MenuLabel(
+    { className, inset, ...props },
     ref,
   ) {
     return (
-      <P.SubTrigger ref={ref} className={cn(menuItemClass, "data-[state=open]:bg-accent", inset && "ps-8", className)} {...props}>
-        {icon}
-        {children}
-        <ChevronRightIcon className="ms-auto rtl:rotate-180" />
-      </P.SubTrigger>
+      <P.Label ref={ref} className={cn(menuLabelClass, inset && "ps-8", className)} {...props} />
     );
   });
 
-  const SubContent = forwardRef<HTMLDivElement, Props>(function MenuSubContent({ className, ...props }, ref) {
+  const Separator = forwardRef<HTMLDivElement, Props>(function MenuSeparator(
+    { className, ...props },
+    ref,
+  ) {
+    return <P.Separator ref={ref} className={cn(menuSeparatorClass, className)} {...props} />;
+  });
+
+  const SubTrigger = forwardRef<HTMLDivElement, Props & { icon?: ReactNode; inset?: boolean }>(
+    function MenuSubTrigger({ className, icon, inset, children, ...props }, ref) {
+      return (
+        <P.SubTrigger
+          ref={ref}
+          className={cn(menuItemClass, "data-[state=open]:bg-accent", inset && "ps-8", className)}
+          {...props}
+        >
+          {icon}
+          {children}
+          <ChevronRightIcon className="ms-auto rtl:rotate-180" />
+        </P.SubTrigger>
+      );
+    },
+  );
+
+  const SubContent = forwardRef<HTMLDivElement, Props>(function MenuSubContent(
+    { className, ...props },
+    ref,
+  ) {
     const container = usePortalContainer();
     return (
       <P.Portal container={container}>
@@ -125,7 +168,17 @@ export function createMenuParts<P extends MenuPrimitives>(P: P, contentDefaults:
     <span className={cn(menuShortcutClass, className)} {...props} />
   );
 
-  return { Content, Item, CheckboxItem, RadioItem, Label, Separator, SubTrigger, SubContent, Shortcut };
+  return {
+    Content,
+    Item,
+    CheckboxItem,
+    RadioItem,
+    Label,
+    Separator,
+    SubTrigger,
+    SubContent,
+    Shortcut,
+  };
 }
 
 export type MenuPartProps<T extends ElementType> = ComponentPropsWithoutRef<T>;

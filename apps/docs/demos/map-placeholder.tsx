@@ -16,14 +16,26 @@ export function Interactive() {
         <ul className="grid gap-2">
           {pins.map((p) => (
             <li key={p.id}>
-              <button type="button" onClick={() => setActive(p.id)} aria-pressed={active === p.id} className="w-full rounded-lg border border-border p-3 text-start text-sm aria-pressed:border-primary aria-pressed:bg-primary-subtle">
+              <button
+                type="button"
+                onClick={() => setActive(p.id)}
+                aria-pressed={active === p.id}
+                className="w-full rounded-lg border border-border p-3 text-start text-sm aria-pressed:border-primary aria-pressed:bg-primary-subtle"
+              >
                 {p.label}
               </button>
             </li>
           ))}
         </ul>
       }
-      map={<MapPlaceholder label="Map of results" className="h-72 lg:h-full" pins={pins.map((p) => ({ ...p, active: p.id === active }))} onPinClick={setActive} />}
+      map={
+        <MapPlaceholder
+          label="Map of results"
+          className="h-72 lg:h-full"
+          pins={pins.map((p) => ({ ...p, active: p.id === active }))}
+          onPinClick={setActive}
+        />
+      }
     />
   );
 }

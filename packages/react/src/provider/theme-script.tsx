@@ -10,7 +10,11 @@ export interface ThemeScriptProps {
  * Server component that applies the persisted color mode before paint.
  * Render it in `<head>` together with `UIProvider target="document"`.
  */
-export function ThemeScript({ storageKey = "ui-color-mode", defaultColorMode = "light", nonce }: ThemeScriptProps) {
+export function ThemeScript({
+  storageKey = "ui-color-mode",
+  defaultColorMode = "light",
+  nonce,
+}: ThemeScriptProps) {
   return (
     <script
       nonce={nonce}

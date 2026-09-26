@@ -77,11 +77,25 @@ export function DataTable<T>({
 }: DataTableProps<T>) {
   const messages = useMessages();
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useControllableState<SortState | null>({ value: sortProp, defaultValue: defaultSort, onChange: onSortChange });
-  const [selected, setSelected] = useControllableState<string[]>({ value: selectedProp, defaultValue: [], onChange: onSelectedIdsChange });
-  const [page, setPage] = useControllableState({ value: pageProp, defaultValue: 1, onChange: onPageChange });
+  const [sort, setSort] = useControllableState<SortState | null>({
+    value: sortProp,
+    defaultValue: defaultSort,
+    onChange: onSortChange,
+  });
+  const [selected, setSelected] = useControllableState<string[]>({
+    value: selectedProp,
+    defaultValue: [],
+    onChange: onSelectedIdsChange,
+  });
+  const [page, setPage] = useControllableState({
+    value: pageProp,
+    defaultValue: 1,
+    onChange: onPageChange,
+  });
   const [pageSize, setPageSize] = useState(pageSizeProp || 0);
-  const [hidden, setHidden] = useState<Set<string>>(() => new Set(columns.filter((c) => c.hidden).map((c) => c.id)));
+  const [hidden, setHidden] = useState<Set<string>>(
+    () => new Set(columns.filter((c) => c.hidden).map((c) => c.id)),
+  );
   const tableRef = useRef<HTMLTableElement>(null);
 
   const visibleColumns = columns.filter((c) => !hidden.has(c.id));
@@ -95,7 +109,9 @@ export function DataTable<T>({
         columns.some((c) => {
           if (c.searchable === false) return false;
           const v = getValue(row, c);
-          return (typeof v === "string" || typeof v === "number") && String(v).toLowerCase().includes(q);
+          return (
+            (typeof v === "string" || typeof v === "number") && String(v).toLowerCase().includes(q)
+          );
         }),
       );
     }
@@ -103,7 +119,13 @@ export function DataTable<T>({
       const column = columns.find((c) => c.id === sort.id);
       if (column) {
         const dir = sort.direction === "asc" ? 1 : -1;
-        rows = [...rows].sort((a, b) => dir * (column.sortFn ? column.sortFn(a, b) : compare(getValue(a, column), getValue(b, column))));
+        rows = [...rows].sort(
+          (a, b) =>
+            dir *
+            (column.sortFn
+              ? column.sortFn(a, b)
+              : compare(getValue(a, column), getValue(b, column))),
+        );
       }
     }
     return rows;
@@ -112,14 +134,23 @@ export function DataTable<T>({
   const total = manual ? (totalRows ?? data.length) : processed.length;
   const totalPages = pageSize ? Math.max(1, Math.ceil(total / pageSize)) : 1;
   const currentPage = Math.min(page, totalPages);
-  const rows = manual || !pageSize ? processed : processed.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const rows =
+    manual || !pageSize
+      ? processed
+      : processed.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const rowIds = rows.map((r, i) => getRowId(r, i));
   const allSelected = rowIds.length > 0 && rowIds.every((id) => selected.includes(id));
   const someSelected = rowIds.some((id) => selected.includes(id));
 
   const toggleSort = (id: string) => {
     setPage(1);
-    setSort(!sort || sort.id !== id ? { id, direction: "asc" } : sort.direction === "asc" ? { id, direction: "desc" } : null);
+    setSort(
+      !sort || sort.id !== id
+        ? { id, direction: "asc" }
+        : sort.direction === "asc"
+          ? { id, direction: "desc" }
+          : null,
+    );
   };
 
   const onGridKeyDown = (e: KeyboardEvent<HTMLTableElement>) => {
@@ -154,7 +185,11 @@ export function DataTable<T>({
   if (loading) {
     body = Array.from({ length: Math.min(pageSize || 5, 8) }, (_, i) => (
       <TableRow key={`s${i}`}>
-        {selectable ? <TableCell className="w-10"><Skeleton className="size-4" /></TableCell> : null}
+        {selectable ? (
+          <TableCell className="w-10">
+            <Skeleton className="size-4" />
+          </TableCell>
+        ) : null}
         {visibleColumns.map((c) => (
           <TableCell key={c.id}>
             <Skeleton shape="text" className="max-w-40" />
@@ -165,9 +200,7 @@ export function DataTable<T>({
   } else if (rows.length === 0) {
     body = (
       <tr>
-        <td colSpan={colSpan}>
-          {empty ?? <EmptyState size="sm" title={messages.noResults} />}
-        </td>
+        <td colSpan={colSpan}>{empty ?? <EmptyState size="sm" title={messages.noResults} />}</td>
       </tr>
     );
   } else {
@@ -182,11 +215,17 @@ export function DataTable<T>({
           className={cn(onRowClick && "cursor-pointer")}
         >
           {selectable ? (
-            <TableCell className="w-10" role={grid ? "gridcell" : undefined} onClick={(e) => e.stopPropagation()}>
+            <TableCell
+              className="w-10"
+              role={grid ? "gridcell" : undefined}
+              onClick={(e) => e.stopPropagation()}
+            >
               <Checkbox
                 aria-label={messages.selectRow}
                 checked={isSelected}
-                onCheckedChange={(v) => setSelected(v === true ? [...selected, id] : selected.filter((s) => s !== id))}
+                onCheckedChange={(v) =>
+                  setSelected(v === true ? [...selected, id] : selected.filter((s) => s !== id))
+                }
               />
             </TableCell>
           ) : null}
@@ -215,7 +254,10 @@ export function DataTable<T>({
       {searchable || toolbar || columnToggle || (bulkActions && selectionCount > 0) ? (
         <div className="flex flex-wrap items-center gap-2">
           {selectionCount > 0 && bulkActions ? (
-            <div className="flex flex-wrap items-center gap-2 rounded-md bg-primary-subtle px-3 py-1.5 text-sm text-primary-subtle-foreground" role="status">
+            <div
+              className="flex flex-wrap items-center gap-2 rounded-md bg-primary-subtle px-3 py-1.5 text-sm text-primary-subtle-foreground"
+              role="status"
+            >
               <span className="font-medium">{messages.selected(selectionCount)}</span>
               {bulkActions(selected, () => setSelected([]))}
             </div>
@@ -288,7 +330,11 @@ export function DataTable<T>({
                     aria-label={messages.selectAll}
                     checked={allSelected ? true : someSelected ? "indeterminate" : false}
                     onCheckedChange={(v) =>
-                      setSelected(v === true ? Array.from(new Set([...selected, ...rowIds])) : selected.filter((s) => !rowIds.includes(s)))
+                      setSelected(
+                        v === true
+                          ? Array.from(new Set([...selected, ...rowIds]))
+                          : selected.filter((s) => !rowIds.includes(s)),
+                      )
                     }
                   />
                 </TableHead>

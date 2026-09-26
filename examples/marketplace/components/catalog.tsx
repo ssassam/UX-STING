@@ -19,7 +19,12 @@ import { brands, categories, products } from "../lib/data";
 import { ProductTile } from "./product-tile";
 
 const PAGE_SIZE = 8;
-const eur = (v: number) => new Intl.NumberFormat("en", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v);
+const eur = (v: number) =>
+  new Intl.NumberFormat("en", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(v);
 
 export function Catalog() {
   const params = useSearchParams();
@@ -44,12 +49,13 @@ export function Catalog() {
         (!inStock || p.stock > 0) &&
         p.rating >= minRating,
     );
-    const sorters: Record<string, (a: (typeof list)[number], b: (typeof list)[number]) => number> = {
-      popular: (a, b) => b.reviews - a.reviews,
-      rating: (a, b) => b.rating - a.rating,
-      "price-asc": (a, b) => a.price - b.price,
-      "price-desc": (a, b) => b.price - a.price,
-    };
+    const sorters: Record<string, (a: (typeof list)[number], b: (typeof list)[number]) => number> =
+      {
+        popular: (a, b) => b.reviews - a.reviews,
+        rating: (a, b) => b.rating - a.rating,
+        "price-asc": (a, b) => a.price - b.price,
+        "price-desc": (a, b) => b.price - a.price,
+      };
     return [...list].sort(sorters[sort]);
   }, [q, category, price, selectedBrands, inStock, minRating, sort]);
 
@@ -68,7 +74,9 @@ export function Catalog() {
   const chips = [
     ...(q ? [{ id: "q", label: `“${q}”` }] : []),
     ...(category ? [{ id: "category", label: category }] : []),
-    ...(price[0] > 0 || price[1] < 600 ? [{ id: "price", label: `${eur(price[0])} – ${eur(price[1])}` }] : []),
+    ...(price[0] > 0 || price[1] < 600
+      ? [{ id: "price", label: `${eur(price[0])} – ${eur(price[1])}` }]
+      : []),
     ...selectedBrands.map((b) => ({ id: `brand:${b}`, label: b })),
     ...(inStock ? [{ id: "stock", label: "In stock" }] : []),
     ...(minRating ? [{ id: "rating", label: `${minRating}+ stars` }] : []),
@@ -91,36 +99,80 @@ export function Catalog() {
   return (
     <div className="grid grid-cols-[minmax(0,1fr)] gap-6">
       <div className="grid gap-3">
-        <Heading level={1} size="lg">{category ?? "Handmade goods"}</Heading>
+        <Heading level={1} size="lg">
+          {category ?? "Handmade goods"}
+        </Heading>
         <nav aria-label="Categories" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-          <Chip selected={!category} onClick={() => router.push(href({ category: null, page: null }))}>All</Chip>
+          <Chip
+            selected={!category}
+            onClick={() => router.push(href({ category: null, page: null }))}
+          >
+            All
+          </Chip>
           {categories.map((c) => (
-            <Chip key={c} selected={category === c} onClick={() => router.push(href({ category: c, page: null }))}>{c}</Chip>
+            <Chip
+              key={c}
+              selected={category === c}
+              onClick={() => router.push(href({ category: c, page: null }))}
+            >
+              {c}
+            </Chip>
           ))}
         </nav>
       </div>
       <div className="grid gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]">
-        <FilterPanel activeCount={chips.length} onClear={clearAll} applyLabel={`Show ${results.length} results`}>
+        <FilterPanel
+          activeCount={chips.length}
+          onClear={clearAll}
+          applyLabel={`Show ${results.length} results`}
+        >
           <FilterSection title="Price">
-            <RangeSlider value={price} onValueChange={(v) => setPrice([v[0] ?? 0, v[1] ?? 600])} min={0} max={600} step={10} thumbLabels={["Minimum price", "Maximum price"]} formatValue={eur} showValue />
+            <RangeSlider
+              value={price}
+              onValueChange={(v) => setPrice([v[0] ?? 0, v[1] ?? 600])}
+              min={0}
+              max={600}
+              step={10}
+              thumbLabels={["Minimum price", "Maximum price"]}
+              formatValue={eur}
+              showValue
+            />
           </FilterSection>
           <FilterSection title="Brand" activeCount={selectedBrands.length}>
-            <CheckboxGroup legend="Brand" className="[&>legend]:sr-only" value={selectedBrands} onValueChange={setSelectedBrands}>
-              {brands.map((b) => <Checkbox key={b} value={b} label={b} />)}
+            <CheckboxGroup
+              legend="Brand"
+              className="[&>legend]:sr-only"
+              value={selectedBrands}
+              onValueChange={setSelectedBrands}
+            >
+              {brands.map((b) => (
+                <Checkbox key={b} value={b} label={b} />
+              ))}
             </CheckboxGroup>
           </FilterSection>
           <FilterSection title="Availability">
             <Switch label="In stock only" checked={inStock} onCheckedChange={setInStock} />
           </FilterSection>
           <FilterSection title="Rating">
-            <Rating label="Minimum rating" size="md" value={minRating} onValueChange={setMinRating} />
+            <Rating
+              label="Minimum rating"
+              size="md"
+              value={minRating}
+              onValueChange={setMinRating}
+            />
           </FilterSection>
         </FilterPanel>
         <SearchResults
           aria-label="Products"
           summary={`${results.length} products`}
           toolbar={
-            <NativeSelect size="sm" aria-label="Sort by" value={sort} onChange={(e) => setSort(e.target.value)} className="w-44">
+            <NativeSelect
+              size="sm"
+              aria-label="Sort by"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="w-44"
+            >
               <option value="popular">Most popular</option>
               <option value="rating">Highest rated</option>
               <option value="price-asc">Price: low to high</option>
@@ -131,10 +183,20 @@ export function Catalog() {
           <FilterChips filters={chips} onRemove={remove} onClearAll={clearAll} />
           {visible.length ? (
             <Grid columns={{ base: 2, md: 3, xl: 4 }} gap="4">
-              {visible.map((p) => <ProductTile key={p.id} product={p} headingLevel={2} />)}
+              {visible.map((p) => (
+                <ProductTile key={p.id} product={p} headingLevel={2} />
+              ))}
             </Grid>
           ) : (
-            <EmptyState title="No products match your filters" description="Try a wider price range or fewer filters." actions={<Button variant="outline" onClick={clearAll}>Clear filters</Button>} />
+            <EmptyState
+              title="No products match your filters"
+              description="Try a wider price range or fewer filters."
+              actions={
+                <Button variant="outline" onClick={clearAll}>
+                  Clear filters
+                </Button>
+              }
+            />
           )}
           <Pagination
             totalPages={totalPages}

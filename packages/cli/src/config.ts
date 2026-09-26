@@ -23,7 +23,14 @@ export const defaultConfig = (cwd: string): Config => ({
 });
 
 function detectCss(cwd: string): string | undefined {
-  const candidates = ["src/app/globals.css", "app/globals.css", "src/styles/globals.css", "styles/globals.css", "src/index.css", "src/main.css"];
+  const candidates = [
+    "src/app/globals.css",
+    "app/globals.css",
+    "src/styles/globals.css",
+    "styles/globals.css",
+    "src/index.css",
+    "src/main.css",
+  ];
   return candidates.find((c) => existsSync(join(cwd, c)));
 }
 

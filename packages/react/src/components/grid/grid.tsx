@@ -45,11 +45,17 @@ export interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
   span?: number | "full";
 }
 
-export const GridItem = forwardRef<HTMLDivElement, GridItemProps>(function GridItem({ span, style, ...props }, ref) {
+export const GridItem = forwardRef<HTMLDivElement, GridItemProps>(function GridItem(
+  { span, style, ...props },
+  ref,
+) {
   return (
     <div
       ref={ref}
-      style={{ gridColumn: span === "full" ? "1 / -1" : span ? `span ${span} / span ${span}` : undefined, ...style }}
+      style={{
+        gridColumn: span === "full" ? "1 / -1" : span ? `span ${span} / span ${span}` : undefined,
+        ...style,
+      }}
       {...props}
     />
   );

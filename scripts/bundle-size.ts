@@ -35,7 +35,11 @@ for (const name of entries) {
 
 const kb = (n: number) => (n / 1024).toFixed(1);
 rows.sort((a, b) => b.gzip - a.gzip);
-const lines = ["| Entry point | Minified | Gzipped |", "| --- | ---: | ---: |", ...rows.map((r) => `| \`@unified-ui/react/${r.name}\` | ${kb(r.min)} kB | ${kb(r.gzip)} kB |`)];
+const lines = [
+  "| Entry point | Minified | Gzipped |",
+  "| --- | ---: | ---: |",
+  ...rows.map((r) => `| \`@unified-ui/react/${r.name}\` | ${kb(r.min)} kB | ${kb(r.gzip)} kB |`),
+];
 
 const css = ["styles.css", "components.css"].map((f) => {
   const content = readFileSync(join(dist, f));
@@ -60,7 +64,12 @@ const report = [
 ].join("\n");
 writeFileSync(join(root, "docs/bundle-size.md"), report);
 console.log(report.split("\n").slice(0, 3).join("\n"));
-console.log(rows.slice(0, 8).map((r) => `  ${r.name.padEnd(20)} ${kb(r.gzip)} kB`).join("\n"));
+console.log(
+  rows
+    .slice(0, 8)
+    .map((r) => `  ${r.name.padEnd(20)} ${kb(r.gzip)} kB`)
+    .join("\n"),
+);
 console.log(`  … sum of all entries ${kb(total)} kB`);
 const over = rows.filter((r) => r.gzip / 1024 > (BUDGET_OVERRIDES[r.name] ?? BUDGET_KB));
 if (over.length) {

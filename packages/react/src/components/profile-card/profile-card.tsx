@@ -19,14 +19,44 @@ export interface ProfileCardProps {
 }
 
 /** Person or organization summary with stats and actions. */
-export function ProfileCard({ name, avatar, subtitle, bio, badges, stats, actions, cover, layout = "vertical", headingLevel = 3, className }: ProfileCardProps) {
+export function ProfileCard({
+  name,
+  avatar,
+  subtitle,
+  bio,
+  badges,
+  stats,
+  actions,
+  cover,
+  layout = "vertical",
+  headingLevel = 3,
+  className,
+}: ProfileCardProps) {
   const Heading = `h${headingLevel}` as const;
   const vertical = layout === "vertical";
   return (
     <Card className={className}>
-      {cover ? <div className="h-20 bg-muted bg-cover bg-center" style={{ backgroundImage: `url(${cover})` }} aria-hidden /> : null}
-      <div className={cn("flex gap-4 p-card-p", vertical ? "flex-col items-center text-center" : "items-start", cover && vertical && "-mt-10")}>
-        <Avatar src={avatar} name={name} alt="" size={vertical ? "xl" : "lg"} className={cn(cover && "ring-4 ring-card")} />
+      {cover ? (
+        <div
+          className="h-20 bg-muted bg-cover bg-center"
+          style={{ backgroundImage: `url(${cover})` }}
+          aria-hidden
+        />
+      ) : null}
+      <div
+        className={cn(
+          "flex gap-4 p-card-p",
+          vertical ? "flex-col items-center text-center" : "items-start",
+          cover && vertical && "-mt-10",
+        )}
+      >
+        <Avatar
+          src={avatar}
+          name={name}
+          alt=""
+          size={vertical ? "xl" : "lg"}
+          className={cn(cover && "ring-4 ring-card")}
+        />
         <div className={cn("grid min-w-0 flex-1 gap-1", vertical && "justify-items-center")}>
           <Heading className="text-md font-semibold">{name}</Heading>
           {subtitle ? <p className="text-sm text-muted-foreground">{subtitle}</p> : null}
@@ -42,7 +72,11 @@ export function ProfileCard({ name, avatar, subtitle, bio, badges, stats, action
               ))}
             </dl>
           ) : null}
-          {actions ? <div className={cn("mt-4 flex flex-wrap gap-2", vertical && "justify-center")}>{actions}</div> : null}
+          {actions ? (
+            <div className={cn("mt-4 flex flex-wrap gap-2", vertical && "justify-center")}>
+              {actions}
+            </div>
+          ) : null}
         </div>
       </div>
     </Card>

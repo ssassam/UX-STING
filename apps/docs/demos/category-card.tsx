@@ -17,9 +17,24 @@ export function Categories() {
 export function Cities() {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      <CityCard href="#" name="Casablanca" count="3,120 places" image={{ src: img("photo-1539020140153-e479b8c22e70", 500), alt: "" }} />
-      <CityCard href="#" name="Marrakech" count="2,480 places" image={{ src: img("photo-1597212618440-806262de4f6b", 500), alt: "" }} />
-      <CityCard href="#" name="Tangier" count="1,020 places" image={{ src: img("photo-1553603227-2358aabe821e", 500), alt: "" }} />
+      <CityCard
+        href="#"
+        name="Casablanca"
+        count="3,120 places"
+        image={{ src: img("photo-1539020140153-e479b8c22e70", 500), alt: "" }}
+      />
+      <CityCard
+        href="#"
+        name="Marrakech"
+        count="2,480 places"
+        image={{ src: img("photo-1597212618440-806262de4f6b", 500), alt: "" }}
+      />
+      <CityCard
+        href="#"
+        name="Tangier"
+        count="1,020 places"
+        image={{ src: img("photo-1553603227-2358aabe821e", 500), alt: "" }}
+      />
     </div>
   );
 }

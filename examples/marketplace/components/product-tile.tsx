@@ -9,7 +9,13 @@ import { useState } from "react";
 import { useCart } from "../app/providers";
 import type { Product } from "../lib/data";
 
-export function ProductTile({ product, headingLevel = 3 }: { product: Product; headingLevel?: 2 | 3 }) {
+export function ProductTile({
+  product,
+  headingLevel = 3,
+}: {
+  product: Product;
+  headingLevel?: 2 | 3;
+}) {
   const { add } = useCart();
   const [saved, setSaved] = useState(false);
   return (
@@ -25,12 +31,21 @@ export function ProductTile({ product, headingLevel = 3 }: { product: Product; h
       badges={
         <>
           {product.compareAt ? <Badge variant="destructive">Sale</Badge> : null}
-          {product.stock > 0 && product.stock <= 5 ? <Badge variant="warning">Only {product.stock} left</Badge> : null}
+          {product.stock > 0 && product.stock <= 5 ? (
+            <Badge variant="warning">Only {product.stock} left</Badge>
+          ) : null}
           {product.stock === 0 ? <Badge variant="secondary">Sold out</Badge> : null}
         </>
       }
       secondaryAction={
-        <IconButton aria-label={saved ? `Remove ${product.name} from favorites` : `Save ${product.name}`} aria-pressed={saved} size="sm" variant="secondary" shape="circle" onClick={() => setSaved(!saved)}>
+        <IconButton
+          aria-label={saved ? `Remove ${product.name} from favorites` : `Save ${product.name}`}
+          aria-pressed={saved}
+          size="sm"
+          variant="secondary"
+          shape="circle"
+          onClick={() => setSaved(!saved)}
+        >
           <HeartIcon className={saved ? "fill-destructive text-destructive" : undefined} />
         </IconButton>
       }

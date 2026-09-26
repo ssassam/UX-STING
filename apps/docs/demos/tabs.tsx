@@ -8,11 +8,19 @@ function Demo({ variant }: { variant: "line" | "pills" | "enclosed" }) {
         <TabsTrigger value="overview">Overview</TabsTrigger>
         <TabsTrigger value="menu">Menu</TabsTrigger>
         <TabsTrigger value="reviews">Reviews</TabsTrigger>
-        <TabsTrigger value="photos" disabled>Photos</TabsTrigger>
+        <TabsTrigger value="photos" disabled>
+          Photos
+        </TabsTrigger>
       </TabsList>
-      <TabsContent value="overview" className="text-sm text-muted-foreground">Open daily from 8 am. Terrace seating.</TabsContent>
-      <TabsContent value="menu" className="text-sm text-muted-foreground">Breakfast, lunch and pastries.</TabsContent>
-      <TabsContent value="reviews" className="text-sm text-muted-foreground">4.6 average from 128 reviews.</TabsContent>
+      <TabsContent value="overview" className="text-sm text-muted-foreground">
+        Open daily from 8 am. Terrace seating.
+      </TabsContent>
+      <TabsContent value="menu" className="text-sm text-muted-foreground">
+        Breakfast, lunch and pastries.
+      </TabsContent>
+      <TabsContent value="reviews" className="text-sm text-muted-foreground">
+        4.6 average from 128 reviews.
+      </TabsContent>
     </Tabs>
   );
 }
@@ -37,9 +45,15 @@ export function Vertical() {
         <TabsTrigger value="billing">Billing</TabsTrigger>
         <TabsTrigger value="team">Team</TabsTrigger>
       </TabsList>
-      <TabsContent value="profile" className="text-sm">Profile settings</TabsContent>
-      <TabsContent value="billing" className="text-sm">Billing settings</TabsContent>
-      <TabsContent value="team" className="text-sm">Team settings</TabsContent>
+      <TabsContent value="profile" className="text-sm">
+        Profile settings
+      </TabsContent>
+      <TabsContent value="billing" className="text-sm">
+        Billing settings
+      </TabsContent>
+      <TabsContent value="team" className="text-sm">
+        Team settings
+      </TabsContent>
     </Tabs>
   );
 }

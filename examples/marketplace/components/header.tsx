@@ -3,7 +3,13 @@ import { ShoppingCartIcon, StoreIcon, UserIcon } from "@unified-ui/icons";
 import { CountBadge } from "@unified-ui/react/badge";
 import { Button, IconButton } from "@unified-ui/react/button";
 import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
-import { Navbar, NavbarActions, NavbarBrand, NavbarMobileLink, NavbarMobileMenu } from "@unified-ui/react/navbar";
+import {
+  Navbar,
+  NavbarActions,
+  NavbarBrand,
+  NavbarMobileLink,
+  NavbarMobileMenu,
+} from "@unified-ui/react/navbar";
 import { SearchInput } from "@unified-ui/react/search-input";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
@@ -16,12 +22,20 @@ export function Header() {
   return (
     <Navbar>
       <NavbarBrand asChild>
-        <NextLink href="/" className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <NextLink
+          href="/"
+          className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
           <StoreIcon className="size-5 text-primary" />
           <span className="sr-only sm:not-sr-only">Souk&nbsp;&amp;&nbsp;Co</span>
         </NextLink>
       </NavbarBrand>
-      <SearchInput className="max-w-md flex-1" placeholder="Search handmade goods" shortcut="/" onSearch={(q) => router.push(`/?q=${encodeURIComponent(q)}`)} />
+      <SearchInput
+        className="max-w-md flex-1"
+        placeholder="Search handmade goods"
+        shortcut="/"
+        onSearch={(q) => router.push(`/?q=${encodeURIComponent(q)}`)}
+      />
       <NavbarActions>
         <ColorModeToggle />
         <IconButton aria-label="Account" variant="ghost" className="hidden sm:inline-flex">
@@ -36,7 +50,9 @@ export function Header() {
         </Button>
         <NavbarMobileMenu title="Browse">
           {categories.map((c) => (
-            <NavbarMobileLink key={c} href={`/?category=${c}`}>{c}</NavbarMobileLink>
+            <NavbarMobileLink key={c} href={`/?category=${c}`}>
+              {c}
+            </NavbarMobileLink>
           ))}
         </NavbarMobileMenu>
       </NavbarActions>

@@ -10,7 +10,11 @@ export interface ColorModeToggleProps extends ButtonHTMLAttributes<HTMLButtonEle
 }
 
 /** Switches between light and dark mode via the nearest `UIProvider`. */
-export function ColorModeToggle({ labels = { toDark: "Switch to dark mode", toLight: "Switch to light mode" }, className, ...props }: ColorModeToggleProps) {
+export function ColorModeToggle({
+  labels = { toDark: "Switch to dark mode", toLight: "Switch to light mode" },
+  className,
+  ...props
+}: ColorModeToggleProps) {
   const { resolvedColorMode, setColorMode } = useColorMode();
   const dark = resolvedColorMode === "dark";
   return (

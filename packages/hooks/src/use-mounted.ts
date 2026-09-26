@@ -5,5 +5,9 @@ const noop = () => () => {};
 
 /** `false` during SSR and hydration, `true` afterwards. */
 export function useMounted(): boolean {
-  return useSyncExternalStore(noop, () => true, () => false);
+  return useSyncExternalStore(
+    noop,
+    () => true,
+    () => false,
+  );
 }

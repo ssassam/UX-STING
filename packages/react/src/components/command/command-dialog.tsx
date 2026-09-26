@@ -29,9 +29,16 @@ export function CommandDialog({
   children,
   ...props
 }: CommandDialogProps) {
-  const [open, setOpen] = useControllableState({ value: openProp, defaultValue: defaultOpen, onChange: onOpenChange });
+  const [open, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: defaultOpen,
+    onChange: onOpenChange,
+  });
   const container = usePortalContainer();
-  useHotkey(shortcut || "", () => setOpen(!open), { enabled: Boolean(shortcut), enableInInputs: true });
+  useHotkey(shortcut || "", () => setOpen(!open), {
+    enabled: Boolean(shortcut),
+    enableInInputs: true,
+  });
   return (
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Portal container={container}>
@@ -43,7 +50,11 @@ export function CommandDialog({
           <VisuallyHidden>
             <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
           </VisuallyHidden>
-          <Command label={typeof title === "string" ? title : undefined} className={cn(className)} {...props}>
+          <Command
+            label={typeof title === "string" ? title : undefined}
+            className={cn(className)}
+            {...props}
+          >
             {children}
           </Command>
         </DialogPrimitive.Content>

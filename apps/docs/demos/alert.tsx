@@ -19,7 +19,9 @@ export function Variants() {
       <Alert variant="warning">
         <AlertTitle>Your plan renews in 3 days</AlertTitle>
         <AlertActions>
-          <Button size="sm" variant="outline">Manage plan</Button>
+          <Button size="sm" variant="outline">
+            Manage plan
+          </Button>
         </AlertActions>
       </Alert>
       <Alert variant="destructive" live>
@@ -33,7 +35,14 @@ export function Variants() {
 export function Banners() {
   return (
     <div className="grid gap-3 overflow-hidden rounded-lg">
-      <Banner dismissible action={<Button size="xs" variant="secondary">Learn more</Button>}>
+      <Banner
+        dismissible
+        action={
+          <Button size="xs" variant="secondary">
+            Learn more
+          </Button>
+        }
+      >
         Spring promotion: list your business free for 3 months.
       </Banner>
       <Banner variant="neutral" dismissible>

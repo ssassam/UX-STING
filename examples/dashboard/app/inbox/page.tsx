@@ -15,10 +15,24 @@ const messages = [
 export default function InboxPage() {
   return (
     <div className="grid grid-cols-[minmax(0,1fr)] gap-6">
-      <Heading level={1} size="lg">Inbox</Heading>
+      <Heading level={1} size="lg">
+        Inbox
+      </Heading>
       <List variant="bordered">
         {messages.map(([name, text, unread]) => (
-          <ListItem key={name} start={<Avatar size="sm" name={name} />} title={name} description={text} end={unread ? <Badge variant="primary" dot>New</Badge> : null} />
+          <ListItem
+            key={name}
+            start={<Avatar size="sm" name={name} />}
+            title={name}
+            description={text}
+            end={
+              unread ? (
+                <Badge variant="primary" dot>
+                  New
+                </Badge>
+              ) : null
+            }
+          />
         ))}
       </List>
     </div>

@@ -2,8 +2,23 @@
 import { MapPinIcon, SearchIcon } from "@unified-ui/icons";
 import { Button } from "@unified-ui/react/button";
 import { ColorModeToggle } from "@unified-ui/react/color-mode-toggle";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@unified-ui/react/command";
-import { Navbar, NavbarActions, NavbarBrand, NavbarContent, NavbarLink, NavbarMobileLink, NavbarMobileMenu } from "@unified-ui/react/navbar";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@unified-ui/react/command";
+import {
+  Navbar,
+  NavbarActions,
+  NavbarBrand,
+  NavbarContent,
+  NavbarLink,
+  NavbarMobileLink,
+  NavbarMobileMenu,
+} from "@unified-ui/react/navbar";
 import { NativeSelect } from "@unified-ui/react/native-select";
 import { Kbd } from "@unified-ui/react/typography";
 import { usePathname, useRouter } from "next/navigation";
@@ -25,7 +40,13 @@ export interface ThemeControlsProps {
   onLocaleChange: (v: string) => void;
 }
 
-export function SiteHeader({ entries, controls }: { entries: SearchEntry[]; controls: ThemeControlsProps }) {
+export function SiteHeader({
+  entries,
+  controls,
+}: {
+  entries: SearchEntry[];
+  controls: ThemeControlsProps;
+}) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -34,34 +55,70 @@ export function SiteHeader({ entries, controls }: { entries: SearchEntry[]; cont
     <>
       <Navbar maxWidth="full">
         <NavbarBrand asChild>
-          <a href="/" className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <a
+            href="/"
+            className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
             <MapPinIcon className="size-5 text-primary" />
             unified-ui
           </a>
         </NavbarBrand>
         <NavbarContent>
-          <NavbarLink href="/docs/introduction" active={pathname.startsWith("/docs")}>Docs</NavbarLink>
-          <NavbarLink href="/components" active={pathname.startsWith("/components")}>Components</NavbarLink>
+          <NavbarLink href="/docs/introduction" active={pathname.startsWith("/docs")}>
+            Docs
+          </NavbarLink>
+          <NavbarLink href="/components" active={pathname.startsWith("/components")}>
+            Components
+          </NavbarLink>
           <NavbarLink href="/docs/patterns">Patterns</NavbarLink>
           <NavbarLink href="/docs/cli">CLI</NavbarLink>
         </NavbarContent>
         <NavbarActions>
-          <Button variant="outline" size="sm" onClick={() => setOpen(true)} startIcon={<SearchIcon />} aria-label="Search documentation" className="text-muted-foreground">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setOpen(true)}
+            startIcon={<SearchIcon />}
+            aria-label="Search documentation"
+            className="text-muted-foreground"
+          >
             <span className="hidden sm:inline">Search…</span>
             <Kbd className="hidden sm:inline-flex">⌘K</Kbd>
           </Button>
           <div className="hidden items-center gap-1 lg:flex">
-            <NativeSelect size="sm" aria-label="Theme" value={controls.theme} onChange={(e) => controls.onThemeChange(e.target.value)} className="w-32">
+            <NativeSelect
+              size="sm"
+              aria-label="Theme"
+              value={controls.theme}
+              onChange={(e) => controls.onThemeChange(e.target.value)}
+              className="w-32"
+            >
               {["default", "neutral", "modern", "compact", "soft", "high-contrast"].map((t) => (
-                <option key={t} value={t}>{t}</option>
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </NativeSelect>
-            <NativeSelect size="sm" aria-label="Density" value={controls.density} onChange={(e) => controls.onDensityChange(e.target.value)} className="w-36">
+            <NativeSelect
+              size="sm"
+              aria-label="Density"
+              value={controls.density}
+              onChange={(e) => controls.onDensityChange(e.target.value)}
+              className="w-36"
+            >
               {["compact", "comfortable", "spacious"].map((t) => (
-                <option key={t} value={t}>{t}</option>
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </NativeSelect>
-            <NativeSelect size="sm" aria-label="Language" value={controls.locale} onChange={(e) => controls.onLocaleChange(e.target.value)} className="w-28">
+            <NativeSelect
+              size="sm"
+              aria-label="Language"
+              value={controls.locale}
+              onChange={(e) => controls.onLocaleChange(e.target.value)}
+              className="w-28"
+            >
               <option value="en">English</option>
               <option value="fr">Français</option>
               <option value="ar">العربية</option>

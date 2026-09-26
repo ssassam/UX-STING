@@ -9,7 +9,10 @@ import { InputGroup, InputGroupAction, InputGroupAddon } from "../input-group/in
 import { Spinner } from "../spinner/spinner.js";
 import { useHotkey } from "@unified-ui/hooks";
 
-export interface SearchInputProps extends Omit<InputProps, "type" | "value" | "defaultValue" | "onChange"> {
+export interface SearchInputProps extends Omit<
+  InputProps,
+  "type" | "value" | "defaultValue" | "onChange"
+> {
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
@@ -25,13 +28,31 @@ export interface SearchInputProps extends Omit<InputProps, "type" | "value" | "d
 
 /** Search field with icon, clear button, loading state and optional shortcut. */
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function SearchInput(
-  { value: valueProp, defaultValue = "", onValueChange, onChange, onSearch, loading, shortcut, endContent, size = "md", className, placeholder, onKeyDown, ...props },
+  {
+    value: valueProp,
+    defaultValue = "",
+    onValueChange,
+    onChange,
+    onSearch,
+    loading,
+    shortcut,
+    endContent,
+    size = "md",
+    className,
+    placeholder,
+    onKeyDown,
+    ...props
+  },
   ref,
 ) {
   const messages = useMessages();
   const inner = useRef<HTMLInputElement>(null);
   const merged = useMergedRefs(ref, inner);
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   useHotkey(shortcut ?? "", () => inner.current?.focus(), { enabled: Boolean(shortcut) });
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -45,7 +66,9 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
 
   return (
     <InputGroup size={size} className={className} role="search">
-      <InputGroupAddon>{loading ? <Spinner size="sm" label={messages.loading} /> : <SearchIcon />}</InputGroupAddon>
+      <InputGroupAddon>
+        {loading ? <Spinner size="sm" label={messages.loading} /> : <SearchIcon />}
+      </InputGroupAddon>
       <Input
         ref={merged}
         type="search"
@@ -70,12 +93,17 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
               setValue("");
               inner.current?.focus();
             }}
-            className={cn("ui-hit-area inline-flex size-7 items-center justify-center rounded-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-4")}
+            className={cn(
+              "ui-hit-area inline-flex size-7 items-center justify-center rounded-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-4",
+            )}
           >
             <XIcon />
           </button>
         ) : shortcut ? (
-          <kbd aria-hidden className="me-1 hidden rounded-xs border border-border bg-surface px-1.5 font-mono text-[0.6875rem] text-muted-foreground sm:inline">
+          <kbd
+            aria-hidden
+            className="me-1 hidden rounded-xs border border-border bg-surface px-1.5 font-mono text-[0.6875rem] text-muted-foreground sm:inline"
+          >
             {formatShortcut(shortcut)}
           </kbd>
         ) : null}

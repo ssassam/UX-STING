@@ -14,7 +14,10 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(function
   return (
     <div
       ref={ref}
-      className={cn("relative w-full overflow-hidden [&>img]:size-full [&>img]:object-cover [&>video]:size-full [&>iframe]:size-full", className)}
+      className={cn(
+        "relative w-full overflow-hidden [&>img]:size-full [&>img]:object-cover [&>video]:size-full [&>iframe]:size-full",
+        className,
+      )}
       style={{ aspectRatio: String(ratio), ...style }}
       {...props}
     />

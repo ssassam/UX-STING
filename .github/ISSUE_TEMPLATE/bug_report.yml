@@ -27,7 +27,18 @@ body:
     attributes:
       label: Area
       multiple: true
-      options: [Accessibility, Keyboard, RTL / i18n, Dark mode / theming, Responsive / mobile, SSR / RSC, CLI, Types, Other]
+      options:
+        [
+          Accessibility,
+          Keyboard,
+          RTL / i18n,
+          Dark mode / theming,
+          Responsive / mobile,
+          SSR / RSC,
+          CLI,
+          Types,
+          Other,
+        ]
   - type: input
     id: env
     attributes:

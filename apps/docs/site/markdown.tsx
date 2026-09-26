@@ -17,10 +17,13 @@ function inline(text: string, keyPrefix = ""): ReactNode[] {
     const token = m[0];
     const key = `${keyPrefix}-${i++}`;
     if (token.startsWith("`")) out.push(<code key={key}>{token.slice(1, -1)}</code>);
-    else if (token.startsWith("**")) out.push(<strong key={key}>{inline(token.slice(2, -2), key)}</strong>);
+    else if (token.startsWith("**"))
+      out.push(<strong key={key}>{inline(token.slice(2, -2), key)}</strong>);
     else if (token.startsWith("[")) {
       const [, label, href] = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token)!;
-      const url = href!.replace(/^\.\/(.+)\.md$/, "/docs/$1").replace(/^\.\.\/.*?([\w-]+)\.md$/, "/docs/$1");
+      const url = href!
+        .replace(/^\.\/(.+)\.md$/, "/docs/$1")
+        .replace(/^\.\.\/.*?([\w-]+)\.md$/, "/docs/$1");
       out.push(
         <a key={key} href={url}>
           {inline(label!, key)}
@@ -77,20 +80,36 @@ export function Markdown({ source }: { source: string }) {
     if (line.startsWith("|")) {
       const rows: string[][] = [];
       while (i < lines.length && lines[i]!.startsWith("|")) {
-        const cells = lines[i]!.split("|").slice(1, -1).map((c) => c.trim());
+        const cells = lines[i]!.split("|")
+          .slice(1, -1)
+          .map((c) => c.trim());
         if (!cells.every((c) => /^:?-+:?$/.test(c))) rows.push(cells);
         i++;
       }
       const [head, ...body] = rows;
       blocks.push(
-        <div key={key++} tabIndex={0} role="region" aria-label="Table" className="overflow-x-auto outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <div
+          key={key++}
+          tabIndex={0}
+          role="region"
+          aria-label="Table"
+          className="overflow-x-auto outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
           <table>
             <thead>
-              <tr>{head?.map((c, j) => <th key={j}>{inline(c)}</th>)}</tr>
+              <tr>
+                {head?.map((c, j) => (
+                  <th key={j}>{inline(c)}</th>
+                ))}
+              </tr>
             </thead>
             <tbody>
               {body.map((r, ri) => (
-                <tr key={ri}>{r.map((c, j) => <td key={j}>{inline(c)}</td>)}</tr>
+                <tr key={ri}>
+                  {r.map((c, j) => (
+                    <td key={j}>{inline(c)}</td>
+                  ))}
+                </tr>
               ))}
             </tbody>
           </table>
@@ -109,7 +128,9 @@ export function Markdown({ source }: { source: string }) {
       blocks.push(
         <List key={key++}>
           {items.map((it, j) => (
-            <li key={j}>{inline(it.replace(/^\[( |x)\]\s/, (_, c) => (c === "x" ? "✅ " : "☐ ")))}</li>
+            <li key={j}>
+              {inline(it.replace(/^\[( |x)\]\s/, (_, c) => (c === "x" ? "✅ " : "☐ ")))}
+            </li>
           ))}
         </List>,
       );
@@ -117,7 +138,8 @@ export function Markdown({ source }: { source: string }) {
     }
     if (line.startsWith(">")) {
       const quote: string[] = [];
-      while (i < lines.length && lines[i]!.startsWith(">")) quote.push(lines[i++]!.replace(/^>\s?/, ""));
+      while (i < lines.length && lines[i]!.startsWith(">"))
+        quote.push(lines[i++]!.replace(/^>\s?/, ""));
       blocks.push(<blockquote key={key++}>{inline(quote.join(" "))}</blockquote>);
       continue;
     }
@@ -126,7 +148,12 @@ export function Markdown({ source }: { source: string }) {
       continue;
     }
     const para: string[] = [];
-    while (i < lines.length && lines[i]!.trim() !== "" && !/^(#|```|\||>|\s*([-*]|\d+\.)\s)/.test(lines[i]!)) para.push(lines[i++]!);
+    while (
+      i < lines.length &&
+      lines[i]!.trim() !== "" &&
+      !/^(#|```|\||>|\s*([-*]|\d+\.)\s)/.test(lines[i]!)
+    )
+      para.push(lines[i++]!);
     blocks.push(<p key={key++}>{inline(para.join(" "))}</p>);
   }
   return <Fragment>{blocks}</Fragment>;

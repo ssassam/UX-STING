@@ -21,7 +21,10 @@ export const titleFromExport = (name: string) => name.replace(/([a-z])([A-Z])/g,
 
 function DemoFrame({ component, example }: { component: string; example: string }) {
   const Example = useMemo(
-    () => lazy(async () => ({ default: ((await loadModule(component))[example] ?? (() => null)) as ComponentType })),
+    () =>
+      lazy(async () => ({
+        default: ((await loadModule(component))[example] ?? (() => null)) as ComponentType,
+      })),
     [component, example],
   );
   const { resolvedColorMode } = useColorMode();
@@ -34,7 +37,9 @@ function DemoFrame({ component, example }: { component: string; example: string 
 
   return (
     <section aria-labelledby={id} className="grid grid-cols-[minmax(0,1fr)] gap-2">
-      <h3 id={id} className="text-md font-semibold">{titleFromExport(example)}</h3>
+      <h3 id={id} className="text-md font-semibold">
+        {titleFromExport(example)}
+      </h3>
       <Tabs defaultValue="preview" variant="enclosed" size="sm" className="gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <TabsList aria-label={`${titleFromExport(example)} view`}>
@@ -42,18 +47,47 @@ function DemoFrame({ component, example }: { component: string; example: string 
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
           <div className="flex flex-wrap items-center gap-1">
-            <ToggleGroup type="single" size="sm" value={mode} onValueChange={(v) => v && setMode(v as "light" | "dark")} aria-label="Color mode">
-              <ToggleGroupItem value="light" aria-label="Light"><SunIcon /></ToggleGroupItem>
-              <ToggleGroupItem value="dark" aria-label="Dark"><MoonIcon /></ToggleGroupItem>
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={mode}
+              onValueChange={(v) => v && setMode(v as "light" | "dark")}
+              aria-label="Color mode"
+            >
+              <ToggleGroupItem value="light" aria-label="Light">
+                <SunIcon />
+              </ToggleGroupItem>
+              <ToggleGroupItem value="dark" aria-label="Dark">
+                <MoonIcon />
+              </ToggleGroupItem>
             </ToggleGroup>
-            <ToggleGroup type="single" size="sm" value={dir} onValueChange={(v) => v && setDir(v as "ltr" | "rtl")} aria-label="Direction">
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={dir}
+              onValueChange={(v) => v && setDir(v as "ltr" | "rtl")}
+              aria-label="Direction"
+            >
               <ToggleGroupItem value="ltr">LTR</ToggleGroupItem>
               <ToggleGroupItem value="rtl">RTL</ToggleGroupItem>
             </ToggleGroup>
-            <ToggleGroup type="single" size="sm" value={width} onValueChange={(v) => v && setWidth(v as keyof typeof widths)} aria-label="Viewport width" className="hidden md:inline-flex">
-              <ToggleGroupItem value="mobile" aria-label="Mobile width"><SmartphoneIcon /></ToggleGroupItem>
-              <ToggleGroupItem value="tablet" aria-label="Tablet width"><TabletIcon /></ToggleGroupItem>
-              <ToggleGroupItem value="desktop" aria-label="Desktop width"><MonitorIcon /></ToggleGroupItem>
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={width}
+              onValueChange={(v) => v && setWidth(v as keyof typeof widths)}
+              aria-label="Viewport width"
+              className="hidden md:inline-flex"
+            >
+              <ToggleGroupItem value="mobile" aria-label="Mobile width">
+                <SmartphoneIcon />
+              </ToggleGroupItem>
+              <ToggleGroupItem value="tablet" aria-label="Tablet width">
+                <TabletIcon />
+              </ToggleGroupItem>
+              <ToggleGroupItem value="desktop" aria-label="Desktop width">
+                <MonitorIcon />
+              </ToggleGroupItem>
             </ToggleGroup>
           </div>
         </div>
@@ -64,15 +98,26 @@ function DemoFrame({ component, example }: { component: string; example: string 
             locale={dir === "rtl" ? "ar" : "en"}
             className="overflow-hidden rounded-xl border border-border"
           >
-            <div className="mx-auto p-4 transition-[max-width] sm:p-8" style={{ maxWidth: widths[width] }}>
-              <Suspense fallback={<div className="h-24 animate-pulse rounded-md bg-muted" aria-busy="true" />}>
+            <div
+              className="mx-auto p-4 transition-[max-width] sm:p-8"
+              style={{ maxWidth: widths[width] }}
+            >
+              <Suspense
+                fallback={
+                  <div className="h-24 animate-pulse rounded-md bg-muted" aria-busy="true" />
+                }
+              >
                 <Example />
               </Suspense>
             </div>
           </UIProvider>
         </TabsContent>
         <TabsContent value="code">
-          <CodeBlock code={allSources[component]?.[example] ?? ""} language="tsx" className="my-0" />
+          <CodeBlock
+            code={allSources[component]?.[example] ?? ""}
+            language="tsx"
+            className="my-0"
+          />
         </TabsContent>
       </Tabs>
     </section>

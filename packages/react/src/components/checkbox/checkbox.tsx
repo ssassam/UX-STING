@@ -2,7 +2,15 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon, MinusIcon } from "@unified-ui/icons";
 import { cn } from "@unified-ui/utils";
-import { createContext, forwardRef, useContext, useId, type ComponentPropsWithoutRef, type FieldsetHTMLAttributes, type ReactNode } from "react";
+import {
+  createContext,
+  forwardRef,
+  useContext,
+  useId,
+  type ComponentPropsWithoutRef,
+  type FieldsetHTMLAttributes,
+  type ReactNode,
+} from "react";
 import { useFieldControlProps } from "../../lib/field.js";
 import { useControllableState } from "@unified-ui/hooks";
 
@@ -26,7 +34,11 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
 ) {
   const group = useContext(CheckboxGroupContext);
   const autoId = useId();
-  const fieldProps = useFieldControlProps({ ...props, id: idProp, "aria-invalid": invalid || undefined });
+  const fieldProps = useFieldControlProps({
+    ...props,
+    id: idProp,
+    "aria-invalid": invalid || undefined,
+  });
   const id = label ? (fieldProps.id ?? `cb${autoId.replace(/:/g, "")}`) : fieldProps.id;
   const descId = description ? `${id}-desc` : undefined;
   const groupProps =
@@ -34,7 +46,8 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
       ? {
           name: props.name ?? group.name,
           checked: group.value.includes(String(props.value)),
-          onCheckedChange: (checked: boolean | "indeterminate") => group.toggle(String(props.value), checked === true),
+          onCheckedChange: (checked: boolean | "indeterminate") =>
+            group.toggle(String(props.value), checked === true),
           disabled: props.disabled ?? group.disabled,
         }
       : {};
@@ -66,7 +79,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
     <div className={cn("flex items-start gap-2.5", className)}>
       <span className="flex h-5 items-center">{box}</span>
       <div className="grid gap-0.5 leading-snug">
-        <label htmlFor={id} className="text-sm font-medium text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-60">
+        <label
+          htmlFor={id}
+          className="text-sm font-medium text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-60"
+        >
           {label}
         </label>
         {description ? (
@@ -88,7 +104,10 @@ interface CheckboxGroupContextValue {
 
 const CheckboxGroupContext = createContext<CheckboxGroupContextValue | null>(null);
 
-export interface CheckboxGroupProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, "defaultValue" | "onChange"> {
+export interface CheckboxGroupProps extends Omit<
+  FieldsetHTMLAttributes<HTMLFieldSetElement>,
+  "defaultValue" | "onChange"
+> {
   legend?: ReactNode;
   description?: ReactNode;
   name?: string;
@@ -100,38 +119,69 @@ export interface CheckboxGroupProps extends Omit<FieldsetHTMLAttributes<HTMLFiel
 }
 
 /** Multiple related checkboxes sharing a legend and value array. */
-export const CheckboxGroup = forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(function CheckboxGroup(
-  { legend, description, name, value: valueProp, defaultValue = [], onValueChange, orientation = "vertical", error, disabled, className, children, ...props },
-  ref,
-) {
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
-  const errorId = useId();
-  return (
-    <CheckboxGroupContext.Provider
-      value={{
-        name,
-        value,
-        disabled,
-        toggle: (v, checked) => setValue((prev) => (checked ? [...prev.filter((x) => x !== v), v] : prev.filter((x) => x !== v))),
-      }}
-    >
-      <fieldset
-        ref={ref}
-        disabled={disabled}
-        aria-describedby={error ? errorId : undefined}
-        aria-invalid={error ? true : undefined}
-        className={cn("grid gap-3", className)}
-        {...props}
+export const CheckboxGroup = forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
+  function CheckboxGroup(
+    {
+      legend,
+      description,
+      name,
+      value: valueProp,
+      defaultValue = [],
+      onValueChange,
+      orientation = "vertical",
+      error,
+      disabled,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    const [value, setValue] = useControllableState({
+      value: valueProp,
+      defaultValue,
+      onChange: onValueChange,
+    });
+    const errorId = useId();
+    return (
+      <CheckboxGroupContext.Provider
+        value={{
+          name,
+          value,
+          disabled,
+          toggle: (v, checked) =>
+            setValue((prev) =>
+              checked ? [...prev.filter((x) => x !== v), v] : prev.filter((x) => x !== v),
+            ),
+        }}
       >
-        {legend ? <legend className="mb-1 text-sm font-medium">{legend}</legend> : null}
-        {description ? <p className="-mt-2 text-sm text-muted-foreground">{description}</p> : null}
-        <div className={cn("flex gap-3", orientation === "vertical" ? "flex-col" : "flex-row flex-wrap gap-x-6")}>{children}</div>
-        {error ? (
-          <p id={errorId} className="text-sm font-medium text-destructive">
-            {error}
-          </p>
-        ) : null}
-      </fieldset>
-    </CheckboxGroupContext.Provider>
-  );
-});
+        <fieldset
+          ref={ref}
+          disabled={disabled}
+          aria-describedby={error ? errorId : undefined}
+          aria-invalid={error ? true : undefined}
+          className={cn("grid gap-3", className)}
+          {...props}
+        >
+          {legend ? <legend className="mb-1 text-sm font-medium">{legend}</legend> : null}
+          {description ? (
+            <p className="-mt-2 text-sm text-muted-foreground">{description}</p>
+          ) : null}
+          <div
+            className={cn(
+              "flex gap-3",
+              orientation === "vertical" ? "flex-col" : "flex-row flex-wrap gap-x-6",
+            )}
+          >
+            {children}
+          </div>
+          {error ? (
+            <p id={errorId} className="text-sm font-medium text-destructive">
+              {error}
+            </p>
+          ) : null}
+        </fieldset>
+      </CheckboxGroupContext.Provider>
+    );
+  },
+);

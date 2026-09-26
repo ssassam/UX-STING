@@ -11,7 +11,10 @@ const options = ["Wi-Fi", "Terrace", "Parking", "Pet friendly"];
 export function Panel() {
   const [amenities, setAmenities] = useState<string[]>(["Wi-Fi"]);
   const [openNow, setOpenNow] = useState(true);
-  const chips = [...(openNow ? [{ id: "open", label: "Open now" }] : []), ...amenities.map((a) => ({ id: a, label: a }))];
+  const chips = [
+    ...(openNow ? [{ id: "open", label: "Open now" }] : []),
+    ...amenities.map((a) => ({ id: a, label: a })),
+  ];
   const clear = () => {
     setAmenities([]);
     setOpenNow(false);
@@ -23,7 +26,13 @@ export function Panel() {
           <Switch label="Open now" checked={openNow} onCheckedChange={setOpenNow} />
         </FilterSection>
         <FilterSection title="Price per person">
-          <RangeSlider defaultValue={[10, 60]} max={120} thumbLabels={["Minimum", "Maximum"]} formatValue={(v) => `€${v}`} showValue />
+          <RangeSlider
+            defaultValue={[10, 60]}
+            max={120}
+            thumbLabels={["Minimum", "Maximum"]}
+            formatValue={(v) => `€${v}`}
+            showValue
+          />
         </FilterSection>
         <FilterSection title="Amenities" activeCount={amenities.length}>
           {options.map((o) => (
@@ -31,7 +40,9 @@ export function Panel() {
               key={o}
               label={o}
               checked={amenities.includes(o)}
-              onCheckedChange={(v) => setAmenities(v === true ? [...amenities, o] : amenities.filter((a) => a !== o))}
+              onCheckedChange={(v) =>
+                setAmenities(v === true ? [...amenities, o] : amenities.filter((a) => a !== o))
+              }
             />
           ))}
         </FilterSection>
@@ -42,10 +53,14 @@ export function Panel() {
       <div className="grid content-start gap-3">
         <FilterChips
           filters={chips}
-          onRemove={(id) => (id === "open" ? setOpenNow(false) : setAmenities(amenities.filter((a) => a !== id)))}
+          onRemove={(id) =>
+            id === "open" ? setOpenNow(false) : setAmenities(amenities.filter((a) => a !== id))
+          }
           onClearAll={clear}
         />
-        <p className="text-sm text-muted-foreground">Results update as filters change. On small screens the panel opens as a bottom sheet.</p>
+        <p className="text-sm text-muted-foreground">
+          Results update as filters change. On small screens the panel opens as a bottom sheet.
+        </p>
       </div>
     </div>
   );

@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/components/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/components/card";
 import { StatCard } from "@/components/ui/components/stat";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/components/tabs";
 import { Heading, Text } from "@/components/ui/components/typography";
@@ -11,7 +17,10 @@ export default function Home() {
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <Heading level={1}>Workspace</Heading>
-          <Text variant="muted">Every component on this page was copied into <code>components/ui</code> by the unified-ui CLI.</Text>
+          <Text variant="muted">
+            Every component on this page was copied into <code>components/ui</code> by the
+            unified-ui CLI.
+          </Text>
         </div>
         <InviteDialog />
       </header>
@@ -32,10 +41,13 @@ export default function Home() {
           <Card>
             <CardHeader>
               <CardTitle as="h2">Generated with the CLI</CardTitle>
-              <CardDescription>npx unified-ui init · npx unified-ui add button card dialog form data-table …</CardDescription>
+              <CardDescription>
+                npx unified-ui init · npx unified-ui add button card dialog form data-table …
+              </CardDescription>
             </CardHeader>
             <CardContent className="text-sm">
-              Edit anything in <code>components/ui</code>. <code>unified-ui.lock.json</code> remembers what was installed, so future
+              Edit anything in <code>components/ui</code>. <code>unified-ui.lock.json</code>{" "}
+              remembers what was installed, so future
               <code> add</code> runs never overwrite your changes silently.
             </CardContent>
           </Card>

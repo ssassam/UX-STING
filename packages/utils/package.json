@@ -14,12 +14,16 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
-  "dependencies": {"tailwind-merge": "^3.3.0"},
+  "dependencies": {
+    "tailwind-merge": "^3.3.0"
+  },
   "peerDependencies": {},
   "devDependencies": {
     "typescript": "~6.0.3"

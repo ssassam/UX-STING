@@ -31,10 +31,29 @@ export interface OTPInputProps {
  * (`autocomplete="one-time-code"`), arrow keys and Backspace navigation.
  */
 export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(function OTPInput(
-  { length = 6, value: valueProp, defaultValue = "", onValueChange, onComplete, type = "numeric", mask, disabled, invalid, name, id, className, groupAfter, ...aria },
+  {
+    length = 6,
+    value: valueProp,
+    defaultValue = "",
+    onValueChange,
+    onComplete,
+    type = "numeric",
+    mask,
+    disabled,
+    invalid,
+    name,
+    id,
+    className,
+    groupAfter,
+    ...aria
+  },
   ref,
 ) {
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   const inputs = useRef<Array<HTMLInputElement | null>>([]);
   const fieldProps = useFieldControlProps({ id, disabled, "aria-invalid": invalid || undefined });
   const pattern = type === "numeric" ? /[0-9]/ : /[0-9a-z]/i;
@@ -72,14 +91,24 @@ export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(function OTPIn
 
   const onPaste = (e: ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const pasted = e.clipboardData.getData("text").split("").filter((c) => pattern.test(c)).join("");
+    const pasted = e.clipboardData
+      .getData("text")
+      .split("")
+      .filter((c) => pattern.test(c))
+      .join("");
     if (!pasted) return;
     update(pasted);
     focusAt(pasted.length);
   };
 
   return (
-    <div ref={ref} role="group" aria-label={aria["aria-label"]} className={cn("flex items-center gap-2", className)} dir="ltr">
+    <div
+      ref={ref}
+      role="group"
+      aria-label={aria["aria-label"]}
+      className={cn("flex items-center gap-2", className)}
+      dir="ltr"
+    >
       {Array.from({ length }, (_, i) => (
         <span key={i} className="contents">
           <input
@@ -116,7 +145,11 @@ export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(function OTPIn
               "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 aria-invalid:border-destructive disabled:opacity-50",
             )}
           />
-          {groupAfter && i === groupAfter - 1 ? <span aria-hidden className="text-muted-foreground">–</span> : null}
+          {groupAfter && i === groupAfter - 1 ? (
+            <span aria-hidden className="text-muted-foreground">
+              –
+            </span>
+          ) : null}
         </span>
       ))}
       {name ? <input type="hidden" name={name} value={value} /> : null}

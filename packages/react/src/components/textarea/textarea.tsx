@@ -20,7 +20,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
 ) {
   const innerRef = useRef<HTMLTextAreaElement>(null);
   const merged = useMergedRefs(ref, innerRef);
-  const fieldProps = useFieldControlProps({ ...props, "aria-invalid": invalid || props["aria-invalid"] || undefined });
+  const fieldProps = useFieldControlProps({
+    ...props,
+    "aria-invalid": invalid || props["aria-invalid"] || undefined,
+  });
 
   const resize = useCallback(() => {
     const el = innerRef.current;
@@ -37,7 +40,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
     <textarea
       ref={merged}
       rows={rows}
-      className={cn(controlVariants({ size: "md" }), "h-auto min-h-16 py-2 leading-relaxed", autoResize && "resize-none overflow-hidden", className)}
+      className={cn(
+        controlVariants({ size: "md" }),
+        "h-auto min-h-16 py-2 leading-relaxed",
+        autoResize && "resize-none overflow-hidden",
+        className,
+      )}
       onChange={(e) => {
         onChange?.(e);
         resize();
@@ -49,7 +57,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
   return (
     <div className="grid gap-1">
       {textarea}
-      <span aria-live="polite" className="justify-self-end text-xs tabular-nums text-muted-foreground">
+      <span
+        aria-live="polite"
+        className="justify-self-end text-xs tabular-nums text-muted-foreground"
+      >
         {length ?? 0}/{props.maxLength}
       </span>
     </div>

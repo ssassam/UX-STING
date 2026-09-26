@@ -1,8 +1,21 @@
 "use client";
 import { DirectionProvider } from "@radix-ui/react-direction";
 import { createTheme, themeToCss, type ThemeConfig } from "@unified-ui/themes";
-import { getDirection, resolveColorMode, type ColorMode, type DensityMode } from "@unified-ui/utils";
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type HTMLAttributes, type ReactNode } from "react";
+import {
+  getDirection,
+  resolveColorMode,
+  type ColorMode,
+  type DensityMode,
+} from "@unified-ui/utils";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import { UIContext, type UIContextValue } from "./context";
 import { getMessages, type Messages } from "./messages";
 
@@ -89,13 +102,13 @@ export function UIProvider({
     () => resolveColorMode("system") === "dark",
     () => false,
   );
-  const resolvedColorMode =
-    colorMode === "system" ? (systemDark ? "dark" : "light") : colorMode;
+  const resolvedColorMode = colorMode === "system" ? (systemDark ? "dark" : "light") : colorMode;
 
   const dir = dirProp ?? getDirection(locale);
   const themeName = typeof theme === "string" ? theme : (theme.name ?? "custom");
   const customCss = useMemo(
-    () => (typeof theme === "string" ? null : themeToCss(createTheme({ ...theme, name: themeName }))),
+    () =>
+      typeof theme === "string" ? null : themeToCss(createTheme({ ...theme, name: themeName })),
     [theme, themeName],
   );
 
@@ -126,7 +139,19 @@ export function UIProvider({
       theme: themeName,
       portalContainer,
     }),
-    [locale, dir, messages, colorMode, resolvedColorMode, colorModeProp, storageKey, onColorModeChange, density, themeName, portalContainer],
+    [
+      locale,
+      dir,
+      messages,
+      colorMode,
+      resolvedColorMode,
+      colorModeProp,
+      storageKey,
+      onColorModeChange,
+      density,
+      themeName,
+      portalContainer,
+    ],
   );
 
   const attrs = {

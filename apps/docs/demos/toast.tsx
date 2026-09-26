@@ -5,11 +5,31 @@ import { toast } from "@unified-ui/react/toast";
 export function Variants() {
   return (
     <div className="flex flex-wrap gap-2">
-      <Button variant="outline" onClick={() => toast("Draft saved")}>Default</Button>
-      <Button variant="outline" onClick={() => toast.success("Listing published", { description: "Now visible in search." })}>Success</Button>
-      <Button variant="outline" onClick={() => toast.info("New review received")}>Info</Button>
-      <Button variant="outline" onClick={() => toast.warning("Photo is low resolution")}>Warning</Button>
-      <Button variant="outline" onClick={() => toast.error("Could not save", { description: "Check your connection and retry." })}>Error</Button>
+      <Button variant="outline" onClick={() => toast("Draft saved")}>
+        Default
+      </Button>
+      <Button
+        variant="outline"
+        onClick={() =>
+          toast.success("Listing published", { description: "Now visible in search." })
+        }
+      >
+        Success
+      </Button>
+      <Button variant="outline" onClick={() => toast.info("New review received")}>
+        Info
+      </Button>
+      <Button variant="outline" onClick={() => toast.warning("Photo is low resolution")}>
+        Warning
+      </Button>
+      <Button
+        variant="outline"
+        onClick={() =>
+          toast.error("Could not save", { description: "Check your connection and retry." })
+        }
+      >
+        Error
+      </Button>
     </div>
   );
 }

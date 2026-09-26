@@ -37,10 +37,17 @@ interface FlatNode {
   setsize: number;
 }
 
-function flatten(nodes: TreeNode[], expanded: Set<string>, level = 1, parentId: string | null = null, out: FlatNode[] = []) {
+function flatten(
+  nodes: TreeNode[],
+  expanded: Set<string>,
+  level = 1,
+  parentId: string | null = null,
+  out: FlatNode[] = [],
+) {
   nodes.forEach((node, i) => {
     out.push({ node, level, parentId, posinset: i + 1, setsize: nodes.length });
-    if (node.children?.length && expanded.has(node.id)) flatten(node.children, expanded, level + 1, node.id, out);
+    if (node.children?.length && expanded.has(node.id))
+      flatten(node.children, expanded, level + 1, node.id, out);
   });
   return out;
 }
@@ -49,9 +56,28 @@ function flatten(nodes: TreeNode[], expanded: Set<string>, level = 1, parentId: 
  * Hierarchical list (files, categories) following the ARIA tree pattern:
  * arrows navigate/expand (RTL-aware), Home/End, typeahead, Enter selects.
  */
-export function Tree({ nodes, expanded: expandedProp, defaultExpanded = [], onExpandedChange, selected: selectedProp, defaultSelected = null, onSelectedChange, onAction, className, ...aria }: TreeProps) {
-  const [expanded, setExpanded] = useControllableState({ value: expandedProp, defaultValue: defaultExpanded, onChange: onExpandedChange });
-  const [selected, setSelected] = useControllableState({ value: selectedProp, defaultValue: defaultSelected, onChange: onSelectedChange });
+export function Tree({
+  nodes,
+  expanded: expandedProp,
+  defaultExpanded = [],
+  onExpandedChange,
+  selected: selectedProp,
+  defaultSelected = null,
+  onSelectedChange,
+  onAction,
+  className,
+  ...aria
+}: TreeProps) {
+  const [expanded, setExpanded] = useControllableState({
+    value: expandedProp,
+    defaultValue: defaultExpanded,
+    onChange: onExpandedChange,
+  });
+  const [selected, setSelected] = useControllableState({
+    value: selectedProp,
+    defaultValue: defaultSelected,
+    onChange: onSelectedChange,
+  });
   const expandedSet = useMemo(() => new Set(expanded), [expanded]);
   const visible = useMemo(() => flatten(nodes, expandedSet), [nodes, expandedSet]);
   const [focusedId, setFocusedId] = useState<string | null>(null);
@@ -109,14 +135,33 @@ export function Tree({ nodes, expanded: expandedProp, defaultExpanded = [], onEx
         activate(flat);
         break;
       case "*":
-        setExpanded(Array.from(new Set([...expanded, ...visible.filter((v) => v.parentId === flat.parentId && v.node.children?.length).map((v) => v.node.id)])));
+        setExpanded(
+          Array.from(
+            new Set([
+              ...expanded,
+              ...visible
+                .filter((v) => v.parentId === flat.parentId && v.node.children?.length)
+                .map((v) => v.node.id),
+            ]),
+          ),
+        );
         break;
       default: {
         if (e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey) return;
         const now = Date.now();
-        typeahead.current = { text: (now - typeahead.current.time < 500 ? typeahead.current.text : "") + e.key.toLowerCase(), time: now };
-        const text = (v: FlatNode) => (v.node.textValue ?? (typeof v.node.label === "string" ? v.node.label : "")).toLowerCase();
-        const match = [...visible.slice(i + 1), ...visible.slice(0, i + 1)].find((v) => text(v).startsWith(typeahead.current.text));
+        typeahead.current = {
+          text:
+            (now - typeahead.current.time < 500 ? typeahead.current.text : "") +
+            e.key.toLowerCase(),
+          time: now,
+        };
+        const text = (v: FlatNode) =>
+          (
+            v.node.textValue ?? (typeof v.node.label === "string" ? v.node.label : "")
+          ).toLowerCase();
+        const match = [...visible.slice(i + 1), ...visible.slice(0, i + 1)].find((v) =>
+          text(v).startsWith(typeahead.current.text),
+        );
         focus(match?.node.id);
         break;
       }
@@ -164,11 +209,19 @@ export function Tree({ nodes, expanded: expandedProp, defaultExpanded = [], onEx
             style={{ paddingInlineStart: `${(level - 1) * 1.25 + 0.25}rem` }}
             className={cn(
               "flex h-(--ui-nav-item-h) cursor-pointer select-none items-center gap-1.5 rounded-md pe-2 text-sm transition-colors hover:bg-accent [&_svg]:size-4 [&_svg]:shrink-0",
-              selected === node.id && "bg-primary-subtle text-primary-subtle-foreground hover:bg-primary-subtle",
+              selected === node.id &&
+                "bg-primary-subtle text-primary-subtle-foreground hover:bg-primary-subtle",
               node.disabled && "pointer-events-none opacity-50",
             )}
           >
-            <ChevronRightIcon aria-hidden className={cn("text-muted-foreground transition-transform duration-(--ui-duration-fast) rtl:rotate-180", isOpen && "rotate-90 rtl:rotate-90", !hasChildren && "invisible")} />
+            <ChevronRightIcon
+              aria-hidden
+              className={cn(
+                "text-muted-foreground transition-transform duration-(--ui-duration-fast) rtl:rotate-180",
+                isOpen && "rotate-90 rtl:rotate-90",
+                !hasChildren && "invisible",
+              )}
+            />
             {node.icon ? <span className="text-muted-foreground">{node.icon}</span> : null}
             <span className="truncate">{node.label}</span>
           </div>

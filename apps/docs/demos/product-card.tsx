@@ -7,9 +7,31 @@ import { HeartIcon, ShoppingCartIcon } from "@unified-ui/icons";
 import { img } from "./_data";
 
 const products = [
-  { name: "Handwoven Berber rug, 160 × 230 cm", brand: "Atlas Loom", price: 420, compareAt: 520, rating: 4.8, reviews: 88, img: "photo-1600166898405-da9535204843" },
-  { name: "Ceramic tagine, hand painted", brand: "Safi Clay", price: 38, rating: 4.6, reviews: 214, img: "photo-1590502593747-42a996133562" },
-  { name: "Argan oil, organic 100 ml", brand: "Souss", price: 19, rating: 4.9, reviews: 1320, img: "photo-1608571423902-eed4a5ad8108" },
+  {
+    name: "Handwoven Berber rug, 160 × 230 cm",
+    brand: "Atlas Loom",
+    price: 420,
+    compareAt: 520,
+    rating: 4.8,
+    reviews: 88,
+    img: "photo-1600166898405-da9535204843",
+  },
+  {
+    name: "Ceramic tagine, hand painted",
+    brand: "Safi Clay",
+    price: 38,
+    rating: 4.6,
+    reviews: 214,
+    img: "photo-1590502593747-42a996133562",
+  },
+  {
+    name: "Argan oil, organic 100 ml",
+    brand: "Souss",
+    price: 19,
+    rating: 4.9,
+    reviews: 1320,
+    img: "photo-1608571423902-eed4a5ad8108",
+  },
 ];
 
 export function Grid() {
@@ -31,7 +53,11 @@ export function Grid() {
               <HeartIcon />
             </IconButton>
           }
-          action={<Button size="sm" fullWidth variant="outline" startIcon={<ShoppingCartIcon />}>Add to cart</Button>}
+          action={
+            <Button size="sm" fullWidth variant="outline" startIcon={<ShoppingCartIcon />}>
+              Add to cart
+            </Button>
+          }
         />
       ))}
     </div>

@@ -9,7 +9,20 @@ export interface Booking {
   status: "confirmed" | "pending" | "cancelled";
 }
 
-const guests = ["Nadia Amrani", "Tom Becker", "Aya Tazi", "Lucas Martin", "Sara Benali", "Omar Haddad", "Emma Rossi", "Youssef Alami", "Chloé Dubois", "Karim Idrissi", "Léa Moreau", "Hamza Kettani"];
+const guests = [
+  "Nadia Amrani",
+  "Tom Becker",
+  "Aya Tazi",
+  "Lucas Martin",
+  "Sara Benali",
+  "Omar Haddad",
+  "Emma Rossi",
+  "Youssef Alami",
+  "Chloé Dubois",
+  "Karim Idrissi",
+  "Léa Moreau",
+  "Hamza Kettani",
+];
 const listings = ["Riad Zitoun", "Atlas Suites", "Ocean View Loft", "Medina House"];
 
 export const bookings: Booking[] = Array.from({ length: 36 }, (_, i) => ({

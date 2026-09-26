@@ -5,7 +5,12 @@ import type { AnchorHTMLAttributes } from "react";
  * First focusable element on the page: lets keyboard users jump past the
  * navigation to `#main` (or `href`). Visible only when focused.
  */
-export function SkipLink({ href = "#main", children = "Skip to content", className, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
+export function SkipLink({
+  href = "#main",
+  children = "Skip to content",
+  className,
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
       href={href}

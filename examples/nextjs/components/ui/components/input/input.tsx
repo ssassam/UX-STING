@@ -20,7 +20,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   { size, variant, invalid, className, type = "text", ...props },
   ref,
 ) {
-  const fieldProps = useFieldControlProps({ ...props, "aria-invalid": invalid || props["aria-invalid"] || undefined });
+  const fieldProps = useFieldControlProps({
+    ...props,
+    "aria-invalid": invalid || props["aria-invalid"] || undefined,
+  });
   return (
     <input
       ref={ref}

@@ -3,7 +3,12 @@ import { Skeleton, SkeletonText } from "@unified-ui/react/skeleton";
 
 export function CardPlaceholder() {
   return (
-    <div role="status" aria-busy="true" aria-label="Loading places" className="grid max-w-sm gap-3 rounded-xl border border-border p-4">
+    <div
+      role="status"
+      aria-busy="true"
+      aria-label="Loading places"
+      className="grid max-w-sm gap-3 rounded-xl border border-border p-4"
+    >
       <Skeleton className="aspect-[4/3] w-full" />
       <div className="flex items-center gap-3">
         <Skeleton shape="circle" className="size-10" />

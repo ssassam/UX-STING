@@ -21,7 +21,11 @@ export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   return { title: guides.find((g) => g.slug === slug)?.title ?? "Docs" };
 }
@@ -41,9 +45,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       toc={
         headings.length ? (
           <nav aria-label="On this page" className="grid gap-1 text-sm">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">On this page</p>
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              On this page
+            </p>
             {headings.map((h) => (
-              <a key={h} href={`#${slugify(h)}`} className="rounded-sm py-0.5 text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring">
+              <a
+                key={h}
+                href={`#${slugify(h)}`}
+                className="rounded-sm py-0.5 text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 {h.replace(/`/g, "")}
               </a>
             ))}
@@ -54,7 +64,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <article className="docs-prose max-w-3xl">
         <Heading level={1}>{guide.title}</Heading>
         <Markdown source={source} />
-        <nav aria-label="Pagination" className="mt-12 flex justify-between gap-4 border-t border-border pt-6 text-sm">
+        <nav
+          aria-label="Pagination"
+          className="mt-12 flex justify-between gap-4 border-t border-border pt-6 text-sm"
+        >
           {prev ? <a href={`/docs/${prev.slug}`}>← {prev.title}</a> : <span />}
           {next ? <a href={`/docs/${next.slug}`}>{next.title} →</a> : <span />}
         </nav>

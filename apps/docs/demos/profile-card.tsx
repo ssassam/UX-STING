@@ -12,10 +12,30 @@ export function Layouts() {
         cover="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=60"
         subtitle="Local guide · Casablanca"
         badges={<VerifiedBadge size="sm" />}
-        stats={[{ label: "Reviews", value: "214" }, { label: "Photos", value: "1.2k" }, { label: "Followers", value: "860" }]}
-        actions={<><Button size="sm">Follow</Button><Button size="sm" variant="outline">Message</Button></>}
+        stats={[
+          { label: "Reviews", value: "214" },
+          { label: "Photos", value: "1.2k" },
+          { label: "Followers", value: "860" },
+        ]}
+        actions={
+          <>
+            <Button size="sm">Follow</Button>
+            <Button size="sm" variant="outline">
+              Message
+            </Button>
+          </>
+        }
       />
-      <ProfileCard layout="horizontal" name="Atlas Loom" subtitle="Seller since 2019" bio="Handwoven rugs from the Middle Atlas, made to order." stats={[{ label: "Sales", value: "3,410" }, { label: "Rating", value: "4.9" }]} />
+      <ProfileCard
+        layout="horizontal"
+        name="Atlas Loom"
+        subtitle="Seller since 2019"
+        bio="Handwoven rugs from the Middle Atlas, made to order."
+        stats={[
+          { label: "Sales", value: "3,410" },
+          { label: "Rating", value: "4.9" },
+        ]}
+      />
     </div>
   );
 }

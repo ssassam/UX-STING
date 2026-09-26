@@ -11,7 +11,10 @@ export interface DynamicIconProps extends IconProps {
  * data-driven UIs, but it references every icon — prefer direct imports
  * (`import { SearchIcon } from "@unified-ui/icons"`) for the smallest bundles.
  */
-export const Icon = forwardRef<SVGSVGElement, DynamicIconProps>(function Icon({ name, ...props }, ref) {
+export const Icon = forwardRef<SVGSVGElement, DynamicIconProps>(function Icon(
+  { name, ...props },
+  ref,
+) {
   const Component = iconRegistry[name];
   return Component ? <Component ref={ref} {...props} /> : null;
 });

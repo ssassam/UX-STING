@@ -22,18 +22,48 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
  * For Next.js, use `next/image` inside `AspectRatio` or pass it via props.
  */
 export const Image = forwardRef<HTMLImageElement, ImageProps>(function Image(
-  { alt, ratio, fit = "cover", fallback, radius = "md", loading = "lazy", decoding = "async", className, containerClassName, onLoad, onError, style, ...props },
+  {
+    alt,
+    ratio,
+    fit = "cover",
+    fallback,
+    radius = "md",
+    loading = "lazy",
+    decoding = "async",
+    className,
+    containerClassName,
+    onLoad,
+    onError,
+    style,
+    ...props
+  },
   ref,
 ) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
-  const radiusClass = { none: "rounded-none", sm: "rounded-sm", md: "rounded-md", lg: "rounded-lg", xl: "rounded-xl", full: "rounded-full" }[radius];
+  const radiusClass = {
+    none: "rounded-none",
+    sm: "rounded-sm",
+    md: "rounded-md",
+    lg: "rounded-lg",
+    xl: "rounded-xl",
+    full: "rounded-full",
+  }[radius];
   return (
     <span
-      className={cn("relative block overflow-hidden bg-muted", radiusClass, status === "loading" && "ui-skeleton", containerClassName)}
+      className={cn(
+        "relative block overflow-hidden bg-muted",
+        radiusClass,
+        status === "loading" && "ui-skeleton",
+        containerClassName,
+      )}
       style={ratio ? { aspectRatio: String(ratio) } : undefined}
     >
       {status === "error" ? (
-        <span role={alt ? "img" : undefined} aria-label={alt || undefined} className="flex size-full min-h-24 items-center justify-center text-muted-foreground [&_svg]:size-6">
+        <span
+          role={alt ? "img" : undefined}
+          aria-label={alt || undefined}
+          className="flex size-full min-h-24 items-center justify-center text-muted-foreground [&_svg]:size-6"
+        >
           {fallback ?? <ImageIcon />}
         </span>
       ) : (

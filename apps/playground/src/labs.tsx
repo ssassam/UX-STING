@@ -1,9 +1,21 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@unified-ui/react/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@unified-ui/react/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@unified-ui/react/alert";
 import { Avatar } from "@unified-ui/react/avatar";
 import { Badge } from "@unified-ui/react/badge";
 import { Button } from "@unified-ui/react/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@unified-ui/react/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@unified-ui/react/card";
 import { Checkbox } from "@unified-ui/react/checkbox";
 import { Field } from "@unified-ui/react/field";
 import { Input } from "@unified-ui/react/input";
@@ -40,7 +52,21 @@ export const labs: Lab[] = [
   {
     name: "Button",
     controls: [
-      { prop: "variant", type: "select", options: ["default", "secondary", "outline", "ghost", "link", "destructive", "success", "warning"], default: "default" },
+      {
+        prop: "variant",
+        type: "select",
+        options: [
+          "default",
+          "secondary",
+          "outline",
+          "ghost",
+          "link",
+          "destructive",
+          "success",
+          "warning",
+        ],
+        default: "default",
+      },
       { prop: "size", type: "select", options: ["xs", "sm", "md", "lg", "xl"], default: "md" },
       { prop: "label", type: "text", default: "Save changes" },
       { prop: "loading", type: "boolean", default: false },
@@ -68,7 +94,21 @@ export const labs: Lab[] = [
   {
     name: "Badge",
     controls: [
-      { prop: "variant", type: "select", options: ["default", "secondary", "outline", "primary", "success", "warning", "destructive", "info"], default: "success" },
+      {
+        prop: "variant",
+        type: "select",
+        options: [
+          "default",
+          "secondary",
+          "outline",
+          "primary",
+          "success",
+          "warning",
+          "destructive",
+          "info",
+        ],
+        default: "success",
+      },
       { prop: "size", type: "select", options: ["sm", "md", "lg"], default: "md" },
       { prop: "dot", type: "boolean", default: true },
       { prop: "label", type: "text", default: "Open now" },
@@ -82,9 +122,18 @@ export const labs: Lab[] = [
   {
     name: "Alert",
     controls: [
-      { prop: "variant", type: "select", options: ["default", "info", "success", "warning", "destructive"], default: "info" },
+      {
+        prop: "variant",
+        type: "select",
+        options: ["default", "info", "success", "warning", "destructive"],
+        default: "info",
+      },
       { prop: "title", type: "text", default: "Heads up" },
-      { prop: "description", type: "text", default: "Your listing will be reviewed within 24 hours." },
+      {
+        prop: "description",
+        type: "text",
+        default: "Your listing will be reviewed within 24 hours.",
+      },
     ],
     render: (p) => (
       <Alert variant={s(p.variant) as never} className="max-w-lg">
@@ -105,19 +154,40 @@ export const labs: Lab[] = [
       { prop: "disabled", type: "boolean", default: false },
     ],
     render: (p) => (
-      <Field label={s(p.label)} description={s(p.description) || undefined} error={s(p.error) || undefined} required={b(p.required)} disabled={b(p.disabled)} className="w-full max-w-sm">
-        <Input size={s(p.size) as never} variant={s(p.variant) as never} type="email" placeholder="you@example.com" />
+      <Field
+        label={s(p.label)}
+        description={s(p.description) || undefined}
+        error={s(p.error) || undefined}
+        required={b(p.required)}
+        disabled={b(p.disabled)}
+        className="w-full max-w-sm"
+      >
+        <Input
+          size={s(p.size) as never}
+          variant={s(p.variant) as never}
+          type="email"
+          placeholder="you@example.com"
+        />
       </Field>
     ),
   },
   {
     name: "Card",
     controls: [
-      { prop: "variant", type: "select", options: ["default", "elevated", "filled", "ghost"], default: "default" },
+      {
+        prop: "variant",
+        type: "select",
+        options: ["default", "elevated", "filled", "ghost"],
+        default: "default",
+      },
       { prop: "interactive", type: "boolean", default: false },
     ],
     render: (p) => (
-      <Card variant={s(p.variant) as never} interactive={b(p.interactive)} className="w-full max-w-sm">
+      <Card
+        variant={s(p.variant) as never}
+        interactive={b(p.interactive)}
+        className="w-full max-w-sm"
+      >
         <CardHeader>
           <CardTitle>Monthly revenue</CardTitle>
           <CardDescription>March 2026</CardDescription>
@@ -136,18 +206,34 @@ export const labs: Lab[] = [
     controls: [
       { prop: "variant", type: "select", options: ["line", "pills", "enclosed"], default: "line" },
       { prop: "size", type: "select", options: ["sm", "md", "lg"], default: "md" },
-      { prop: "orientation", type: "select", options: ["horizontal", "vertical"], default: "horizontal" },
+      {
+        prop: "orientation",
+        type: "select",
+        options: ["horizontal", "vertical"],
+        default: "horizontal",
+      },
     ],
     render: (p) => (
-      <Tabs defaultValue="a" variant={s(p.variant) as never} size={s(p.size) as never} orientation={s(p.orientation) as never}>
+      <Tabs
+        defaultValue="a"
+        variant={s(p.variant) as never}
+        size={s(p.size) as never}
+        orientation={s(p.orientation) as never}
+      >
         <TabsList aria-label="Sections">
           <TabsTrigger value="a">Overview</TabsTrigger>
           <TabsTrigger value="b">Reviews</TabsTrigger>
           <TabsTrigger value="c">Photos</TabsTrigger>
         </TabsList>
-        <TabsContent value="a" className="text-sm">Overview panel</TabsContent>
-        <TabsContent value="b" className="text-sm">Reviews panel</TabsContent>
-        <TabsContent value="c" className="text-sm">Photos panel</TabsContent>
+        <TabsContent value="a" className="text-sm">
+          Overview panel
+        </TabsContent>
+        <TabsContent value="b" className="text-sm">
+          Reviews panel
+        </TabsContent>
+        <TabsContent value="c" className="text-sm">
+          Photos panel
+        </TabsContent>
       </Tabs>
     ),
   },
@@ -156,11 +242,24 @@ export const labs: Lab[] = [
     controls: [
       { prop: "value", type: "number", min: 0, max: 100, default: 60 },
       { prop: "indeterminate", type: "boolean", default: false },
-      { prop: "variant", type: "select", options: ["default", "success", "warning", "destructive", "info"], default: "default" },
+      {
+        prop: "variant",
+        type: "select",
+        options: ["default", "success", "warning", "destructive", "info"],
+        default: "default",
+      },
       { prop: "size", type: "select", options: ["xs", "sm", "md", "lg"], default: "md" },
     ],
     render: (p) => (
-      <Progress className="w-full max-w-md" value={p.indeterminate ? null : n(p.value)} variant={s(p.variant) as never} size={s(p.size) as never} label="Upload" showValue id="lab-progress" />
+      <Progress
+        className="w-full max-w-md"
+        value={p.indeterminate ? null : n(p.value)}
+        variant={s(p.variant) as never}
+        size={s(p.size) as never}
+        label="Upload"
+        showValue
+        id="lab-progress"
+      />
     ),
   },
   {
@@ -168,7 +267,12 @@ export const labs: Lab[] = [
     controls: [
       { prop: "size", type: "select", options: ["xs", "sm", "md", "lg", "xl"], default: "lg" },
       { prop: "shape", type: "select", options: ["circle", "square"], default: "circle" },
-      { prop: "status", type: "select", options: ["none", "online", "offline", "busy", "away"], default: "online" },
+      {
+        prop: "status",
+        type: "select",
+        options: ["none", "online", "offline", "busy", "away"],
+        default: "online",
+      },
       { prop: "image", type: "boolean", default: false },
     ],
     render: (p) => (
@@ -184,17 +288,28 @@ export const labs: Lab[] = [
   {
     name: "Tag & Chip",
     controls: [
-      { prop: "variant", type: "select", options: ["default", "primary", "success", "warning", "destructive", "info", "outline"], default: "primary" },
+      {
+        prop: "variant",
+        type: "select",
+        options: ["default", "primary", "success", "warning", "destructive", "info", "outline"],
+        default: "primary",
+      },
       { prop: "size", type: "select", options: ["sm", "md", "lg"], default: "md" },
       { prop: "removable", type: "boolean", default: true },
       { prop: "selected", type: "boolean", default: true },
     ],
     render: (p) => (
       <div className="flex flex-wrap items-center gap-3">
-        <Tag variant={s(p.variant) as never} size={s(p.size) as never} onRemove={p.removable ? () => {} : undefined}>
+        <Tag
+          variant={s(p.variant) as never}
+          size={s(p.size) as never}
+          onRemove={p.removable ? () => {} : undefined}
+        >
           Vegan
         </Tag>
-        <Chip selected={b(p.selected)} size={s(p.size) as never}>Open now</Chip>
+        <Chip selected={b(p.selected)} size={s(p.size) as never}>
+          Open now
+        </Chip>
       </div>
     ),
   },
@@ -208,9 +323,20 @@ export const labs: Lab[] = [
     ],
     render: (p) => (
       <div className="grid w-full max-w-sm gap-4">
-        <Switch label="Notifications" size={s(p.switchSize) as never} checked={b(p.checked)} disabled={b(p.disabled)} />
+        <Switch
+          label="Notifications"
+          size={s(p.switchSize) as never}
+          checked={b(p.checked)}
+          disabled={b(p.disabled)}
+        />
         <Checkbox label="Accept terms" checked={b(p.checked)} disabled={b(p.disabled)} />
-        <Slider aria-label="Distance" value={[n(p.slider)]} disabled={b(p.disabled)} showValue formatValue={(v) => `${v} km`} />
+        <Slider
+          aria-label="Distance"
+          value={[n(p.slider)]}
+          disabled={b(p.disabled)}
+          showValue
+          formatValue={(v) => `${v} km`}
+        />
         <Toggle aria-label="Bold" pressed={b(p.checked)} disabled={b(p.disabled)}>
           <BoldIcon />
         </Toggle>
@@ -219,9 +345,22 @@ export const labs: Lab[] = [
   },
   {
     name: "Accordion",
-    controls: [{ prop: "variant", type: "select", options: ["default", "separated", "bordered"], default: "separated" }],
+    controls: [
+      {
+        prop: "variant",
+        type: "select",
+        options: ["default", "separated", "bordered"],
+        default: "separated",
+      },
+    ],
     render: (p) => (
-      <Accordion type="single" collapsible defaultValue="1" variant={s(p.variant) as never} className="w-full max-w-md">
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue="1"
+        variant={s(p.variant) as never}
+        className="w-full max-w-md"
+      >
         <AccordionItem value="1">
           <AccordionTrigger>Is parking available?</AccordionTrigger>
           <AccordionContent>Yes, free parking behind the building.</AccordionContent>
@@ -237,14 +376,37 @@ export const labs: Lab[] = [
     name: "Navigation",
     controls: [
       { prop: "pages", type: "number", min: 1, max: 50, default: 20 },
-      { prop: "paginationVariant", type: "select", options: ["default", "compact"], default: "default" },
+      {
+        prop: "paginationVariant",
+        type: "select",
+        options: ["default", "compact"],
+        default: "default",
+      },
       { prop: "step", type: "number", min: 0, max: 3, default: 1 },
-      { prop: "stepperOrientation", type: "select", options: ["horizontal", "vertical"], default: "horizontal" },
+      {
+        prop: "stepperOrientation",
+        type: "select",
+        options: ["horizontal", "vertical"],
+        default: "horizontal",
+      },
     ],
     render: (p) => (
       <div className="grid w-full gap-8">
-        <Pagination totalPages={n(p.pages)} defaultPage={Math.min(5, n(p.pages))} variant={s(p.paginationVariant) as never} />
-        <Stepper current={n(p.step)} orientation={s(p.stepperOrientation) as never} steps={[{ title: "Details" }, { title: "Location" }, { title: "Photos" }, { title: "Review" }]} />
+        <Pagination
+          totalPages={n(p.pages)}
+          defaultPage={Math.min(5, n(p.pages))}
+          variant={s(p.paginationVariant) as never}
+        />
+        <Stepper
+          current={n(p.step)}
+          orientation={s(p.stepperOrientation) as never}
+          steps={[
+            { title: "Details" },
+            { title: "Location" },
+            { title: "Photos" },
+            { title: "Review" },
+          ]}
+        />
       </div>
     ),
   },
@@ -256,7 +418,12 @@ export const labs: Lab[] = [
     ],
     render: (p) => (
       <div className="grid w-full gap-6">
-        <EmptyState size={s(p.size) as never} title="No saved places" description="Tap the heart on any place to save it." actions={<Button size="sm">Explore</Button>} />
+        <EmptyState
+          size={s(p.size) as never}
+          title="No saved places"
+          description="Tap the heart on any place to save it."
+          actions={<Button size="sm">Explore</Button>}
+        />
         <div className="flex justify-center text-primary">
           <Spinner size={s(p.spinner) as never} />
         </div>

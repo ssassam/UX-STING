@@ -2,7 +2,16 @@
 import { PlusIcon } from "@unified-ui/icons";
 import { Button } from "@unified-ui/react/button";
 import { Combobox } from "@unified-ui/react/combobox";
-import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@unified-ui/react/dialog";
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@unified-ui/react/dialog";
 import { Field } from "@unified-ui/react/field";
 import { Form, FormErrorSummary } from "@unified-ui/react/form";
 import { Input } from "@unified-ui/react/input";
@@ -12,7 +21,10 @@ import { toast } from "@unified-ui/react/toast";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const categories = ["Hotel", "Riad", "Apartment", "Guesthouse", "Hostel"].map((c) => ({ value: c.toLowerCase(), label: c }));
+const categories = ["Hotel", "Riad", "Apartment", "Guesthouse", "Hostel"].map((c) => ({
+  value: c.toLowerCase(),
+  label: c,
+}));
 
 export function NewListingDialog() {
   const params = useSearchParams();
@@ -48,12 +60,18 @@ export function NewListingDialog() {
                 <NumberInput min={0} step={5} defaultValue={120} />
               </Field>
             </div>
-            <Field name="description" label="Description" description="What makes this place special?">
+            <Field
+              name="description"
+              label="Description"
+              description="What makes this place special?"
+            >
               <Textarea autoResize maxLength={400} showCount />
             </Field>
           </DialogBody>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+            <Button variant="outline" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
             <Button type="submit">Create listing</Button>
           </DialogFooter>
         </Form>

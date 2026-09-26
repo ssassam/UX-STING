@@ -33,7 +33,11 @@ import {
 describe("Button", () => {
   it("renders variants and handles clicks", async () => {
     const onClick = vi.fn();
-    render(<Button variant="outline" size="lg" onClick={onClick}>Save</Button>);
+    render(
+      <Button variant="outline" size="lg" onClick={onClick}>
+        Save
+      </Button>,
+    );
     const button = screen.getByRole("button", { name: "Save" });
     expect(button).toHaveAttribute("type", "button");
     expect(button.className).toContain("h-control-lg");
@@ -43,14 +47,22 @@ describe("Button", () => {
 
   it("is disabled and busy while loading", async () => {
     const onClick = vi.fn();
-    render(<Button loading loadingText="Saving…" onClick={onClick}>Save</Button>);
+    render(
+      <Button loading loadingText="Saving…" onClick={onClick}>
+        Save
+      </Button>,
+    );
     const button = screen.getByRole("button", { name: "Saving…" });
     expect(button).toBeDisabled();
     expect(button).toHaveAttribute("aria-busy", "true");
   });
 
   it("supports asChild links", () => {
-    render(<Button asChild><a href="/pricing">Pricing</a></Button>);
+    render(
+      <Button asChild>
+        <a href="/pricing">Pricing</a>
+      </Button>,
+    );
     const link = screen.getByRole("link", { name: "Pricing" });
     expect(link).toHaveAttribute("href", "/pricing");
     expect(link.className).toContain("bg-primary");
@@ -83,7 +95,11 @@ describe("Toggle", () => {
 
   it("respects controlled state", async () => {
     const onPressedChange = vi.fn();
-    render(<Toggle aria-label="Bold" pressed={false} onPressedChange={onPressedChange}>B</Toggle>);
+    render(
+      <Toggle aria-label="Bold" pressed={false} onPressedChange={onPressedChange}>
+        B
+      </Toggle>,
+    );
     await userEvent.click(screen.getByRole("button"));
     expect(onPressedChange).toHaveBeenCalledWith(true);
     expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "false");
@@ -94,7 +110,11 @@ describe("layout", () => {
   it("Stack and Grid emit responsive CSS variables", () => {
     render(
       <>
-        <Stack data-testid="stack" gap={{ base: "2", md: "6" }} direction={{ base: "column", md: "row" }} />
+        <Stack
+          data-testid="stack"
+          gap={{ base: "2", md: "6" }}
+          direction={{ base: "column", md: "row" }}
+        />
         <Grid data-testid="grid" columns={{ base: 1, md: 3 }} />
       </>,
     );
@@ -105,7 +125,11 @@ describe("layout", () => {
   });
 
   it("Heading keeps semantic level independent from size", () => {
-    render(<Heading level={1} size="sm">Title</Heading>);
+    render(
+      <Heading level={1} size="sm">
+        Title
+      </Heading>,
+    );
     const h = screen.getByRole("heading", { level: 1 });
     expect(h.className).toContain("text-lg");
   });
@@ -139,7 +163,9 @@ describe("display components", () => {
   });
 
   it("Stepper marks the current step", () => {
-    render(<Stepper current={1} steps={[{ title: "Cart" }, { title: "Shipping" }, { title: "Pay" }]} />);
+    render(
+      <Stepper current={1} steps={[{ title: "Cart" }, { title: "Shipping" }, { title: "Pay" }]} />,
+    );
     expect(screen.getByText("Shipping").closest("li")).toHaveAttribute("aria-current", "step");
     expect(screen.getByText("(completed)", { exact: false })).toBeInTheDocument();
   });

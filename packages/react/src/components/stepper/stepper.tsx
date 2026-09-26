@@ -25,7 +25,15 @@ export interface StepperProps extends HTMLAttributes<HTMLOListElement> {
  * `aria-current="step"`; completed steps can be revisited.
  */
 export const Stepper = forwardRef<HTMLOListElement, StepperProps>(function Stepper(
-  { steps, current, orientation = "horizontal", onStepClick, completedLabel = "completed", className, ...props },
+  {
+    steps,
+    current,
+    orientation = "horizontal",
+    onStepClick,
+    completedLabel = "completed",
+    className,
+    ...props
+  },
   ref,
 ) {
   return (
@@ -39,7 +47,13 @@ export const Stepper = forwardRef<HTMLOListElement, StepperProps>(function Stepp
       {...props}
     >
       {steps.map((step, i) => {
-        const state = step.error ? "error" : i < current ? "complete" : i === current ? "current" : "upcoming";
+        const state = step.error
+          ? "error"
+          : i < current
+            ? "complete"
+            : i === current
+              ? "current"
+              : "upcoming";
         const Indicator = (
           <span
             className={cn(
@@ -57,11 +71,18 @@ export const Stepper = forwardRef<HTMLOListElement, StepperProps>(function Stepp
           <>
             {Indicator}
             <span className="grid gap-0.5 text-start">
-              <span className={cn("text-sm font-medium", state === "upcoming" ? "text-muted-foreground" : "text-foreground")}>
+              <span
+                className={cn(
+                  "text-sm font-medium",
+                  state === "upcoming" ? "text-muted-foreground" : "text-foreground",
+                )}
+              >
                 {step.title}
                 {state === "complete" ? <span className="sr-only"> ({completedLabel})</span> : null}
               </span>
-              {step.description ? <span className="text-xs text-muted-foreground">{step.description}</span> : null}
+              {step.description ? (
+                <span className="text-xs text-muted-foreground">{step.description}</span>
+              ) : null}
             </span>
           </>
         );
@@ -70,10 +91,19 @@ export const Stepper = forwardRef<HTMLOListElement, StepperProps>(function Stepp
             key={i}
             aria-current={i === current ? "step" : undefined}
             data-state={state}
-            className={cn("relative flex flex-1 items-start gap-3", orientation === "horizontal" && "sm:after:mt-4 sm:after:h-0.5 sm:after:flex-1 sm:after:bg-border sm:last:after:hidden", state === "complete" && "sm:after:bg-primary")}
+            className={cn(
+              "relative flex flex-1 items-start gap-3",
+              orientation === "horizontal" &&
+                "sm:after:mt-4 sm:after:h-0.5 sm:after:flex-1 sm:after:bg-border sm:last:after:hidden",
+              state === "complete" && "sm:after:bg-primary",
+            )}
           >
             {onStepClick && i < current ? (
-              <button type="button" onClick={() => onStepClick(i)} className="flex items-start gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <button
+                type="button"
+                onClick={() => onStepClick(i)}
+                className="flex items-start gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 {content}
               </button>
             ) : (

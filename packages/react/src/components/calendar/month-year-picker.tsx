@@ -20,21 +20,42 @@ export interface MonthPickerProps {
 }
 
 /** Pick a month and year (billing periods, reports). */
-export function MonthPicker({ value: valueProp, defaultValue = null, onValueChange, className }: MonthPickerProps) {
+export function MonthPicker({
+  value: valueProp,
+  defaultValue = null,
+  onValueChange,
+  className,
+}: MonthPickerProps) {
   const { locale } = useLocale();
   const messages = useMessages();
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: (v) => v && onValueChange?.(v) });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: (v) => v && onValueChange?.(v),
+  });
   const [year, setYear] = useState((value ?? new Date()).getFullYear());
   const names = getMonthNames(locale, "short");
   const yearFmt = new Intl.NumberFormat(locale, { useGrouping: false });
   return (
     <div className={cn("grid w-64 gap-3 p-3", className)}>
       <div className="flex items-center justify-between">
-        <button type="button" className={navClass} aria-label={messages.previous} onClick={() => setYear(year - 1)}>
+        <button
+          type="button"
+          className={navClass}
+          aria-label={messages.previous}
+          onClick={() => setYear(year - 1)}
+        >
           <ChevronLeftIcon />
         </button>
-        <span aria-live="polite" className="text-sm font-semibold tabular-nums">{yearFmt.format(year)}</span>
-        <button type="button" className={navClass} aria-label={messages.next} onClick={() => setYear(year + 1)}>
+        <span aria-live="polite" className="text-sm font-semibold tabular-nums">
+          {yearFmt.format(year)}
+        </span>
+        <button
+          type="button"
+          className={navClass}
+          aria-label={messages.next}
+          onClick={() => setYear(year + 1)}
+        >
           <ChevronRightIcon />
         </button>
       </div>
@@ -65,28 +86,58 @@ export interface YearPickerProps {
 }
 
 /** Pick a year from a paged 12-year grid. */
-export function YearPicker({ value: valueProp, defaultValue = null, onValueChange, min = 1900, max = 2100, className }: YearPickerProps) {
+export function YearPicker({
+  value: valueProp,
+  defaultValue = null,
+  onValueChange,
+  min = 1900,
+  max = 2100,
+  className,
+}: YearPickerProps) {
   const { locale } = useLocale();
   const messages = useMessages();
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: (v) => v !== null && onValueChange?.(v) });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: (v) => v !== null && onValueChange?.(v),
+  });
   const [start, setStart] = useState(Math.floor((value ?? new Date().getFullYear()) / 12) * 12);
   const fmt = new Intl.NumberFormat(locale, { useGrouping: false });
   return (
     <div className={cn("grid w-64 gap-3 p-3", className)}>
       <div className="flex items-center justify-between">
-        <button type="button" className={navClass} aria-label={messages.previous} onClick={() => setStart(start - 12)} disabled={start <= min}>
+        <button
+          type="button"
+          className={navClass}
+          aria-label={messages.previous}
+          onClick={() => setStart(start - 12)}
+          disabled={start <= min}
+        >
           <ChevronLeftIcon />
         </button>
         <span aria-live="polite" className="text-sm font-semibold tabular-nums">
           {fmt.format(start)} – {fmt.format(start + 11)}
         </span>
-        <button type="button" className={navClass} aria-label={messages.next} onClick={() => setStart(start + 12)} disabled={start + 11 >= max}>
+        <button
+          type="button"
+          className={navClass}
+          aria-label={messages.next}
+          onClick={() => setStart(start + 12)}
+          disabled={start + 11 >= max}
+        >
           <ChevronRightIcon />
         </button>
       </div>
       <div role="group" className="grid grid-cols-3 gap-1">
         {Array.from({ length: 12 }, (_, i) => start + i).map((y) => (
-          <button key={y} type="button" className={cn(cellClass, "tabular-nums")} aria-pressed={value === y} disabled={y < min || y > max} onClick={() => setValue(y)}>
+          <button
+            key={y}
+            type="button"
+            className={cn(cellClass, "tabular-nums")}
+            aria-pressed={value === y}
+            disabled={y < min || y > max}
+            onClick={() => setValue(y)}
+          >
             {fmt.format(y)}
           </button>
         ))}

@@ -3,7 +3,10 @@
  * working because the folder layout (components/, lib/, provider/) is
  * preserved; `.js` extensions are stripped unless configured otherwise.
  */
-export function transformSource(content: string, { importExtensions }: { importExtensions: boolean }): string {
+export function transformSource(
+  content: string,
+  { importExtensions }: { importExtensions: boolean },
+): string {
   if (importExtensions) return content;
   return content.replace(/(from\s+["']|import\(\s*["'])(\.{1,2}\/[^"']+?)\.js(["'])/g, "$1$2$3");
 }

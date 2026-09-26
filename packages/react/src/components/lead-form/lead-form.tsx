@@ -49,11 +49,25 @@ export interface LeadFormProps {
  * Contact/quote request form with visible labels, autocomplete hints,
  * inline validation, error summary and a success state.
  */
-export function LeadForm({ onSubmit, labels: labelOverrides, hidePhone, extraFields, className }: LeadFormProps) {
+export function LeadForm({
+  onSubmit,
+  labels: labelOverrides,
+  hidePhone,
+  extraFields,
+  className,
+}: LeadFormProps) {
   const labels = { ...defaultLabels, ...labelOverrides };
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  if (done) return <SuccessState title={labels.successTitle} description={labels.successDescription} icon={<CheckCircle2Icon />} className={className} />;
+  if (done)
+    return (
+      <SuccessState
+        title={labels.successTitle}
+        description={labels.successDescription}
+        icon={<CheckCircle2Icon />}
+        className={className}
+      />
+    );
   return (
     <Form
       className={className}
@@ -86,7 +100,12 @@ export function LeadForm({ onSubmit, labels: labelOverrides, hidePhone, extraFie
         <Textarea rows={4} />
       </Field>
       <Checkbox name="consent" value="yes" required label={labels.consent} />
-      <Button type="submit" loading={submitting} loadingText={labels.submitting} className="justify-self-start">
+      <Button
+        type="submit"
+        loading={submitting}
+        loadingText={labels.submitting}
+        className="justify-self-start"
+      >
         {labels.submit}
       </Button>
     </Form>
@@ -104,7 +123,15 @@ export interface ClaimBusinessProps {
 }
 
 /** Call-to-action inviting owners to claim an unverified listing. */
-export function ClaimBusiness({ businessName, href, onClaim, title, description, actionLabel = "Claim this business", className }: ClaimBusinessProps) {
+export function ClaimBusiness({
+  businessName,
+  href,
+  onClaim,
+  title,
+  description,
+  actionLabel = "Claim this business",
+  className,
+}: ClaimBusinessProps) {
   return (
     <Card variant="filled" className={cn("flex-row items-start gap-4 p-card-p", className)}>
       <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-background text-primary shadow-xs [&_svg]:size-5">
@@ -113,7 +140,8 @@ export function ClaimBusiness({ businessName, href, onClaim, title, description,
       <div className="grid gap-2">
         <p className="font-semibold">{title ?? `Is this your business?`}</p>
         <p className="text-sm text-muted-foreground">
-          {description ?? `Claim ${businessName} to update information, reply to reviews and reach more customers.`}
+          {description ??
+            `Claim ${businessName} to update information, reply to reviews and reach more customers.`}
         </p>
         {href ? (
           <Button asChild variant="outline" size="sm" className="justify-self-start">

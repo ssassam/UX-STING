@@ -18,7 +18,17 @@ export interface StatProps extends HTMLAttributes<HTMLDivElement> {
 
 /** Key figure with optional trend. Uses tabular numbers and icon+text for trend (not color alone). */
 export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
-  { label, value, delta, trend = "neutral", trendMeaning = "positive-up", helpText, icon, className, ...props },
+  {
+    label,
+    value,
+    delta,
+    trend = "neutral",
+    trendMeaning = "positive-up",
+    helpText,
+    icon,
+    className,
+    ...props
+  },
   ref,
 ) {
   const good = trend === "neutral" ? null : (trend === "up") === (trendMeaning === "positive-up");
@@ -26,7 +36,11 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
     <div ref={ref} className={cn("grid gap-1", className)} {...props}>
       <dt className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground">
         {label}
-        {icon ? <span aria-hidden className="[&_svg]:size-4">{icon}</span> : null}
+        {icon ? (
+          <span aria-hidden className="[&_svg]:size-4">
+            {icon}
+          </span>
+        ) : null}
       </dt>
       <dd className="text-2xl font-semibold tracking-tight tabular-nums">
         <bdi>{value}</bdi>
@@ -37,7 +51,11 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
             <span
               className={cn(
                 "inline-flex items-center gap-1 rounded-sm px-1.5 py-0.5 font-medium tabular-nums [&_svg]:size-3.5",
-                good === null ? "bg-muted text-muted-foreground" : good ? "bg-success-subtle text-success-subtle-foreground" : "bg-destructive-subtle text-destructive-subtle-foreground",
+                good === null
+                  ? "bg-muted text-muted-foreground"
+                  : good
+                    ? "bg-success-subtle text-success-subtle-foreground"
+                    : "bg-destructive-subtle text-destructive-subtle-foreground",
               )}
             >
               {trend === "up" ? <TrendingUpIcon /> : trend === "down" ? <TrendingDownIcon /> : null}
@@ -52,7 +70,10 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
 });
 
 /** Stat wrapped in a card; use in dashboard KPI rows. */
-export const StatCard = forwardRef<HTMLDivElement, StatProps>(function StatCard({ className, ...props }, ref) {
+export const StatCard = forwardRef<HTMLDivElement, StatProps>(function StatCard(
+  { className, ...props },
+  ref,
+) {
   return (
     <Card ref={ref} className={cn("p-card-p", className)}>
       <dl>
@@ -63,7 +84,15 @@ export const StatCard = forwardRef<HTMLDivElement, StatProps>(function StatCard(
 });
 
 /** Compact inline metric: label + value pair. */
-export function Metric({ label, value, className }: { label: ReactNode; value: ReactNode; className?: string }) {
+export function Metric({
+  label,
+  value,
+  className,
+}: {
+  label: ReactNode;
+  value: ReactNode;
+  className?: string;
+}) {
   return (
     <div className={cn("flex flex-col", className)}>
       <span className="text-xs text-muted-foreground">{label}</span>
@@ -75,9 +104,14 @@ export function Metric({ label, value, className }: { label: ReactNode; value: R
 }
 
 /** Semantic wrapper for a group of `Stat`s (renders a `<dl>`). */
-export const StatGroup = forwardRef<HTMLDListElement, HTMLAttributes<HTMLDListElement>>(function StatGroup(
-  { className, ...props },
-  ref,
-) {
-  return <dl ref={ref} className={cn("grid gap-6 sm:grid-cols-2 lg:grid-cols-4", className)} {...props} />;
-});
+export const StatGroup = forwardRef<HTMLDListElement, HTMLAttributes<HTMLDListElement>>(
+  function StatGroup({ className, ...props }, ref) {
+    return (
+      <dl
+        ref={ref}
+        className={cn("grid gap-6 sm:grid-cols-2 lg:grid-cols-4", className)}
+        {...props}
+      />
+    );
+  },
+);

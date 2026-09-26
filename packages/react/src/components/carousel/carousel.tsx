@@ -98,7 +98,20 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(function Carousel
   };
 
   return (
-    <CarouselContext.Provider value={{ index, count, setCount, scrollTo, trackRef, playing, setPlaying, autoplay: Boolean(autoplay), loop, setIndex }}>
+    <CarouselContext.Provider
+      value={{
+        index,
+        count,
+        setCount,
+        scrollTo,
+        trackRef,
+        playing,
+        setPlaying,
+        autoplay: Boolean(autoplay),
+        loop,
+        setIndex,
+      }}
+    >
       <section
         ref={ref}
         aria-roledescription="carousel"
@@ -117,57 +130,58 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(function Carousel
   );
 });
 
-export const CarouselContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { itemsPerView?: 1 | 2 | 3 | 4 }>(
-  function CarouselContent({ itemsPerView = 1, className, children, ...props }, ref) {
-    const { trackRef, setCount, setIndex, playing, autoplay } = useCarousel();
-    const count = Children.toArray(children).filter(isValidElement).length;
-    useEffect(() => setCount(count), [count, setCount]);
+export const CarouselContent = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { itemsPerView?: 1 | 2 | 3 | 4 }
+>(function CarouselContent({ itemsPerView = 1, className, children, ...props }, ref) {
+  const { trackRef, setCount, setIndex, playing, autoplay } = useCarousel();
+  const count = Children.toArray(children).filter(isValidElement).length;
+  useEffect(() => setCount(count), [count, setCount]);
 
-    useEffect(() => {
-      const track = trackRef.current;
-      if (!track || typeof IntersectionObserver === "undefined") return;
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) setIndex(Array.from(track.children).indexOf(entry.target));
-          }
-        },
-        { root: track, threshold: 0.6 },
-      );
-      Array.from(track.children).forEach((c) => observer.observe(c));
-      return () => observer.disconnect();
-    }, [trackRef, setIndex, count]);
-
-    return (
-      <div
-        ref={(node) => {
-          trackRef.current = node;
-          if (typeof ref === "function") ref(node);
-          else if (ref) ref.current = node;
-        }}
-        aria-live={autoplay && playing ? "off" : "polite"}
-        // The scroll container must be keyboard-reachable (WCAG 2.1.1); arrows are handled by Carousel.
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
-        className={cn(
-          "ui-scroll-snap flex gap-4 overflow-x-auto rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          itemsPerView === 2 && "[&>*]:basis-[calc((100%-1rem)/2)]",
-          itemsPerView === 3 && "[&>*]:basis-[calc((100%-2rem)/3)]",
-          itemsPerView === 4 && "[&>*]:basis-[calc((100%-3rem)/4)]",
-          className,
-        )}
-        {...props}
-      >
-        {children}
-      </div>
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setIndex(Array.from(track.children).indexOf(entry.target));
+        }
+      },
+      { root: track, threshold: 0.6 },
     );
-  },
-);
+    Array.from(track.children).forEach((c) => observer.observe(c));
+    return () => observer.disconnect();
+  }, [trackRef, setIndex, count]);
 
-export const CarouselItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { index?: number }>(function CarouselItem(
-  { index, className, ...props },
-  ref,
-) {
+  return (
+    <div
+      ref={(node) => {
+        trackRef.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      }}
+      aria-live={autoplay && playing ? "off" : "polite"}
+      // The scroll container must be keyboard-reachable (WCAG 2.1.1); arrows are handled by Carousel.
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+      tabIndex={0}
+      className={cn(
+        "ui-scroll-snap flex gap-4 overflow-x-auto rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        itemsPerView === 2 && "[&>*]:basis-[calc((100%-1rem)/2)]",
+        itemsPerView === 3 && "[&>*]:basis-[calc((100%-2rem)/3)]",
+        itemsPerView === 4 && "[&>*]:basis-[calc((100%-3rem)/4)]",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
+
+export const CarouselItem = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { index?: number }
+>(function CarouselItem({ index, className, ...props }, ref) {
   const { count } = useCarousel();
   const messages = useMessages();
   return (
@@ -189,7 +203,14 @@ export function CarouselPrevious({ className, ...props }: ButtonHTMLAttributes<H
   const { index, scrollTo, loop } = useCarousel();
   const messages = useMessages();
   return (
-    <button type="button" aria-label={messages.previous} disabled={!loop && index === 0} onClick={() => scrollTo(index - 1)} className={cn(navClass, "start-2", className)} {...props}>
+    <button
+      type="button"
+      aria-label={messages.previous}
+      disabled={!loop && index === 0}
+      onClick={() => scrollTo(index - 1)}
+      className={cn(navClass, "start-2", className)}
+      {...props}
+    >
       <ChevronLeftIcon />
     </button>
   );
@@ -199,7 +220,14 @@ export function CarouselNext({ className, ...props }: ButtonHTMLAttributes<HTMLB
   const { index, count, scrollTo, loop } = useCarousel();
   const messages = useMessages();
   return (
-    <button type="button" aria-label={messages.next} disabled={!loop && index >= count - 1} onClick={() => scrollTo(index + 1)} className={cn(navClass, "end-2", className)} {...props}>
+    <button
+      type="button"
+      aria-label={messages.next}
+      disabled={!loop && index >= count - 1}
+      onClick={() => scrollTo(index + 1)}
+      className={cn(navClass, "end-2", className)}
+      {...props}
+    >
       <ChevronRightIcon />
     </button>
   );
@@ -235,7 +263,10 @@ export function CarouselPlayToggle({ className }: { className?: string }) {
       type="button"
       aria-label={playing ? messages.pauseAutoplay : messages.playAutoplay}
       onClick={() => setPlaying(!playing)}
-      className={cn("ui-hit-area inline-flex size-8 items-center justify-center rounded-full border border-border bg-background/90 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-3.5", className)}
+      className={cn(
+        "ui-hit-area inline-flex size-8 items-center justify-center rounded-full border border-border bg-background/90 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-3.5",
+        className,
+      )}
     >
       {playing ? <PauseIcon /> : <PlayIcon />}
     </button>

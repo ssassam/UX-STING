@@ -17,7 +17,13 @@ export function Basic() {
           let progress = 0;
           const tick = setInterval(() => {
             progress += 20;
-            setItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, status: progress >= 100 ? "done" : "uploading", progress } : i)));
+            setItems((prev) =>
+              prev.map((i) =>
+                i.id === item.id
+                  ? { ...i, status: progress >= 100 ? "done" : "uploading", progress }
+                  : i,
+              ),
+            );
             if (progress >= 100) clearInterval(tick);
           }, 300);
         }

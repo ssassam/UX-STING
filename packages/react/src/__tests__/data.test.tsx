@@ -32,7 +32,15 @@ function bodyRows() {
 describe("DataTable", () => {
   it("paginates and sorts with aria-sort", async () => {
     const user = userEvent.setup();
-    render(<DataTable label="Places" data={places} columns={columns} getRowId={(r) => r.id} pageSize={10} />);
+    render(
+      <DataTable
+        label="Places"
+        data={places}
+        columns={columns}
+        getRowId={(r) => r.id}
+        pageSize={10}
+      />,
+    );
     expect(bodyRows()).toHaveLength(10);
     const ratingHeader = screen.getByRole("columnheader", { name: /Rating/ });
     expect(ratingHeader).toHaveAttribute("aria-sort", "none");
@@ -48,7 +56,15 @@ describe("DataTable", () => {
 
   it("searches across columns", async () => {
     const user = userEvent.setup();
-    render(<DataTable label="Places" data={places} columns={columns} getRowId={(r) => r.id} searchable />);
+    render(
+      <DataTable
+        label="Places"
+        data={places}
+        columns={columns}
+        getRowId={(r) => r.id}
+        searchable
+      />,
+    );
     await user.type(screen.getByRole("searchbox"), "Place 07");
     expect(bodyRows()).toHaveLength(1);
     await user.clear(screen.getByRole("searchbox"));
@@ -67,7 +83,14 @@ describe("DataTable", () => {
         getRowId={(r) => r.id}
         selectable
         bulkActions={(ids, clear) => (
-          <Button size="sm" variant="destructive" onClick={() => { onDelete(ids); clear(); }}>
+          <Button
+            size="sm"
+            variant="destructive"
+            onClick={() => {
+              onDelete(ids);
+              clear();
+            }}
+          >
             Delete
           </Button>
         )}
@@ -76,7 +99,10 @@ describe("DataTable", () => {
     await user.click(screen.getByRole("checkbox", { name: "Select all" }));
     expect(screen.getByText("5 selected")).toBeInTheDocument();
     await user.click(screen.getAllByRole("checkbox", { name: "Select row" })[0]!);
-    expect(screen.getByRole("checkbox", { name: "Select all" })).toHaveAttribute("aria-checked", "mixed");
+    expect(screen.getByRole("checkbox", { name: "Select all" })).toHaveAttribute(
+      "aria-checked",
+      "mixed",
+    );
     await user.click(screen.getByRole("button", { name: "Delete" }));
     expect(onDelete).toHaveBeenCalledWith(["2", "3", "4", "5"]);
   });
@@ -88,7 +114,15 @@ describe("DataTable", () => {
 
   it("DataGrid moves focus between cells with arrow keys", async () => {
     const user = userEvent.setup();
-    render(<DataGrid label="Places" data={places.slice(0, 3)} columns={columns} getRowId={(r) => r.id} pageSize={false} />);
+    render(
+      <DataGrid
+        label="Places"
+        data={places.slice(0, 3)}
+        columns={columns}
+        getRowId={(r) => r.id}
+        pageSize={false}
+      />,
+    );
     const grid = screen.getByRole("grid");
     const firstCell = within(grid).getAllByRole("gridcell")[0]!;
     firstCell.focus();
@@ -99,7 +133,16 @@ describe("DataTable", () => {
   });
 
   it("has no a11y violations", async () => {
-    const { container } = render(<DataTable label="Places" data={places} columns={columns} getRowId={(r) => r.id} searchable selectable />);
+    const { container } = render(
+      <DataTable
+        label="Places"
+        data={places}
+        columns={columns}
+        getRowId={(r) => r.id}
+        searchable
+        selectable
+      />,
+    );
     await act(async () => expectNoA11yViolations(container));
   });
 });
@@ -115,13 +158,24 @@ describe("Pagination", () => {
 
   it("disables previous on the first page", () => {
     render(<Pagination totalPages={5} defaultPage={1} />);
-    expect(screen.getByText((_, el) => el?.getAttribute("aria-disabled") === "true" && el.tagName === "SPAN")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (_, el) => el?.getAttribute("aria-disabled") === "true" && el.tagName === "SPAN",
+      ),
+    ).toBeInTheDocument();
   });
 });
 
 describe("Tree", () => {
   const nodes = [
-    { id: "src", label: "src", children: [{ id: "app", label: "app.tsx" }, { id: "lib", label: "lib", children: [{ id: "utils", label: "utils.ts" }] }] },
+    {
+      id: "src",
+      label: "src",
+      children: [
+        { id: "app", label: "app.tsx" },
+        { id: "lib", label: "lib", children: [{ id: "utils", label: "utils.ts" }] },
+      ],
+    },
     { id: "readme", label: "README.md" },
   ];
 
@@ -140,6 +194,9 @@ describe("Tree", () => {
     expect(screen.getByRole("treeitem", { name: "README.md" })).toHaveFocus();
     await user.keyboard("{Enter}");
     expect(onAction).toHaveBeenCalledWith(expect.objectContaining({ id: "readme" }));
-    expect(screen.getByRole("treeitem", { name: "README.md" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("treeitem", { name: "README.md" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 });

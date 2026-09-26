@@ -39,15 +39,30 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: "Theme preset",
-      toolbar: { title: "Theme", icon: "paintbrush", items: ["default", "neutral", "modern", "compact", "soft", "high-contrast"], dynamicTitle: true },
+      toolbar: {
+        title: "Theme",
+        icon: "paintbrush",
+        items: ["default", "neutral", "modern", "compact", "soft", "high-contrast"],
+        dynamicTitle: true,
+      },
     },
     mode: {
       description: "Color mode",
-      toolbar: { title: "Mode", icon: "mirror", items: ["light", "dark", "high-contrast"], dynamicTitle: true },
+      toolbar: {
+        title: "Mode",
+        icon: "mirror",
+        items: ["light", "dark", "high-contrast"],
+        dynamicTitle: true,
+      },
     },
     density: {
       description: "Density",
-      toolbar: { title: "Density", icon: "component", items: ["compact", "comfortable", "spacious"], dynamicTitle: true },
+      toolbar: {
+        title: "Density",
+        icon: "component",
+        items: ["compact", "comfortable", "spacious"],
+        dynamicTitle: true,
+      },
     },
     locale: {
       description: "Locale / direction",

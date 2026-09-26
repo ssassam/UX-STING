@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./accordion.js";
 
-const meta = { title: "Data display/Accordion", component: Accordion } satisfies Meta<typeof Accordion>;
+const meta = { title: "Data display/Accordion", component: Accordion } satisfies Meta<
+  typeof Accordion
+>;
 export default meta;
 type Story = StoryObj;
 
@@ -12,7 +14,9 @@ const Demo = ({ variant }: { variant: "default" | "separated" | "bordered" }) =>
       <AccordionContent>Yes, free parking for guests behind the building.</AccordionContent>
     </AccordionItem>
     <AccordionItem value="2">
-      <AccordionTrigger>A much longer question that wraps onto multiple lines on small screens to test layout?</AccordionTrigger>
+      <AccordionTrigger>
+        A much longer question that wraps onto multiple lines on small screens to test layout?
+      </AccordionTrigger>
       <AccordionContent>Answer.</AccordionContent>
     </AccordionItem>
     <AccordionItem value="3" disabled>
@@ -22,5 +26,13 @@ const Demo = ({ variant }: { variant: "default" | "separated" | "bordered" }) =>
   </Accordion>
 );
 
-export const Variants: Story = { render: () => <div className="grid gap-8"><Demo variant="default" /><Demo variant="separated" /><Demo variant="bordered" /></div> };
+export const Variants: Story = {
+  render: () => (
+    <div className="grid gap-8">
+      <Demo variant="default" />
+      <Demo variant="separated" />
+      <Demo variant="bordered" />
+    </div>
+  ),
+};
 export const DarkMode: Story = { ...Variants, globals: { mode: "dark" } };

@@ -12,19 +12,20 @@ import { usePortalContainer } from "../../provider/context.js";
 export const HoverCard = HoverCardPrimitive.Root;
 export const HoverCardTrigger = HoverCardPrimitive.Trigger;
 
-export const HoverCardContent = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>>(
-  function HoverCardContent({ className, sideOffset = 6, align = "center", ...props }, ref) {
-    const container = usePortalContainer();
-    return (
-      <HoverCardPrimitive.Portal container={container}>
-        <HoverCardPrimitive.Content
-          ref={ref}
-          sideOffset={sideOffset}
-          align={align}
-          className={cn(floatingSurfaceClass, "w-72 p-4", className)}
-          {...props}
-        />
-      </HoverCardPrimitive.Portal>
-    );
-  },
-);
+export const HoverCardContent = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
+>(function HoverCardContent({ className, sideOffset = 6, align = "center", ...props }, ref) {
+  const container = usePortalContainer();
+  return (
+    <HoverCardPrimitive.Portal container={container}>
+      <HoverCardPrimitive.Content
+        ref={ref}
+        sideOffset={sideOffset}
+        align={align}
+        className={cn(floatingSurfaceClass, "w-72 p-4", className)}
+        {...props}
+      />
+    </HoverCardPrimitive.Portal>
+  );
+});

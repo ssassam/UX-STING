@@ -12,11 +12,21 @@ export default function ComponentsIndex() {
       <div className="grid gap-10">
         <header className="grid gap-2">
           <Heading level={1}>Components</Heading>
-          <Text variant="muted">Every component works from the package (`@unified-ui/react/&lt;name&gt;`) or as copied source via the CLI.</Text>
+          <Text variant="muted">
+            Every component works from the package (`@unified-ui/react/&lt;name&gt;`) or as copied
+            source via the CLI.
+          </Text>
         </header>
         {componentsByCategory().map(({ category, label, items }) => (
-          <section key={category} id={category} aria-labelledby={`${category}-h`} className="grid gap-4">
-            <Heading id={`${category}-h`} level={2} size="md">{label}</Heading>
+          <section
+            key={category}
+            id={category}
+            aria-labelledby={`${category}-h`}
+            className="grid gap-4"
+          >
+            <Heading id={`${category}-h`} level={2} size="md">
+              {label}
+            </Heading>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {items.map((c) => (
                 <Card key={c.name} interactive>

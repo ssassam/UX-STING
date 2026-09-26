@@ -2,23 +2,11 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
-    "types": [
-      "node",
-      "vitest/globals",
-      "@testing-library/jest-dom"
-    ],
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
     "declaration": false,
     "declarationMap": false,
     "allowImportingTsExtensions": true
   },
-  "include": [
-    "packages/*/src",
-    "scripts",
-    "vitest.config.ts",
-    "vitest.setup.ts",
-    "registry"
-  ],
-  "exclude": [
-    "packages/*/src/**/*.stories.tsx"
-  ]
+  "include": ["packages/*/src", "scripts", "vitest.config.ts", "vitest.setup.ts", "registry"],
+  "exclude": ["packages/*/src/**/*.stories.tsx"]
 }

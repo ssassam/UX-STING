@@ -26,7 +26,16 @@ export interface MapPlaceholderProps extends HTMLAttributes<HTMLDivElement> {
  * positioned, keyboard-accessible pins. Swap for a real map provider later
  * without changing surrounding layout.
  */
-export function MapPlaceholder({ pins = [], onPinClick, label = "Map", ratio, className, children, style, ...props }: MapPlaceholderProps) {
+export function MapPlaceholder({
+  pins = [],
+  onPinClick,
+  label = "Map",
+  ratio,
+  className,
+  children,
+  style,
+  ...props
+}: MapPlaceholderProps) {
   return (
     <div
       role="region"
@@ -46,7 +55,11 @@ export function MapPlaceholder({ pins = [], onPinClick, label = "Map", ratio, cl
       ) : null}
       <ul>
         {pins.map((pin) => (
-          <li key={pin.id} className="absolute -translate-x-1/2 -translate-y-full" style={{ left: `${pin.x}%`, top: `${pin.y}%` }}>
+          <li
+            key={pin.id}
+            className="absolute -translate-x-1/2 -translate-y-full"
+            style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
+          >
             <button
               type="button"
               aria-label={pin.label}
@@ -68,7 +81,15 @@ export function MapPlaceholder({ pins = [], onPinClick, label = "Map", ratio, cl
 }
 
 /** Split layout: results list beside a map (map stacks above on mobile). */
-export function MapPanel({ list, map, className }: { list: ReactNode; map: ReactNode; className?: string }) {
+export function MapPanel({
+  list,
+  map,
+  className,
+}: {
+  list: ReactNode;
+  map: ReactNode;
+  className?: string;
+}) {
   return (
     <div className={cn("grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]", className)}>
       <div className="order-2 min-w-0 lg:order-1">{list}</div>

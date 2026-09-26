@@ -13,7 +13,12 @@ export function Basic() {
 export function Currency() {
   return (
     <Field label="Budget per night" className="max-w-56">
-      <NumberInput defaultValue={120} min={0} step={5} formatOptions={{ style: "currency", currency: "EUR", maximumFractionDigits: 0 }} />
+      <NumberInput
+        defaultValue={120}
+        min={0}
+        step={5}
+        formatOptions={{ style: "currency", currency: "EUR", maximumFractionDigits: 0 }}
+      />
     </Field>
   );
 }

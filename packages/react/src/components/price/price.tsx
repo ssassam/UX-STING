@@ -22,7 +22,18 @@ const sizeClass = { sm: "text-sm", md: "text-md", lg: "text-xl", xl: "text-3xl" 
 
 /** Locale-aware price with optional discount and period. Tabular figures. */
 export const Price = forwardRef<HTMLSpanElement, PriceProps>(function Price(
-  { amount, currency, compareAt, period, size = "md", compareAtLabel = "Original price", fractionDigits, locale: localeProp, className, ...props },
+  {
+    amount,
+    currency,
+    compareAt,
+    period,
+    size = "md",
+    compareAtLabel = "Original price",
+    fractionDigits,
+    locale: localeProp,
+    className,
+    ...props
+  },
   ref,
 ) {
   const { locale } = useLocale();
@@ -33,8 +44,14 @@ export const Price = forwardRef<HTMLSpanElement, PriceProps>(function Price(
     maximumFractionDigits: fractionDigits,
   });
   return (
-    <span ref={ref} className={cn("inline-flex flex-wrap items-baseline gap-x-1.5", className)} {...props}>
-      <span className={cn("font-semibold tabular-nums text-foreground", sizeClass[size])}>{fmt.format(amount)}</span>
+    <span
+      ref={ref}
+      className={cn("inline-flex flex-wrap items-baseline gap-x-1.5", className)}
+      {...props}
+    >
+      <span className={cn("font-semibold tabular-nums text-foreground", sizeClass[size])}>
+        {fmt.format(amount)}
+      </span>
       {compareAt !== undefined && compareAt > amount ? (
         <span className="text-sm tabular-nums text-muted-foreground line-through">
           <span className="sr-only">{compareAtLabel}: </span>
@@ -58,8 +75,16 @@ export const PriceRange = forwardRef<HTMLSpanElement, PriceRangeProps>(function 
   ref,
 ) {
   const { locale } = useLocale();
-  const fmt = new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: fractionDigits, minimumFractionDigits: fractionDigits });
-  const text = typeof fmt.formatRange === "function" ? fmt.formatRange(min, max) : `${fmt.format(min)} – ${fmt.format(max)}`;
+  const fmt = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+    maximumFractionDigits: fractionDigits,
+    minimumFractionDigits: fractionDigits,
+  });
+  const text =
+    typeof fmt.formatRange === "function"
+      ? fmt.formatRange(min, max)
+      : `${fmt.format(min)} – ${fmt.format(max)}`;
   return (
     <span ref={ref} className={cn("font-medium tabular-nums", className)} {...props}>
       {text}
@@ -82,19 +107,44 @@ export const PriceLevel = forwardRef<HTMLSpanElement, PriceLevelProps>(function 
   ref,
 ) {
   return (
-    <span ref={ref} role="img" aria-label={label ?? `Price level ${level} of ${max}`} className={cn("inline-flex font-medium tracking-wider", className)} {...props}>
-      <span aria-hidden className="text-foreground">{symbol.repeat(level)}</span>
-      <span aria-hidden className="text-border-strong">{symbol.repeat(Math.max(0, max - level))}</span>
+    <span
+      ref={ref}
+      role="img"
+      aria-label={label ?? `Price level ${level} of ${max}`}
+      className={cn("inline-flex font-medium tracking-wider", className)}
+      {...props}
+    >
+      <span aria-hidden className="text-foreground">
+        {symbol.repeat(level)}
+      </span>
+      <span aria-hidden className="text-border-strong">
+        {symbol.repeat(Math.max(0, max - level))}
+      </span>
     </span>
   );
 });
 
 /** Formats a number as currency inline: `<Currency value={12} currency="EUR" />`. */
-export function Currency({ value, currency, fractionDigits, className }: { value: number; currency: string; fractionDigits?: number; className?: string }) {
+export function Currency({
+  value,
+  currency,
+  fractionDigits,
+  className,
+}: {
+  value: number;
+  currency: string;
+  fractionDigits?: number;
+  className?: string;
+}) {
   const { locale } = useLocale();
   return (
     <span className={cn("tabular-nums", className)}>
-      {new Intl.NumberFormat(locale, { style: "currency", currency, minimumFractionDigits: fractionDigits, maximumFractionDigits: fractionDigits }).format(value)}
+      {new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency,
+        minimumFractionDigits: fractionDigits,
+        maximumFractionDigits: fractionDigits,
+      }).format(value)}
     </span>
   );
 }

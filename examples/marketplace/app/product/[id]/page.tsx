@@ -7,7 +7,11 @@ export function generateStaticParams() {
   return products.map((p) => ({ id: p.id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
   const { id } = await params;
   return { title: products.find((p) => p.id === id)?.name };
 }

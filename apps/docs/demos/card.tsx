@@ -1,7 +1,17 @@
 "use client";
 import { Badge } from "@unified-ui/react/badge";
 import { Button, IconButton } from "@unified-ui/react/button";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardLink, CardMedia, CardTitle } from "@unified-ui/react/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardLink,
+  CardMedia,
+  CardTitle,
+} from "@unified-ui/react/card";
 import { EllipsisIcon } from "@unified-ui/icons";
 import { img } from "./_data";
 
@@ -56,7 +66,9 @@ export function Clickable() {
         <CardDescription>Specialty coffee · Gauthier</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button size="sm" variant="outline" className="relative z-10">Save</Button>
+        <Button size="sm" variant="outline" className="relative z-10">
+          Save
+        </Button>
       </CardFooter>
     </Card>
   );

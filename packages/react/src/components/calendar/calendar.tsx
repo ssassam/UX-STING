@@ -79,7 +79,10 @@ export function Calendar(props: CalendarProps) {
   });
   const [range, setRange] = useControllableState<DateRange>({
     value: props.mode === "range" ? props.value : undefined,
-    defaultValue: props.mode === "range" ? (props.defaultValue ?? { from: null, to: null }) : { from: null, to: null },
+    defaultValue:
+      props.mode === "range"
+        ? (props.defaultValue ?? { from: null, to: null })
+        : { from: null, to: null },
     onChange: props.mode === "range" ? props.onValueChange : undefined,
   });
   const anchor = props.mode === "range" ? range.from : single;
@@ -99,13 +102,17 @@ export function Calendar(props: CalendarProps) {
     gridRef.current?.querySelector<HTMLButtonElement>('[data-focused="true"]')?.focus();
   }, [focused, month]);
 
-  const disabled = (d: Date) => isDateDisabled(d, { min: props.min, max: props.max }) || Boolean(props.isDisabled?.(d));
+  const disabled = (d: Date) =>
+    isDateDisabled(d, { min: props.min, max: props.max }) || Boolean(props.isDisabled?.(d));
 
   const moveFocus = (next: Date) => {
     focusRequested.current = true;
     setFocused(next);
     const lastVisible = addMonths(month, numberOfMonths - 1);
-    if (compareDays(next, startOfMonth(month)) < 0 || compareDays(next, addMonths(startOfMonth(lastVisible), 1)) >= 0) {
+    if (
+      compareDays(next, startOfMonth(month)) < 0 ||
+      compareDays(next, addMonths(startOfMonth(lastVisible), 1)) >= 0
+    ) {
       setMonth(startOfMonth(next));
     }
   };
@@ -143,7 +150,12 @@ export function Calendar(props: CalendarProps) {
   };
 
   const monthFmt = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" });
-  const dayFmt = new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  const dayFmt = new Intl.DateTimeFormat(locale, {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
   const numFmt = new Intl.DateTimeFormat(locale, { day: "numeric" });
   const weekdays = getWeekdayNames(locale, weekStartsOn, "short");
   const weekdaysLong = getWeekdayNames(locale, weekStartsOn, "long");
@@ -154,7 +166,11 @@ export function Calendar(props: CalendarProps) {
     "ui-hit-area inline-flex size-8 items-center justify-center rounded-md text-muted-foreground outline-none hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-40 [&_svg]:size-4 rtl:[&_svg]:rotate-180";
 
   return (
-    <div ref={gridRef} className={cn("inline-flex flex-col gap-3 p-3", props.className)} aria-label={props["aria-label"]}>
+    <div
+      ref={gridRef}
+      className={cn("inline-flex flex-col gap-3 p-3", props.className)}
+      aria-label={props["aria-label"]}
+    >
       <div className={cn("grid gap-6", numberOfMonths === 2 && "sm:grid-cols-2")}>
         {months.map((m, mi) => {
           const labelId = `cal-${m.getFullYear()}-${m.getMonth()}`;
@@ -162,7 +178,15 @@ export function Calendar(props: CalendarProps) {
             <div key={labelId} className="grid gap-2">
               <div className="flex items-center justify-between gap-2">
                 {mi === 0 ? (
-                  <button type="button" aria-label={messages.previousMonth} className={navButton} onClick={() => setMonth(addMonths(month, -1))} disabled={Boolean(props.min && compareDays(startOfMonth(month), startOfMonth(props.min)) <= 0)}>
+                  <button
+                    type="button"
+                    aria-label={messages.previousMonth}
+                    className={navButton}
+                    onClick={() => setMonth(addMonths(month, -1))}
+                    disabled={Boolean(
+                      props.min && compareDays(startOfMonth(month), startOfMonth(props.min)) <= 0,
+                    )}
+                  >
                     <ChevronLeftIcon />
                   </button>
                 ) : (
@@ -172,18 +196,36 @@ export function Calendar(props: CalendarProps) {
                   {monthFmt.format(m)}
                 </h2>
                 {mi === months.length - 1 ? (
-                  <button type="button" aria-label={messages.nextMonth} className={navButton} onClick={() => setMonth(addMonths(month, 1))} disabled={Boolean(props.max && compareDays(addMonths(startOfMonth(m), 1), props.max) > 0)}>
+                  <button
+                    type="button"
+                    aria-label={messages.nextMonth}
+                    className={navButton}
+                    onClick={() => setMonth(addMonths(month, 1))}
+                    disabled={Boolean(
+                      props.max && compareDays(addMonths(startOfMonth(m), 1), props.max) > 0,
+                    )}
+                  >
                     <ChevronRightIcon />
                   </button>
                 ) : (
                   <span className="size-8" />
                 )}
               </div>
-              <table role="grid" aria-labelledby={labelId} className="border-collapse" onKeyDown={onKeyDown}>
+              <table
+                role="grid"
+                aria-labelledby={labelId}
+                className="border-collapse"
+                onKeyDown={onKeyDown}
+              >
                 <thead>
                   <tr>
                     {weekdays.map((d, i) => (
-                      <th key={d} scope="col" abbr={weekdaysLong[i]} className="size-9 text-center text-xs font-medium text-muted-foreground">
+                      <th
+                        key={d}
+                        scope="col"
+                        abbr={weekdaysLong[i]}
+                        className="size-9 text-center text-xs font-medium text-muted-foreground"
+                      >
                         {d}
                       </th>
                     ))}
@@ -194,12 +236,14 @@ export function Calendar(props: CalendarProps) {
                     <tr key={wi}>
                       {week.map((day) => {
                         const outside = !isSameMonth(day, m);
-                        if (outside && !props.showOutsideDays) return <td key={day.toISOString()} className="size-9 p-0" />;
+                        if (outside && !props.showOutsideDays)
+                          return <td key={day.toISOString()} className="size-9 p-0" />;
                         const isDisabled = disabled(day);
                         const selectedSingle = props.mode !== "range" && isSameDay(single, day);
                         const isStart = props.mode === "range" && isSameDay(range.from, day);
                         const isEnd = props.mode === "range" && isSameDay(range.to, day);
-                        const inRange = props.mode === "range" && isWithinRange(day, range.from, rangeEnd);
+                        const inRange =
+                          props.mode === "range" && isWithinRange(day, range.from, rangeEnd);
                         const selected = selectedSingle || isStart || isEnd;
                         const isFocused = isSameDay(day, focused) && isSameMonth(day, m);
                         return (
@@ -207,7 +251,12 @@ export function Calendar(props: CalendarProps) {
                             key={day.toISOString()}
                             role="gridcell"
                             aria-selected={selected || inRange || undefined}
-                            className={cn("relative size-9 p-0 text-center", inRange && !isStart && !isEnd && "bg-primary-subtle", isStart && rangeEnd && "rounded-s-md bg-primary-subtle", isEnd && "rounded-e-md bg-primary-subtle")}
+                            className={cn(
+                              "relative size-9 p-0 text-center",
+                              inRange && !isStart && !isEnd && "bg-primary-subtle",
+                              isStart && rangeEnd && "rounded-s-md bg-primary-subtle",
+                              isEnd && "rounded-e-md bg-primary-subtle",
+                            )}
                           >
                             <button
                               type="button"
@@ -228,7 +277,8 @@ export function Calendar(props: CalendarProps) {
                                 outside && "text-muted-foreground",
                                 isSameDay(day, today) && !selected && "font-semibold text-primary",
                                 inRange && "text-primary-subtle-foreground",
-                                selected && "bg-primary text-primary-foreground hover:bg-primary-hover",
+                                selected &&
+                                  "bg-primary text-primary-foreground hover:bg-primary-hover",
                               )}
                             >
                               {numFmt.format(day)}

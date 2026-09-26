@@ -15,7 +15,10 @@ export function Basic() {
         start={new Date(2026, 5, 14, 20, 0)}
         end={new Date(2026, 5, 14, 23, 0)}
         venue="Villa des Arts, Casablanca"
-        image={{ src: img("photo-1415201364774-f6f0bb35f28f", 700), alt: "Saxophone player on stage" }}
+        image={{
+          src: img("photo-1415201364774-f6f0bb35f28f", 700),
+          alt: "Saxophone player on stage",
+        }}
         badges={<FeaturedBadge size="sm" />}
         price={<Price amount={150} currency="MAD" />}
         attendees={
@@ -25,9 +28,20 @@ export function Basic() {
             ))}
           </AvatarGroup>
         }
-        action={<Button size="sm" fullWidth>Get tickets</Button>}
+        action={
+          <Button size="sm" fullWidth>
+            Get tickets
+          </Button>
+        }
       />
-      <EventCard href="#" title="Pottery workshop for beginners" start={new Date(2026, 5, 20, 10, 0)} end={new Date(2026, 5, 20, 12, 30)} venue="Atelier Safi, Rabat" price={<Price amount={35} currency="EUR" />} />
+      <EventCard
+        href="#"
+        title="Pottery workshop for beginners"
+        start={new Date(2026, 5, 20, 10, 0)}
+        end={new Date(2026, 5, 20, 12, 30)}
+        venue="Atelier Safi, Rabat"
+        price={<Price amount={35} currency="EUR" />}
+      />
     </div>
   );
 }

@@ -2,7 +2,13 @@
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { useControllableState } from "@unified-ui/hooks";
 import { cn, createVariants, type VariantProps } from "@unified-ui/utils";
-import { createContext, forwardRef, useContext, type ButtonHTMLAttributes, type ComponentPropsWithoutRef } from "react";
+import {
+  createContext,
+  forwardRef,
+  useContext,
+  type ButtonHTMLAttributes,
+  type ComponentPropsWithoutRef,
+} from "react";
 
 export const toggleVariants = createVariants({
   base: [
@@ -26,7 +32,8 @@ export const toggleVariants = createVariants({
 });
 
 export interface ToggleProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange">,
+  extends
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange">,
     VariantProps<typeof toggleVariants> {
   pressed?: boolean;
   defaultPressed?: boolean;
@@ -35,7 +42,16 @@ export interface ToggleProps
 
 /** A two-state button (`aria-pressed`), e.g. bold/italic in a toolbar. */
 export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(function Toggle(
-  { pressed: pressedProp, defaultPressed = false, onPressedChange, variant, size, className, onClick, ...props },
+  {
+    pressed: pressedProp,
+    defaultPressed = false,
+    onPressedChange,
+    variant,
+    size,
+    className,
+    onClick,
+    ...props
+  },
   ref,
 ) {
   const [pressed, setPressed] = useControllableState({
@@ -70,8 +86,14 @@ export const ToggleGroup = forwardRef<HTMLDivElement, ToggleGroupProps>(function
   ref,
 ) {
   return (
-    <ToggleGroupPrimitive.Root ref={ref} className={cn("inline-flex items-center gap-1", className)} {...props}>
-      <ToggleGroupContext.Provider value={{ variant, size }}>{children}</ToggleGroupContext.Provider>
+    <ToggleGroupPrimitive.Root
+      ref={ref}
+      className={cn("inline-flex items-center gap-1", className)}
+      {...props}
+    >
+      <ToggleGroupContext.Provider value={{ variant, size }}>
+        {children}
+      </ToggleGroupContext.Provider>
     </ToggleGroupPrimitive.Root>
   );
 });
@@ -84,7 +106,10 @@ export const ToggleGroupItem = forwardRef<
   return (
     <ToggleGroupPrimitive.Item
       ref={ref}
-      className={cn(toggleVariants({ variant: variant ?? ctx.variant, size: size ?? ctx.size }), className)}
+      className={cn(
+        toggleVariants({ variant: variant ?? ctx.variant, size: size ?? ctx.size }),
+        className,
+      )}
       {...props}
     />
   );

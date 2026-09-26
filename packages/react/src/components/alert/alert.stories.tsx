@@ -23,13 +23,19 @@ export const Variants: Story = {
 export const LongContent: Story = {
   render: () => (
     <Alert variant="warning" className="max-w-sm">
-      <AlertTitle>Your plan renews soon and includes several changes you should review carefully</AlertTitle>
+      <AlertTitle>
+        Your plan renews soon and includes several changes you should review carefully
+      </AlertTitle>
       <AlertDescription>
         https://example.com/a/very/long/url/that/should/wrap/instead/of/overflowing/the/container/on/small/screens
       </AlertDescription>
     </Alert>
   ),
 };
-export const Banners: Story = { render: () => <Banner dismissible>Spring promotion: list your business free for 3 months.</Banner> };
+export const Banners: Story = {
+  render: () => (
+    <Banner dismissible>Spring promotion: list your business free for 3 months.</Banner>
+  ),
+};
 export const DarkMode: Story = { ...Variants, globals: { mode: "dark" } };
 export const HighContrast: Story = { ...Variants, globals: { mode: "high-contrast" } };

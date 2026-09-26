@@ -13,9 +13,18 @@ export interface SwitchProps extends ComponentPropsWithoutRef<typeof SwitchPrimi
 }
 
 const sizes = {
-  sm: { root: "h-4 w-7", thumb: "size-3 data-[state=checked]:translate-x-3 rtl:data-[state=checked]:-translate-x-3" },
-  md: { root: "h-5 w-9", thumb: "size-4 data-[state=checked]:translate-x-4 rtl:data-[state=checked]:-translate-x-4" },
-  lg: { root: "h-6 w-11", thumb: "size-5 data-[state=checked]:translate-x-5 rtl:data-[state=checked]:-translate-x-5" },
+  sm: {
+    root: "h-4 w-7",
+    thumb: "size-3 data-[state=checked]:translate-x-3 rtl:data-[state=checked]:-translate-x-3",
+  },
+  md: {
+    root: "h-5 w-9",
+    thumb: "size-4 data-[state=checked]:translate-x-4 rtl:data-[state=checked]:-translate-x-4",
+  },
+  lg: {
+    root: "h-6 w-11",
+    thumb: "size-5 data-[state=checked]:translate-x-5 rtl:data-[state=checked]:-translate-x-5",
+  },
 };
 
 /**
@@ -54,7 +63,13 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
   );
   if (!label) return control;
   return (
-    <div className={cn("flex items-start gap-3", labelPosition === "start" && "flex-row-reverse justify-between", className)}>
+    <div
+      className={cn(
+        "flex items-start gap-3",
+        labelPosition === "start" && "flex-row-reverse justify-between",
+        className,
+      )}
+    >
       <span className="flex h-5 items-center">{control}</span>
       <div className="grid gap-0.5 leading-snug">
         <label htmlFor={id} className="text-sm font-medium peer-disabled:opacity-60">

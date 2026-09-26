@@ -98,7 +98,10 @@ describe("Dialog", () => {
       </UIProvider>,
     );
     await user.click(screen.getByRole("button", { name: "Edit profile" }));
-    expect(screen.getByRole("dialog").closest("[data-ui-theme]")).toHaveAttribute("data-theme", "dark");
+    expect(screen.getByRole("dialog").closest("[data-ui-theme]")).toHaveAttribute(
+      "data-theme",
+      "dark",
+    );
   });
 });
 
@@ -118,7 +121,9 @@ describe("AlertDialog", () => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction variant="destructive" onClick={onConfirm}>Delete</AlertDialogAction>
+            <AlertDialogAction variant="destructive" onClick={onConfirm}>
+              Delete
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>,

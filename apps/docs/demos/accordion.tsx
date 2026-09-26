@@ -1,5 +1,10 @@
 "use client";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@unified-ui/react/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@unified-ui/react/accordion";
 
 const faq = [
   ["Is parking available?", "Yes — free parking for guests behind the building."],

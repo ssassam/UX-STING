@@ -1,5 +1,10 @@
 "use client";
-import { BusinessCard, HotelCard, RestaurantCard, ServiceCard } from "@unified-ui/react/business-card";
+import {
+  BusinessCard,
+  HotelCard,
+  RestaurantCard,
+  ServiceCard,
+} from "@unified-ui/react/business-card";
 import { IconButton } from "@unified-ui/react/button";
 import { OpenStatus } from "@unified-ui/react/opening-hours";
 import { PremiumBadge, VerifiedBadge } from "@unified-ui/react/premium-badge";
@@ -53,7 +58,12 @@ export function Presets() {
         address="Serves Casablanca & Mohammedia"
         responseTime="Usually responds within 1 hour"
         startingPrice="From 200 MAD"
-        tags={<><Tag size="sm">Emergency</Tag><Tag size="sm">Licensed</Tag></>}
+        tags={
+          <>
+            <Tag size="sm">Emergency</Tag>
+            <Tag size="sm">Licensed</Tag>
+          </>
+        }
       />
     </div>
   );
@@ -73,7 +83,12 @@ export function Horizontal() {
       address="12 Rue de Fès"
       distance="850 m"
       status={<OpenStatus periods={periods} />}
-      tags={<><Tag size="sm">Wi-Fi</Tag><Tag size="sm">Terrace</Tag></>}
+      tags={
+        <>
+          <Tag size="sm">Wi-Fi</Tag>
+          <Tag size="sm">Terrace</Tag>
+        </>
+      }
       className="max-w-2xl"
     />
   );

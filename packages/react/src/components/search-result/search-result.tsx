@@ -18,16 +18,34 @@ export interface SearchResultProps {
 }
 
 /** One search hit: title link, path, snippet with highlighted terms. */
-export function SearchResult({ title, href, description, path, query = "", meta, thumbnail, headingLevel = 3, className }: SearchResultProps) {
+export function SearchResult({
+  title,
+  href,
+  description,
+  path,
+  query = "",
+  meta,
+  thumbnail,
+  headingLevel = 3,
+  className,
+}: SearchResultProps) {
   const Heading = `h${headingLevel}` as const;
   return (
-    <article className={cn("group relative flex gap-4 rounded-lg p-3 transition-colors hover:bg-surface has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-ring", className)}>
+    <article
+      className={cn(
+        "group relative flex gap-4 rounded-lg p-3 transition-colors hover:bg-surface has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-ring",
+        className,
+      )}
+    >
       {thumbnail ? <div className="shrink-0">{thumbnail}</div> : null}
       <div className="grid min-w-0 flex-1 gap-1">
         {path ? <div className="truncate text-xs text-muted-foreground">{path}</div> : null}
         <Heading className="text-md font-semibold leading-snug">
           {/* ux-audit-ignore: the article shows a has-[a:focus-visible] ring */}
-          <a href={href} className="text-primary outline-none after:absolute after:inset-0 group-hover:underline">
+          <a
+            href={href}
+            className="text-primary outline-none after:absolute after:inset-0 group-hover:underline"
+          >
             <Highlight text={title} query={query} />
           </a>
         </Heading>
@@ -36,7 +54,11 @@ export function SearchResult({ title, href, description, path, query = "", meta,
             <Highlight text={description} query={query} />
           </p>
         ) : null}
-        {meta ? <div className="relative z-[1] mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">{meta}</div> : null}
+        {meta ? (
+          <div className="relative z-[1] mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            {meta}
+          </div>
+        ) : null}
       </div>
     </article>
   );
@@ -51,7 +73,13 @@ export interface SearchResultsProps extends HTMLAttributes<HTMLElement> {
 }
 
 /** Results container with an announced summary and toolbar. */
-export function SearchResults({ summary, toolbar, className, children, ...props }: SearchResultsProps) {
+export function SearchResults({
+  summary,
+  toolbar,
+  className,
+  children,
+  ...props
+}: SearchResultsProps) {
   return (
     <section className={cn("grid gap-4", className)} {...props}>
       {summary || toolbar ? (

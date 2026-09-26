@@ -4,7 +4,10 @@ import { forwardRef, useMemo } from "react";
 import { useLocale } from "../../provider/context.js";
 import { Combobox, type ComboboxProps } from "../combobox/combobox.js";
 
-export interface TimePickerProps extends Omit<ComboboxProps, "options" | "value" | "defaultValue" | "onValueChange"> {
+export interface TimePickerProps extends Omit<
+  ComboboxProps,
+  "options" | "value" | "defaultValue" | "onValueChange"
+> {
   /** Time as `HH:mm` (24h), independent of display locale. */
   value?: string | null;
   defaultValue?: string | null;
@@ -36,14 +39,26 @@ export const TimePicker = forwardRef<HTMLButtonElement, TimePickerProps>(functio
       const h = Math.floor(t / 60);
       const m = t % 60;
       const value = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
-      list.push({ value, label: fmt.format(new Date(2024, 0, 1, h, m)), keywords: [value, `${h}${String(m).padStart(2, "0")}`] });
+      list.push({
+        value,
+        label: fmt.format(new Date(2024, 0, 1, h, m)),
+        keywords: [value, `${h}${String(m).padStart(2, "0")}`],
+      });
     }
     return list;
   }, [locale, step, min, max, hour12]);
-  return <Combobox ref={ref} options={options} placeholder={placeholder} {...props} renderOption={(o) => (
-    <span className="flex items-center gap-2 tabular-nums">
-      <ClockIcon className="size-3.5 text-muted-foreground" />
-      {o.label}
-    </span>
-  )} />;
+  return (
+    <Combobox
+      ref={ref}
+      options={options}
+      placeholder={placeholder}
+      {...props}
+      renderOption={(o) => (
+        <span className="flex items-center gap-2 tabular-nums">
+          <ClockIcon className="size-3.5 text-muted-foreground" />
+          {o.label}
+        </span>
+      )}
+    />
+  );
 });

@@ -35,8 +35,16 @@ export function Indeterminate() {
         onCheckedChange={(v) => setItems({ a: v === true, b: v === true })}
       />
       <div className="grid gap-2 ps-6">
-        <Checkbox label="Breakfast" checked={items.a} onCheckedChange={(v) => setItems({ ...items, a: v === true })} />
-        <Checkbox label="Dinner" checked={items.b} onCheckedChange={(v) => setItems({ ...items, b: v === true })} />
+        <Checkbox
+          label="Breakfast"
+          checked={items.a}
+          onCheckedChange={(v) => setItems({ ...items, a: v === true })}
+        />
+        <Checkbox
+          label="Dinner"
+          checked={items.b}
+          onCheckedChange={(v) => setItems({ ...items, b: v === true })}
+        />
       </div>
     </div>
   );

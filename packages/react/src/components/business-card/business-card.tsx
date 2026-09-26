@@ -62,31 +62,65 @@ export function BusinessCard({
   renderLink,
 }: BusinessCardProps) {
   const Heading = `h${headingLevel}` as const;
-  const linkClass = "outline-none after:absolute after:inset-0 after:z-[1] after:content-[''] focus-visible:after:rounded-xl focus-visible:after:ring-2 focus-visible:after:ring-ring hover:underline underline-offset-2";
-  const title = href ? (renderLink ? renderLink({ href, children: name, className: linkClass }) : <CardLink href={href} className={linkClass}>{name}</CardLink>) : name;
+  const linkClass =
+    "outline-none after:absolute after:inset-0 after:z-[1] after:content-[''] focus-visible:after:rounded-xl focus-visible:after:ring-2 focus-visible:after:ring-ring hover:underline underline-offset-2";
+  const title = href ? (
+    renderLink ? (
+      renderLink({ href, children: name, className: linkClass })
+    ) : (
+      <CardLink href={href} className={linkClass}>
+        {name}
+      </CardLink>
+    )
+  ) : (
+    name
+  );
   return (
-    <Card interactive={Boolean(href)} className={cn(layout === "horizontal" && "sm:flex-row", className)}>
+    <Card
+      interactive={Boolean(href)}
+      className={cn(layout === "horizontal" && "sm:flex-row", className)}
+    >
       {image ? (
         <div className={cn("relative shrink-0", layout === "horizontal" ? "sm:w-56" : "")}>
-          <Image src={image.src} alt={image.alt} ratio={layout === "horizontal" ? undefined : 4 / 3} radius="none" containerClassName={cn(layout === "horizontal" && "h-full min-h-40")} />
-          {badges ? <div className="absolute start-3 top-3 flex flex-wrap gap-1.5">{badges}</div> : null}
-          {actions ? <div className="absolute end-3 top-3 z-[2] flex gap-1.5">{actions}</div> : null}
+          <Image
+            src={image.src}
+            alt={image.alt}
+            ratio={layout === "horizontal" ? undefined : 4 / 3}
+            radius="none"
+            containerClassName={cn(layout === "horizontal" && "h-full min-h-40")}
+          />
+          {badges ? (
+            <div className="absolute start-3 top-3 flex flex-wrap gap-1.5">{badges}</div>
+          ) : null}
+          {actions ? (
+            <div className="absolute end-3 top-3 z-[2] flex gap-1.5">{actions}</div>
+          ) : null}
         </div>
       ) : null}
       <div className="flex min-w-0 flex-1 flex-col gap-2 p-4">
-        {category ? <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{category}</p> : null}
+        {category ? (
+          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {category}
+          </p>
+        ) : null}
         <Heading className="text-md font-semibold leading-snug text-foreground">{title}</Heading>
         {rating !== undefined || priceLevel !== undefined ? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            {rating !== undefined ? <ReviewStars value={rating} size="sm" showValue count={reviewCount} /> : null}
-            {priceLevel !== undefined ? <PriceLevel level={priceLevel} label={priceLevelLabel} className="text-sm" /> : null}
+            {rating !== undefined ? (
+              <ReviewStars value={rating} size="sm" showValue count={reviewCount} />
+            ) : null}
+            {priceLevel !== undefined ? (
+              <PriceLevel level={priceLevel} label={priceLevelLabel} className="text-sm" />
+            ) : null}
           </div>
         ) : null}
         {address ? <Location address={address} distance={distance} /> : null}
         {status}
         {meta}
         {tags ? <div className="mt-1 flex flex-wrap gap-1.5">{tags}</div> : null}
-        {!image && actions ? <div className="relative z-[2] mt-auto flex gap-2 pt-2">{actions}</div> : null}
+        {!image && actions ? (
+          <div className="relative z-[2] mt-auto flex gap-2 pt-2">{actions}</div>
+        ) : null}
       </div>
     </Card>
   );

@@ -34,7 +34,8 @@ export interface RegistryItem {
 }
 
 const IGNORE = /\.(test|stories)\.tsx?$|README\.md$/;
-const IMPORT_RE = /(?:import|export)\s[^'"]*?from\s+["']([^"']+)["']|import\(\s*["']([^"']+)["']\s*\)/g;
+const IMPORT_RE =
+  /(?:import|export)\s[^'"]*?from\s+["']([^"']+)["']|import\(\s*["']([^"']+)["']\s*\)/g;
 
 function walk(dir: string): string[] {
   return readdirSync(dir).flatMap((entry) => {
@@ -46,7 +47,9 @@ function walk(dir: string): string[] {
 function versionOf(pkg: string): string {
   const range = reactPkg.dependencies?.[pkg] as string | undefined;
   if (!range || range.startsWith("workspace:")) {
-    const local = JSON.parse(readFileSync(join(root, "packages", pkg.split("/")[1]!, "package.json"), "utf8"));
+    const local = JSON.parse(
+      readFileSync(join(root, "packages", pkg.split("/")[1]!, "package.json"), "utf8"),
+    );
     return `${pkg}@^${local.version}`;
   }
   return `${pkg}@${range}`;
@@ -68,12 +71,18 @@ function analyze(files: string[], selfName: string) {
         else if (rel[0] === "lib") regDeps.add(`lib/${rel[1]!.replace(/\.js$/, "")}`);
         else if (rel[0] === "provider") regDeps.add("provider");
       } else if (spec !== "react" && spec !== "react-dom" && !spec.startsWith("react/")) {
-        const pkg = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0]!;
+        const pkg = spec.startsWith("@")
+          ? spec.split("/").slice(0, 2).join("/")
+          : spec.split("/")[0]!;
         deps.add(versionOf(pkg));
       }
     }
   }
-  return { deps: [...deps].sort(), regDeps: [...regDeps].filter((d) => d !== selfName).sort(), client };
+  return {
+    deps: [...deps].sort(),
+    regDeps: [...regDeps].filter((d) => d !== selfName).sort(),
+    client,
+  };
 }
 
 const toFiles = (files: string[]): RegistryFile[] =>
@@ -101,7 +110,14 @@ for (const file of readdirSync(join(src, "lib"))) {
   const full = join(src, "lib", file);
   const name = `lib/${file.replace(/\.tsx?$/, "")}`;
   const { deps, regDeps, client } = analyze([full], name);
-  items.push({ name, type: "lib", dependencies: deps, registryDependencies: regDeps.filter((d) => d !== name), files: toFiles([full]), client });
+  items.push({
+    name,
+    type: "lib",
+    dependencies: deps,
+    registryDependencies: regDeps.filter((d) => d !== name),
+    files: toFiles([full]),
+    client,
+  });
 }
 
 const providerFiles = walk(join(src, "provider"));
@@ -124,7 +140,12 @@ items.push({
   description: "Animations, responsive layout variables and touch hit areas.",
   dependencies: [],
   registryDependencies: [],
-  files: [{ path: "styles/unified-ui.css", content: readFileSync(join(src, "styles/components.css"), "utf8") }],
+  files: [
+    {
+      path: "styles/unified-ui.css",
+      content: readFileSync(join(src, "styles/components.css"), "utf8"),
+    },
+  ],
   client: false,
 });
 
@@ -139,4 +160,6 @@ for (const item of items) {
 const registry = { name: "unified-ui", version: reactPkg.version as string, items };
 writeFileSync(join(root, "packages/cli/registry.json"), JSON.stringify(registry));
 const components_ = items.filter((i) => i.type === "component").length;
-console.log(`Registry: ${items.length} items (${components_} components) → packages/cli/registry.json`);
+console.log(
+  `Registry: ${items.length} items (${components_} components) → packages/cli/registry.json`,
+);

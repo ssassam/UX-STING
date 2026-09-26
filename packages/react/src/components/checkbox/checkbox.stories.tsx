@@ -3,7 +3,9 @@ import { RadioCard, RadioGroup, Radio } from "../radio-group/radio-group.js";
 import { Switch } from "../switch/switch.js";
 import { Checkbox, CheckboxGroup } from "./checkbox.js";
 
-const meta = { title: "Forms/Choice controls", component: Checkbox } satisfies Meta<typeof Checkbox>;
+const meta = { title: "Forms/Choice controls", component: Checkbox } satisfies Meta<
+  typeof Checkbox
+>;
 export default meta;
 type Story = StoryObj;
 
@@ -34,7 +36,12 @@ export const States: Story = {
 export const FocusVisible: Story = { ...States, parameters: { pseudo: { focusVisible: true } } };
 export const Group: Story = {
   render: () => (
-    <CheckboxGroup legend="Amenities" defaultValue={["wifi"]} orientation="horizontal" error="Choose at least two amenities.">
+    <CheckboxGroup
+      legend="Amenities"
+      defaultValue={["wifi"]}
+      orientation="horizontal"
+      error="Choose at least two amenities."
+    >
       <Checkbox value="wifi" label="Wi-Fi" />
       <Checkbox value="parking" label="Parking" />
       <Checkbox value="terrace" label="Terrace" />
@@ -43,7 +50,11 @@ export const Group: Story = {
 };
 export const Cards: Story = {
   render: () => (
-    <RadioGroup aria-label="Plan" defaultValue="pro" className="grid max-w-2xl gap-3 sm:grid-cols-3">
+    <RadioGroup
+      aria-label="Plan"
+      defaultValue="pro"
+      className="grid max-w-2xl gap-3 sm:grid-cols-3"
+    >
       <RadioCard value="free" label="Free" description="1 listing" />
       <RadioCard value="pro" label="Pro" description="10 listings" />
       <RadioCard value="biz" label="Business" description="Unlimited" />

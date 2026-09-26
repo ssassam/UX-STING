@@ -4,7 +4,12 @@ import { Input } from "@unified-ui/react/input";
 
 export function Basic() {
   return (
-    <Field label="Business name" description="As it appears on your storefront." required className="max-w-sm">
+    <Field
+      label="Business name"
+      description="As it appears on your storefront."
+      required
+      className="max-w-sm"
+    >
       <Input placeholder="e.g. Café Atlas" />
     </Field>
   );

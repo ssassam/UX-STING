@@ -57,18 +57,36 @@ describe("UIProvider", () => {
   it("provides localized messages (en, fr, ar) with overrides", () => {
     function Probe() {
       const m = useMessages();
-      return <span>{m.close}|{m.pageOf(2, 5)}</span>;
+      return (
+        <span>
+          {m.close}|{m.pageOf(2, 5)}
+        </span>
+      );
     }
-    const { rerender } = render(<UIProvider locale="fr-CA"><Probe /></UIProvider>);
+    const { rerender } = render(
+      <UIProvider locale="fr-CA">
+        <Probe />
+      </UIProvider>,
+    );
     expect(screen.getByText("Fermer|Page 2 sur 5")).toBeInTheDocument();
-    rerender(<UIProvider locale="ar"><Probe /></UIProvider>);
+    rerender(
+      <UIProvider locale="ar">
+        <Probe />
+      </UIProvider>,
+    );
     expect(screen.getByText("إغلاق|الصفحة 2 من 5")).toBeInTheDocument();
-    rerender(<UIProvider locale="en" messages={{ close: "Dismiss" }}><Probe /></UIProvider>);
+    rerender(
+      <UIProvider locale="en" messages={{ close: "Dismiss" }}>
+        <Probe />
+      </UIProvider>,
+    );
     expect(screen.getByText("Dismiss|Page 2 of 5")).toBeInTheDocument();
   });
 
   it("injects CSS for custom theme objects", () => {
-    const { container } = render(<UIProvider theme={{ name: "brand", primary: "pink", radius: "large" }}>x</UIProvider>);
+    const { container } = render(
+      <UIProvider theme={{ name: "brand", primary: "pink", radius: "large" }}>x</UIProvider>,
+    );
     const style = container.querySelector("style[data-ui-custom-theme='brand']");
     expect(style?.textContent).toContain('[data-ui-theme="brand"]');
     expect(style?.textContent).toContain("--ui-radius: 0.875rem");
@@ -94,7 +112,10 @@ describe("Toast", () => {
     const undo = vi.fn();
     render(<Toaster />);
     act(() => {
-      toast.success("Listing saved", { description: "Visible to everyone", action: { label: "Undo", onClick: undo } });
+      toast.success("Listing saved", {
+        description: "Visible to everyone",
+        action: { label: "Undo", onClick: undo },
+      });
     });
     const status = await screen.findByRole("status");
     expect(status).toHaveTextContent("Listing saved");
@@ -108,7 +129,11 @@ describe("Toast", () => {
     render(<Toaster />);
     let resolve!: (v: string) => void;
     act(() => {
-      void toast.promise(new Promise<string>((r) => (resolve = r)), { loading: "Uploading…", success: (v) => `Uploaded ${v}`, error: "Failed" });
+      void toast.promise(new Promise<string>((r) => (resolve = r)), {
+        loading: "Uploading…",
+        success: (v) => `Uploaded ${v}`,
+        error: "Failed",
+      });
     });
     expect(await screen.findByText("Uploading…")).toBeInTheDocument();
     await act(async () => resolve("photo.jpg"));
@@ -128,7 +153,9 @@ describe("navigation", () => {
       <Navbar>
         <NavbarBrand>Acme</NavbarBrand>
         <NavbarContent>
-          <NavbarLink href="/" active>Home</NavbarLink>
+          <NavbarLink href="/" active>
+            Home
+          </NavbarLink>
           <NavbarLink href="/explore">Explore</NavbarLink>
         </NavbarContent>
         <NavbarMobileMenu>
@@ -144,13 +171,18 @@ describe("navigation", () => {
   it("Sidebar collapses on desktop and keeps labels for screen readers", async () => {
     const user = userEvent.setup();
     const mql = window.matchMedia;
-    window.matchMedia = ((q: string) => ({ ...mql(q), matches: q.includes("min-width") })) as typeof window.matchMedia;
+    window.matchMedia = ((q: string) => ({
+      ...mql(q),
+      matches: q.includes("min-width"),
+    })) as typeof window.matchMedia;
     render(
       <SidebarProvider>
         <Sidebar label="App">
           <SidebarContent>
             <SidebarGroup label="Main">
-              <SidebarItem href="/" active icon={<span />}>Dashboard</SidebarItem>
+              <SidebarItem href="/" active icon={<span />}>
+                Dashboard
+              </SidebarItem>
             </SidebarGroup>
           </SidebarContent>
         </Sidebar>
@@ -170,7 +202,9 @@ describe("navigation", () => {
     render(
       <MobileNavigation>
         {Array.from({ length: 6 }, (_, i) => (
-          <MobileNavigationItem key={i} href={`/${i}`} icon={<span />}>Item {i}</MobileNavigationItem>
+          <MobileNavigationItem key={i} href={`/${i}`} icon={<span />}>
+            Item {i}
+          </MobileNavigationItem>
         ))}
       </MobileNavigation>,
     );
@@ -186,7 +220,9 @@ describe("Carousel & Resizable", () => {
       <Carousel label="Photos" autoplay={4000}>
         <CarouselContent>
           {[1, 2, 3].map((n) => (
-            <CarouselItem key={n} index={n - 1}>Slide {n}</CarouselItem>
+            <CarouselItem key={n} index={n - 1}>
+              Slide {n}
+            </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselPrevious />
@@ -194,7 +230,10 @@ describe("Carousel & Resizable", () => {
         <CarouselPlayToggle />
       </Carousel>,
     );
-    expect(screen.getByRole("region", { name: "Photos" })).toHaveAttribute("aria-roledescription", "carousel");
+    expect(screen.getByRole("region", { name: "Photos" })).toHaveAttribute(
+      "aria-roledescription",
+      "carousel",
+    );
     expect(screen.getByRole("group", { name: "Slide 2 of 3" })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Pause slideshow" }));
     expect(screen.getByRole("button", { name: "Play slideshow" })).toBeInTheDocument();
@@ -259,13 +298,22 @@ describe("patterns", () => {
 
   it("Highlight marks accent-insensitive matches", () => {
     const { container } = render(<Highlight text="Crème brûlée café" query="cafe creme" />);
-    expect(Array.from(container.querySelectorAll("mark")).map((m) => m.textContent)).toEqual(["Crème", "café"]);
+    expect(Array.from(container.querySelectorAll("mark")).map((m) => m.textContent)).toEqual([
+      "Crème",
+      "café",
+    ]);
   });
 
   it("FilterChips remove individual filters", async () => {
     const user = userEvent.setup();
     const onRemove = vi.fn();
-    render(<FilterChips filters={[{ id: "open", label: "Open now" }]} onRemove={onRemove} onClearAll={() => {}} />);
+    render(
+      <FilterChips
+        filters={[{ id: "open", label: "Open now" }]}
+        onRemove={onRemove}
+        onClearAll={() => {}}
+      />,
+    );
     await user.click(screen.getByRole("button", { name: "Remove Open now" }));
     expect(onRemove).toHaveBeenCalledWith("open");
   });

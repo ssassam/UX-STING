@@ -6,7 +6,15 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: ["**/dist/**", "**/.next/**", "**/node_modules/**", "**/storybook-static/**", "**/*.d.ts", "packages/icons/src/icons/**", "packages/cli/templates/**"],
+    ignores: [
+      "**/dist/**",
+      "**/.next/**",
+      "**/node_modules/**",
+      "**/storybook-static/**",
+      "**/*.d.ts",
+      "packages/icons/src/icons/**",
+      "packages/cli/templates/**",
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -23,12 +31,21 @@ export default tseslint.config(
       "react-hooks/purity": "off",
       "react-hooks/static-components": "off",
       "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" },
+      ],
       "@typescript-eslint/consistent-type-imports": ["error", { fixStyle: "inline-type-imports" }],
       // Components forward arbitrary ARIA/handlers; these rules misfire on primitives that receive them via props.
       "jsx-a11y/no-autofocus": "off",
       "jsx-a11y/label-has-associated-control": "off",
-      "jsx-a11y/no-noninteractive-tabindex": ["error", { roles: ["region", "tabpanel", "alert", "separator"], tags: ["main", "li", "section", "pre"] }],
+      "jsx-a11y/no-noninteractive-tabindex": [
+        "error",
+        {
+          roles: ["region", "tabpanel", "alert", "separator"],
+          tags: ["main", "li", "section", "pre"],
+        },
+      ],
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-static-element-interactions": "off",

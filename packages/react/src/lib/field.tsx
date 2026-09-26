@@ -1,5 +1,13 @@
 "use client";
-import { createContext, useContext, useEffect, useId, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export interface FieldContextValue {
   id: string;
@@ -42,7 +50,15 @@ export interface UseFieldStateOptions {
   readOnly?: boolean;
 }
 
-export function useFieldState({ id: idProp, name, error: errorProp, invalid, required = false, disabled = false, readOnly = false }: UseFieldStateOptions): FieldContextValue {
+export function useFieldState({
+  id: idProp,
+  name,
+  error: errorProp,
+  invalid,
+  required = false,
+  disabled = false,
+  readOnly = false,
+}: UseFieldStateOptions): FieldContextValue {
   const generated = useId();
   const id = idProp ?? `field${generated.replace(/:/g, "")}`;
   const form = useFormContext();

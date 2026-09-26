@@ -2,7 +2,13 @@
 import { ClaimBusiness, LeadForm } from "@unified-ui/react/lead-form";
 
 export function Contact() {
-  return <LeadForm className="max-w-lg" onSubmit={() => new Promise((r) => setTimeout(r, 800))} labels={{ message: "Describe the job" }} />;
+  return (
+    <LeadForm
+      className="max-w-lg"
+      onSubmit={() => new Promise((r) => setTimeout(r, 800))}
+      labels={{ message: "Describe the job" }}
+    />
+  );
 }
 
 export function Claim() {

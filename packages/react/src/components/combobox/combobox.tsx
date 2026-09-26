@@ -8,7 +8,15 @@ import { controlVariants, type ControlSize } from "../../lib/control.js";
 import { useFieldControlProps } from "../../lib/field.js";
 import { floatingSurfaceClass } from "../../lib/overlay.js";
 import { useMessages, usePortalContainer } from "../../provider/context.js";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandLoading } from "../command/command.js";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandLoading,
+} from "../command/command.js";
 import { groupOptions, type ComboboxOption } from "./combobox.types.js";
 
 export interface ComboboxProps {
@@ -41,14 +49,42 @@ export interface ComboboxProps {
  * Supports grouping, async results and form submission.
  */
 export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Combobox(
-  { options, value: valueProp, defaultValue = null, onValueChange, placeholder = "Select…", searchPlaceholder, emptyText, size, disabled, invalid, clearable, onSearchChange, loading, name, id, className, renderOption, ...aria },
+  {
+    options,
+    value: valueProp,
+    defaultValue = null,
+    onValueChange,
+    placeholder = "Select…",
+    searchPlaceholder,
+    emptyText,
+    size,
+    disabled,
+    invalid,
+    clearable,
+    onSearchChange,
+    loading,
+    name,
+    id,
+    className,
+    renderOption,
+    ...aria
+  },
   ref,
 ) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   const container = usePortalContainer();
   const messages = useMessages();
-  const fieldProps = useFieldControlProps({ id, disabled, "aria-invalid": invalid || undefined, ...aria });
+  const fieldProps = useFieldControlProps({
+    id,
+    disabled,
+    "aria-invalid": invalid || undefined,
+    ...aria,
+  });
   const selected = options.find((o) => o.value === value);
 
   return (
@@ -66,9 +102,18 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
           aria-describedby={fieldProps["aria-describedby"]}
           aria-label={aria["aria-label"]}
           aria-labelledby={aria["aria-labelledby"]}
-          className={cn(controlVariants({ size }), "flex items-center justify-between gap-2 text-start", className)}
+          className={cn(
+            controlVariants({ size }),
+            "flex items-center justify-between gap-2 text-start",
+            className,
+          )}
         >
-          <span className={cn("flex min-w-0 items-center gap-2 truncate", !selected && "text-muted-foreground")}>
+          <span
+            className={cn(
+              "flex min-w-0 items-center gap-2 truncate",
+              !selected && "text-muted-foreground",
+            )}
+          >
             {selected?.icon}
             {selected?.label ?? placeholder}
           </span>
@@ -81,9 +126,17 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
           align="start"
           sideOffset={6}
           collisionPadding={8}
-          className={cn(floatingSurfaceClass, "w-(--radix-popover-trigger-width) min-w-56 overflow-hidden p-0")}
+          className={cn(
+            floatingSurfaceClass,
+            "w-(--radix-popover-trigger-width) min-w-56 overflow-hidden p-0",
+          )}
         >
-          <Command shouldFilter={!onSearchChange} onSearchChange={onSearchChange} loading={loading} label={aria["aria-label"]}>
+          <Command
+            shouldFilter={!onSearchChange}
+            onSearchChange={onSearchChange}
+            loading={loading}
+            label={aria["aria-label"]}
+          >
             <CommandInput placeholder={searchPlaceholder ?? messages.search} />
             <CommandList>
               <CommandLoading />
@@ -108,10 +161,19 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
                       ) : (
                         <span className="grid">
                           <span className="truncate">{option.label}</span>
-                          {option.description ? <span className="truncate text-xs text-muted-foreground">{option.description}</span> : null}
+                          {option.description ? (
+                            <span className="truncate text-xs text-muted-foreground">
+                              {option.description}
+                            </span>
+                          ) : null}
                         </span>
                       )}
-                      <CheckIcon className={cn("ms-auto text-primary!", option.value === value ? "opacity-100" : "opacity-0")} />
+                      <CheckIcon
+                        className={cn(
+                          "ms-auto text-primary!",
+                          option.value === value ? "opacity-100" : "opacity-0",
+                        )}
+                      />
                     </CommandItem>
                   ))}
                 </CommandGroup>

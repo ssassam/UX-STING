@@ -30,6 +30,9 @@ export function resolveColorMode(mode: ColorMode): Exclude<ColorMode, "system"> 
  * Inline script (as a string) that applies the persisted color mode before
  * first paint, preventing a flash of the wrong theme in SSR apps.
  */
-export function getThemeScript(storageKey = "ui-color-mode", fallback: ColorMode = "light"): string {
+export function getThemeScript(
+  storageKey = "ui-color-mode",
+  fallback: ColorMode = "light",
+): string {
   return `(function(){try{var m=localStorage.getItem(${JSON.stringify(storageKey)})||${JSON.stringify(fallback)};var d=document.documentElement;d.dataset.theme=m;var dark=m==="dark"||(m==="system"&&matchMedia("(prefers-color-scheme: dark)").matches);d.style.colorScheme=dark?"dark":"light";}catch(e){}})();`;
 }

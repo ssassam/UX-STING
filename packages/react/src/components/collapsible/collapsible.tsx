@@ -7,8 +7,15 @@ import { forwardRef, type ComponentPropsWithoutRef } from "react";
 export const Collapsible = CollapsiblePrimitive.Root;
 export const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 
-export const CollapsibleContent = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>>(
-  function CollapsibleContent({ className, ...props }, ref) {
-    return <CollapsiblePrimitive.Content ref={ref} className={cn("ui-anim-collapse", className)} {...props} />;
-  },
-);
+export const CollapsibleContent = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>
+>(function CollapsibleContent({ className, ...props }, ref) {
+  return (
+    <CollapsiblePrimitive.Content
+      ref={ref}
+      className={cn("ui-anim-collapse", className)}
+      {...props}
+    />
+  );
+});

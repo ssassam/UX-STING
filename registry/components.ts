@@ -11,21 +11,28 @@ export const components: ComponentMeta[] = [
     name: "box",
     title: "Box",
     category: "foundations",
-    description: "The lowest-level layout primitive: a div (or any element via `as`) with `asChild` support.",
+    description:
+      "The lowest-level layout primitive: a div (or any element via `as`) with `asChild` support.",
     when: "Use when you need a semantic wrapper element with styling and no layout opinion.",
     avoid: "Prefer Stack, Grid or Container when you are arranging children.",
-    a11y: ["Choose the semantic element with `as` (section, nav, article) instead of adding roles."],
+    a11y: [
+      "Choose the semantic element with `as` (section, nav, article) instead of adding roles.",
+    ],
   },
   {
     name: "stack",
     title: "Stack",
     category: "foundations",
     primary: "Stack",
-    description: "Flex layout with token-based, responsive gap and direction. Also exports HStack, VStack, Flex and Spacer.",
+    description:
+      "Flex layout with token-based, responsive gap and direction. Also exports HStack, VStack, Flex and Spacer.",
     when: "Use for one-dimensional layouts: form fields, button rows, card content.",
     avoid: "Use Grid for two-dimensional layouts.",
-    a11y: ["Visual order equals DOM order; avoid `row-reverse` when it would contradict reading order."],
-    responsive: "`gap` and `direction` accept responsive objects (`{ base: \"column\", md: \"row\" }`) compiled to CSS variables — no client JS.",
+    a11y: [
+      "Visual order equals DOM order; avoid `row-reverse` when it would contradict reading order.",
+    ],
+    responsive:
+      '`gap` and `direction` accept responsive objects (`{ base: "column", md: "row" }`) compiled to CSS variables — no client JS.',
   },
   {
     name: "grid",
@@ -34,7 +41,8 @@ export const components: ComponentMeta[] = [
     description: "CSS grid with responsive columns, gaps and auto-fill by minimum child width.",
     when: "Use for card grids, dashboards and galleries.",
     a11y: ["Grid only affects layout; keep a meaningful source order for screen readers."],
-    responsive: "`columns={{ base: 1, md: 2, lg: 3 }}` or `minChildWidth=\"16rem\"` for intrinsic responsiveness.",
+    responsive:
+      '`columns={{ base: 1, md: 2, lg: 3 }}` or `minChildWidth="16rem"` for intrinsic responsiveness.',
   },
   {
     name: "container",
@@ -42,7 +50,7 @@ export const components: ComponentMeta[] = [
     category: "foundations",
     description: "Centers content with a consistent max width and responsive gutters.",
     when: "Use once per page section to align content to the layout grid.",
-    a11y: ["Use `as=\"main\"` or `as=\"section\"` to create landmarks where appropriate."],
+    a11y: ['Use `as="main"` or `as="section"` to create landmarks where appropriate.'],
     responsive: "Gutters grow from 16px (mobile) to 32px (desktop); sizes sm → prose → full.",
   },
   {
@@ -51,7 +59,9 @@ export const components: ComponentMeta[] = [
     category: "foundations",
     description: "Horizontal or vertical divider, optionally with a centered label.",
     when: "Use to separate groups of content or menu sections.",
-    a11y: ["Decorative by default (`role=\"none\"`). Set `decorative={false}` when the separation is meaningful."],
+    a11y: [
+      'Decorative by default (`role="none"`). Set `decorative={false}` when the separation is meaningful.',
+    ],
   },
   {
     name: "aspect-ratio",
@@ -68,7 +78,9 @@ export const components: ComponentMeta[] = [
     description: "Cross-browser styled scroll container that keeps native scrolling behavior.",
     when: "Use for constrained regions such as sidebars, menus and chat logs.",
     avoid: "Avoid nested scroll regions in the main page flow.",
-    a11y: ["Pass `aria-label` to make the viewport a focusable, named region so keyboard users can scroll it."],
+    a11y: [
+      "Pass `aria-label` to make the viewport a focusable, named region so keyboard users can scroll it.",
+    ],
   },
   {
     name: "resizable",
@@ -78,7 +90,9 @@ export const components: ComponentMeta[] = [
     description: "Split views with draggable, keyboard-accessible handles.",
     when: "Use for editors, master–detail views and IDE-like layouts on larger screens.",
     avoid: "On mobile, stack panels instead of offering resize handles.",
-    a11y: ["Handles are `role=\"separator\"` with `aria-valuenow`, focusable and operable by keyboard (dragging is never required)."],
+    a11y: [
+      'Handles are `role="separator"` with `aria-valuenow`, focusable and operable by keyboard (dragging is never required).',
+    ],
     keyboard: [
       ["← / →", "Resize horizontal panels (mirrored in RTL)"],
       ["↑ / ↓", "Resize vertical panels"],
@@ -104,11 +118,12 @@ export const components: ComponentMeta[] = [
     name: "button",
     title: "Button",
     category: "buttons",
-    description: "Primary action element with variants, sizes, icons and loading state. Also IconButton and ButtonGroup.",
+    description:
+      "Primary action element with variants, sizes, icons and loading state. Also IconButton and ButtonGroup.",
     when: "Use for actions (submit, open, save). Keep one `default` (primary) button per view.",
     avoid: "Use Link (or `asChild` with an anchor) for navigation.",
     a11y: [
-      "Renders a native `<button type=\"button\">`; `loading` sets `aria-busy` and disables the button.",
+      'Renders a native `<button type="button">`; `loading` sets `aria-busy` and disables the button.',
       "IconButton requires `aria-label` and expands its hit area to 44px on touch devices.",
       "Focus ring uses the `ring` token and is always visible for keyboard users.",
     ],
@@ -122,7 +137,9 @@ export const components: ComponentMeta[] = [
     description: "Two-state button (`aria-pressed`) and ToggleGroup with roving focus.",
     when: "Use for formatting toolbars, view switches (list/grid) and filters that apply immediately.",
     avoid: "Use Switch for settings and Checkbox inside forms.",
-    a11y: ["Toggle exposes `aria-pressed`; ToggleGroup is a single tab stop with arrow-key navigation."],
+    a11y: [
+      "Toggle exposes `aria-pressed`; ToggleGroup is a single tab stop with arrow-key navigation.",
+    ],
     keyboard: [
       ["Enter / Space", "Toggle"],
       ["← / →", "Move between items in a group"],
@@ -133,7 +150,8 @@ export const components: ComponentMeta[] = [
     name: "form",
     title: "Form",
     category: "forms",
-    description: "Accessible form with zero-config constraint validation, validate-on-blur, async submit and an error summary.",
+    description:
+      "Accessible form with zero-config constraint validation, validate-on-blur, async submit and an error summary.",
     when: "Use for every data-entry form. Works standalone or with external errors (server, React Hook Form).",
     a11y: [
       "Validates on submit and re-validates on blur — never on every keystroke.",
@@ -146,9 +164,13 @@ export const components: ComponentMeta[] = [
     name: "field",
     title: "Field",
     category: "forms",
-    description: "Connects label, control, helper text and error: ids, aria-describedby, aria-invalid, required and disabled.",
+    description:
+      "Connects label, control, helper text and error: ids, aria-describedby, aria-invalid, required and disabled.",
     when: "Wrap every form control in a Field so labelling and errors are always correct.",
-    a11y: ["Labels are always visible — placeholders are not labels.", "Required fields show an indicator and set `required` on the control."],
+    a11y: [
+      "Labels are always visible — placeholders are not labels.",
+      "Required fields show an indicator and set `required` on the control.",
+    ],
     related: ["form", "input"],
   },
   {
@@ -157,7 +179,10 @@ export const components: ComponentMeta[] = [
     category: "forms",
     description: "Single-line text input with sizes, filled variant and invalid state.",
     when: "Use for short free-text values. Set a semantic `type` and `autoComplete`.",
-    a11y: ["Uses 16px text on mobile to avoid iOS zoom.", "Invalid styling is driven by `aria-invalid` so visuals match semantics."],
+    a11y: [
+      "Uses 16px text on mobile to avoid iOS zoom.",
+      "Invalid styling is driven by `aria-invalid` so visuals match semantics.",
+    ],
   },
   {
     name: "textarea",
@@ -174,7 +199,9 @@ export const components: ComponentMeta[] = [
     description: "Locale-aware numeric input with steppers, clamping and keyboard support.",
     when: "Use for quantities, guests, prices and other bounded numbers.",
     avoid: "Use Slider for approximate values and Input for identifiers such as phone numbers.",
-    a11y: ["Exposes `role=\"spinbutton\"` with `aria-valuenow/min/max/text`; parses localized input (\"1 234,5\", Arabic digits)."],
+    a11y: [
+      'Exposes `role="spinbutton"` with `aria-valuenow/min/max/text`; parses localized input ("1 234,5", Arabic digits).',
+    ],
     keyboard: [
       ["↑ / ↓", "Increment / decrement"],
       ["PageUp / PageDown", "Step ×10"],
@@ -187,15 +214,21 @@ export const components: ComponentMeta[] = [
     category: "forms",
     description: "Password field with an accessible show/hide toggle.",
     when: "Use for sign-in and account creation.",
-    a11y: ["Never blocks paste or password managers (WCAG 2.2 accessible authentication).", "The toggle announces its state with `aria-pressed`."],
+    a11y: [
+      "Never blocks paste or password managers (WCAG 2.2 accessible authentication).",
+      "The toggle announces its state with `aria-pressed`.",
+    ],
   },
   {
     name: "search-input",
     title: "SearchInput",
     category: "forms",
-    description: "Search field with icon, clear button, loading state and optional global shortcut.",
+    description:
+      "Search field with icon, clear button, loading state and optional global shortcut.",
     when: "Use for search boxes in headers, tables and directories.",
-    a11y: ["Wrapped in `role=\"search\"`; Escape clears; the shortcut hint is hidden from screen readers."],
+    a11y: [
+      'Wrapped in `role="search"`; Escape clears; the shortcut hint is hidden from screen readers.',
+    ],
     keyboard: [
       ["Enter", "Submit search"],
       ["Escape", "Clear"],
@@ -217,7 +250,10 @@ export const components: ComponentMeta[] = [
     description: "Binary or indeterminate choice, plus CheckboxGroup for multiple values.",
     when: "Use for independent options and consent inside forms.",
     avoid: "Use Switch for settings that apply immediately.",
-    a11y: ["Supports `indeterminate` (announced as mixed).", "CheckboxGroup renders a fieldset with legend."],
+    a11y: [
+      "Supports `indeterminate` (announced as mixed).",
+      "CheckboxGroup renders a fieldset with legend.",
+    ],
     keyboard: [["Space", "Toggle"]],
   },
   {
@@ -237,7 +273,7 @@ export const components: ComponentMeta[] = [
     description: "On/off control that takes effect immediately.",
     when: "Use for settings and preferences.",
     avoid: "Use Checkbox when the change only applies on submit.",
-    a11y: ["Exposes `role=\"switch\"` with `aria-checked`."],
+    a11y: ['Exposes `role="switch"` with `aria-checked`.'],
     keyboard: [["Space / Enter", "Toggle"]],
   },
   {
@@ -245,9 +281,11 @@ export const components: ComponentMeta[] = [
     title: "Select",
     category: "forms",
     primary: "SelectTrigger",
-    description: "Custom single-select listbox with groups, typeahead and collision-aware positioning.",
+    description:
+      "Custom single-select listbox with groups, typeahead and collision-aware positioning.",
     when: "Use for choosing one option from 5–15 options.",
-    avoid: "Use RadioGroup for fewer options, Combobox for long/searchable lists, NativeSelect on mobile-heavy forms.",
+    avoid:
+      "Use RadioGroup for fewer options, Combobox for long/searchable lists, NativeSelect on mobile-heavy forms.",
     a11y: ["Implements the ARIA listbox pattern with typeahead."],
     keyboard: [
       ["Enter / Space / ↓", "Open"],
@@ -268,9 +306,12 @@ export const components: ComponentMeta[] = [
     name: "combobox",
     title: "Combobox",
     category: "forms",
-    description: "Searchable single-select with groups, descriptions, async results and form submission.",
+    description:
+      "Searchable single-select with groups, descriptions, async results and form submission.",
     when: "Use for long lists: countries, categories, users, cities.",
-    a11y: ["Trigger exposes `role=\"combobox\"`; results use `aria-activedescendant` so focus stays in the search field."],
+    a11y: [
+      'Trigger exposes `role="combobox"`; results use `aria-activedescendant` so focus stays in the search field.',
+    ],
     keyboard: [
       ["↑ / ↓", "Move through results"],
       ["Enter", "Select"],
@@ -293,7 +334,7 @@ export const components: ComponentMeta[] = [
     description: "Free-text input with fuzzy suggestions (the value need not be a suggestion).",
     when: "Use for search boxes with suggestions, addresses and tags.",
     avoid: "Use Combobox when the value must be one of the options.",
-    a11y: ["ARIA combobox with `aria-autocomplete=\"list\"` and `aria-activedescendant`."],
+    a11y: ['ARIA combobox with `aria-autocomplete="list"` and `aria-activedescendant`.'],
     keyboard: [
       ["↓", "Open / next suggestion"],
       ["Enter", "Accept suggestion"],
@@ -306,7 +347,9 @@ export const components: ComponentMeta[] = [
     category: "forms",
     description: "Single value or range selection along a track (RangeSlider).",
     when: "Use for approximate values: price ranges, distance, volume.",
-    a11y: ["Each thumb has an accessible name (`thumbLabels`) and `aria-valuetext` from `formatValue`."],
+    a11y: [
+      "Each thumb has an accessible name (`thumbLabels`) and `aria-valuetext` from `formatValue`.",
+    ],
     keyboard: [
       ["← → ↑ ↓", "Step (mirrored in RTL)"],
       ["PageUp / PageDown", "Large step"],
@@ -319,7 +362,9 @@ export const components: ComponentMeta[] = [
     category: "forms",
     description: "One-time code entry with paste, SMS autofill and grouping.",
     when: "Use for verification codes and PINs.",
-    a11y: ["Group is labelled; each box announces its position; `autocomplete=\"one-time-code\"` enables autofill."],
+    a11y: [
+      'Group is labelled; each box announces its position; `autocomplete="one-time-code"` enables autofill.',
+    ],
     keyboard: [
       ["← / →", "Move between digits"],
       ["Backspace", "Delete and move back"],
@@ -332,16 +377,22 @@ export const components: ComponentMeta[] = [
     primary: "Dropzone",
     description: "Dropzone and managed file list with validation, progress and removal.",
     when: "Use for documents, photos and attachments.",
-    a11y: ["Drag-and-drop is optional: a real button opens the file picker.", "Rejected files are reported via `onFilesRejected` with a reason."],
+    a11y: [
+      "Drag-and-drop is optional: a real button opens the file picker.",
+      "Rejected files are reported via `onFilesRejected` with a reason.",
+    ],
   },
   // ───────────────────────── Date & time ─────────────────────────
   {
     name: "calendar",
     title: "Calendar",
     category: "date-time",
-    description: "Accessible month grid for single dates and ranges; also MonthPicker and YearPicker.",
+    description:
+      "Accessible month grid for single dates and ranges; also MonthPicker and YearPicker.",
     when: "Use inline for availability views or inside date pickers.",
-    a11y: ["ARIA grid pattern with localized day names, first day of week and `aria-current=\"date\"` for today."],
+    a11y: [
+      'ARIA grid pattern with localized day names, first day of week and `aria-current="date"` for today.',
+    ],
     keyboard: [
       ["← → ↑ ↓", "Move by day/week (mirrored in RTL)"],
       ["Home / End", "Start / end of week"],
@@ -355,8 +406,11 @@ export const components: ComponentMeta[] = [
     category: "date-time",
     description: "Date, date range and date-time pickers in a popover calendar.",
     when: "Use for bookings, filters and scheduling.",
-    avoid: "For birth dates, three native inputs (day/month/year) are often faster than a calendar.",
-    a11y: ["The trigger is a button announcing the selected date; values submit as ISO strings via `name`."],
+    avoid:
+      "For birth dates, three native inputs (day/month/year) are often faster than a calendar.",
+    a11y: [
+      "The trigger is a button announcing the selected date; values submit as ISO strings via `name`.",
+    ],
     responsive: "DateRangePicker shows two months on wide screens and one on phones.",
   },
   {
@@ -374,7 +428,9 @@ export const components: ComponentMeta[] = [
     category: "navigation",
     description: "Site/app header with brand, links, actions and a mobile menu sheet.",
     when: "Use as the primary top navigation on every page, in the same place.",
-    a11y: ["Current page uses `aria-current=\"page\"`; the mobile menu is a labelled dialog that closes on navigation."],
+    a11y: [
+      'Current page uses `aria-current="page"`; the mobile menu is a labelled dialog that closes on navigation.',
+    ],
     responsive: "Links collapse into NavbarMobileMenu below `md`.",
   },
   {
@@ -382,9 +438,13 @@ export const components: ComponentMeta[] = [
     title: "Sidebar",
     category: "navigation",
     primary: "SidebarProvider",
-    description: "Collapsible app sidebar (icon rail on desktop, sheet on mobile) with groups, items, badges and shortcut.",
+    description:
+      "Collapsible app sidebar (icon rail on desktop, sheet on mobile) with groups, items, badges and shortcut.",
     when: "Use for dashboards and apps with many sections.",
-    a11y: ["Collapsed items keep their names for screen readers and show tooltips.", "SidebarTrigger exposes `aria-expanded`."],
+    a11y: [
+      "Collapsed items keep their names for screen readers and show tooltips.",
+      "SidebarTrigger exposes `aria-expanded`.",
+    ],
     keyboard: [["⌘B / Ctrl+B", "Toggle the sidebar"]],
     responsive: "Below `md` the sidebar becomes a slide-in sheet.",
   },
@@ -407,25 +467,29 @@ export const components: ComponentMeta[] = [
     category: "navigation",
     description: "Hierarchy trail with separators (flipped in RTL) and ellipsis.",
     when: "Use on pages 3+ levels deep.",
-    a11y: ["Landmark `nav` with a label; the current page uses `aria-current=\"page\"`."],
+    a11y: ['Landmark `nav` with a label; the current page uses `aria-current="page"`.'],
   },
   {
     name: "pagination",
     title: "Pagination",
     category: "navigation",
-    description: "Page navigation with crawlable links or buttons, ellipses and a compact mobile mode.",
+    description:
+      "Page navigation with crawlable links or buttons, ellipses and a compact mobile mode.",
     when: "Use for search results and listings; link mode for SEO.",
     avoid: "Consider infinite loading only when position does not matter.",
-    a11y: ["Current page `aria-current=\"page\"`; each link is labelled (\"Go to page 4\")."],
-    responsive: "Shows \"Page x of y\" with prev/next on small screens.",
+    a11y: ['Current page `aria-current="page"`; each link is labelled ("Go to page 4").'],
+    responsive: 'Shows "Page x of y" with prev/next on small screens.',
   },
   {
     name: "stepper",
     title: "Stepper",
     category: "navigation",
-    description: "Progress through a multi-step flow with completed, current, upcoming and error states.",
+    description:
+      "Progress through a multi-step flow with completed, current, upcoming and error states.",
     when: "Use for checkout, onboarding and multi-step forms.",
-    a11y: ["Current step has `aria-current=\"step\"`; completed steps are announced and can be revisited."],
+    a11y: [
+      'Current step has `aria-current="step"`; completed steps are announced and can be revisited.',
+    ],
   },
   {
     name: "menubar",
@@ -463,7 +527,7 @@ export const components: ComponentMeta[] = [
     category: "navigation",
     description: "Visually hidden link that appears on focus to skip to main content.",
     when: "Render as the first element of every page layout.",
-    a11y: ["Targets `#main`; SidebarInset renders `<main id=\"main\" tabindex=\"-1\">`."],
+    a11y: ['Targets `#main`; SidebarInset renders `<main id="main" tabindex="-1">`.'],
   },
   // ───────────────────────── Overlays ─────────────────────────
   {
@@ -472,7 +536,8 @@ export const components: ComponentMeta[] = [
     category: "overlays",
     description: "Modal window for focused tasks (also exported as Modal).",
     when: "Use Dialog for focused actions that need full attention: edit, create, confirm details.",
-    avoid: "Use Sheet for contextual side panels, Drawer on mobile, AlertDialog for destructive confirmations, and never for primary navigation.",
+    avoid:
+      "Use Sheet for contextual side panels, Drawer on mobile, AlertDialog for destructive confirmations, and never for primary navigation.",
     a11y: [
       "Traps focus, restores it to the trigger, closes on Escape and locks page scroll.",
       "Always has a visible close button and a title (DialogTitle).",
@@ -489,7 +554,7 @@ export const components: ComponentMeta[] = [
     category: "overlays",
     description: "Interrupting confirmation for consequential or destructive actions.",
     when: "Use before deleting, discarding changes or irreversible actions.",
-    a11y: ["`role=\"alertdialog\"`; focus starts on Cancel; clicking outside does not dismiss."],
+    a11y: ['`role="alertdialog"`; focus starts on Cancel; clicking outside does not dismiss.'],
     keyboard: [["Escape", "Cancel"]],
   },
   {
@@ -539,9 +604,12 @@ export const components: ComponentMeta[] = [
     name: "dropdown-menu",
     title: "DropdownMenu",
     category: "overlays",
-    description: "Menu of actions with items, checkboxes, radios, shortcuts and submenus (also exported as Dropdown).",
-    when: "Use for overflow actions and \"more\" menus.",
-    a11y: ["ARIA menu pattern with typeahead; destructive items are styled and labelled, not only colored."],
+    description:
+      "Menu of actions with items, checkboxes, radios, shortcuts and submenus (also exported as Dropdown).",
+    when: 'Use for overflow actions and "more" menus.',
+    a11y: [
+      "ARIA menu pattern with typeahead; destructive items are styled and labelled, not only colored.",
+    ],
     keyboard: [
       ["Enter / Space / ↓", "Open and focus first item"],
       ["↑ / ↓", "Move"],
@@ -562,7 +630,8 @@ export const components: ComponentMeta[] = [
     name: "alert",
     title: "Alert",
     category: "feedback",
-    description: "Inline contextual message (info, success, warning, destructive) and page-level Banner.",
+    description:
+      "Inline contextual message (info, success, warning, destructive) and page-level Banner.",
     when: "Use for messages tied to a section or the whole page.",
     a11y: ["Icons pair color with shape.", "`live` makes new alerts announce (role alert/status)."],
   },
@@ -571,7 +640,8 @@ export const components: ComponentMeta[] = [
     title: "Toast",
     category: "feedback",
     primary: "Toaster",
-    description: "Sonner-style notifications: `toast.success()`, promise toasts, actions (Undo), queueing.",
+    description:
+      "Sonner-style notifications: `toast.success()`, promise toasts, actions (Undo), queueing.",
     when: "Use for brief confirmations and background results.",
     avoid: "Do not use toasts for errors that need action — show them inline.",
     a11y: [
@@ -586,7 +656,7 @@ export const components: ComponentMeta[] = [
     category: "feedback",
     description: "Linear and circular progress, determinate or indeterminate.",
     when: "Use for uploads and multi-step processes with known progress.",
-    a11y: ["`role=\"progressbar\"` with value text; label via `label` or `aria-label`."],
+    a11y: ['`role="progressbar"` with value text; label via `label` or `aria-label`.'],
   },
   {
     name: "spinner",
@@ -595,7 +665,9 @@ export const components: ComponentMeta[] = [
     description: "Indeterminate activity indicator.",
     when: "Use for short waits inside buttons or small areas.",
     avoid: "Use Skeleton for content-shaped loading longer than ~1s.",
-    a11y: ["`role=\"status\"` with a label; pass `label={null}` when a parent already announces loading."],
+    a11y: [
+      '`role="status"` with a label; pass `label={null}` when a parent already announces loading.',
+    ],
   },
   {
     name: "skeleton",
@@ -603,7 +675,9 @@ export const components: ComponentMeta[] = [
     category: "feedback",
     description: "Placeholder shapes that reserve layout while content loads.",
     when: "Use for lists, cards and tables while data loads.",
-    a11y: ["Hidden from assistive tech; set `aria-busy` on the container. Shimmer stops with reduced motion."],
+    a11y: [
+      "Hidden from assistive tech; set `aria-busy` on the container. Shimmer stops with reduced motion.",
+    ],
   },
   {
     name: "state",
@@ -612,16 +686,19 @@ export const components: ComponentMeta[] = [
     primary: "EmptyState",
     description: "EmptyState, ErrorState, SuccessState and LoadingState templates.",
     when: "Use whenever a view has no data, failed, or finished — always offer a next step.",
-    a11y: ["ErrorState uses `role=\"alert\"`; success/loading use `role=\"status\"`."],
+    a11y: ['ErrorState uses `role="alert"`; success/loading use `role="status"`.'],
   },
   // ───────────────────────── Data display ─────────────────────────
   {
     name: "card",
     title: "Card",
     category: "data-display",
-    description: "Composable content container: header, title, description, action, media, content, footer and stretched link.",
+    description:
+      "Composable content container: header, title, description, action, media, content, footer and stretched link.",
     when: "Use to group related content and for listing items.",
-    a11y: ["For clickable cards use one CardLink (stretched) so the card has a single, named link."],
+    a11y: [
+      "For clickable cards use one CardLink (stretched) so the card has a single, named link.",
+    ],
   },
   {
     name: "badge",
@@ -637,7 +714,7 @@ export const components: ComponentMeta[] = [
     category: "data-display",
     description: "Categorization label (optionally removable) and selectable Chip.",
     when: "Use Tag for applied filters/keywords and Chip for quick filter toggles.",
-    a11y: ["Remove buttons are labelled (\"Remove Vegan\"); Chip uses `aria-pressed`."],
+    a11y: ['Remove buttons are labelled ("Remove Vegan"); Chip uses `aria-pressed`.'],
   },
   {
     name: "avatar",
@@ -645,25 +722,29 @@ export const components: ComponentMeta[] = [
     category: "data-display",
     description: "Image with initials fallback, presence status and AvatarGroup overflow.",
     when: "Use for people, businesses and brands.",
-    a11y: ["Named via `name`; the `+n` overflow is announced (\"3 more\")."],
+    a11y: ['Named via `name`; the `+n` overflow is announced ("3 more").'],
   },
   {
     name: "table",
     title: "Table",
     category: "data-display",
-    description: "Semantic table primitives with sortable headers, density-aware cells and stacked mobile layout.",
+    description:
+      "Semantic table primitives with sortable headers, density-aware cells and stacked mobile layout.",
     when: "Use for static or server-rendered tabular data.",
     a11y: ["Sortable headers expose `aria-sort`; scrollable tables are focusable, named regions."],
-    responsive: "`responsive=\"stack\"` turns rows into labelled cards below `md`.",
+    responsive: '`responsive="stack"` turns rows into labelled cards below `md`.',
   },
   {
     name: "data-table",
     title: "DataTable",
     category: "data-display",
-    description: "Sorting, search, filtering, pagination, row selection, bulk actions, column visibility, loading and empty states. DataGrid adds cell navigation.",
+    description:
+      "Sorting, search, filtering, pagination, row selection, bulk actions, column visibility, loading and empty states. DataGrid adds cell navigation.",
     when: "Use for admin lists and dashboards; `manual` mode for server-side data.",
     avoid: "For very large datasets (10k+ rows) add virtualization or server paging.",
-    a11y: ["Selection checkboxes are labelled; bulk-action bar is a status region; DataGrid supports arrow-key cell navigation."],
+    a11y: [
+      "Selection checkboxes are labelled; bulk-action bar is a status region; DataGrid supports arrow-key cell navigation.",
+    ],
     keyboard: [["← → ↑ ↓ (DataGrid)", "Move between cells"]],
   },
   {
@@ -680,7 +761,9 @@ export const components: ComponentMeta[] = [
     category: "data-display",
     description: "Key figures with trend (Stat, StatCard, StatGroup, Metric).",
     when: "Use for dashboard KPIs.",
-    a11y: ["Rendered as description lists; trends use icon + text, not color alone; tabular figures."],
+    a11y: [
+      "Rendered as description lists; trends use icon + text, not color alone; tabular figures.",
+    ],
   },
   {
     name: "timeline",
@@ -722,7 +805,7 @@ export const components: ComponentMeta[] = [
     title: "Collapsible",
     category: "data-display",
     description: "A single show/hide region.",
-    when: "Use for \"show more\" sections and advanced options.",
+    when: 'Use for "show more" sections and advanced options.',
     a11y: ["Trigger exposes `aria-expanded` and `aria-controls`."],
   },
   {
@@ -732,7 +815,10 @@ export const components: ComponentMeta[] = [
     description: "Switch between related views (line, pills, enclosed; horizontal or vertical).",
     when: "Use for peer views of the same object.",
     avoid: "Do not use tabs for sequential steps (use Stepper).",
-    a11y: ["ARIA tabs with automatic or manual activation.", "Tab `value`s are used to build element ids — use slugs without spaces."],
+    a11y: [
+      "ARIA tabs with automatic or manual activation.",
+      "Tab `value`s are used to build element ids — use slugs without spaces.",
+    ],
     keyboard: [
       ["← / →", "Previous / next tab (mirrored in RTL)"],
       ["Home / End", "First / last tab"],
@@ -746,7 +832,9 @@ export const components: ComponentMeta[] = [
     description: "Scroll-snap carousel with controls, dots and pausable autoplay.",
     when: "Use for galleries and featured content on small screens.",
     avoid: "Avoid hiding important content in auto-rotating carousels.",
-    a11y: ["Swipe is optional (prev/next buttons); autoplay pauses on hover, focus and reduced motion and has a pause button."],
+    a11y: [
+      "Swipe is optional (prev/next buttons); autoplay pauses on hover, focus and reduced motion and has a pause button.",
+    ],
     keyboard: [["← / →", "Previous / next slide"]],
   },
   // ───────────────────────── Media ─────────────────────────
@@ -755,18 +843,25 @@ export const components: ComponentMeta[] = [
     title: "Image",
     category: "media",
     primary: "Image",
-    description: "Image (reserved ratio, lazy, fallback), ImageGallery, Lightbox, Video (captions) and Audio (transcript).",
+    description:
+      "Image (reserved ratio, lazy, fallback), ImageGallery, Lightbox, Video (captions) and Audio (transcript).",
     when: "Use for all content media.",
-    a11y: ["`alt` is required (empty for decorative).", "Video accepts caption tracks; Audio can link a transcript; Lightbox supports arrow keys."],
+    a11y: [
+      "`alt` is required (empty for decorative).",
+      "Video accepts caption tracks; Audio can link a transcript; Lightbox supports arrow keys.",
+    ],
   },
   // ───────────────────────── Command ─────────────────────────
   {
     name: "command",
     title: "Command",
     category: "command",
-    description: "Keyboard-first command palette with fuzzy search, groups, shortcuts, async loading and CommandDialog (⌘K).",
+    description:
+      "Keyboard-first command palette with fuzzy search, groups, shortcuts, async loading and CommandDialog (⌘K).",
     when: "Use for global search, quick actions and power-user navigation.",
-    a11y: ["Input is a combobox with `aria-activedescendant`; groups are labelled; empty/loading states are announced."],
+    a11y: [
+      "Input is a combobox with `aria-activedescendant`; groups are labelled; empty/loading states are announced.",
+    ],
     keyboard: [
       ["⌘K / Ctrl+K", "Open CommandDialog"],
       ["↑ / ↓", "Move"],
@@ -787,7 +882,8 @@ export const components: ComponentMeta[] = [
     name: "business-card",
     title: "BusinessCard",
     category: "patterns",
-    description: "Generic listing card for businesses and places, with PlaceCard, RestaurantCard, HotelCard and ServiceCard presets.",
+    description:
+      "Generic listing card for businesses and places, with PlaceCard, RestaurantCard, HotelCard and ServiceCard presets.",
     when: "Use in directories, local discovery and search results.",
     a11y: ["One stretched link per card; rating, price level and status are announced as text."],
   },
@@ -803,7 +899,8 @@ export const components: ComponentMeta[] = [
     name: "article-card",
     title: "ArticleCard",
     category: "patterns",
-    description: "Editorial card with image, category, author, date and reading time (vertical, horizontal, featured).",
+    description:
+      "Editorial card with image, category, author, date and reading time (vertical, horizontal, featured).",
     when: "Use for blogs, news and guides.",
     a11y: ["Rendered as `<article>` with `<time dateTime>`."],
   },
@@ -829,7 +926,7 @@ export const components: ComponentMeta[] = [
     category: "patterns",
     description: "Customer review with rating, expandable text and footer (owner reply).",
     when: "Use on business, product and service pages.",
-    a11y: ["\"Read more\" is a button with `aria-expanded`."],
+    a11y: ['"Read more" is a button with `aria-expanded`.'],
   },
   {
     name: "category-card",
@@ -845,16 +942,19 @@ export const components: ComponentMeta[] = [
     category: "patterns",
     description: "Interactive Rating (radio group) and read-only ReviewStars with fractional fill.",
     when: "Use for reviews and feedback.",
-    a11y: ["Rating is a native radio group; ReviewStars is announced as \"4.5 out of 5 stars\"."],
+    a11y: ['Rating is a native radio group; ReviewStars is announced as "4.5 out of 5 stars".'],
     keyboard: [["← / →", "Change rating"]],
   },
   {
     name: "price",
     title: "Price",
     category: "patterns",
-    description: "Locale-aware Price (discounts, periods), PriceRange, PriceLevel ($$) and Currency.",
+    description:
+      "Locale-aware Price (discounts, periods), PriceRange, PriceLevel ($$) and Currency.",
     when: "Use anywhere money is shown.",
-    a11y: ["Previous prices have hidden labels; PriceLevel has a text alternative; tabular figures."],
+    a11y: [
+      "Previous prices have hidden labels; PriceLevel has a text alternative; tabular figures.",
+    ],
   },
   {
     name: "location",
@@ -868,15 +968,16 @@ export const components: ComponentMeta[] = [
     name: "opening-hours",
     title: "OpeningHours",
     category: "patterns",
-    description: "Weekly hours table and live OpenStatus (\"Open · closes 6 PM\"), overnight-aware.",
+    description: 'Weekly hours table and live OpenStatus ("Open · closes 6 PM"), overnight-aware.',
     when: "Use on business pages and cards.",
-    a11y: ["Status uses a dot plus text; today is marked with `aria-current=\"date\"`."],
+    a11y: ['Status uses a dot plus text; today is marked with `aria-current="date"`.'],
   },
   {
     name: "filter-panel",
     title: "FilterPanel",
     category: "patterns",
-    description: "Sidebar filters on desktop and a sheet on mobile from the same children; FilterSection and FilterChips.",
+    description:
+      "Sidebar filters on desktop and a sheet on mobile from the same children; FilterSection and FilterChips.",
     when: "Use for search and listing pages.",
     a11y: ["Applied filters are removable tags in a labelled group."],
     responsive: "Below `lg` filters open in a bottom sheet with an active-count badge.",
@@ -885,7 +986,8 @@ export const components: ComponentMeta[] = [
     name: "search-result",
     title: "SearchResult",
     category: "patterns",
-    description: "Search hit with highlighted terms and SearchResults container with announced summary.",
+    description:
+      "Search hit with highlighted terms and SearchResults container with announced summary.",
     when: "Use for site search and directory results.",
     a11y: ["The results summary is a status region so counts are announced."],
   },
@@ -893,16 +995,20 @@ export const components: ComponentMeta[] = [
     name: "map-placeholder",
     title: "MapPlaceholder",
     category: "patterns",
-    description: "Dependency-free map stand-in with accessible pins, plus MapPanel list/map layout.",
+    description:
+      "Dependency-free map stand-in with accessible pins, plus MapPanel list/map layout.",
     when: "Use before integrating a map provider, or as a lightweight static map.",
-    a11y: ["Pins are labelled buttons; the region has a descriptive label. Always offer a list alternative."],
+    a11y: [
+      "Pins are labelled buttons; the region has a descriptive label. Always offer a list alternative.",
+    ],
     responsive: "MapPanel stacks the map above the list on mobile.",
   },
   {
     name: "lead-form",
     title: "LeadForm",
     category: "patterns",
-    description: "Contact/quote form with validation and success state, plus ClaimBusiness call-to-action.",
+    description:
+      "Contact/quote form with validation and success state, plus ClaimBusiness call-to-action.",
     when: "Use for lead generation and business claiming flows.",
     a11y: ["Visible labels, autocomplete hints, error summary and consent checkbox."],
   },
@@ -921,13 +1027,13 @@ export const components: ComponentMeta[] = [
     category: "theming",
     description: "Button switching between light and dark mode via UIProvider.",
     when: "Use in headers and settings.",
-    a11y: ["Label describes the action (\"Switch to dark mode\")."],
+    a11y: ['Label describes the action ("Switch to dark mode").'],
   },
   {
     name: "icon",
     title: "Icon",
     category: "theming",
-    description: "Dynamic `<Icon name=\"search\" />` and `createIcon` for custom glyphs.",
+    description: 'Dynamic `<Icon name="search" />` and `createIcon` for custom glyphs.',
     when: "Use for data-driven icons; import icons directly for smallest bundles.",
     a11y: ["Decorative by default; pass `title` or `aria-label` for meaningful icons."],
   },

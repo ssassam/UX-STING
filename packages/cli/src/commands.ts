@@ -1,6 +1,15 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
-import { CONFIG_FILE, defaultConfig, readConfig, readLock, writeConfig, writeLock, type Config, type Lock } from "./config.js";
+import {
+  CONFIG_FILE,
+  defaultConfig,
+  readConfig,
+  readLock,
+  writeConfig,
+  writeLock,
+  type Config,
+  type Lock,
+} from "./config.js";
 import { detectPackageManager, install, installCommand, missingDependencies } from "./install.js";
 import { bold, dim, green, log, yellow } from "./log.js";
 import { loadRegistry, resolveItems, type RegistryItem } from "./registry.js";
@@ -14,7 +23,14 @@ export interface CommonOptions {
 }
 
 /** Packages every project needs, independent of the components added. */
-const BASE_PACKAGES = ["@unified-ui/tokens", "@unified-ui/themes", "@unified-ui/utils", "@unified-ui/hooks", "@unified-ui/primitives", "@unified-ui/icons"];
+const BASE_PACKAGES = [
+  "@unified-ui/tokens",
+  "@unified-ui/themes",
+  "@unified-ui/utils",
+  "@unified-ui/hooks",
+  "@unified-ui/primitives",
+  "@unified-ui/icons",
+];
 
 const CSS_MARKER = "/* unified-ui */";
 
@@ -31,9 +47,12 @@ function cssImports(config: Config): string {
   ].join("\n");
 }
 
-export async function init(options: CommonOptions & { dir?: string; css?: string; force?: boolean }) {
+export async function init(
+  options: CommonOptions & { dir?: string; css?: string; force?: boolean },
+) {
   const { cwd } = options;
-  if (!existsSync(join(cwd, "package.json"))) throw new Error("No package.json found. Run this inside your project.");
+  if (!existsSync(join(cwd, "package.json")))
+    throw new Error("No package.json found. Run this inside your project.");
   const existing = readConfig(cwd);
   if (existing && !options.force) {
     log.warn(`${CONFIG_FILE} already exists — use --force to re-initialise.`);
@@ -47,7 +66,12 @@ export async function init(options: CommonOptions & { dir?: string; css?: string
   writeConfig(cwd, config);
   log.success(`Wrote ${CONFIG_FILE} ${dim(`(components → ${config.dir})`)}`);
 
-  const copied = await add(["provider", "styles"], { ...options, install: false, silentInstall: true, silentHeader: true });
+  const copied = await add(["provider", "styles"], {
+    ...options,
+    install: false,
+    silentInstall: true,
+    silentHeader: true,
+  });
 
   if (config.css && existsSync(join(cwd, config.css))) {
     const cssFile = join(cwd, config.css);
@@ -64,23 +88,32 @@ export async function init(options: CommonOptions & { dir?: string; css?: string
       log.success(`Added unified-ui styles to ${config.css}`);
     }
   } else {
-    log.warn(`No global stylesheet found. Add these lines to your CSS entry (after @import "tailwindcss"):\n${cssImports(config)}`);
+    log.warn(
+      `No global stylesheet found. Add these lines to your CSS entry (after @import "tailwindcss"):\n${cssImports(config)}`,
+    );
   }
 
   const deps = [...new Set([...missingDependencies(cwd, BASE_PACKAGES), ...copied.dependencies])];
   installOrPrint(cwd, deps, options.install);
-  log.info(`\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (import from "./${config.dir}/provider") and run ${green("npx unified-ui add button")}.`);
+  log.info(
+    `\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (import from "./${config.dir}/provider") and run ${green("npx unified-ui add button")}.`,
+  );
   return config;
 }
 
 function installOrPrint(cwd: string, deps: string[], shouldInstall = true) {
   if (!deps.length) return;
   if (!shouldInstall) {
-    log.info(`Install dependencies:\n  ${installCommand(detectPackageManager(cwd), deps).join(" ")}`);
+    log.info(
+      `Install dependencies:\n  ${installCommand(detectPackageManager(cwd), deps).join(" ")}`,
+    );
     return;
   }
   log.info(dim(`Installing ${deps.join(", ")}…`));
-  if (!install(cwd, deps)) log.warn(`Install failed. Run manually:\n  ${installCommand(detectPackageManager(cwd), deps).join(" ")}`);
+  if (!install(cwd, deps))
+    log.warn(
+      `Install failed. Run manually:\n  ${installCommand(detectPackageManager(cwd), deps).join(" ")}`,
+    );
 }
 
 export interface AddOptions extends CommonOptions {
@@ -108,7 +141,8 @@ export async function add(names: string[], options: AddOptions): Promise<AddResu
   const { cwd } = options;
   const config = readConfig(cwd);
   if (!config) throw new Error(`Missing ${CONFIG_FILE}. Run \`npx unified-ui init\` first.`);
-  if (!names.length) throw new Error("Specify at least one component, e.g. `unified-ui add button`.");
+  if (!names.length)
+    throw new Error("Specify at least one component, e.g. `unified-ui add button`.");
   const registry = await loadRegistry(options.registry ?? config.registry);
   const items = resolveItems(registry, names);
   const lock = readLock(cwd);
@@ -147,11 +181,20 @@ export async function add(names: string[], options: AddOptions): Promise<AddResu
   if (!options.dryRun) writeLock(cwd, lock);
 
   const requested = items.filter((i) => names.includes(i.name));
-  if (!options.silentHeader) log.info(bold(`${options.dryRun ? "Would add" : "Added"} ${requested.map((i) => i.name).join(", ")}`) + dim(` (+${items.length - requested.length} dependencies)`));
+  if (!options.silentHeader)
+    log.info(
+      bold(`${options.dryRun ? "Would add" : "Added"} ${requested.map((i) => i.name).join(", ")}`) +
+        dim(` (+${items.length - requested.length} dependencies)`),
+    );
   for (const f of result.written) log.success(dim(f));
-  for (const f of result.skipped) log.warn(`${f} ${yellow("has local changes — skipped (use --overwrite or `unified-ui diff`)")}`);
-  if (result.unchanged.length && !options.silentHeader) log.info(dim(`${result.unchanged.length} file(s) already up to date`));
-  if (!options.dryRun && !options.silentInstall) installOrPrint(cwd, result.dependencies, options.install);
+  for (const f of result.skipped)
+    log.warn(
+      `${f} ${yellow("has local changes — skipped (use --overwrite or `unified-ui diff`)")}`,
+    );
+  if (result.unchanged.length && !options.silentHeader)
+    log.info(dim(`${result.unchanged.length} file(s) already up to date`));
+  if (!options.dryRun && !options.silentInstall)
+    installOrPrint(cwd, result.dependencies, options.install);
   return result;
 }
 
@@ -164,7 +207,8 @@ export async function list(options: CommonOptions) {
   }
   for (const [category, items] of groups) {
     log.info(`\n${bold(category)}`);
-    for (const item of items) log.info(`  ${green(item.name.padEnd(20))} ${dim(item.description ?? "")}`);
+    for (const item of items)
+      log.info(`  ${green(item.name.padEnd(20))} ${dim(item.description ?? "")}`);
   }
   return registry.items.filter((i) => i.type === "component").map((i) => i.name);
 }
@@ -195,12 +239,18 @@ export async function diff(names: string[], options: CommonOptions): Promise<Dif
       const current = readFileSync(target, "utf8");
       const upstream = transformSource(file.content, config);
       if (current === upstream) entries.push({ file: rel, status: "clean" });
-      else if (lock[rel] && hash(current) === lock[rel].hash) entries.push({ file: rel, status: "outdated" });
+      else if (lock[rel] && hash(current) === lock[rel].hash)
+        entries.push({ file: rel, status: "outdated" });
       else entries.push({ file: rel, status: "modified" });
     }
   }
   for (const e of entries.filter((e) => e.status !== "clean")) {
-    const label = e.status === "outdated" ? green("update available") : e.status === "modified" ? yellow("locally modified") : dim("missing");
+    const label =
+      e.status === "outdated"
+        ? green("update available")
+        : e.status === "modified"
+          ? yellow("locally modified")
+          : dim("missing");
     log.info(`${label.padEnd(28)} ${e.file}`);
   }
   if (entries.every((e) => e.status === "clean")) log.success("Everything is up to date.");

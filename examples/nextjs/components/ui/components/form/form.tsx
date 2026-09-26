@@ -52,7 +52,11 @@ const FormStateContext = createContext<FormStateValue | null>(null);
 /** Access submit state (e.g. to show a loading button). */
 export function useFormState() {
   const ctx = useContext(FormStateContext);
-  return { submitting: ctx?.submitting ?? false, submitCount: ctx?.submitCount ?? 0, errorCount: ctx?.errorCount ?? 0 };
+  return {
+    submitting: ctx?.submitting ?? false,
+    submitCount: ctx?.submitCount ?? 0,
+    errorCount: ctx?.errorCount ?? 0,
+  };
 }
 
 function readValues(form: HTMLFormElement): FormValues {
@@ -80,7 +84,16 @@ function collectNativeErrors(form: HTMLFormElement): FormErrors {
  * submit, focus moves to the `FormErrorSummary` (or the first invalid field).
  */
 export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
-  { errors: externalErrors, validate, onSubmit, validationBehavior = "aria", className, children, onBlur, ...props },
+  {
+    errors: externalErrors,
+    validate,
+    onSubmit,
+    validationBehavior = "aria",
+    className,
+    children,
+    onBlur,
+    ...props
+  },
   ref,
 ) {
   const [internalErrors, setInternalErrors] = useState<FormErrors>({});
@@ -113,7 +126,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
         return;
       }
       const firstName = Object.keys(errs).find((k) => errs[k]);
-      const el = firstName ? formRef.current?.querySelector<HTMLElement>(`[name="${CSS.escape(firstName)}"]`) : null;
+      const el = firstName
+        ? formRef.current?.querySelector<HTMLElement>(`[name="${CSS.escape(firstName)}"]`)
+        : null;
       el?.focus();
     });
   };
@@ -155,12 +170,22 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
     });
   };
 
-  const formContext = useMemo<FormContextValue>(() => ({ errors, registerField }), [errors, registerField]);
+  const formContext = useMemo<FormContextValue>(
+    () => ({ errors, registerField }),
+    [errors, registerField],
+  );
 
   return (
     <FormContext.Provider value={formContext}>
       <FormStateContext.Provider
-        value={{ submitting, submitCount, errorCount, summaryRef, fields: fieldsRef.current, errors }}
+        value={{
+          submitting,
+          submitCount,
+          errorCount,
+          summaryRef,
+          fields: fieldsRef.current,
+          errors,
+        }}
       >
         <form
           ref={(node) => {
@@ -186,61 +211,65 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
  * Focusable summary of all errors after a failed submit, linking to each
  * invalid field. Inline field errors remain. Place it at the top of the form.
  */
-export const FormErrorSummary = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { title?: ReactNode }>(
-  function FormErrorSummary({ title, className, ...props }, ref) {
-    const state = useContext(FormStateContext);
-    const messages = useMessages();
-    const entries = Object.entries(state?.errors ?? {}).filter(([, v]) => Boolean(v));
-    const localRef = useRef<HTMLDivElement | null>(null);
+export const FormErrorSummary = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { title?: ReactNode }
+>(function FormErrorSummary({ title, className, ...props }, ref) {
+  const state = useContext(FormStateContext);
+  const messages = useMessages();
+  const entries = Object.entries(state?.errors ?? {}).filter(([, v]) => Boolean(v));
+  const localRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-      if (!state) return;
-      state.summaryRef.current = entries.length && state.submitCount > 0 ? localRef.current : null;
-    });
+  useEffect(() => {
+    if (!state) return;
+    state.summaryRef.current = entries.length && state.submitCount > 0 ? localRef.current : null;
+  });
 
-    if (!state || state.submitCount === 0 || entries.length === 0) return null;
-    return (
-      <div
-        ref={(node) => {
-          localRef.current = node;
-          if (typeof ref === "function") ref(node);
-          else if (ref) ref.current = node;
-        }}
-        tabIndex={-1}
-        role="alert"
-        aria-labelledby="form-error-summary-title"
-        className={cn(
-          "rounded-lg border border-destructive/40 bg-destructive-subtle p-4 text-sm text-destructive-subtle-foreground outline-none focus-visible:ring-2 focus-visible:ring-destructive",
-          className,
-        )}
-        {...props}
+  if (!state || state.submitCount === 0 || entries.length === 0) return null;
+  return (
+    <div
+      ref={(node) => {
+        localRef.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      }}
+      tabIndex={-1}
+      role="alert"
+      aria-labelledby="form-error-summary-title"
+      className={cn(
+        "rounded-lg border border-destructive/40 bg-destructive-subtle p-4 text-sm text-destructive-subtle-foreground outline-none focus-visible:ring-2 focus-visible:ring-destructive",
+        className,
+      )}
+      {...props}
+    >
+      <p
+        id="form-error-summary-title"
+        className="flex items-center gap-2 font-semibold [&_svg]:size-4"
       >
-        <p id="form-error-summary-title" className="flex items-center gap-2 font-semibold [&_svg]:size-4">
-          <AlertCircleIcon />
-          {title ?? messages.errorSummaryTitle(entries.length)}
-        </p>
-        <ul className="mt-2 grid list-disc gap-1 ps-9">
-          {entries.map(([name, message]) => {
-            const info = state.fields.get(name);
-            return (
-              <li key={name}>
-                <a
-                  href={info ? `#${info.id}` : undefined}
-                  className="underline underline-offset-2"
-                  onClick={(e) => {
-                    if (!info) return;
-                    e.preventDefault();
-                    document.getElementById(info.id)?.focus();
-                  }}
-                >
-                  {info?.label ? `${info.label}: ` : ""}
-                  {message}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  },
-);
+        <AlertCircleIcon />
+        {title ?? messages.errorSummaryTitle(entries.length)}
+      </p>
+      <ul className="mt-2 grid list-disc gap-1 ps-9">
+        {entries.map(([name, message]) => {
+          const info = state.fields.get(name);
+          return (
+            <li key={name}>
+              <a
+                href={info ? `#${info.id}` : undefined}
+                className="underline underline-offset-2"
+                onClick={(e) => {
+                  if (!info) return;
+                  e.preventDefault();
+                  document.getElementById(info.id)?.focus();
+                }}
+              >
+                {info?.label ? `${info.label}: ` : ""}
+                {message}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+});

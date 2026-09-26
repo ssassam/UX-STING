@@ -34,9 +34,12 @@ export function getOpeningStatus(periods: OpeningPeriod[], now: Date = new Date(
     if (close <= open) close += 24 * 60;
     if (p.day === day && minutes >= open && minutes < close) return { open: true, next: p.close };
     const yesterday = (day + 6) % 7;
-    if (p.day === yesterday && close > 24 * 60 && minutes < close - 24 * 60) return { open: true, next: p.close };
+    if (p.day === yesterday && close > 24 * 60 && minutes < close - 24 * 60)
+      return { open: true, next: p.close };
   }
-  const later = periods.filter((p) => p.day === day && toMin(p.open) > minutes).sort((a, b) => toMin(a.open) - toMin(b.open));
+  const later = periods
+    .filter((p) => p.day === day && toMin(p.open) > minutes)
+    .sort((a, b) => toMin(a.open) - toMin(b.open));
   return { open: false, next: later[0]?.open };
 }
 
@@ -53,7 +56,12 @@ function useNow(interval = 60_000) {
 export interface OpenStatusProps extends HTMLAttributes<HTMLSpanElement> {
   periods: OpeningPeriod[];
   /** Localized labels. */
-  labels?: { open?: string; closed?: string; closes?: (time: string) => string; opens?: (time: string) => string };
+  labels?: {
+    open?: string;
+    closed?: string;
+    closes?: (time: string) => string;
+    opens?: (time: string) => string;
+  };
 }
 
 /** "Open · closes 18:00" / "Closed · opens 09:00" with a status dot and text. */
@@ -64,15 +72,29 @@ export function OpenStatus({ periods, labels = {}, className, ...props }: OpenSt
   const status = getOpeningStatus(periods, now);
   const fmt = (t: string) => {
     const [h = 0, m = 0] = t.split(":").map(Number);
-    return new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }).format(new Date(2024, 0, 1, h, m));
+    return new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }).format(
+      new Date(2024, 0, 1, h, m),
+    );
   };
   return (
     <span className={cn("inline-block text-sm", className)} {...props}>
-      <span aria-hidden className={cn("me-1.5 inline-block size-2 rounded-full align-middle", status.open ? "bg-success" : "bg-destructive")} />
-      <span className={cn("font-medium", status.open ? "text-success" : "text-destructive")}>{status.open ? (labels.open ?? "Open") : (labels.closed ?? "Closed")}</span>
+      <span
+        aria-hidden
+        className={cn(
+          "me-1.5 inline-block size-2 rounded-full align-middle",
+          status.open ? "bg-success" : "bg-destructive",
+        )}
+      />
+      <span className={cn("font-medium", status.open ? "text-success" : "text-destructive")}>
+        {status.open ? (labels.open ?? "Open") : (labels.closed ?? "Closed")}
+      </span>
       {status.next ? (
         <span className="text-muted-foreground">
-          {" "}· {status.open ? (labels.closes ?? ((t) => `closes ${t}`))(fmt(status.next)) : (labels.opens ?? ((t) => `opens ${t}`))(fmt(status.next))}
+          {" "}
+          ·{" "}
+          {status.open
+            ? (labels.closes ?? ((t) => `closes ${t}`))(fmt(status.next))
+            : (labels.opens ?? ((t) => `opens ${t}`))(fmt(status.next))}
         </span>
       ) : null}
     </span>
@@ -86,7 +108,13 @@ export interface OpeningHoursProps extends HTMLAttributes<HTMLTableElement> {
 }
 
 /** Weekly hours table, localized day names, today highlighted. */
-export function OpeningHours({ periods, closedLabel = "Closed", caption = "Opening hours", className, ...props }: OpeningHoursProps) {
+export function OpeningHours({
+  periods,
+  closedLabel = "Closed",
+  caption = "Opening hours",
+  className,
+  ...props
+}: OpeningHoursProps) {
   const { locale } = useLocale();
   const now = useNow();
   const weekStart = getWeekStart(locale);
@@ -94,7 +122,9 @@ export function OpeningHours({ periods, closedLabel = "Closed", caption = "Openi
   const order = Array.from({ length: 7 }, (_, i) => (weekStart + i) % 7);
   const fmt = (t: string) => {
     const [h = 0, m = 0] = t.split(":").map(Number);
-    return new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }).format(new Date(2024, 0, 1, h, m));
+    return new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }).format(
+      new Date(2024, 0, 1, h, m),
+    );
   };
   return (
     <table className={cn("w-full text-sm", className)} {...props}>
@@ -104,12 +134,18 @@ export function OpeningHours({ periods, closedLabel = "Closed", caption = "Openi
           const today = now?.getDay() === day;
           const list = periods.filter((p) => p.day === day);
           return (
-            <tr key={day} aria-current={today ? "date" : undefined} className={cn("border-b border-border last:border-0", today && "font-semibold")}>
+            <tr
+              key={day}
+              aria-current={today ? "date" : undefined}
+              className={cn("border-b border-border last:border-0", today && "font-semibold")}
+            >
               <th scope="row" className="py-1.5 pe-4 text-start font-[inherit] capitalize">
                 {names[day]}
               </th>
               <td className="py-1.5 text-end tabular-nums text-muted-foreground">
-                {list.length ? list.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ") : closedLabel}
+                {list.length
+                  ? list.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ")
+                  : closedLabel}
               </td>
             </tr>
           );

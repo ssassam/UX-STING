@@ -21,7 +21,11 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(function Skele
       aria-hidden
       className={cn(
         "ui-skeleton",
-        shape === "circle" ? "rounded-full" : shape === "text" ? "h-4 w-full rounded-sm" : "rounded-md",
+        shape === "circle"
+          ? "rounded-full"
+          : shape === "text"
+            ? "h-4 w-full rounded-sm"
+            : "rounded-md",
         className,
       )}
       {...props}
@@ -34,7 +38,11 @@ export function SkeletonText({ lines = 3, className }: { lines?: number; classNa
   return (
     <div aria-hidden className={cn("grid gap-2", className)}>
       {Array.from({ length: lines }, (_, i) => (
-        <Skeleton key={i} shape="text" className={i === lines - 1 && lines > 1 ? "w-3/5" : undefined} />
+        <Skeleton
+          key={i}
+          shape="text"
+          className={i === lines - 1 && lines > 1 ? "w-3/5" : undefined}
+        />
       ))}
     </div>
   );

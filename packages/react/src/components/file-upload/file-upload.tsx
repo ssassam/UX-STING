@@ -43,7 +43,10 @@ function matchesAccept(file: File, accept?: string) {
   });
 }
 
-export function validateFiles(files: File[], { accept, maxSize, maxFiles }: Pick<DropzoneProps, "accept" | "maxSize" | "maxFiles">) {
+export function validateFiles(
+  files: File[],
+  { accept, maxSize, maxFiles }: Pick<DropzoneProps, "accept" | "maxSize" | "maxFiles">,
+) {
   const accepted: File[] = [];
   const rejected: FileRejection[] = [];
   for (const file of files) {
@@ -60,7 +63,22 @@ export function validateFiles(files: File[], { accept, maxSize, maxFiles }: Pick
  * with keyboard, screen readers and touch (drag is never required).
  */
 export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(function Dropzone(
-  { accept, multiple = true, maxSize, maxFiles, disabled, invalid, onFilesAccepted, onFilesRejected, label, description, name, id, className, children },
+  {
+    accept,
+    multiple = true,
+    maxSize,
+    maxFiles,
+    disabled,
+    invalid,
+    onFilesAccepted,
+    onFilesRejected,
+    label,
+    description,
+    name,
+    id,
+    className,
+    children,
+  },
   ref,
 ) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -71,7 +89,11 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(function Dropz
 
   const handle = (list: FileList | null) => {
     if (!list || disabled) return;
-    const { accepted, rejected } = validateFiles(Array.from(list), { accept, maxSize, maxFiles: multiple ? maxFiles : 1 });
+    const { accepted, rejected } = validateFiles(Array.from(list), {
+      accept,
+      maxSize,
+      maxFiles: multiple ? maxFiles : 1,
+    });
     if (accepted.length) onFilesAccepted?.(accepted);
     if (rejected.length) onFilesRejected?.(rejected);
   };
@@ -117,7 +139,9 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(function Dropz
         type="button"
         disabled={fieldProps.disabled}
         onClick={() => inputRef.current?.click()}
-        aria-describedby={cn(fieldProps["aria-describedby"], description ? descId : undefined) || undefined}
+        aria-describedby={
+          cn(fieldProps["aria-describedby"], description ? descId : undefined) || undefined
+        }
         className="mt-1 rounded-md text-sm font-medium text-primary underline-offset-4 outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring after:absolute after:inset-0"
         id={fieldProps.id}
       >
@@ -167,7 +191,11 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   { value: valueProp, defaultValue = [], onValueChange, onAdd, className, ...props },
   ref,
 ) {
-  const [items, setItems] = useControllableState({ value: valueProp, defaultValue, onChange: onValueChange });
+  const [items, setItems] = useControllableState({
+    value: valueProp,
+    defaultValue,
+    onChange: onValueChange,
+  });
   const { locale } = useLocale();
   const messages = useMessages();
   return (
@@ -175,7 +203,11 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
       <Dropzone
         {...props}
         onFilesAccepted={(files) => {
-          const added = files.map((file) => ({ id: `upload-${++uploadCounter}`, file, status: "pending" as const }));
+          const added = files.map((file) => ({
+            id: `upload-${++uploadCounter}`,
+            file,
+            status: "pending" as const,
+          }));
           setItems([...(props.multiple === false ? [] : items), ...added]);
           onAdd?.(added);
         }}
@@ -183,17 +215,26 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
       {items.length ? (
         <ul className="grid gap-2" aria-live="polite">
           {items.map((item) => (
-            <li key={item.id} className="flex items-center gap-3 rounded-lg border border-border bg-card p-3">
+            <li
+              key={item.id}
+              className="flex items-center gap-3 rounded-lg border border-border bg-card p-3"
+            >
               <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground [&_svg]:size-4">
                 <FileIcon />
               </span>
               <div className="grid min-w-0 flex-1 gap-1">
                 <div className="flex items-baseline justify-between gap-2">
                   <span className="truncate text-sm font-medium">{item.file.name}</span>
-                  <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{formatFileSize(item.file.size, locale)}</span>
+                  <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                    {formatFileSize(item.file.size, locale)}
+                  </span>
                 </div>
-                {item.status === "uploading" ? <Progress size="xs" value={item.progress ?? null} aria-label={item.file.name} /> : null}
-                {item.status === "error" ? <span className="text-xs font-medium text-destructive">{item.error}</span> : null}
+                {item.status === "uploading" ? (
+                  <Progress size="xs" value={item.progress ?? null} aria-label={item.file.name} />
+                ) : null}
+                {item.status === "error" ? (
+                  <span className="text-xs font-medium text-destructive">{item.error}</span>
+                ) : null}
               </div>
               <button
                 type="button"

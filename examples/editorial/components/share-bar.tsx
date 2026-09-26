@@ -9,13 +9,23 @@ export function ShareBar({ title }: { title: string }) {
   return (
     <ButtonGroup aria-label="Share this story">
       <Tooltip content="Copy link">
-        <IconButton aria-label="Copy link" variant="outline" size="sm" onClick={async () => { await navigator.clipboard?.writeText(window.location.href); toast.success("Link copied"); }}>
+        <IconButton
+          aria-label="Copy link"
+          variant="outline"
+          size="sm"
+          onClick={async () => {
+            await navigator.clipboard?.writeText(window.location.href);
+            toast.success("Link copied");
+          }}
+        >
           <CopyIcon />
         </IconButton>
       </Tooltip>
       <Tooltip content="Share by email">
         <IconButton asChild aria-label="Share by email" variant="outline" size="sm">
-          <a href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}><MailIcon /></a>
+          <a href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}>
+            <MailIcon />
+          </a>
         </IconButton>
       </Tooltip>
       <Tooltip content="More options">
@@ -23,7 +33,11 @@ export function ShareBar({ title }: { title: string }) {
           aria-label="More sharing options"
           variant="outline"
           size="sm"
-          onClick={() => (navigator.share ? navigator.share({ title, url: window.location.href }).catch(() => {}) : toast("Sharing is not supported on this device"))}
+          onClick={() =>
+            navigator.share
+              ? navigator.share({ title, url: window.location.href }).catch(() => {})
+              : toast("Sharing is not supported on this device")
+          }
         >
           <Share2Icon />
         </IconButton>

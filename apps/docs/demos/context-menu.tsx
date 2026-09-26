@@ -1,5 +1,11 @@
 "use client";
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "@unified-ui/react/context-menu";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from "@unified-ui/react/context-menu";
 
 export function Basic() {
   return (

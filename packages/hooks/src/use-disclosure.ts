@@ -9,7 +9,11 @@ export interface UseDisclosureOptions {
 }
 
 /** Open/close state for overlays, collapsibles and menus. */
-export function useDisclosure({ open, defaultOpen = false, onOpenChange }: UseDisclosureOptions = {}) {
+export function useDisclosure({
+  open,
+  defaultOpen = false,
+  onOpenChange,
+}: UseDisclosureOptions = {}) {
   const [isOpen, setOpen] = useControllableState({
     value: open,
     defaultValue: defaultOpen,

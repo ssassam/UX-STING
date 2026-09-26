@@ -69,30 +69,47 @@ export function createToaster() {
     emit();
   };
 
-  const variant = (v: ToastVariant) => (title: ReactNode, options?: Omit<ToastOptions, "variant">) =>
-    upsert(title, { ...options, variant: v });
+  const variant =
+    (v: ToastVariant) => (title: ReactNode, options?: Omit<ToastOptions, "variant">) =>
+      upsert(title, { ...options, variant: v });
 
-  const toast = Object.assign((title: ReactNode, options?: ToastOptions) => upsert(title, options), {
-    success: variant("success"),
-    error: variant("error"),
-    warning: variant("warning"),
-    info: variant("info"),
-    loading: (title: ReactNode, options?: Omit<ToastOptions, "variant">) =>
-      upsert(title, { duration: Infinity, ...options, variant: "loading" }),
-    /** Shows loading, then success/error when the promise settles. */
-    promise: <T,>(
-      promise: Promise<T>,
-      messages: { loading: ReactNode; success: ReactNode | ((value: T) => ReactNode); error: ReactNode | ((error: unknown) => ReactNode) },
-    ) => {
-      const id = upsert(messages.loading, { variant: "loading", duration: Infinity });
-      promise.then(
-        (value) => upsert(typeof messages.success === "function" ? messages.success(value) : messages.success, { id, variant: "success", duration: 5000 }),
-        (error) => upsert(typeof messages.error === "function" ? messages.error(error) : messages.error, { id, variant: "error", duration: 8000 }),
-      );
-      return promise;
+  const toast = Object.assign(
+    (title: ReactNode, options?: ToastOptions) => upsert(title, options),
+    {
+      success: variant("success"),
+      error: variant("error"),
+      warning: variant("warning"),
+      info: variant("info"),
+      loading: (title: ReactNode, options?: Omit<ToastOptions, "variant">) =>
+        upsert(title, { duration: Infinity, ...options, variant: "loading" }),
+      /** Shows loading, then success/error when the promise settles. */
+      promise: <T>(
+        promise: Promise<T>,
+        messages: {
+          loading: ReactNode;
+          success: ReactNode | ((value: T) => ReactNode);
+          error: ReactNode | ((error: unknown) => ReactNode);
+        },
+      ) => {
+        const id = upsert(messages.loading, { variant: "loading", duration: Infinity });
+        promise.then(
+          (value) =>
+            upsert(
+              typeof messages.success === "function" ? messages.success(value) : messages.success,
+              { id, variant: "success", duration: 5000 },
+            ),
+          (error) =>
+            upsert(typeof messages.error === "function" ? messages.error(error) : messages.error, {
+              id,
+              variant: "error",
+              duration: 8000,
+            }),
+        );
+        return promise;
+      },
+      dismiss,
     },
-    dismiss,
-  });
+  );
 
   return {
     toast,
