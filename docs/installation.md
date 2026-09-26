@@ -1,5 +1,7 @@
 # Installation
 
+> **Status:** the `@ux-sting/*` packages are not on npm yet. Until the first release, run the repo from source (see the README quick start) or copy components from `packages/react/src/components`.
+
 There are two ways to use UX-STING. Pick one per project — or mix them: install the package and copy only the components you want to customise.
 
 ## Option A — package (fastest)

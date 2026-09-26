@@ -2,8 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/wonderful-cori-26r2b1]
   pull_request:
+
+# Least privilege: CI only needs to read the code.
+permissions:
+  contents: read
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -26,6 +30,7 @@ jobs:
       - run: pnpm format:check
       - run: pnpm test
       - run: pnpm ux-audit
+      - run: pnpm audit --audit-level high
       - run: pnpm size
 
   apps:

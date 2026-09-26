@@ -6,6 +6,7 @@ import {
   formatShortcut,
   fuzzyScore,
   getDirection,
+  getThemeScript,
   getNextIndex,
   getPaginationRange,
   matchesShortcut,
@@ -102,5 +103,13 @@ describe("misc", () => {
     expect(getPaginationRange(1, 5)).toEqual([1, 2, 3, 4, 5]);
     expect(getPaginationRange(10, 20)).toEqual([1, "ellipsis", 9, 10, 11, "ellipsis", 20]);
     expect(getPaginationRange(1, 20)).toEqual([1, 2, 3, 4, 5, "ellipsis", 20]);
+  });
+});
+
+describe("getThemeScript", () => {
+  it("escapes values so they cannot close the script element", () => {
+    const js = getThemeScript("</script><script>alert(1)</script>");
+    expect(js).not.toContain("</script>");
+    expect(js).toContain("\\u003c/script>");
   });
 });

@@ -10,6 +10,25 @@ An accessible, themeable, tree-shakeable design system and React component libra
 - **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
 - **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
 
+## Quick start
+
+> **Status:** the `@ux-sting/*` packages are not published to npm yet, so `pnpm add` and `npx ux-sting` won't work until the first release. Today you can browse the [live demos](#showcase) or run everything from source.
+
+Run it locally (Node 20.9+ — `.nvmrc` pins 22 — and pnpm 10):
+
+```bash
+git clone https://github.com/ssassam/UX-STING.git
+cd UX-STING
+corepack enable            # provides the pinned pnpm version
+pnpm install
+pnpm build                 # builds the packages
+pnpm --filter @ux-sting/example-travel dev   # or example-car-rental, -shop, -watch, -crypto
+```
+
+Other useful commands: `pnpm --filter @ux-sting/docs dev` (documentation site), `pnpm test`, `pnpm check` (build + typecheck + lint + test).
+
+### Using the packages (after the first npm release)
+
 ```bash
 pnpm add @ux-sting/react
 ```
@@ -27,6 +46,8 @@ import { Button } from "@ux-sting/react/button";
   <Button loading>Save</Button>
 </UIProvider>
 ```
+
+Until then, copy components from `packages/react/src/components/<name>` or add the repo as a Git dependency in a pnpm workspace.
 
 ## Repository
 

@@ -2,3 +2,10 @@ packages:
   - "apps/*"
   - "packages/*"
   - "examples/*"
+
+# pnpm 10 blocks dependency install scripts by default (supply-chain safety).
+# These two only fetch optional native helpers that nothing here needs, so they
+# are skipped explicitly instead of showing a warning on every install.
+ignoredBuiltDependencies:
+  - "@parcel/watcher"
+  - esbuild

@@ -34,5 +34,7 @@ export function getThemeScript(
   storageKey = "ui-color-mode",
   fallback: ColorMode = "light",
 ): string {
-  return `(function(){try{var m=localStorage.getItem(${JSON.stringify(storageKey)})||${JSON.stringify(fallback)};var d=document.documentElement;d.dataset.theme=m;var dark=m==="dark"||(m==="system"&&matchMedia("(prefers-color-scheme: dark)").matches);d.style.colorScheme=dark?"dark":"light";}catch(e){}})();`;
+  // Escape "<" so a value can never close the surrounding <script> element.
+  const js = (v: string) => JSON.stringify(v).replace(/</g, "\\u003c");
+  return `(function(){try{var m=localStorage.getItem(${js(storageKey)})||${js(fallback)};var d=document.documentElement;d.dataset.theme=m;var dark=m==="dark"||(m==="system"&&matchMedia("(prefers-color-scheme: dark)").matches);d.style.colorScheme=dark?"dark":"light";}catch(e){}})();`;
 }
