@@ -270,3 +270,18 @@ describe("patterns", () => {
     expect(onRemove).toHaveBeenCalledWith("open");
   });
 });
+
+describe("asChild with icons", () => {
+  it("MobileNavigationItem renders the icon inside the child link", () => {
+    render(
+      <MobileNavigation>
+        <MobileNavigationItem asChild icon={<svg data-testid="icon" />} active>
+          <a href="/saved">Saved</a>
+        </MobileNavigationItem>
+      </MobileNavigation>,
+    );
+    const link = screen.getByRole("link", { name: "Saved" });
+    expect(link).toHaveAttribute("aria-current", "page");
+    expect(link).toContainElement(screen.getByTestId("icon"));
+  });
+});

@@ -7407,9 +7407,9 @@
         },
         {
           "name": "headingLevel",
-          "type": "2 | 3 | 4",
+          "type": "1 | 2 | 3 | 4",
           "required": false,
-          "description": "Heading level for the title (keep the document outline logical)."
+          "description": "Heading level for the title (keep the document outline logical; use 1 for full-page states)."
         },
         {
           "name": "icon",
@@ -7446,9 +7446,9 @@
         },
         {
           "name": "headingLevel",
-          "type": "2 | 3 | 4",
+          "type": "1 | 2 | 3 | 4",
           "required": false,
-          "description": "Heading level for the title (keep the document outline logical)."
+          "description": "Heading level for the title (keep the document outline logical; use 1 for full-page states)."
         },
         {
           "name": "icon",
@@ -7484,9 +7484,9 @@
         },
         {
           "name": "headingLevel",
-          "type": "2 | 3 | 4",
+          "type": "1 | 2 | 3 | 4",
           "required": false,
-          "description": "Heading level for the title (keep the document outline logical)."
+          "description": "Heading level for the title (keep the document outline logical; use 1 for full-page states)."
         },
         {
           "name": "icon",
@@ -7518,9 +7518,9 @@
         },
         {
           "name": "headingLevel",
-          "type": "2 | 3 | 4",
+          "type": "1 | 2 | 3 | 4",
           "required": false,
-          "description": "Heading level for the title (keep the document outline logical)."
+          "description": "Heading level for the title (keep the document outline logical; use 1 for full-page states)."
         },
         {
           "name": "icon",
@@ -10868,6 +10868,13 @@
           "name": "description",
           "type": "string",
           "required": false
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "3",
+          "description": "Heading level of the title (keep the outline logical)."
         },
         {
           "name": "meta",

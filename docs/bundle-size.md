@@ -26,7 +26,7 @@
 | `@unified-ui/react/drawer` | 72.2 kB | 24.1 kB |
 | `@unified-ui/react/dialog` | 71.4 kB | 23.8 kB |
 | `@unified-ui/react/sheet` | 71.5 kB | 23.8 kB |
-| `@unified-ui/react/lead-form` | 70.5 kB | 23.3 kB |
+| `@unified-ui/react/lead-form` | 70.6 kB | 23.3 kB |
 | `@unified-ui/react/navigation-menu` | 66.1 kB | 21.3 kB |
 | `@unified-ui/react/radio-group` | 58.9 kB | 19.3 kB |
 | `@unified-ui/react/slider` | 56.1 kB | 19.0 kB |
@@ -36,15 +36,15 @@
 | `@unified-ui/react/checkbox` | 47.3 kB | 15.8 kB |
 | `@unified-ui/react/scroll-area` | 49.9 kB | 15.8 kB |
 | `@unified-ui/react/switch` | 41.9 kB | 13.9 kB |
-| `@unified-ui/react/business-card` | 41.5 kB | 13.9 kB |
+| `@unified-ui/react/business-card` | 41.6 kB | 13.9 kB |
 | `@unified-ui/react/collapsible` | 41.1 kB | 13.4 kB |
-| `@unified-ui/react/file-upload` | 38.0 kB | 12.9 kB |
 | `@unified-ui/react/product-card` | 38.0 kB | 12.9 kB |
+| `@unified-ui/react/file-upload` | 38.0 kB | 12.9 kB |
 | `@unified-ui/react/toast` | 37.0 kB | 12.7 kB |
 | `@unified-ui/react/calendar` | 38.4 kB | 12.7 kB |
 | `@unified-ui/react/search-input` | 36.6 kB | 12.4 kB |
 | `@unified-ui/react/review-card` | 36.2 kB | 12.3 kB |
-| `@unified-ui/react/event-card` | 36.1 kB | 12.1 kB |
+| `@unified-ui/react/event-card` | 36.2 kB | 12.2 kB |
 | `@unified-ui/react/number-input` | 35.6 kB | 12.0 kB |
 | `@unified-ui/react/article-card` | 36.3 kB | 11.9 kB |
 | `@unified-ui/react/field` | 35.8 kB | 11.8 kB |
@@ -54,15 +54,15 @@
 | `@unified-ui/react/alert` | 33.6 kB | 11.2 kB |
 | `@unified-ui/react/password-input` | 33.7 kB | 11.2 kB |
 | `@unified-ui/react/form` | 32.7 kB | 11.2 kB |
-| `@unified-ui/react/profile-card` | 33.9 kB | 11.0 kB |
+| `@unified-ui/react/profile-card` | 34.0 kB | 11.0 kB |
 | `@unified-ui/react/rating` | 32.4 kB | 11.0 kB |
+| `@unified-ui/react/stat` | 33.1 kB | 10.8 kB |
 | `@unified-ui/react/resizable` | 32.1 kB | 10.8 kB |
-| `@unified-ui/react/stat` | 33.0 kB | 10.7 kB |
 | `@unified-ui/react/tag` | 31.9 kB | 10.5 kB |
 | `@unified-ui/react/opening-hours` | 31.5 kB | 10.5 kB |
 | `@unified-ui/react/typography` | 32.2 kB | 10.4 kB |
 | `@unified-ui/react/button` | 32.1 kB | 10.4 kB |
-| `@unified-ui/react/category-card` | 32.0 kB | 10.2 kB |
+| `@unified-ui/react/category-card` | 32.1 kB | 10.2 kB |
 | `@unified-ui/react/state` | 30.8 kB | 10.1 kB |
 | `@unified-ui/react/color-mode-toggle` | 30.4 kB | 10.1 kB |
 | `@unified-ui/react/table` | 31.2 kB | 10.0 kB |
@@ -71,7 +71,7 @@
 | `@unified-ui/react/price` | 30.5 kB | 9.9 kB |
 | `@unified-ui/react/breadcrumb` | 30.3 kB | 9.8 kB |
 | `@unified-ui/react/map-placeholder` | 29.9 kB | 9.8 kB |
-| `@unified-ui/react/card` | 30.6 kB | 9.8 kB |
+| `@unified-ui/react/card` | 30.7 kB | 9.8 kB |
 | `@unified-ui/react/textarea` | 29.9 kB | 9.7 kB |
 | `@unified-ui/react/premium-badge` | 29.7 kB | 9.7 kB |
 | `@unified-ui/react/progress` | 29.9 kB | 9.7 kB |
@@ -103,5 +103,5 @@
 
 | File | Raw | Gzipped |
 | --- | ---: | ---: |
-| `@unified-ui/react/styles.css` | 146.6 kB | 18.4 kB |
-| `@unified-ui/react/components.css` | 7.8 kB | 2.1 kB |
+| `@unified-ui/react/styles.css` | 147.3 kB | 18.6 kB |
+| `@unified-ui/react/components.css` | 8.0 kB | 2.2 kB |

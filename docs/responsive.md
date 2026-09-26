@@ -36,4 +36,8 @@ They compile to CSS variables (`--ui-cols-md: 2`) consumed by a small stylesheet
 | Dialog | Full width minus margins, scrolling body |
 | MapPanel | Map above list |
 
+### Grid as a vertical stack
+
+A `grid` with a single implicit column sizes that column to the widest child's *min-content*, so a long word, a scrollable table or a carousel can push the page wider than the viewport. Use `Stack` for vertical stacking, or give the grid `grid-cols-[minmax(0,1fr)]`. Components that stack wide content internally (DataTable, FileUpload, docs demos) already do this.
+
 Prefer composition (render both, hide with CSS) over JavaScript media queries so server rendering stays correct. `useMediaQuery`/`useBreakpoint` exist for behavior that CSS cannot express.

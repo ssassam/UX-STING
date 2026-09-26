@@ -47,7 +47,7 @@ export async function init(options: CommonOptions & { dir?: string; css?: string
   writeConfig(cwd, config);
   log.success(`Wrote ${CONFIG_FILE} ${dim(`(components → ${config.dir})`)}`);
 
-  await add(["provider", "styles"], { ...options, silentHeader: true });
+  const copied = await add(["provider", "styles"], { ...options, install: false, silentInstall: true, silentHeader: true });
 
   if (config.css && existsSync(join(cwd, config.css))) {
     const cssFile = join(cwd, config.css);
@@ -67,9 +67,9 @@ export async function init(options: CommonOptions & { dir?: string; css?: string
     log.warn(`No global stylesheet found. Add these lines to your CSS entry (after @import "tailwindcss"):\n${cssImports(config)}`);
   }
 
-  const deps = missingDependencies(cwd, BASE_PACKAGES);
+  const deps = [...new Set([...missingDependencies(cwd, BASE_PACKAGES), ...copied.dependencies])];
   installOrPrint(cwd, deps, options.install);
-  log.info(`\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (from "${config.dir.replace(/^src\//, "@/")}/provider") and run ${green("npx unified-ui add button")}.`);
+  log.info(`\n${bold("Next:")} wrap your app in ${green("<UIProvider>")} (import from "./${config.dir}/provider") and run ${green("npx unified-ui add button")}.`);
   return config;
 }
 
@@ -87,6 +87,8 @@ export interface AddOptions extends CommonOptions {
   overwrite?: boolean;
   dryRun?: boolean;
   silentHeader?: boolean;
+  /** Skip printing the install command (the caller handles installation). */
+  silentInstall?: boolean;
 }
 
 export interface AddResult {
@@ -149,7 +151,7 @@ export async function add(names: string[], options: AddOptions): Promise<AddResu
   for (const f of result.written) log.success(dim(f));
   for (const f of result.skipped) log.warn(`${f} ${yellow("has local changes — skipped (use --overwrite or `unified-ui diff`)")}`);
   if (result.unchanged.length && !options.silentHeader) log.info(dim(`${result.unchanged.length} file(s) already up to date`));
-  if (!options.dryRun) installOrPrint(cwd, result.dependencies, options.install);
+  if (!options.dryRun && !options.silentInstall) installOrPrint(cwd, result.dependencies, options.install);
   return result;
 }
 

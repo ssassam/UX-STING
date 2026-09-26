@@ -8,7 +8,7 @@ Files that need state, effects or browser APIs start with `"use client"`. Everyt
 
 | Server-safe | Client |
 | --- | --- |
-| Box, Stack, Grid, Container, Separator, AspectRatio, Typography, Card, Badge, Alert, Progress, Skeleton, Spinner, States, Stat, List, Timeline, Table, Breadcrumb, Stepper, Button, SkipLink, NavigationRail, MobileNavigation, BusinessCard/ProductCard/ArticleCard/ProfileCard/CategoryCard, Location, MapPlaceholder, SearchResult, Highlight, Icons | Provider, overlays, menus, forms, Tabs, Accordion, Toast, DataTable, Calendar/pickers, Carousel, Command, Sidebar, Navbar, Rating, Price (locale), OpeningHours |
+| Box, Stack, Grid, Container, Separator, AspectRatio, Typography, Card, Badge, Alert, Progress, Skeleton, Spinner, States, Stat, List, Timeline, Table, Breadcrumb, Stepper, Button, SkipLink, NavigationRail, MobileNavigation, BusinessCard/ProductCard/ArticleCard/ProfileCard/CategoryCard, Location, SearchResult, Highlight, Icons | Provider, overlays, menus, forms, Tabs, Accordion, Toast, DataTable, Calendar/pickers, Carousel, Command, Sidebar, Navbar, Rating, Price (locale), OpeningHours, MapPlaceholder |
 
 Server components can render client components freely, so a server `page.tsx` can compose `<Card>` (server) around `<Dialog>` (client).
 

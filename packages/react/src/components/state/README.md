@@ -37,7 +37,7 @@ No data yet / no results. Always offer a next step.
 | `title` * | `ReactNode` | — |  |
 | `actions` | `ReactNode` | — | Primary recovery or next-step action(s). |
 | `description` | `ReactNode` | — |  |
-| `headingLevel` | `2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical). |
+| `headingLevel` | `1 \| 2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical; use 1 for full-page states). |
 | `icon` | `ReactNode` | — |  |
 | `size` | `"sm" \| "md" \| "lg"` | — |  |
 
@@ -52,7 +52,7 @@ Failure with a recovery path (retry, edit, contact support).
 | `title` * | `ReactNode` | — |  |
 | `actions` | `ReactNode` | — | Primary recovery or next-step action(s). |
 | `description` | `ReactNode` | — |  |
-| `headingLevel` | `2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical). |
+| `headingLevel` | `1 \| 2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical; use 1 for full-page states). |
 | `icon` | `ReactNode` | — |  |
 | `size` | `"sm" \| "md" \| "lg"` | — |  |
 
@@ -65,7 +65,7 @@ _Also accepts 279 standard HTML/React attributes (className, style, aria-*, even
 | `title` * | `ReactNode` | — |  |
 | `actions` | `ReactNode` | — | Primary recovery or next-step action(s). |
 | `description` | `ReactNode` | — |  |
-| `headingLevel` | `2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical). |
+| `headingLevel` | `1 \| 2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical; use 1 for full-page states). |
 | `icon` | `ReactNode` | — |  |
 | `size` | `"sm" \| "md" \| "lg"` | — |  |
 
@@ -79,7 +79,7 @@ Blocking load (> 1s). Prefer skeletons for content-shaped loading.
 | --- | --- | --- | --- |
 | `actions` | `ReactNode` | — | Primary recovery or next-step action(s). |
 | `description` | `ReactNode` | — |  |
-| `headingLevel` | `2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical). |
+| `headingLevel` | `1 \| 2 \| 3 \| 4` | — | Heading level for the title (keep the document outline logical; use 1 for full-page states). |
 | `icon` | `ReactNode` | — |  |
 | `size` | `"sm" \| "md" \| "lg"` | — |  |
 | `title` | `ReactNode` | `"Loading"` |  |

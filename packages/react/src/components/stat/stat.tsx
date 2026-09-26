@@ -28,7 +28,9 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
         {label}
         {icon ? <span aria-hidden className="[&_svg]:size-4">{icon}</span> : null}
       </dt>
-      <dd className="text-2xl font-semibold tracking-tight tabular-nums">{value}</dd>
+      <dd className="text-2xl font-semibold tracking-tight tabular-nums">
+        <bdi>{value}</bdi>
+      </dd>
       {delta || helpText ? (
         <dd className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           {delta ? (
@@ -39,7 +41,7 @@ export const Stat = forwardRef<HTMLDivElement, StatProps>(function Stat(
               )}
             >
               {trend === "up" ? <TrendingUpIcon /> : trend === "down" ? <TrendingDownIcon /> : null}
-              {delta}
+              <bdi>{delta}</bdi>
             </span>
           ) : null}
           {helpText}
@@ -65,7 +67,9 @@ export function Metric({ label, value, className }: { label: ReactNode; value: R
   return (
     <div className={cn("flex flex-col", className)}>
       <span className="text-xs text-muted-foreground">{label}</span>
-      <span className="text-md font-semibold tabular-nums">{value}</span>
+      <span className="text-md font-semibold tabular-nums">
+        <bdi>{value}</bdi>
+      </span>
     </div>
   );
 }

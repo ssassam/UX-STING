@@ -1,0 +1,10 @@
+@import "tailwindcss";
+/* unified-ui */
+@import "@unified-ui/tokens/tokens.css";
+@import "@unified-ui/tokens/tailwind.css";
+@import "@unified-ui/themes/themes.css";
+@import "../components/ui/styles/unified-ui.css";
+
+body {
+  min-height: 100dvh;
+}

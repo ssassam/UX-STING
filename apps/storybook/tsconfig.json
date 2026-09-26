@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "types": ["node"],
+    "paths": {
+      "@storybook/react-vite": ["./node_modules/@storybook/react-vite/dist/index.d.ts"]
+    }
+  },
+  "include": [".storybook", "visual", "../../packages/react/src/**/*.stories.tsx"]
+}

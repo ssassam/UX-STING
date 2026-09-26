@@ -14,7 +14,7 @@ export const InputGroup = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
         className={cn(
           "flex w-full items-center rounded-md border border-input bg-background shadow-xs transition-[border-color,box-shadow]",
           "focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30",
-          "has-[[aria-invalid=true]]:border-destructive has-[:disabled]:opacity-60",
+          "has-[[aria-invalid=true]]:border-destructive has-[input:disabled]:opacity-60",
           size === "sm" ? "h-control-sm" : size === "lg" ? "h-control-lg" : "h-control-md",
           "[&>[data-slot=input]]:h-full [&>[data-slot=input]]:border-0 [&>[data-slot=input]]:bg-transparent [&>[data-slot=input]]:shadow-none [&>[data-slot=input]]:ring-0 [&>[data-slot=input]]:focus-visible:ring-0",
           className,

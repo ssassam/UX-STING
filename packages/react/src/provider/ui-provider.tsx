@@ -2,7 +2,7 @@
 import { DirectionProvider } from "@radix-ui/react-direction";
 import { createTheme, themeToCss, type ThemeConfig } from "@unified-ui/themes";
 import { getDirection, resolveColorMode, type ColorMode, type DensityMode } from "@unified-ui/utils";
-import { useEffect, useMemo, useState, useSyncExternalStore, type HTMLAttributes, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type HTMLAttributes, type ReactNode } from "react";
 import { UIContext, type UIContextValue } from "./context.js";
 import { getMessages, type Messages } from "./messages.js";
 
@@ -137,6 +137,28 @@ export function UIProvider({
     lang: locale,
   };
 
+  // Disable transitions for one frame while the mode/theme changes (prevents color flashes).
+  const scopeRef = useRef<HTMLDivElement | null>(null);
+  const isFirst = useRef(true);
+  useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
+    const el = target === "document" ? document.documentElement : scopeRef.current;
+    if (!el) return;
+    el.setAttribute("data-ui-switching", "");
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => el.removeAttribute("data-ui-switching"));
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+      el.removeAttribute("data-ui-switching");
+    };
+  }, [colorMode, themeName, target]);
+
   useEffect(() => {
     if (target !== "document") return;
     const el = document.documentElement;
@@ -158,6 +180,7 @@ export function UIProvider({
         content
       ) : (
         <div
+          ref={scopeRef}
           {...attrs}
           className={className ? `ui-root ${className}` : "ui-root"}
           style={style}

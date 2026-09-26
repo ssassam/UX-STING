@@ -1,0 +1,31 @@
+{
+  "name": "@unified-ui/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o storybook-static --quiet",
+    "test:visual": "playwright test -c visual/playwright.config.ts",
+    "test:visual:update": "playwright test -c visual/playwright.config.ts --update-snapshots",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@unified-ui/icons": "workspace:^",
+    "@unified-ui/react": "workspace:^",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/react-vite": "^10.6.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "storybook": "^10.6.0",
+    "storybook-addon-pseudo-states": "^10.6.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.0.0",
+    "@types/node": "^24.0.0",
+    "typescript": "~6.0.3"
+  }
+}

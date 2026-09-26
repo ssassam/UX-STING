@@ -732,7 +732,7 @@ export const components: ComponentMeta[] = [
     description: "Switch between related views (line, pills, enclosed; horizontal or vertical).",
     when: "Use for peer views of the same object.",
     avoid: "Do not use tabs for sequential steps (use Stepper).",
-    a11y: ["ARIA tabs with automatic or manual activation."],
+    a11y: ["ARIA tabs with automatic or manual activation.", "Tab `value`s are used to build element ids — use slugs without spaces."],
     keyboard: [
       ["← / →", "Previous / next tab (mirrored in RTL)"],
       ["Home / End", "First / last tab"],

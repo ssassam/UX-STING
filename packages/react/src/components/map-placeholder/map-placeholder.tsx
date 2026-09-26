@@ -1,3 +1,4 @@
+"use client";
 import { MapIcon, MapPinIcon } from "@unified-ui/icons";
 import { cn } from "@unified-ui/utils";
 import type { HTMLAttributes, ReactNode } from "react";

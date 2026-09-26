@@ -1,4 +1,4 @@
-import { Slot } from "@unified-ui/primitives";
+import { Slot, Slottable } from "@unified-ui/primitives";
 import { cn } from "@unified-ui/utils";
 import { devWarn } from "../../lib/env.js";
 import { Children, forwardRef, type AnchorHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
@@ -58,7 +58,7 @@ export const MobileNavigationItem = forwardRef<HTMLAnchorElement, MobileNavigati
           {icon}
           {badge ? <span className="absolute -end-2 -top-1">{badge}</span> : null}
         </span>
-        {children}
+        <Slottable>{children}</Slottable>
       </Comp>
     </li>
   );

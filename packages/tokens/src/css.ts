@@ -70,7 +70,6 @@ export function staticVars(): CssVars {
     ...prefixed("weight", fontWeight),
     ...prefixed("leading", lineHeight),
     ...prefixed("tracking", letterSpacing),
-    ...prefixed("radius", radius),
     ...prefixed("shadow", shadow),
     ...prefixed("border", borderWidth),
     ...prefixed("z", zIndex),
@@ -101,6 +100,17 @@ export function toCssBlock(selector: string, vars: CssVars, indent = ""): string
 }
 
 const DARK_SELECTOR = '[data-theme="dark"], .dark';
+
+/**
+ * Derived tokens (e.g. `--ui-radius-lg: var(--ui-radius)`) are resolved on the
+ * element that declares them, so they are re-declared on every element that
+ * can change their inputs: the root, themed scopes and explicit scopes.
+ */
+export const SCOPE_SELECTOR = ':root, [data-ui-theme], [data-ui-scope]';
+
+export function derivedVars(): CssVars {
+  return prefixed("radius", radius);
+}
 const HC_SELECTOR = '[data-theme="high-contrast"]';
 
 /** Generates the complete `tokens.css` stylesheet. */
@@ -117,6 +127,7 @@ export function generateTokensCss(): string {
       ...colorVars(light),
       ...densityVars("comfortable"),
     }),
+    toCssBlock(SCOPE_SELECTOR, derivedVars()),
     toCssBlock(DARK_SELECTOR, { "color-scheme": "dark", ...colorVars(dark) }),
     toCssBlock(HC_SELECTOR, { "color-scheme": "light", ...colorVars(hc) }),
     `@media (prefers-color-scheme: dark) {\n${toCssBlock('[data-theme="system"]', { "color-scheme": "dark", ...colorVars(dark) }, "  ")}\n}`,

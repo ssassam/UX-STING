@@ -38,6 +38,7 @@ One search hit: title link, path, snippet with highlighted terms.
 | `title` * | `string` | — |  |
 | `className` | `string` | — |  |
 | `description` | `string` | — |  |
+| `headingLevel` | `2 \| 3 \| 4` | `3` | Heading level of the title (keep the outline logical). |
 | `meta` | `ReactNode` | — |  |
 | `path` | `ReactNode` | — | Breadcrumb or display URL. |
 | `query` | `string` | `""` | Terms to highlight. |

@@ -10,8 +10,8 @@ export interface StateProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"
   /** Primary recovery or next-step action(s). */
   actions?: ReactNode;
   size?: "sm" | "md" | "lg";
-  /** Heading level for the title (keep the document outline logical). */
-  headingLevel?: 2 | 3 | 4;
+  /** Heading level for the title (keep the document outline logical; use 1 for full-page states). */
+  headingLevel?: 1 | 2 | 3 | 4;
 }
 
 const iconTone = {

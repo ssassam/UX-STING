@@ -111,9 +111,11 @@ _Also accepts 290 standard HTML/React attributes (className, style, aria-*, even
 
 ### SidebarInset
 
-Main content area next to the sidebar.
+Main content area next to the sidebar. Renders `<main id="main">` (the SkipLink target); pass `as="div"` when a `<main>` already exists.
 
-No additional props.
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `as` | `"main" \| "div" \| "section"` | `"main"` |  |
 
 _Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

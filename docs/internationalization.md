@@ -12,6 +12,7 @@
 - Directional icons (chevrons, arrows) rotate with `rtl:rotate-180`.
 - Keyboard navigation mirrors horizontal arrows in RTL: Calendar, Tabs (via Radix `DirectionProvider`), Slider, Resizable, Tree, Carousel, DataGrid.
 - Code, OTP digits and numbers that must stay LTR use `dir="ltr"` locally.
+- User-provided numeric strings with signs or symbols ("+12.4%", "-3") are isolated with `<bdi>` in `Stat`/`Metric` so they don't reorder to "12.4%+" in RTL. Do the same in your own content, or format with `Intl.NumberFormat(locale, { signDisplay: "always", style: "percent" })`.
 
 ## Localized strings
 

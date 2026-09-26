@@ -23,7 +23,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
     <TabsContext.Provider value={{ variant, size }}>
       <TabsPrimitive.Root
         ref={ref}
-        className={cn("flex gap-3 data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row", className)}
+        className={cn("flex min-w-0 gap-3 data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row", className)}
         {...props}
       />
     </TabsContext.Provider>

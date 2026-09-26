@@ -108,7 +108,7 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(function Carousel
         onPointerLeave={() => setHovered(false)}
         onFocus={() => setHovered(true)}
         onBlur={(e) => !e.currentTarget.contains(e.relatedTarget as Node) && setHovered(false)}
-        className={cn("relative", className)}
+        className={cn("relative min-w-0", className)}
         {...props}
       >
         {children}

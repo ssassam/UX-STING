@@ -27,6 +27,7 @@ npx unified-ui add tabs
 ## Accessibility
 
 - ARIA tabs with automatic or manual activation.
+- Tab `value`s are used to build element ids — use slugs without spaces.
 
 ### Keyboard
 

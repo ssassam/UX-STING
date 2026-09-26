@@ -56,6 +56,12 @@ Any variable can be overridden in plain CSS:
 }
 ```
 
+When you override `--ui-radius` on an element that is not a theme scope, add `data-ui-scope` so the derived radius scale (`--ui-radius-sm` … `--ui-radius-2xl`) is recomputed there:
+
+```html
+<section data-ui-scope style="--ui-radius: 1rem">…</section>
+```
+
 ## Scoping
 
 Providers nest. A section can use a different theme, color mode or density than the rest of the page — overlays opened inside it portal into the nearest provider so they inherit the same variables.

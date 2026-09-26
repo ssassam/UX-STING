@@ -1,0 +1,31 @@
+{
+  "name": "@unified-ui/playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node ../docs/scripts/collect-demos.ts",
+    "dev": "vite --port 5173",
+    "prebuild": "node ../docs/scripts/collect-demos.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "node ../docs/scripts/collect-demos.ts && tsc --noEmit"
+  },
+  "dependencies": {
+    "@unified-ui/icons": "workspace:^",
+    "@unified-ui/react": "workspace:^",
+    "@unified-ui/hooks": "workspace:^",
+    "@unified-ui/utils": "workspace:^",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.0"
+  }
+}

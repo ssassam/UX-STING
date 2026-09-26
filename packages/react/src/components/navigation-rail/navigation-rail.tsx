@@ -1,4 +1,4 @@
-import { Slot } from "@unified-ui/primitives";
+import { Slot, Slottable } from "@unified-ui/primitives";
 import { cn } from "@unified-ui/utils";
 import { forwardRef, type AnchorHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
 
@@ -45,7 +45,7 @@ export const NavigationRailItem = forwardRef<HTMLAnchorElement, NavigationRailIt
           {icon}
           {badge ? <span className="absolute -end-1 -top-1">{badge}</span> : null}
         </span>
-        {children}
+        <Slottable>{children}</Slottable>
       </Comp>
     </li>
   );

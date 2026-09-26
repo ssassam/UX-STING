@@ -49,6 +49,7 @@ describe("css generation", () => {
     expect(css).toContain('[data-theme="dark"]');
     expect(css).toContain('[data-density="compact"]');
     expect(css).toContain("prefers-reduced-motion");
+    expect(css).toContain(":root, [data-ui-theme], [data-ui-scope] {\n  --ui-radius-none");
   });
 
   it("maps tokens into a Tailwind v4 theme", () => {
