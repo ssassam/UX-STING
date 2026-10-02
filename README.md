@@ -65,13 +65,13 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |
 | `apps/storybook` | Storybook + visual regression |
-| `examples/*` | Travel booking site, SaaS dashboard, marketplace, local directory, editorial site, CLI starter |
+| `examples/*` | Travel booking site, SaaS dashboard, marketplace, local directory, editorial site, restaurant reservations, CLI starter |
 | `docs/` | Guides (also rendered by the docs site) |
 | `registry/` | Component metadata and extracted API |
 
 ## Showcase
 
-Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
+Six complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 
 | Demo | What it shows | Live |
 | --- | --- | --- |
@@ -80,6 +80,7 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 | [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://ssassam.github.io/UX-STING/shop/) |
 | [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
 | [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
+| [**Ember**](examples/ember) — restaurant reservations | Tasting menu with dietary tags, dining-experience tabs, full reservation form, opening hours with live status, map, reviews | [open](https://ssassam.github.io/UX-STING/ember/) |
 
 ### Screenshots
 
@@ -123,11 +124,19 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 <tr><td width="50%" align="center"><a href="examples/crypto/screenshots/5-news.webp"><img src="examples/crypto/screenshots/5-news.webp" alt="News with images" width="100%"></a><br><sub>News with images</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/6-light-mode.webp"><img src="examples/crypto/screenshots/6-light-mode.webp" alt="Light mode" width="100%"></a><br><sub>Light mode</sub></td></tr>
 </table>
 
+#### Ember — restaurant reservations · [live demo](https://ssassam.github.io/UX-STING/ember/)
+
+<table>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/1-hero.webp"><img src="examples/ember/screenshots/1-hero.webp" alt="Hero with tonight's menu preview" width="100%"></a><br><sub>Hero with tonight's menu preview</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/2-menu.webp"><img src="examples/ember/screenshots/2-menu.webp" alt="Tasting menu with dietary tags" width="100%"></a><br><sub>Tasting menu with dietary tags</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/3-experience.webp"><img src="examples/ember/screenshots/3-experience.webp" alt="Dining-experience tabs" width="100%"></a><br><sub>Dining-experience tabs</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/4-reserve.webp"><img src="examples/ember/screenshots/4-reserve.webp" alt="Reservation form" width="100%"></a><br><sub>Reservation form</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/5-hours.webp"><img src="examples/ember/screenshots/5-hours.webp" alt="Opening hours and map" width="100%"></a><br><sub>Opening hours and map</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/6-reviews.webp"><img src="examples/ember/screenshots/6-reviews.webp" alt="Reviews and FAQ" width="100%"></a><br><sub>Reviews and FAQ</sub></td></tr>
+</table>
+
 Build all of them as one static site with `scripts/build-pages.sh` (output in `pages-dist/`).
 
 ### SEO
 
-Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all five:
+Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`, `Restaurant`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all six:
 
 **https://ssassam.github.io/UX-STING/sitemap-index.xml**
 

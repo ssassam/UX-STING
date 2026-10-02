@@ -5,6 +5,7 @@
 #   /<repo>/shop/     Maison Nord shop
 #   /<repo>/watch/    Pulse One product landing page
 #   /<repo>/crypto/   Chainlens crypto analytics
+#   /<repo>/ember/    Ember restaurant reservations
 # Usage: scripts/build-pages.sh [/base-path]   (default: /UX-STING)
 set -euo pipefail
 BASE="${1:-/UX-STING}"
@@ -25,6 +26,7 @@ build car-rental /cars
 build shop /shop
 build watch /watch
 build crypto /crypto
+build ember /ember
 touch "$OUT/.nojekyll"
 
 # One sitemap index for all demos — submit this URL in Google Search Console.
@@ -32,7 +34,7 @@ SITE="https://ssassam.github.io$BASE"
 {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-  for sub in "" /cars /shop /watch /crypto; do
+  for sub in "" /cars /shop /watch /crypto /ember; do
     echo "  <sitemap><loc>$SITE$sub/sitemap.xml</loc></sitemap>"
   done
   echo '</sitemapindex>'

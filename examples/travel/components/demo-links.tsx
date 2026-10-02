@@ -9,6 +9,7 @@ export const demos = [
   { id: "shop", label: "Maison Nord — shop", href: `${SITE}/shop/` },
   { id: "watch", label: "Pulse One — product launch", href: `${SITE}/watch/` },
   { id: "crypto", label: "Chainlens — crypto analytics", href: `${SITE}/crypto/` },
+  { id: "ember", label: "Ember — restaurant reservations", href: `${SITE}/ember/` },
 ] as const;
 
 export function DemoLinks({ current }: { current: (typeof demos)[number]["id"] }) {
