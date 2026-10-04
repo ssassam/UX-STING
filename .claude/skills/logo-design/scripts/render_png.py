@@ -182,6 +182,8 @@ def screenshot_html(html_path, png, w, h):
                "--no-default-browser-check", "--use-mock-keychain", "--password-store=basic", "--disable-extensions",
                "--default-background-color=00000000", f"--window-size={w},{h}", f"--screenshot={shot}",
                f"--user-data-dir={os.path.join(tmp, 'profile')}", "file://" + html_path]
+        if hasattr(os, "geteuid") and os.geteuid() == 0:
+            cmd.insert(1, "--no-sandbox")  # Chrome refuses to start as root (containers, CI) without it
         proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         deadline = time.time() + 45
         last = -1
