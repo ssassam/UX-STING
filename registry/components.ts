@@ -99,6 +99,21 @@ export const components: ComponentMeta[] = [
       ["Home / End", "Minimize / maximize the leading panel"],
     ],
   },
+  {
+    name: "logo",
+    title: "Logo",
+    category: "foundations",
+    description:
+      "Brand lockup (symbol + wordmark) with locked spacing, horizontal/stacked/mark/wordmark layouts and brand, mono and reversed tones driven by tokens.",
+    when: "Use in navbars, footers, auth screens and emails to show your brand consistently. Create the mark with the `logo-design` skill.",
+    avoid:
+      'Do not paste raster logos or hard-coded colors; give the mark `fill="currentColor"` so it follows the theme.',
+    a11y: [
+      'Exposed as one image (`role="img"`) or one link named after the brand; the SVG and wordmark are hidden from assistive tech.',
+      'Use `label` for links ("Acme home").',
+    ],
+    related: ["navbar"],
+  },
   // ───────────────────────── Typography ─────────────────────────
   {
     name: "typography",
@@ -1019,6 +1034,109 @@ export const components: ComponentMeta[] = [
     description: "PremiumBadge, VerifiedBadge and FeaturedBadge.",
     when: "Use to mark paid, verified or featured listings.",
     a11y: ["Always include text, not only an icon or color."],
+  },
+  // ───────────────────────── Commerce ─────────────────────────
+  {
+    name: "quantity-selector",
+    title: "QuantitySelector",
+    category: "commerce",
+    description:
+      'Cart quantity control (− / input / +) that clamps to min, max or stock and shows "N in stock". Adapted from Storefront UI (MIT).',
+    when: "Use on product pages, cart lines and ticket pickers for small whole-number quantities.",
+    avoid: "Use NumberInput for free numeric entry (prices, measurements, decimals).",
+    a11y: [
+      'The input is a native `type="number"` spinbutton named "Quantity" (or by its Field label).',
+      "The − and + buttons are real tab stops with `aria-controls`, disabled at the limits.",
+      "Stock text is linked with `aria-describedby`.",
+    ],
+    keyboard: [
+      ["↑ / ↓", "Increase / decrease"],
+      ["Home / End", "Minimum / maximum"],
+      ["Enter", "Commit typed value"],
+    ],
+    related: ["number-input", "product-card", "order-summary"],
+    responsive:
+      "Buttons expand to 44px touch targets on coarse pointers; `fullWidth` for mobile buy bars.",
+  },
+  {
+    name: "swatch",
+    title: "Swatch",
+    category: "commerce",
+    primary: "SwatchGroup",
+    description:
+      "Variant picker for colors (SwatchGroup + Swatch with `color`) and sizes (text swatches), with crossed-out unavailable options.",
+    when: "Use for product options with few values: color, size, material, storage.",
+    avoid: "Use Select or Combobox when there are more than ~12 options.",
+    a11y: [
+      "A radio group: one tab stop, form-submittable via `name`.",
+      'Every swatch has a text name; color is never the only cue. Unavailable options are announced ("Sage, unavailable") and skipped.',
+      "The selected color shows a check mark in addition to the ring.",
+    ],
+    keyboard: [["← / → / ↑ / ↓", "Move and select (RTL-aware)"]],
+    related: ["radio-group", "product-gallery"],
+  },
+  {
+    name: "product-gallery",
+    title: "ProductGallery",
+    category: "commerce",
+    description:
+      "Product image viewer with previous/next buttons and a bottom or side thumbnail strip. Adapted from Storefront UI (MIT).",
+    when: "Use on product detail pages with 2–10 images.",
+    avoid: "Use Carousel for marketing slides and mixed content.",
+    a11y: [
+      "Labelled region; position changes are announced politely.",
+      'Thumbnails are buttons ("Show image 2 of 4") with `aria-current`, forming one tab stop.',
+      "Main image alt text comes from your data; thumbnails are decorative.",
+    ],
+    keyboard: [
+      ["← / →", "Previous / next thumbnail (mirrored in RTL)"],
+      ["Home / End", "First / last image"],
+    ],
+    related: ["carousel", "swatch", "media"],
+    responsive:
+      '`thumbnails="start"` puts thumbnails in a vertical column from `md` up; a scrollable row below that.',
+  },
+  {
+    name: "order-summary",
+    title: "OrderSummary",
+    category: "commerce",
+    description:
+      "Cart and checkout totals: subtotal, discounts, shipping, tax and total, with a slot for promo codes and the checkout button. Adapted from Storefront UI (MIT).",
+    when: "Use in carts, checkout sidebars and order confirmations.",
+    a11y: [
+      "A labelled region containing a description list (`dt`/`dd`).",
+      'Discounts read as deductions ("−€47.70") in text, not only by color.',
+      "Locale-formatted currency with tabular figures.",
+    ],
+    related: ["price", "quantity-selector"],
+  },
+  // ───────────────────────── Motion ─────────────────────────
+  {
+    name: "reveal",
+    title: "Reveal",
+    category: "motion",
+    description:
+      "Scroll-triggered entrance (fade, slide, scale) and RevealGroup for staggered lists. Transform and opacity only, built on motion tokens.",
+    when: "Use sparingly on marketing and landing sections to guide attention as content scrolls in.",
+    avoid: "Do not wrap app UI, forms or anything users need immediately.",
+    a11y: [
+      "Content already on screen, server-rendered pages without JS and reduced-motion users see everything immediately.",
+      "Hidden content stays in the accessibility tree; focusing it scrolls it into view and reveals it.",
+    ],
+    related: ["animated-number"],
+  },
+  {
+    name: "animated-number",
+    title: "AnimatedNumber",
+    category: "motion",
+    description:
+      "Number that tweens or springs to its value, formatted with Intl (currency, percent, compact). Starts on scroll into view with `from`.",
+    when: "Use for KPIs, live totals and counters where change is meaningful.",
+    a11y: [
+      "Screen readers get only the final formatted value, never intermediate frames.",
+      "Tabular figures keep the width stable; reduced motion shows the value instantly.",
+    ],
+    related: ["stat", "price"],
   },
   // ───────────────────────── Theming ─────────────────────────
   {

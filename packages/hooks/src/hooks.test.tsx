@@ -1,6 +1,7 @@
-import { act, fireEvent, render, renderHook, screen } from "@testing-library/react";
+import { act, fireEvent, render, renderHook, screen, waitFor } from "@testing-library/react";
+import { useRef } from "react";
 import { describe, expect, it, vi } from "vitest";
-import { useControllableState, useDisclosure, useHotkey } from "./index.js";
+import { useControllableState, useDisclosure, useHotkey, useInView, useTween } from "./index.js";
 
 describe("useControllableState", () => {
   it("works uncontrolled", () => {
@@ -44,5 +45,28 @@ describe("useHotkey", () => {
     expect(handler).toHaveBeenCalledTimes(1);
     fireEvent.keyDown(screen.getByLabelText("field"), { key: "k", ctrlKey: true });
     expect(handler).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("useTween", () => {
+  it("starts at the target and animates to new targets", async () => {
+    const { result, rerender } = renderHook(({ target }) => useTween(target, { duration: 50 }), {
+      initialProps: { target: 10 },
+    });
+    expect(result.current).toBe(10);
+    rerender({ target: 20 });
+    await waitFor(() => expect(result.current).toBe(20));
+  });
+});
+
+describe("useInView", () => {
+  it("reports true without IntersectionObserver", () => {
+    function Demo() {
+      const ref = useRef<HTMLDivElement>(null);
+      const inView = useInView(ref);
+      return <div ref={ref}>{inView ? "in" : "out"}</div>;
+    }
+    render(<Demo />);
+    expect(screen.getByText("in")).toBeInTheDocument();
   });
 });

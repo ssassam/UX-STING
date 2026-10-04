@@ -49,6 +49,13 @@ export interface Messages {
   collapse: string;
   copy: string;
   copied: string;
+  quantity: string;
+  inStock: (count: number) => string;
+  productImages: string;
+  showImage: (index: number, total: number) => string;
+  unavailable: string;
+  orderSummary: string;
+  total: string;
 }
 
 export const en: Messages = {
@@ -98,6 +105,13 @@ export const en: Messages = {
   collapse: "Collapse",
   copy: "Copy",
   copied: "Copied",
+  quantity: "Quantity",
+  inStock: (n) => `${n} in stock`,
+  productImages: "Product images",
+  showImage: (i, t) => `Show image ${i} of ${t}`,
+  unavailable: "unavailable",
+  orderSummary: "Order summary",
+  total: "Total",
 };
 
 export const fr: Messages = {
@@ -147,6 +161,13 @@ export const fr: Messages = {
   collapse: "Réduire",
   copy: "Copier",
   copied: "Copié",
+  quantity: "Quantité",
+  inStock: (n) => `${n} en stock`,
+  productImages: "Images du produit",
+  showImage: (i, t) => `Afficher l’image ${i} sur ${t}`,
+  unavailable: "indisponible",
+  orderSummary: "Récapitulatif de commande",
+  total: "Total",
 };
 
 export const ar: Messages = {
@@ -196,6 +217,13 @@ export const ar: Messages = {
   collapse: "طي",
   copy: "نسخ",
   copied: "تم النسخ",
+  quantity: "الكمية",
+  inStock: (n) => `${n} متوفر في المخزون`,
+  productImages: "صور المنتج",
+  showImage: (i, t) => `عرض الصورة ${i} من ${t}`,
+  unavailable: "غير متوفر",
+  orderSummary: "ملخص الطلب",
+  total: "المجموع",
 };
 
 export const builtInMessages: Record<string, Messages> = { en, fr, ar };
