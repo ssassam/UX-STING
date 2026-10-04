@@ -68,10 +68,12 @@ images are redistributed in this repository.
 ### Storefront UI — MIT License
 
 The layouts and behavior of `QuantitySelector`, `SwatchGroup`/`Swatch`,
-`ProductGallery` and `OrderSummary` (`packages/react/src/components/`) are
-adapted from the e-commerce blocks of
+`ProductGallery`, `OrderSummary`, `MegaMenu`, `CartLineItem`,
+`AddressFields`/`PaymentFields`, `ProductListing` and `ProductDetails`
+(`packages/react/src/components/`) are adapted from the e-commerce blocks of
 [vuestorefront/storefront-ui](https://github.com/vuestorefront/storefront-ui)
-(QuantitySelector, ProductDetails, Gallery and OrderSummary). They were
+(QuantitySelector, ProductDetails, Gallery, OrderSummary, MegaMenu, cart,
+checkout and category page blocks). They were
 rewritten for UX-STING's tokens, Radix primitives and accessibility rules.
 
 ```

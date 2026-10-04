@@ -56,6 +56,8 @@ export interface Messages {
   unavailable: string;
   orderSummary: string;
   total: string;
+  results: (count: number) => string;
+  productDetails: string;
 }
 
 export const en: Messages = {
@@ -112,6 +114,8 @@ export const en: Messages = {
   unavailable: "unavailable",
   orderSummary: "Order summary",
   total: "Total",
+  results: (n) => (n === 1 ? "1 result" : `${n} results`),
+  productDetails: "Product details",
 };
 
 export const fr: Messages = {
@@ -168,6 +172,8 @@ export const fr: Messages = {
   unavailable: "indisponible",
   orderSummary: "Récapitulatif de commande",
   total: "Total",
+  results: (n) => (n <= 1 ? `${n} résultat` : `${n} résultats`),
+  productDetails: "Détails du produit",
 };
 
 export const ar: Messages = {
@@ -224,6 +230,8 @@ export const ar: Messages = {
   unavailable: "غير متوفر",
   orderSummary: "ملخص الطلب",
   total: "المجموع",
+  results: (n) => `${n} نتيجة`,
+  productDetails: "تفاصيل المنتج",
 };
 
 export const builtInMessages: Record<string, Messages> = { en, fr, ar };

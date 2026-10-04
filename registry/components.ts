@@ -1110,6 +1110,91 @@ export const components: ComponentMeta[] = [
     ],
     related: ["price", "quantity-selector"],
   },
+  {
+    name: "mega-menu",
+    title: "MegaMenu",
+    category: "commerce",
+    description:
+      "Store navigation from one data structure: category panels with link columns and a promo tile on desktop, a side sheet with collapsible categories on phones. Adapted from Storefront UI (MIT).",
+    when: "Use as the main navigation of shops and catalogs with many categories.",
+    avoid: "Use Navbar with NavigationMenu for sites with a handful of pages.",
+    a11y: [
+      "A labelled `nav` landmark; panels open on hover, click and Enter, and close with Escape.",
+      'The current page gets `aria-current="page"`.',
+      "On phones the menu is a dialog with a title; categories are an accordion and links are 44px tall.",
+    ],
+    keyboard: [
+      ["Tab", "Move between categories and links"],
+      ["Enter / Space", "Open a category panel"],
+      ["Escape", "Close the panel or the mobile sheet"],
+    ],
+    related: ["navigation-menu", "navbar", "sheet"],
+    responsive: "Panels from `lg` up; a menu button opening a start-side sheet below `lg`.",
+  },
+  {
+    name: "cart-line-item",
+    title: "CartLineItem",
+    category: "commerce",
+    description:
+      "One product in a cart or order: image, name, chosen options, line total, quantity control and remove, plus a read-only mode for confirmations. Adapted from Storefront UI (MIT).",
+    when: "Use in cart pages, mini-carts and order summaries. Wrap lines in a `ul`.",
+    a11y: [
+      "The product name is a heading (configurable level) and links to the product.",
+      'The quantity input is named after the product ("Quantity, Linen shirt") and the remove button says what it removes.',
+      "Options render as a description list; the line total is locale-formatted.",
+    ],
+    related: ["quantity-selector", "order-summary", "price"],
+    responsive:
+      "Price and controls move under the name on phones and to their own column from `sm`.",
+  },
+  {
+    name: "checkout-fields",
+    title: "Checkout fields",
+    category: "commerce",
+    primary: "AddressFields",
+    description:
+      "AddressFields and PaymentFields for checkout: visible labels, section-scoped autofill tokens, mobile keyboards, card and expiry formatting and validation through Form.",
+    when: "Use inside a Form for shipping/billing addresses and card payment UI.",
+    avoid:
+      "For live payments, put your payment provider's hosted fields in this layout so card data never reaches your server.",
+    a11y: [
+      "Each group is a fieldset with a legend; every field has a visible label and helper text where the format matters.",
+      "`autoComplete` uses `shipping …` / `billing …` and `cc-*` tokens, so browsers fill the form in one tap.",
+      "Required and format errors appear inline and in FormErrorSummary.",
+    ],
+    related: ["form", "field", "order-summary"],
+  },
+  {
+    name: "product-listing",
+    title: "ProductListing",
+    category: "commerce",
+    description:
+      "Category page layout: heading with live result count, filter sidebar (sheet on mobile), applied-filter chips, sort control, product grid and pagination. Built on FilterPanel; adapted from Storefront UI (MIT).",
+    when: "Use for category, search-result and collection pages.",
+    a11y: [
+      "The title is the page `h1`; the result count updates in a polite live region.",
+      "Give product cards `headingLevel={2}` so headings go h1 → h2 without gaps.",
+      "Filters are a labelled `aside` on desktop and a dialog on mobile; applied filters are removable chips.",
+    ],
+    related: ["filter-panel", "product-card", "pagination"],
+    responsive: "Sidebar from `lg`; below that a sticky Filters button opens a bottom sheet.",
+  },
+  {
+    name: "product-details",
+    title: "ProductDetails",
+    category: "commerce",
+    description:
+      "Product page layout: gallery beside a buy box with brand, title, rating, price, options, quantity, add to cart, reassurance and details. Adapted from Storefront UI (MIT).",
+    when: "Use for product detail pages; fill the slots with ProductGallery, SwatchGroup, QuantitySelector and Accordion.",
+    a11y: [
+      "Rendered as an `article` with the product name as `h1`.",
+      'The rating can link to reviews and is announced as text ("4.8 out of 5 stars").',
+      'The details slot sits under a visually hidden h2 ("Product details") so Accordion h3 headings keep a valid outline.',
+    ],
+    related: ["product-gallery", "swatch", "quantity-selector"],
+    responsive:
+      "Stacked with the gallery first on phones; two columns from `md`, with a sticky buy box.",
+  },
   // ───────────────────────── Motion ─────────────────────────
   {
     name: "reveal",
