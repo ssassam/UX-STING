@@ -64,3 +64,46 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 Example applications and docs demos hotlink photos from Unsplash
 (Unsplash License) and avatars from pravatar.cc for illustration only; no
 images are redistributed in this repository.
+
+### Storefront UI — MIT License
+
+The layouts and behavior of `QuantitySelector`, `SwatchGroup`/`Swatch`,
+`ProductGallery`, `OrderSummary`, `MegaMenu`, `CartLineItem`,
+`AddressFields`/`PaymentFields`, `ProductListing` and `ProductDetails`
+(`packages/react/src/components/`) are adapted from the e-commerce blocks of
+[vuestorefront/storefront-ui](https://github.com/vuestorefront/storefront-ui)
+(QuantitySelector, ProductDetails, Gallery, OrderSummary, MegaMenu, cart,
+checkout and category page blocks). They were
+rewritten for UX-STING's tokens, Radix primitives and accessibility rules.
+
+```
+MIT License
+Copyright (c) 2023 Vue Storefront
+```
+
+## Ideas only (no code)
+
+### Remotion — Remotion License (not redistributed)
+
+The motion helpers in `packages/utils/src/motion.ts` (`interpolate`,
+`spring`) and `packages/hooks/src/use-tween.ts` follow the API ideas
+popularized by [remotion-dev/remotion](https://github.com/remotion-dev/remotion).
+They are independent implementations of standard math (piecewise-linear
+mapping, the closed-form damped harmonic oscillator, cubic-bézier solving).
+No Remotion source is copied or redistributed, and UX-STING does not
+depend on Remotion, whose license is not an OSI open-source license.
+
+### logo-design skill — MIT License
+
+`.claude/skills/logo-design/` (SKILL.md, `references/`, `templates/`,
+`scripts/` and the aggregate `assets/library/stats.json`) is copied from
+[kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill),
+with a UX-STING section added to SKILL.md and `preview_sheet.py` patched to
+run without the reference library. The upstream library of real-world logos
+is third-party trademarks and is **not** included. Full license:
+`.claude/skills/logo-design/LICENSE`.
+
+```
+MIT License
+Copyright (c) 2026 kaankiziltug
+```

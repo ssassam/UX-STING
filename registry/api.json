@@ -467,6 +467,64 @@
       "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
+  "logo": {
+    "Logo": {
+      "kind": "component",
+      "description": "Brand lockup: symbol + wordmark with locked spacing and sizes. Exposed to\nassistive tech as one image (or link) named after the brand; the SVG\nitself is hidden. For router links, omit `href` and wrap the Logo in your\nLink. Pair with the `logo-design` skill to create the mark. Server-compatible.",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Brand name: the accessible name, and the wordmark when `wordmark` is not given."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "description": "Renders the logo as a home link."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name override, e.g. \"Acme home\". Defaults to `name`."
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"stacked\" | \"mark\" | \"wordmark\"",
+          "required": false,
+          "default": "\"horizontal\"",
+          "description": "`horizontal` (default), `stacked`, `mark` (symbol only) or `wordmark` (text only)."
+        },
+        {
+          "name": "mark",
+          "type": "ReactNode",
+          "required": false,
+          "description": "The symbol as inline SVG using `fill=\"currentColor\"`, so it follows tokens and color modes."
+        },
+        {
+          "name": "size",
+          "type": "keyof typeof sizes",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "tone",
+          "type": "keyof typeof tones",
+          "required": false,
+          "default": "\"brand\""
+        },
+        {
+          "name": "wordmark",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Custom wordmark (e.g. a constructed SVG logotype). Defaults to `name` set in the heading font."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
   "typography": {
     "textVariants": {
       "kind": "function",
@@ -11119,6 +11177,793 @@
         }
       ],
       "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "quantity-selector": {
+    "QuantitySelector": {
+      "kind": "component",
+      "description": "Cart quantity control: − / input / + with clamping to stock. The input is a\nnative number field (spinbutton), so arrows, typing and form submission\nwork; the buttons are real tab stops, sized for touch. Adapted from the\nStorefront UI QuantitySelector block (MIT).",
+      "props": [
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false,
+          "description": "Stretch to the container width (mobile add-to-cart bars)."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "description": "Defaults to `stock` when given."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "default": "1",
+          "description": "Default 1."
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: number) => void",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "keyof typeof sizes",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "stock",
+          "type": "number",
+          "required": false,
+          "description": "Units available; shows \"N in stock\" under the control and caps the value."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "inherits": "302 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "swatch": {
+    "SwatchGroup": {
+      "kind": "component",
+      "description": "Product variant picker (color, size, material). A single-select radio group:\none tab stop, arrow keys move and select, form-submittable via `name`.\nPattern adapted from Storefront UI's product details block (MIT).",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dir",
+          "type": "RovingFocusGroupProps['dir']",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['disabled']",
+          "required": false
+        },
+        {
+          "name": "form",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['form']",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loop",
+          "type": "RovingFocusGroupProps['loop']",
+          "required": false,
+          "default": "true"
+        },
+        {
+          "name": "name",
+          "type": "RadioGroupContextValue['name']",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "RadioGroupContextValue['onValueChange']",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['required']",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Swatch": {
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible and visible name, e.g. \"Sand\" or \"M\"."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Custom content for text swatches (defaults to `label`)."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "description": "CSS color (or gradient) for a color swatch. Omit for a text swatch (\"S\", \"M\", \"L\")."
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "unavailable",
+          "type": "boolean",
+          "required": false,
+          "description": "Sold out: still listed and announced, but crossed out and not selectable."
+        }
+      ],
+      "inherits": "286 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "product-gallery": {
+    "ProductGallery": {
+      "kind": "component",
+      "description": "Product image viewer: main image with previous/next buttons and a thumbnail\nstrip. Thumbnails are one tab stop (arrow keys, Home/End, RTL-aware); the\ncurrent position is announced politely. Layout adapted from the\nStorefront UI Gallery block (MIT).",
+      "props": [
+        {
+          "name": "images",
+          "type": "ProductGalleryImage[]",
+          "required": true
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "required": false,
+          "default": "0"
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name for the gallery (defaults to \"Product images\")."
+        },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "required": false
+        },
+        {
+          "name": "ratio",
+          "type": "number",
+          "required": false,
+          "default": "1",
+          "description": "Aspect ratio of the main image. Default 1 (square)."
+        },
+        {
+          "name": "thumbnails",
+          "type": "\"bottom\" | \"start\" | \"none\"",
+          "required": false,
+          "default": "\"bottom\"",
+          "description": "Thumbnails below (default) or beside the image from `md` up."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "order-summary": {
+    "OrderSummary": {
+      "kind": "component",
+      "description": "Cart and checkout totals as a description list: subtotal, discounts,\nshipping, tax and a prominent total. Amounts are locale-formatted with\ntabular figures; discounts read as deductions in text, not only by color.\nAdapted from the Storefront UI OrderSummary block (MIT).",
+      "props": [
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true,
+          "description": "ISO 4217 code."
+        },
+        {
+          "name": "lines",
+          "type": "OrderSummaryLine[]",
+          "required": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Promo-code field, checkout button, trust badges… rendered below the total."
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "2"
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "note",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Text under the total, e.g. \"Taxes included\"."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Heading text (defaults to \"Order summary\"); `null` hides the heading."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "required": false,
+          "description": "Grand total. Computed from `lines` when omitted."
+        },
+        {
+          "name": "totalLabel",
+          "type": "ReactNode",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "mega-menu": {
+    "MegaMenu": {
+      "kind": "component",
+      "description": "Store navigation: category panels with link columns and an optional promo\ntile on desktop (hover, click or keyboard), and a side sheet with\ncollapsible categories below `lg`. Built from one data structure so both\nstay in sync. Adapted from the Storefront UI MegaMenu block (MIT).",
+      "props": [
+        {
+          "name": "items",
+          "type": "MegaMenuItem[]",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "currentHref",
+          "type": "string",
+          "required": false,
+          "description": "href of the current page, marked with `aria-current=\"page\"`."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": "\"Main\"",
+          "description": "Accessible name of the navigation landmark. Default \"Main\"."
+        }
+      ]
+    }
+  },
+  "cart-line-item": {
+    "CartLineItem": {
+      "kind": "component",
+      "description": "One product in a cart or order: image, name, chosen options, line price,\nquantity control and remove. Wrap lines in a `<ul>` with `<li>` per item.\nAdapted from the Storefront UI cart line block (MIT).",
+      "props": [
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true,
+          "description": "ISO 4217 code."
+        },
+        {
+          "name": "image",
+          "type": "{ src: string; alt: string }",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "price",
+          "type": "number",
+          "required": true,
+          "description": "Unit price. The line shows unit price × quantity."
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "compareAt",
+          "type": "number",
+          "required": false,
+          "description": "Previous unit price (sale)."
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "3"
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Small note such as \"Only 2 left\" or \"Ships in 3 days\"."
+        },
+        {
+          "name": "onQuantityChange",
+          "type": "(quantity: number) => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "CartLineItemOption[]",
+          "required": false,
+          "description": "Chosen variant, e.g. `[{ label: \"Color\", value: \"Sand\" }, { label: \"Size\", value: \"M\" }]`."
+        },
+        {
+          "name": "quantityLabel",
+          "type": "string",
+          "required": false,
+          "description": "Label for the read-only quantity. Default \"Quantity\"."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "required": false,
+          "description": "Read-only line (order confirmation): shows \"Qty: n\" instead of the control."
+        },
+        {
+          "name": "stock",
+          "type": "number",
+          "required": false,
+          "description": "Units available; caps the quantity."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "checkout-fields": {
+    "AddressFields": {
+      "kind": "component",
+      "description": "Address block for checkout: visible labels, the right `autoComplete`\ntokens per section (so browsers and password managers fill it in one\ntap), mobile keyboards per field and required validation through `Form`.\nAdapted from the Storefront UI checkout address block (MIT).",
+      "props": [
+        {
+          "name": "legend",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Group legend, e.g. \"Shipping address\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "type": "Array<{ value: string; label: string }>",
+          "required": false,
+          "description": "Country options; when omitted the country is a text field."
+        },
+        {
+          "name": "defaultCountry",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hidePhone",
+          "type": "boolean",
+          "required": false,
+          "description": "Hide the phone field."
+        },
+        {
+          "name": "hideRegion",
+          "type": "boolean",
+          "required": false,
+          "description": "Hide the region field (countries without states)."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<AddressFieldsLabels>",
+          "required": false
+        },
+        {
+          "name": "section",
+          "type": "\"shipping\" | \"billing\"",
+          "required": false,
+          "default": "\"shipping\"",
+          "description": "Autofill section and field-name prefix. Field names are `<section>.<field>`\n(`shipping.line1`), so a shipping and a billing group can share one Form."
+        }
+      ]
+    },
+    "PaymentFields": {
+      "kind": "component",
+      "description": "Card payment fields with `cc-*` autofill, numeric keyboards, as-you-type\nformatting and format validation. For real payments, render your payment\nprovider's hosted fields inside the same layout instead, so card data\nnever touches your servers (PCI DSS).",
+      "props": [
+        {
+          "name": "legend",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "accepted",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Accepted-card logos or a wallet button row, shown under the legend."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "Partial<PaymentFieldsLabels>",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "default": "\"payment\"",
+          "description": "Field-name prefix. Default `\"payment\"` → `payment.cardNumber`."
+        }
+      ]
+    }
+  },
+  "product-listing": {
+    "ProductListing": {
+      "kind": "component",
+      "description": "Category page layout: heading and live result count, a filter sidebar\n(a sheet on mobile, from the same filters), applied-filter chips, a sort\ncontrol, the product grid and pagination. Composes FilterPanel. Layout\nadapted from the Storefront UI category page block (MIT).",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "The product grid."
+        },
+        {
+          "name": "filters",
+          "type": "ReactNode",
+          "required": true,
+          "description": "FilterSection elements (categories, price, size, color…)."
+        },
+        {
+          "name": "resultCount",
+          "type": "number",
+          "required": true,
+          "description": "Total number of products for the current filters. Announced politely when it changes."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Page heading, e.g. the category name. Rendered as the page's `h1`."
+        },
+        {
+          "name": "activeFilters",
+          "type": "FilterChip[]",
+          "required": false,
+          "default": "[]",
+          "description": "Applied filters, shown as removable chips above the grid."
+        },
+        {
+          "name": "breadcrumb",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Breadcrumb above the title."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Short intro under the title."
+        },
+        {
+          "name": "filtersTitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onClearFilters",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRemoveFilter",
+          "type": "(id: string) => void",
+          "required": false
+        },
+        {
+          "name": "pagination",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Pagination under the grid."
+        },
+        {
+          "name": "sort",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Sort control (e.g. a labelled NativeSelect), shown at the end of the toolbar."
+        }
+      ]
+    }
+  },
+  "product-details": {
+    "ProductDetails": {
+      "kind": "component",
+      "description": "Product page layout: gallery beside a buy box (brand, title, rating,\nprice, options, quantity and add to cart), stacked on phones with the\ngallery first. The buy box stays in view while long galleries scroll on\ndesktop.\nAdapted from the Storefront UI product details block (MIT).",
+      "props": [
+        {
+          "name": "gallery",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Media column, usually a ProductGallery."
+        },
+        {
+          "name": "price",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Price element, e.g. `<Price amount={89} compareAt={120} currency=\"EUR\" size=\"xl\" />`."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Product name, rendered as the page's `h1`."
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "description": "QuantitySelector + add-to-cart + wishlist row."
+        },
+        {
+          "name": "badges",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Badges next to the brand (\"New\", \"−25%\")."
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Short description under the price."
+        },
+        {
+          "name": "details",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Details below (an Accordion with description, materials, care)."
+        },
+        {
+          "name": "detailsTitle",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Heading for the details, visually hidden by default so Accordion headings (h3)\nsit under an h2. Defaults to \"Product details\"."
+        },
+        {
+          "name": "info",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Delivery, returns, stock — small reassurance lines under the actions."
+        },
+        {
+          "name": "options",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Variant pickers (labelled SwatchGroups) between description and actions."
+        },
+        {
+          "name": "rating",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "reviewCount",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "reviewsHref",
+          "type": "string",
+          "required": false,
+          "description": "Link target for the rating (e.g. \"#reviews\")."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "reveal": {
+    "Reveal": {
+      "kind": "component",
+      "description": "Animates content in the first time it scrolls into view. Content that is\nalready visible on load, server-rendered pages without JS and users who\nprefer reduced motion all see it immediately — nothing is ever stuck hidden.",
+      "props": [
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Delay before the entrance, in ms."
+        },
+        {
+          "name": "effect",
+          "type": "keyof typeof effectClass",
+          "required": false,
+          "default": "\"slide-up\"",
+          "description": "Entrance effect. Only transform and opacity animate. Default `\"slide-up\"`."
+        },
+        {
+          "name": "rootMargin",
+          "type": "string",
+          "required": false,
+          "default": "\"0px 0px -10% 0px\"",
+          "description": "Viewport margin; negative values wait until the element is further in view."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "RevealGroup": {
+      "kind": "component",
+      "description": "Wraps each child in a `Reveal` with an increasing delay — for card grids\nand feature lists. The group itself stays a plain layout element, so pass\ngrid or flex classes through `className`.",
+      "props": [
+        {
+          "name": "effect",
+          "type": "RevealProps[\"effect\"]",
+          "required": false
+        },
+        {
+          "name": "maxDelay",
+          "type": "number",
+          "required": false,
+          "default": "480",
+          "description": "Cap on the accumulated delay so long lists do not lag. Default 480."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "required": false,
+          "default": "80",
+          "description": "Delay added per child, in ms. Default 80."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "animated-number": {
+    "AnimatedNumber": {
+      "kind": "component",
+      "description": "A number that counts to its value — for KPIs, prices and live totals.\nScreen readers get the final, formatted value only (never the intermediate\nframes), figures are tabular so the width stays stable, and reduced motion\nshows the value instantly.",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "900",
+          "description": "Duration in ms for the eased tween. Ignored when `spring` is set. Default 900."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "required": false,
+          "description": "Intl number format options (currency, percent, compact, units)."
+        },
+        {
+          "name": "from",
+          "type": "number",
+          "required": false,
+          "description": "Start value for the first animation, played when the number scrolls into view. Omit to only animate later changes."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spring",
+          "type": "keyof typeof springs | SpringConfig",
+          "required": false,
+          "description": "Spring physics instead of a fixed duration: a preset name or a config."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
   "color-mode-toggle": {

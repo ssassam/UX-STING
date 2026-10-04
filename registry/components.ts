@@ -99,6 +99,21 @@ export const components: ComponentMeta[] = [
       ["Home / End", "Minimize / maximize the leading panel"],
     ],
   },
+  {
+    name: "logo",
+    title: "Logo",
+    category: "foundations",
+    description:
+      "Brand lockup (symbol + wordmark) with locked spacing, horizontal/stacked/mark/wordmark layouts and brand, mono and reversed tones driven by tokens.",
+    when: "Use in navbars, footers, auth screens and emails to show your brand consistently. Create the mark with the `logo-design` skill.",
+    avoid:
+      'Do not paste raster logos or hard-coded colors; give the mark `fill="currentColor"` so it follows the theme.',
+    a11y: [
+      'Exposed as one image (`role="img"`) or one link named after the brand; the SVG and wordmark are hidden from assistive tech.',
+      'Use `label` for links ("Acme home").',
+    ],
+    related: ["navbar"],
+  },
   // ───────────────────────── Typography ─────────────────────────
   {
     name: "typography",
@@ -1019,6 +1034,194 @@ export const components: ComponentMeta[] = [
     description: "PremiumBadge, VerifiedBadge and FeaturedBadge.",
     when: "Use to mark paid, verified or featured listings.",
     a11y: ["Always include text, not only an icon or color."],
+  },
+  // ───────────────────────── Commerce ─────────────────────────
+  {
+    name: "quantity-selector",
+    title: "QuantitySelector",
+    category: "commerce",
+    description:
+      'Cart quantity control (− / input / +) that clamps to min, max or stock and shows "N in stock". Adapted from Storefront UI (MIT).',
+    when: "Use on product pages, cart lines and ticket pickers for small whole-number quantities.",
+    avoid: "Use NumberInput for free numeric entry (prices, measurements, decimals).",
+    a11y: [
+      'The input is a native `type="number"` spinbutton named "Quantity" (or by its Field label).',
+      "The − and + buttons are real tab stops with `aria-controls`, disabled at the limits.",
+      "Stock text is linked with `aria-describedby`.",
+    ],
+    keyboard: [
+      ["↑ / ↓", "Increase / decrease"],
+      ["Home / End", "Minimum / maximum"],
+      ["Enter", "Commit typed value"],
+    ],
+    related: ["number-input", "product-card", "order-summary"],
+    responsive:
+      "Buttons expand to 44px touch targets on coarse pointers; `fullWidth` for mobile buy bars.",
+  },
+  {
+    name: "swatch",
+    title: "Swatch",
+    category: "commerce",
+    primary: "SwatchGroup",
+    description:
+      "Variant picker for colors (SwatchGroup + Swatch with `color`) and sizes (text swatches), with crossed-out unavailable options.",
+    when: "Use for product options with few values: color, size, material, storage.",
+    avoid: "Use Select or Combobox when there are more than ~12 options.",
+    a11y: [
+      "A radio group: one tab stop, form-submittable via `name`.",
+      'Every swatch has a text name; color is never the only cue. Unavailable options are announced ("Sage, unavailable") and skipped.',
+      "The selected color shows a check mark in addition to the ring.",
+    ],
+    keyboard: [["← / → / ↑ / ↓", "Move and select (RTL-aware)"]],
+    related: ["radio-group", "product-gallery"],
+  },
+  {
+    name: "product-gallery",
+    title: "ProductGallery",
+    category: "commerce",
+    description:
+      "Product image viewer with previous/next buttons and a bottom or side thumbnail strip. Adapted from Storefront UI (MIT).",
+    when: "Use on product detail pages with 2–10 images.",
+    avoid: "Use Carousel for marketing slides and mixed content.",
+    a11y: [
+      "Labelled region; position changes are announced politely.",
+      'Thumbnails are buttons ("Show image 2 of 4") with `aria-current`, forming one tab stop.',
+      "Main image alt text comes from your data; thumbnails are decorative.",
+    ],
+    keyboard: [
+      ["← / →", "Previous / next thumbnail (mirrored in RTL)"],
+      ["Home / End", "First / last image"],
+    ],
+    related: ["carousel", "swatch", "media"],
+    responsive:
+      '`thumbnails="start"` puts thumbnails in a vertical column from `md` up; a scrollable row below that.',
+  },
+  {
+    name: "order-summary",
+    title: "OrderSummary",
+    category: "commerce",
+    description:
+      "Cart and checkout totals: subtotal, discounts, shipping, tax and total, with a slot for promo codes and the checkout button. Adapted from Storefront UI (MIT).",
+    when: "Use in carts, checkout sidebars and order confirmations.",
+    a11y: [
+      "A labelled region containing a description list (`dt`/`dd`).",
+      'Discounts read as deductions ("−€47.70") in text, not only by color.',
+      "Locale-formatted currency with tabular figures.",
+    ],
+    related: ["price", "quantity-selector"],
+  },
+  {
+    name: "mega-menu",
+    title: "MegaMenu",
+    category: "commerce",
+    description:
+      "Store navigation from one data structure: category panels with link columns and a promo tile on desktop, a side sheet with collapsible categories on phones. Adapted from Storefront UI (MIT).",
+    when: "Use as the main navigation of shops and catalogs with many categories.",
+    avoid: "Use Navbar with NavigationMenu for sites with a handful of pages.",
+    a11y: [
+      "A labelled `nav` landmark; panels open on hover, click and Enter, and close with Escape.",
+      'The current page gets `aria-current="page"`.',
+      "On phones the menu is a dialog with a title; categories are an accordion and links are 44px tall.",
+    ],
+    keyboard: [
+      ["Tab", "Move between categories and links"],
+      ["Enter / Space", "Open a category panel"],
+      ["Escape", "Close the panel or the mobile sheet"],
+    ],
+    related: ["navigation-menu", "navbar", "sheet"],
+    responsive: "Panels from `lg` up; a menu button opening a start-side sheet below `lg`.",
+  },
+  {
+    name: "cart-line-item",
+    title: "CartLineItem",
+    category: "commerce",
+    description:
+      "One product in a cart or order: image, name, chosen options, line total, quantity control and remove, plus a read-only mode for confirmations. Adapted from Storefront UI (MIT).",
+    when: "Use in cart pages, mini-carts and order summaries. Wrap lines in a `ul`.",
+    a11y: [
+      "The product name is a heading (configurable level) and links to the product.",
+      'The quantity input is named after the product ("Quantity, Linen shirt") and the remove button says what it removes.',
+      "Options render as a description list; the line total is locale-formatted.",
+    ],
+    related: ["quantity-selector", "order-summary", "price"],
+    responsive:
+      "Price and controls move under the name on phones and to their own column from `sm`.",
+  },
+  {
+    name: "checkout-fields",
+    title: "Checkout fields",
+    category: "commerce",
+    primary: "AddressFields",
+    description:
+      "AddressFields and PaymentFields for checkout: visible labels, section-scoped autofill tokens, mobile keyboards, card and expiry formatting and validation through Form.",
+    when: "Use inside a Form for shipping/billing addresses and card payment UI.",
+    avoid:
+      "For live payments, put your payment provider's hosted fields in this layout so card data never reaches your server.",
+    a11y: [
+      "Each group is a fieldset with a legend; every field has a visible label and helper text where the format matters.",
+      "`autoComplete` uses `shipping …` / `billing …` and `cc-*` tokens, so browsers fill the form in one tap.",
+      "Required and format errors appear inline and in FormErrorSummary.",
+    ],
+    related: ["form", "field", "order-summary"],
+  },
+  {
+    name: "product-listing",
+    title: "ProductListing",
+    category: "commerce",
+    description:
+      "Category page layout: heading with live result count, filter sidebar (sheet on mobile), applied-filter chips, sort control, product grid and pagination. Built on FilterPanel; adapted from Storefront UI (MIT).",
+    when: "Use for category, search-result and collection pages.",
+    a11y: [
+      "The title is the page `h1`; the result count updates in a polite live region.",
+      "Give product cards `headingLevel={2}` so headings go h1 → h2 without gaps.",
+      "Filters are a labelled `aside` on desktop and a dialog on mobile; applied filters are removable chips.",
+    ],
+    related: ["filter-panel", "product-card", "pagination"],
+    responsive: "Sidebar from `lg`; below that a sticky Filters button opens a bottom sheet.",
+  },
+  {
+    name: "product-details",
+    title: "ProductDetails",
+    category: "commerce",
+    description:
+      "Product page layout: gallery beside a buy box with brand, title, rating, price, options, quantity, add to cart, reassurance and details. Adapted from Storefront UI (MIT).",
+    when: "Use for product detail pages; fill the slots with ProductGallery, SwatchGroup, QuantitySelector and Accordion.",
+    a11y: [
+      "Rendered as an `article` with the product name as `h1`.",
+      'The rating can link to reviews and is announced as text ("4.8 out of 5 stars").',
+      'The details slot sits under a visually hidden h2 ("Product details") so Accordion h3 headings keep a valid outline.',
+    ],
+    related: ["product-gallery", "swatch", "quantity-selector"],
+    responsive:
+      "Stacked with the gallery first on phones; two columns from `md`, with a sticky buy box.",
+  },
+  // ───────────────────────── Motion ─────────────────────────
+  {
+    name: "reveal",
+    title: "Reveal",
+    category: "motion",
+    description:
+      "Scroll-triggered entrance (fade, slide, scale) and RevealGroup for staggered lists. Transform and opacity only, built on motion tokens.",
+    when: "Use sparingly on marketing and landing sections to guide attention as content scrolls in.",
+    avoid: "Do not wrap app UI, forms or anything users need immediately.",
+    a11y: [
+      "Content already on screen, server-rendered pages without JS and reduced-motion users see everything immediately.",
+      "Hidden content stays in the accessibility tree; focusing it scrolls it into view and reveals it.",
+    ],
+    related: ["animated-number"],
+  },
+  {
+    name: "animated-number",
+    title: "AnimatedNumber",
+    category: "motion",
+    description:
+      "Number that tweens or springs to its value, formatted with Intl (currency, percent, compact). Starts on scroll into view with `from`.",
+    when: "Use for KPIs, live totals and counters where change is meaningful.",
+    a11y: [
+      "Screen readers get only the final formatted value, never intermediate frames.",
+      "Tabular figures keep the width stable; reduced motion shows the value instantly.",
+    ],
+    related: ["stat", "price"],
   },
   // ───────────────────────── Theming ─────────────────────────
   {

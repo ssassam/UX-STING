@@ -8,3 +8,4 @@ export * from "./fuzzy.js";
 export * from "./theme.js";
 export * from "./misc.js";
 export * from "./refs.js";
+export * from "./motion.js";
