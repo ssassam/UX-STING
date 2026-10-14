@@ -2,12 +2,13 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
-- **~95 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, and commerce / local-discovery / editorial patterns
+- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds)
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
-- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 13 presets (including Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles), custom themes, light/dark/high-contrast, 3 densities
+- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
 - **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
 - **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
+- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), pick a deliberate design direction instead of the generic AI look (`ux-sting-taste`), review with evidence (`ux-sting-review`) and explore several directions side by side (`ux-sting-explore`)
 - **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
 
 ## Quick start
