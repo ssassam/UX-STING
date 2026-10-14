@@ -49,6 +49,11 @@ export interface Messages {
   collapse: string;
   copy: string;
   copied: string;
+  pauseAnimation: string;
+  playAnimation: string;
+  compareImages: string;
+  before: string;
+  after: string;
 }
 
 export const en: Messages = {
@@ -98,6 +103,11 @@ export const en: Messages = {
   collapse: "Collapse",
   copy: "Copy",
   copied: "Copied",
+  pauseAnimation: "Pause animation",
+  playAnimation: "Play animation",
+  compareImages: "Compare images",
+  before: "Before",
+  after: "After",
 };
 
 export const fr: Messages = {
@@ -147,6 +157,11 @@ export const fr: Messages = {
   collapse: "Réduire",
   copy: "Copier",
   copied: "Copié",
+  pauseAnimation: "Mettre l’animation en pause",
+  playAnimation: "Lancer l’animation",
+  compareImages: "Comparer les images",
+  before: "Avant",
+  after: "Après",
 };
 
 export const ar: Messages = {
@@ -196,6 +211,11 @@ export const ar: Messages = {
   collapse: "طي",
   copy: "نسخ",
   copied: "تم النسخ",
+  pauseAnimation: "إيقاف الحركة مؤقتًا",
+  playAnimation: "تشغيل الحركة",
+  compareImages: "مقارنة الصور",
+  before: "قبل",
+  after: "بعد",
 };
 
 export const builtInMessages: Record<string, Messages> = { en, fr, ar };

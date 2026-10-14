@@ -11,6 +11,7 @@ export type Category =
   | "media"
   | "command"
   | "patterns"
+  | "motion"
   | "theming";
 
 export interface ComponentMeta {
@@ -48,5 +49,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   media: "Media",
   command: "Command & search",
   patterns: "Patterns",
+  motion: "Motion & effects",
   theming: "Theming",
 };

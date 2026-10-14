@@ -8,6 +8,7 @@ export const guides = [
   { slug: "theming", title: "Theming" },
   { slug: "tokens", title: "Design tokens" },
   { slug: "dark-mode", title: "Dark mode" },
+  { slug: "motion", title: "Motion & effects" },
   { slug: "density", title: "Density" },
   { slug: "accessibility", title: "Accessibility" },
   { slug: "ux-quality", title: "UX quality rules" },
@@ -36,6 +37,7 @@ export const categoryOrder: Category[] = [
   "media",
   "command",
   "patterns",
+  "motion",
   "theming",
 ];
 
