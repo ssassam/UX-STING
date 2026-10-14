@@ -25,6 +25,10 @@ Use this skill whenever a task changes how something in this repo **looks, feels
 | Inline/section message | `Alert` | toast for actionable errors |
 | Loading > 1s, content-shaped | `Skeleton` | spinner-only screens |
 | No data / error | `EmptyState` / `ErrorState` with an action | blank areas |
+| Hero headline / status label motion | `TextEffect`, `RotatingText`, `Typewriter`, `TextShimmer` | hand-written keyframes |
+| Scroll entrances, counters | `Reveal`, `AnimatedNumber`, `ScrollProgress` | animation libraries for fades |
+| Logo rows, hover delight, before/after | `Marquee`, `Spotlight`, `Tilt`, `ImageComparison` | CSS loops with no pause |
+| Texture behind sections | `MeshGradient`, `DotPattern`, `GridPattern`, `Grain`, `ProgressiveBlur` | background images, raw-color gradients |
 
 Import per component: `import { Button } from "@ux-sting/react/button"`.
 
@@ -38,7 +42,7 @@ Import per component: `import { Button } from "@ux-sting/react/button"`.
 | 4 | Style | Semantic tokens only (`bg-primary`, `text-muted-foreground`), one icon family, one primary action per view | raw hex, emoji icons, random shadows |
 | 5 | Layout & responsive | Responsive props (`columns={{ base: 1, md: 3 }}`), `dvh`, safe areas, no horizontal scroll at 375px | fixed px widths, `100vh` |
 | 6 | Typography & color | 16px body/inputs on mobile, `tabular-nums` for numbers, `text-balance` headings | gray-on-gray text |
-| 7 | Motion | Motion tokens; exits faster than entries; transform/opacity only; reduced motion | animating width/height, decorative motion |
+| 7 | Motion | Motion tokens; exits faster than entries; transform/opacity only; reduced motion; expressive components within the budget in `docs/motion.md` | animating width/height, motion on every element |
 | 8 | Forms | `Form` + `Field` + `FormErrorSummary`, validate on blur, semantic `type`/`autoComplete` | errors only at top, keystroke validation |
 | 9 | Navigation | `aria-current`, breadcrumbs for 3+ levels, `SkipLink`, deep-linkable pagination (`getHref`) | modals for navigation |
 | 10 | Data | Sortable headers with `aria-sort`, locale formatting, trend arrows + text | color-only status |
@@ -76,6 +80,12 @@ Then walk the pre-delivery checklist:
 - [ ] RTL (`locale="ar"`) layout and keyboard mirroring checked
 - [ ] Only semantic tokens — `pnpm ux-audit` passes
 
-## 5. Adding a component
+## 5. Related skills
+
+- **ux-sting-taste** — pick a deliberate design direction (theme preset, type, layout, motion budget) for landing pages and marketing UI.
+- **ux-sting-review** — severity-ranked review with evidence; fix critical and serious findings before handoff.
+- **ux-sting-explore** — build three different directions side by side and converge on one.
+
+## 6. Adding a component
 
 Follow `CONTRIBUTING.md` → "Component checklist": API conventions (`docs/api-consistency.md`), tests with `expectNoA11yViolations`, a story, a docs demo (`apps/docs/demos/<name>.tsx`), metadata in `registry/components.ts`, then `pnpm readmes && pnpm registry`.

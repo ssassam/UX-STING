@@ -37,6 +37,19 @@ Seven presets reproduce the look of widely used enterprise design systems, so a 
 
 These presets are unofficial approximations built only from UX-STING tokens. They are not affiliated with or endorsed by Google, Microsoft, IBM, Shopify, Apple, Uber or Stripe, and they copy no code or assets. Fonts are referenced by name with system fallbacks: load Roboto, IBM Plex or Inter yourself (all under the SIL Open Font License) if you want them exactly. SF Pro and Segoe UI are only used when already installed on the device, as their licenses do not allow bundling. Every preset passes the same WCAG AA contrast tests as the built-in ones, in light and dark mode.
 
+### Design-direction presets
+
+Four presets describe a genre instead of a company. Use them when a brief has no brand yet and should not look like a default template — the `ux-sting-taste` skill explains when to pick each and how to pair type and layout with it.
+
+| Preset | Direction | Character |
+| --- | --- | --- |
+| `editorial` | Swiss print | Warm paper, ink text, one vermillion accent, serif display (`font-serif`), flat surfaces |
+| `luxury` | Quiet luxury | Ivory and deep ink, oxblood accent, serif throughout, square corners, spacious density |
+| `brutalist` | Brutalist | Ink on white, square corners, heavy borders, hard offset shadows, grotesk + mono |
+| `terminal` | Dark tech | Graphite neutrals, signal-green accent, mono metadata, compact density — best with `colorMode="dark"` |
+
+Display fonts (Fraunces, Cormorant Garamond, Space Grotesk, Geist) are named with system fallbacks; load them yourself (all SIL Open Font License) for the full effect.
+
 Each preset is a starting point — extend it like any other theme:
 
 ```ts

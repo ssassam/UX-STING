@@ -18,6 +18,19 @@ const stripeBlurple = createScale(281, 0.2);
 const stripeSlate = createScale(255, 0.04);
 const polarisGreen = createScale(165, 0.12);
 
+/*
+ * Design-direction presets: opinionated starting points for a genre rather
+ * than a company (see .claude/skills/ux-sting-taste). Pair each with the
+ * typography and layout notes in that skill.
+ */
+const paper = createScale(75, 0.014);
+const vermillion = createScale(33, 0.18);
+const ivory = createScale(85, 0.012);
+const oxblood = createScale(20, 0.13);
+const graphite = createScale(265, 0.012);
+const signal = createScale(155, 0.16);
+const serifDisplay = '"Fraunces", "Source Serif 4", "Iowan Old Style", ui-serif, Georgia, serif';
+
 /** Monochrome (near-black) primary used by the Polaris and Base Web styles. */
 const inkPrimary = {
   light: {
@@ -204,6 +217,63 @@ export const presetConfigs = {
         "0 6px 12px -2px oklch(0.25 0.06 255 / 0.12), 0 3px 7px -3px oklch(0 0 0 / 0.15)",
       "shadow-lg":
         "0 13px 27px -5px oklch(0.25 0.06 255 / 0.2), 0 8px 16px -8px oklch(0 0 0 / 0.25)",
+    },
+  },
+  /** Editorial: warm paper, ink text, one vermillion accent, serif display, hairline rules. */
+  editorial: {
+    name: "editorial",
+    primary: vermillion,
+    neutral: paper,
+    radius: "small",
+    fontFamily: { serif: serifDisplay, mono: '"JetBrains Mono", ui-monospace, monospace' },
+    vars: flatShadows,
+    colors: { light: { background: paper[50], card: paper[50], surface: paper[100] } },
+  },
+  /** Quiet luxury: ivory and deep ink, oxblood accent, serif throughout, generous space. */
+  luxury: {
+    name: "luxury",
+    primary: oxblood,
+    neutral: ivory,
+    radius: "0px",
+    density: "spacious",
+    fontFamily: {
+      sans: '"Cormorant Garamond", "Iowan Old Style", ui-serif, Georgia, serif',
+      serif: serifDisplay,
+    },
+    vars: flatShadows,
+    colors: { light: { background: ivory[50], card: ivory[50] } },
+  },
+  /** Brutalist: ink on white, square corners, heavy borders and hard offset shadows. */
+  brutalist: {
+    name: "brutalist",
+    neutral: "gray",
+    radius: "0px",
+    fontFamily: {
+      sans: '"Space Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif',
+      mono: '"Space Mono", ui-monospace, monospace',
+    },
+    vars: {
+      "shadow-xs": "2px 2px 0 0 oklch(0.15 0 0)",
+      "shadow-sm": "3px 3px 0 0 oklch(0.15 0 0)",
+      "shadow-md": "4px 4px 0 0 oklch(0.15 0 0)",
+      "shadow-lg": "6px 6px 0 0 oklch(0.15 0 0)",
+      "shadow-xl": "8px 8px 0 0 oklch(0.15 0 0)",
+    },
+    colors: {
+      light: { ...inkPrimary.light, border: g[900], "border-strong": g[950], input: g[900] },
+      dark: { ...inkPrimary.dark, border: g[200], "border-strong": g[50], input: g[200] },
+    },
+  },
+  /** Terminal: graphite neutrals, one signal-green accent, mono metadata. Best in dark mode. */
+  terminal: {
+    name: "terminal",
+    primary: signal,
+    neutral: graphite,
+    radius: "small",
+    density: "compact",
+    fontFamily: {
+      sans: '"Geist", "Inter", system-ui, sans-serif',
+      mono: '"Geist Mono", "JetBrains Mono", ui-monospace, monospace',
     },
   },
 } as const satisfies Record<string, ThemeConfig>;

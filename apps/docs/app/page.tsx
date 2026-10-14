@@ -15,7 +15,7 @@ const pillars = [
   ["Own your components", "Import from the package or copy source with `npx ux-sting add`."],
   [
     "Tokens & themes",
-    "Semantic CSS variables, 13 presets including enterprise styles, custom themes, dark, high-contrast and density modes.",
+    "Semantic CSS variables, 17 presets including enterprise styles and design directions, custom themes, dark, high-contrast and density modes.",
   ],
   [
     "Global-ready",

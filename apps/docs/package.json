@@ -12,15 +12,15 @@
     "typecheck": "node ./scripts/collect-demos.ts && tsc --noEmit"
   },
   "dependencies": {
+    "@ux-sting/hooks": "workspace:^",
     "@ux-sting/icons": "workspace:^",
     "@ux-sting/react": "workspace:^",
     "@ux-sting/themes": "workspace:^",
     "@ux-sting/tokens": "workspace:^",
     "@ux-sting/utils": "workspace:^",
-    "next": "^16.0.0",
+    "next": "^16.4.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "@ux-sting/hooks": "workspace:^"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

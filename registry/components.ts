@@ -1020,6 +1020,134 @@ export const components: ComponentMeta[] = [
     when: "Use to mark paid, verified or featured listings.",
     a11y: ["Always include text, not only an icon or color."],
   },
+  // ───────────────────────── Motion & effects ─────────────────────────
+  {
+    name: "text-effect",
+    title: "TextEffect",
+    category: "motion",
+    description:
+      "Staggered word or character entrances (fade, blur, slide, scale) and TextShimmer for in-progress labels. Pure CSS server components.",
+    when: "Use for one hero headline or a status label such as “Generating…”.",
+    avoid:
+      "Avoid on body copy, on several headings per screen, and for text that must be read right away.",
+    a11y: [
+      "Screen readers get the whole sentence once; the animated pieces are `aria-hidden`.",
+      "Nothing moves under reduced motion; the shimmer turns into plain muted text in forced colors.",
+    ],
+    related: ["reveal", "rotating-text"],
+  },
+  {
+    name: "rotating-text",
+    title: "RotatingText",
+    category: "motion",
+    description:
+      "RotatingText cycles words in place without reflow; Typewriter types, erases and loops phrases with space reserved for the longest.",
+    when: "Use in a hero to show several audiences or use cases in one line.",
+    avoid: "Avoid for information people need: hidden words are easy to miss.",
+    a11y: [
+      "Screen readers hear the full list once, not every change.",
+      "Reduced motion keeps the first word (RotatingText) or shows the full text (Typewriter); without JavaScript the text is shown.",
+    ],
+    related: ["text-effect"],
+  },
+  {
+    name: "animated-number",
+    title: "AnimatedNumber",
+    category: "motion",
+    description:
+      "Counts to a value with `Intl.NumberFormat` (currency, percent, compact) and tabular figures; starts when scrolled into view and animates later changes.",
+    when: "Use for headline stats, pricing toggles and dashboard KPIs.",
+    a11y: [
+      "Assistive tech reads the final formatted value only, never the intermediate frames.",
+      "Reduced motion jumps straight to the value.",
+    ],
+    related: ["stat", "price"],
+  },
+  {
+    name: "reveal",
+    title: "Reveal",
+    category: "motion",
+    description:
+      "Scroll-triggered entrance (fade, slide-up, slide-start, blur, scale) with optional per-child stagger.",
+    when: "Use on a few key sections of a marketing or editorial page.",
+    avoid: "Avoid on every element and in app UI, where content should simply be there.",
+    a11y: [
+      "Content is hidden only when JavaScript runs and motion is allowed, so no-JS visitors, crawlers and reduced-motion users always see it.",
+      "Does not change focus order; hidden content is still in the DOM.",
+    ],
+    related: ["text-effect"],
+  },
+  {
+    name: "marquee",
+    title: "Marquee",
+    category: "motion",
+    description:
+      "Endless row of logos, testimonials or tags that pauses on hover and focus and has a pause button.",
+    when: "Use for social proof (customer logos) and decorative tag clouds.",
+    avoid: "Avoid for content people must read or act on; use a Carousel or a list.",
+    a11y: [
+      "Pause button and hover/focus pause satisfy WCAG 2.2.2 (Pause, Stop, Hide).",
+      "The duplicate copy is `aria-hidden` and `inert`, so items are announced and focused once.",
+      "Reduced motion turns it into a scrollable row.",
+    ],
+    keyboard: [["Tab", "Moves through items once; focus pauses the motion"]],
+    related: ["carousel"],
+  },
+  {
+    name: "scroll-progress",
+    title: "ScrollProgress",
+    category: "motion",
+    description:
+      "Reading-progress bar driven by CSS scroll timelines, with a passive scroll listener as fallback.",
+    when: "Use on long articles and documentation pages.",
+    a11y: ["Decorative and `aria-hidden`; mirrors in RTL."],
+  },
+  {
+    name: "spotlight",
+    title: "Spotlight",
+    category: "motion",
+    description:
+      "Spotlight adds a pointer-following glow to a card; Tilt leans content slightly towards the pointer.",
+    when: "Use on a handful of feature or pricing cards and hero media.",
+    avoid: "Avoid on dense UI, forms and anything people click repeatedly.",
+    a11y: [
+      "Mouse and pen only; touch, coarse pointers, reduced motion and forced colors get the static version.",
+      "Effects never cover content or intercept clicks.",
+    ],
+  },
+  {
+    name: "image-comparison",
+    title: "ImageComparison",
+    category: "motion",
+    description:
+      "Before/after slider with a native range input, localized captions and RTL mirroring.",
+    when: "Use for retouching, renovations, product upgrades and design diffs.",
+    a11y: [
+      'A real `<input type="range">`: arrow keys, Home/End and Page Up/Down, announced as a percentage.',
+      "Give both images meaningful `alt` text; vertical page scroll still works on touch.",
+    ],
+    keyboard: [
+      ["← / →", "Move the divider by 1%"],
+      ["Page Up / Page Down", "Move by 10%"],
+      ["Home / End", "Show only one image"],
+    ],
+    related: ["media"],
+  },
+  {
+    name: "background",
+    title: "Backgrounds",
+    category: "motion",
+    primary: "MeshGradient",
+    description:
+      "Decorative CSS-only layers: MeshGradient, DotPattern, GridPattern, Grain and ProgressiveBlur, colored by theme tokens.",
+    when: "Use behind heroes, empty states and section dividers to add depth without images.",
+    avoid: "Avoid stacking several layers or putting them behind long body text.",
+    a11y: [
+      "All layers are `aria-hidden` and ignore the pointer; they are removed in forced colors.",
+      "Keep text contrast against the strongest point of the gradient; MeshGradient drift stops under reduced motion.",
+    ],
+    responsive: "Server components with no JavaScript, canvas or image downloads.",
+  },
   // ───────────────────────── Theming ─────────────────────────
   {
     name: "color-mode-toggle",
