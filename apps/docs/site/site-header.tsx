@@ -107,6 +107,10 @@ export function SiteHeader({
                 "apple",
                 "baseweb",
                 "stripe",
+                "editorial",
+                "luxury",
+                "brutalist",
+                "terminal",
               ].map((t) => (
                 <option key={t} value={t}>
                   {t}

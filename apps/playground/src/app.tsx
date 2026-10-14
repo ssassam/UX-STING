@@ -168,6 +168,10 @@ export function App() {
                 "apple",
                 "baseweb",
                 "stripe",
+                "editorial",
+                "luxury",
+                "brutalist",
+                "terminal",
               ].map((t) => (
                 <option key={t}>{t}</option>
               ))}
