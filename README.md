@@ -63,6 +63,7 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/icons` | `@ux-sting/icons` |
 | `packages/core` | `@ux-sting/core` — framework-agnostic entry |
 | `packages/cli` | `ux-sting` CLI |
+| `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
 | `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |

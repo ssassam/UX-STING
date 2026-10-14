@@ -18,6 +18,7 @@ export default defineConfig({
       { find: "@ux-sting/icons", replacement: `${pkg("icons")}/index.ts` },
       { find: "@ux-sting/core", replacement: `${pkg("core")}/index.ts` },
       { find: "@ux-sting/seo-schema", replacement: `${pkg("seo-schema")}/index.ts` },
+      { find: "@ux-sting/design-dna", replacement: `${pkg("design-dna")}/index.ts` },
       { find: "@ux-sting/react", replacement: `${pkg("react")}/index.ts` },
     ],
   },

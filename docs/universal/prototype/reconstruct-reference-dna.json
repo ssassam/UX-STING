@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "name": "Ember — a nine-course tasting menu in Ghent",
+  "mode": "reconstruct",
+  "sources": [
+    {
+      "kind": "url",
+      "ref": "http://localhost:4100/",
+      "authorized": true,
+      "capturedAt": "2026-10-14T14:12:43.079Z"
+    }
+  ],
+  "personality": {
+    "keywords": [
+      "dark",
+      "sans display",
+      "tight headings",
+      "rounded",
+      "single accent",
+      "left-aligned"
+    ],
+    "density": "balanced",
+    "contrast": "medium"
+  },
+  "color": {
+    "scheme": "dark",
+    "background": "#171c23",
+    "surface": "#171c24",
+    "foreground": "#adb9c5",
+    "muted": "#79828c",
+    "border": "#3b4652",
+    "accent": "#ca8200",
+    "accentForeground": "#301300",
+    "heading": "#f9fafb"
+  },
+  "typography": {
+    "display": {
+      "family": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Noto Sans Arabic\", Arial, sans-serif",
+      "classification": "sans",
+      "weight": 700
+    },
+    "body": {
+      "family": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Noto Sans Arabic\", Arial, sans-serif",
+      "classification": "sans",
+      "weight": 400
+    },
+    "scale": {
+      "base": 18,
+      "ratio": 1.414,
+      "steps": {
+        "small": 14,
+        "body": 18,
+        "h3": 16,
+        "h2": 30,
+        "h1": 72,
+        "display": 72
+      }
+    },
+    "headingTracking": -0.025,
+    "headingLeading": 1.05,
+    "bodyLeading": 1.5,
+    "uppercaseLabels": false,
+    "measure": 68
+  },
+  "layout": {
+    "container": 1232,
+    "pagePadding": 24,
+    "columns": 12,
+    "gutter": 16,
+    "sectionGap": 144,
+    "spacingUnit": 8,
+    "alignment": "start",
+    "sections": [
+      {
+        "id": "s1-navigation",
+        "role": "navigation",
+        "composition": "stack",
+        "columns": 3,
+        "surface": "surface",
+        "heightPx": 65
+      },
+      {
+        "id": "s2-hero",
+        "role": "hero",
+        "composition": "split",
+        "columns": 2,
+        "surface": "background",
+        "heightPx": 699,
+        "itemCount": 2
+      },
+      {
+        "id": "s3-list",
+        "role": "list",
+        "composition": "index",
+        "columns": 2,
+        "surface": "background",
+        "heightPx": 906,
+        "itemCount": 9
+      },
+      {
+        "id": "s4-content",
+        "role": "content",
+        "composition": "stack",
+        "columns": 3,
+        "surface": "background",
+        "heightPx": 480,
+        "itemCount": 2
+      },
+      {
+        "id": "s5-features",
+        "role": "features",
+        "composition": "grid",
+        "columns": 3,
+        "surface": "background",
+        "heightPx": 1047,
+        "itemCount": 3
+      },
+      {
+        "id": "s6-content",
+        "role": "content",
+        "composition": "split",
+        "columns": 2,
+        "surface": "background",
+        "heightPx": 510,
+        "itemCount": 2
+      },
+      {
+        "id": "s7-gallery",
+        "role": "gallery",
+        "composition": "grid",
+        "columns": 3,
+        "surface": "background",
+        "heightPx": 342,
+        "itemCount": 3,
+        "media": true
+      },
+      {
+        "id": "s8-list",
+        "role": "list",
+        "composition": "index",
+        "columns": 1,
+        "surface": "background",
+        "heightPx": 300
+      },
+      {
+        "id": "s9-footer",
+        "role": "footer",
+        "composition": "asymmetric",
+        "columns": 2,
+        "surface": "background",
+        "heightPx": 330
+      }
+    ]
+  },
+  "shape": {
+    "radius": 18,
+    "controlRadius": 11,
+    "borderWidth": 1,
+    "shadow": "soft"
+  },
+  "imagery": {
+    "treatment": "none"
+  },
+  "motion": {
+    "level": "subtle",
+    "durationMs": 150
+  },
+  "navigation": {
+    "pattern": "top-bar",
+    "sticky": true,
+    "itemCount": 7
+  },
+  "provenance": {
+    "color.background": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "body background at 1280px"
+    },
+    "color.foreground": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "most common body text color, weighted by characters"
+    },
+    "color.muted": {
+      "source": "inferred",
+      "confidence": 0.6,
+      "evidence": "mixed from foreground and background"
+    },
+    "color.accent": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "most common colored button background"
+    },
+    "color.accentForeground": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "text color of accent buttons"
+    },
+    "color.surface": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "secondary section background"
+    },
+    "color.heading": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "computed color of the first h1/h2"
+    },
+    "color.border": {
+      "source": "observed",
+      "confidence": 0.85,
+      "evidence": "most common border color"
+    },
+    "typography.scale.steps": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "median computed font-size per role at 1280px"
+    },
+    "typography.scale.ratio": {
+      "source": "inferred",
+      "confidence": 0.7,
+      "evidence": "geometric step between body and h1"
+    },
+    "typography.display": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "h1 font family and weight"
+    },
+    "typography.body": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "body text font family"
+    },
+    "typography.headingTracking": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "h1 letter-spacing ÷ font-size"
+    },
+    "typography.bodyLeading": {
+      "source": "observed",
+      "confidence": 0.95,
+      "evidence": "body line-height ÷ font-size"
+    },
+    "layout.container": {
+      "source": "observed",
+      "confidence": 0.85,
+      "evidence": "most common section content width"
+    },
+    "layout.pagePadding": {
+      "source": "inferred",
+      "confidence": 0.6,
+      "evidence": "half the space left beside the container at the measured viewport"
+    },
+    "layout.sectionGap": {
+      "source": "observed",
+      "confidence": 0.75,
+      "evidence": "median vertical section padding × 2"
+    },
+    "layout.spacingUnit": {
+      "source": "inferred",
+      "confidence": 0.6,
+      "evidence": "share of paddings divisible by 8"
+    },
+    "layout.gutter": {
+      "source": "observed",
+      "confidence": 0.75,
+      "evidence": "median gap between columns"
+    },
+    "layout.alignment": {
+      "source": "inferred",
+      "confidence": 0.7,
+      "evidence": "text alignment and column proportions across sections"
+    },
+    "layout.sections": {
+      "source": "inferred",
+      "confidence": 0.65,
+      "evidence": "section roles and compositions inferred from tags, geometry and children"
+    },
+    "shape.radius": {
+      "source": "observed",
+      "confidence": 0.85,
+      "evidence": "median corner radius of bordered or filled boxes"
+    },
+    "shape.shadow": {
+      "source": "inferred",
+      "confidence": 0.6,
+      "evidence": "box-shadow blur radii"
+    },
+    "motion": {
+      "source": "observed",
+      "confidence": 0.7,
+      "evidence": "computed transition durations and running animations"
+    },
+    "personality": {
+      "source": "inferred",
+      "confidence": 0.5,
+      "evidence": "summarised from the measurements above"
+    }
+  }
+}
