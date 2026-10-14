@@ -439,6 +439,9 @@ importers:
       '@ux-sting/react':
         specifier: workspace:^
         version: link:../../packages/react
+      '@ux-sting/seo-schema':
+        specifier: workspace:^
+        version: link:../../packages/seo-schema
       '@ux-sting/tokens':
         specifier: workspace:^
         version: link:../../packages/tokens
@@ -870,6 +873,12 @@ importers:
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
+  packages/seo-schema:
+    devDependencies:
       typescript:
         specifier: ~6.0.3
         version: 6.0.3

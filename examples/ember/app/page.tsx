@@ -1,10 +1,4 @@
-import {
-  CalendarDaysIcon,
-  LeafIcon,
-  MailIcon,
-  MapPinIcon,
-  PhoneIcon,
-} from "@ux-sting/icons";
+import { CalendarDaysIcon, LeafIcon, MailIcon, MapPinIcon, PhoneIcon } from "@ux-sting/icons";
 import {
   Accordion,
   AccordionContent,
@@ -22,7 +16,8 @@ import { Hero } from "../components/hero";
 import { Reservation } from "../components/reservation";
 import { Section } from "../components/section";
 import { SiteHeader } from "../components/site-header";
-import { jsonLd, pageMeta, SITE_URL } from "../lib/seo";
+import { jsonLdScriptProps, restaurant, type DayOfWeek } from "@ux-sting/seo-schema";
+import { pageMeta, SITE_URL } from "../lib/seo";
 
 export const metadata = pageMeta({
   description:
@@ -99,6 +94,32 @@ const periods: OpeningPeriod[] = [
   { day: 6, open: "18:00", close: "23:30" },
 ];
 
+const DAYS: DayOfWeek[] = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+/** Restaurant structured data, built from the same data the page renders. */
+const emberSchema = restaurant({
+  name: "Ember",
+  description: "Sixteen-seat tasting-menu restaurant in Ghent, one seating a night.",
+  url: SITE_URL,
+  servesCuisine: "Tasting menu",
+  priceRange: "€€€€",
+  address: {
+    streetAddress: "Jan Breydelstraat 4",
+    addressLocality: "Ghent",
+    addressCountry: "BE",
+  },
+  telephone: "+32 9 123 45 67",
+  openingHours: periods.map((p) => ({ dayOfWeek: DAYS[p.day]!, opens: p.open, closes: p.close })),
+});
+
 const reviews = [
   {
     author: { name: "Freja L." },
@@ -115,8 +136,8 @@ const reviews = [
     date: { display: "August 2026", dateTime: "2026-08-03" },
     footer: (
       <p className="text-sm text-muted-foreground">
-        <span className="font-medium text-foreground">Ember says:</span> Thank you, Mateo — see
-        you again when the girolles are back.
+        <span className="font-medium text-foreground">Ember says:</span> Thank you, Mateo — see you
+        again when the girolles are back.
       </p>
     ),
   },
@@ -153,39 +174,7 @@ export default function Page() {
     <>
       <SiteHeader />
       <main id="main" tabIndex={-1} className="grid gap-24 pb-8 outline-none">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={jsonLd({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            name: "Ember",
-            description: "Sixteen-seat tasting-menu restaurant in Ghent, one seating a night.",
-            url: SITE_URL,
-            servesCuisine: "Tasting menu",
-            priceRange: "€€€€",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Jan Breydelstraat 4",
-              addressLocality: "Ghent",
-              addressCountry: "BE",
-            },
-            telephone: "+32 9 123 45 67",
-            openingHoursSpecification: periods.map((p) => ({
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-              ][p.day],
-              opens: p.open,
-              closes: p.close,
-            })),
-          })}
-        />
+        <script {...jsonLdScriptProps(emberSchema)} />
         <Hero />
         <Section
           id="menu"
@@ -231,7 +220,11 @@ export default function Page() {
         >
           <Experience />
         </Section>
-        <section id="reserve" aria-labelledby="reserve-title" className="scroll-mt-20 bg-muted/40 py-20">
+        <section
+          id="reserve"
+          aria-labelledby="reserve-title"
+          className="scroll-mt-20 bg-muted/40 py-20"
+        >
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6">
             <div className="grid gap-2 text-center">
               <Heading level={2} size="2xl" id="reserve-title">

@@ -104,6 +104,29 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 ```
 
+### Claude SEO — MIT License
+
+The list of retired Google rich-result features and several validation checks
+(missing `@context`/`@type`, relative URLs, placeholder text, self-serving
+reviews) in `packages/seo-schema` were informed by the checklists in
+[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)
+(`skills/seo-schema/SKILL.md`). The code is an original TypeScript
+implementation; each Google rule cites the official Google page it follows.
+
+```
+MIT License
+Copyright (c) 2026 agricidaniel
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
 The motion and background components (`text-effect`, `rotating-text`,
 `animated-number`, `reveal`, `marquee`, `scroll-progress`, `spotlight`,
 `image-comparison`, `background`) are original implementations. The idea of

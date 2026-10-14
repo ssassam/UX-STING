@@ -12,6 +12,7 @@
   "dependencies": {
     "@ux-sting/icons": "workspace:^",
     "@ux-sting/react": "workspace:^",
+    "@ux-sting/seo-schema": "workspace:^",
     "@ux-sting/tokens": "workspace:^",
     "@ux-sting/utils": "workspace:^",
     "next": "^16.0.0",
