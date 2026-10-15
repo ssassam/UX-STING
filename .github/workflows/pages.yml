@@ -29,7 +29,7 @@ jobs:
         run: pnpm build
       - name: Export all demo sites
         run: scripts/build-pages.sh /${{ github.event.repository.name }}
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: pages-dist
 
