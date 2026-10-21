@@ -49,6 +49,15 @@ export interface Messages {
   collapse: string;
   copy: string;
   copied: string;
+  quantity: string;
+  inStock: (count: number) => string;
+  productImages: string;
+  showImage: (index: number, total: number) => string;
+  unavailable: string;
+  orderSummary: string;
+  total: string;
+  results: (count: number) => string;
+  productDetails: string;
   pauseAnimation: string;
   playAnimation: string;
   compareImages: string;
@@ -103,6 +112,15 @@ export const en: Messages = {
   collapse: "Collapse",
   copy: "Copy",
   copied: "Copied",
+  quantity: "Quantity",
+  inStock: (n) => `${n} in stock`,
+  productImages: "Product images",
+  showImage: (i, t) => `Show image ${i} of ${t}`,
+  unavailable: "unavailable",
+  orderSummary: "Order summary",
+  total: "Total",
+  results: (n) => (n === 1 ? "1 result" : `${n} results`),
+  productDetails: "Product details",
   pauseAnimation: "Pause animation",
   playAnimation: "Play animation",
   compareImages: "Compare images",
@@ -157,6 +175,15 @@ export const fr: Messages = {
   collapse: "Réduire",
   copy: "Copier",
   copied: "Copié",
+  quantity: "Quantité",
+  inStock: (n) => `${n} en stock`,
+  productImages: "Images du produit",
+  showImage: (i, t) => `Afficher l’image ${i} sur ${t}`,
+  unavailable: "indisponible",
+  orderSummary: "Récapitulatif de commande",
+  total: "Total",
+  results: (n) => (n <= 1 ? `${n} résultat` : `${n} résultats`),
+  productDetails: "Détails du produit",
   pauseAnimation: "Mettre l’animation en pause",
   playAnimation: "Lancer l’animation",
   compareImages: "Comparer les images",
@@ -211,6 +238,15 @@ export const ar: Messages = {
   collapse: "طي",
   copy: "نسخ",
   copied: "تم النسخ",
+  quantity: "الكمية",
+  inStock: (n) => `${n} متوفر في المخزون`,
+  productImages: "صور المنتج",
+  showImage: (i, t) => `عرض الصورة ${i} من ${t}`,
+  unavailable: "غير متوفر",
+  orderSummary: "ملخص الطلب",
+  total: "المجموع",
+  results: (n) => `${n} نتيجة`,
+  productDetails: "تفاصيل المنتج",
   pauseAnimation: "إيقاف الحركة مؤقتًا",
   playAnimation: "تشغيل الحركة",
   compareImages: "مقارنة الصور",
