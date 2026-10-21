@@ -467,6 +467,64 @@
       "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
+  "logo": {
+    "Logo": {
+      "kind": "component",
+      "description": "Brand lockup: symbol + wordmark with locked spacing and sizes. Exposed to\nassistive tech as one image (or link) named after the brand; the SVG\nitself is hidden. For router links, omit `href` and wrap the Logo in your\nLink. Pair with the `logo-design` skill to create the mark. Server-compatible.",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Brand name: the accessible name, and the wordmark when `wordmark` is not given."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "description": "Renders the logo as a home link."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name override, e.g. \"Acme home\". Defaults to `name`."
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"stacked\" | \"mark\" | \"wordmark\"",
+          "required": false,
+          "default": "\"horizontal\"",
+          "description": "`horizontal` (default), `stacked`, `mark` (symbol only) or `wordmark` (text only)."
+        },
+        {
+          "name": "mark",
+          "type": "ReactNode",
+          "required": false,
+          "description": "The symbol as inline SVG using `fill=\"currentColor\"`, so it follows tokens and color modes."
+        },
+        {
+          "name": "size",
+          "type": "keyof typeof sizes",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "tone",
+          "type": "keyof typeof tones",
+          "required": false,
+          "default": "\"brand\""
+        },
+        {
+          "name": "wordmark",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Custom wordmark (e.g. a constructed SVG logotype). Defaults to `name` set in the heading font."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
   "typography": {
     "textVariants": {
       "kind": "function",
@@ -11119,6 +11177,1193 @@
         }
       ],
       "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "quantity-selector": {
+    "QuantitySelector": {
+      "kind": "component",
+      "description": "Cart quantity control: − / input / + with clamping to stock. The input is a\nnative number field (spinbutton), so arrows, typing and form submission\nwork; the buttons are real tab stops, sized for touch. Adapted from the\nStorefront UI QuantitySelector block (MIT).",
+      "props": [
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false,
+          "description": "Stretch to the container width (mobile add-to-cart bars)."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "description": "Defaults to `stock` when given."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "default": "1",
+          "description": "Default 1."
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: number) => void",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "keyof typeof sizes",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "stock",
+          "type": "number",
+          "required": false,
+          "description": "Units available; shows \"N in stock\" under the control and caps the value."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "inherits": "302 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "swatch": {
+    "SwatchGroup": {
+      "kind": "component",
+      "description": "Product variant picker (color, size, material). A single-select radio group:\none tab stop, arrow keys move and select, form-submittable via `name`.\nPattern adapted from Storefront UI's product details block (MIT).",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dir",
+          "type": "RovingFocusGroupProps['dir']",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['disabled']",
+          "required": false
+        },
+        {
+          "name": "form",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['form']",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loop",
+          "type": "RovingFocusGroupProps['loop']",
+          "required": false,
+          "default": "true"
+        },
+        {
+          "name": "name",
+          "type": "RadioGroupContextValue['name']",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "RadioGroupContextValue['onValueChange']",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "React.ComponentPropsWithoutRef<typeof Radio>['required']",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Swatch": {
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible and visible name, e.g. \"Sand\" or \"M\"."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Custom content for text swatches (defaults to `label`)."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "description": "CSS color (or gradient) for a color swatch. Omit for a text swatch (\"S\", \"M\", \"L\")."
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "unavailable",
+          "type": "boolean",
+          "required": false,
+          "description": "Sold out: still listed and announced, but crossed out and not selectable."
+        }
+      ],
+      "inherits": "286 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "product-gallery": {
+    "ProductGallery": {
+      "kind": "component",
+      "description": "Product image viewer: main image with previous/next buttons and a thumbnail\nstrip. Thumbnails are one tab stop (arrow keys, Home/End, RTL-aware); the\ncurrent position is announced politely. Layout adapted from the\nStorefront UI Gallery block (MIT).",
+      "props": [
+        {
+          "name": "images",
+          "type": "ProductGalleryImage[]",
+          "required": true
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "required": false,
+          "default": "0"
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name for the gallery (defaults to \"Product images\")."
+        },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "required": false
+        },
+        {
+          "name": "ratio",
+          "type": "number",
+          "required": false,
+          "default": "1",
+          "description": "Aspect ratio of the main image. Default 1 (square)."
+        },
+        {
+          "name": "thumbnails",
+          "type": "\"bottom\" | \"start\" | \"none\"",
+          "required": false,
+          "default": "\"bottom\"",
+          "description": "Thumbnails below (default) or beside the image from `md` up."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "order-summary": {
+    "OrderSummary": {
+      "kind": "component",
+      "description": "Cart and checkout totals as a description list: subtotal, discounts,\nshipping, tax and a prominent total. Amounts are locale-formatted with\ntabular figures; discounts read as deductions in text, not only by color.\nAdapted from the Storefront UI OrderSummary block (MIT).",
+      "props": [
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true,
+          "description": "ISO 4217 code."
+        },
+        {
+          "name": "lines",
+          "type": "OrderSummaryLine[]",
+          "required": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Promo-code field, checkout button, trust badges… rendered below the total."
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "2"
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "note",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Text under the total, e.g. \"Taxes included\"."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Heading text (defaults to \"Order summary\"); `null` hides the heading."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "required": false,
+          "description": "Grand total. Computed from `lines` when omitted."
+        },
+        {
+          "name": "totalLabel",
+          "type": "ReactNode",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "mega-menu": {
+    "MegaMenu": {
+      "kind": "component",
+      "description": "Store navigation: category panels with link columns and an optional promo\ntile on desktop (hover, click or keyboard), and a side sheet with\ncollapsible categories below `lg`. Built from one data structure so both\nstay in sync. Adapted from the Storefront UI MegaMenu block (MIT).",
+      "props": [
+        {
+          "name": "items",
+          "type": "MegaMenuItem[]",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "currentHref",
+          "type": "string",
+          "required": false,
+          "description": "href of the current page, marked with `aria-current=\"page\"`."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": "\"Main\"",
+          "description": "Accessible name of the navigation landmark. Default \"Main\"."
+        }
+      ]
+    }
+  },
+  "cart-line-item": {
+    "CartLineItem": {
+      "kind": "component",
+      "description": "One product in a cart or order: image, name, chosen options, line price,\nquantity control and remove. Wrap lines in a `<ul>` with `<li>` per item.\nAdapted from the Storefront UI cart line block (MIT).",
+      "props": [
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true,
+          "description": "ISO 4217 code."
+        },
+        {
+          "name": "image",
+          "type": "{ src: string; alt: string }",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "price",
+          "type": "number",
+          "required": true,
+          "description": "Unit price. The line shows unit price × quantity."
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "compareAt",
+          "type": "number",
+          "required": false,
+          "description": "Previous unit price (sale)."
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "3"
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Small note such as \"Only 2 left\" or \"Ships in 3 days\"."
+        },
+        {
+          "name": "onQuantityChange",
+          "type": "(quantity: number) => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "CartLineItemOption[]",
+          "required": false,
+          "description": "Chosen variant, e.g. `[{ label: \"Color\", value: \"Sand\" }, { label: \"Size\", value: \"M\" }]`."
+        },
+        {
+          "name": "quantityLabel",
+          "type": "string",
+          "required": false,
+          "description": "Label for the read-only quantity. Default \"Quantity\"."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "required": false,
+          "description": "Read-only line (order confirmation): shows \"Qty: n\" instead of the control."
+        },
+        {
+          "name": "stock",
+          "type": "number",
+          "required": false,
+          "description": "Units available; caps the quantity."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "checkout-fields": {
+    "AddressFields": {
+      "kind": "component",
+      "description": "Address block for checkout: visible labels, the right `autoComplete`\ntokens per section (so browsers and password managers fill it in one\ntap), mobile keyboards per field and required validation through `Form`.\nAdapted from the Storefront UI checkout address block (MIT).",
+      "props": [
+        {
+          "name": "legend",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Group legend, e.g. \"Shipping address\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "type": "Array<{ value: string; label: string }>",
+          "required": false,
+          "description": "Country options; when omitted the country is a text field."
+        },
+        {
+          "name": "defaultCountry",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hidePhone",
+          "type": "boolean",
+          "required": false,
+          "description": "Hide the phone field."
+        },
+        {
+          "name": "hideRegion",
+          "type": "boolean",
+          "required": false,
+          "description": "Hide the region field (countries without states)."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<AddressFieldsLabels>",
+          "required": false
+        },
+        {
+          "name": "section",
+          "type": "\"shipping\" | \"billing\"",
+          "required": false,
+          "default": "\"shipping\"",
+          "description": "Autofill section and field-name prefix. Field names are `<section>.<field>`\n(`shipping.line1`), so a shipping and a billing group can share one Form."
+        }
+      ]
+    },
+    "PaymentFields": {
+      "kind": "component",
+      "description": "Card payment fields with `cc-*` autofill, numeric keyboards, as-you-type\nformatting and format validation. For real payments, render your payment\nprovider's hosted fields inside the same layout instead, so card data\nnever touches your servers (PCI DSS).",
+      "props": [
+        {
+          "name": "legend",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "accepted",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Accepted-card logos or a wallet button row, shown under the legend."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "Partial<PaymentFieldsLabels>",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "default": "\"payment\"",
+          "description": "Field-name prefix. Default `\"payment\"` → `payment.cardNumber`."
+        }
+      ]
+    }
+  },
+  "product-listing": {
+    "ProductListing": {
+      "kind": "component",
+      "description": "Category page layout: heading and live result count, a filter sidebar\n(a sheet on mobile, from the same filters), applied-filter chips, a sort\ncontrol, the product grid and pagination. Composes FilterPanel. Layout\nadapted from the Storefront UI category page block (MIT).",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "The product grid."
+        },
+        {
+          "name": "filters",
+          "type": "ReactNode",
+          "required": true,
+          "description": "FilterSection elements (categories, price, size, color…)."
+        },
+        {
+          "name": "resultCount",
+          "type": "number",
+          "required": true,
+          "description": "Total number of products for the current filters. Announced politely when it changes."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Page heading, e.g. the category name. Rendered as the page's `h1`."
+        },
+        {
+          "name": "activeFilters",
+          "type": "FilterChip[]",
+          "required": false,
+          "default": "[]",
+          "description": "Applied filters, shown as removable chips above the grid."
+        },
+        {
+          "name": "breadcrumb",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Breadcrumb above the title."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Short intro under the title."
+        },
+        {
+          "name": "filtersTitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onClearFilters",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRemoveFilter",
+          "type": "(id: string) => void",
+          "required": false
+        },
+        {
+          "name": "pagination",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Pagination under the grid."
+        },
+        {
+          "name": "sort",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Sort control (e.g. a labelled NativeSelect), shown at the end of the toolbar."
+        }
+      ]
+    }
+  },
+  "product-details": {
+    "ProductDetails": {
+      "kind": "component",
+      "description": "Product page layout: gallery beside a buy box (brand, title, rating,\nprice, options, quantity and add to cart), stacked on phones with the\ngallery first. The buy box stays in view while long galleries scroll on\ndesktop.\nAdapted from the Storefront UI product details block (MIT).",
+      "props": [
+        {
+          "name": "gallery",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Media column, usually a ProductGallery."
+        },
+        {
+          "name": "price",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Price element, e.g. `<Price amount={89} compareAt={120} currency=\"EUR\" size=\"xl\" />`."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Product name, rendered as the page's `h1`."
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "description": "QuantitySelector + add-to-cart + wishlist row."
+        },
+        {
+          "name": "badges",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Badges next to the brand (\"New\", \"−25%\")."
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Short description under the price."
+        },
+        {
+          "name": "details",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Details below (an Accordion with description, materials, care)."
+        },
+        {
+          "name": "detailsTitle",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Heading for the details, visually hidden by default so Accordion headings (h3)\nsit under an h2. Defaults to \"Product details\"."
+        },
+        {
+          "name": "info",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Delivery, returns, stock — small reassurance lines under the actions."
+        },
+        {
+          "name": "options",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Variant pickers (labelled SwatchGroups) between description and actions."
+        },
+        {
+          "name": "rating",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "reviewCount",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "reviewsHref",
+          "type": "string",
+          "required": false,
+          "description": "Link target for the rating (e.g. \"#reviews\")."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "text-effect": {
+    "TextEffect": {
+      "kind": "component",
+      "description": "Staggered text entrance in pure CSS: a server component with no client\nJavaScript. Screen readers get the whole sentence once; the animated pieces\nare hidden from them. Nothing moves under reduced motion. Inside a\n`Reveal`, the animation waits until the text scrolls into view.",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "required": true,
+          "description": "The text to animate. Plain text only, so it can be split safely."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"p\"",
+          "description": "Element to render. Default `p`."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Delay before the first piece, in ms."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "600",
+          "description": "Duration of each piece, in ms. Default 600."
+        },
+        {
+          "name": "per",
+          "type": "\"word\" | \"char\"",
+          "required": false,
+          "default": "\"word\"",
+          "description": "Animate per word or per character. Default `word`."
+        },
+        {
+          "name": "preset",
+          "type": "TextEffectPreset",
+          "required": false,
+          "default": "\"fade\"",
+          "description": "Entrance style. Default `fade`."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "required": false,
+          "description": "Delay between pieces, in ms. Defaults to 60 (word) or 25 (char)."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "TextShimmer": {
+      "kind": "component",
+      "description": "A light sweep across text — for \"Thinking…\", \"Generating…\" and other\nin-progress labels. Pure CSS; static under reduced motion and in forced\ncolors. Keep it to short status text, never body copy.",
+      "props": [
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"span\"",
+          "description": "Element to render. Default `span`."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "2",
+          "description": "Seconds per sweep. Default 2."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "rotating-text": {
+    "RotatingText": {
+      "kind": "component",
+      "description": "Cycles through words in place (\"Build apps that are fast / safe / yours\").\nAll words share one grid cell, so the line never reflows. Screen readers\nhear the full list once instead of every change; reduced motion keeps the\nfirst word.",
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "required": true,
+          "description": "Words or short phrases to cycle through."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "required": false,
+          "default": "2500",
+          "description": "Time each word stays, in ms. Default 2500."
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Stops on the current word."
+        },
+        {
+          "name": "srText",
+          "type": "string",
+          "required": false,
+          "description": "What screen readers hear instead. Defaults to the words joined by commas."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Typewriter": {
+      "kind": "component",
+      "description": "Types text character by character. Space for the longest phrase is\nreserved, so nothing below jumps. Screen readers and reduced motion get the\nfull text immediately; without JavaScript the text is simply shown.",
+      "props": [
+        {
+          "name": "text",
+          "type": "string | string[]",
+          "required": true,
+          "description": "Text to type. Pass several to type, erase and loop through them."
+        },
+        {
+          "name": "cursor",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Show a blinking caret. Default `true`."
+        },
+        {
+          "name": "hold",
+          "type": "number",
+          "required": false,
+          "default": "1800",
+          "description": "Pause on a finished phrase before erasing, in ms. Default 1800."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "required": false,
+          "default": "45",
+          "description": "Ms per character. Default 45."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "animated-number": {
+    "AnimatedNumber": {
+      "kind": "component",
+      "description": "Counts up (or down) to a value with locale formatting and tabular figures,\nso digits don't jitter. Later `value` changes animate from the previous\nvalue. Assistive tech and reduced motion get the final value only.",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "900",
+          "description": "Duration in ms. Default 900."
+        },
+        {
+          "name": "format",
+          "type": "Intl.NumberFormatOptions",
+          "required": false,
+          "description": "`Intl.NumberFormat` options: currency, percent, compact, fraction digits…"
+        },
+        {
+          "name": "from",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Starting value of the first count. Default 0."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "description": "Overrides the provider locale."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Wait until the number scrolls into view before counting. Default `true`."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "reveal": {
+    "Reveal": {
+      "kind": "component",
+      "description": "Fades content in as it scrolls into view. Content is only hidden when\nJavaScript runs and motion is allowed, so it is never lost to no-JS\nvisitors, crawlers or reduced-motion users. Use on a few key sections —\nnot on every element.",
+      "props": [
+        {
+          "name": "amount",
+          "type": "number",
+          "required": false,
+          "description": "Fraction of the element that must be visible (0–1). Default 0.15."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"div\"",
+          "description": "Element to render. Default `div`."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Delay in ms."
+        },
+        {
+          "name": "preset",
+          "type": "RevealPreset",
+          "required": false,
+          "default": "\"slide-up\"",
+          "description": "Entrance style. Default `slide-up`."
+        },
+        {
+          "name": "repeat",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Hide again when scrolled out. Default `false` (reveal once)."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "required": false,
+          "description": "Reveal direct children one after another, this many ms apart (up to 12 children)."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "marquee": {
+    "Marquee": {
+      "kind": "component",
+      "description": "An endless row of logos, quotes or tags. It pauses on hover and focus and\nhas a pause button, as WCAG 2.2.2 requires for motion lasting over five\nseconds. With reduced motion it becomes a plain scrollable row. The\nduplicate copy that makes the loop seamless is hidden from assistive tech\nand the tab order. Mirrors in RTL.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name, e.g. \"Customer logos\"."
+        },
+        {
+          "name": "controls",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Show the play/pause button (WCAG 2.2.2). Default `true`."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "40",
+          "description": "Seconds for one full loop. Default 40."
+        },
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the edges. Default `true`."
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Pause while hovered or while focus is inside. Default `true`."
+        },
+        {
+          "name": "reverse",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Scroll towards the inline end instead of the start."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "scroll-progress": {
+    "ScrollProgress": {
+      "kind": "component",
+      "description": "Reading-progress bar for long articles and docs. It uses CSS scroll-driven\nanimations where the browser supports them, with a passive scroll listener\nas the fallback. The bar is decorative, so it is hidden from assistive tech.",
+      "props": [
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Pin to the top of the viewport. Default `true`; set `false` to place it yourself."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "spotlight": {
+    "Spotlight": {
+      "kind": "component",
+      "description": "A soft glow that follows the pointer across a card or section. Mouse and\npen only — on touch screens nothing changes — and it never covers content\nor catches clicks. The glow uses the theme's primary color.",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "320",
+          "description": "Glow radius in px. Default 320."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Tilt": {
+      "kind": "component",
+      "description": "Tilts its content slightly towards the pointer, for hero media and\nfeature cards. It does nothing for touch, coarse pointers or reduced\nmotion, and it animates transform only.",
+      "props": [
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "default": "6",
+          "description": "Maximum rotation in degrees. Keep it subtle. Default 6."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "image-comparison": {
+    "ImageComparison": {
+      "kind": "component",
+      "description": "Before/after slider. The control is a native range input, so arrow keys,\nHome/End, Page Up/Down, screen readers and touch work without custom\ncode. Vertical page scrolling still works on touch. Mirrors in RTL.",
+      "props": [
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Shown on the inline-end side."
+        },
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Shown on the inline-start side (usually an `Image`)."
+        },
+        {
+          "name": "afterLabel",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "beforeLabel",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Visible corner captions. Pass `null` to hide them."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "required": false,
+          "default": "50"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name of the slider. Defaults to the localized \"Compare images\"."
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: number) => void",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false,
+          "description": "Divider position in percent (controlled)."
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "background": {
+    "MeshGradient": {
+      "kind": "component",
+      "description": "Soft multi-color glow built from layered radial gradients.",
+      "props": [
+        {
+          "name": "animate",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Slow drift (about 20s per cycle). Stops under reduced motion."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "required": false,
+          "default": "35",
+          "description": "Strength of the colors, 0–100. Default 35."
+        },
+        {
+          "name": "tones",
+          "type": "ToneToken[]",
+          "required": false,
+          "default": "[\"primary\", \"info\", \"accent\"]",
+          "description": "Two to four theme colors. Default `[\"primary\", \"info\", \"accent\"]`."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "DotPattern": {
+      "kind": "component",
+      "description": "Dot grid in the border color — a quiet texture behind heroes and empty states.",
+      "props": [
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the pattern out towards the edges. Default `true`."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "24",
+          "description": "Cell size in px. Default 24."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "GridPattern": {
+      "kind": "component",
+      "description": "Hairline grid, for technical and editorial layouts.",
+      "props": [
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the pattern out towards the edges. Default `true`."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "48",
+          "description": "Cell size in px. Default 24."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Grain": {
+      "kind": "component",
+      "description": "Film-grain noise from an inline SVG filter. Breaks up flat fills and gradient banding.",
+      "props": [
+        {
+          "name": "opacity",
+          "type": "number",
+          "required": false,
+          "default": "0.08",
+          "description": "0–1. Default 0.08 — grain should be felt, not seen."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "ProgressiveBlur": {
+      "kind": "component",
+      "description": "Blur that increases towards one edge, so text over a scrolling list or an\nimage stays readable. Place it over the area to soften. Under\n`prefers-reduced-transparency` it becomes a plain fade.",
+      "props": [
+        {
+          "name": "blur",
+          "type": "number",
+          "required": false,
+          "default": "12",
+          "description": "Maximum blur in px. Default 12."
+        },
+        {
+          "name": "side",
+          "type": "\"top\" | \"bottom\"",
+          "required": false,
+          "default": "\"bottom\"",
+          "description": "Edge the blur grows towards. Default `bottom`."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
   "color-mode-toggle": {

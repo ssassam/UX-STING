@@ -2,12 +2,13 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
-- **~95 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, and commerce / local-discovery / editorial patterns
+- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds)
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
-- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 13 presets (including Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles), custom themes, light/dark/high-contrast, 3 densities
+- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
 - **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
 - **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
+- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), pick a deliberate design direction instead of the generic AI look (`ux-sting-taste`), review with evidence (`ux-sting-review`), explore several directions side by side (`ux-sting-explore`) run the reference → Design DNA → page → browser QA pipeline (`ux-sting-universal`), add accessible three.js 3D and shader scenes (`ux-sting-3d`) and draw on-theme diagrams with [diagram-design](https://github.com/cathrynlavery/diagram-design) (`ux-sting-diagrams`; Claude Code offers to install the plugin when you trust the repo, other agents use `npx skills add cathrynlavery/diagram-design`)
 - **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
 
 ## Quick start
@@ -62,16 +63,18 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/icons` | `@ux-sting/icons` |
 | `packages/core` | `@ux-sting/core` — framework-agnostic entry |
 | `packages/cli` | `ux-sting` CLI |
+| `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
+| `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |
 | `apps/storybook` | Storybook + visual regression |
-| `examples/*` | Travel booking site, SaaS dashboard, marketplace, local directory, editorial site, CLI starter |
+| `examples/*` | Travel booking site, SaaS dashboard, marketplace, local directory, editorial site, restaurant reservations, CLI starter |
 | `docs/` | Guides (also rendered by the docs site) |
 | `registry/` | Component metadata and extracted API |
 
 ## Showcase
 
-Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
+Six complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 
 | Demo | What it shows | Live |
 | --- | --- | --- |
@@ -80,6 +83,7 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 | [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://ssassam.github.io/UX-STING/shop/) |
 | [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
 | [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
+| [**Ember**](examples/ember) — restaurant reservations | Tasting menu with dietary tags, dining-experience tabs, full reservation form, opening hours with live status, map, reviews | [open](https://ssassam.github.io/UX-STING/ember/) |
 
 ### Screenshots
 
@@ -123,11 +127,19 @@ Five complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 <tr><td width="50%" align="center"><a href="examples/crypto/screenshots/5-news.webp"><img src="examples/crypto/screenshots/5-news.webp" alt="News with images" width="100%"></a><br><sub>News with images</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/6-light-mode.webp"><img src="examples/crypto/screenshots/6-light-mode.webp" alt="Light mode" width="100%"></a><br><sub>Light mode</sub></td></tr>
 </table>
 
+#### Ember — restaurant reservations · [live demo](https://ssassam.github.io/UX-STING/ember/)
+
+<table>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/1-hero.webp"><img src="examples/ember/screenshots/1-hero.webp" alt="Hero with tonight's menu preview" width="100%"></a><br><sub>Hero with tonight's menu preview</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/2-menu.webp"><img src="examples/ember/screenshots/2-menu.webp" alt="Tasting menu with dietary tags" width="100%"></a><br><sub>Tasting menu with dietary tags</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/3-experience.webp"><img src="examples/ember/screenshots/3-experience.webp" alt="Dining-experience tabs" width="100%"></a><br><sub>Dining-experience tabs</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/4-reserve.webp"><img src="examples/ember/screenshots/4-reserve.webp" alt="Reservation form" width="100%"></a><br><sub>Reservation form</sub></td></tr>
+<tr><td width="50%" align="center"><a href="examples/ember/screenshots/5-hours.webp"><img src="examples/ember/screenshots/5-hours.webp" alt="Opening hours and map" width="100%"></a><br><sub>Opening hours and map</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/6-reviews.webp"><img src="examples/ember/screenshots/6-reviews.webp" alt="Reviews and FAQ" width="100%"></a><br><sub>Reviews and FAQ</sub></td></tr>
+</table>
+
 Build all of them as one static site with `scripts/build-pages.sh` (output in `pages-dist/`).
 
 ### SEO
 
-Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all five:
+Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`, `Restaurant`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all six:
 
 **https://ssassam.github.io/UX-STING/sitemap-index.xml**
 
@@ -139,6 +151,8 @@ Guides live in [`docs/`](docs/introduction.md) and in the docs app (`pnpm --filt
 [Installation](docs/installation.md) · [Next.js](docs/nextjs.md) · [Theming](docs/theming.md) · [Tokens](docs/tokens.md) · [Accessibility](docs/accessibility.md) · [UX quality rules](docs/ux-quality.md) · [RTL & i18n](docs/internationalization.md) · [CLI](docs/cli.md) · [API conventions](docs/api-consistency.md) · [Patterns](docs/patterns.md) · [Migration](docs/migration.md)
 
 Each component folder also has a generated `README.md` (when to use, accessibility, keyboard, API).
+
+**UX-STING Universal (prototype)** — turning UX-STING into a system that analyzes references, plans original designs, generates pages and verifies them in a browser: [Vision](docs/UNIVERSAL_VISION.md) · [Reference audit](docs/REFERENCE_REPOSITORY_AUDIT.md) · [Capability matrix](docs/COMPETITIVE_CAPABILITY_MATRIX.md) · [Design DNA](docs/DESIGN_DNA_SPEC.md) · [Analyzer](docs/REFERENCE_ANALYZER_SPEC.md) · [Generator](docs/WEBSITE_GENERATOR_ARCHITECTURE.md) · [Agents](docs/MULTI_AGENT_ORCHESTRATION.md) · [Visual QA](docs/VISUAL_QA_SYSTEM.md) · [SEO engine](docs/SEO_ENGINE_ARCHITECTURE.md) · [Security & licensing](docs/SECURITY_AND_LICENSING.md) · [Benchmark](docs/BENCHMARK_PLAN.md) · [Roadmap](docs/IMPLEMENTATION_ROADMAP.md) · [Prototype evidence](docs/universal/prototype/)
 
 ## Development
 

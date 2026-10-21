@@ -26,7 +26,8 @@
     "icons": "node scripts/generate-icons.mjs && prettier --write --log-level warn packages/icons/src",
     "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test",
     "api": "node scripts/extract-api.ts",
-    "ux-audit": "node scripts/ux-audit.ts"
+    "ux-audit": "node scripts/ux-audit.ts",
+    "dna": "node scripts/design-dna/run.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
@@ -53,7 +54,7 @@
     "turbo": "^2.5.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.70.0",
-    "vite": "^8.0.0",
+    "vite": "^8.3.5",
     "vitest": "^5.0.0"
   }
 }

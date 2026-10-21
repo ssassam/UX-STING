@@ -348,4 +348,446 @@
       scroll-behavior: smooth;
     }
   }
+
+  /* =====================================================================
+   * Expressive motion & decorative backgrounds
+   * (TextEffect, TextShimmer, RotatingText, Typewriter, Reveal, Marquee,
+   * ScrollProgress, Spotlight, Tilt, ImageComparison, background layers).
+   * Every effect is opt-in, transform/opacity based and turns off under
+   * prefers-reduced-motion. Content is never hidden without JavaScript.
+   * ===================================================================== */
+  @keyframes ui-te-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes ui-te-blur {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+    }
+  }
+  @keyframes ui-te-slide {
+    from {
+      opacity: 0;
+      transform: translateY(0.4em);
+    }
+  }
+  @keyframes ui-te-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+  @keyframes ui-text-shimmer {
+    from {
+      background-position: 100% 0;
+    }
+    to {
+      background-position: 0 0;
+    }
+  }
+  @keyframes ui-word-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5em);
+    }
+  }
+  @keyframes ui-caret-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes ui-marquee {
+    to {
+      transform: translateX(var(--ui-marquee-to, -50%));
+    }
+  }
+  @keyframes ui-scroll-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes ui-mesh-drift {
+    50% {
+      background-position:
+        6% -4%,
+        -5% 6%,
+        4% 5%,
+        -6% -3%;
+    }
+  }
+
+  /* ---------- TextEffect ---------- */
+  .ui-text-effect-piece {
+    display: inline-block;
+    white-space: pre;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-text-effect-piece {
+      animation: ui-te-fade var(--ui-te-duration, 600ms) cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: calc(var(--ui-te-delay, 0ms) + var(--ui-i, 0) * var(--ui-te-stagger, 60ms));
+    }
+    .ui-text-effect[data-preset="blur"] .ui-text-effect-piece {
+      animation-name: ui-te-blur;
+    }
+    .ui-text-effect[data-preset="slide"] .ui-text-effect-piece {
+      animation-name: ui-te-slide;
+    }
+    .ui-text-effect[data-preset="scale"] .ui-text-effect-piece {
+      animation-name: ui-te-scale;
+    }
+    /* Inside a Reveal, wait until it scrolls into view. */
+    .ui-reveal:not([data-visible]) .ui-text-effect-piece {
+      animation-play-state: paused;
+    }
+  }
+
+  /* ---------- TextShimmer ---------- */
+  .ui-text-shimmer {
+    color: var(--ui-muted-foreground);
+  }
+  @media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+    .ui-text-shimmer {
+      background-image: linear-gradient(
+        90deg,
+        var(--ui-muted-foreground) 35%,
+        var(--ui-foreground) 50%,
+        var(--ui-muted-foreground) 65%
+      );
+      background-size: 300% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: ui-text-shimmer var(--ui-shimmer-duration, 2s) linear infinite;
+    }
+  }
+
+  /* ---------- RotatingText ---------- */
+  .ui-rotating-text > [aria-hidden] > * {
+    grid-area: 1 / 1;
+  }
+  .ui-rotating-text > [aria-hidden] > :not([data-active]) {
+    visibility: hidden;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-rotating-text > [aria-hidden] > [data-active] {
+      animation: ui-word-in var(--ui-duration-slower) cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  /* ---------- Typewriter ---------- */
+  .ui-typewriter > [aria-hidden] > * {
+    grid-area: 1 / 1;
+  }
+  .ui-typewriter-ghost {
+    visibility: hidden;
+  }
+  .ui-typewriter-caret {
+    display: inline-block;
+    inline-size: 0.08em;
+    block-size: 1em;
+    margin-inline-start: 0.05em;
+    vertical-align: -0.1em;
+    background-color: currentColor;
+    animation: ui-caret-blink 1s step-end infinite;
+  }
+  @media (scripting: none) {
+    .ui-typewriter-ghost {
+      visibility: visible;
+    }
+    .ui-typewriter-text {
+      display: none;
+    }
+  }
+
+  /* ---------- Reveal (hidden only with JS + motion allowed) ---------- */
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .ui-reveal:not([data-stagger]),
+    .ui-reveal[data-stagger] > * {
+      transition:
+        opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: calc(
+        var(--ui-reveal-delay, 0ms) + var(--ui-i, 0) * var(--ui-reveal-stagger, 0ms)
+      );
+    }
+    .ui-reveal:not([data-visible]):not([data-stagger]),
+    .ui-reveal[data-stagger]:not([data-visible]) > * {
+      opacity: 0;
+      transform: var(--ui-reveal-from, translateY(1.5rem));
+    }
+    .ui-reveal[data-preset="fade"] {
+      --ui-reveal-from: none;
+    }
+    .ui-reveal[data-preset="slide-start"] {
+      --ui-reveal-from: translateX(-1.5rem);
+    }
+    [dir="rtl"] .ui-reveal[data-preset="slide-start"] {
+      --ui-reveal-from: translateX(1.5rem);
+    }
+    .ui-reveal[data-preset="scale"] {
+      --ui-reveal-from: scale(0.94);
+    }
+    .ui-reveal[data-preset="blur"] {
+      --ui-reveal-from: none;
+    }
+    .ui-reveal[data-preset="blur"]:not([data-visible]):not([data-stagger]),
+    .ui-reveal[data-preset="blur"][data-stagger]:not([data-visible]) > * {
+      filter: blur(10px);
+    }
+  }
+  .ui-reveal[data-stagger] > :nth-child(2) {
+    --ui-i: 1;
+  }
+  .ui-reveal[data-stagger] > :nth-child(3) {
+    --ui-i: 2;
+  }
+  .ui-reveal[data-stagger] > :nth-child(4) {
+    --ui-i: 3;
+  }
+  .ui-reveal[data-stagger] > :nth-child(5) {
+    --ui-i: 4;
+  }
+  .ui-reveal[data-stagger] > :nth-child(6) {
+    --ui-i: 5;
+  }
+  .ui-reveal[data-stagger] > :nth-child(7) {
+    --ui-i: 6;
+  }
+  .ui-reveal[data-stagger] > :nth-child(8) {
+    --ui-i: 7;
+  }
+  .ui-reveal[data-stagger] > :nth-child(9) {
+    --ui-i: 8;
+  }
+  .ui-reveal[data-stagger] > :nth-child(10) {
+    --ui-i: 9;
+  }
+  .ui-reveal[data-stagger] > :nth-child(11) {
+    --ui-i: 10;
+  }
+  .ui-reveal[data-stagger] > :nth-child(n + 12) {
+    --ui-i: 11;
+  }
+
+  /* ---------- Marquee ---------- */
+  .ui-marquee-viewport {
+    overflow: hidden;
+  }
+  .ui-marquee[data-fade] .ui-marquee-viewport {
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .ui-marquee-track {
+    display: flex;
+    inline-size: max-content;
+  }
+  .ui-marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--ui-marquee-gap, 2.5rem);
+    padding-inline-end: var(--ui-marquee-gap, 2.5rem);
+  }
+  [dir="rtl"] .ui-marquee {
+    --ui-marquee-to: 50%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-marquee-track {
+      animation: ui-marquee var(--ui-marquee-duration, 40s) linear infinite;
+    }
+    .ui-marquee[data-reverse] .ui-marquee-track {
+      animation-direction: reverse;
+    }
+    .ui-marquee[data-paused] .ui-marquee-track,
+    .ui-marquee[data-hover-pause]:hover .ui-marquee-track,
+    .ui-marquee[data-hover-pause]:focus-within .ui-marquee-track {
+      animation-play-state: paused;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ui-marquee-viewport {
+      overflow-x: auto;
+    }
+    .ui-marquee-clone {
+      display: none;
+    }
+  }
+
+  /* ---------- ScrollProgress ---------- */
+  .ui-scroll-progress {
+    transform-origin: 0 50%;
+    transform: scaleX(var(--ui-scroll-progress, 0));
+  }
+  [dir="rtl"] .ui-scroll-progress {
+    transform-origin: 100% 50%;
+  }
+  @supports (animation-timeline: scroll()) {
+    .ui-scroll-progress {
+      animation: ui-scroll-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  /* ---------- Spotlight ---------- */
+  .ui-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      var(--ui-spotlight-size, 320px) circle at var(--ui-spotlight-x, 50%)
+        var(--ui-spotlight-y, 50%),
+      color-mix(in oklch, var(--ui-primary) 16%, transparent),
+      transparent 70%
+    );
+    transition: opacity var(--ui-duration-slow) var(--ui-ease-out);
+  }
+  @media (hover: hover) and (forced-colors: none) {
+    .ui-spotlight:hover::before {
+      opacity: 1;
+    }
+  }
+
+  /* ---------- Tilt ---------- */
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .ui-tilt {
+      transform: perspective(900px) rotateX(var(--ui-tilt-x, 0deg)) rotateY(var(--ui-tilt-y, 0deg));
+      transition: transform var(--ui-duration-slow) var(--ui-ease-out);
+      will-change: transform;
+    }
+  }
+
+  /* ---------- ImageComparison ---------- */
+  .ui-image-comparison-before {
+    clip-path: inset(0 calc(100% - var(--ui-compare, 50%)) 0 0);
+  }
+  .ui-image-comparison[dir="rtl"] .ui-image-comparison-before {
+    clip-path: inset(0 0 0 calc(100% - var(--ui-compare, 50%)));
+  }
+  .ui-image-comparison :where(img, video) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .ui-image-comparison-handle {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: var(--ui-compare, 50%);
+    inline-size: 2px;
+    margin-inline-start: -1px;
+    background-color: var(--ui-background);
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--ui-foreground) 20%, transparent);
+    pointer-events: none;
+  }
+  .ui-image-comparison-knob {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    translate: -50% -50%;
+    border-radius: 9999px;
+    border: 2px solid var(--ui-background);
+    background-color: var(--ui-primary);
+    box-shadow: var(--ui-shadow-md);
+  }
+  [dir="rtl"] .ui-image-comparison-knob {
+    translate: 50% -50%;
+  }
+  .ui-image-comparison-input {
+    touch-action: pan-y;
+    margin: 0;
+  }
+
+  /* ---------- Background layers ---------- */
+  .ui-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .ui-dot-pattern {
+    background-image: radial-gradient(var(--ui-border-strong) 1px, transparent 1.5px);
+    background-size: var(--ui-pattern-size, 24px) var(--ui-pattern-size, 24px);
+  }
+  .ui-grid-pattern {
+    background-image:
+      linear-gradient(to right, var(--ui-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--ui-border) 1px, transparent 1px);
+    background-size: var(--ui-pattern-size, 48px) var(--ui-pattern-size, 48px);
+  }
+  .ui-dot-pattern[data-fade],
+  .ui-grid-pattern[data-fade] {
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .ui-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+  .ui-mesh-gradient {
+    background-repeat: no-repeat;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-mesh-gradient[data-animate] {
+      background-size: 140% 140%;
+      background-position: center;
+      animation: ui-mesh-drift 20s ease-in-out infinite;
+    }
+  }
+  @media (forced-colors: active) {
+    .ui-bg-layer {
+      display: none;
+    }
+  }
+  .ui-progressive-blur {
+    position: absolute;
+    inset-inline: 0;
+    block-size: var(--ui-blur-height, 6rem);
+  }
+  .ui-progressive-blur[data-side="bottom"] {
+    inset-block-end: 0;
+  }
+  .ui-progressive-blur[data-side="top"] {
+    inset-block-start: 0;
+    transform: scaleY(-1);
+  }
+  .ui-progressive-blur > span {
+    position: absolute;
+    inset: 0;
+  }
+  .ui-progressive-blur > span:nth-child(1) {
+    backdrop-filter: blur(calc(var(--ui-blur-max) / 8));
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 50%, transparent 75%);
+  }
+  .ui-progressive-blur > span:nth-child(2) {
+    backdrop-filter: blur(calc(var(--ui-blur-max) / 4));
+    mask-image: linear-gradient(to bottom, transparent 25%, black 50%, black 75%, transparent 100%);
+  }
+  .ui-progressive-blur > span:nth-child(3) {
+    backdrop-filter: blur(calc(var(--ui-blur-max) / 2));
+    mask-image: linear-gradient(to bottom, transparent 50%, black 75%, black 100%);
+  }
+  .ui-progressive-blur > span:nth-child(4) {
+    backdrop-filter: blur(var(--ui-blur-max));
+    mask-image: linear-gradient(to bottom, transparent 75%, black 100%);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .ui-progressive-blur > span {
+      backdrop-filter: none;
+    }
+    .ui-progressive-blur > span:nth-child(4) {
+      background-image: linear-gradient(to bottom, transparent, var(--ui-background));
+      mask-image: none;
+    }
+  }
 }

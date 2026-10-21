@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Next.js starter whose components were copied with `npx ux-sting init && npx ux-sting add \u2026`.",
+  "description": "Next.js starter whose components were copied with `npx ux-sting init && npx ux-sting add …`.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,7 +24,7 @@
     "@ux-sting/themes": "workspace:^",
     "@ux-sting/tokens": "workspace:^",
     "@ux-sting/utils": "workspace:^",
-    "next": "^16.0.0",
+    "next": "^16.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

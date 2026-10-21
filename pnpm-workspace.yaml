@@ -9,3 +9,16 @@ packages:
 ignoredBuiltDependencies:
   - "@parcel/watcher"
   - esbuild
+
+# Security: force patched releases of transitive dependencies.
+overrides:
+  # GHSA-68fv-2mgg-jv7q (jsdom → css-tree → source-map-js, tests only).
+  source-map-js: ">=1.2.2"
+
+auditConfig:
+  ignoreGhsas:
+    # braces ≤ 3.0.3, GHSA-vfj7-8cjw-p6xm: no patched release exists yet.
+    # Reached only through @tailwindcss/cli → @parcel/watcher → micromatch at
+    # build time (never shipped to browsers; @parcel/watcher's install script
+    # is already skipped above). Remove this entry once a fixed braces ships.
+    - GHSA-vfj7-8cjw-p6xm

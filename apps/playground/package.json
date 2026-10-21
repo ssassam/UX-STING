@@ -12,9 +12,9 @@
     "typecheck": "node ../docs/scripts/collect-demos.ts && tsc --noEmit"
   },
   "dependencies": {
+    "@ux-sting/hooks": "workspace:^",
     "@ux-sting/icons": "workspace:^",
     "@ux-sting/react": "workspace:^",
-    "@ux-sting/hooks": "workspace:^",
     "@ux-sting/utils": "workspace:^",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -26,6 +26,6 @@
     "@vitejs/plugin-react": "^6.0.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",
-    "vite": "^8.0.0"
+    "vite": "^8.3.5"
   }
 }
