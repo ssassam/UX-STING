@@ -18,7 +18,11 @@ const modes: {
     icon: <UsersIcon />,
     title: "Sixteen seats, one seating a night",
     body: "Low tables around the open kitchen, candlelight and a single sitting so every course arrives unhurried.",
-    points: ["Doors at 18:00, last course by 21:30", "Shared or private tables of 2–8", "Dress: smart casual"],
+    points: [
+      "Doors at 18:00, last course by 21:30",
+      "Shared or private tables of 2–8",
+      "Dress: smart casual",
+    ],
   },
   {
     id: "counter",

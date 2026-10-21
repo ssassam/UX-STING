@@ -2,22 +2,22 @@
 import { useEffect, useState, type RefObject } from "react";
 
 export interface UseInViewOptions {
-  /** Margin around the viewport, e.g. `"0px 0px -10% 0px"` to trigger a bit later. */
-  rootMargin?: string;
-  /** Fraction of the element that must be visible. Default 0. */
-  threshold?: number;
-  /** Stop observing after the first time the element enters. Default `true`. */
+  /** Stop observing after the element first enters the viewport. Default `true`. */
   once?: boolean;
+  /** Fraction of the element that must be visible (0–1). Default `0.15`. */
+  amount?: number;
+  /** Grows or shrinks the viewport, e.g. `"0px 0px -10% 0px"`. */
+  rootMargin?: string;
 }
 
 /**
  * `true` while the element intersects the viewport. Without
- * `IntersectionObserver` (old browsers, tests) it reports `true` so content
- * that waits on it is never stuck hidden.
+ * IntersectionObserver (old browsers, SSR) it reports `true`, so content is
+ * never left hidden.
  */
 export function useInView(
   ref: RefObject<Element | null>,
-  { rootMargin, threshold = 0, once = true }: UseInViewOptions = {},
+  { once = true, amount = 0.15, rootMargin }: UseInViewOptions = {},
 ): boolean {
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -30,13 +30,17 @@ export function useInView(
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
-        setInView(entry.isIntersecting);
-        if (entry.isIntersecting && once) observer.disconnect();
+        if (entry.isIntersecting) {
+          setInView(true);
+          if (once) observer.disconnect();
+        } else if (!once) {
+          setInView(false);
+        }
       },
-      { rootMargin, threshold },
+      { threshold: amount, rootMargin },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [ref, rootMargin, threshold, once]);
+  }, [ref, once, amount, rootMargin]);
   return inView;
 }

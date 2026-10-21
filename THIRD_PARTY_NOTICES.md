@@ -59,6 +59,80 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 ```
 
+### design-taste skills — MIT License
+
+The design-read step, the list of banned AI defaults, the craft rules and the
+pre-flight checklist in `.claude/skills/ux-sting-taste/SKILL.md`, and parts of
+the visual-design checks in `.claude/skills/ux-sting-review/SKILL.md`, are
+adapted from [madebymustafa/design-taste](https://github.com/madebymustafa/design-taste)
+(`skills/design-taste/SKILL.md` and the genre packs), rewritten for UX-STING's
+components, tokens and theme presets.
+
+```
+MIT License
+Copyright (c) 2026 Mustafa
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
+### Better Design — MIT License
+
+The "preserve the existing design system" rule and the review-before-handoff
+loop in `.claude/skills/ux-sting-taste/SKILL.md` and
+`.claude/skills/ux-sting-review/SKILL.md` are adapted from the workflow in
+[marvkr/better-design](https://github.com/marvkr/better-design)
+(`skills/better-design/SKILL.md`).
+
+```
+MIT License
+Copyright (c) 2026 Marvin Kaunda
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
+### Claude SEO — MIT License
+
+The list of retired Google rich-result features and several validation checks
+(missing `@context`/`@type`, relative URLs, placeholder text, self-serving
+reviews) in `packages/seo-schema` were informed by the checklists in
+[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)
+(`skills/seo-schema/SKILL.md`). The code is an original TypeScript
+implementation; each Google rule cites the official Google page it follows.
+
+```
+MIT License
+Copyright (c) 2026 agricidaniel
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
+The motion and background components (`text-effect`, `rotating-text`,
+`animated-number`, `reveal`, `marquee`, `scroll-progress`, `spotlight`,
+`image-comparison`, `background`) are original implementations. The idea of
+offering them was inspired by Motion-Primitives, trickle, Paper Shaders, Canvas
+UI and UI Layouts, but no code from those projects is included.
+
 ## Photos in examples
 
 Example applications and docs demos hotlink photos from Unsplash

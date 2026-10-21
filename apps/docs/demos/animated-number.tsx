@@ -3,54 +3,51 @@ import { AnimatedNumber } from "@ux-sting/react/animated-number";
 import { Button } from "@ux-sting/react/button";
 import { useState } from "react";
 
-export function CountUp() {
+export function Stats() {
   return (
     <dl className="grid gap-6 sm:grid-cols-3">
+      <div>
+        <dt className="text-sm text-muted-foreground">Bookings</dt>
+        <dd className="text-3xl font-semibold">
+          <AnimatedNumber value={12840} />
+        </dd>
+      </div>
       <div>
         <dt className="text-sm text-muted-foreground">Revenue</dt>
         <dd className="text-3xl font-semibold">
           <AnimatedNumber
-            value={48210}
-            from={0}
-            formatOptions={{ style: "currency", currency: "EUR", maximumFractionDigits: 0 }}
+            value={2.4e6}
+            format={{ style: "currency", currency: "EUR", notation: "compact" }}
           />
         </dd>
       </div>
       <div>
-        <dt className="text-sm text-muted-foreground">Visitors</dt>
+        <dt className="text-sm text-muted-foreground">Satisfaction</dt>
         <dd className="text-3xl font-semibold">
-          <AnimatedNumber value={18442} from={0} spring="gentle" />
-        </dd>
-      </div>
-      <div>
-        <dt className="text-sm text-muted-foreground">Conversion</dt>
-        <dd className="text-3xl font-semibold">
-          <AnimatedNumber
-            value={0.034}
-            from={0}
-            formatOptions={{ style: "percent", minimumFractionDigits: 1 }}
-          />
+          <AnimatedNumber value={0.982} format={{ style: "percent", maximumFractionDigits: 1 }} />
         </dd>
       </div>
     </dl>
   );
 }
 
-export function LiveTotal() {
-  const [qty, setQty] = useState(1);
+export function PricingToggle() {
+  const [yearly, setYearly] = useState(false);
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <Button variant="outline" onClick={() => setQty((q) => q + 1)}>
-        Add one
-      </Button>
-      <p className="text-xl font-semibold">
-        Total:{" "}
+    <div className="grid justify-items-start gap-3">
+      <p className="text-4xl font-semibold">
         <AnimatedNumber
-          value={qty * 38}
-          spring="bouncy"
-          formatOptions={{ style: "currency", currency: "USD" }}
+          value={yearly ? 190 : 19}
+          duration={500}
+          format={{ style: "currency", currency: "USD", maximumFractionDigits: 0 }}
         />
+        <span className="text-base font-normal text-muted-foreground">
+          {yearly ? " / year" : " / month"}
+        </span>
       </p>
+      <Button variant="outline" size="sm" onClick={() => setYearly((y) => !y)}>
+        {yearly ? "Show monthly" : "Show yearly"}
+      </Button>
     </div>
   );
 }

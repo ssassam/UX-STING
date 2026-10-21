@@ -58,6 +58,11 @@ export interface Messages {
   total: string;
   results: (count: number) => string;
   productDetails: string;
+  pauseAnimation: string;
+  playAnimation: string;
+  compareImages: string;
+  before: string;
+  after: string;
 }
 
 export const en: Messages = {
@@ -116,6 +121,11 @@ export const en: Messages = {
   total: "Total",
   results: (n) => (n === 1 ? "1 result" : `${n} results`),
   productDetails: "Product details",
+  pauseAnimation: "Pause animation",
+  playAnimation: "Play animation",
+  compareImages: "Compare images",
+  before: "Before",
+  after: "After",
 };
 
 export const fr: Messages = {
@@ -174,6 +184,11 @@ export const fr: Messages = {
   total: "Total",
   results: (n) => (n <= 1 ? `${n} résultat` : `${n} résultats`),
   productDetails: "Détails du produit",
+  pauseAnimation: "Mettre l’animation en pause",
+  playAnimation: "Lancer l’animation",
+  compareImages: "Comparer les images",
+  before: "Avant",
+  after: "Après",
 };
 
 export const ar: Messages = {
@@ -232,6 +247,11 @@ export const ar: Messages = {
   total: "المجموع",
   results: (n) => `${n} نتيجة`,
   productDetails: "تفاصيل المنتج",
+  pauseAnimation: "إيقاف الحركة مؤقتًا",
+  playAnimation: "تشغيل الحركة",
+  compareImages: "مقارنة الصور",
+  before: "قبل",
+  after: "بعد",
 };
 
 export const builtInMessages: Record<string, Messages> = { en, fr, ar };

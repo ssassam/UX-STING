@@ -37,8 +37,8 @@ export function Hero() {
             A nine-course story, <span className="text-primary">one table a night.</span>
           </h1>
           <Text size="lg" variant="muted" className="max-w-lg">
-            Ember builds its tasting menu each morning around what the North Sea and nearby
-            Flemish farms bring in — one seating, sixteen seats, every evening.
+            Ember builds its tasting menu each morning around what the North Sea and nearby Flemish
+            farms bring in — one seating, sixteen seats, every evening.
           </Text>
           <div className="flex flex-wrap items-center gap-3">
             <Button asChild size="lg" endIcon={<ArrowRightIcon className="rtl:rotate-180" />}>

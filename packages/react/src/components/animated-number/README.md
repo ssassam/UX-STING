@@ -1,12 +1,12 @@
 # AnimatedNumber
 
-> Motion · `@ux-sting/react/animated-number`
+> Motion & effects · `@ux-sting/react/animated-number`
 
-Number that tweens or springs to its value, formatted with Intl (currency, percent, compact). Starts on scroll into view with `from`.
+Counts to a value with `Intl.NumberFormat` (currency, percent, compact) and tabular figures; starts when scrolled into view and animates later changes.
 
 ## When to use
 
-Use for KPIs, live totals and counters where change is meaningful.
+Use for headline stats, pricing toggles and dashboard KPIs.
 
 ## Installation
 
@@ -24,23 +24,23 @@ npx ux-sting add animated-number
 
 ## Accessibility
 
-- Screen readers get only the final formatted value, never intermediate frames.
-- Tabular figures keep the width stable; reduced motion shows the value instantly.
+- Assistive tech reads the final formatted value only, never the intermediate frames.
+- Reduced motion jumps straight to the value.
 
 ## API
 
 ### AnimatedNumber
 
-A number that counts to its value — for KPIs, prices and live totals. Screen readers get the final, formatted value only (never the intermediate frames), figures are tabular so the width stays stable, and reduced motion shows the value instantly.
+Counts up (or down) to a value with locale formatting and tabular figures, so digits don't jitter. Later `value` changes animate from the previous value. Assistive tech and reduced motion get the final value only.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` * | `number` | — |  |
-| `duration` | `number` | `900` | Duration in ms for the eased tween. Ignored when `spring` is set. Default 900. |
-| `formatOptions` | `Intl.NumberFormatOptions` | — | Intl number format options (currency, percent, compact, units). |
-| `from` | `number` | — | Start value for the first animation, played when the number scrolls into view. Omit to only animate later changes. |
-| `locale` | `string` | — |  |
-| `spring` | `keyof typeof springs \| SpringConfig` | — | Spring physics instead of a fixed duration: a preset name or a config. |
+| `duration` | `number` | `900` | Duration in ms. Default 900. |
+| `format` | `Intl.NumberFormatOptions` | — | `Intl.NumberFormat` options: currency, percent, compact, fraction digits… |
+| `from` | `number` | `0` | Starting value of the first count. Default 0. |
+| `locale` | `string` | — | Overrides the provider locale. |
+| `startOnView` | `boolean` | `true` | Wait until the number scrolls into view before counting. Default `true`. |
 
 _Also accepts 279 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

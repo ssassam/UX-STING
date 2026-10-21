@@ -1,120 +1,69 @@
 "use client";
-import { useMergedRefs, usePrefersReducedMotion } from "@ux-sting/hooks";
+import { useInView, useMergedRefs } from "@ux-sting/hooks";
 import { cn } from "@ux-sting/utils";
 import {
-  Children,
   forwardRef,
-  isValidElement,
-  useEffect,
   useRef,
-  useState,
   type CSSProperties,
+  type ElementType,
   type HTMLAttributes,
 } from "react";
 
-const effectClass = {
-  fade: "",
-  "slide-up": "data-[reveal=hidden]:translate-y-6",
-  "slide-start": "data-[reveal=hidden]:-translate-x-6 rtl:data-[reveal=hidden]:translate-x-6",
-  scale: "data-[reveal=hidden]:scale-95",
-} as const;
+export type RevealPreset = "fade" | "slide-up" | "slide-start" | "blur" | "scale";
 
-export interface RevealProps extends HTMLAttributes<HTMLDivElement> {
-  /** Entrance effect. Only transform and opacity animate. Default `"slide-up"`. */
-  effect?: keyof typeof effectClass;
-  /** Delay before the entrance, in ms. */
+export interface RevealProps extends HTMLAttributes<HTMLElement> {
+  /** Element to render. Default `div`. */
+  as?: ElementType;
+  /** Entrance style. Default `slide-up`. */
+  preset?: RevealPreset;
+  /** Delay in ms. */
   delay?: number;
-  /** Viewport margin; negative values wait until the element is further in view. */
-  rootMargin?: string;
+  /** Reveal direct children one after another, this many ms apart (up to 12 children). */
+  stagger?: number;
+  /** Fraction of the element that must be visible (0–1). Default 0.15. */
+  amount?: number;
+  /** Hide again when scrolled out. Default `false` (reveal once). */
+  repeat?: boolean;
 }
 
 /**
- * Animates content in the first time it scrolls into view. Content that is
- * already visible on load, server-rendered pages without JS and users who
- * prefer reduced motion all see it immediately — nothing is ever stuck hidden.
+ * Fades content in as it scrolls into view. Content is only hidden when
+ * JavaScript runs and motion is allowed, so it is never lost to no-JS
+ * visitors, crawlers or reduced-motion users. Use on a few key sections —
+ * not on every element.
  */
-export const Reveal = forwardRef<HTMLDivElement, RevealProps>(function Reveal(
+export const Reveal = forwardRef<HTMLElement, RevealProps>(function Reveal(
   {
-    effect = "slide-up",
+    as: Tag = "div",
+    preset = "slide-up",
     delay = 0,
-    rootMargin = "0px 0px -10% 0px",
+    stagger,
+    amount,
+    repeat = false,
     className,
     style,
-    children,
     ...props
   },
   ref,
 ) {
-  const local = useRef<HTMLDivElement>(null);
-  const mergedRef = useMergedRefs(ref, local);
-  const reduced = usePrefersReducedMotion();
-  const [state, setState] = useState<"idle" | "hidden" | "shown">("idle");
-
-  useEffect(() => {
-    const el = local.current;
-    if (!el || reduced || typeof IntersectionObserver === "undefined") return;
-    // Only hide what starts below the fold; on-screen content never flickers.
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-    setState("hidden");
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setState("shown");
-        observer.disconnect();
-      },
-      { rootMargin },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [reduced, rootMargin]);
-
+  const innerRef = useRef<HTMLElement>(null);
+  const merged = useMergedRefs(ref, innerRef);
+  const visible = useInView(innerRef, { once: !repeat, amount });
   return (
-    <div
-      ref={mergedRef}
-      data-reveal={state === "idle" ? undefined : state}
-      className={cn(
-        "transition-[opacity,translate,scale] duration-(--ui-duration-slower) ease-(--ui-ease-out)",
-        "data-[reveal=hidden]:opacity-0",
-        effectClass[effect],
-        className,
-      )}
-      style={delay ? ({ transitionDelay: `${delay}ms`, ...style } as CSSProperties) : style}
+    <Tag
+      ref={merged}
+      className={cn("ui-reveal", className)}
+      data-preset={preset}
+      data-stagger={stagger ? "" : undefined}
+      data-visible={visible ? "" : undefined}
+      style={
+        {
+          "--ui-reveal-delay": `${delay}ms`,
+          ...(stagger ? { "--ui-reveal-stagger": `${stagger}ms` } : null),
+          ...style,
+        } as CSSProperties
+      }
       {...props}
-    >
-      {children}
-    </div>
-  );
-});
-
-export interface RevealGroupProps extends HTMLAttributes<HTMLDivElement> {
-  effect?: RevealProps["effect"];
-  /** Delay added per child, in ms. Default 80. */
-  stagger?: number;
-  /** Cap on the accumulated delay so long lists do not lag. Default 480. */
-  maxDelay?: number;
-}
-
-/**
- * Wraps each child in a `Reveal` with an increasing delay — for card grids
- * and feature lists. The group itself stays a plain layout element, so pass
- * grid or flex classes through `className`.
- */
-export const RevealGroup = forwardRef<HTMLDivElement, RevealGroupProps>(function RevealGroup(
-  { effect, stagger = 80, maxDelay = 480, children, ...props },
-  ref,
-) {
-  let index = 0;
-  return (
-    <div ref={ref} {...props}>
-      {Children.map(children, (child) => {
-        if (!isValidElement(child)) return child;
-        const delay = Math.min(index++ * stagger, maxDelay);
-        return (
-          <Reveal effect={effect} delay={delay}>
-            {child}
-          </Reveal>
-        );
-      })}
-    </div>
+    />
   );
 });

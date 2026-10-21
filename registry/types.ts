@@ -51,6 +51,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   command: "Command & search",
   patterns: "Patterns",
   commerce: "Commerce",
-  motion: "Motion",
+  motion: "Motion & effects",
   theming: "Theming",
 };

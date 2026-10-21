@@ -1,21 +1,21 @@
 # Reveal
 
-> Motion · `@ux-sting/react/reveal`
+> Motion & effects · `@ux-sting/react/reveal`
 
-Scroll-triggered entrance (fade, slide, scale) and RevealGroup for staggered lists. Transform and opacity only, built on motion tokens.
+Scroll-triggered entrance (fade, slide-up, slide-start, blur, scale) with optional per-child stagger.
 
 ## When to use
 
-Use sparingly on marketing and landing sections to guide attention as content scrolls in.
+Use on a few key sections of a marketing or editorial page.
 
-**Consider alternatives:** Do not wrap app UI, forms or anything users need immediately.
+**Consider alternatives:** Avoid on every element and in app UI, where content should simply be there.
 
 ## Installation
 
 Use the package (tree-shakeable per-component entry point):
 
 ```tsx
-import { Reveal, RevealGroup } from "@ux-sting/react/reveal";
+import { Reveal } from "@ux-sting/react/reveal";
 ```
 
 Or copy the source into your project and own it:
@@ -26,32 +26,23 @@ npx ux-sting add reveal
 
 ## Accessibility
 
-- Content already on screen, server-rendered pages without JS and reduced-motion users see everything immediately.
-- Hidden content stays in the accessibility tree; focusing it scrolls it into view and reveals it.
+- Content is hidden only when JavaScript runs and motion is allowed, so no-JS visitors, crawlers and reduced-motion users always see it.
+- Does not change focus order; hidden content is still in the DOM.
 
 ## API
 
 ### Reveal
 
-Animates content in the first time it scrolls into view. Content that is already visible on load, server-rendered pages without JS and users who prefer reduced motion all see it immediately — nothing is ever stuck hidden.
+Fades content in as it scrolls into view. Content is only hidden when JavaScript runs and motion is allowed, so it is never lost to no-JS visitors, crawlers or reduced-motion users. Use on a few key sections — not on every element.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `delay` | `number` | `0` | Delay before the entrance, in ms. |
-| `effect` | `keyof typeof effectClass` | `"slide-up"` | Entrance effect. Only transform and opacity animate. Default `"slide-up"`. |
-| `rootMargin` | `string` | `"0px 0px -10% 0px"` | Viewport margin; negative values wait until the element is further in view. |
-
-_Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
-
-### RevealGroup
-
-Wraps each child in a `Reveal` with an increasing delay — for card grids and feature lists. The group itself stays a plain layout element, so pass grid or flex classes through `className`.
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `effect` | `RevealProps["effect"]` | — |  |
-| `maxDelay` | `number` | `480` | Cap on the accumulated delay so long lists do not lag. Default 480. |
-| `stagger` | `number` | `80` | Delay added per child, in ms. Default 80. |
+| `amount` | `number` | — | Fraction of the element that must be visible (0–1). Default 0.15. |
+| `as` | `ElementType` | `"div"` | Element to render. Default `div`. |
+| `delay` | `number` | `0` | Delay in ms. |
+| `preset` | `RevealPreset` | `"slide-up"` | Entrance style. Default `slide-up`. |
+| `repeat` | `boolean` | `false` | Hide again when scrolled out. Default `false` (reveal once). |
+| `stagger` | `number` | — | Reveal direct children one after another, this many ms apart (up to 12 children). |
 
 _Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

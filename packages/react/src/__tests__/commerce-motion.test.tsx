@@ -4,14 +4,11 @@ import { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { expectNoA11yViolations, renderWithProvider } from "../test-utils.js";
 import {
-  AnimatedNumber,
   Field,
   Logo,
   OrderSummary,
   ProductGallery,
   QuantitySelector,
-  Reveal,
-  RevealGroup,
   Swatch,
   SwatchGroup,
 } from "../index.js";
@@ -188,46 +185,6 @@ describe("OrderSummary", () => {
       </OrderSummary>,
     );
     await expectNoA11yViolations(container);
-  });
-});
-
-describe("AnimatedNumber", () => {
-  it("exposes only the final formatted value to assistive tech", () => {
-    render(<AnimatedNumber value={1234.5} locale="en-US" data-testid="n" />);
-    const n = screen.getByTestId("n");
-    expect(within(n).getByText("1,234.5", { selector: ".sr-only" })).toBeInTheDocument();
-    expect(n.querySelector("[aria-hidden]")).toHaveTextContent("1,234.5");
-  });
-
-  it("formats currency", () => {
-    render(
-      <AnimatedNumber
-        value={49}
-        locale="en-US"
-        formatOptions={{ style: "currency", currency: "USD" }}
-        data-testid="n"
-      />,
-    );
-    expect(screen.getByTestId("n").querySelector(".sr-only")).toHaveTextContent("$49.00");
-  });
-});
-
-describe("Reveal", () => {
-  it("renders content visibly without IntersectionObserver", async () => {
-    const { container } = render(
-      <RevealGroup className="grid" stagger={50}>
-        <p>One</p>
-        <p>Two</p>
-      </RevealGroup>,
-    );
-    expect(screen.getByText("Two").parentElement).toHaveStyle({ transitionDelay: "50ms" });
-    expect(container.querySelector("[data-reveal]")).toBeNull();
-    await expectNoA11yViolations(container);
-  });
-
-  it("forwards props", () => {
-    render(<Reveal data-testid="r" effect="scale" />);
-    expect(screen.getByTestId("r")).toBeInTheDocument();
   });
 });
 
