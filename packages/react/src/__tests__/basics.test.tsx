@@ -30,6 +30,7 @@ import {
   Toggle,
 } from "../index.js";
 import { ImageGallery } from "../components/media/image-gallery.js";
+import { Image } from "../components/media/image.js";
 
 describe("Button", () => {
   it("renders variants and handles clicks", async () => {
@@ -242,5 +243,28 @@ describe("control styles", () => {
     const classes = controlVariants();
     expect(classes).not.toMatch(/(^|\s)read-only:/);
     expect(classes).toContain("[&:is(input,textarea):read-only]:bg-surface");
+  });
+});
+
+describe("Image", () => {
+  it("shows an image that finished loading before hydration", () => {
+    const complete = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "complete");
+    const natural = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "naturalWidth");
+    Object.defineProperty(HTMLImageElement.prototype, "complete", {
+      configurable: true,
+      get: () => true,
+    });
+    Object.defineProperty(HTMLImageElement.prototype, "naturalWidth", {
+      configurable: true,
+      get: () => 640,
+    });
+    try {
+      render(<Image src="/cached.jpg" alt="Cached photo" />);
+      expect(screen.getByRole("img", { name: "Cached photo" })).toHaveClass("opacity-100");
+    } finally {
+      if (complete) Object.defineProperty(HTMLImageElement.prototype, "complete", complete);
+      else delete (HTMLImageElement.prototype as { complete?: boolean }).complete;
+      if (natural) Object.defineProperty(HTMLImageElement.prototype, "naturalWidth", natural);
+    }
   });
 });

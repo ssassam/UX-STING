@@ -1,7 +1,15 @@
 "use client";
 import { ImageIcon } from "@ux-sting/icons";
 import { cn } from "@ux-sting/utils";
-import { forwardRef, useState, type ImgHTMLAttributes, type ReactNode } from "react";
+import { mergeRefs } from "@ux-sting/utils";
+import {
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  type ImgHTMLAttributes,
+  type ReactNode,
+} from "react";
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /** Required: describe the image, or `""` if purely decorative. */
@@ -40,6 +48,15 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(function Image(
   ref,
 ) {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const imgRef = useRef<HTMLImageElement>(null);
+  // Server-rendered or cached images can finish loading before React attaches
+  // onLoad/onError during hydration; read the element's state once mounted so
+  // they never stay hidden behind the loading skeleton.
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img || !img.complete) return;
+    setStatus(img.naturalWidth > 0 ? "loaded" : "error");
+  }, [props.src]);
   const radiusClass = {
     none: "rounded-none",
     sm: "rounded-sm",
@@ -68,7 +85,7 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(function Image(
         </span>
       ) : (
         <img
-          ref={ref}
+          ref={mergeRefs(ref, imgRef)}
           alt={alt}
           loading={loading}
           decoding={decoding}
