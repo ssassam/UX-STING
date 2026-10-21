@@ -37,6 +37,7 @@ export const categoryOrder: Category[] = [
   "media",
   "command",
   "patterns",
+  "commerce",
   "motion",
   "theming",
 ];

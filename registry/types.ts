@@ -11,6 +11,7 @@ export type Category =
   | "media"
   | "command"
   | "patterns"
+  | "commerce"
   | "motion"
   | "theming";
 
@@ -49,6 +50,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   media: "Media",
   command: "Command & search",
   patterns: "Patterns",
+  commerce: "Commerce",
   motion: "Motion & effects",
   theming: "Theming",
 };

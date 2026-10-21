@@ -12,3 +12,4 @@ packages/cli/registry.json
 registry/api.json
 docs/bundle-size.md
 **/*.md
+.claude/skills/logo-design

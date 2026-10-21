@@ -12,3 +12,4 @@ export * from "./use-hotkey.js";
 export * from "./use-mounted.js";
 export * from "./use-interval.js";
 export * from "./use-in-view.js";
+export * from "./use-tween.js";
