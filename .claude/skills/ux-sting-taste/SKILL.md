@@ -67,6 +67,8 @@ UX-STING's expressive components are opt-in and already respect reduced motion. 
 | Before/after | `ImageComparison` | Real comparisons |
 | Texture without images | `MeshGradient`, `DotPattern`, `GridPattern`, `Grain`, `ProgressiveBlur` | One or two layers per section |
 | "Thinking…" status | `TextShimmer` | Short status labels |
+| Signature 3D / shader moment | three.js, following `ux-sting-3d` | One per page, with a poster and a still frame for reduced motion |
+| Explaining a system or process | diagram-design, following `ux-sting-diagrams` | Only when a diagram beats a list or table |
 
 App UI (dashboards, settings, forms) gets almost none of these: content should simply be there.
 
