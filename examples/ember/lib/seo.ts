@@ -19,9 +19,6 @@ export const canonical = (path = "") => {
 /** Absolute URL for sitemaps and structured data. */
 export const absolute = (path = "") => new URL(canonical(path), SITE_URL).toString();
 
-/** Serialises schema.org data for a <script type="application/ld+json">. */
-export const jsonLd = (data: object) => ({ __html: JSON.stringify(data).replace(/</g, "\\u003c") });
-
 export const SITE_NAME = "Ember";
 
 /**

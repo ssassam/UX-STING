@@ -1,0 +1,46 @@
+[
+  {
+    "id": "editorial-serif+paper-ink+clear-conversion",
+    "type": "editorial-serif",
+    "palette": "paper-ink",
+    "composition": "clear-conversion",
+    "hue": 345,
+    "score": 94,
+    "rationale": [
+      "Type: Serif display over a neutral sans — matches crafted, warm, calm.",
+      "Palette: Warm paper, ink text, one strong accent — matches warm, crafted, calm.",
+      "Composition: Clear split hero and scannable grids — matches bookings, trust.",
+      "Composition keeps the primary action prominent for a conversion goal."
+    ],
+    "risks": []
+  },
+  {
+    "id": "refined-serif+paper-ink+editorial-asymmetric",
+    "type": "refined-serif",
+    "palette": "paper-ink",
+    "composition": "editorial-asymmetric",
+    "hue": 345,
+    "score": 88,
+    "rationale": [
+      "Type: Light classical serif, refined — matches beauty, salon, refined.",
+      "Palette: Warm paper, ink text, one strong accent — matches warm, crafted, calm.",
+      "Composition: Asymmetric editorial grid with indexed lists — matches crafted, refined."
+    ],
+    "risks": []
+  },
+  {
+    "id": "refined-serif+tinted-calm+clear-conversion",
+    "type": "refined-serif",
+    "palette": "tinted-calm",
+    "composition": "clear-conversion",
+    "hue": 345,
+    "score": 88,
+    "rationale": [
+      "Type: Light classical serif, refined — matches beauty, salon, refined.",
+      "Palette: Pale brand tint with deep brand-colored text — matches beauty, calm.",
+      "Composition: Clear split hero and scannable grids — matches bookings, trust.",
+      "Composition keeps the primary action prominent for a conversion goal."
+    ],
+    "risks": []
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "name": "Atelier Noor",
+  "industry": "beauty salon and hammam",
+  "audience": "women in Marrakech, residents and visitors, 25-55",
+  "goals": ["bookings", "trust"],
+  "tone": ["refined", "warm", "calm", "crafted"],
+  "language": "fr",
+  "avoid": ["dark"],
+  "sections": [
+    { "id": "accueil", "role": "hero", "media": true },
+    { "id": "soins", "role": "list", "items": 5 },
+    { "id": "rituel", "role": "content", "media": true },
+    { "id": "avis", "role": "testimonials", "items": 3 },
+    { "id": "horaires", "role": "schedule", "items": 3 },
+    { "id": "reserver", "role": "cta" }
+  ],
+  "content": {
+    "lang": "fr",
+    "title": "Atelier Noor — salon de beauté et hammam à Marrakech",
+    "description": "Soins du visage, hammam traditionnel et coiffure à Gueliz, Marrakech. Réservez votre rituel en ligne.",
+    "siteName": "Atelier Noor",
+    "nav": [
+      { "label": "Soins", "href": "#soins" },
+      { "label": "Le rituel", "href": "#rituel" },
+      { "label": "Horaires", "href": "#horaires" },
+      { "label": "Réserver", "href": "#reserver" }
+    ],
+    "sections": [
+      {
+        "id": "accueil",
+        "eyebrow": "Gueliz, Marrakech",
+        "heading": "Le temps d'un rituel, rien d'autre",
+        "body": "Hammam au savon noir, soins du visage à l'argan et coiffure, dans un atelier de six cabines où l'on prend le temps.",
+        "action": { "label": "Réserver un soin", "href": "#reserver" },
+        "media": { "alt": "Cabine de soin aux murs de tadelakt, lumière du matin" }
+      },
+      {
+        "id": "soins",
+        "eyebrow": "Carte des soins",
+        "heading": "Cinq soins, faits sans précipitation",
+        "items": [
+          {
+            "title": "Hammam traditionnel",
+            "text": "Savon noir, gommage au kessa, ghassoul.",
+            "meta": "60 min · 350 MAD"
+          },
+          {
+            "title": "Soin visage à l'argan",
+            "text": "Nettoyage, masque et massage du visage.",
+            "meta": "45 min · 400 MAD"
+          },
+          {
+            "title": "Massage relaxant",
+            "text": "Huiles chaudes, pression douce.",
+            "meta": "60 min · 450 MAD"
+          },
+          {
+            "title": "Coiffure et brushing",
+            "text": "Coupe, soin et mise en forme.",
+            "meta": "45 min · 250 MAD"
+          },
+          {
+            "title": "Beauté des mains",
+            "text": "Manucure et pose de vernis.",
+            "meta": "40 min · 200 MAD"
+          }
+        ]
+      },
+      {
+        "id": "rituel",
+        "eyebrow": "Le rituel Noor",
+        "heading": "Deux heures pour vous",
+        "body": "Hammam, enveloppement au rhassoul, massage et thé à la menthe sur la terrasse. Pensé pour une première visite.",
+        "media": { "alt": "Terrasse avec plateau de thé et serviettes pliées" }
+      },
+      {
+        "id": "avis",
+        "heading": "Ce qu'en disent nos clientes",
+        "items": [
+          {
+            "title": "« Un vrai moment de calme. »",
+            "text": "Le hammam était parfait, l'équipe attentive.",
+            "meta": "Salma, septembre 2026"
+          },
+          {
+            "title": "« Je reviens chaque mois. »",
+            "text": "Le soin visage à l'argan est devenu mon rendez-vous.",
+            "meta": "Claire, août 2026"
+          },
+          {
+            "title": "« Accueil chaleureux. »",
+            "text": "Réservation simple, aucune attente.",
+            "meta": "Imane, juillet 2026"
+          }
+        ]
+      },
+      {
+        "id": "horaires",
+        "heading": "Horaires",
+        "items": [
+          { "title": "Mardi – vendredi", "text": "10:00 – 20:00" },
+          { "title": "Samedi", "text": "09:00 – 21:00" },
+          { "title": "Dimanche et lundi", "text": "Fermé" }
+        ]
+      },
+      {
+        "id": "reserver",
+        "heading": "Réserver votre soin",
+        "body": "Choisissez un soin et un créneau. Confirmation par SMS. (Le formulaire de réservation n'est pas branché dans ce prototype.)",
+        "action": { "label": "Voir les créneaux", "href": "#reserver" }
+      }
+    ],
+    "footer": "Atelier Noor · Gueliz, Marrakech · Exemple fictif"
+  }
+}

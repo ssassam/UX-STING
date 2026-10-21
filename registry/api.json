@@ -11121,6 +11121,506 @@
       "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
+  "text-effect": {
+    "TextEffect": {
+      "kind": "component",
+      "description": "Staggered text entrance in pure CSS: a server component with no client\nJavaScript. Screen readers get the whole sentence once; the animated pieces\nare hidden from them. Nothing moves under reduced motion. Inside a\n`Reveal`, the animation waits until the text scrolls into view.",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "required": true,
+          "description": "The text to animate. Plain text only, so it can be split safely."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"p\"",
+          "description": "Element to render. Default `p`."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Delay before the first piece, in ms."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "600",
+          "description": "Duration of each piece, in ms. Default 600."
+        },
+        {
+          "name": "per",
+          "type": "\"word\" | \"char\"",
+          "required": false,
+          "default": "\"word\"",
+          "description": "Animate per word or per character. Default `word`."
+        },
+        {
+          "name": "preset",
+          "type": "TextEffectPreset",
+          "required": false,
+          "default": "\"fade\"",
+          "description": "Entrance style. Default `fade`."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "required": false,
+          "description": "Delay between pieces, in ms. Defaults to 60 (word) or 25 (char)."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "TextShimmer": {
+      "kind": "component",
+      "description": "A light sweep across text — for \"Thinking…\", \"Generating…\" and other\nin-progress labels. Pure CSS; static under reduced motion and in forced\ncolors. Keep it to short status text, never body copy.",
+      "props": [
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"span\"",
+          "description": "Element to render. Default `span`."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "2",
+          "description": "Seconds per sweep. Default 2."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "rotating-text": {
+    "RotatingText": {
+      "kind": "component",
+      "description": "Cycles through words in place (\"Build apps that are fast / safe / yours\").\nAll words share one grid cell, so the line never reflows. Screen readers\nhear the full list once instead of every change; reduced motion keeps the\nfirst word.",
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "required": true,
+          "description": "Words or short phrases to cycle through."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "required": false,
+          "default": "2500",
+          "description": "Time each word stays, in ms. Default 2500."
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Stops on the current word."
+        },
+        {
+          "name": "srText",
+          "type": "string",
+          "required": false,
+          "description": "What screen readers hear instead. Defaults to the words joined by commas."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Typewriter": {
+      "kind": "component",
+      "description": "Types text character by character. Space for the longest phrase is\nreserved, so nothing below jumps. Screen readers and reduced motion get the\nfull text immediately; without JavaScript the text is simply shown.",
+      "props": [
+        {
+          "name": "text",
+          "type": "string | string[]",
+          "required": true,
+          "description": "Text to type. Pass several to type, erase and loop through them."
+        },
+        {
+          "name": "cursor",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Show a blinking caret. Default `true`."
+        },
+        {
+          "name": "hold",
+          "type": "number",
+          "required": false,
+          "default": "1800",
+          "description": "Pause on a finished phrase before erasing, in ms. Default 1800."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "required": false,
+          "default": "45",
+          "description": "Ms per character. Default 45."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "animated-number": {
+    "AnimatedNumber": {
+      "kind": "component",
+      "description": "Counts up (or down) to a value with locale formatting and tabular figures,\nso digits don't jitter. Later `value` changes animate from the previous\nvalue. Assistive tech and reduced motion get the final value only.",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "900",
+          "description": "Duration in ms. Default 900."
+        },
+        {
+          "name": "format",
+          "type": "Intl.NumberFormatOptions",
+          "required": false,
+          "description": "`Intl.NumberFormat` options: currency, percent, compact, fraction digits…"
+        },
+        {
+          "name": "from",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Starting value of the first count. Default 0."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "description": "Overrides the provider locale."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Wait until the number scrolls into view before counting. Default `true`."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "reveal": {
+    "Reveal": {
+      "kind": "component",
+      "description": "Fades content in as it scrolls into view. Content is only hidden when\nJavaScript runs and motion is allowed, so it is never lost to no-JS\nvisitors, crawlers or reduced-motion users. Use on a few key sections —\nnot on every element.",
+      "props": [
+        {
+          "name": "amount",
+          "type": "number",
+          "required": false,
+          "description": "Fraction of the element that must be visible (0–1). Default 0.15."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "required": false,
+          "default": "\"div\"",
+          "description": "Element to render. Default `div`."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Delay in ms."
+        },
+        {
+          "name": "preset",
+          "type": "RevealPreset",
+          "required": false,
+          "default": "\"slide-up\"",
+          "description": "Entrance style. Default `slide-up`."
+        },
+        {
+          "name": "repeat",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Hide again when scrolled out. Default `false` (reveal once)."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "required": false,
+          "description": "Reveal direct children one after another, this many ms apart (up to 12 children)."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "marquee": {
+    "Marquee": {
+      "kind": "component",
+      "description": "An endless row of logos, quotes or tags. It pauses on hover and focus and\nhas a pause button, as WCAG 2.2.2 requires for motion lasting over five\nseconds. With reduced motion it becomes a plain scrollable row. The\nduplicate copy that makes the loop seamless is hidden from assistive tech\nand the tab order. Mirrors in RTL.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name, e.g. \"Customer logos\"."
+        },
+        {
+          "name": "controls",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Show the play/pause button (WCAG 2.2.2). Default `true`."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": "40",
+          "description": "Seconds for one full loop. Default 40."
+        },
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the edges. Default `true`."
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Pause while hovered or while focus is inside. Default `true`."
+        },
+        {
+          "name": "reverse",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Scroll towards the inline end instead of the start."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "scroll-progress": {
+    "ScrollProgress": {
+      "kind": "component",
+      "description": "Reading-progress bar for long articles and docs. It uses CSS scroll-driven\nanimations where the browser supports them, with a passive scroll listener\nas the fallback. The bar is decorative, so it is hidden from assistive tech.",
+      "props": [
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Pin to the top of the viewport. Default `true`; set `false` to place it yourself."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "spotlight": {
+    "Spotlight": {
+      "kind": "component",
+      "description": "A soft glow that follows the pointer across a card or section. Mouse and\npen only — on touch screens nothing changes — and it never covers content\nor catches clicks. The glow uses the theme's primary color.",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "320",
+          "description": "Glow radius in px. Default 320."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Tilt": {
+      "kind": "component",
+      "description": "Tilts its content slightly towards the pointer, for hero media and\nfeature cards. It does nothing for touch, coarse pointers or reduced\nmotion, and it animates transform only.",
+      "props": [
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "default": "6",
+          "description": "Maximum rotation in degrees. Keep it subtle. Default 6."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "image-comparison": {
+    "ImageComparison": {
+      "kind": "component",
+      "description": "Before/after slider. The control is a native range input, so arrow keys,\nHome/End, Page Up/Down, screen readers and touch work without custom\ncode. Vertical page scrolling still works on touch. Mirrors in RTL.",
+      "props": [
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Shown on the inline-end side."
+        },
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Shown on the inline-start side (usually an `Image`)."
+        },
+        {
+          "name": "afterLabel",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "beforeLabel",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Visible corner captions. Pass `null` to hide them."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "required": false,
+          "default": "50"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": "Accessible name of the slider. Defaults to the localized \"Compare images\"."
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: number) => void",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false,
+          "description": "Divider position in percent (controlled)."
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
+  "background": {
+    "MeshGradient": {
+      "kind": "component",
+      "description": "Soft multi-color glow built from layered radial gradients.",
+      "props": [
+        {
+          "name": "animate",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Slow drift (about 20s per cycle). Stops under reduced motion."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "required": false,
+          "default": "35",
+          "description": "Strength of the colors, 0–100. Default 35."
+        },
+        {
+          "name": "tones",
+          "type": "ToneToken[]",
+          "required": false,
+          "default": "[\"primary\", \"info\", \"accent\"]",
+          "description": "Two to four theme colors. Default `[\"primary\", \"info\", \"accent\"]`."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "DotPattern": {
+      "kind": "component",
+      "description": "Dot grid in the border color — a quiet texture behind heroes and empty states.",
+      "props": [
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the pattern out towards the edges. Default `true`."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "24",
+          "description": "Cell size in px. Default 24."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "GridPattern": {
+      "kind": "component",
+      "description": "Hairline grid, for technical and editorial layouts.",
+      "props": [
+        {
+          "name": "fade",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Fade the pattern out towards the edges. Default `true`."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "48",
+          "description": "Cell size in px. Default 24."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Grain": {
+      "kind": "component",
+      "description": "Film-grain noise from an inline SVG filter. Breaks up flat fills and gradient banding.",
+      "props": [
+        {
+          "name": "opacity",
+          "type": "number",
+          "required": false,
+          "default": "0.08",
+          "description": "0–1. Default 0.08 — grain should be felt, not seen."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "ProgressiveBlur": {
+      "kind": "component",
+      "description": "Blur that increases towards one edge, so text over a scrolling list or an\nimage stays readable. Place it over the area to soften. Under\n`prefers-reduced-transparency` it becomes a plain fade.",
+      "props": [
+        {
+          "name": "blur",
+          "type": "number",
+          "required": false,
+          "default": "12",
+          "description": "Maximum blur in px. Default 12."
+        },
+        {
+          "name": "side",
+          "type": "\"top\" | \"bottom\"",
+          "required": false,
+          "default": "\"bottom\"",
+          "description": "Edge the blur grows towards. Default `bottom`."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
   "color-mode-toggle": {
     "ColorModeToggle": {
       "kind": "component",

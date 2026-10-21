@@ -2,12 +2,13 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
-- **~95 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, and commerce / local-discovery / editorial patterns
+- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds)
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
-- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 13 presets (including Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles), custom themes, light/dark/high-contrast, 3 densities
+- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
 - **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
 - **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
+- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), pick a deliberate design direction instead of the generic AI look (`ux-sting-taste`), review with evidence (`ux-sting-review`), explore several directions side by side (`ux-sting-explore`) and run the reference → Design DNA → page → browser QA pipeline (`ux-sting-universal`)
 - **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
 
 ## Quick start
@@ -62,6 +63,8 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/icons` | `@ux-sting/icons` |
 | `packages/core` | `@ux-sting/core` — framework-agnostic entry |
 | `packages/cli` | `ux-sting` CLI |
+| `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
+| `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |
 | `apps/storybook` | Storybook + visual regression |
@@ -148,6 +151,8 @@ Guides live in [`docs/`](docs/introduction.md) and in the docs app (`pnpm --filt
 [Installation](docs/installation.md) · [Next.js](docs/nextjs.md) · [Theming](docs/theming.md) · [Tokens](docs/tokens.md) · [Accessibility](docs/accessibility.md) · [UX quality rules](docs/ux-quality.md) · [RTL & i18n](docs/internationalization.md) · [CLI](docs/cli.md) · [API conventions](docs/api-consistency.md) · [Patterns](docs/patterns.md) · [Migration](docs/migration.md)
 
 Each component folder also has a generated `README.md` (when to use, accessibility, keyboard, API).
+
+**UX-STING Universal (prototype)** — turning UX-STING into a system that analyzes references, plans original designs, generates pages and verifies them in a browser: [Vision](docs/UNIVERSAL_VISION.md) · [Reference audit](docs/REFERENCE_REPOSITORY_AUDIT.md) · [Capability matrix](docs/COMPETITIVE_CAPABILITY_MATRIX.md) · [Design DNA](docs/DESIGN_DNA_SPEC.md) · [Analyzer](docs/REFERENCE_ANALYZER_SPEC.md) · [Generator](docs/WEBSITE_GENERATOR_ARCHITECTURE.md) · [Agents](docs/MULTI_AGENT_ORCHESTRATION.md) · [Visual QA](docs/VISUAL_QA_SYSTEM.md) · [SEO engine](docs/SEO_ENGINE_ARCHITECTURE.md) · [Security & licensing](docs/SECURITY_AND_LICENSING.md) · [Benchmark](docs/BENCHMARK_PLAN.md) · [Roadmap](docs/IMPLEMENTATION_ROADMAP.md) · [Prototype evidence](docs/universal/prototype/)
 
 ## Development
 
