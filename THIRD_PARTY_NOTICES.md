@@ -133,6 +133,18 @@ The motion and background components (`text-effect`, `rotating-text`,
 offering them was inspired by Motion-Primitives, trickle, Paper Shaders, Canvas
 UI and UI Layouts, but no code from those projects is included.
 
+## Agent integrations (not redistributed)
+
+`.claude/settings.json` registers the **diagram-design** plugin marketplace
+(<https://github.com/cathrynlavery/diagram-design>, MIT, © 2025 Cathryn
+Lavery) so Claude Code can install it from its own repository. The
+`ux-sting-diagrams` skill only describes how to use it with UX-STING; none of
+its files are included here.
+
+The `ux-sting-3d` skill summarizes guidance from three.js's `docs/llms.txt`
+(<https://github.com/mrdoob/three.js>, MIT, © 2010–2026 three.js authors) and
+links to it. No three.js code is included; projects install `three` from npm.
+
 ## Photos in examples
 
 Example applications and docs demos hotlink photos from Unsplash

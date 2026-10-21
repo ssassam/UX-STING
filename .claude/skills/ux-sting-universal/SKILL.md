@@ -31,6 +31,7 @@ Set `CHROMIUM_PATH` when Playwright's bundled browser is missing (e.g. `/opt/pw-
 - Fix order: accessibility → layout → fidelity. Never trade contrast or responsiveness for similarity.
 - For original work, present the three directions with their scores, rationale and risks (see `ux-sting-explore`), and let the person choose.
 - Apply UX-STING components and themes with `dnaToUxStingTheme(dna)` when moving from the prototype HTML into a real app.
+- For a signature visual that templates don't have, add one three.js moment with `ux-sting-3d`; for architecture, process or data stories, draw them with `ux-sting-diagrams` (diagram-design, onboarded to the same tokens).
 
 ## 5. Report honestly
 Quote measured numbers with their conditions (viewports, Chromium, iteration). Do not call quality gates passed unless the run that measured them is in the report. Never promise rankings or pixel-perfect copies.
