@@ -74,7 +74,14 @@ export function analyze(
           fix: "Use the same container (max-width + `margin-inline: auto` + symmetric `padding-inline`) for every band, or make the asymmetry deliberate and larger.",
           targets: [s.target],
         });
-      if (s.textChars > 0 && s.textChars < 60 && s.childCount <= 1 && !s.hasMedia && !s.hasControls)
+      if (
+        !s.isNav &&
+        s.textChars > 0 &&
+        s.textChars < 60 &&
+        s.childCount <= 1 &&
+        !s.hasMedia &&
+        !s.hasControls
+      )
         drafts.push({
           ...at,
           id: "orphan-section",

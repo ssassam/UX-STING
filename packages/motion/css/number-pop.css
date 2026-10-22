@@ -1,0 +1,38 @@
+/*
+ * Number pop-in — a changed value lands with a small lift and settle.
+ *
+ *   <span class="us-number-pop" aria-live="polite">1,240</span>
+ *   popNumber(el, "1,312");   // @ux-sting/motion: sets the text and replays the pop
+ *
+ * Digits are tabular so the width does not wobble. Screen readers hear the
+ * final value once (aria-live on the element or its region). Reduced motion:
+ * the value just changes.
+ */
+.us-number-pop {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.us-number-pop[data-pop] {
+  animation: us-number-pop var(--us-pop-duration, var(--ui-duration-slow, 300ms))
+    var(--ui-ease-emphasized, cubic-bezier(0.3, 0, 0, 1.2)) both;
+}
+
+@keyframes us-number-pop {
+  from {
+    opacity: 0.2;
+    transform: translateY(0.35em) scale(0.94);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-number-pop[data-pop] {
+    animation: none;
+  }
+}

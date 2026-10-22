@@ -31,7 +31,7 @@ People open an app screen to read, compare and act, many times a day. Taste here
 
 ## Motion
 
-Almost none. Allowed: skeleton → content, number change (`AnimatedNumber`), tab indicator, list reorder, toast stack. No scroll reveals, no entrance animations on load, no loops.
+Almost none. Allowed, all from `@ux-sting/motion` (CSS, no dependencies): skeleton → content (`css/skeleton.css`), number change (`popNumber` or `AnimatedNumber`), tab indicator (`trackIndicator`), list reorder after sort/filter (`reorder`), toast and notification stack, accordion and card resize. No scroll reveals, no entrance animations on load, no loops, no GSAP.
 
 ## Check
 

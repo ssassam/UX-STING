@@ -97,6 +97,24 @@ describe("analyze", () => {
     expect(passed(findings)).toBe(false);
   });
 
+  it("never calls a short navigation band an orphan", () => {
+    const section = {
+      target: "nav.breadcrumb",
+      top: 0,
+      height: 24,
+      marginStart: 16,
+      marginEnd: 16,
+      textChars: 14,
+      childCount: 1,
+      hasMedia: false,
+      hasControls: false,
+    };
+    expect(analyze([vp(375, { sections: [{ ...section, isNav: true }] })])).toEqual([]);
+    expect(analyze([vp(375, { sections: [section] })]).map((f) => f.id)).toEqual([
+      "orphan-section",
+    ]);
+  });
+
   it("merges the same rule across viewports and keeps the worst severity", () => {
     const failing = [{ target: "p.muted", ratio: 4.1, required: 4.5, text: "x" }];
     const findings = analyze([

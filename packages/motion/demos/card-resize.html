@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card resize — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/card-resize.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Card resize</h1>
+      <p>
+        The card glides between sizes. The CSS path toggles data-size; the JS path wraps any content
+        change in animateSize().
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div class="bar">
+        <button
+          type="button"
+          class="primary"
+          id="toggle"
+          aria-expanded="false"
+          aria-controls="card"
+        >
+          Show details
+        </button>
+        <button type="button" id="add">Add a line (animateSize)</button>
+      </div>
+      <article class="us-card-resize panel" id="card" data-size="compact">
+        <h2 style="margin-block: 0 0.5rem; font-size: 1.125rem">Order #4821</h2>
+        <p style="margin: 0">Shipped Tuesday, arriving Friday.</p>
+        <p>
+          Carrier: PostNL, tracking 3SABC123456. Signature required on delivery; leave-at-door is
+          off for this order.
+        </p>
+        <ul class="list" id="lines"></ul>
+      </article>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      import { animateSize } from "../dist/index.js";
+      const card = document.getElementById("card");
+      const toggle = document.getElementById("toggle");
+      toggle.addEventListener("click", () => {
+        const open = card.dataset.size === "compact";
+        card.dataset.size = open ? "expanded" : "compact";
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.textContent = open ? "Hide details" : "Show details";
+      });
+      let n = 0;
+      document.getElementById("add").addEventListener("click", () =>
+        animateSize(card, () => {
+          card.dataset.size = "expanded";
+          const li = document.createElement("li");
+          li.textContent = `Status update ${++n}`;
+          document.getElementById("lines").append(li);
+        }),
+      );
+    </script>
+  </body>
+</html>

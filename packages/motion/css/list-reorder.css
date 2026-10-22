@@ -1,0 +1,33 @@
+/*
+ * List reorder — items glide to their new places when a list is sorted,
+ * filtered or reordered.
+ *
+ *   <ul class="us-reorder"> <li data-key="a">…</li> … </ul>
+ *   reorder(list, () => sortItems());   // @ux-sting/motion
+ *
+ * `reorder()` uses the View Transitions API when the browser has it (each item
+ * gets a unique view-transition-name for the duration) and falls back to a
+ * FLIP animation with the Web Animations API otherwise. This file only tunes
+ * the view-transition timing. Reduced motion: the list updates at once.
+ */
+.us-reorder > * {
+  view-transition-class: us-reorder-item;
+}
+
+::view-transition-group(*.us-reorder-item) {
+  animation-duration: var(--us-reorder-duration, var(--ui-duration-slow, 300ms));
+  animation-timing-function: var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+::view-transition-old(*.us-reorder-item),
+::view-transition-new(*.us-reorder-item) {
+  animation-duration: var(--ui-duration-normal, 200ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

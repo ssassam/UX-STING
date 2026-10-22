@@ -26,6 +26,8 @@ export interface LayoutMeasurement {
     childCount: number;
     hasMedia: boolean;
     hasControls: boolean;
+    /** Navigation landmark (short by nature, never an orphan). */
+    isNav?: boolean;
   }>;
   /** Grids whose last row holds a single item while full rows hold ≥ 3. */
   orphanItems: Array<{ target: Target; perRow: number; lastRow: number }>;

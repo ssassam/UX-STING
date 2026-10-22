@@ -1,0 +1,57 @@
+/*
+ * Toast — enters from the block end, exits faster than it entered.
+ *
+ * With the popover API (top layer, no z-index fights):
+ *   <div class="us-toast" popover="manual" role="status">Saved</div>
+ *   el.showPopover(); … el.hidePopover();
+ *
+ * With state attributes (Radix / UX-STING Toast):
+ *   <div class="us-toast" data-state="open|closed">…</div>
+ *
+ * Exit keeps the element visible until its animation ends via
+ * `transition-behavior: allow-discrete` (Chromium 117+, Safari 17.4+,
+ * Firefox 129+; elsewhere it disappears at once). Reduced motion: fade only.
+ */
+.us-toast {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--ui-duration-normal, 200ms) var(--ui-ease-out, cubic-bezier(0, 0, 0.2, 1)),
+    transform var(--ui-duration-slow, 300ms) var(--ui-ease-emphasized, cubic-bezier(0.3, 0, 0, 1.2)),
+    display var(--ui-duration-slow, 300ms) allow-discrete,
+    overlay var(--ui-duration-slow, 300ms) allow-discrete;
+}
+
+@starting-style {
+  .us-toast,
+  .us-toast:popover-open {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.98);
+  }
+}
+
+.us-toast[popover]:not(:popover-open),
+.us-toast[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.98);
+  transition-duration: var(--ui-duration-exit-normal, 130ms);
+  transition-timing-function: var(--ui-ease-in, cubic-bezier(0.4, 0, 1, 1));
+}
+
+.us-toast[data-state="closed"] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-toast,
+  .us-toast[popover]:not(:popover-open),
+  .us-toast[data-state="closed"] {
+    transform: none;
+  }
+  @starting-style {
+    .us-toast,
+    .us-toast:popover-open {
+      transform: none;
+    }
+  }
+}

@@ -31,6 +31,8 @@
 | Hero headline entrance | `TextEffect` (`preset="blur"` or `"slide"`) | One per page |
 | Sections appearing on scroll | `Reveal` (`stagger` for rows) | Key sections only |
 | Numbers that change | `AnimatedNumber` | Numbers that matter |
+| UI state changes (resize, reorder, tabs, accordion, toast, skeleton, number pop) | `@ux-sting/motion` CSS catalog + helpers | Wherever state changes; never decorative |
+| Scroll storytelling: pinned scrub, split headings, Flip layouts, timelines | `@ux-sting/motion/gsap` (`usePinnedScrub`, `useSplitHeading`, `useFlipLayout`, presets) | One pinned sequence per page; only when the direction's motion budget is "expressive" |
 | Signature 3D / shader moment | `ux-sting-3d` | One per page, poster + still frame for reduced motion |
 
 App UI gets almost none of these.

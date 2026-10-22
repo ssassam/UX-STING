@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skeleton → content — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/skeleton.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Skeleton → content</h1>
+      <p>
+        Placeholders shimmer briefly, then the content cross-fades in the same grid cell, so nothing
+        shifts.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div class="bar"><button type="button" class="primary" id="reload">Reload</button></div>
+      <div class="us-swap panel stage" id="swap" aria-busy="true" aria-live="polite">
+        <div class="us-swap-skeleton" aria-hidden="true" style="display: grid; gap: 0.5rem">
+          <span class="us-skeleton" style="inline-size: 50%; block-size: 1.25rem"></span>
+          <span class="us-skeleton" style="inline-size: 90%"></span>
+          <span class="us-skeleton" style="inline-size: 75%"></span>
+        </div>
+        <div class="us-swap-content">
+          <h2 style="margin-block: 0 0.5rem; font-size: 1.125rem">Ana Ribeiro</h2>
+          <p style="margin: 0">
+            Product designer in Porto. Leads the checkout and payments squad since 2024.
+          </p>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      const swap = document.getElementById("swap");
+      const load = () => {
+        swap.setAttribute("aria-busy", "true");
+        setTimeout(() => swap.setAttribute("aria-busy", "false"), 1600);
+      };
+      document.getElementById("reload").addEventListener("click", load);
+      load();
+    </script>
+  </body>
+</html>

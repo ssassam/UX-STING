@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accordion — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/accordion.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Accordion</h1>
+      <p>
+        Native details/summary animates to its natural height with no JavaScript; [data-state]
+        panels use the grid-rows technique.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <section class="stage" aria-labelledby="faq">
+        <h2 id="faq" style="font-size: 1.125rem">Native &lt;details&gt;</h2>
+        <details class="us-accordion panel">
+          <summary>Can I change my delivery date?</summary>
+          <p>Yes, until the parcel leaves the warehouse. Open the order and choose a new day.</p>
+        </details>
+        <details class="us-accordion panel">
+          <summary>Do you ship outside the EU?</summary>
+          <p>To the UK, Norway and Switzerland. Duties are shown at checkout.</p>
+        </details>
+      </section>
+      <section class="stage" aria-labelledby="state">
+        <h2 id="state" style="font-size: 1.125rem">data-state panel</h2>
+        <button
+          type="button"
+          class="us-collapse-trigger"
+          id="trigger"
+          aria-expanded="false"
+          aria-controls="panel"
+        >
+          Returns policy
+        </button>
+        <div class="us-collapse" id="panel" data-state="closed">
+          <div>
+            <p class="panel" style="margin-block-start: 0.5rem">
+              Return within 30 days, free of charge. Refunds land in 3–5 working days.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      const trigger = document.getElementById("trigger");
+      const panel = document.getElementById("panel");
+      trigger.addEventListener("click", () => {
+        const open = panel.dataset.state !== "open";
+        panel.dataset.state = open ? "open" : "closed";
+        trigger.setAttribute("aria-expanded", String(open));
+      });
+    </script>
+  </body>
+</html>

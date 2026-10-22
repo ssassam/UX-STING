@@ -2,7 +2,7 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
-- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds)
+- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds); `@ux-sting/motion` adds a CSS transition catalog (resize, reorder, tabs, toast, skeleton…) and an optional GSAP adapter
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
 - **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
@@ -67,6 +67,7 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/qa` | `@ux-sting/qa` — browser QA for agents (`ux-sting qa <url\|path>`): axe, contrast, layout checks, console, LCP/CLS, ranked top-3 fixes |
 | `packages/extract` | `@ux-sting/extract` — `ux-sting extract <url>` → W3C DTCG tokens, `ux-sting theme import` → OKLCH theme, `ux-sting dna` → nearest preset |
 | `packages/images` | `@ux-sting/images` — `ux-sting images <query>`: openly licensed images (Commons, Met, Openverse) with automatic credits |
+| `packages/motion` | `@ux-sting/motion` — CSS transition catalog (resize, number pop, stack, reorder, accordion, tabs, toast, skeleton) + helpers, optional GSAP adapter (`/gsap`) |
 | `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |

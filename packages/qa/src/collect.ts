@@ -104,8 +104,13 @@ export function collectLayout(): LayoutMeasurement {
     if (depth > 4 || !visible(el)) return;
     const tag = el.tagName.toLowerCase();
     const structural = ["header", "nav", "section", "footer", "article", "aside"].includes(tag);
+    // Headings introduce the band after them; they are not bands themselves.
+    if (/^h[1-6]$/.test(tag)) return;
     const r = el.getBoundingClientRect();
-    if (tag === "main" || (!structural && el.children.length === 1) || r.width < vw * 0.6) {
+    // Unwrap single-child wrappers, but never down to an inline box (a <code> in a <p>).
+    const only = el.children.length === 1 ? el.children[0]! : undefined;
+    const wrapper = only && !getComputedStyle(only).display.startsWith("inline");
+    if (tag === "main" || (!structural && wrapper) || r.width < vw * 0.6) {
       if (r.width >= vw * 0.6 || tag === "main")
         for (const c of Array.from(el.children)) consider(c, depth + 1);
       return;
@@ -122,6 +127,9 @@ export function collectLayout(): LayoutMeasurement {
     let container: Element = inner[0] ?? el;
     while (container !== el && !inner.every((l) => container.contains(l)))
       container = container.parentElement ?? el;
+    // An inline box (a lone link) hugs its text; measure the block around it.
+    while (container !== el && getComputedStyle(container).display.startsWith("inline"))
+      container = container.parentElement ?? el;
     const cr = rect(container);
     const cs = getComputedStyle(container);
     const left = cr.left + parseFloat(cs.paddingLeft);
@@ -136,6 +144,7 @@ export function collectLayout(): LayoutMeasurement {
       childCount: Array.from(el.children).filter(visible).length,
       hasMedia: inner.some((l) => l.matches(MEDIA)),
       hasControls: inner.some((l) => l.matches("input,select,textarea,button")),
+      isNav: el.matches("nav, [role=navigation]"),
     };
   });
 

@@ -1,0 +1,71 @@
+/*
+ * Accordion — panels open to their natural height.
+ *
+ * Native <details> (no JavaScript):
+ *   <details class="us-accordion"><summary>Question</summary><div>Answer</div></details>
+ *   Animates with ::details-content + interpolate-size (Chromium 131+); other
+ *   browsers open instantly, which is the fallback.
+ *
+ * Radix / UX-STING Accordion or any [data-state] panel:
+ *   <div class="us-collapse" data-state="open|closed"><div>…</div></div>
+ *   Animates grid-template-rows 0fr ↔ 1fr, which works everywhere. Closed
+ *   content is visibility:hidden, so it leaves the accessibility tree and
+ *   the tab order once the panel has closed.
+ *
+ * Reduced motion: no transition.
+ */
+.us-accordion {
+  interpolate-size: allow-keywords;
+}
+
+.us-accordion::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size var(--ui-duration-slow, 300ms) var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1)),
+    content-visibility var(--ui-duration-slow, 300ms) allow-discrete;
+}
+
+.us-accordion[open]::details-content {
+  block-size: auto;
+}
+
+.us-accordion > summary .us-accordion-icon,
+.us-collapse-trigger .us-accordion-icon {
+  transition: transform var(--ui-duration-normal, 200ms)
+    var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+.us-accordion[open] > summary .us-accordion-icon,
+.us-collapse-trigger[aria-expanded="true"] .us-accordion-icon,
+.us-collapse-trigger[data-state="open"] .us-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.us-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows var(--ui-duration-slow, 300ms)
+      var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1)),
+    visibility var(--ui-duration-slow, 300ms) allow-discrete;
+  visibility: hidden;
+}
+
+.us-collapse > * {
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.us-collapse[data-state="open"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-accordion::details-content,
+  .us-collapse,
+  .us-accordion-icon {
+    transition: none;
+  }
+}

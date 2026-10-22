@@ -1,0 +1,70 @@
+/*
+ * Notification stack — newest on top, older ones tucked behind; the stack
+ * fans out on hover or keyboard focus.
+ *
+ *   <ol class="us-stack" aria-label="Notifications">
+ *     <li class="us-stack-item">Oldest</li> … <li class="us-stack-item">Newest</li>
+ *   </ol>
+ *
+ * The newest item is last in the DOM (so it is read last and tabs last).
+ * Items should share a height; fanning moves each by its own height plus the
+ * gap. Keep at most four: items beyond the fourth are hidden (and out of the
+ * tab order) until the app dismisses older ones. New items slide in with
+ * @starting-style (Chromium 117+, Safari 17.5+, Firefox 129+; elsewhere they
+ * appear at once). Reduced motion: no movement, always fanned out.
+ */
+.us-stack {
+  display: grid;
+  align-items: end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  --us-stack-gap: 0.5rem;
+  --us-stack-peek: 0.625rem;
+}
+
+.us-stack-item {
+  grid-area: 1 / 1;
+  --i: 3;
+  z-index: calc(10 - var(--i));
+  transform: translateY(calc(var(--i) * var(--us-stack-peek) * -1)) scale(calc(1 - var(--i) * 0.05));
+  transform-origin: 50% 0;
+  transition:
+    transform var(--ui-duration-slow, 300ms) var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1)),
+    opacity var(--ui-duration-normal, 200ms) linear;
+}
+
+.us-stack-item:nth-last-child(1) {
+  --i: 0;
+}
+.us-stack-item:nth-last-child(2) {
+  --i: 1;
+}
+.us-stack-item:nth-last-child(3) {
+  --i: 2;
+}
+.us-stack-item:nth-last-child(n + 4) {
+  visibility: hidden;
+}
+
+.us-stack:hover .us-stack-item,
+.us-stack:focus-within .us-stack-item,
+.us-stack[data-expanded] .us-stack-item {
+  opacity: 1;
+  transform: translateY(calc(var(--i) * (-100% - var(--us-stack-gap))));
+}
+
+@starting-style {
+  .us-stack-item:nth-last-child(1) {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-stack .us-stack-item {
+    transition: none;
+    opacity: 1;
+    transform: translateY(calc(var(--i) * (-100% - var(--us-stack-gap))));
+  }
+}

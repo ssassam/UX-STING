@@ -12,6 +12,8 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Anti-slop rule list + automated detection (purple gradients, emoji icons, centered hero + 3 cards, stock copy, unsourced stats, lorem, glass, misaligned numbers) | ✔ `references/anti-slop.md`, `slop:*` / `data:*` QA findings | taste-skill, design-taste | Ours |
 | Dashboard / app-screen route (quiet panels, aligned numbers, color on data) | ✔ `ux-sting-taste/references/app-screens.md` | — | Ours |
 | Zero-dependency motion & effects (CSS tier) | ✔ | Motion Primitives, Trickle | Re-implemented |
+| UI transition catalog (card resize, number pop-in, notification stack, list reorder via View Transitions + FLIP, accordion, tab indicator, toast, skeleton → content), copy-ready CSS + demo pages | ✔ `@ux-sting/motion` (CSS tier + helpers) | transitions.dev (Jakubantalik; licence forbids redistribution), react-bits (MIT + Commons Clause) | Ours; ideas only |
+| GSAP adapter: useGSAP hooks with scope + cleanup, ScrollTrigger reveal / pin / scrub, SplitText headings, Flip layouts, timeline presets, reduced motion via matchMedia | ✔ `@ux-sting/motion/gsap` (gsap optional peer) | gsap-skills (greensock, MIT) | Ours; ideas only |
 | WebGL effects tier | ✗ | Paper Shaders (Apache-2.0) | Optional peer dependency, lazy-loaded |
 | Custom cursors, HTML-in-canvas effects | ✗ | Cursify, Canvas UI | **Not reusable** (licence); build only if needed |
 | Natural-language brief → design directions | ◐ `planDirections` | Superdesign (idea), Design Taste | Ours (deterministic planner + optional LLM director) |

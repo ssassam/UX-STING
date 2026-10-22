@@ -8,7 +8,12 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const targets = ["packages/react/src", "packages/primitives/src"];
+const targets = [
+  "packages/react/src",
+  "packages/primitives/src",
+  "packages/motion/src",
+  "packages/motion/css",
+];
 
 interface Rule {
   id: string;

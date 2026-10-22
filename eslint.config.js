@@ -64,4 +64,8 @@ export default tseslint.config(
     files: ["**/*.{js,mjs}"],
     languageOptions: { globals: { ...globals.node } },
   },
+  {
+    files: ["packages/motion/demos/**/*.js"],
+    languageOptions: { globals: { ...globals.browser } },
+  },
 );
