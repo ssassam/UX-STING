@@ -37,9 +37,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@ux-sting/qa": "workspace:^",
-    "@ux-sting/extract": "workspace:^",
-    "@ux-sting/images": "workspace:^"
+    "@ux-sting/qa": ">=0.1.0",
+    "@ux-sting/extract": ">=0.1.0",
+    "@ux-sting/images": ">=0.1.0"
   },
   "peerDependenciesMeta": {
     "@ux-sting/qa": {
