@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "CLI for ux-sting: copy accessible, themeable React components into your project.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
   "type": "module",
   "bin": {
     "ux-sting": "./dist/index.js"
@@ -20,7 +27,29 @@
     "node": ">=20.9"
   },
   "devDependencies": {
+    "@ux-sting/images": "workspace:^",
+    "@ux-sting/extract": "workspace:^",
+    "@ux-sting/qa": "workspace:^",
     "@types/node": "^24.0.0",
     "typescript": "~6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@ux-sting/qa": "workspace:^",
+    "@ux-sting/extract": "workspace:^",
+    "@ux-sting/images": "workspace:^"
+  },
+  "peerDependenciesMeta": {
+    "@ux-sting/qa": {
+      "optional": true
+    },
+    "@ux-sting/extract": {
+      "optional": true
+    },
+    "@ux-sting/images": {
+      "optional": true
+    }
   }
 }

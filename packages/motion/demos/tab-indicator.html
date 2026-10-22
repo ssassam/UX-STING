@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab indicator — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/tab-indicator.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Tab indicator</h1>
+      <p>
+        One bar slides under the selected tab. Arrow keys move between tabs; the bar mirrors in RTL.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div role="tablist" class="us-tabs stage" aria-label="Report period" id="tabs">
+        <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Day</button>
+        <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">
+          Week
+        </button>
+        <button role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">
+          Quarter to date
+        </button>
+        <span class="us-tab-indicator" aria-hidden="true"></span>
+      </div>
+      <div role="tabpanel" id="p1" aria-labelledby="t1" class="panel">
+        Today: 214 orders, 12 more than yesterday. Most came in between 18:00 and 21:00.
+      </div>
+      <div role="tabpanel" id="p2" aria-labelledby="t2" class="panel" hidden>
+        This week: 1,380 orders. Returns are down to 3.1% after the new size guide.
+      </div>
+      <div role="tabpanel" id="p3" aria-labelledby="t3" class="panel" hidden>
+        Quarter to date: 15,902 orders, 64% of the quarterly target with five weeks left.
+      </div>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      import { trackIndicator } from "../dist/index.js";
+      const tablist = document.getElementById("tabs");
+      const tabs = [...tablist.querySelectorAll("[role=tab]")];
+      const select = (tab) => {
+        for (const t of tabs) {
+          const on = t === tab;
+          t.setAttribute("aria-selected", String(on));
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        }
+        tab.focus();
+      };
+      tabs.forEach((t) => t.addEventListener("click", () => select(t)));
+      tablist.addEventListener("keydown", (e) => {
+        const rtl = getComputedStyle(tablist).direction === "rtl";
+        const step = { ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[e.key];
+        if (!step) return;
+        const i = tabs.indexOf(document.activeElement);
+        select(tabs[(i + step + tabs.length) % tabs.length]);
+        e.preventDefault();
+      });
+      trackIndicator(tablist);
+    </script>
+  </body>
+</html>

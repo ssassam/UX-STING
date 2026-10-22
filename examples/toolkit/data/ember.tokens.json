@@ -1,0 +1,1279 @@
+{
+  "$description": "Design tokens extracted from examples/ember/ at 1440px",
+  "$extensions": {
+    "dev.ux-sting": {
+      "source": "examples/ember/",
+      "capturedAt": "2026-10-22T14:48:37.788Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scheme": "dark",
+      "missing": ["color.muted-foreground"],
+      "unreadableStylesheets": 0
+    }
+  },
+  "color": {
+    "background": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.09, 0.11, 0.137],
+        "hex": "#171c23"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "body background, composited"
+        }
+      }
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.678, 0.725, 0.773],
+        "hex": "#adb9c5"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "text color of 1953 characters"
+        }
+      }
+    },
+    "heading": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.976, 0.98, 0.984],
+        "hex": "#f9fafb"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h1/h2 computed color"
+        }
+      }
+    },
+    "surface": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.161, 0.192, 0.227],
+        "hex": "#29313a"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "inferred",
+          "confidence": 0.7,
+          "evidence": "largest painted neutral area besides the page background"
+        }
+      }
+    },
+    "border": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.231, 0.275, 0.322],
+        "hex": "#3b4652"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.85,
+          "evidence": "border color on 131 edges"
+        }
+      }
+    },
+    "primary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.792, 0.51, 0],
+        "hex": "#ca8200"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "inferred",
+          "confidence": 0.8,
+          "evidence": "button fill color, weight 16"
+        }
+      }
+    },
+    "primary-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.188, 0.075, 0],
+        "hex": "#301300"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "text color on that button"
+        }
+      }
+    },
+    "palette": {
+      "1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.161, 0.192, 0.227],
+          "hex": "#29313a"
+        }
+      },
+      "2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.976, 0.98, 0.984],
+          "hex": "#f9fafb"
+        }
+      },
+      "3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.678, 0.725, 0.773],
+          "hex": "#adb9c5"
+        }
+      },
+      "4": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.118, 0.145, 0.173],
+          "hex": "#1e252c"
+        }
+      },
+      "5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.792, 0.51, 0],
+          "hex": "#ca8200"
+        }
+      },
+      "6": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.09, 0.11, 0.141],
+          "hex": "#171c24"
+        }
+      },
+      "7": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.176, 0.133, 0.114],
+          "hex": "#2d221d"
+        }
+      },
+      "8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.188, 0.075, 0],
+          "hex": "#301300"
+        }
+      },
+      "9": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.988, 0.886, 0.761],
+          "hex": "#fce2c2"
+        }
+      },
+      "10": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.557, 0.529],
+          "hex": "#ff8e87"
+        }
+      },
+      "11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.231, 0.275, 0.322],
+          "hex": "#3b4652"
+        }
+      }
+    }
+  },
+  "font": {
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Noto Sans",
+        "Noto Sans Arabic",
+        "Arial",
+        "sans-serif"
+      ],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "computed font-family of body text"
+        }
+      }
+    }
+  },
+  "fontSize": {
+    "body": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "body paragraph font-size"
+        }
+      }
+    },
+    "h1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 72,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h1 font-size at 1440px"
+        }
+      }
+    },
+    "h2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 30,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h2 font-size at 1440px"
+        }
+      }
+    },
+    "h3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h3 font-size at 1440px"
+        }
+      }
+    },
+    "scale": {
+      "12": {
+        "$type": "dimension",
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "14": {
+        "$type": "dimension",
+        "$value": {
+          "value": 14,
+          "unit": "px"
+        }
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "18": {
+        "$type": "dimension",
+        "$value": {
+          "value": 18,
+          "unit": "px"
+        }
+      },
+      "30": {
+        "$type": "dimension",
+        "$value": {
+          "value": 30,
+          "unit": "px"
+        }
+      },
+      "36": {
+        "$type": "dimension",
+        "$value": {
+          "value": 36,
+          "unit": "px"
+        }
+      },
+      "72": {
+        "$type": "dimension",
+        "$value": {
+          "value": 72,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "fontWeight": {
+    "body": {
+      "$type": "fontWeight",
+      "$value": 400,
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "body paragraph font-weight"
+        }
+      }
+    },
+    "heading": {
+      "$type": "fontWeight",
+      "$value": 700,
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h1 font-weight"
+        }
+      }
+    }
+  },
+  "lineHeight": {
+    "body": {
+      "$type": "number",
+      "$value": 1.5,
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "body paragraph line-height ÷ font-size"
+        }
+      }
+    },
+    "heading": {
+      "$type": "number",
+      "$value": 1.05,
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "h1 line-height ÷ font-size"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "unit": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "inferred",
+          "confidence": 0.7,
+          "evidence": "largest of 8/4/2 dividing ≥ 70% of paddings, gaps and margins"
+        }
+      }
+    },
+    "scale": {
+      "2": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "4": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "6": {
+        "$type": "dimension",
+        "$value": {
+          "value": 6,
+          "unit": "px"
+        }
+      },
+      "8": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "10": {
+        "$type": "dimension",
+        "$value": {
+          "value": 10,
+          "unit": "px"
+        }
+      },
+      "12": {
+        "$type": "dimension",
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "28": {
+        "$type": "dimension",
+        "$value": {
+          "value": 28,
+          "unit": "px"
+        }
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        }
+      },
+      "40": {
+        "$type": "dimension",
+        "$value": {
+          "value": 40,
+          "unit": "px"
+        }
+      }
+    },
+    "container": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1280,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "most common centered container width"
+        }
+      }
+    }
+  },
+  "radius": {
+    "11": {
+      "$type": "dimension",
+      "$value": {
+        "value": 11,
+        "unit": "px"
+      }
+    },
+    "14": {
+      "$type": "dimension",
+      "$value": {
+        "value": 14,
+        "unit": "px"
+      }
+    },
+    "21": {
+      "$type": "dimension",
+      "$value": {
+        "value": 21,
+        "unit": "px"
+      }
+    },
+    "24": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "28": {
+      "$type": "dimension",
+      "$value": {
+        "value": 28,
+        "unit": "px"
+      }
+    },
+    "default": {
+      "$type": "dimension",
+      "$value": {
+        "value": 11,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "most common corner radius (10 elements)"
+        }
+      }
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "pill-shaped elements"
+        }
+      }
+    }
+  },
+  "shadow": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": -0.44,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": -7.18,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.05,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "box-shadow on 9 elements"
+        }
+      }
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": -0.44,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": -7.18,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.12,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": -0.44,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": -7.18,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.06,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "box-shadow on 1 elements"
+        }
+      }
+    },
+    "3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": -0.44,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": -7.18,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.08,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": -0.44,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": -7.18,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.06,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "box-shadow on 1 elements"
+        }
+      }
+    },
+    "4": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0.976, 0.98, 0.984],
+            "hex": "#f9fafb",
+            "alpha": 1
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0],
+            "hex": "#000000",
+            "alpha": 0
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "box-shadow on 1 elements"
+        }
+      }
+    }
+  },
+  "duration": {
+    "120": {
+      "$type": "duration",
+      "$value": {
+        "value": 120,
+        "unit": "ms"
+      }
+    },
+    "150": {
+      "$type": "duration",
+      "$value": {
+        "value": 150,
+        "unit": "ms"
+      }
+    },
+    "default": {
+      "$type": "duration",
+      "$value": {
+        "value": 150,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "most common transition duration"
+        }
+      }
+    }
+  },
+  "easing": {
+    "1": {
+      "$type": "cubicBezier",
+      "$value": [0.2, 0, 0, 1],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "easing \"cubic-bezier(0.2, 0, 0, 1)\""
+        }
+      }
+    },
+    "default": {
+      "$type": "cubicBezier",
+      "$value": [0.4, 0, 0.2, 1],
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "easing \"cubic-bezier(0.4, 0, 0.2, 1)\""
+        }
+      }
+    }
+  },
+  "breakpoint": {
+    "640": {
+      "$type": "dimension",
+      "$value": {
+        "value": 640,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "@media width condition"
+        }
+      }
+    },
+    "768": {
+      "$type": "dimension",
+      "$value": {
+        "value": 768,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "@media width condition"
+        }
+      }
+    },
+    "1024": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1024,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "@media width condition"
+        }
+      }
+    },
+    "1280": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1280,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "@media width condition"
+        }
+      }
+    },
+    "1536": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1536,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.ux-sting": {
+          "source": "observed",
+          "confidence": 0.95,
+          "evidence": "@media width condition"
+        }
+      }
+    }
+  }
+}

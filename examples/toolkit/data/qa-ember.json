@@ -1,0 +1,769 @@
+{
+  "target": "examples/ember/out",
+  "url": "local/",
+  "createdAt": "2026-10-22T14:48:33.666Z",
+  "viewports": [
+    {
+      "width": 375,
+      "layout": {
+        "width": 375,
+        "height": 812,
+        "documentHeight": 8469,
+        "overflow": {
+          "px": 0,
+          "offenders": []
+        },
+        "title": {
+          "text": "A nine-course story, one table a night.",
+          "top": 153,
+          "bottom": 355,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "header.z-\\(--ui-z-header\\)",
+            "top": 0,
+            "height": 65,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 49,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "main#main > section.relative:nth-of-type(1)",
+            "top": 65,
+            "height": 1137,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 459,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#menu",
+            "top": 1298,
+            "height": 1874,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 998,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#experience",
+            "top": 3268,
+            "height": 796,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reserve",
+            "top": 4160,
+            "height": 1447,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 441,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#hours",
+            "top": 5703,
+            "height": 817,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reviews",
+            "top": 6616,
+            "height": 919,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 703,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#faq",
+            "top": 7631,
+            "height": 320,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 152,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "footer.border-t",
+            "top": 7983,
+            "height": 486,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 460,
+            "childCount": 3,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 166,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "div.flex-1 > div.flex:nth-of-type(1) > p.text-sm:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "Tonight"
+            },
+            {
+              "target": "div:nth-of-type(2) > div.flex-1 > a.inline-flex",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "See the full menu"
+            },
+            {
+              "target": "li.grid:nth-of-type(1) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "01"
+            },
+            {
+              "target": "li.grid:nth-of-type(2) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "02"
+            },
+            {
+              "target": "li.grid:nth-of-type(3) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "03"
+            },
+            {
+              "target": "li.grid:nth-of-type(4) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "04"
+            },
+            {
+              "target": "li.grid:nth-of-type(5) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "05"
+            },
+            {
+              "target": "li.grid:nth-of-type(6) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "06"
+            },
+            {
+              "target": "li.grid:nth-of-type(7) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "07"
+            },
+            {
+              "target": "li.grid:nth-of-type(8) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "08"
+            },
+            {
+              "target": "li.grid:nth-of-type(9) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "09"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [
+            ".items-baseline > .uppercase.tracking-widest.text-primary",
+            ".hover\\:underline.rounded-sm[href$=\"#menu\"]",
+            ".rounded-2xl.p-5.content-start:nth-child(1) > .uppercase.tracking-widest.text-primary > .tabular-nums"
+          ],
+          "count": 11
+        }
+      ],
+      "vitals": {
+        "lcp": 312,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/375.png",
+        "full": "shots/375-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 1,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    },
+    {
+      "width": 768,
+      "layout": {
+        "width": 768,
+        "height": 900,
+        "documentHeight": 6592,
+        "overflow": {
+          "px": 0,
+          "offenders": []
+        },
+        "title": {
+          "text": "A nine-course story, one table a night.",
+          "top": 177,
+          "bottom": 631,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "header.z-\\(--ui-z-header\\)",
+            "top": 0,
+            "height": 65,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 49,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "main#main > section.relative:nth-of-type(1)",
+            "top": 65,
+            "height": 1054,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 459,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#menu",
+            "top": 1215,
+            "height": 1110,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 998,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#experience",
+            "top": 2421,
+            "height": 480,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reserve",
+            "top": 2997,
+            "height": 1047,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 441,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#hours",
+            "top": 4139,
+            "height": 1076,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reviews",
+            "top": 5311,
+            "height": 475,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 703,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#faq",
+            "top": 5882,
+            "height": 300,
+            "marginStart": 24,
+            "marginEnd": 24,
+            "textChars": 152,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "footer.border-t",
+            "top": 6214,
+            "height": 378,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 460,
+            "childCount": 3,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 171,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "div.flex-1 > div.flex:nth-of-type(1) > p.text-sm:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "Tonight"
+            },
+            {
+              "target": "div:nth-of-type(2) > div.flex-1 > a.inline-flex",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "See the full menu"
+            },
+            {
+              "target": "li.grid:nth-of-type(1) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "01"
+            },
+            {
+              "target": "li.grid:nth-of-type(2) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "02"
+            },
+            {
+              "target": "li.grid:nth-of-type(3) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "03"
+            },
+            {
+              "target": "li.grid:nth-of-type(4) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "04"
+            },
+            {
+              "target": "li.grid:nth-of-type(5) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "05"
+            },
+            {
+              "target": "li.grid:nth-of-type(6) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "06"
+            },
+            {
+              "target": "li.grid:nth-of-type(7) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "07"
+            },
+            {
+              "target": "li.grid:nth-of-type(8) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "08"
+            },
+            {
+              "target": "li.grid:nth-of-type(9) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "09"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [
+            ".items-baseline > .uppercase.tracking-widest.text-primary",
+            ".hover\\:underline.rounded-sm[href$=\"#menu\"]",
+            ".rounded-2xl.p-5.content-start:nth-child(1) > .uppercase.tracking-widest.text-primary > .tabular-nums"
+          ],
+          "count": 11
+        }
+      ],
+      "vitals": {
+        "lcp": 244,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/768.png",
+        "full": "shots/768-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 1,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "height": 900,
+        "documentHeight": 5339,
+        "overflow": {
+          "px": 0,
+          "offenders": []
+        },
+        "title": {
+          "text": "A nine-course story, one table a night.",
+          "top": 177,
+          "bottom": 404,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "header.z-\\(--ui-z-header\\)",
+            "top": 0,
+            "height": 65,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 49,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "main#main > section.relative:nth-of-type(1)",
+            "top": 65,
+            "height": 699,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 459,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#menu",
+            "top": 860,
+            "height": 930,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 998,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#experience",
+            "top": 1886,
+            "height": 480,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reserve",
+            "top": 2462,
+            "height": 1047,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 441,
+            "childCount": 1,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#hours",
+            "top": 3605,
+            "height": 510,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 318,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "section#reviews",
+            "top": 4211,
+            "height": 342,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 703,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "section#faq",
+            "top": 4649,
+            "height": 300,
+            "marginStart": 104,
+            "marginEnd": 104,
+            "textChars": 152,
+            "childCount": 2,
+            "hasMedia": true,
+            "hasControls": true,
+            "isNav": false
+          },
+          {
+            "target": "footer.border-t",
+            "top": 4981,
+            "height": 358,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 460,
+            "childCount": 3,
+            "hasMedia": true,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 171,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "div.flex-1 > div.flex:nth-of-type(1) > p.text-sm:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "Tonight"
+            },
+            {
+              "target": "div:nth-of-type(2) > div.flex-1 > a.inline-flex",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "See the full menu"
+            },
+            {
+              "target": "li.grid:nth-of-type(1) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "01"
+            },
+            {
+              "target": "li.grid:nth-of-type(2) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "02"
+            },
+            {
+              "target": "li.grid:nth-of-type(3) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "03"
+            },
+            {
+              "target": "li.grid:nth-of-type(4) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "04"
+            },
+            {
+              "target": "li.grid:nth-of-type(5) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "05"
+            },
+            {
+              "target": "li.grid:nth-of-type(6) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "06"
+            },
+            {
+              "target": "li.grid:nth-of-type(7) > div.flex > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "07"
+            },
+            {
+              "target": "li.grid:nth-of-type(8) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "08"
+            },
+            {
+              "target": "li.grid:nth-of-type(9) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+              "ratio": 4.2,
+              "required": 4.5,
+              "text": "09"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [
+            ".items-baseline > .uppercase.tracking-widest.text-primary",
+            ".hover\\:underline.rounded-sm[href$=\"#menu\"]",
+            ".rounded-2xl.p-5.content-start:nth-child(1) > .uppercase.tracking-widest.text-primary > .tabular-nums"
+          ],
+          "count": 11
+        }
+      ],
+      "vitals": {
+        "lcp": 240,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/1440.png",
+        "full": "shots/1440-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 1,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    }
+  ],
+  "console": {
+    "errors": [],
+    "failedRequests": []
+  },
+  "findings": [
+    {
+      "id": "contrast",
+      "category": "contrast",
+      "severity": "moderate",
+      "message": "11 text element(s) below WCAG AA (worst 4.2:1).",
+      "fix": "Use the theme's foreground / muted-foreground tokens on their matching surfaces instead of lightened text or custom grays.",
+      "viewports": [375, 768, 1440],
+      "targets": [
+        "div.flex-1 > div.flex:nth-of-type(1) > p.text-sm:nth-of-type(1)",
+        "div:nth-of-type(2) > div.flex-1 > a.inline-flex",
+        "li.grid:nth-of-type(1) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+        "li.grid:nth-of-type(2) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+        "li.grid:nth-of-type(3) > div.flex > span.tabular-nums:nth-of-type(1)"
+      ],
+      "count": 11
+    }
+  ],
+  "top": [
+    {
+      "id": "contrast",
+      "category": "contrast",
+      "severity": "moderate",
+      "message": "11 text element(s) below WCAG AA (worst 4.2:1).",
+      "fix": "Use the theme's foreground / muted-foreground tokens on their matching surfaces instead of lightened text or custom grays.",
+      "viewports": [375, 768, 1440],
+      "targets": [
+        "div.flex-1 > div.flex:nth-of-type(1) > p.text-sm:nth-of-type(1)",
+        "div:nth-of-type(2) > div.flex-1 > a.inline-flex",
+        "li.grid:nth-of-type(1) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+        "li.grid:nth-of-type(2) > div.flex:nth-of-type(1) > span.tabular-nums:nth-of-type(1)",
+        "li.grid:nth-of-type(3) > div.flex > span.tabular-nums:nth-of-type(1)"
+      ],
+      "count": 11
+    }
+  ],
+  "score": 97,
+  "passed": true
+}

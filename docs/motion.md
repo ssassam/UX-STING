@@ -65,3 +65,69 @@ The `ux-sting-taste` skill maps these choices to design directions; `ux-sting-re
 ## Timing
 
 Functional motion uses the tokens (`--ui-duration-fast` 120ms to `--ui-duration-slower` 450ms). Expressive entrances default to 600–700ms with `cubic-bezier(0.22, 1, 0.36, 1)`, a long ease-out that starts quickly and settles calmly. Pass `duration`, `delay` and `stagger` props to tune them; keep staggers between 40ms and 120ms.
+
+## Transitions and GSAP — `@ux-sting/motion`
+
+`@ux-sting/motion` adds two tiers on top of the components above. Both use the same duration and easing tokens and both respect `prefers-reduced-motion`.
+
+### Tier 1 — CSS transition catalog (zero dependencies)
+
+Copy a file, or import them all with `@ux-sting/motion/motion.css`. Each has a demo page in `packages/motion/demos/` (LTR/RTL switch included).
+
+| Transition | File | Helper (optional) | Technique |
+| --- | --- | --- | --- |
+| Card resize | `css/card-resize.css` | `animateSize(el, mutate)` | `interpolate-size`, WAAPI size tween |
+| Number pop-in | `css/number-pop.css` | `popNumber(el, text)` | keyframes, tabular digits, `aria-live` |
+| Notification stack | `css/notification-stack.css` | — | `@starting-style`, fans out on hover/focus |
+| List reorder | `css/list-reorder.css` | `reorder(list, mutate)` | View Transitions API, FLIP fallback |
+| Accordion | `css/accordion.css` | — | `::details-content`; `grid-template-rows` for `[data-state]` |
+| Tab indicator | `css/tab-indicator.css` | `trackIndicator(tablist)` | measured custom properties, anchor-positioning fallback |
+| Toast | `css/toast.css` | — | popover API, `allow-discrete` exit |
+| Skeleton → content | `css/skeleton.css` | — | shared grid cell (no CLS), 3 shimmer cycles |
+
+```ts
+import { reorder, trackIndicator } from "@ux-sting/motion";
+import "@ux-sting/motion/css/list-reorder.css";
+
+await reorder(listEl, () => sortRows("price"));
+const stop = trackIndicator(tablistEl); // call stop() on teardown
+```
+
+React wrappers live in `@ux-sting/motion/react`: `useReorder`, `useAnimateSize`, `useTabIndicator`, `useNumberPop` (state updates run in `flushSync` inside the transition).
+
+### Tier 2 — GSAP adapter (optional)
+
+`@ux-sting/motion/gsap` needs the peer dependencies `gsap` (3.13+, which includes ScrollTrigger, SplitText and Flip) and `@gsap/react`. Nothing from GSAP is bundled; install it only if you use this entry.
+
+| Hook / preset | Does |
+| --- | --- |
+| `useMotion(build, { scope })` | `useGSAP` + `gsap.matchMedia`; `build({ reduced, contextSafe })` reverts on unmount |
+| `useScrollReveal(scope)` | `[data-reveal]` children reveal in batches (`ScrollTrigger.batch`) |
+| `usePinnedScrub(scope, { build })` | Pins a section and scrubs one timeline (ScrollTrigger on the timeline, children animated) |
+| `useSplitHeading(ref, { type })` | SplitText words/lines/chars with `aria: "auto"`, `autoSplit`, line masks |
+| `useFlipLayout(scope)` → `{ capture }` | Call `capture()` before a state change; elements Flip to the new layout |
+| `fadeUp`, `staggerIn`, `heroIntro`, `countUp`, `crossfade` | Timeline presets on the token scale, nestable with `tl.add()` |
+
+```tsx
+"use client";
+import { useRef } from "react";
+import { usePinnedScrub, useSplitHeading } from "@ux-sting/motion/gsap";
+
+export function Story() {
+  const scope = useRef<HTMLElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  useSplitHeading(title, { type: "lines" });
+  usePinnedScrub(scope, {
+    build: (tl) => tl.from(".step", { autoAlpha: 0, y: 40, stagger: 0.5 }),
+  });
+  return (
+    <section ref={scope}>
+      <h2 ref={title}>Three steps from the field to your cup</h2>
+      {/* .step children */}
+    </section>
+  );
+}
+```
+
+Rules the adapter follows (from GSAP's own guidance): scope every selector, revert on unmount, put ScrollTrigger on timelines rather than child tweens, animate transforms and opacity, animate the children of a pinned element, and call `ScrollTrigger.refresh()` after layout changes you make yourself. Under reduced motion nothing is pinned or split, and presets jump to their end state.
+

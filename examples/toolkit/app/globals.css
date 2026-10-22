@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@ux-sting/react/tailwind.css";
+@import "@ux-sting/motion/motion.css";
+
+@source "../components";
+
+:root {
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+/* Hairline ledger rules, the site's one structural device. */
+.ledger > * + * {
+  border-block-start: 1px solid var(--ui-border);
+}
+
+.figure-img {
+  background: var(--ui-muted);
+}
+
+/* Scrubbed pipeline: steps fade in as the section is pinned. */
+.pipeline-step {
+  will-change: opacity, transform;
+}

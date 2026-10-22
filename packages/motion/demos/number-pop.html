@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Number pop-in — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/number-pop.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Number pop-in</h1>
+      <p>
+        A changed value lifts and settles; tabular digits keep the width steady, and screen readers
+        hear the new value once.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div class="panel stage" role="group" aria-labelledby="rev-label">
+        <p id="rev-label" style="margin: 0">Revenue this week</p>
+        <strong class="us-number-pop" id="value" aria-live="polite" style="font-size: 2.5rem"
+          >€12,480</strong
+        >
+      </div>
+      <button type="button" class="primary" id="bump">New sale</button>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      import { popNumber } from "../dist/index.js";
+      const fmt = new Intl.NumberFormat("en-IE", {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      let total = 12480;
+      document.getElementById("bump").addEventListener("click", () => {
+        total += Math.round(40 + Math.random() * 400);
+        popNumber(document.getElementById("value"), fmt.format(total));
+      });
+    </script>
+  </body>
+</html>

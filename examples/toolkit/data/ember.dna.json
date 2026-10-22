@@ -1,0 +1,57 @@
+{
+  "target": "extract/tokens.json",
+  "vector": {
+    "scheme": "dark",
+    "backgroundL": 0.225,
+    "textContrast": 8.562,
+    "primaryHue": 71,
+    "primaryChroma": 0.143,
+    "neutralChroma": 0.018,
+    "radiusPx": 11,
+    "serifHeadings": 0,
+    "bodyPx": 16,
+    "headingRatio": 4.5,
+    "spacingUnit": 4,
+    "motionMs": 150,
+    "shadows": 1
+  },
+  "matches": [
+    {
+      "preset": "terminal",
+      "distance": 0.252,
+      "compared": [
+        "backgroundL",
+        "primaryHue",
+        "primaryChroma",
+        "neutralChroma",
+        "radiusPx",
+        "serifHeadings",
+        "shadows"
+      ]
+    },
+    {
+      "preset": "neutral",
+      "distance": 0.253,
+      "compared": [
+        "backgroundL",
+        "primaryChroma",
+        "neutralChroma",
+        "radiusPx",
+        "serifHeadings",
+        "shadows"
+      ]
+    },
+    {
+      "preset": "polaris",
+      "distance": 0.253,
+      "compared": [
+        "backgroundL",
+        "primaryChroma",
+        "neutralChroma",
+        "radiusPx",
+        "serifHeadings",
+        "shadows"
+      ]
+    }
+  ]
+}

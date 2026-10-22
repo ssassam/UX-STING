@@ -1,85 +1,84 @@
 ---
 name: ux-sting-taste
-description: "Give a UX-STING page a deliberate design direction so it does not look AI-generated. Use when building or redesigning landing pages, marketing sites, portfolios, hero sections, pricing pages or demo examples, or when someone says it looks generic, templated, bland, 'make it premium', 'make it look designed' or 'more personality'. Pairs with the ux-sting skill (components, a11y) and ux-sting-review (checks). Ideas adapted from the MIT-licensed design-taste and Better Design projects (see THIRD_PARTY_NOTICES.md)."
+description: "Art-direct a UX-STING page so it looks designed for this client, not generated: read the brief, list what is unique to the client, deal three researched art directions and pick one, write a one-sentence concept, build with real openly licensed images (credited automatically), run browser QA, critique the screenshots and fix. Use for landing pages, marketing and editorial sites, portfolios, redesigns, hero sections and demo examples, or when someone says it looks generic, templated, AI-made, bland, 'make it premium' or 'more personality'. Dashboards and app screens take the quiet route in references/app-screens.md. Ideas adapted from the MIT-licensed taste-skill, design-taste and Better Design projects (see THIRD_PARTY_NOTICES.md)."
 ---
 
-# UX-STING taste — direction before decoration
+# UX-STING taste — a direction, a concept, real pictures, proof
 
-The ux-sting skill makes a screen correct. This one makes it intentional. Agents default to the same look: centered hero, purple gradient, three equal cards, one neutral sans, `rounded-2xl` everywhere. UX-STING's defaults are safe, not distinctive, so pick a direction on purpose.
+The ux-sting skill makes a screen correct. This one makes it belong to one client. Work through the steps in order and write each step's output into `.ux-sting/taste/` so the next step (and the person) can see it. Skipping a step is how pages end up generic.
 
-## 1. Write a design read first
+## 0. Route
 
-Before writing code, state in one line what you are building and why it looks the way it does:
+- **Marketing, editorial, portfolio, event, product launch** → this pipeline.
+- **Dashboard, admin, settings, data table, internal tool, app screen** → follow `references/app-screens.md` instead. Quiet panels, aligned numbers, color spent on data. No hero, no art direction deck.
+- **Existing brand** (site, guidelines, tokens) → `npx ux-sting extract <their-url>` then `npx ux-sting theme import` (see `ux-sting-universal`). The brand wins over any direction you would prefer.
 
-> Reading this as: **[page kind]** for **[audience]**, **[direction]**, motion **[none / quiet / expressive]**, palette **[neutral + one accent]**.
+## 1. Read the brief → `brief.md`
 
-Infer it from the brief: page kind (SaaS, consumer, editorial, portfolio, event, internal tool), the vibe words used, the audience (it picks the look, not your taste) and any existing brand. **Existing brand wins:** never swap a product's theme for a preset because it looks nicer. If the read is truly ambiguous, ask one question; otherwise proceed.
+Five lines: what this is, for whom, where (place, language, culture), the one action a visitor should take, and the constraints (brand, content, deadline). If the brief is thin, ask one question; otherwise proceed and state your assumptions.
 
-## 2. Pick one direction
+## 2. What is unique to this client → `unique.md`
 
-| Direction | Theme preset | Type | Layout & surface | Motion budget |
-| --- | --- | --- | --- | --- |
-| Editorial / Swiss print | `editorial` | `font-serif` display, sans body, mono labels | Asymmetric 7/5 split, hairline rules (`Separator`), numbered sections, `GridPattern` | Quiet: `Reveal preset="fade"` |
-| Quiet luxury | `luxury` | Serif throughout, italic accents, wide tracking on labels | Lots of whitespace, few elements, full-bleed photography (`Image`) | Quiet: slow `Reveal`, no loops |
-| Dark tech | `terminal` + `colorMode="dark"` | Grotesk + `font-mono` metadata | Hairline borders, dense tables, `DotPattern`, code in `font-mono` | Precise: `TextEffect`, `Typewriter`, `AnimatedNumber` |
-| Brutalist / neo-brutal | `brutalist` | Heavy grotesk caps, mono numbers | Visible grid, thick borders, hard `shadow-md`, flat color blocks | Snappy: short `Reveal`, `Marquee` of tags |
-| Trust-first enterprise | `carbon`, `fluent`, `polaris`, `default` | System sans | Evidence tables (`DataTable`), compliance `Badge`s, restrained color | None to quiet |
-| Friendly consumer | `soft`, `apple`, `modern` | Rounded sans, larger sizes | Photography, cards with real content, `Carousel` | Expressive: `Spotlight`, `Tilt`, `RotatingText` |
-| Playful | `default` with a custom saturated `primary` | Giant heavy display type | Two saturated colors, stickers (`Badge`), offset shadows | Expressive, but motion is where the budget goes — keep color restrained |
+List 5–8 specifics that only this client has: a place, a material, a process, a history, a product quirk, a customer ritual, its vocabulary, a number that matters. Note where each came from (brief, their site, research).
 
-Custom brand? `createTheme({ name, primary, neutral, radius, fontFamily })` from `@ux-sting/themes`, then check contrast with `contrastRatio()`. Theme tests enforce WCAG AA for every preset.
+> Test every line: **could it describe a competitor?** Then it is not unique — delete it.
 
-## 3. Banned defaults
+These specifics are the raw material for the direction, the copy and the image searches. A page built from them cannot look like a template.
 
-Do not use these unless the design read gives a reason:
+## 3. Deal three researched directions → `directions.md`
 
-- Indigo/violet-to-purple gradient heroes or gradient text. `MeshGradient` is allowed when it is subtle (`intensity` ≤ 35) and uses the theme's own tokens.
-- Centered pill badge + huge heading + two buttons + screenshot as the default hero.
-- Three identical feature cards as the default section; vary the rhythm (split, indexed list, table, quote, full-bleed).
-- Emoji as icons (`pnpm ux-audit` fails them) — use `@ux-sting/icons`.
-- Glass cards everywhere; cards inside cards inside cards.
-- One neutral sans for everything with no display contrast.
-- An accent used on everything. It should point at one action, number or highlight per view.
-- Motion on every element, looping animations nobody asked for, floating blobs.
+Research before you design: look at what the client's world actually looks like (its city's signage, its trade's print history, the materials it works with, archives of its subject). Then deal three directions. Start from the cards in `references/directions.md` but bend each one toward the unique list.
 
-## 4. Craft rules that move the needle
+Each direction: **name** · **rooted in** (a real reference from the client's world, with a link) · **type** (display + body pairing) · **palette logic** (theme preset or extracted tokens + one accent) · **layout device** (the one structural idea: index, split, full-bleed, ledger, poster…) · **image plan** (what to search for, from which archive) · **motion budget** · **risk**.
 
-- **Type first.** Display headline large with tight leading (`text-5xl md:text-7xl leading-[1.02] tracking-tight text-balance`). Body 16–18px, line-height ≥ 1.5, 45–75 characters per line (`max-w-prose`). Labels in mono or small caps, uppercase, tracked (`font-mono text-xs uppercase tracking-[0.12em]`). At most ~3 sizes per section.
-- **Color restraint.** One neutral + one accent is a full palette. Use tints of the neutral (`bg-muted`, `bg-surface`) for depth instead of new colors. Only semantic tokens.
-- **Structure over shadows.** Hairlines (`border-border`, `Separator`), inset panels and tonal backgrounds give depth. Shadows only on things that float.
-- **One grid per page,** asymmetric when the direction allows. Whitespace between sections ≥ `py-24`.
-- **Real content.** Real numbers (`AnimatedNumber`, `Stat`), real names, real photography with `alt`. No lorem ipsum and no fake browser chrome around screenshots.
-- **Copy.** Specific verbs, no "Unlock the power of". Buttons say what happens ("Book a table", not "Submit").
+The three must differ on at least two of: type, palette, composition. If two feel alike, replace one.
 
-## 5. Motion budget
+## 4. Pick one
 
-UX-STING's expressive components are opt-in and already respect reduced motion. Spend the budget on purpose:
+Choose the direction that serves the most items in `unique.md` with acceptable risk. Write two lines on why, and one line each on why the others lost. If the person is available and the choice is close, show all three (see `ux-sting-explore`) and let them pick.
 
-| Want | Use | Limit |
-| --- | --- | --- |
-| Hero headline entrance | `TextEffect` (`preset="blur"` or `"slide"`) | One per page |
-| Sections appearing on scroll | `Reveal` (`stagger` for card rows) | Key sections only, not every element |
-| Several audiences in one line | `RotatingText` / `Typewriter` | Hero only; never for information people need |
-| Stats and prices | `AnimatedNumber` | Numbers that matter |
-| Logos / social proof | `Marquee` (has a pause button) | One row |
-| Long article | `ScrollProgress` | Editorial pages |
-| Card hover delight | `Spotlight`, `Tilt` | A few feature or pricing cards |
-| Before/after | `ImageComparison` | Real comparisons |
-| Texture without images | `MeshGradient`, `DotPattern`, `GridPattern`, `Grain`, `ProgressiveBlur` | One or two layers per section |
-| "Thinking…" status | `TextShimmer` | Short status labels |
-| Signature 3D / shader moment | three.js, following `ux-sting-3d` | One per page, with a poster and a still frame for reduced motion |
-| Explaining a system or process | diagram-design, following `ux-sting-diagrams` | Only when a diagram beats a list or table |
+## 5. One-sentence concept → `concept.md`
 
-App UI (dashboards, settings, forms) gets almost none of these: content should simply be there.
+> **[Client] as [image / metaphor], because [specific from unique.md].**
 
-## 6. Pre-flight — fail the page if
+e.g. "A Ghent tasting-menu restaurant as a printed nightly menu card, because the menu changes every morning." Every later decision should serve this sentence; when a section doesn't, cut or change it.
 
-- [ ] It could have come from typing "landing page" with no brief (be honest).
-- [ ] The hero is the banned default from §3.
-- [ ] Three identical cards appear out of habit.
-- [ ] There is no display/body type contrast.
-- [ ] More than two colors carry meaning, or the accent appears more than ~4 times per viewport.
-- [ ] More than one looping animation is visible at once.
-- [ ] A section could be deleted without losing the argument.
+## 6. Real images, credited
 
-If any box is ticked, redo that section. Then run **ux-sting-review** — taste never overrides accessibility.
+```bash
+npx ux-sting images "ghent canal night" --source commons,met --count 6           # search
+npx ux-sting images "ghent canal night" --source commons --download 2,5 --dir public/images
+```
+
+- Only public domain, CC0, CC BY and CC BY-SA come back; NonCommercial / NoDerivatives never do.
+- Every download is written to `public/images/credits.json` and `CREDITS.md` with title, author, source and license. **Render the credit**: as a `figcaption` next to editorial images, or on a credits section/page linked from the footer. Use `entry.credit` (text) or `entry.creditHtml`.
+- Write alt text for the page's context (the manifest's `altDraft` is a starting point, not the answer). Decorative images get `alt=""`.
+- Search with the unique list: materials, places, periods, processes — not "happy team office".
+- Nothing fits? Use typography, color fields, diagrams (`ux-sting-diagrams`) or one 3D moment (`ux-sting-3d`) — never generic stock or fake screenshots.
+- Details: `references/images.md`.
+
+## 7. Build
+
+Build with UX-STING components, tokens and the chosen theme (preset, `createTheme`, or `ux-sting theme import`). Follow the craft rules in `references/craft.md` and avoid everything in `references/anti-slop.md`. Motion comes from the direction's budget (`references/craft.md`); `ux-sting-3d` for one signature moment.
+
+## 8. Prove it in the browser
+
+Run the `ux-sting-qa` loop: `npx ux-sting qa <url> --out .ux-sting/qa/round-1`, fix the top 3, re-run (max 3 rounds). QA includes anti-slop checks (`slop:*`, `data:*` findings) next to accessibility and layout.
+
+## 9. Critique your own screenshots
+
+Open `shots/375.png`, `shots/1440.png` and the `-full.png` versions and answer, in writing (`critique.md`):
+
+1. Does the first screen say the concept without scrolling?
+2. Is the hierarchy readable in three seconds — one thing first, then the action?
+3. Do the images do work (show the place, the product, the process), or decorate?
+4. Does the rhythm change between sections, or is it the same block repeated?
+5. Is the accent spent on one thing per screen?
+6. Is mobile designed (crop, order, type size), or a squeezed desktop?
+7. Would a competitor's logo fit on this page? (If yes, go back to step 2.)
+
+Turn the three weakest answers into concrete fixes, apply them, re-run QA. At most two critique rounds; label these fixes as judgment, not measurement.
+
+## 10. Hand off
+
+Report: the concept sentence, the chosen direction (plus one line per rejected one), the image credits, the QA table per round and anything left undone with the reason. Taste never overrides accessibility — run `ux-sting-review` before calling it done.

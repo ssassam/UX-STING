@@ -1,0 +1,662 @@
+{
+  "target": "packages/qa/src/__fixtures__/broken.html",
+  "url": "local/",
+  "createdAt": "2026-10-22T14:47:56.247Z",
+  "viewports": [
+    {
+      "width": 375,
+      "layout": {
+        "width": 375,
+        "height": 812,
+        "documentHeight": 3087,
+        "overflow": {
+          "px": 1225,
+          "offenders": ["main > div.wide:nth-of-type(1)"]
+        },
+        "title": {
+          "text": "Fixture title below the fold",
+          "top": 1121,
+          "bottom": 1217,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "section.hero",
+            "top": 0,
+            "height": 1100,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.wide:nth-of-type(1)",
+            "top": 1239,
+            "height": 20,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "top": 1403,
+            "height": 128,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 7,
+            "childCount": 4,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section:nth-of-type(3)",
+            "top": 1551,
+            "height": 36,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 5,
+            "childCount": 1,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.gap:nth-of-type(2)",
+            "top": 1607,
+            "height": 1400,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > p",
+            "top": 3047,
+            "height": 24,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 3,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "perRow": 3,
+            "lastRow": 1
+          }
+        ],
+        "emptyStretches": [
+          {
+            "top": 0,
+            "height": 1121
+          },
+          {
+            "top": 1587,
+            "height": 1421
+          }
+        ],
+        "contrast": {
+          "checked": 9,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "main > section.shifted:nth-of-type(1) > p.faint:nth-of-type(1)",
+              "ratio": 1.92,
+              "required": 4.5,
+              "text": "This text has too little contrast agains"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [".faint"],
+          "count": 1
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+          "targets": ["img"],
+          "count": 1
+        }
+      ],
+      "vitals": {
+        "lcp": null,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/375.png",
+        "full": "shots/375-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 0,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    },
+    {
+      "width": 768,
+      "layout": {
+        "width": 768,
+        "height": 900,
+        "documentHeight": 2991,
+        "overflow": {
+          "px": 832,
+          "offenders": ["main > div.wide:nth-of-type(1)"]
+        },
+        "title": {
+          "text": "Fixture title below the fold",
+          "top": 1121,
+          "bottom": 1169,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "section.hero",
+            "top": 0,
+            "height": 1100,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.wide:nth-of-type(1)",
+            "top": 1191,
+            "height": 20,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.shifted:nth-of-type(1)",
+            "top": 1227,
+            "height": 64,
+            "marginStart": 40,
+            "marginEnd": 200,
+            "textChars": 53,
+            "childCount": 2,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "top": 1307,
+            "height": 128,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 7,
+            "childCount": 4,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section:nth-of-type(3)",
+            "top": 1455,
+            "height": 36,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 5,
+            "childCount": 1,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.gap:nth-of-type(2)",
+            "top": 1511,
+            "height": 1400,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > p",
+            "top": 2951,
+            "height": 24,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 3,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "perRow": 3,
+            "lastRow": 1
+          }
+        ],
+        "emptyStretches": [
+          {
+            "top": 0,
+            "height": 1121
+          },
+          {
+            "top": 1491,
+            "height": 1421
+          }
+        ],
+        "contrast": {
+          "checked": 9,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "main > section.shifted:nth-of-type(1) > p.faint:nth-of-type(1)",
+              "ratio": 1.92,
+              "required": 4.5,
+              "text": "This text has too little contrast agains"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [".faint"],
+          "count": 1
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+          "targets": ["img"],
+          "count": 1
+        }
+      ],
+      "vitals": {
+        "lcp": null,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/768.png",
+        "full": "shots/768-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 0,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "height": 900,
+        "documentHeight": 2991,
+        "overflow": {
+          "px": 160,
+          "offenders": ["main > div.wide:nth-of-type(1)"]
+        },
+        "title": {
+          "text": "Fixture title below the fold",
+          "top": 1121,
+          "bottom": 1169,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "section.hero",
+            "top": 0,
+            "height": 1100,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.wide:nth-of-type(1)",
+            "top": 1191,
+            "height": 20,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.shifted:nth-of-type(1)",
+            "top": 1227,
+            "height": 64,
+            "marginStart": 40,
+            "marginEnd": 200,
+            "textChars": 53,
+            "childCount": 2,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "top": 1307,
+            "height": 128,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 7,
+            "childCount": 4,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section:nth-of-type(3)",
+            "top": 1455,
+            "height": 36,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 5,
+            "childCount": 1,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > div.gap:nth-of-type(2)",
+            "top": 1511,
+            "height": 1400,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 0,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > p",
+            "top": 2951,
+            "height": 24,
+            "marginStart": 0,
+            "marginEnd": 0,
+            "textChars": 3,
+            "childCount": 0,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [
+          {
+            "target": "main > section.grid:nth-of-type(2)",
+            "perRow": 3,
+            "lastRow": 1
+          }
+        ],
+        "emptyStretches": [
+          {
+            "top": 0,
+            "height": 1121
+          },
+          {
+            "top": 1491,
+            "height": 1421
+          }
+        ],
+        "contrast": {
+          "checked": 9,
+          "skipped": 0,
+          "failing": [
+            {
+              "target": "main > section.shifted:nth-of-type(1) > p.faint:nth-of-type(1)",
+              "ratio": 1.92,
+              "required": 4.5,
+              "text": "This text has too little contrast agains"
+            }
+          ]
+        }
+      },
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "targets": [".faint"],
+          "count": 1
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+          "targets": ["img"],
+          "count": 1
+        }
+      ],
+      "vitals": {
+        "lcp": null,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/1440.png",
+        "full": "shots/1440-full.png"
+      },
+      "taste": {
+        "purpleGradients": [],
+        "gradientText": [],
+        "emojiIcons": [],
+        "genericCopy": [],
+        "fakeStats": [],
+        "lorem": false,
+        "glass": 0,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 0,
+          "misaligned": 0,
+          "proportional": 0
+        }
+      }
+    }
+  ],
+  "console": {
+    "errors": ["boom from fixture"],
+    "failedRequests": ["404 local/missing.png"]
+  },
+  "findings": [
+    {
+      "id": "axe:image-alt",
+      "category": "a11y",
+      "severity": "critical",
+      "message": "Images must have alternative text",
+      "fix": "Fix per axe rule image-alt: Images must have alternative text.",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+      "viewports": [375, 768, 1440],
+      "targets": ["img"],
+      "count": 1
+    },
+    {
+      "id": "contrast",
+      "category": "contrast",
+      "severity": "serious",
+      "message": "1 text element(s) below WCAG AA (worst 1.92:1).",
+      "fix": "Use the theme's foreground / muted-foreground tokens on their matching surfaces instead of lightened text or custom grays.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > section.shifted:nth-of-type(1) > p.faint:nth-of-type(1)"],
+      "count": 1
+    },
+    {
+      "id": "overflow-x",
+      "category": "layout",
+      "severity": "serious",
+      "message": "Page scrolls sideways by 1225px.",
+      "fix": "Constrain the offending element: `max-width: 100%`, `min-width: 0` on flex/grid children, or wrap long words with `overflow-wrap: anywhere`.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > div.wide:nth-of-type(1)"],
+      "count": 1
+    },
+    {
+      "id": "console-error",
+      "category": "console",
+      "severity": "serious",
+      "message": "1 console error(s): boom from fixture",
+      "fix": "Fix the first error in the browser console; later ones are often caused by it.",
+      "viewports": [],
+      "targets": ["boom from fixture"],
+      "count": 1
+    },
+    {
+      "id": "empty-stretch",
+      "category": "layout",
+      "severity": "moderate",
+      "message": "2 blank stretch(es) taller than ¾ of a screen; largest 1421px at y=1587.",
+      "fix": "Remove the dead space or check for content that stays invisible (scroll reveal that never fires, images that never load).",
+      "viewports": [375, 768, 1440],
+      "targets": ["y=0", "y=1587", "y=1491"],
+      "count": 2
+    },
+    {
+      "id": "title-below-fold",
+      "category": "layout",
+      "severity": "moderate",
+      "message": "Title \"Fixture title below the fold\" starts at 1121px, below the first screen (812px).",
+      "fix": "Move the title into the first screen: shrink the header or hero media above it, and never hide it behind an entrance animation.",
+      "viewports": [375, 768, 1440],
+      "targets": ["h1"],
+      "count": 1
+    },
+    {
+      "id": "failed-request",
+      "category": "console",
+      "severity": "moderate",
+      "message": "1 request(s) failed: 404 local/missing.png",
+      "fix": "Fix or remove the broken asset URLs.",
+      "viewports": [],
+      "targets": ["404 local/missing.png"],
+      "count": 1
+    },
+    {
+      "id": "orphan-grid-item",
+      "category": "layout",
+      "severity": "minor",
+      "message": "Grid ends with a single item under rows of 3.",
+      "fix": "Change the item count or the column count so the last row is full, or let the last item span the row.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > section.grid:nth-of-type(2)"],
+      "count": 1
+    },
+    {
+      "id": "orphan-section",
+      "category": "layout",
+      "severity": "minor",
+      "message": "A band holds only 5 characters with nothing else.",
+      "fix": "Merge the stray heading or line into the neighbouring section, or give it the content it introduces.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > section:nth-of-type(3)", "main > p"],
+      "count": 1
+    },
+    {
+      "id": "unequal-margins",
+      "category": "layout",
+      "severity": "minor",
+      "message": "Content sits off-center: 40px start vs 200px end.",
+      "fix": "Use the same container (max-width + `margin-inline: auto` + symmetric `padding-inline`) for every band, or make the asymmetry deliberate and larger.",
+      "viewports": [768, 1440],
+      "targets": ["main > section.shifted:nth-of-type(1)"],
+      "count": 1
+    }
+  ],
+  "top": [
+    {
+      "id": "axe:image-alt",
+      "category": "a11y",
+      "severity": "critical",
+      "message": "Images must have alternative text",
+      "fix": "Fix per axe rule image-alt: Images must have alternative text.",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+      "viewports": [375, 768, 1440],
+      "targets": ["img"],
+      "count": 1
+    },
+    {
+      "id": "contrast",
+      "category": "contrast",
+      "severity": "serious",
+      "message": "1 text element(s) below WCAG AA (worst 1.92:1).",
+      "fix": "Use the theme's foreground / muted-foreground tokens on their matching surfaces instead of lightened text or custom grays.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > section.shifted:nth-of-type(1) > p.faint:nth-of-type(1)"],
+      "count": 1
+    },
+    {
+      "id": "overflow-x",
+      "category": "layout",
+      "severity": "serious",
+      "message": "Page scrolls sideways by 1225px.",
+      "fix": "Constrain the offending element: `max-width: 100%`, `min-width: 0` on flex/grid children, or wrap long words with `overflow-wrap: anywhere`.",
+      "viewports": [375, 768, 1440],
+      "targets": ["main > div.wide:nth-of-type(1)"],
+      "count": 1
+    }
+  ],
+  "score": 57,
+  "passed": false
+}

@@ -7,23 +7,33 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Accessible React component library (~100 families) | ✔ | — (none of the references) | Already ours |
 | Tokens, 17 themes, dark/high-contrast, density, RTL | ✔ | Better Design (brand systems) | Ours; no brand clones |
 | Agent skills for building / taste / review / explore | ✔ | Design Taste, UI UX Pro Max, Better Design | Adapted (MIT), credited |
+| Art-direction pipeline: brief → unique list → 3 researched directions → concept → real images → QA → screenshot self-critique | ✔ `ux-sting-taste` (rebuilt) | taste-skill (Leonxlnx, MIT) | Ours; ideas only |
+| Openly licensed image sourcing (Commons, Met, Openverse; PD/CC0/BY/BY-SA only) with automatic credits | ✔ `@ux-sting/images`, `ux-sting images` | taste-skill (real archive images) | Ours |
+| Anti-slop rule list + automated detection (purple gradients, emoji icons, centered hero + 3 cards, stock copy, unsourced stats, lorem, glass, misaligned numbers) | ✔ `references/anti-slop.md`, `slop:*` / `data:*` QA findings | taste-skill, design-taste | Ours |
+| Dashboard / app-screen route (quiet panels, aligned numbers, color on data) | ✔ `ux-sting-taste/references/app-screens.md` | — | Ours |
 | Zero-dependency motion & effects (CSS tier) | ✔ | Motion Primitives, Trickle | Re-implemented |
+| UI transition catalog (card resize, number pop-in, notification stack, list reorder via View Transitions + FLIP, accordion, tab indicator, toast, skeleton → content), copy-ready CSS + demo pages | ✔ `@ux-sting/motion` (CSS tier + helpers) | transitions.dev (Jakubantalik; licence forbids redistribution), react-bits (MIT + Commons Clause) | Ours; ideas only |
+| GSAP adapter: useGSAP hooks with scope + cleanup, ScrollTrigger reveal / pin / scrub, SplitText headings, Flip layouts, timeline presets, reduced motion via matchMedia | ✔ `@ux-sting/motion/gsap` (gsap optional peer) | gsap-skills (greensock, MIT) | Ours; ideas only |
 | WebGL effects tier | ✗ | Paper Shaders (Apache-2.0) | Optional peer dependency, lazy-loaded |
 | Custom cursors, HTML-in-canvas effects | ✗ | Cursify, Canvas UI | **Not reusable** (licence); build only if needed |
 | Natural-language brief → design directions | ◐ `planDirections` | Superdesign (idea), Design Taste | Ours (deterministic planner + optional LLM director) |
 | URL analysis (computed styles, geometry) | ◐ collector + `dnaFromObservation` | — | Ours |
+| Design-system extraction from any URL → W3C DTCG (colors, type, spacing, radii, shadows, motion via `getAnimations()`, breakpoints incl. cross-origin CSS) | ✔ `@ux-sting/extract`, `ux-sting extract` | designlang (Manavarya09/design-extract, MIT) | Ours; ideas only |
+| DTCG import from other tools → OKLCH theme preset with AA enforcement | ✔ `ux-sting theme import` | designlang (emitters) | Ours |
+| Design feature vector + nearest preset (nulls never invented) | ✔ `ux-sting dna` | — | Ours |
 | Screenshot-only analysis | ✗ | — | Ours (vision model, marked *inferred*) |
 | Design DNA with provenance | ◐ `@ux-sting/design-dna` | — (no reference has it) | Ours — core differentiator |
 | Remix / style transfer | ◐ `remixDna` | — | Ours |
 | Page generation from DNA | ◐ standalone HTML | Superdesign (HTML mockups) | Ours; React/Next adapters next |
 | Multi-page sites, routing, content models | ✗ | — | Ours (`WEBSITE_GENERATOR_ARCHITECTURE.md`) |
-| Browser QA: screenshots, overflow, cramped text, axe | ◐ pipeline | Claude SEO (screenshots), UX-STING `browser-audit` | Ours |
+| Browser QA: screenshots 375/768/1440, axe, contrast, overflow, margins, orphans, empty stretches, title on first screen, console, ranked top-3 fixes | ✔ `@ux-sting/qa`, `ux-sting qa`, `ux-sting-qa` skill (QA → fix top 3 → re-run ×3) | taste-skill (browser self-critique), playwright-cli (token-efficient agent conventions) | Ours; ideas only |
 | Visual diff + DNA fidelity + fix loop | ◐ | — | Ours |
-| Lighthouse / Core Web Vitals measurement | ✗ (CI runs axe, not Lighthouse) | Claude SEO (PSI/CrUX APIs) | Ours (local Lighthouse, documented conditions) |
+| Lighthouse / Core Web Vitals measurement | ◐ LCP + CLS lab basics in `@ux-sting/qa`; no Lighthouse yet | Claude SEO (PSI/CrUX APIs) | Ours (local Lighthouse, documented conditions) |
 | Structured data builders + validation | ✔ `@ux-sting/seo-schema` | Claude SEO (checklists) | Ours, TypeScript |
 | Metadata / canonical / hreflang / sitemap helpers | ◐ six copy-pasted `lib/seo.ts` in examples | Claude SEO | `seo-core`, `seo-nextjs` |
 | Crawl-based SEO audit | ✗ | Claude SEO | `seo-audit` |
 | CLI (`add`, `diff`, `list`, `init`…) | ✔ components | Hyperiux CLI | Extend with `dna`, `seo` commands |
+| npm release pipeline (Changesets, provenance, CI dry-run) | ✔ | — | Ours |
 | MCP tools | ✗ | Better Design, Hyperiux, Claude SEO | `ux-sting-mcp` |
 | Reproducible benchmark | ✗ | — (Superdesign blog compares tools informally) | `BENCHMARK_PLAN.md` |
 

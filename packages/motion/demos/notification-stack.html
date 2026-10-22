@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notification stack — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/notification-stack.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Notification stack</h1>
+      <p>
+        Newest on top, older ones tucked behind. Hover or focus the stack to fan it out; at most
+        four are shown.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div class="bar">
+        <button type="button" class="primary" id="add">Add notification</button
+        ><button type="button" id="clear">Dismiss oldest</button>
+      </div>
+      <ol class="us-stack stage" id="stack" aria-label="Notifications"></ol>
+      <p
+        class="sr-status"
+        role="status"
+        id="status"
+        style="
+          position: absolute;
+          inline-size: 1px;
+          block-size: 1px;
+          overflow: hidden;
+          clip-path: inset(50%);
+        "
+      ></p>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      const stack = document.getElementById("stack");
+      const status = document.getElementById("status");
+      const messages = [
+        "Invoice 1042 paid",
+        "Maya commented on Q3 plan",
+        "Backup finished",
+        "2 new sign-ups",
+        "Deploy succeeded",
+      ];
+      let i = 0;
+      const add = () => {
+        const li = document.createElement("li");
+        li.className = "us-stack-item panel";
+        li.tabIndex = 0;
+        li.textContent = messages[i++ % messages.length];
+        stack.append(li);
+        status.textContent = li.textContent;
+      };
+      document.getElementById("add").addEventListener("click", add);
+      document
+        .getElementById("clear")
+        .addEventListener("click", () => stack.firstElementChild?.remove());
+      add();
+      add();
+    </script>
+  </body>
+</html>

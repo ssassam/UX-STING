@@ -1,0 +1,32 @@
+/*
+ * Card resize — a card glides between sizes instead of jumping.
+ *
+ *   <article class="us-card-resize" data-size="compact">…</article>
+ *   el.dataset.size = "expanded";            // CSS path: toggling between fixed and auto sizes
+ *   animateSize(el, () => el.append(more));   // JS path: any content change (@ux-sting/motion)
+ *
+ * Support: `interpolate-size` (Chromium 129+) lets block-size transition to and
+ * from `auto`; elsewhere the card snaps, which is the fallback. Reduced motion:
+ * no transition.
+ */
+.us-card-resize {
+  interpolate-size: allow-keywords;
+  overflow: clip;
+  transition-property: block-size, inline-size;
+  transition-duration: var(--us-resize-duration, var(--ui-duration-slow, 300ms));
+  transition-timing-function: var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+.us-card-resize[data-size="compact"] {
+  block-size: var(--us-resize-compact, 8rem);
+}
+
+.us-card-resize[data-size="expanded"] {
+  block-size: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-card-resize {
+    transition: none;
+  }
+}

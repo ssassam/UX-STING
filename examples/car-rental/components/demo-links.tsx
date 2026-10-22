@@ -10,6 +10,7 @@ export const demos = [
   { id: "watch", label: "Pulse One — product launch", href: `${SITE}/watch/` },
   { id: "crypto", label: "Chainlens — crypto analytics", href: `${SITE}/crypto/` },
   { id: "ember", label: "Ember — restaurant reservations", href: `${SITE}/ember/` },
+  { id: "toolkit", label: "UX-STING toolkit — QA, extract, motion", href: `${SITE}/toolkit/` },
 ] as const;
 
 export function DemoLinks({ current }: { current: (typeof demos)[number]["id"] }) {

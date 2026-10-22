@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toast — UX-STING motion</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../css/toast.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="back" aria-label="Breadcrumb"><a href="index.html">Motion catalog</a></nav>
+      <h1>Toast</h1>
+      <p>
+        Enters from the block end and leaves faster than it came, using the popover API so it sits
+        in the top layer.
+      </p>
+      <div class="bar" data-demo-bar></div>
+      <div class="bar"><button type="button" class="primary" id="save">Save changes</button></div>
+      <div class="us-toast panel" id="toast" popover="manual" role="status">Changes saved</div>
+    </main>
+    <script type="module" src="demo.js"></script>
+    <script type="module">
+      const toast = document.getElementById("toast");
+      let timer;
+      document.getElementById("save").addEventListener("click", () => {
+        if (!toast.matches(":popover-open")) toast.showPopover();
+        clearTimeout(timer);
+        timer = setTimeout(() => toast.hidePopover(), 4000);
+      });
+    </script>
+  </body>
+</html>

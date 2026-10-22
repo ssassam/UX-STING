@@ -30,6 +30,9 @@ copyright notice and this permission notice appear in all copies.
 | `@radix-ui/react-*` (accordion, alert-dialog, checkbox, collapsible, context-menu, dialog, direction, dropdown-menu, hover-card, menubar, navigation-menu, popover, radio-group, scroll-area, select, slider, switch, tabs, toggle-group, tooltip) — Copyright (c) 2022 WorkOS | MIT | Accessible behavior (focus management, dismissal, ARIA) behind ux-sting's own API |
 | `tailwind-merge` — Copyright (c) 2021 Dany Castillo | MIT | Class conflict resolution in `cn()` |
 | `react`, `react-dom` (peer) — Copyright (c) Meta Platforms, Inc. | MIT | — |
+| `playwright-core` (`@ux-sting/qa`) — Copyright (c) Microsoft Corporation | Apache-2.0 | Driving headless Chromium |
+| `axe-core` (`@ux-sting/qa`) — Copyright (c) Deque Systems, Inc. | MPL-2.0 | Accessibility rules, injected unmodified into the page under test |
+| `gsap`, `@gsap/react` (optional peers of `@ux-sting/motion/gsap`) — Copyright (c) GreenSock, Inc. | GSAP Standard "no charge" licence / MIT | Only when the user installs them; never bundled or redistributed |
 
 Build/dev-only tools (TypeScript, Tailwind CSS, Vite, Vitest, Testing
 Library, axe-core (MPL-2.0, used only in tests), ESLint, Prettier,
@@ -168,6 +171,64 @@ Copyright (c) 2023 Vue Storefront
 ```
 
 ## Ideas only (no code)
+
+### transitions.dev
+
+The list of UI transitions in `@ux-sting/motion` (card resize, number pop-in,
+notification stack, list reorder, accordion, tab indicator, toast, skeleton)
+was chosen after studying [transitions.dev](https://transitions.dev) by
+Jakub Antalík. Its licence does not allow redistributing its library as part
+of another product, so none of its code or CSS is used; every file in
+`packages/motion/css/` is an independent implementation on UX-STING tokens.
+
+### react-bits — MIT + Commons Clause
+
+[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits) was studied
+for which animated components people reach for. The Commons Clause forbids
+selling the software, so no react-bits code is ported; UX-STING's motion
+components and `@ux-sting/motion` are written from scratch.
+
+### gsap-skills — MIT License
+
+The rules in `@ux-sting/motion/gsap` (useGSAP with a scope, `contextSafe`,
+ScrollTrigger on timelines rather than child tweens, animating the children of
+pinned elements, `gsap.matchMedia()` for reduced motion, refreshing after
+layout changes) follow the guidance in
+[greensock/gsap-skills](https://github.com/greensock/gsap-skills). The hooks
+and presets are UX-STING's own code.
+
+### taste-skill — MIT License
+
+The pipeline in `.claude/skills/ux-sting-taste/` (art direction before
+building, real images from open archives with credits, checking the result in
+a real browser) follows ideas from
+[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill). The skill
+text, direction deck, anti-slop list, app-screen route and the
+`@ux-sting/images` / `slop:*` QA implementations are UX-STING's own.
+
+### Open image collections (data, not code)
+
+`@ux-sting/images` queries the public APIs of Wikimedia Commons, The
+Metropolitan Museum of Art Open Access and Openverse. No images are bundled;
+each downloaded image keeps its own license, recorded in the user's
+`credits.json`.
+
+### designlang (design-extract) — MIT License
+
+`@ux-sting/extract` takes the product idea of
+[Manavarya09/design-extract](https://github.com/Manavarya09/design-extract)
+— extract a site's design system with one command and emit DTCG tokens — and
+reads its DTCG output (`ux-sting theme import`). The extractor, role
+inference, DTCG writer and theme mapping are independent implementations; no
+designlang code or data is included.
+
+### playwright-cli — Apache-2.0
+
+`@ux-sting/qa` follows the agent-facing conventions of
+[microsoft/playwright-cli](https://github.com/microsoft/playwright-cli):
+short commands, small outputs, details written to files instead of
+accessibility-tree dumps in the agent's context. No playwright-cli code is
+copied; `@ux-sting/qa` uses `playwright-core` directly.
 
 ### Remotion — Remotion License (not redistributed)
 

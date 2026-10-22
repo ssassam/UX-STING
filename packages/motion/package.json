@@ -1,0 +1,85 @@
+{
+  "name": "@ux-sting/motion",
+  "version": "0.1.0",
+  "description": "Portable motion for UX-STING: a zero-dependency CSS catalog of transitions (card resize, number pop-in, notification stack, list reorder, accordion, tab indicator, toast, skeleton to content) with tiny helpers, plus an optional GSAP tier (useGSAP hooks, ScrollTrigger, SplitText, Flip, timeline presets).",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./gsap": {
+      "types": "./dist/gsap/index.d.ts",
+      "import": "./dist/gsap/index.js"
+    },
+    "./motion.css": "./dist/motion.css",
+    "./css/*": "./css/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "css"
+  ],
+  "keywords": [
+    "animation",
+    "transitions",
+    "view-transitions",
+    "flip",
+    "gsap",
+    "reduced-motion",
+    "css"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "peerDependencies": {
+    "@gsap/react": "^2.1.0",
+    "gsap": "^3.13.0",
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@gsap/react": {
+      "optional": true
+    },
+    "gsap": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@gsap/react": "2.1.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "gsap": "3.15.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "~6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/motion"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
+  "publishConfig": {
+    "access": "public"
+  }
+}

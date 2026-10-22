@@ -59,4 +59,12 @@ Before adding a dependency, answer in the PR: Is it necessary? Could it be imple
 
 ## Commits & releases
 
-Conventional commits (`feat:`, `fix:`, `docs:`…). Packages are versioned together.
+Conventional commits (`feat:`, `fix:`, `docs:`…). `main` is the default branch.
+
+Packages under `packages/*` are versioned together (one Changesets `fixed`
+group) with [Changesets](https://github.com/changesets/changesets): run
+`pnpm changeset` in any pull request that changes a published package. The
+Release workflow turns pending changesets into a "Version packages" pull
+request and publishes to npm when it is merged (needs the `NPM_TOKEN` secret).
+CI runs `pnpm publish:dry` on every push so packaging mistakes show up before
+release.

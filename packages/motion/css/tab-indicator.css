@@ -1,0 +1,49 @@
+/*
+ * Tab indicator — one bar slides under the selected tab.
+ *
+ *   <div role="tablist" class="us-tabs">
+ *     <button role="tab" aria-selected="true">…</button> …
+ *     <span class="us-tab-indicator" aria-hidden="true"></span>
+ *   </div>
+ *   trackIndicator(tablist);   // @ux-sting/motion: measures the selected tab, RTL-aware
+ *
+ * With trackIndicator() the bar glides between tabs everywhere. Without
+ * JavaScript, browsers with CSS anchor positioning still place the bar under
+ * the selected tab (it may move without gliding). Works with Radix /
+ * UX-STING Tabs, which set aria-selected. Reduced motion: the bar moves at once.
+ */
+.us-tabs {
+  position: relative;
+}
+
+.us-tab-indicator {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: var(--us-indicator-start, 0);
+  inline-size: var(--us-indicator-size, 0);
+  block-size: var(--us-indicator-thickness, 2px);
+  border-radius: 9999px;
+  background: var(--ui-primary, CanvasText);
+  pointer-events: none;
+  transition:
+    inset-inline-start var(--ui-duration-slow, 300ms)
+      var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1)),
+    inline-size var(--ui-duration-slow, 300ms) var(--ui-ease-standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+@supports (anchor-name: --us-tab) {
+  .us-tabs:not([data-us-indicator]) [role="tab"][aria-selected="true"] {
+    anchor-name: --us-active-tab;
+  }
+  .us-tabs:not([data-us-indicator]) .us-tab-indicator {
+    position-anchor: --us-active-tab;
+    inset-inline-start: anchor(start);
+    inline-size: anchor-size(inline);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-tab-indicator {
+    transition: none;
+  }
+}

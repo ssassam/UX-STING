@@ -1,0 +1,54 @@
+{
+  "name": "@ux-sting/extract",
+  "version": "0.1.0",
+  "description": "Extract a design system from any live URL (colors, type scale, spacing, radii, shadows, motion, breakpoints) as W3C DTCG tokens, import DTCG files from any tool into a UX-STING OKLCH theme, and match a design to the nearest UX-STING preset.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "design-tokens",
+    "dtcg",
+    "design-system",
+    "extraction",
+    "theme",
+    "oklch"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@ux-sting/qa": "workspace:^",
+    "@ux-sting/themes": "workspace:^",
+    "@ux-sting/tokens": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "~6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/extract"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
+  "publishConfig": {
+    "access": "public"
+  }
+}

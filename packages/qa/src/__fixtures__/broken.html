@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Broken fixture</title>
+    <style>
+      body {
+        margin: 0;
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+        background: #fff;
+        color: #111;
+      }
+      .hero {
+        height: 1100px;
+        background: #eee;
+      }
+      .wide {
+        width: 1600px;
+        height: 20px;
+        background: #ccc;
+      }
+      .faint {
+        color: #bbb;
+      }
+      .shifted {
+        margin-inline-start: 40px;
+        margin-inline-end: 200px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .grid div {
+        height: 60px;
+        background: #ddd;
+      }
+      .gap {
+        height: 1400px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero"></section>
+    <main>
+      <h1>Fixture title below the fold</h1>
+      <div class="wide"></div>
+      <section class="shifted">
+        <p class="faint">This text has too little contrast against white.</p>
+        <p>More</p>
+      </section>
+      <section class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </section>
+      <section><h2>Alone</h2></section>
+      <div class="gap"></div>
+      <img src="missing.png" />
+      <p>End</p>
+    </main>
+    <script>
+      console.error("boom from fixture");
+    </script>
+  </body>
+</html>

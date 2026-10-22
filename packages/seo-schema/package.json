@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "Typed schema.org JSON-LD builders, safe serialization and validation that separates schema.org validity from Google rich-result eligibility. Zero dependencies, framework-agnostic.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/seo-schema"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -32,5 +39,8 @@
   "peerDependencies": {},
   "devDependencies": {
     "typescript": "~6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

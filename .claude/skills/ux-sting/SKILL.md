@@ -26,6 +26,8 @@ Use this skill whenever a task changes how something in this repo **looks, feels
 | Loading > 1s, content-shaped | `Skeleton` | spinner-only screens |
 | No data / error | `EmptyState` / `ErrorState` with an action | blank areas |
 | Hero headline / status label motion | `TextEffect`, `RotatingText`, `Typewriter`, `TextShimmer` | hand-written keyframes |
+| UI state transitions (resize, reorder, tab indicator, accordion, toast, skeleton → content, number change) | `@ux-sting/motion` CSS catalog + `reorder` / `animateSize` / `trackIndicator` / `popNumber` | ad-hoc keyframes, animating layout by hand |
+| Scroll storytelling, pinned scrub, split headings, Flip layouts | `@ux-sting/motion/gsap` (gsap optional peer) | raw `useEffect` + gsap without scope or cleanup |
 | Scroll entrances, counters | `Reveal`, `AnimatedNumber`, `ScrollProgress` | animation libraries for fades |
 | Logo rows, hover delight, before/after | `Marquee`, `Spotlight`, `Tilt`, `ImageComparison` | CSS loops with no pause |
 | Texture behind sections | `MeshGradient`, `DotPattern`, `GridPattern`, `Grain`, `ProgressiveBlur` | background images, raw-color gradients |

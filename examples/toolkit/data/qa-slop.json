@@ -1,0 +1,394 @@
+{
+  "target": "packages/qa/src/__fixtures__/slop.html",
+  "url": "local/",
+  "createdAt": "2026-10-22T14:48:06.168Z",
+  "viewports": [
+    {
+      "width": 375,
+      "layout": {
+        "width": 375,
+        "height": 812,
+        "documentHeight": 812,
+        "overflow": {
+          "px": 61,
+          "offenders": ["main > section.cards:nth-of-type(2) > div.card:nth-of-type(3)"]
+        },
+        "title": {
+          "text": "Unlock the power of seamless analytics",
+          "top": 64,
+          "bottom": 208,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "main > section.hero:nth-of-type(1)",
+            "top": 0,
+            "height": 352,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 79,
+            "childCount": 2,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.cards:nth-of-type(2)",
+            "top": 384,
+            "height": 264,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 147,
+            "childCount": 3,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 15,
+          "skipped": 2,
+          "failing": []
+        }
+      },
+      "axe": [],
+      "vitals": {
+        "lcp": 116,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/375.png",
+        "full": "shots/375-full.png"
+      },
+      "taste": {
+        "purpleGradients": ["section.hero"],
+        "gradientText": [],
+        "emojiIcons": [
+          {
+            "target": "h3",
+            "text": "🚀 Fast"
+          },
+          {
+            "target": "h3",
+            "text": "🔒 Secure"
+          },
+          {
+            "target": "h3",
+            "text": "⚡ Simple"
+          }
+        ],
+        "genericCopy": ["Unlock the power", "seamless", "cutting-edge", "Supercharge"],
+        "fakeStats": ["10,000+ teams", "99.99%"],
+        "lorem": true,
+        "glass": 0,
+        "centeredHeroCards": null,
+        "numbers": {
+          "cells": 4,
+          "misaligned": 4,
+          "proportional": 4
+        }
+      }
+    },
+    {
+      "width": 768,
+      "layout": {
+        "width": 768,
+        "height": 900,
+        "documentHeight": 900,
+        "overflow": {
+          "px": 0,
+          "offenders": []
+        },
+        "title": {
+          "text": "Unlock the power of seamless analytics",
+          "top": 64,
+          "bottom": 112,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "main > section.hero:nth-of-type(1)",
+            "top": 0,
+            "height": 232,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 79,
+            "childCount": 2,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.cards:nth-of-type(2)",
+            "top": 264,
+            "height": 164,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 147,
+            "childCount": 3,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 15,
+          "skipped": 2,
+          "failing": []
+        }
+      },
+      "axe": [],
+      "vitals": {
+        "lcp": 148,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/768.png",
+        "full": "shots/768-full.png"
+      },
+      "taste": {
+        "purpleGradients": ["section.hero"],
+        "gradientText": [],
+        "emojiIcons": [
+          {
+            "target": "h3",
+            "text": "🚀 Fast"
+          },
+          {
+            "target": "h3",
+            "text": "🔒 Secure"
+          },
+          {
+            "target": "h3",
+            "text": "⚡ Simple"
+          }
+        ],
+        "genericCopy": ["Unlock the power", "seamless", "cutting-edge", "Supercharge"],
+        "fakeStats": ["10,000+ teams", "99.99%"],
+        "lorem": true,
+        "glass": 0,
+        "centeredHeroCards": "section.cards",
+        "numbers": {
+          "cells": 4,
+          "misaligned": 4,
+          "proportional": 4
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "height": 900,
+        "documentHeight": 900,
+        "overflow": {
+          "px": 0,
+          "offenders": []
+        },
+        "title": {
+          "text": "Unlock the power of seamless analytics",
+          "top": 64,
+          "bottom": 112,
+          "visible": true,
+          "tag": "h1"
+        },
+        "sections": [
+          {
+            "target": "main > section.hero:nth-of-type(1)",
+            "top": 0,
+            "height": 232,
+            "marginStart": 16,
+            "marginEnd": 16,
+            "textChars": 79,
+            "childCount": 2,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          },
+          {
+            "target": "main > section.cards:nth-of-type(2)",
+            "top": 264,
+            "height": 164,
+            "marginStart": 240,
+            "marginEnd": 240,
+            "textChars": 147,
+            "childCount": 3,
+            "hasMedia": false,
+            "hasControls": false,
+            "isNav": false
+          }
+        ],
+        "orphanItems": [],
+        "emptyStretches": [],
+        "contrast": {
+          "checked": 15,
+          "skipped": 2,
+          "failing": []
+        }
+      },
+      "axe": [],
+      "vitals": {
+        "lcp": 140,
+        "cls": 0
+      },
+      "screenshots": {
+        "fold": "shots/1440.png",
+        "full": "shots/1440-full.png"
+      },
+      "taste": {
+        "purpleGradients": ["section.hero"],
+        "gradientText": [],
+        "emojiIcons": [
+          {
+            "target": "h3",
+            "text": "🚀 Fast"
+          },
+          {
+            "target": "h3",
+            "text": "🔒 Secure"
+          },
+          {
+            "target": "h3",
+            "text": "⚡ Simple"
+          }
+        ],
+        "genericCopy": ["Unlock the power", "seamless", "cutting-edge", "Supercharge"],
+        "fakeStats": ["10,000+ teams", "99.99%"],
+        "lorem": true,
+        "glass": 0,
+        "centeredHeroCards": "section.cards",
+        "numbers": {
+          "cells": 4,
+          "misaligned": 4,
+          "proportional": 4
+        }
+      }
+    }
+  ],
+  "console": {
+    "errors": [],
+    "failedRequests": []
+  },
+  "findings": [
+    {
+      "id": "overflow-x",
+      "category": "layout",
+      "severity": "serious",
+      "message": "Page scrolls sideways by 61px.",
+      "fix": "Constrain the offending element: `max-width: 100%`, `min-width: 0` on flex/grid children, or wrap long words with `overflow-wrap: anywhere`.",
+      "viewports": [375],
+      "targets": ["main > section.cards:nth-of-type(2) > div.card:nth-of-type(3)"],
+      "count": 1
+    },
+    {
+      "id": "slop:emoji-icons",
+      "severity": "moderate",
+      "message": "Emoji used as icons (🚀 Fast 🔒 Secure ⚡ Simple).",
+      "fix": "Replace with @ux-sting/icons (SVG, aria-hidden) or remove the icon row entirely.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": ["h3"],
+      "count": 3
+    },
+    {
+      "id": "slop:lorem-ipsum",
+      "severity": "moderate",
+      "message": "Placeholder text (lorem ipsum) is on the page.",
+      "fix": "Write the real copy; content decides the layout.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": [],
+      "count": 1
+    },
+    {
+      "id": "slop:purple-gradient",
+      "severity": "moderate",
+      "message": "Violet/purple gradient — the most common AI-generated look.",
+      "fix": "Use the theme's flat surfaces and one accent; keep a gradient only if the brand truly owns it, and then from its own tokens.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": ["section.hero"],
+      "count": 1
+    },
+    {
+      "id": "data:numbers-misaligned",
+      "severity": "minor",
+      "message": "4 of 4 numeric cells not end-aligned, 4 without tabular figures.",
+      "fix": "Right-align (text-end) numeric columns and their headers and use `tabular-nums` so digits line up.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": [],
+      "count": 4
+    },
+    {
+      "id": "slop:generic-copy",
+      "severity": "minor",
+      "message": "Stock phrases: “Unlock the power”, “seamless”, “cutting-edge”, “Supercharge”.",
+      "fix": "Say what this client specifically does, for whom, with a concrete noun or number.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": [],
+      "count": 4
+    },
+    {
+      "id": "slop:unsourced-stats",
+      "severity": "minor",
+      "message": "Round, unsourced numbers: 10,000+ teams, 99.99%.",
+      "fix": "Use real figures with a source and date, or remove them.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": [],
+      "count": 2
+    },
+    {
+      "id": "slop:centered-hero-3-cards",
+      "severity": "minor",
+      "message": "Centered hero followed by three identical cards — the default template.",
+      "fix": "Let the art direction pick the structure: an asymmetric split, an indexed list, a table, a full-bleed image or one strong proof point.",
+      "category": "taste",
+      "viewports": [768, 1440],
+      "targets": ["section.cards"],
+      "count": 1
+    }
+  ],
+  "top": [
+    {
+      "id": "overflow-x",
+      "category": "layout",
+      "severity": "serious",
+      "message": "Page scrolls sideways by 61px.",
+      "fix": "Constrain the offending element: `max-width: 100%`, `min-width: 0` on flex/grid children, or wrap long words with `overflow-wrap: anywhere`.",
+      "viewports": [375],
+      "targets": ["main > section.cards:nth-of-type(2) > div.card:nth-of-type(3)"],
+      "count": 1
+    },
+    {
+      "id": "slop:emoji-icons",
+      "severity": "moderate",
+      "message": "Emoji used as icons (🚀 Fast 🔒 Secure ⚡ Simple).",
+      "fix": "Replace with @ux-sting/icons (SVG, aria-hidden) or remove the icon row entirely.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": ["h3"],
+      "count": 3
+    },
+    {
+      "id": "slop:lorem-ipsum",
+      "severity": "moderate",
+      "message": "Placeholder text (lorem ipsum) is on the page.",
+      "fix": "Write the real copy; content decides the layout.",
+      "category": "taste",
+      "viewports": [375, 768, 1440],
+      "targets": [],
+      "count": 1
+    }
+  ],
+  "score": 79,
+  "passed": false
+}
