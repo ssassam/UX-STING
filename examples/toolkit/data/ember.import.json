@@ -1,0 +1,97 @@
+{
+  "scheme": "dark",
+  "mapping": [
+    {
+      "role": "background",
+      "path": "color.background",
+      "value": "oklch(0.225 0.015 256)",
+      "source": "named"
+    },
+    {
+      "role": "foreground",
+      "path": "color.foreground",
+      "value": "oklch(0.78 0.022 248.7)",
+      "source": "named"
+    },
+    {
+      "role": "card",
+      "path": null,
+      "value": "oklch(0.225 0.015 256)",
+      "source": "derived"
+    },
+    {
+      "role": "card-foreground",
+      "path": null,
+      "value": "oklch(0.78 0.022 248.7)",
+      "source": "derived"
+    },
+    {
+      "role": "popover",
+      "path": null,
+      "value": "oklch(0.225 0.015 256)",
+      "source": "derived"
+    },
+    {
+      "role": "popover-foreground",
+      "path": null,
+      "value": "oklch(0.78 0.022 248.7)",
+      "source": "derived"
+    },
+    {
+      "role": "surface",
+      "path": "color.surface",
+      "value": "oklch(0.309 0.019 251.6)",
+      "source": "named"
+    },
+    {
+      "role": "surface-foreground",
+      "path": null,
+      "value": "oklch(0.78 0.022 248.7)",
+      "source": "derived"
+    },
+    {
+      "role": "muted",
+      "path": null,
+      "value": "oklch(0.309 0.019 251.6)",
+      "source": "derived"
+    },
+    {
+      "role": "border",
+      "path": "color.border",
+      "value": "oklch(0.389 0.025 250.2)",
+      "source": "named"
+    },
+    {
+      "role": "input",
+      "path": null,
+      "value": "oklch(0.389 0.025 250.2)",
+      "source": "derived"
+    },
+    {
+      "role": "primary",
+      "path": "color.primary",
+      "value": "oklch(0.666 0.143 70.9)",
+      "source": "named"
+    },
+    {
+      "role": "primary-hover",
+      "path": null,
+      "value": "oklch(0.726 0.143 70.9)",
+      "source": "derived"
+    },
+    {
+      "role": "primary-foreground",
+      "path": "color.primary-foreground",
+      "value": "oklch(0.227 0.057 53.8)",
+      "source": "named"
+    },
+    {
+      "role": "ring",
+      "path": null,
+      "value": "oklch(0.666 0.143 70.9)",
+      "source": "derived"
+    }
+  ],
+  "adjustments": [],
+  "missing": ["muted-foreground"]
+}

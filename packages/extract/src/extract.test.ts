@@ -183,6 +183,20 @@ describe("extractionToDtcg", () => {
     ]);
     expect(Object.keys(doc.breakpoint as object)).toEqual(["640", "1024"]);
   });
+
+  it("never takes text on another surface (a button label) as the muted color", () => {
+    const doc = extractionToDtcg({
+      ...raw(),
+      pageBackground: "#171c23",
+      textColors: [
+        { color: "#adb9c5", chars: 4000 },
+        { color: "#301300", chars: 1200 },
+        { color: "#8b95a1", chars: 600 },
+      ],
+    });
+    const color = doc.color as Record<string, { $value: { hex: string } }>;
+    expect(color["muted-foreground"]!.$value.hex).toBe("#8b95a1");
+  });
   it("leaves out what it did not measure and lists it, instead of guessing", () => {
     const doc = extractionToDtcg(
       raw({

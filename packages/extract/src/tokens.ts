@@ -138,7 +138,10 @@ export function extractionToDtcg(raw: RawExtraction): DtcgDocument {
       t.color !== fg &&
       chroma(t.color) < 0.06 &&
       fg &&
-      contrast(rgb(t.color), rgb(bg)) < contrast(rgb(fg), rgb(bg)),
+      contrast(rgb(t.color), rgb(bg)) < contrast(rgb(fg), rgb(bg)) &&
+      // Text that is unreadable on the page itself sits on another surface
+      // (dark label on a light button), so it is not the muted text color.
+      contrast(rgb(t.color), rgb(bg)) >= 3,
   );
   if (muted)
     color["muted-foreground"] = token(

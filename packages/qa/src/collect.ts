@@ -155,6 +155,9 @@ export function collectLayout(): LayoutMeasurement {
     if (!/grid|flex/.test(s.display) || el.children.length < 4 || !visible(el)) continue;
     if (s.display.includes("flex") && !s.flexWrap.startsWith("wrap")) continue;
     const kids = Array.from(el.children).filter(visible);
+    // Orphans matter for equal items (cards); ragged chips wrap like text.
+    const widths = kids.map((k) => k.getBoundingClientRect().width).filter((w) => w > 0);
+    if (!widths.length || Math.max(...widths) > Math.min(...widths) * 1.25) continue;
     const rows = new Map<number, number>();
     for (const k of kids) {
       const t = Math.round(k.getBoundingClientRect().top / 4);
@@ -358,6 +361,8 @@ export function collectTaste(): TasteMeasurement {
       .filter((n) => n.nodeType === 3)
       .map((n) => n.textContent ?? "")
       .join("")
+      // ©, ® and ™ are typography, not emoji, though Unicode lists them as pictographic.
+      .replace(/[\u00A9\u00AE\u2122]/g, "")
       .trim();
     if (!own || !EMOJI.test(own)) continue;
     const stripped = own.replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}]/gu, "").trim();

@@ -6,6 +6,8 @@
 #   /<repo>/watch/    Pulse One product landing page
 #   /<repo>/crypto/   Chainlens crypto analytics
 #   /<repo>/ember/    Ember restaurant reservations
+#   /<repo>/toolkit/  UX-STING toolkit hub (QA, extract, images, taste, motion)
+#   /<repo>/toolkit/motion/demos/  @ux-sting/motion standalone demo pages
 # Usage: scripts/build-pages.sh [/base-path]   (default: /UX-STING)
 set -euo pipefail
 BASE="${1:-/UX-STING}"
@@ -27,6 +29,10 @@ build shop /shop
 build watch /watch
 build crypto /crypto
 build ember /ember
+build toolkit /toolkit
+# Standalone motion demos read ../css and ../dist, so ship all three folders.
+mkdir -p "$OUT/toolkit/motion"
+cp -r "$ROOT/packages/motion/demos" "$ROOT/packages/motion/css" "$ROOT/packages/motion/dist" "$OUT/toolkit/motion/"
 touch "$OUT/.nojekyll"
 
 # One sitemap index for all demos — submit this URL in Google Search Console.
@@ -34,7 +40,7 @@ SITE="https://ssassam.github.io$BASE"
 {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-  for sub in "" /cars /shop /watch /crypto /ember; do
+  for sub in "" /cars /shop /watch /crypto /ember /toolkit; do
     echo "  <sitemap><loc>$SITE$sub/sitemap.xml</loc></sitemap>"
   done
   echo '</sitemapindex>'
