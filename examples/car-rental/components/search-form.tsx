@@ -7,23 +7,17 @@ import { NativeSelect } from "@ux-sting/react/native-select";
 import { Switch } from "@ux-sting/react/switch";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { iso, useDefaultTrip } from "../lib/dates";
 import { locations } from "../lib/data";
 
-const DAY = 86_400_000;
-const iso = (d: Date) => d.toISOString().slice(0, 10);
 const times = Array.from({ length: 15 }, (_, i) => `${String(i + 7).padStart(2, "0")}:00`);
 
 export function SearchForm() {
   const router = useRouter();
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
   const [pickup, setPickup] = useState("cdg");
   const [dropoff, setDropoff] = useState("cdg");
   const [different, setDifferent] = useState(false);
-  const [dates, setDates] = useState<{ from: Date | null; to: Date | null }>({
-    from: new Date(today.getTime() + 7 * DAY),
-    to: new Date(today.getTime() + 10 * DAY),
-  });
+  const { today, dates, setDates } = useDefaultTrip();
   const [time, setTime] = useState("10:00");
 
   return (

@@ -20,12 +20,32 @@ const PRICE_MAX = 130;
 const PAGE_SIZE = 6;
 const fuels: Fuel[] = ["Petrol", "Diesel", "Hybrid", "Electric"];
 
-export function FleetBrowser() {
+/** Reads pickup and category from the URL; the page renders `FleetBrowser` as its fallback. */
+export function FleetBrowserFromUrl() {
   const params = useSearchParams();
-  const pickup = getLocation(params.get("pickup") ?? "");
-  const [category, setCategory] = useState<Category | null>(
-    params.get("category") as Category | null,
+  return (
+    <FleetBrowser
+      pickupId={params.get("pickup")}
+      initialCategory={params.get("category") as Category | null}
+      from={params.get("from")}
+      to={params.get("to")}
+    />
   );
+}
+
+export function FleetBrowser({
+  pickupId = null,
+  initialCategory = null,
+  from = null,
+  to = null,
+}: {
+  pickupId?: string | null;
+  initialCategory?: Category | null;
+  from?: string | null;
+  to?: string | null;
+}) {
+  const pickup = getLocation(pickupId ?? "");
+  const [category, setCategory] = useState<Category | null>(initialCategory);
   const [transmission, setTransmission] = useState("any");
   const [fuel, setFuel] = useState<string[]>([]);
   const [seats, setSeats] = useState("0");
@@ -98,7 +118,7 @@ export function FleetBrowser() {
         </Heading>
         <Text variant="muted">
           {pickup
-            ? `Available at ${pickup.name}${params.get("from") ? ` · ${params.get("from")} → ${params.get("to") ?? "?"}` : ""}`
+            ? `Available at ${pickup.name}${from ? ` · ${from} → ${to ?? "?"}` : ""}`
             : "Unlimited kilometres and free cancellation on every car."}
         </Text>
         <div

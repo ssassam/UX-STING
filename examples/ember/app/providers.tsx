@@ -13,9 +13,10 @@ const emberTheme = {
   radius: "large",
   colors: {
     dark: {
-      primary: palette.amber[500],
-      "primary-hover": palette.amber[400],
-      ring: palette.amber[500],
+      // amber-500 is 4.2:1 as text on the slate cards; 400 clears AA there.
+      primary: palette.amber[400],
+      "primary-hover": palette.amber[300],
+      ring: palette.amber[400],
     },
   },
 } as const;

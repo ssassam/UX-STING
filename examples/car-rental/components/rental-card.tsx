@@ -11,20 +11,13 @@ import { RadioCard, RadioGroup } from "@ux-sting/react/radio-group";
 import { Text } from "@ux-sting/react/typography";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { DAY, iso, useDefaultTrip } from "../lib/dates";
 import { CURRENCY, extras, locations, protection, type Car } from "../lib/data";
-
-const DAY = 86_400_000;
-const iso = (d: Date) => d.toISOString().slice(0, 10);
 
 export function RentalCard({ car }: { car: Car }) {
   const router = useRouter();
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
   const [pickup, setPickup] = useState("cdg");
-  const [dates, setDates] = useState<{ from: Date | null; to: Date | null }>({
-    from: new Date(today.getTime() + 7 * DAY),
-    to: new Date(today.getTime() + 10 * DAY),
-  });
+  const { today, dates, setDates } = useDefaultTrip();
   const [cover, setCover] = useState("plus");
   const [chosen, setChosen] = useState<string[]>([]);
   const days =

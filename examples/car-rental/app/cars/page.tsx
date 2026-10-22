@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { FleetBrowser } from "../../components/fleet-browser";
+import { FleetBrowser, FleetBrowserFromUrl } from "../../components/fleet-browser";
 import { pageMeta } from "../../lib/seo";
 
 export const metadata = pageMeta({
@@ -11,8 +11,9 @@ export const metadata = pageMeta({
 
 export default function CarsPage() {
   return (
-    <Suspense>
-      <FleetBrowser />
+    // The static HTML holds the unfiltered fleet; URL filters apply after load.
+    <Suspense fallback={<FleetBrowser />}>
+      <FleetBrowserFromUrl />
     </Suspense>
   );
 }
