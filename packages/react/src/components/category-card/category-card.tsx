@@ -62,7 +62,7 @@ export function CityCard({ name, href, image, count, className }: CityCardProps)
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent"
       />
       <div className="absolute inset-x-0 bottom-0 grid gap-0.5 p-4 text-white">
         <CardLink href={href} className="text-lg font-semibold hover:no-underline">

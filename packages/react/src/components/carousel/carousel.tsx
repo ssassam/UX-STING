@@ -244,16 +244,23 @@ export function CarouselDots({ className }: { className?: string }) {
   const { index, count, scrollTo } = useCarousel();
   const messages = useMessages();
   return (
-    <div className={cn("mt-3 flex justify-center gap-1.5", className)}>
+    <div className={cn("mt-3 flex justify-center", className)}>
       {Array.from({ length: count }, (_, i) => (
+        // The button is the full 24px target (WCAG 2.5.8) with no overlap
+        // between neighbours; the dot inside is only the visual.
         <button
           key={i}
           type="button"
           aria-label={messages.slideOf(i + 1, count)}
           aria-current={i === index ? "true" : undefined}
           onClick={() => scrollTo(i)}
-          className="ui-hit-area h-2 w-2 rounded-full bg-border-strong outline-none transition-[width,background-color] focus-visible:ring-2 focus-visible:ring-ring aria-[current=true]:w-5 aria-[current=true]:bg-primary"
-        />
+          className="group/dot inline-flex h-6 min-w-6 items-center justify-center rounded-full px-1 outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 rounded-full bg-border-strong transition-[width,background-color] group-aria-[current=true]/dot:w-5 group-aria-[current=true]/dot:bg-primary"
+          />
+        </button>
       ))}
     </div>
   );

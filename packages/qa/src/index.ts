@@ -6,3 +6,4 @@ export { serveStatic, type StaticServer } from "./serve.js";
 export { launchBrowser, guardTarget, guardPage, settle } from "./browser.js";
 export { runQa } from "./run.js";
 export { qaCommand, QA_HELP } from "./command.js";
+export { decodePng, pixelContrast, measurePixelContrast, type Bitmap } from "./pixels.js";

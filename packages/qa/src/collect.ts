@@ -218,9 +218,44 @@ export function collectLayout(): LayoutMeasurement {
     };
     return 0.2126 * f(r!) + 0.7152 * f(g!) + 0.0722 * f(b!);
   };
+  // Layers that paint pictures: replaced media and anything with a background
+  // image (photos, gradients). Text over them is measured on real pixels later.
+  const imageLayers = Array.from(document.querySelectorAll("body *"))
+    .filter(
+      (e) =>
+        e.matches("img, video, canvas, picture, svg image") ||
+        getComputedStyle(e).backgroundImage !== "none",
+    )
+    .map((e) => ({ el: e, r: e.getBoundingClientRect() }))
+    .filter(({ r }) => r.width > 0 && r.height > 0);
+  // The nearest element painting a solid color covers everything outside it,
+  // so only pictures inside that backdrop can show behind the text (a solid
+  // badge on a photo is judged on its own color, not the photo).
+  const backdrop = (el: Element): Element | null => {
+    for (let e: Element | null = el; e; e = e.parentElement)
+      if (rgba(getComputedStyle(e).backgroundColor)[3] >= 1) return e;
+    return null;
+  };
+  const overImage = (el: Element) => {
+    const r = el.getBoundingClientRect();
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2;
+    const solid = backdrop(el);
+    return imageLayers.some(
+      ({ el: l, r: lr }) =>
+        !el.contains(l) &&
+        (!solid || solid.contains(l)) &&
+        l !== solid &&
+        cx >= lr.left &&
+        cx <= lr.right &&
+        cy >= lr.top &&
+        cy <= lr.bottom,
+    );
+  };
   let checked = 0;
   let skipped = 0;
   const failing: LayoutMeasurement["contrast"]["failing"] = [];
+  const pixelCandidates: NonNullable<LayoutMeasurement["contrast"]["pixelCandidates"]> = [];
   for (const el of leaves) {
     const text = Array.from(el.childNodes)
       .filter((c) => c.nodeType === 3)
@@ -231,18 +266,38 @@ export function collectLayout(): LayoutMeasurement {
     if (!text || el.closest("[aria-hidden=true]")) continue;
     if (el.matches(":disabled, [aria-disabled=true]")) continue;
     const s = getComputedStyle(el);
-    const bg = background(el);
-    if (!bg) {
-      skipped++;
+    // SVG text is painted with `fill`; HTML text with `color`.
+    const paint = el instanceof SVGElement ? rgba(s.fill) : rgba(s.color);
+    if (paint[3] === 0) {
+      skipped++; // a gradient or pattern fill, or invisible text
       continue;
     }
-    const [r, g, b, a] = rgba(s.color);
-    const fg = [r * a + bg[0] * (1 - a), g * a + bg[1] * (1 - a), b * a + bg[2] * (1 - a)];
-    const [l1, l2] = [lum(fg), lum(bg)].sort((x, y) => y - x) as [number, number];
-    const ratio = (l1 + 0.05) / (l2 + 0.05);
     const size = parseFloat(s.fontSize);
     const large = size >= 24 || (size >= 18.66 && Number(s.fontWeight) >= 700);
     const required = large ? 3 : 4.5;
+    const bg = background(el);
+    if (!bg || overImage(el)) {
+      const box = el.getBoundingClientRect();
+      if (pixelCandidates.length >= 60 || box.width < 1 || box.height < 1) {
+        skipped++;
+        continue;
+      }
+      const id = pixelCandidates.length;
+      el.setAttribute("data-ux-sting-px", String(id));
+      pixelCandidates.push({
+        id,
+        target: path(el),
+        text: text.slice(0, 40),
+        required,
+        color: paint,
+        rect: { x: box.left + scrollX, y: box.top + scrollY, width: box.width, height: box.height },
+      });
+      continue;
+    }
+    const [r, g, b, a] = paint;
+    const fg = [r * a + bg[0] * (1 - a), g * a + bg[1] * (1 - a), b * a + bg[2] * (1 - a)];
+    const [l1, l2] = [lum(fg), lum(bg)].sort((x, y) => y - x) as [number, number];
+    const ratio = (l1 + 0.05) / (l2 + 0.05);
     checked++;
     if (ratio < required - 0.005)
       failing.push({
@@ -262,7 +317,7 @@ export function collectLayout(): LayoutMeasurement {
     sections,
     orphanItems,
     emptyStretches: emptyStretches.slice(0, 5),
-    contrast: { checked, skipped, failing: failing.slice(0, 20) },
+    contrast: { checked, skipped, failing: failing.slice(0, 20), pixelCandidates },
   };
 }
 

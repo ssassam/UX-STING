@@ -647,7 +647,7 @@ export const testimonials = [
     rating: 5,
     date: "2026-04-02",
     display: "April 2026",
-    body: "Everything was seamless — the riad was even more beautiful than the photos, and the Atlas day trip our host arranged was the highlight of the year.",
+    body: "Every transfer turned up on time — the riad was even more beautiful than the photos, and the Atlas day trip our host arranged was the highlight of the year.",
   },
   {
     name: "Lucas Moreau",

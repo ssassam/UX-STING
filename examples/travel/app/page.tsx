@@ -98,7 +98,7 @@ export default function HomePage() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/55 to-black/70"
         />
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-12 pt-12 text-white sm:px-6 sm:pt-20 md:pb-24 md:pt-28">
           <div className="grid max-w-3xl gap-4">

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text over images</title>
+    <style>
+      body {
+        margin: 0;
+        font:
+          18px/1.5 system-ui,
+          sans-serif;
+        background: #fff;
+        color: #111;
+      }
+      main {
+        max-width: 40rem;
+        margin-inline: auto;
+        padding: 1rem;
+      }
+      .card {
+        position: relative;
+        isolation: isolate;
+        padding: 3rem 1.5rem;
+        margin-block: 1rem;
+      }
+      .layer {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+      }
+      .dark {
+        background: linear-gradient(135deg, #0b1f2a, #23415a);
+      }
+      .light {
+        background: linear-gradient(135deg, #f4f1ea, #ffffff);
+      }
+      .card p {
+        color: #fff;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Text over images</h1>
+      <div class="card">
+        <div class="layer dark"></div>
+        <p id="readable">White text on a dark layer reads well.</p>
+      </div>
+      <div class="card">
+        <div class="layer light"></div>
+        <p id="unreadable">White text on a pale layer is invisible.</p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -5,6 +5,7 @@ import { analyze, passed, score } from "./analyze.js";
 import { guardPage, guardTarget, launchBrowser, settle } from "./browser.js";
 import { collectLayout, collectTaste, installVitals, readVitals } from "./collect.js";
 import { toMarkdown } from "./report.js";
+import { measurePixelContrast } from "./pixels.js";
 import { serveStatic, type StaticServer } from "./serve.js";
 import {
   DEFAULT_VIEWPORTS,
@@ -72,6 +73,7 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
       const vitals = await page.evaluate(readVitals);
       await settle(page, options.settleMs);
       const layout = await page.evaluate(collectLayout);
+      await measurePixelContrast(page, layout);
       const taste = options.taste === false ? undefined : await page.evaluate(collectTaste);
 
       await page.addScriptTag({ content: axeSource });

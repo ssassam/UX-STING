@@ -37,8 +37,32 @@ export interface LayoutMeasurement {
     checked: number;
     /** Text whose background could not be determined (images, gradients). */
     skipped: number;
-    failing: Array<{ target: Target; ratio: number; required: number; text: string }>;
+    failing: Array<{
+      target: Target;
+      ratio: number;
+      required: number;
+      text: string;
+      /** "pixels": measured on the rendered image behind the text (photos, gradients). */
+      method?: "pixels";
+    }>;
+    /**
+     * Text over images or gradients, measured afterwards on real pixels
+     * (internal hand-off from the in-page collector; removed from reports).
+     */
+    pixelCandidates?: PixelCandidate[];
   };
+}
+
+/** Text whose background is an image or gradient; contrast is measured on screenshot pixels. */
+export interface PixelCandidate {
+  id: number;
+  target: Target;
+  text: string;
+  required: number;
+  /** Text color, sRGB 0–255 and alpha 0–1. */
+  color: [number, number, number, number];
+  /** Document coordinates of the text box. */
+  rect: { x: number; y: number; width: number; height: number };
 }
 
 /** Anti-slop signals: generic AI-page patterns (see the ux-sting-taste skill). */
