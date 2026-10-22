@@ -12,6 +12,9 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Custom cursors, HTML-in-canvas effects | ✗ | Cursify, Canvas UI | **Not reusable** (licence); build only if needed |
 | Natural-language brief → design directions | ◐ `planDirections` | Superdesign (idea), Design Taste | Ours (deterministic planner + optional LLM director) |
 | URL analysis (computed styles, geometry) | ◐ collector + `dnaFromObservation` | — | Ours |
+| Design-system extraction from any URL → W3C DTCG (colors, type, spacing, radii, shadows, motion via `getAnimations()`, breakpoints incl. cross-origin CSS) | ✔ `@ux-sting/extract`, `ux-sting extract` | designlang (Manavarya09/design-extract, MIT) | Ours; ideas only |
+| DTCG import from other tools → OKLCH theme preset with AA enforcement | ✔ `ux-sting theme import` | designlang (emitters) | Ours |
+| Design feature vector + nearest preset (nulls never invented) | ✔ `ux-sting dna` | — | Ours |
 | Screenshot-only analysis | ✗ | — | Ours (vision model, marked *inferred*) |
 | Design DNA with provenance | ◐ `@ux-sting/design-dna` | — (no reference has it) | Ours — core differentiator |
 | Remix / style transfer | ◐ `remixDna` | — | Ours |

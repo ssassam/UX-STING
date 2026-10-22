@@ -65,6 +65,7 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/cli` | `ux-sting` CLI |
 | `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
 | `packages/qa` | `@ux-sting/qa` — browser QA for agents (`ux-sting qa <url\|path>`): axe, contrast, layout checks, console, LCP/CLS, ranked top-3 fixes |
+| `packages/extract` | `@ux-sting/extract` — `ux-sting extract <url>` → W3C DTCG tokens, `ux-sting theme import` → OKLCH theme, `ux-sting dna` → nearest preset |
 | `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |

@@ -9,6 +9,9 @@ npx ux-sting add dialog data-table form
 npx ux-sting list
 npx ux-sting diff
 npx ux-sting qa http://localhost:3000/   # browser QA (needs @ux-sting/qa)
+npx ux-sting extract https://example.com # design tokens (needs @ux-sting/extract)
+npx ux-sting theme import tokens.json
+npx ux-sting dna https://example.com
 ```
 
 ## init
@@ -66,3 +69,13 @@ Prints every component grouped by category.
 Renders a URL, `.html` file or static export folder at 375 / 768 / 1440 px and writes `report.md`, `report.json` and `shots/` to `--out` (default `ux-sting-qa`). Needs `@ux-sting/qa` (`npm i -D @ux-sting/qa`) and Chromium (`npx playwright install chromium` or `CHROMIUM_PATH`).
 
 Options: `--out <dir>`, `--viewports 375,1440`, `--allow-host host:port`, `--no-shots`, `--json`, `--fail-on serious|moderate|none`. Exit code 1 while a finding at or above `--fail-on` remains.
+
+## extract, theme import, dna
+
+Need `@ux-sting/extract` (`npm i -D @ux-sting/extract`) and Chromium.
+
+- `extract <url>` measures the live page at 1440 px (`--width`, `--dark`, `--allow-host`) and writes `tokens.json` (W3C DTCG 2025.10, with provenance and a `missing` list) and `extraction.json` to `--out` (default `ux-sting-extract`).
+- `theme import <tokens.json>` accepts DTCG from any tool and writes `<name>.theme.ts`, `<name>.theme.json` (a `createTheme` config) and `<name>.css`, enforcing WCAG AA and reporting every adjustment.
+- `dna <url|tokens.json>` prints the design feature vector (unmeasured features stay null) and the three nearest UX-STING presets (`--json` for machine output).
+
+See `packages/extract/README.md`.

@@ -27,6 +27,7 @@
     "node": ">=20.9"
   },
   "devDependencies": {
+    "@ux-sting/extract": "workspace:^",
     "@ux-sting/qa": "workspace:^",
     "@types/node": "^24.0.0",
     "typescript": "~6.0.3"
@@ -35,10 +36,14 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@ux-sting/qa": "workspace:^"
+    "@ux-sting/qa": "workspace:^",
+    "@ux-sting/extract": "workspace:^"
   },
   "peerDependenciesMeta": {
     "@ux-sting/qa": {
+      "optional": true
+    },
+    "@ux-sting/extract": {
       "optional": true
     }
   }

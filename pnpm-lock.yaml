@@ -724,6 +724,9 @@ importers:
       '@types/node':
         specifier: ^24.0.0
         version: 24.19.0
+      '@ux-sting/extract':
+        specifier: workspace:^
+        version: link:../extract
       '@ux-sting/qa':
         specifier: workspace:^
         version: link:../qa
@@ -749,6 +752,25 @@ importers:
 
   packages/design-dna:
     devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
+  packages/extract:
+    dependencies:
+      '@ux-sting/qa':
+        specifier: workspace:^
+        version: link:../qa
+      '@ux-sting/themes':
+        specifier: workspace:^
+        version: link:../themes
+      '@ux-sting/tokens':
+        specifier: workspace:^
+        version: link:../tokens
+    devDependencies:
+      '@types/node':
+        specifier: ^24.0.0
+        version: 24.19.0
       typescript:
         specifier: ~6.0.3
         version: 6.0.3

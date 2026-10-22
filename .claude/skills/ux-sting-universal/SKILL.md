@@ -21,6 +21,14 @@ pnpm dna original <brief.json> --out design-dna-output/<name>      # brief forma
 ```
 Set `CHROMIUM_PATH` when Playwright's bundled browser is missing (e.g. `/opt/pw-browsers/chromium`).
 
+### Tokens only (no page generation)
+```bash
+npx ux-sting extract <url> --out brand                  # W3C DTCG tokens with provenance + missing list
+npx ux-sting theme import brand/tokens.json --name acme  # OKLCH UX-STING theme, AA enforced
+npx ux-sting dna <url>                                   # feature vector + nearest preset
+```
+Also accepts DTCG from other tools (designlang, Figma, Style Dictionary). Report `adjusted` and `missing` roles honestly; never fill a null by hand and call it measured.
+
 ## 3. Read the results, then judge
 - `report.md`: per-iteration fidelity, pixel mismatch, SSIM, axe, overflow, cramped text, applied fixes, largest remaining differences.
 - `reference/dna.json` + provenance: values marked `observed` were measured; `inferred` values are heuristics — say so when you report them.

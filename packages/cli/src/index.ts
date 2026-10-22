@@ -10,6 +10,9 @@ ${bold("Usage")}
   npx ux-sting list
   npx ux-sting diff [component...]
   npx ux-sting qa <url|path> [--out <dir>] [--viewports 375,768,1440] [--json]
+  npx ux-sting extract <url> [--out <dir>]
+  npx ux-sting theme import <tokens.json> [--name <name>] [--out <dir>]
+  npx ux-sting dna <url|tokens.json> [--json]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -84,6 +87,22 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           async () => ({ run: (await import("@ux-sting/qa")).qaCommand }),
           argv.slice(argv.indexOf("qa") + 1),
         );
+      case "extract":
+      case "theme":
+      case "dna": {
+        const rest = argv.slice(argv.indexOf(command) + 1);
+        return await runPlugin(
+          "@ux-sting/extract",
+          async () => {
+            const m = await import("@ux-sting/extract");
+            const run = { extract: m.extractCommand, theme: m.themeCommand, dna: m.dnaCommand }[
+              command
+            ];
+            return { run };
+          },
+          rest,
+        );
+      }
       case undefined:
       case "help":
         log.info(HELP);
@@ -104,7 +123,10 @@ const isEntry =
   process.argv[1]?.endsWith("/ux-sting") ||
   process.argv[1]?.endsWith("cli/dist/index.js");
 if (isEntry) {
-  if (process.argv.includes("--help") && !["qa"].includes(process.argv[2] ?? "")) {
+  if (
+    process.argv.includes("--help") &&
+    !["qa", "extract", "theme", "dna"].includes(process.argv[2] ?? "")
+  ) {
     log.info(HELP);
   } else {
     main().then((code) => process.exit(code));

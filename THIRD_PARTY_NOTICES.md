@@ -171,6 +171,15 @@ Copyright (c) 2023 Vue Storefront
 
 ## Ideas only (no code)
 
+### designlang (design-extract) — MIT License
+
+`@ux-sting/extract` takes the product idea of
+[Manavarya09/design-extract](https://github.com/Manavarya09/design-extract)
+— extract a site's design system with one command and emit DTCG tokens — and
+reads its DTCG output (`ux-sting theme import`). The extractor, role
+inference, DTCG writer and theme mapping are independent implementations; no
+designlang code or data is included.
+
 ### playwright-cli — Apache-2.0
 
 `@ux-sting/qa` follows the agent-facing conventions of
