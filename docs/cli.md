@@ -8,6 +8,7 @@ npx ux-sting add button
 npx ux-sting add dialog data-table form
 npx ux-sting list
 npx ux-sting diff
+npx ux-sting qa http://localhost:3000/   # browser QA (needs @ux-sting/qa)
 ```
 
 ## init
@@ -59,3 +60,9 @@ Prints every component grouped by category.
 ## Registries
 
 `--registry <file|url>` (or `"registry"` in `ux-sting.json`) points the CLI at a custom registry JSON — handy for company forks. Build the registry with `pnpm registry`.
+
+## qa
+
+Renders a URL, `.html` file or static export folder at 375 / 768 / 1440 px and writes `report.md`, `report.json` and `shots/` to `--out` (default `ux-sting-qa`). Needs `@ux-sting/qa` (`npm i -D @ux-sting/qa`) and Chromium (`npx playwright install chromium` or `CHROMIUM_PATH`).
+
+Options: `--out <dir>`, `--viewports 375,1440`, `--allow-host host:port`, `--no-shots`, `--json`, `--fail-on serious|moderate|none`. Exit code 1 while a finding at or above `--fail-on` remains.

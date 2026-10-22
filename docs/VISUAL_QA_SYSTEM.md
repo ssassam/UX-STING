@@ -11,6 +11,10 @@ build → start → render (Chromium) at 390 / 768 / 1280 / 1600 px, light + dar
 
 Stop conditions: no findings; or the same fixes recur without measured gain; or a finding needs a human decision.
 
+## `ux-sting qa` (shipped)
+
+`@ux-sting/qa` runs the deterministic checks below on any URL, static export or HTML file at 375 / 768 / 1440 px and writes a short `report.md` (per-viewport table + ranked top 3 fixes), `report.json` and screenshots. The `ux-sting-qa` skill drives the loop: QA → fix top 3 → re-run, at most three rounds. See `packages/qa/README.md`.
+
 ## Checks
 
 | Check | Method | Status |
@@ -24,8 +28,10 @@ Stop conditions: no findings; or the same fixes recur without measured gain; or 
 | Alignment drift | left edges of sibling text blocks vs container grid | Phase 4 |
 | Navigation | crawl internal links, assert 200 and no `#` dead ends; keyboard Tab order reaches every control | Phase 6 |
 | Interaction | click/expand each control, assert state change and no console errors | Phase 6 |
-| Runtime errors | `pageerror`/`console.error` collected per page | Phase 4 |
+| Runtime errors | `pageerror`/`console.error` and failed requests per page | ✔ `@ux-sting/qa` |
 | Technical SEO | `@ux-sting/seo-schema` on every page; metadata/canonical/hreflang via `seo-audit` | Phase 6 |
+| Layout sanity | unequal container margins, orphaned bands and last-row grid items, empty stretches > ¾ screen, h1 on the first screen | ✔ `@ux-sting/qa` |
+| Core Web Vitals (lab basics) | LCP and CLS via PerformanceObserver at 375/768/1440 | ✔ `@ux-sting/qa` |
 | Performance | Lighthouse on the production build, mobile profile | Phase 6 |
 | Visual regression | Storybook baselines (existing CI) | ✔ CI |
 

@@ -1,5 +1,6 @@
 import { add, diff, init, list } from "./commands.js";
 import { bold, dim, log } from "./log.js";
+import { runPlugin } from "./plugins.js";
 
 const HELP = `${bold("ux-sting")} — copy accessible React components into your project
 
@@ -8,6 +9,7 @@ ${bold("Usage")}
   npx ux-sting add <component...> [--overwrite] [--dry-run]
   npx ux-sting list
   npx ux-sting diff [component...]
+  npx ux-sting qa <url|path> [--out <dir>] [--viewports 375,768,1440] [--json]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -76,6 +78,12 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
         const entries = await diff(args, common);
         return entries.some((e) => e.status === "outdated") ? 1 : 0;
       }
+      case "qa":
+        return await runPlugin(
+          "@ux-sting/qa",
+          async () => ({ run: (await import("@ux-sting/qa")).qaCommand }),
+          argv.slice(argv.indexOf("qa") + 1),
+        );
       case undefined:
       case "help":
         log.info(HELP);
@@ -96,7 +104,7 @@ const isEntry =
   process.argv[1]?.endsWith("/ux-sting") ||
   process.argv[1]?.endsWith("cli/dist/index.js");
 if (isEntry) {
-  if (process.argv.includes("--help")) {
+  if (process.argv.includes("--help") && !["qa"].includes(process.argv[2] ?? "")) {
     log.info(HELP);
   } else {
     main().then((code) => process.exit(code));

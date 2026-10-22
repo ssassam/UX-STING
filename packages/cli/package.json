@@ -27,10 +27,19 @@
     "node": ">=20.9"
   },
   "devDependencies": {
+    "@ux-sting/qa": "workspace:^",
     "@types/node": "^24.0.0",
     "typescript": "~6.0.3"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "@ux-sting/qa": "workspace:^"
+  },
+  "peerDependenciesMeta": {
+    "@ux-sting/qa": {
+      "optional": true
+    }
   }
 }

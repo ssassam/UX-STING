@@ -30,6 +30,8 @@ copyright notice and this permission notice appear in all copies.
 | `@radix-ui/react-*` (accordion, alert-dialog, checkbox, collapsible, context-menu, dialog, direction, dropdown-menu, hover-card, menubar, navigation-menu, popover, radio-group, scroll-area, select, slider, switch, tabs, toggle-group, tooltip) — Copyright (c) 2022 WorkOS | MIT | Accessible behavior (focus management, dismissal, ARIA) behind ux-sting's own API |
 | `tailwind-merge` — Copyright (c) 2021 Dany Castillo | MIT | Class conflict resolution in `cn()` |
 | `react`, `react-dom` (peer) — Copyright (c) Meta Platforms, Inc. | MIT | — |
+| `playwright-core` (`@ux-sting/qa`) — Copyright (c) Microsoft Corporation | Apache-2.0 | Driving headless Chromium |
+| `axe-core` (`@ux-sting/qa`) — Copyright (c) Deque Systems, Inc. | MPL-2.0 | Accessibility rules, injected unmodified into the page under test |
 
 Build/dev-only tools (TypeScript, Tailwind CSS, Vite, Vitest, Testing
 Library, axe-core (MPL-2.0, used only in tests), ESLint, Prettier,
@@ -168,6 +170,14 @@ Copyright (c) 2023 Vue Storefront
 ```
 
 ## Ideas only (no code)
+
+### playwright-cli — Apache-2.0
+
+`@ux-sting/qa` follows the agent-facing conventions of
+[microsoft/playwright-cli](https://github.com/microsoft/playwright-cli):
+short commands, small outputs, details written to files instead of
+accessibility-tree dumps in the agent's context. No playwright-cli code is
+copied; `@ux-sting/qa` uses `playwright-core` directly.
 
 ### Remotion — Remotion License (not redistributed)
 

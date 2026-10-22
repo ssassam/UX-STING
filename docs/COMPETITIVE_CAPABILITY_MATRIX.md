@@ -17,9 +17,9 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Remix / style transfer | ◐ `remixDna` | — | Ours |
 | Page generation from DNA | ◐ standalone HTML | Superdesign (HTML mockups) | Ours; React/Next adapters next |
 | Multi-page sites, routing, content models | ✗ | — | Ours (`WEBSITE_GENERATOR_ARCHITECTURE.md`) |
-| Browser QA: screenshots, overflow, cramped text, axe | ◐ pipeline | Claude SEO (screenshots), UX-STING `browser-audit` | Ours |
+| Browser QA: screenshots 375/768/1440, axe, contrast, overflow, margins, orphans, empty stretches, title on first screen, console, ranked top-3 fixes | ✔ `@ux-sting/qa`, `ux-sting qa`, `ux-sting-qa` skill (QA → fix top 3 → re-run ×3) | taste-skill (browser self-critique), playwright-cli (token-efficient agent conventions) | Ours; ideas only |
 | Visual diff + DNA fidelity + fix loop | ◐ | — | Ours |
-| Lighthouse / Core Web Vitals measurement | ✗ (CI runs axe, not Lighthouse) | Claude SEO (PSI/CrUX APIs) | Ours (local Lighthouse, documented conditions) |
+| Lighthouse / Core Web Vitals measurement | ◐ LCP + CLS lab basics in `@ux-sting/qa`; no Lighthouse yet | Claude SEO (PSI/CrUX APIs) | Ours (local Lighthouse, documented conditions) |
 | Structured data builders + validation | ✔ `@ux-sting/seo-schema` | Claude SEO (checklists) | Ours, TypeScript |
 | Metadata / canonical / hreflang / sitemap helpers | ◐ six copy-pasted `lib/seo.ts` in examples | Claude SEO | `seo-core`, `seo-nextjs` |
 | Crawl-based SEO audit | ✗ | Claude SEO | `seo-audit` |

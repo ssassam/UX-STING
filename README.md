@@ -8,7 +8,7 @@ An accessible, themeable, tree-shakeable design system and React component libra
 - **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
 - **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
 - **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
-- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), pick a deliberate design direction instead of the generic AI look (`ux-sting-taste`), review with evidence (`ux-sting-review`), explore several directions side by side (`ux-sting-explore`) run the reference → Design DNA → page → browser QA pipeline (`ux-sting-universal`), add accessible three.js 3D and shader scenes (`ux-sting-3d`) and draw on-theme diagrams with [diagram-design](https://github.com/cathrynlavery/diagram-design) (`ux-sting-diagrams`; Claude Code offers to install the plugin when you trust the repo, other agents use `npx skills add cathrynlavery/diagram-design`)
+- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), pick a deliberate design direction instead of the generic AI look (`ux-sting-taste`), review with evidence (`ux-sting-review`), run browser QA and fix the top 3 findings in up to three rounds (`ux-sting-qa`), explore several directions side by side (`ux-sting-explore`) run the reference → Design DNA → page → browser QA pipeline (`ux-sting-universal`), add accessible three.js 3D and shader scenes (`ux-sting-3d`) and draw on-theme diagrams with [diagram-design](https://github.com/cathrynlavery/diagram-design) (`ux-sting-diagrams`; Claude Code offers to install the plugin when you trust the repo, other agents use `npx skills add cathrynlavery/diagram-design`)
 - **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
 
 ## Quick start
@@ -64,6 +64,7 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 | `packages/core` | `@ux-sting/core` — framework-agnostic entry |
 | `packages/cli` | `ux-sting` CLI |
 | `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
+| `packages/qa` | `@ux-sting/qa` — browser QA for agents (`ux-sting qa <url\|path>`): axe, contrast, layout checks, console, LCP/CLS, ranked top-3 fixes |
 | `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
 | `apps/docs` | Documentation site (Next.js) with live, themeable examples |
 | `apps/playground` | Component laboratory (Vite) |
