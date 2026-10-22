@@ -1,5 +1,21 @@
 # @ux-sting/react
 
+## 0.4.0
+
+### Minor Changes
+
+- 8d157dc: `ThemeScript` takes an optional `theme` (and `getThemeScript` a third argument) that sets `data-ui-theme` on `<html>` before paint. Without it, a page using a named or custom `UIProvider` theme painted in the default theme's colors until React hydrated.
+
+### Patch Changes
+
+- Updated dependencies [8d157dc]
+  - @ux-sting/utils@0.4.0
+  - @ux-sting/hooks@0.4.0
+  - @ux-sting/primitives@0.4.0
+  - @ux-sting/icons@0.4.0
+  - @ux-sting/themes@0.4.0
+  - @ux-sting/tokens@0.4.0
+
 ## 0.3.0
 
 ### Patch Changes

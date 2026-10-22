@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/themes",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Theme engine and presets for ux-sting (default, neutral, modern, compact, soft, high-contrast, plus Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles).",
   "license": "MIT",
   "repository": {

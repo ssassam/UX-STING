@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/primitives",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Headless, accessible building blocks for ux-sting: Slot, VisuallyHidden, Portal, roving focus, calendar math and collections.",
   "license": "MIT",
   "repository": {
