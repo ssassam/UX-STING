@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="wayfare-color-mode" />
+        <ThemeScript theme="wayfare" storageKey="wayfare-color-mode" />
       </head>
       <body className="flex min-h-dvh flex-col">
         <SkipLink />

@@ -3,6 +3,8 @@ import { getThemeScript, type ColorMode } from "@ux-sting/utils";
 export interface ThemeScriptProps {
   storageKey?: string;
   defaultColorMode?: ColorMode;
+  /** Name of the `UIProvider` theme, applied before paint so its colors show on first load. */
+  theme?: string;
   nonce?: string;
 }
 
@@ -13,13 +15,14 @@ export interface ThemeScriptProps {
 export function ThemeScript({
   storageKey = "ui-color-mode",
   defaultColorMode = "light",
+  theme,
   nonce,
 }: ThemeScriptProps) {
   return (
     <script
       nonce={nonce}
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: getThemeScript(storageKey, defaultColorMode) }}
+      dangerouslySetInnerHTML={{ __html: getThemeScript(storageKey, defaultColorMode, theme) }}
     />
   );
 }

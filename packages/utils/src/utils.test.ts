@@ -112,4 +112,12 @@ describe("getThemeScript", () => {
     expect(js).not.toContain("</script>");
     expect(js).toContain("\\u003c/script>");
   });
+
+  it("sets data-ui-theme before paint when a theme is given", () => {
+    document.documentElement.removeAttribute("data-ui-theme");
+    new Function(getThemeScript("k", "dark", "ember"))();
+    expect(document.documentElement.getAttribute("data-ui-theme")).toBe("ember");
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(getThemeScript("k", "dark", "</script>")).not.toContain("</script>");
+  });
 });

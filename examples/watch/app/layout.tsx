@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="pulse-color-mode" defaultColorMode="dark" />
+        <ThemeScript theme="pulse" storageKey="pulse-color-mode" defaultColorMode="dark" />
       </head>
       <body className="min-h-dvh">
         <SkipLink />

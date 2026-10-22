@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="lens-color-mode" defaultColorMode="dark" />
+        <ThemeScript theme="lens" storageKey="lens-color-mode" defaultColorMode="dark" />
       </head>
       <body className="flex min-h-dvh flex-col">
         <SkipLink />

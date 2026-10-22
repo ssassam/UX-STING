@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="ember-color-mode" defaultColorMode="dark" />
+        <ThemeScript theme="ember" storageKey="ember-color-mode" defaultColorMode="dark" />
       </head>
       <body className="min-h-dvh">
         <SkipLink />

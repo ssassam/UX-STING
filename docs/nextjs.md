@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-`ThemeScript` applies the persisted color mode before paint (no flash). `target="document"` puts `data-theme`, `data-density`, `dir` and `lang` on `<html>`.
+`ThemeScript` applies the persisted color mode before paint (no flash). If `UIProvider` uses a named or custom theme, pass its name too (`<ThemeScript theme="ember" />`) so the page paints in that theme's colors before React hydrates. `target="document"` puts `data-theme`, `data-density`, `dir` and `lang` on `<html>`.
 
 ## Streaming and static generation
 

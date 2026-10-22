@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fraunces.variable} suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="toolkit-color-mode" />
+        <ThemeScript theme="editorial" storageKey="toolkit-color-mode" />
       </head>
       <body className="min-h-dvh">
         <SkipLink />

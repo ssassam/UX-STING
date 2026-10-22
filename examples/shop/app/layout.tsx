@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript storageKey="nord-color-mode" />
+        <ThemeScript theme="nord" storageKey="nord-color-mode" />
       </head>
       <body className="flex min-h-dvh flex-col">
         <SkipLink />
