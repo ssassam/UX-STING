@@ -27,6 +27,7 @@
     "node": ">=20.9"
   },
   "devDependencies": {
+    "@ux-sting/images": "workspace:^",
     "@ux-sting/extract": "workspace:^",
     "@ux-sting/qa": "workspace:^",
     "@types/node": "^24.0.0",
@@ -37,13 +38,17 @@
   },
   "peerDependencies": {
     "@ux-sting/qa": "workspace:^",
-    "@ux-sting/extract": "workspace:^"
+    "@ux-sting/extract": "workspace:^",
+    "@ux-sting/images": "workspace:^"
   },
   "peerDependenciesMeta": {
     "@ux-sting/qa": {
       "optional": true
     },
     "@ux-sting/extract": {
+      "optional": true
+    },
+    "@ux-sting/images": {
       "optional": true
     }
   }

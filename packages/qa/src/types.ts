@@ -2,7 +2,7 @@
 export const DEFAULT_VIEWPORTS = [375, 768, 1440] as const;
 
 export type Severity = "critical" | "serious" | "moderate" | "minor";
-export type Category = "a11y" | "contrast" | "layout" | "console" | "performance";
+export type Category = "a11y" | "contrast" | "layout" | "console" | "performance" | "taste";
 
 /** A short CSS path to an element, e.g. `main > section.pricing`. */
 export type Target = string;
@@ -39,6 +39,27 @@ export interface LayoutMeasurement {
   };
 }
 
+/** Anti-slop signals: generic AI-page patterns (see the ux-sting-taste skill). */
+export interface TasteMeasurement {
+  /** Gradients with a violet/purple stop. */
+  purpleGradients: Target[];
+  /** Gradient-filled text (background-clip: text). */
+  gradientText: Target[];
+  /** Emoji used as icons or bullets. */
+  emojiIcons: Array<{ target: Target; text: string }>;
+  /** Stock marketing phrases found in visible text. */
+  genericCopy: string[];
+  /** Round, unsourced numbers ("10,000+ users", "99.9%", "10x"). */
+  fakeStats: string[];
+  lorem: boolean;
+  /** Elements with backdrop-filter blur. */
+  glass: number;
+  /** Container of three equal cards right below a centered hero, or null. */
+  centeredHeroCards: Target | null;
+  /** Numeric table cells, and how many are not end-aligned / not tabular figures. */
+  numbers: { cells: number; misaligned: number; proportional: number };
+}
+
 export interface AxeViolation {
   id: string;
   impact: Severity | null;
@@ -61,6 +82,8 @@ export interface ViewportResult {
   layout: LayoutMeasurement;
   axe: AxeViolation[];
   vitals: Vitals;
+  /** Anti-slop signals; absent when taste checks are off. */
+  taste?: TasteMeasurement;
   /** Paths relative to the report directory. */
   screenshots: { fold?: string; full?: string };
 }
@@ -105,6 +128,8 @@ export interface QaOptions {
   executablePath?: string;
   /** Skip screenshots (faster, for CI). */
   screenshots?: boolean;
+  /** Run anti-slop (taste) checks. Default true. */
+  taste?: boolean;
   /** Milliseconds to wait after load for late content and animations. */
   settleMs?: number;
 }

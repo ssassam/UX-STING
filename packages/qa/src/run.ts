@@ -3,7 +3,7 @@ import { createRequire } from "node:module";
 import { join } from "node:path";
 import { analyze, passed, score } from "./analyze.js";
 import { guardPage, guardTarget, launchBrowser, settle } from "./browser.js";
-import { collectLayout, installVitals, readVitals } from "./collect.js";
+import { collectLayout, collectTaste, installVitals, readVitals } from "./collect.js";
 import { toMarkdown } from "./report.js";
 import { serveStatic, type StaticServer } from "./serve.js";
 import {
@@ -72,6 +72,7 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
       const vitals = await page.evaluate(readVitals);
       await settle(page, options.settleMs);
       const layout = await page.evaluate(collectLayout);
+      const taste = options.taste === false ? undefined : await page.evaluate(collectTaste);
 
       await page.addScriptTag({ content: axeSource });
       const axe = (await page.evaluate(async () => {
@@ -111,7 +112,7 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
           animations: "disabled",
         });
       }
-      results.push({ width, layout, axe, vitals, screenshots });
+      results.push({ width, layout, axe, vitals, screenshots, ...(taste ? { taste } : {}) });
       await context.close();
     }
   } finally {

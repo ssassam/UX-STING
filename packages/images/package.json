@@ -1,0 +1,42 @@
+{
+  "name": "@ux-sting/images",
+  "version": "0.1.0",
+  "description": "Find openly licensed images (Openverse, Wikimedia Commons, The Met Open Access) — public domain, CC0, CC BY and CC BY-SA only — download them and record TASL credits automatically.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "images",
+    "creative-commons",
+    "public-domain",
+    "openverse",
+    "wikimedia-commons",
+    "attribution"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@ux-sting/design-dna": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "~6.0.3"
+  }
+}

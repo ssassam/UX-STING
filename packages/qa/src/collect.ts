@@ -1,4 +1,4 @@
-import type { LayoutMeasurement } from "./types.js";
+import type { LayoutMeasurement, TasteMeasurement } from "./types.js";
 
 /**
  * In-page layout collector, passed to Playwright's `page.evaluate`. It must
@@ -282,4 +282,171 @@ export function readVitals() {
   return v
     ? { lcp: v.lcp === null ? null : Math.round(v.lcp), cls: Math.round(v.cls * 1000) / 1000 }
     : { lcp: null, cls: null };
+}
+
+/** Anti-slop signals (see the ux-sting-taste skill). Self-contained for `page.evaluate`. */
+export function collectTaste(): TasteMeasurement {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 1;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+  const hsl = (color: string) => {
+    ctx.clearRect(0, 0, 1, 1);
+    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 1, 1);
+    const [r, g, b] = Array.from(ctx.getImageData(0, 0, 1, 1).data).map((v) => v / 255) as [
+      number,
+      number,
+      number,
+    ];
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const l = (max + min) / 2;
+    const d = max - min;
+    if (!d) return { h: 0, s: 0, l };
+    const s = d / (1 - Math.abs(2 * l - 1));
+    const h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    return { h: (h * 60 + 360) % 360, s, l };
+  };
+  const visible = (el: Element) => {
+    const r = el.getBoundingClientRect();
+    const s = getComputedStyle(el);
+    return r.width > 0 && r.height > 0 && s.visibility !== "hidden" && s.display !== "none";
+  };
+  const label = (el: Element) => {
+    const cls = typeof el.className === "string" ? el.className.trim().split(/\s+/)[0] : "";
+    return (
+      el.tagName.toLowerCase() +
+      (el.id ? `#${el.id}` : cls && !/[[\]:/]/.test(cls) ? `.${cls}` : "")
+    );
+  };
+  const all = Array.from(document.body.querySelectorAll("*")).filter(visible);
+
+  const purpleGradients: string[] = [];
+  const gradientText: string[] = [];
+  let glass = 0;
+  for (const el of all) {
+    const s = getComputedStyle(el);
+    if (s.backdropFilter && s.backdropFilter !== "none" && /blur/.test(s.backdropFilter)) glass++;
+    if (!/gradient\(/.test(s.backgroundImage)) continue;
+    const clip = s.backgroundClip || s.getPropertyValue("-webkit-background-clip");
+    if (/text/.test(clip)) gradientText.push(label(el));
+    const stops =
+      s.backgroundImage.match(
+        /(rgba?\([^)]*\)|oklch\([^)]*\)|oklab\([^)]*\)|lab\([^)]*\)|lch\([^)]*\)|color\([^)]*\)|hsla?\([^)]*\)|#[0-9a-f]{3,8})/gi,
+      ) ?? [];
+    const purple = stops
+      .map(hsl)
+      .filter((c) => c.h >= 245 && c.h <= 320 && c.s > 0.35 && c.l > 0.2 && c.l < 0.85);
+    if (stops.length >= 2 && purple.length) purpleGradients.push(label(el));
+  }
+
+  const emojiIcons: Array<{ target: string; text: string }> = [];
+  const EMOJI = /\p{Extended_Pictographic}/u;
+  for (const el of all) {
+    if (!el.matches("h1,h2,h3,h4,h5,h6,button,a,li,dt,span,div,p,i")) continue;
+    const own = Array.from(el.childNodes)
+      .filter((n) => n.nodeType === 3)
+      .map((n) => n.textContent ?? "")
+      .join("")
+      .trim();
+    if (!own || !EMOJI.test(own)) continue;
+    const stripped = own.replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}]/gu, "").trim();
+    if (stripped.length === 0 || EMOJI.test(own.slice(0, 2)))
+      emojiIcons.push({ target: label(el), text: own.slice(0, 24) });
+    if (emojiIcons.length >= 8) break;
+  }
+
+  const text = (document.body.innerText || "").replace(/\s+/g, " ");
+  const GENERIC = [
+    /unlock the (full )?(power|potential)/i,
+    /revolutioni[sz]e/i,
+    /\bseamless(ly)?\b/i,
+    /cutting[- ]edge/i,
+    /next[- ]generation/i,
+    /elevate your/i,
+    /supercharge/i,
+    /game[- ]chang/i,
+    /in today'?s fast[- ]paced/i,
+    /to the next level/i,
+    /all[- ]in[- ]one platform/i,
+    /harness the power/i,
+    /streamline your/i,
+    /best[- ]in[- ]class/i,
+    /transform the way/i,
+    /empower(s|ing)? (you|your|teams)/i,
+  ];
+  const genericCopy = GENERIC.map((re) => re.exec(text)?.[0]).filter((m): m is string =>
+    Boolean(m),
+  );
+  const fakeStats = [
+    ...text.matchAll(
+      /\b(\d{1,3}(?:[,.]\d{3})*|\d+(?:\.\d)?[kKmM])\+\s+(?:happy |satisfied |active )?(?:users|customers|clients|teams|companies|developers|businesses)\b|\b99\.9+%|\b10x\b/g,
+    ),
+  ]
+    .map((m) => m[0])
+    .slice(0, 5);
+  const lorem = /lorem ipsum|dolor sit amet/i.test(text);
+
+  // Centered hero followed by exactly three equal cards.
+  let centeredHeroCards: string | null = null;
+  const h1 = Array.from(document.querySelectorAll("h1")).find(visible);
+  if (h1 && getComputedStyle(h1).textAlign === "center") {
+    const after = Array.from(document.querySelectorAll("section, [class*=grid], ul, div")).filter(
+      (el) => {
+        const r = el.getBoundingClientRect();
+        return (
+          visible(el) &&
+          r.top + scrollY > h1.getBoundingClientRect().bottom + scrollY &&
+          r.top + scrollY < h1.getBoundingClientRect().bottom + scrollY + 1400
+        );
+      },
+    );
+    for (const el of after) {
+      const kids = Array.from(el.children).filter(visible);
+      if (kids.length !== 3) continue;
+      const rects = kids.map((k) => k.getBoundingClientRect());
+      const sameRow = rects.every((r) => Math.abs(r.top - rects[0]!.top) < 4);
+      const w = rects.map((r) => r.width);
+      const equal = Math.max(...w) - Math.min(...w) < Math.max(...w) * 0.05 && Math.min(...w) > 160;
+      const cardish = kids.every(
+        (k) => k.querySelector("h2,h3,h4") && (k.textContent ?? "").trim().length > 20,
+      );
+      if (sameRow && equal && cardish) {
+        centeredHeroCards = label(el);
+        break;
+      }
+    }
+  }
+
+  // Numbers in tables should be end-aligned and use tabular figures.
+  let numericCells = 0;
+  let misaligned = 0;
+  let proportional = 0;
+  for (const cell of Array.from(document.querySelectorAll("td")).filter(visible).slice(0, 400)) {
+    const t = (cell.textContent ?? "").trim();
+    if (!/\d/.test(t) || !/^[\s$€£¥₹%+\-−–.,:\d]+\s?[kKmMbB%]?$/.test(t)) continue;
+    numericCells++;
+    const s = getComputedStyle(cell);
+    const dir = getComputedStyle(document.documentElement).direction;
+    const end = s.textAlign === "end" || s.textAlign === (dir === "rtl" ? "left" : "right");
+    if (!end) misaligned++;
+    const inner = cell.firstElementChild ? getComputedStyle(cell.firstElementChild) : s;
+    const tabular =
+      /tabular-nums/.test(s.fontVariantNumeric + inner.fontVariantNumeric) ||
+      /mono/i.test(s.fontFamily);
+    if (!tabular) proportional++;
+  }
+
+  return {
+    purpleGradients: purpleGradients.slice(0, 5),
+    gradientText: gradientText.slice(0, 5),
+    emojiIcons,
+    genericCopy,
+    fakeStats,
+    lorem,
+    glass,
+    centeredHeroCards,
+    numbers: { cells: numericCells, misaligned, proportional },
+  };
 }

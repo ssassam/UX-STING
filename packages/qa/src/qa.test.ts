@@ -236,3 +236,53 @@ describe("qaCommand", () => {
     );
   });
 });
+
+describe("taste (anti-slop)", () => {
+  const clean = {
+    purpleGradients: [],
+    gradientText: [],
+    emojiIcons: [],
+    genericCopy: [],
+    fakeStats: [],
+    lorem: false,
+    glass: 0,
+    centeredHeroCards: null,
+    numbers: { cells: 0, misaligned: 0, proportional: 0 },
+  };
+  it("is silent on a clean page", () => {
+    expect(analyze([vp(1440, {}, { taste: clean })])).toEqual([]);
+  });
+  it("flags generic AI-page patterns without ever failing the run", () => {
+    const findings = analyze([
+      vp(
+        1440,
+        {},
+        {
+          taste: {
+            ...clean,
+            purpleGradients: ["section.hero"],
+            emojiIcons: [{ target: "h3", text: "🚀 Fast" }],
+            genericCopy: ["seamless"],
+            fakeStats: ["10,000+ teams"],
+            lorem: true,
+            glass: 6,
+            centeredHeroCards: "section.cards",
+            numbers: { cells: 8, misaligned: 8, proportional: 0 },
+          },
+        },
+      ),
+    ]);
+    expect(findings.map((f) => f.id).sort()).toEqual([
+      "data:numbers-misaligned",
+      "slop:centered-hero-3-cards",
+      "slop:emoji-icons",
+      "slop:generic-copy",
+      "slop:glass-everywhere",
+      "slop:lorem-ipsum",
+      "slop:purple-gradient",
+      "slop:unsourced-stats",
+    ]);
+    expect(findings.every((f) => f.category === "taste")).toBe(true);
+    expect(passed(findings)).toBe(true);
+  });
+});

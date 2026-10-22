@@ -9,6 +9,7 @@ export const QA_HELP = `ux-sting qa <url|path> — render, measure and rank what
   --viewports <list>    Comma-separated widths (default: 375,768,1440)
   --allow-host <h:p>    Extra private host:port subrequests may reach (repeatable)
   --no-shots            Skip screenshots
+  --no-taste            Skip anti-slop checks (purple gradients, emoji icons, stock copy…)
   --json                Print the JSON report instead of markdown
   --fail-on <level>     Exit 1 on: serious (default) | moderate | none
 
@@ -43,6 +44,7 @@ export async function qaCommand(argv: string[], print = console.log): Promise<nu
       .filter((n) => n > 0),
     allowHosts: argv.flatMap((a, i) => (argv[i - 1] === "--allow-host" ? [a] : [])),
     screenshots: !argv.includes("--no-shots"),
+    taste: !argv.includes("--no-taste"),
   });
   print(argv.includes("--json") ? JSON.stringify(report, null, 2) : toMarkdown(report));
   if (!argv.includes("--json")) print(`Report: ${outDir}/report.md`);

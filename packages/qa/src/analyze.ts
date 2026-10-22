@@ -1,4 +1,4 @@
-import type { Finding, QaReport, Severity, ViewportResult } from "./types.js";
+import type { Finding, QaReport, Severity, TasteMeasurement, ViewportResult } from "./types.js";
 
 const WEIGHT: Record<Severity, number> = { critical: 8, serious: 4, moderate: 2, minor: 1 };
 
@@ -141,6 +141,8 @@ export function analyze(
       });
     }
 
+    if (v.taste) drafts.push(...tasteDrafts(v.taste, width));
+
     const { lcp, cls } = v.vitals;
     if (lcp !== null && lcp > VITALS.lcp[0])
       drafts.push({
@@ -184,6 +186,89 @@ export function analyze(
     });
 
   return merge(drafts);
+}
+
+/**
+ * Anti-slop rules. Taste findings are never serious: they ask for a reason,
+ * not a fix at any cost (a brand may really be purple).
+ */
+function tasteDrafts(t: TasteMeasurement, viewport: number): Draft[] {
+  const out: Draft[] = [];
+  const add = (d: Omit<Draft, "category" | "viewport">) =>
+    out.push({ ...d, category: "taste", viewport });
+  if (t.purpleGradients.length)
+    add({
+      id: "slop:purple-gradient",
+      severity: "moderate",
+      message: "Violet/purple gradient — the most common AI-generated look.",
+      fix: "Use the theme's flat surfaces and one accent; keep a gradient only if the brand truly owns it, and then from its own tokens.",
+      targets: t.purpleGradients,
+    });
+  if (t.gradientText.length)
+    add({
+      id: "slop:gradient-text",
+      severity: "minor",
+      message: "Gradient-filled text.",
+      fix: "Set headlines in solid color; get emphasis from size, weight, italics or one accent word.",
+      targets: t.gradientText,
+    });
+  if (t.emojiIcons.length)
+    add({
+      id: "slop:emoji-icons",
+      severity: "moderate",
+      message: `Emoji used as icons (${t.emojiIcons.map((e) => e.text).join(" ")}).`,
+      fix: "Replace with @ux-sting/icons (SVG, aria-hidden) or remove the icon row entirely.",
+      targets: t.emojiIcons.map((e) => e.target),
+      count: t.emojiIcons.length,
+    });
+  if (t.centeredHeroCards)
+    add({
+      id: "slop:centered-hero-3-cards",
+      severity: "minor",
+      message: "Centered hero followed by three identical cards — the default template.",
+      fix: "Let the art direction pick the structure: an asymmetric split, an indexed list, a table, a full-bleed image or one strong proof point.",
+      targets: [t.centeredHeroCards],
+    });
+  if (t.genericCopy.length)
+    add({
+      id: "slop:generic-copy",
+      severity: "minor",
+      message: `Stock phrases: ${t.genericCopy.map((g) => `“${g}”`).join(", ")}.`,
+      fix: "Say what this client specifically does, for whom, with a concrete noun or number.",
+      count: t.genericCopy.length,
+    });
+  if (t.fakeStats.length)
+    add({
+      id: "slop:unsourced-stats",
+      severity: "minor",
+      message: `Round, unsourced numbers: ${t.fakeStats.join(", ")}.`,
+      fix: "Use real figures with a source and date, or remove them.",
+      count: t.fakeStats.length,
+    });
+  if (t.lorem)
+    add({
+      id: "slop:lorem-ipsum",
+      severity: "moderate",
+      message: "Placeholder text (lorem ipsum) is on the page.",
+      fix: "Write the real copy; content decides the layout.",
+    });
+  if (t.glass > 4)
+    add({
+      id: "slop:glass-everywhere",
+      severity: "minor",
+      message: `${t.glass} glass (backdrop-blur) surfaces.`,
+      fix: "Keep blur for one floating layer (nav or overlay); use tonal surfaces and hairlines elsewhere.",
+      count: t.glass,
+    });
+  if (t.numbers.cells >= 3 && t.numbers.misaligned + t.numbers.proportional >= 3)
+    add({
+      id: "data:numbers-misaligned",
+      severity: "minor",
+      message: `${t.numbers.misaligned} of ${t.numbers.cells} numeric cells not end-aligned, ${t.numbers.proportional} without tabular figures.`,
+      fix: "Right-align (text-end) numeric columns and their headers and use `tabular-nums` so digits line up.",
+      count: t.numbers.cells,
+    });
+  return out;
 }
 
 function merge(drafts: Draft[]): Finding[] {

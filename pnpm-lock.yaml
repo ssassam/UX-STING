@@ -727,6 +727,9 @@ importers:
       '@ux-sting/extract':
         specifier: workspace:^
         version: link:../extract
+      '@ux-sting/images':
+        specifier: workspace:^
+        version: link:../images
       '@ux-sting/qa':
         specifier: workspace:^
         version: link:../qa
@@ -794,6 +797,19 @@ importers:
         specifier: ^18.2.0 || ^19.0.0
         version: 19.3.0
     devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
+  packages/images:
+    dependencies:
+      '@ux-sting/design-dna':
+        specifier: workspace:^
+        version: link:../design-dna
+    devDependencies:
+      '@types/node':
+        specifier: ^24.0.0
+        version: 24.19.0
       typescript:
         specifier: ~6.0.3
         version: 6.0.3

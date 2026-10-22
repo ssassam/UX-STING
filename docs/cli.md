@@ -12,6 +12,7 @@ npx ux-sting qa http://localhost:3000/   # browser QA (needs @ux-sting/qa)
 npx ux-sting extract https://example.com # design tokens (needs @ux-sting/extract)
 npx ux-sting theme import tokens.json
 npx ux-sting dna https://example.com
+npx ux-sting images "ghent canal" --download 1,3   # credited open images (needs @ux-sting/images)
 ```
 
 ## init
@@ -79,3 +80,7 @@ Need `@ux-sting/extract` (`npm i -D @ux-sting/extract`) and Chromium.
 - `dna <url|tokens.json>` prints the design feature vector (unmeasured features stay null) and the three nearest UX-STING presets (`--json` for machine output).
 
 See `packages/extract/README.md`.
+
+## images
+
+Needs `@ux-sting/images`. Searches Wikimedia Commons, The Met Open Access and Openverse for public domain, CC0, CC BY and CC BY-SA images (`--source`, `--license`, `--count`). `--download 1,3` (or `all`) saves the picks to `--dir` (default `public/images`) and records each credit in `credits.json` + `CREDITS.md`. `--json` prints results.

@@ -171,6 +171,22 @@ Copyright (c) 2023 Vue Storefront
 
 ## Ideas only (no code)
 
+### taste-skill — MIT License
+
+The pipeline in `.claude/skills/ux-sting-taste/` (art direction before
+building, real images from open archives with credits, checking the result in
+a real browser) follows ideas from
+[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill). The skill
+text, direction deck, anti-slop list, app-screen route and the
+`@ux-sting/images` / `slop:*` QA implementations are UX-STING's own.
+
+### Open image collections (data, not code)
+
+`@ux-sting/images` queries the public APIs of Wikimedia Commons, The
+Metropolitan Museum of Art Open Access and Openverse. No images are bundled;
+each downloaded image keeps its own license, recorded in the user's
+`credits.json`.
+
 ### designlang (design-extract) — MIT License
 
 `@ux-sting/extract` takes the product idea of

@@ -13,6 +13,7 @@ ${bold("Usage")}
   npx ux-sting extract <url> [--out <dir>]
   npx ux-sting theme import <tokens.json> [--name <name>] [--out <dir>]
   npx ux-sting dna <url|tokens.json> [--json]
+  npx ux-sting images <query> [--source commons,met,openverse] [--download 1,3]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -103,6 +104,12 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           rest,
         );
       }
+      case "images":
+        return await runPlugin(
+          "@ux-sting/images",
+          async () => ({ run: (await import("@ux-sting/images")).imagesCommand }),
+          argv.slice(argv.indexOf("images") + 1),
+        );
       case undefined:
       case "help":
         log.info(HELP);
@@ -125,7 +132,7 @@ const isEntry =
 if (isEntry) {
   if (
     process.argv.includes("--help") &&
-    !["qa", "extract", "theme", "dna"].includes(process.argv[2] ?? "")
+    !["qa", "extract", "theme", "dna", "images"].includes(process.argv[2] ?? "")
   ) {
     log.info(HELP);
   } else {

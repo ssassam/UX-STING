@@ -7,6 +7,10 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Accessible React component library (~100 families) | ✔ | — (none of the references) | Already ours |
 | Tokens, 17 themes, dark/high-contrast, density, RTL | ✔ | Better Design (brand systems) | Ours; no brand clones |
 | Agent skills for building / taste / review / explore | ✔ | Design Taste, UI UX Pro Max, Better Design | Adapted (MIT), credited |
+| Art-direction pipeline: brief → unique list → 3 researched directions → concept → real images → QA → screenshot self-critique | ✔ `ux-sting-taste` (rebuilt) | taste-skill (Leonxlnx, MIT) | Ours; ideas only |
+| Openly licensed image sourcing (Commons, Met, Openverse; PD/CC0/BY/BY-SA only) with automatic credits | ✔ `@ux-sting/images`, `ux-sting images` | taste-skill (real archive images) | Ours |
+| Anti-slop rule list + automated detection (purple gradients, emoji icons, centered hero + 3 cards, stock copy, unsourced stats, lorem, glass, misaligned numbers) | ✔ `references/anti-slop.md`, `slop:*` / `data:*` QA findings | taste-skill, design-taste | Ours |
+| Dashboard / app-screen route (quiet panels, aligned numbers, color on data) | ✔ `ux-sting-taste/references/app-screens.md` | — | Ours |
 | Zero-dependency motion & effects (CSS tier) | ✔ | Motion Primitives, Trickle | Re-implemented |
 | WebGL effects tier | ✗ | Paper Shaders (Apache-2.0) | Optional peer dependency, lazy-loaded |
 | Custom cursors, HTML-in-canvas effects | ✗ | Cursify, Canvas UI | **Not reusable** (licence); build only if needed |
