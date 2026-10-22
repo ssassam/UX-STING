@@ -24,6 +24,7 @@ Legend: **✔** shipped and tested · **◐** prototype or partial · **✗** mi
 | Metadata / canonical / hreflang / sitemap helpers | ◐ six copy-pasted `lib/seo.ts` in examples | Claude SEO | `seo-core`, `seo-nextjs` |
 | Crawl-based SEO audit | ✗ | Claude SEO | `seo-audit` |
 | CLI (`add`, `diff`, `list`, `init`…) | ✔ components | Hyperiux CLI | Extend with `dna`, `seo` commands |
+| npm release pipeline (Changesets, provenance, CI dry-run) | ✔ | — | Ours |
 | MCP tools | ✗ | Better Design, Hyperiux, Claude SEO | `ux-sting-mcp` |
 | Reproducible benchmark | ✗ | — (Superdesign blog compares tools informally) | `BENCHMARK_PLAN.md` |
 

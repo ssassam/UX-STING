@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "Framework-agnostic utilities for ux-sting: class merging, variants, keyboard, focus, responsive, formatting and theme helpers.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/utils"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -27,5 +34,8 @@
   "peerDependencies": {},
   "devDependencies": {
     "typescript": "~6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

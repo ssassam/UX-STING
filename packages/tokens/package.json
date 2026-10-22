@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "Design tokens for ux-sting: palettes, semantic colors, spacing, typography, motion and more — as TypeScript and CSS variables.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
   "type": "module",
   "sideEffects": [
     "*.css"
@@ -27,5 +34,8 @@
   },
   "devDependencies": {
     "typescript": "~6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

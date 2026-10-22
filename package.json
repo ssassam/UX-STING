@@ -27,9 +27,14 @@
     "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test",
     "api": "node scripts/extract-api.ts",
     "ux-audit": "node scripts/ux-audit.ts",
-    "dna": "node scripts/design-dna/run.ts"
+    "dna": "node scripts/design-dna/run.ts",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only",
+    "release": "pnpm build && changeset publish",
+    "publish:dry": "pnpm -r --filter \"./packages/*\" publish --dry-run --no-git-checks"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.1",
     "@eslint/js": "^9.39.0",
     "@playwright/test": "1.63.0",
     "@testing-library/dom": "^10.4.0",

@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "ux-sting React components: accessible, themeable, tree-shakeable and SSR/RSC-friendly.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
   "type": "module",
   "sideEffects": [
     "*.css"
@@ -70,5 +77,8 @@
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -2,7 +2,7 @@ name: Deploy demos to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/wonderful-cori-26r2b1]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
