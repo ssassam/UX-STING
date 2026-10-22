@@ -13,7 +13,7 @@ An accessible, themeable, tree-shakeable design system and React component libra
 
 ## Quick start
 
-> **Status:** the `@ux-sting/*` packages are not published to npm yet, so `pnpm add` and `npx ux-sting` won't work until the first release. Today you can browse the [live demos](#showcase) or run everything from source.
+Install from npm (below), browse the [live demos](#showcase), or run everything from source.
 
 Run it locally (Node 20.9+ — `.nvmrc` pins 22 — and pnpm 10):
 
@@ -28,10 +28,14 @@ pnpm --filter @ux-sting/example-travel dev   # or example-car-rental, -shop, -wa
 
 Other useful commands: `pnpm --filter @ux-sting/docs dev` (documentation site), `pnpm test`, `pnpm check` (build + typecheck + lint + test).
 
-### Using the packages (after the first npm release)
+### Install from npm
+
+All packages are on npm ([`ux-sting`](https://www.npmjs.com/package/ux-sting) and the [`@ux-sting`](https://www.npmjs.com/org/ux-sting) scope). React 18 or 19 and Tailwind CSS 4 are expected for the components.
+
+**Components** — install the library:
 
 ```bash
-pnpm add @ux-sting/react
+npm install @ux-sting/react
 ```
 
 ```css
@@ -48,7 +52,38 @@ import { Button } from "@ux-sting/react/button";
 </UIProvider>
 ```
 
-Until then, copy components from `packages/react/src/components/<name>` or add the repo as a Git dependency in a pnpm workspace.
+…or copy component source into your project with the CLI:
+
+```bash
+npx ux-sting init
+npx ux-sting add button dialog data-table
+```
+
+**Agent tools** — the CLI loads each tool from its own package, so install the ones you use:
+
+```bash
+npm install -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images
+npx playwright-core install chromium    # one-time browser download for qa and extract
+
+npx ux-sting qa http://localhost:3000             # browser QA: report + top-3 fixes
+npx ux-sting extract https://example.com          # design tokens (W3C DTCG)
+npx ux-sting theme import ux-sting-extract/tokens.json
+npx ux-sting images "harbour at dawn" --download 1  # openly licensed images + credits
+```
+
+**Motion** — CSS transitions with no dependencies, plus an optional GSAP layer:
+
+```bash
+npm install @ux-sting/motion
+npm install gsap @gsap/react          # only for @ux-sting/motion/gsap
+```
+
+```ts
+import "@ux-sting/motion/motion.css";
+import { reorder, trackIndicator } from "@ux-sting/motion";
+```
+
+Using pnpm or yarn? Replace `npm install` with `pnpm add` / `yarn add`. The [toolkit demo](https://ssassam.github.io/UX-STING/toolkit/) shows every tool with real output.
 
 ## Repository
 
@@ -78,7 +113,7 @@ Until then, copy components from `packages/react/src/components/<name>` or add t
 
 ## Showcase
 
-Six complete demo sites, built only with UX-STING and deployed to GitHub Pages:
+Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, plus a toolkit hub:
 
 | Demo | What it shows | Live |
 | --- | --- | --- |
@@ -88,6 +123,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages:
 | [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
 | [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
 | [**Ember**](examples/ember) — restaurant reservations | Tasting menu with dietary tags, dining-experience tabs, full reservation form, opening hours with live status, map, reviews | [open](https://ssassam.github.io/UX-STING/ember/) |
+| [**Toolkit**](examples/toolkit) — UX-STING's agent tools | Real `ux-sting qa`, `extract`, `images` output, the taste pipeline, live motion demos | [open](https://ssassam.github.io/UX-STING/toolkit/) |
 
 ### Screenshots
 
