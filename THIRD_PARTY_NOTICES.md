@@ -254,3 +254,15 @@ is third-party trademarks and is **not** included. Full license:
 MIT License
 Copyright (c) 2026 kaankiziltug
 ```
+
+### ECC (Everything Claude Code) — MIT License
+
+[affaan-m/ecc](https://github.com/affaan-m/ecc), an agent-harness collection
+of skills, agents, hooks, rules and commands, is noted as a reference for how
+UX-STING's `.claude/` skills are organized. No ECC code or skill text is
+copied into this repository.
+
+```
+MIT License
+Copyright (c) 2026 Affaan Mustafa
+```
