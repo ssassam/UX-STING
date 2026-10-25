@@ -138,6 +138,30 @@ describe("layout", () => {
 });
 
 describe("display components", () => {
+  it("Badge asChild renders the child link with the icon or dot inside", () => {
+    render(
+      <>
+        <Badge asChild variant="outline" icon={<svg data-testid="icon" />}>
+          <a href="/cafes">Cafés</a>
+        </Badge>
+        <Badge asChild dot>
+          <a href="/open">Open now</a>
+        </Badge>
+        <Badge asChild>
+          <a href="/bars">Bars</a>
+        </Badge>
+      </>,
+    );
+    const cafes = screen.getByRole("link", { name: "Cafés" });
+    expect(cafes).toHaveAttribute("href", "/cafes");
+    expect(cafes).toHaveClass("rounded-full");
+    expect(cafes).toContainElement(screen.getByTestId("icon"));
+    expect(
+      screen.getByRole("link", { name: "Open now" }).querySelector("[aria-hidden]"),
+    ).not.toBeNull();
+    expect(screen.getByRole("link", { name: "Bars" })).toHaveClass("rounded-full");
+  });
+
   it("Avatar falls back to initials and groups overflow", () => {
     render(
       <AvatarGroup max={2}>

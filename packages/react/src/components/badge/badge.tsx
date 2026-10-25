@@ -1,4 +1,4 @@
-import { Slot } from "@ux-sting/primitives";
+import { Slot, Slottable } from "@ux-sting/primitives";
 import { cn, createVariants, type VariantProps } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 
@@ -41,7 +41,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
   return (
     <Comp ref={ref} className={badgeVariants({ variant, size, className })} {...props}>
       {dot ? <span aria-hidden className="size-1.5 rounded-full bg-current" /> : icon}
-      {children}
+      <Slottable>{children}</Slottable>
     </Comp>
   );
 });
