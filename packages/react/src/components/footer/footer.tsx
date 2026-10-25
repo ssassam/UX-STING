@@ -27,10 +27,10 @@ const TONES: Record<"default" | "inverse", CSSProperties> = {
     "--footer-accent": "var(--ui-primary)",
   } as CSSProperties,
   inverse: {
-    "--footer-bg": "#0b1220",
-    "--footer-fg": "#ffffff",
-    "--footer-muted": "rgb(255 255 255 / 0.66)",
-    "--footer-border": "rgb(255 255 255 / 0.12)",
+    "--footer-bg": "var(--ui-slate-950)",
+    "--footer-fg": "var(--ui-slate-50)",
+    "--footer-muted": "color-mix(in oklab, var(--ui-slate-50) 66%, transparent)",
+    "--footer-border": "color-mix(in oklab, var(--ui-slate-50) 12%, transparent)",
     "--footer-accent": "var(--ui-primary)",
   } as CSSProperties,
 };
