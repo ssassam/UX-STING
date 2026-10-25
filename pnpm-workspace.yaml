@@ -14,6 +14,10 @@ ignoredBuiltDependencies:
 overrides:
   # GHSA-68fv-2mgg-jv7q (jsdom → css-tree → source-map-js, tests only).
   source-map-js: ">=1.2.2"
+  # Zod memory exhaustion on oversized input (eslint-plugin-react-hooks → zod, lint only).
+  zod: ">=4.6.6"
+  # undici DoS via unhandled content-encodings (jsdom → undici, tests only).
+  undici: ">=8.12.2"
 
 auditConfig:
   ignoreGhsas:
