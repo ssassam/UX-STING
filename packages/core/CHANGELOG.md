@@ -1,5 +1,14 @@
 # @ux-sting/core
 
+## 0.4.0
+
+### Patch Changes
+
+- Updated dependencies [8d157dc]
+  - @ux-sting/utils@0.4.0
+  - @ux-sting/themes@0.4.0
+  - @ux-sting/tokens@0.4.0
+
 ## 0.3.0
 
 ### Patch Changes
