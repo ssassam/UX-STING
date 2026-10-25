@@ -1,5 +1,11 @@
 # @ux-sting/hooks
 
+## 0.5.0
+
+### Patch Changes
+
+- @ux-sting/utils@0.5.0
+
 ## 0.4.0
 
 ### Patch Changes
