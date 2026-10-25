@@ -894,6 +894,18 @@ export const components: ComponentMeta[] = [
   },
   // ───────────────────────── Patterns ─────────────────────────
   {
+    name: "footer",
+    title: "Footer",
+    category: "patterns",
+    description:
+      "Site footer: optional CTA callout, brand column, multi-column link navigation and a bottom bar with copyright and legal links. Inverse (dark) or surface tone, retintable through --footer-* variables.",
+    when: "Use once per site layout as the contentinfo landmark; group links into 3-6 titled columns.",
+    a11y: [
+      "Renders a <footer> (contentinfo) landmark with a labelled <nav> of headed link lists.",
+      "External links open in a new tab and announce it to screen readers.",
+    ],
+  },
+  {
     name: "business-card",
     title: "BusinessCard",
     category: "patterns",

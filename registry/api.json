@@ -9452,6 +9452,156 @@
       ]
     }
   },
+  "footer": {
+    "Footer": {
+      "kind": "component",
+      "description": "Site footer (`contentinfo` landmark). Compose `FooterCallout` (optional\nCTA band), `FooterMain` with `FooterBrand` + `FooterNav` of\n`FooterColumn`s, then `FooterBottom` with `FooterCopyright` and\n`FooterLegal`. Links use `FooterLink` (`asChild` for router links).",
+      "props": [
+        {
+          "name": "maxWidth",
+          "type": "\"md\" | \"lg\" | \"xl\" | \"full\"",
+          "required": false,
+          "default": "\"xl\"",
+          "description": "Max width of the inner container."
+        },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"inverse\"",
+          "required": false,
+          "default": "\"inverse\"",
+          "description": "`inverse` = dark band in every color mode; `default` = theme surface."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterCallout": {
+      "kind": "component",
+      "description": "Call-to-action band at the top of the footer (newsletter, sign-up, \"list your business\").",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Buttons / links shown on the end side."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterMain": {
+      "kind": "component",
+      "description": "Brand column + navigation grid.",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterBrand": {
+      "kind": "component",
+      "description": "Logo, tagline, contact and newsletter.",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterTagline": {
+      "kind": "component",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterNav": {
+      "kind": "component",
+      "description": "`<nav>` grid of `FooterColumn`s. Give it an `aria-label`.",
+      "props": [
+        {
+          "name": "columns",
+          "type": "2 | 3 | 4 | 5 | 6",
+          "required": false,
+          "default": "4",
+          "description": "Columns from `lg` up (2 on phones, 3 on tablets)."
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterColumn": {
+      "kind": "component",
+      "description": "Titled list of `FooterLink`s.",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4",
+          "required": false,
+          "default": "2",
+          "description": "Heading level of the column title (default 2)."
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterLink": {
+      "kind": "component",
+      "description": "A footer link inside `FooterColumn` (renders its own `<li>`).",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Small badge after the label, e.g. \"Nouveau\"."
+        },
+        {
+          "name": "external",
+          "type": "boolean",
+          "required": false,
+          "description": "Opens in a new tab with an external-link hint for screen readers."
+        },
+        {
+          "name": "externalLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"(opens in a new tab)\"",
+          "description": "Screen-reader hint appended to external links."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Leading icon (decorative)."
+        }
+      ],
+      "inherits": "288 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterBottom": {
+      "kind": "component",
+      "description": "Bottom bar: copyright on the start side, legal links / switches on the end side.",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterCopyright": {
+      "kind": "component",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "FooterLegal": {
+      "kind": "component",
+      "description": "Inline list of legal links, separated by a small dot. Children: `<a>`s or router links.",
+      "props": [],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
   "business-card": {
     "BusinessCard": {
       "kind": "component",

@@ -40,6 +40,7 @@ export * from "./components/event-card/index.js";
 export * from "./components/field/index.js";
 export * from "./components/file-upload/index.js";
 export * from "./components/filter-panel/index.js";
+export * from "./components/footer/index.js";
 export * from "./components/form/index.js";
 export * from "./components/grid/index.js";
 export * from "./components/highlight/index.js";
