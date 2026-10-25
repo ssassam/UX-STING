@@ -1,5 +1,20 @@
 # @ux-sting/react
 
+## 0.5.0
+
+### Minor Changes
+
+- b2a844e: New `Footer` pattern (`@ux-sting/react/footer`): `contentinfo` landmark with an optional `FooterCallout` CTA band, `FooterMain` (`FooterBrand` + `FooterTagline`, `FooterNav` of `FooterColumn`s with `FooterLink`s — `asChild`, `icon`, `badge`, `external`), and `FooterBottom` with `FooterCopyright` and dot-separated `FooterLegal`. `tone="inverse"` (dark in every color mode, default) or `tone="default"` (theme surface); retint through `--footer-bg/-fg/-muted/-border/-accent`.
+
+### Patch Changes
+
+- @ux-sting/hooks@0.5.0
+- @ux-sting/icons@0.5.0
+- @ux-sting/primitives@0.5.0
+- @ux-sting/themes@0.5.0
+- @ux-sting/tokens@0.5.0
+- @ux-sting/utils@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
