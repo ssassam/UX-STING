@@ -1,5 +1,14 @@
 # @ux-sting/extract
 
+## 0.6.0
+
+### Patch Changes
+
+- Updated dependencies [8fb121f]
+  - @ux-sting/tokens@0.6.0
+  - @ux-sting/themes@0.6.0
+  - @ux-sting/qa@0.6.0
+
 ## 0.5.0
 
 ### Patch Changes
