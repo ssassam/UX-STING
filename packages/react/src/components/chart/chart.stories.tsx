@@ -118,14 +118,12 @@ export const Columns: Story = {
       </Card>
       <Card className="p-5">
         <BarChart
-          data={days
-            .slice(-7)
-            .map((d) => ({
-              date: d.date,
-              hit: d.impressions * 6,
-              miss: d.impressions * 2,
-              dynamic: d.impressions,
-            }))}
+          data={days.slice(-7).map((d) => ({
+            date: d.date,
+            hit: d.impressions * 6,
+            miss: d.impressions * 2,
+            dynamic: d.impressions,
+          }))}
           index="date"
           label="Requests by cache status"
           stacked
