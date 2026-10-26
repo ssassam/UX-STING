@@ -21,6 +21,7 @@ export * from "./components/button/index.js";
 export * from "./components/calendar/index.js";
 export * from "./components/card/index.js";
 export * from "./components/carousel/index.js";
+export * from "./components/chart/index.js";
 export * from "./components/cart-line-item/index.js";
 export * from "./components/category-card/index.js";
 export * from "./components/checkbox/index.js";

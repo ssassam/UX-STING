@@ -52,6 +52,14 @@ export const SEMANTIC_COLORS = [
   "border-strong",
   "input",
   "ring",
+  "chart-1",
+  "chart-2",
+  "chart-3",
+  "chart-4",
+  "chart-5",
+  "chart-6",
+  "chart-7",
+  "chart-8",
 ] as const;
 
 export type SemanticColor = (typeof SEMANTIC_COLORS)[number];
@@ -74,6 +82,26 @@ export const defaultIntentScales: IntentScales = {
   warning: palette.amber,
   info: palette.sky,
 };
+
+/**
+ * Categorical data-viz colors, assigned to series in this fixed order (never
+ * cycled; a 9th series folds into "Other"). Independent of the theme's intent
+ * scales so a series keeps its color across themes. The order is the
+ * colorblind-safety mechanism: every adjacent pair clears CVD ΔE ≥ 8 and
+ * normal-vision ΔE ≥ 15 (OKLab ×100) in both modes. Dark mode uses its own
+ * steps (≥ 3:1 on dark surfaces), not an automatic flip. In light mode slots
+ * 3, 4 and 5 sit below 3:1 on white, so charts pair color with legends,
+ * direct labels or a table view.
+ */
+export const CHART_COLORS_LIGHT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"] as const;
+export const CHART_COLORS_DARK = ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#008300", "#9085e9", "#e66767"] as const;
+
+function chartColors(values: readonly string[]) {
+  return Object.fromEntries(values.map((v, i) => [`chart-${i + 1}`, v])) as Record<
+    `chart-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}`,
+    string
+  >;
+}
 
 /** Builds the light-mode semantic colors from a set of scales. */
 export function createLightColors(s: IntentScales = defaultIntentScales): SemanticColors {
@@ -125,6 +153,7 @@ export function createLightColors(s: IntentScales = defaultIntentScales): Semant
     "border-strong": n[300],
     input: n[500],
     ring: s.primary[500],
+    ...chartColors(CHART_COLORS_LIGHT),
   };
 }
 
@@ -178,6 +207,7 @@ export function createDarkColors(s: IntentScales = defaultIntentScales): Semanti
     "border-strong": n[700],
     input: n[600],
     ring: s.primary[400],
+    ...chartColors(CHART_COLORS_DARK),
   };
 }
 

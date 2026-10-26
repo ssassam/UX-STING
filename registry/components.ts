@@ -781,6 +781,22 @@ export const components: ComponentMeta[] = [
     ],
   },
   {
+    name: "chart",
+    title: "Chart",
+    category: "data-display",
+    description:
+      "Dependency-free SVG charts on the --ui-chart-1…8 categorical palette: LineChart/AreaChart (crosshair tooltip over every series), BarChart (side-by-side or stacked columns), BarList (ranked horizontal bars), DonutChart, Sparkline and ChartMetrics (Search Console-style metric picker).",
+    when: "Use LineChart/AreaChart for change over time, BarChart for magnitude by period or category, BarList for top-N rankings, DonutChart for a few parts of a whole and Sparkline inside stat tiles. Put ChartMetrics above a chart to switch the plotted metric.",
+    avoid:
+      "Never plot two measures on two y axes: switch metrics with ChartMetrics or use two charts. Do not cycle colors past eight series; fold the rest into \"Other\" (colorSlot: \"muted\").",
+    a11y: [
+      "Every chart renders a visually hidden data table; values are also in the legend, labels or tooltip, never color alone.",
+      "Line and bar charts are focusable: arrow keys, Home and End walk the points and the current values are announced in a live region.",
+      "ChartMetrics is a radio group with roving focus.",
+    ],
+    related: ["stat"],
+  },
+  {
     name: "timeline",
     title: "Timeline",
     category: "data-display",

@@ -8524,6 +8524,498 @@
       "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
+  "chart": {
+    "ChartLegend": {
+      "kind": "component",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ label: string; color: string }[]",
+          "required": true
+        },
+        {
+          "name": "mark",
+          "type": "\"line\" | \"square\"",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "ChartTooltip": {
+      "kind": "component",
+      "description": "Tooltip card. Values lead (strong, foreground) and series names follow\n(muted), each row keyed by a short stroke of the series color.",
+      "props": [
+        {
+          "name": "rows",
+          "type": "{ label: string; value: string; color: string }[]",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "mark",
+          "type": "\"line\" | \"square\"",
+          "required": false,
+          "default": "\"line\""
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false
+        }
+      ]
+    },
+    "ChartTable": {
+      "kind": "component",
+      "description": "Visually hidden data table: the non-visual (and copyable) view of a chart.",
+      "props": [
+        {
+          "name": "caption",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "head",
+          "type": "string[]",
+          "required": true
+        },
+        {
+          "name": "rows",
+          "type": "string[][]",
+          "required": true
+        }
+      ]
+    },
+    "slotColor": {
+      "kind": "function",
+      "props": []
+    },
+    "niceTicks": {
+      "kind": "function",
+      "description": "0, 1, 2, 2.5 or 5 × 10ⁿ steps covering [min, max] in about `count` ticks.",
+      "props": []
+    },
+    "tickIndices": {
+      "kind": "function",
+      "description": "Evenly spaced subset of indices that fits `width` at ~`minGap`px per label.",
+      "props": []
+    },
+    "textWidth": {
+      "kind": "function",
+      "description": "Rough text width for axis labels at 11px (avoids measuring the DOM).",
+      "props": []
+    },
+    "LineChart": {
+      "kind": "component",
+      "description": "Line chart for change over time: 2px lines on one y axis, hairline grid,\na crosshair that snaps to the nearest x with one tooltip for every series,\narrow-key navigation, and a visually hidden data table. Up to eight series\nin the categorical chart colors; never two y scales. Set `area` for a wash\nunder the lines (an area chart).",
+      "props": [
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "index",
+          "type": "Extract<keyof T, string>",
+          "required": true,
+          "description": "Field holding each datum's x value (a date string, a label…)."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name: what the chart shows, e.g. \"Clicks per day\"."
+        },
+        {
+          "name": "series",
+          "type": "ChartSeries<T>[]",
+          "required": true
+        },
+        {
+          "name": "area",
+          "type": "boolean",
+          "required": false,
+          "description": "Adds a ~10% wash under each line."
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Shown instead of the plot when `data` is empty."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "description": "Plot height in px (legend excluded)."
+        },
+        {
+          "name": "indexFormatter",
+          "type": "(value: T[Extract<keyof T, string>]) => string",
+          "required": false,
+          "description": "Formats x values for ticks, tooltip titles and the table."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "reversed",
+          "type": "boolean",
+          "required": false,
+          "description": "Draw the y axis upside down (rank / position charts: 1 at the top)."
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "required": false,
+          "description": "Legend above the plot; defaults to on for two or more series."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        },
+        {
+          "name": "zeroBaseline",
+          "type": "boolean",
+          "required": false,
+          "description": "Start the y axis at zero (default) or fit it to the data."
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "AreaChart": {
+      "kind": "component",
+      "description": "`LineChart` with `area` on.",
+      "props": [
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "index",
+          "type": "Extract<keyof T, string>",
+          "required": true,
+          "description": "Field holding each datum's x value (a date string, a label…)."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name: what the chart shows, e.g. \"Clicks per day\"."
+        },
+        {
+          "name": "series",
+          "type": "ChartSeries<T>[]",
+          "required": true
+        },
+        {
+          "name": "area",
+          "type": "boolean",
+          "required": false,
+          "description": "Adds a ~10% wash under each line."
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Shown instead of the plot when `data` is empty."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "description": "Plot height in px (legend excluded)."
+        },
+        {
+          "name": "indexFormatter",
+          "type": "(value: T[Extract<keyof T, string>]) => string",
+          "required": false,
+          "description": "Formats x values for ticks, tooltip titles and the table."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "reversed",
+          "type": "boolean",
+          "required": false,
+          "description": "Draw the y axis upside down (rank / position charts: 1 at the top)."
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "required": false,
+          "description": "Legend above the plot; defaults to on for two or more series."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        },
+        {
+          "name": "zeroBaseline",
+          "type": "boolean",
+          "required": false,
+          "description": "Start the y axis at zero (default) or fit it to the data."
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "BarChart": {
+      "kind": "component",
+      "description": "Column chart for magnitude by category or period: ≤24px columns grown from\none baseline with a 4px rounded data end, side-by-side or `stacked` series\nseparated by a 2px surface gap, a per-column hover/focus tooltip and a\nvisually hidden data table.",
+      "props": [
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "index",
+          "type": "Extract<keyof T, string>",
+          "required": true,
+          "description": "Field holding each column's category / date."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name: what the chart shows."
+        },
+        {
+          "name": "series",
+          "type": "ChartSeries<T>[]",
+          "required": true
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "indexFormatter",
+          "type": "(value: T[Extract<keyof T, string>]) => string",
+          "required": false
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "showValues",
+          "type": "boolean",
+          "required": false,
+          "description": "Print each column's value on its cap (single, unstacked series only)."
+        },
+        {
+          "name": "stacked",
+          "type": "boolean",
+          "required": false,
+          "description": "Stack series in one column (parts of a whole) instead of side by side."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "BarList": {
+      "kind": "component",
+      "description": "Ranked horizontal bars (top pages, countries, sources): name, a thin bar\nsquare at the start with a 4px rounded data end, and the value at the end.\nValues are always printed, so no hover is needed and nothing is\ncolor-only.",
+      "props": [
+        {
+          "name": "data",
+          "type": "BarListItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name for the list."
+        },
+        {
+          "name": "colorSlot",
+          "type": "ChartSlot",
+          "required": false,
+          "default": "1",
+          "description": "Categorical slot for every bar (default 1)."
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false,
+          "description": "Show only the first N rows."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "description": "Value that fills the track; defaults to the largest value."
+        },
+        {
+          "name": "showShare",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Adds each row's share of the total next to its value."
+        },
+        {
+          "name": "sortOrder",
+          "type": "\"desc\" | \"none\"",
+          "required": false,
+          "default": "\"desc\"",
+          "description": "`\"desc\"` sorts by value (default); `\"none\"` keeps the given order."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "DonutChart": {
+      "kind": "component",
+      "description": "Parts of a whole, for a handful of categories (≤ 5 reads best; fold the\nrest into \"Other\"). Slices are split by a 2px surface gap, and a legend\nwith values and shares sits beside the ring, so identity never relies on\ncolor alone.",
+      "props": [
+        {
+          "name": "data",
+          "type": "DonutChartItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name, e.g. \"Sessions by device\"."
+        },
+        {
+          "name": "center",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Text in the hole; defaults to the formatted total."
+        },
+        {
+          "name": "centerLabel",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Small caption under the center value."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "128",
+          "description": "Diameter in px."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "Sparkline": {
+      "kind": "component",
+      "description": "Word-sized trend line for stat tiles and table cells. No axes and no\nhover: pair it with the figure it summarizes. Scales to its box (set the\nsize with `className`, default 100% × 32px).",
+      "props": [
+        {
+          "name": "data",
+          "type": "number[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name, e.g. \"Clicks, last 28 days\"."
+        },
+        {
+          "name": "area",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Adds a ~10% wash under the line."
+        },
+        {
+          "name": "colorSlot",
+          "type": "ChartSlot",
+          "required": false,
+          "default": "1",
+          "description": "Categorical slot, or `\"muted\"` for the de-emphasis ink (default 1)."
+        },
+        {
+          "name": "showEnd",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Marks the latest value with a dot."
+        }
+      ],
+      "inherits": "487 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "ChartMetrics": {
+      "kind": "component",
+      "description": "Row of metric tiles that picks what the chart below plots (the Search\nConsole pattern). Exactly one metric is plotted at a time, so the chart\nkeeps one y axis. A radio group: arrow keys move and select; the selected\ntile carries the series color as a top rule, and its figure and delta stay\nin text colors.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name for the picker, e.g. \"Metric\"."
+        },
+        {
+          "name": "metrics",
+          "type": "ChartMetric[]",
+          "required": true
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    }
+  },
   "timeline": {
     "Timeline": {
       "kind": "component",
