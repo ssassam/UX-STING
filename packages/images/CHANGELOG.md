@@ -1,5 +1,11 @@
 # @ux-sting/images
 
+## 0.6.0
+
+### Patch Changes
+
+- @ux-sting/design-dna@0.6.0
+
 ## 0.5.0
 
 ### Patch Changes
