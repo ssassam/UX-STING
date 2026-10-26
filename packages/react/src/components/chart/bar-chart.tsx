@@ -11,7 +11,10 @@ import {
 } from "./chart-core.js";
 import { niceTicks, slotColor, textWidth, tickIndices, type ChartSeries } from "./chart-utils.js";
 
-export interface BarChartProps<T extends object> extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+export interface BarChartProps<T extends object> extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "children"
+> {
   data: T[];
   /** Field holding each column's category / date. */
   index: Extract<keyof T, string>;
@@ -75,7 +78,9 @@ function BarChartInner<T extends object>(
   const maxV = Math.max(
     0,
     ...data.map((d) =>
-      stacked ? series.reduce((sum, s) => sum + value(d, s.key), 0) : Math.max(0, ...series.map((s) => value(d, s.key))),
+      stacked
+        ? series.reduce((sum, s) => sum + value(d, s.key), 0)
+        : Math.max(0, ...series.map((s) => value(d, s.key))),
     ),
   );
   const ticks = niceTicks(0, maxV || 1);
@@ -87,7 +92,10 @@ function BarChartInner<T extends object>(
   const band = data.length ? plotW / data.length : 0;
   const y = (v: number) => M.top + (1 - v / yMax) * plotH;
   const base = M.top + plotH;
-  const groupW = Math.min(band * 0.7, stacked ? MAX_BAR : MAX_BAR * series.length + GAP * (series.length - 1));
+  const groupW = Math.min(
+    band * 0.7,
+    stacked ? MAX_BAR : MAX_BAR * series.length + GAP * (series.length - 1),
+  );
   const barW = stacked ? groupW : Math.max(1, (groupW - GAP * (series.length - 1)) / series.length);
   const xTicks = tickIndices(data.length, plotW, 64);
   const labels = showValues && !stacked && series.length === 1 && band >= 28;
@@ -98,7 +106,12 @@ function BarChartInner<T extends object>(
 
   return (
     <div ref={ref} className={cn("grid gap-3", className)} {...props}>
-      {legend && <ChartLegend mark="square" items={series.map((s, i) => ({ label: s.label, color: colors[i]! }))} />}
+      {legend && (
+        <ChartLegend
+          mark="square"
+          items={series.map((s, i) => ({ label: s.label, color: colors[i]! }))}
+        />
+      )}
       {data.length === 0 ? (
         <div
           className="flex items-center justify-center rounded-md border border-dashed border-border text-sm text-muted-foreground"
@@ -126,7 +139,14 @@ function BarChartInner<T extends object>(
             <svg width={width} height={height} aria-hidden className="block overflow-visible">
               {ticks.map((t) => (
                 <g key={t}>
-                  <line x1={start} x2={start + plotW} y1={y(t)} y2={y(t)} stroke="var(--ui-border)" strokeWidth={1} />
+                  <line
+                    x1={start}
+                    x2={start + plotW}
+                    y1={y(t)}
+                    y2={y(t)}
+                    stroke="var(--ui-border)"
+                    strokeWidth={1}
+                  />
                   <text
                     x={start - 8}
                     y={y(t)}
@@ -165,11 +185,21 @@ function BarChartInner<T extends object>(
                         acc += v;
                         const top = y(acc) + (acc < total ? GAP / 2 : 0);
                         return (
-                          <path key={s.key} d={column(left, barW, top, bottom, acc >= total)} fill={colors[si]} />
+                          <path
+                            key={s.key}
+                            d={column(left, barW, top, bottom, acc >= total)}
+                            fill={colors[si]}
+                          />
                         );
                       }
                       const bx = left + si * (barW + GAP);
-                      return <path key={s.key} d={column(bx, barW, y(v), base, true)} fill={colors[si]} />;
+                      return (
+                        <path
+                          key={s.key}
+                          d={column(bx, barW, y(v), base, true)}
+                          fill={colors[si]}
+                        />
+                      );
                     })}
                     {labels && (
                       <text
@@ -184,7 +214,14 @@ function BarChartInner<T extends object>(
                   </g>
                 );
               })}
-              <line x1={start} x2={start + plotW} y1={base} y2={base} stroke="var(--ui-border-strong)" strokeWidth={1} />
+              <line
+                x1={start}
+                x2={start + plotW}
+                y1={base}
+                y2={base}
+                stroke="var(--ui-border-strong)"
+                strokeWidth={1}
+              />
               {xTicks.map((i) => (
                 <text
                   key={i}
@@ -202,8 +239,17 @@ function BarChartInner<T extends object>(
             <ChartTooltip
               mark="square"
               title={xLabel(activeRow)}
-              rows={series.map((s, i) => ({ label: s.label, value: fmtFor(s)(value(activeRow, s.key)), color: colors[i]! }))}
-              style={{ top: M.top, ...(flip ? { right: width - tipX + groupW / 2 + 8 } : { left: tipX + groupW / 2 + 8 }) }}
+              rows={series.map((s, i) => ({
+                label: s.label,
+                value: fmtFor(s)(value(activeRow, s.key)),
+                color: colors[i]!,
+              }))}
+              style={{
+                top: M.top,
+                ...(flip
+                  ? { right: width - tipX + groupW / 2 + 8 }
+                  : { left: tipX + groupW / 2 + 8 }),
+              }}
             />
           )}
           <div aria-live="polite" className="sr-only">

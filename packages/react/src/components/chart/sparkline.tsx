@@ -27,12 +27,22 @@ export const Sparkline = forwardRef<SVGSVGElement, SparklineProps>(function Spar
   const h = 32;
   const color = slotColor(colorSlot, 0);
   if (data.length < 2) {
-    return <svg ref={ref} role="img" aria-label={label} className={cn("h-8 w-full", className)} {...props} />;
+    return (
+      <svg
+        ref={ref}
+        role="img"
+        aria-label={label}
+        className={cn("h-8 w-full", className)}
+        {...props}
+      />
+    );
   }
   const max = Math.max(...data);
   const min = Math.min(...data);
   const span = max - min || 1;
-  const pts = data.map((v, i) => [(i / (data.length - 1)) * w, h - 3 - ((v - min) / span) * (h - 6)] as const);
+  const pts = data.map(
+    (v, i) => [(i / (data.length - 1)) * w, h - 3 - ((v - min) / span) * (h - 6)] as const,
+  );
   const line = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(2)},${y.toFixed(2)}`).join("");
   const last = pts[pts.length - 1]!;
   return (

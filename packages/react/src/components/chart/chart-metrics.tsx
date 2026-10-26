@@ -20,7 +20,10 @@ export interface ChartMetric {
   colorSlot?: ChartSlot;
 }
 
-export interface ChartMetricsProps extends Omit<HTMLAttributes<HTMLDivElement>, "defaultValue" | "onChange"> {
+export interface ChartMetricsProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "defaultValue" | "onChange"
+> {
   metrics: ChartMetric[];
   value?: string;
   defaultValue?: string;
@@ -70,13 +73,18 @@ export const ChartMetrics = forwardRef<HTMLDivElement, ChartMetricsProps>(functi
       ref={ref}
       role="radiogroup"
       aria-label={label}
-      className={cn("grid grid-cols-2 gap-2 sm:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]", className)}
+      className={cn(
+        "grid grid-cols-2 gap-2 sm:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]",
+        className,
+      )}
       {...props}
     >
       {metrics.map((m, i) => {
         const on = m.key === value;
         const good =
-          !m.trend || m.trend === "neutral" ? null : (m.trend === "up") === ((m.trendMeaning ?? "positive-up") === "positive-up");
+          !m.trend || m.trend === "neutral"
+            ? null
+            : (m.trend === "up") === ((m.trendMeaning ?? "positive-up") === "positive-up");
         return (
           <button
             key={m.key}
@@ -92,7 +100,9 @@ export const ChartMetrics = forwardRef<HTMLDivElement, ChartMetricsProps>(functi
             className={cn(
               "relative grid gap-1 overflow-hidden rounded-md border px-3 pb-2.5 pt-3 text-start outline-none transition-colors",
               "focus-visible:ring-2 focus-visible:ring-ring",
-              on ? "border-border-strong bg-card shadow-xs" : "border-border bg-transparent hover:bg-muted/60",
+              on
+                ? "border-border-strong bg-card shadow-xs"
+                : "border-border bg-transparent hover:bg-muted/60",
             )}
           >
             <span
@@ -106,10 +116,18 @@ export const ChartMetrics = forwardRef<HTMLDivElement, ChartMetricsProps>(functi
               <span
                 className={cn(
                   "inline-flex items-center gap-1 text-xs font-medium tabular-nums [&_svg]:size-3.5",
-                  good === null ? "text-muted-foreground" : good ? "text-success-subtle-foreground" : "text-destructive-subtle-foreground",
+                  good === null
+                    ? "text-muted-foreground"
+                    : good
+                      ? "text-success-subtle-foreground"
+                      : "text-destructive-subtle-foreground",
                 )}
               >
-                {m.trend === "up" ? <TrendingUpIcon aria-hidden /> : m.trend === "down" ? <TrendingDownIcon aria-hidden /> : null}
+                {m.trend === "up" ? (
+                  <TrendingUpIcon aria-hidden />
+                ) : m.trend === "down" ? (
+                  <TrendingDownIcon aria-hidden />
+                ) : null}
                 {m.delta}
               </span>
             ) : null}

@@ -49,7 +49,12 @@ export function ChartLegend({
   className?: string;
 }) {
   return (
-    <ul className={cn("flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground", className)}>
+    <ul
+      className={cn(
+        "flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground",
+        className,
+      )}
+    >
       {items.map((it) => (
         <li key={it.label} className="inline-flex items-center gap-1.5">
           <span
@@ -91,7 +96,11 @@ export function ChartTooltip({
           <li key={r.label} className="flex items-center gap-2">
             <span
               aria-hidden
-              className={mark === "line" ? "h-0.5 w-2.5 shrink-0 rounded-full" : "size-2 shrink-0 rounded-[2px]"}
+              className={
+                mark === "line"
+                  ? "h-0.5 w-2.5 shrink-0 rounded-full"
+                  : "size-2 shrink-0 rounded-[2px]"
+              }
               style={{ background: r.color }}
             />
             <span className="font-semibold tabular-nums text-foreground">{r.value}</span>

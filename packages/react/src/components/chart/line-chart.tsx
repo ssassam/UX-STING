@@ -11,8 +11,10 @@ import {
 } from "./chart-core.js";
 import { niceTicks, slotColor, textWidth, tickIndices, type ChartSeries } from "./chart-utils.js";
 
-export interface LineChartProps<T extends object>
-  extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+export interface LineChartProps<T extends object> extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "children"
+> {
   data: T[];
   /** Field holding each datum's x value (a date string, a label…). */
   index: Extract<keyof T, string>;
@@ -69,7 +71,9 @@ function LineChartInner<T extends object>(
   const colors = series.map((s, i) => slotColor(s.colorSlot, i));
   const legend = showLegend ?? series.length > 1;
 
-  const all = data.flatMap((d) => series.map((s) => value(d, s.key)).filter((v): v is number => v !== null));
+  const all = data.flatMap((d) =>
+    series.map((s) => value(d, s.key)).filter((v): v is number => v !== null),
+  );
   const lo = all.length ? Math.min(...all) : 0;
   const hi = all.length ? Math.max(...all) : 1;
   const ticks = niceTicks(zeroBaseline ? Math.min(0, lo) : lo, zeroBaseline ? Math.max(0, hi) : hi);
@@ -116,7 +120,12 @@ function LineChartInner<T extends object>(
 
   return (
     <div ref={ref} className={cn("grid gap-3", className)} {...props}>
-      {legend && <ChartLegend mark="line" items={series.map((s, i) => ({ label: s.label, color: colors[i]! }))} />}
+      {legend && (
+        <ChartLegend
+          mark="line"
+          items={series.map((s, i) => ({ label: s.label, color: colors[i]! }))}
+        />
+      )}
       {data.length === 0 ? (
         <div
           className="flex items-center justify-center rounded-md border border-dashed border-border text-sm text-muted-foreground"
@@ -145,7 +154,14 @@ function LineChartInner<T extends object>(
               {area && (
                 <defs>
                   {series.map((s, i) => (
-                    <linearGradient key={s.key} id={`${gradientId}-${i}`} x1="0" x2="0" y1="0" y2="1">
+                    <linearGradient
+                      key={s.key}
+                      id={`${gradientId}-${i}`}
+                      x1="0"
+                      x2="0"
+                      y1="0"
+                      y2="1"
+                    >
                       <stop offset="0%" stopColor={colors[i]} stopOpacity={0.14} />
                       <stop offset="100%" stopColor={colors[i]} stopOpacity={0.02} />
                     </linearGradient>
@@ -154,7 +170,14 @@ function LineChartInner<T extends object>(
               )}
               {ticks.map((t) => (
                 <g key={t}>
-                  <line x1={start} x2={start + plotW} y1={y(t)} y2={y(t)} stroke="var(--ui-border)" strokeWidth={1} />
+                  <line
+                    x1={start}
+                    x2={start + plotW}
+                    y1={y(t)}
+                    y2={y(t)}
+                    stroke="var(--ui-border)"
+                    strokeWidth={1}
+                  />
                   <text
                     x={start - 8}
                     y={y(t)}
@@ -171,7 +194,13 @@ function LineChartInner<T extends object>(
                   key={i}
                   x={x(i)}
                   y={height - 6}
-                  textAnchor={i === 0 && data.length > 1 ? "start" : i === data.length - 1 && data.length > 1 ? "end" : "middle"}
+                  textAnchor={
+                    i === 0 && data.length > 1
+                      ? "start"
+                      : i === data.length - 1 && data.length > 1
+                        ? "end"
+                        : "middle"
+                  }
                   className="fill-muted-foreground text-[11px]"
                 >
                   {xLabel(data[i]!)}
@@ -182,7 +211,10 @@ function LineChartInner<T extends object>(
                   const d = pathFor(s.key);
                   if (!d) return null;
                   const first = data.findIndex((row) => value(row, s.key) !== null);
-                  const last = data.length - 1 - [...data].reverse().findIndex((row) => value(row, s.key) !== null);
+                  const last =
+                    data.length -
+                    1 -
+                    [...data].reverse().findIndex((row) => value(row, s.key) !== null);
                   return (
                     <path
                       key={s.key}
@@ -246,7 +278,9 @@ function LineChartInner<T extends object>(
               title={xLabel(activeRow)}
               rows={series.flatMap((s, i) => {
                 const v = value(activeRow, s.key);
-                return v === null ? [] : [{ label: s.label, value: fmtFor(s)(v), color: colors[i]! }];
+                return v === null
+                  ? []
+                  : [{ label: s.label, value: fmtFor(s)(v), color: colors[i]! }];
               })}
               style={{
                 top: M.top,
@@ -298,4 +332,6 @@ export const AreaChart = forwardRef(function AreaChart<T extends object>(
   ref: Ref<HTMLDivElement>,
 ) {
   return <LineChart ref={ref} area {...props} />;
-}) as unknown as <T extends object>(props: LineChartProps<T> & { ref?: Ref<HTMLDivElement> }) => ReturnType<typeof LineChartInner>;
+}) as unknown as <T extends object>(
+  props: LineChartProps<T> & { ref?: Ref<HTMLDivElement> },
+) => ReturnType<typeof LineChartInner>;

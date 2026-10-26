@@ -67,4 +67,3 @@ export function tickIndices(length: number, width: number, minGap = 72): number[
 
 /** Rough text width for axis labels at 11px (avoids measuring the DOM). */
 export const textWidth = (s: string) => s.length * 6.4;
-

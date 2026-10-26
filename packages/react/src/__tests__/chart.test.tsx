@@ -62,7 +62,12 @@ describe("LineChart", () => {
 
   it("shows a legend only for two or more series", () => {
     const { rerender } = render(
-      <LineChart data={days} index="date" label="Traffic" series={[{ key: "clicks", label: "Clicks" }]} />,
+      <LineChart
+        data={days}
+        index="date"
+        label="Traffic"
+        series={[{ key: "clicks", label: "Clicks" }]}
+      />,
     );
     expect(screen.queryByRole("list")).not.toBeInTheDocument();
     rerender(
@@ -101,7 +106,9 @@ describe("LineChart", () => {
   });
 
   it("renders the empty state", () => {
-    render(<LineChart data={[]} index="date" label="Clicks" series={[]} empty="Waiting for data" />);
+    render(
+      <LineChart data={[]} index="date" label="Clicks" series={[]} empty="Waiting for data" />,
+    );
     expect(screen.getByText("Waiting for data")).toBeInTheDocument();
   });
 });
@@ -143,7 +150,9 @@ describe("BarList", () => {
         ]}
       />,
     );
-    const items = within(screen.getByRole("list", { name: "Top countries" })).getAllByRole("listitem");
+    const items = within(screen.getByRole("list", { name: "Top countries" })).getAllByRole(
+      "listitem",
+    );
     expect(items).toHaveLength(2);
     expect(items[0]).toHaveTextContent("Morocco");
     expect(items[0]).toHaveTextContent("70.0%");
@@ -193,7 +202,9 @@ describe("ChartMetrics", () => {
 
   it("works uncontrolled with arrow keys", async () => {
     const onValueChange = vi.fn();
-    const { container } = render(<ChartMetrics label="Metric" metrics={metrics} onValueChange={onValueChange} />);
+    const { container } = render(
+      <ChartMetrics label="Metric" metrics={metrics} onValueChange={onValueChange} />,
+    );
     const [clicks, position] = screen.getAllByRole("radio");
     expect(clicks).toHaveAttribute("aria-checked", "true");
     fireEvent.keyDown(clicks!, { key: "ArrowRight" });
@@ -205,7 +216,14 @@ describe("ChartMetrics", () => {
 
   it("works controlled", () => {
     const onValueChange = vi.fn();
-    render(<ChartMetrics label="Metric" metrics={metrics} value="position" onValueChange={onValueChange} />);
+    render(
+      <ChartMetrics
+        label="Metric"
+        metrics={metrics}
+        value="position"
+        onValueChange={onValueChange}
+      />,
+    );
     const [clicks, position] = screen.getAllByRole("radio");
     expect(position).toHaveAttribute("aria-checked", "true");
     fireEvent.click(clicks!);

@@ -56,7 +56,10 @@ export const BarList = forwardRef<HTMLUListElement, BarListProps>(function BarLi
   ref,
 ) {
   const fmt = useChartFormat(valueFormatter);
-  const rows = (sortOrder === "desc" ? [...data].sort((a, b) => b.value - a.value) : data).slice(0, limit);
+  const rows = (sortOrder === "desc" ? [...data].sort((a, b) => b.value - a.value) : data).slice(
+    0,
+    limit,
+  );
   const top = max ?? Math.max(0, ...data.map((d) => d.value));
   const total = data.reduce((s, d) => s + d.value, 0);
   return (
@@ -74,17 +77,24 @@ export const BarList = forwardRef<HTMLUListElement, BarListProps>(function BarLi
                 ) : (
                   row.name
                 )}
-                {row.description ? <span className="ms-2 text-xs text-muted-foreground">{row.description}</span> : null}
+                {row.description ? (
+                  <span className="ms-2 text-xs text-muted-foreground">{row.description}</span>
+                ) : null}
               </span>
               <span className="shrink-0 tabular-nums text-muted-foreground">
                 <span className="font-medium text-foreground">{fmt.value(row.value)}</span>
-                {showShare && total > 0 ? <span className="ms-1.5 text-xs">{((row.value / total) * 100).toFixed(1)}%</span> : null}
+                {showShare && total > 0 ? (
+                  <span className="ms-1.5 text-xs">{((row.value / total) * 100).toFixed(1)}%</span>
+                ) : null}
               </span>
             </div>
             <div aria-hidden className="h-1.5">
               <div
                 className="h-full rounded-e-[4px]"
-                style={{ width: `${Math.max(pct * 100, row.value > 0 ? 0.75 : 0)}%`, background: slotColor(row.colorSlot ?? colorSlot, 0) }}
+                style={{
+                  width: `${Math.max(pct * 100, row.value > 0 ? 0.75 : 0)}%`,
+                  background: slotColor(row.colorSlot ?? colorSlot, 0),
+                }}
               />
             </div>
           </li>

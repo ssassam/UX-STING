@@ -29,7 +29,14 @@ const days = Array.from({ length: 28 }, (_, i) => {
 
 const METRICS = [
   { key: "clicks", label: "Clicks", value: "4.2K", delta: "+18.4%", trend: "up", colorSlot: 1 },
-  { key: "impressions", label: "Impressions", value: "112K", delta: "+9.1%", trend: "up", colorSlot: 7 },
+  {
+    key: "impressions",
+    label: "Impressions",
+    value: "112K",
+    delta: "+9.1%",
+    trend: "up",
+    colorSlot: 7,
+  },
   { key: "ctr", label: "Average CTR", value: "3.7%", delta: "+0.3 pts", trend: "up", colorSlot: 3 },
   {
     key: "position",
@@ -46,10 +53,19 @@ function SearchPerformance() {
   const [metric, setMetric] = useState<string>("clicks");
   const m = METRICS.find((x) => x.key === metric)!;
   const format =
-    metric === "ctr" ? (v: number) => `${(v * 100).toFixed(1)}%` : metric === "position" ? (v: number) => v.toFixed(1) : undefined;
+    metric === "ctr"
+      ? (v: number) => `${(v * 100).toFixed(1)}%`
+      : metric === "position"
+        ? (v: number) => v.toFixed(1)
+        : undefined;
   return (
     <Card className="grid gap-5 p-5">
-      <ChartMetrics label="Metric" metrics={[...METRICS]} value={metric} onValueChange={setMetric} />
+      <ChartMetrics
+        label="Metric"
+        metrics={[...METRICS]}
+        value={metric}
+        onValueChange={setMetric}
+      />
       <AreaChart
         data={days}
         index="date"
@@ -70,7 +86,12 @@ export const MultiSeries: Story = {
   render: () => (
     <Card className="p-5">
       <LineChart
-        data={days.map((d) => ({ date: d.date, web: d.clicks, maps: Math.round(d.clicks * 0.6), images: Math.round(d.clicks * 0.25) }))}
+        data={days.map((d) => ({
+          date: d.date,
+          web: d.clicks,
+          maps: Math.round(d.clicks * 0.6),
+          images: Math.round(d.clicks * 0.25),
+        }))}
         index="date"
         label="Clicks by surface"
         series={[
@@ -97,7 +118,14 @@ export const Columns: Story = {
       </Card>
       <Card className="p-5">
         <BarChart
-          data={days.slice(-7).map((d) => ({ date: d.date, hit: d.impressions * 6, miss: d.impressions * 2, dynamic: d.impressions }))}
+          data={days
+            .slice(-7)
+            .map((d) => ({
+              date: d.date,
+              hit: d.impressions * 6,
+              miss: d.impressions * 2,
+              dynamic: d.impressions,
+            }))}
           index="date"
           label="Requests by cache status"
           stacked

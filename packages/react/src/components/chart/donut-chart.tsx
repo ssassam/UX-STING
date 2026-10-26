@@ -28,7 +28,8 @@ const TAU = Math.PI * 2;
 
 function arc(cx: number, cy: number, r0: number, r1: number, a0: number, a1: number) {
   const large = a1 - a0 > Math.PI ? 1 : 0;
-  const p = (r: number, a: number) => `${(cx + r * Math.sin(a)).toFixed(2)},${(cy - r * Math.cos(a)).toFixed(2)}`;
+  const p = (r: number, a: number) =>
+    `${(cx + r * Math.sin(a)).toFixed(2)},${(cy - r * Math.cos(a)).toFixed(2)}`;
   return `M${p(r1, a0)}A${r1},${r1} 0 ${large} 1 ${p(r1, a1)}L${p(r0, a1)}A${r0},${r0} 0 ${large} 0 ${p(r0, a0)}Z`;
 }
 
@@ -61,11 +62,26 @@ export const DonutChart = forwardRef<HTMLDivElement, DonutChartProps>(function D
       <div className="relative shrink-0" style={{ width: size, height: size }}>
         <svg width={size} height={size} role="img" aria-label={label} className="block">
           {total === 0 ? (
-            <circle cx={r1} cy={r1} r={(r0 + r1) / 2} fill="none" stroke="var(--ui-muted)" strokeWidth={r1 - r0} />
+            <circle
+              cx={r1}
+              cy={r1}
+              r={(r0 + r1) / 2}
+              fill="none"
+              stroke="var(--ui-muted)"
+              strokeWidth={r1 - r0}
+            />
           ) : (
             slices.map((s) =>
               s.a1 - s.a0 >= TAU - 1e-6 ? (
-                <circle key={s.i} cx={r1} cy={r1} r={(r0 + r1) / 2} fill="none" stroke={s.color} strokeWidth={r1 - r0} />
+                <circle
+                  key={s.i}
+                  cx={r1}
+                  cy={r1}
+                  r={(r0 + r1) / 2}
+                  fill="none"
+                  stroke={s.color}
+                  strokeWidth={r1 - r0}
+                />
               ) : s.a1 > s.a0 ? (
                 <path
                   key={s.i}
@@ -86,7 +102,9 @@ export const DonutChart = forwardRef<HTMLDivElement, DonutChartProps>(function D
           <span className="text-base font-semibold tabular-nums text-foreground">
             {shown ? fmt.value(shown.value) : (center ?? fmt.value(total))}
           </span>
-          <span className="max-w-[70%] truncate text-[11px] text-muted-foreground">{shown ? shown.name : centerLabel}</span>
+          <span className="max-w-[70%] truncate text-[11px] text-muted-foreground">
+            {shown ? shown.name : centerLabel}
+          </span>
         </div>
       </div>
       <ul className="grid min-w-40 flex-1 gap-1.5 text-sm">
@@ -97,7 +115,11 @@ export const DonutChart = forwardRef<HTMLDivElement, DonutChartProps>(function D
             onPointerEnter={() => setActive(s.i)}
             onPointerLeave={() => setActive(null)}
           >
-            <span aria-hidden className="size-2.5 shrink-0 rounded-[3px]" style={{ background: s.color }} />
+            <span
+              aria-hidden
+              className="size-2.5 shrink-0 rounded-[3px]"
+              style={{ background: s.color }}
+            />
             <span className="min-w-0 flex-1 truncate text-foreground">{s.d.name}</span>
             <span className="font-medium tabular-nums text-foreground">{fmt.value(s.d.value)}</span>
             <span className="w-12 text-end text-xs tabular-nums text-muted-foreground">
@@ -109,7 +131,11 @@ export const DonutChart = forwardRef<HTMLDivElement, DonutChartProps>(function D
       <ChartTable
         caption={label}
         head={["Category", "Value", "Share"]}
-        rows={data.map((d) => [d.name, fmt.value(d.value), total > 0 ? `${((d.value / total) * 100).toFixed(1)}%` : "—"])}
+        rows={data.map((d) => [
+          d.name,
+          fmt.value(d.value),
+          total > 0 ? `${((d.value / total) * 100).toFixed(1)}%` : "—",
+        ])}
       />
     </div>
   );

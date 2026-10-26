@@ -93,8 +93,26 @@ export const defaultIntentScales: IntentScales = {
  * 3, 4 and 5 sit below 3:1 on white, so charts pair color with legends,
  * direct labels or a table view.
  */
-export const CHART_COLORS_LIGHT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"] as const;
-export const CHART_COLORS_DARK = ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#008300", "#9085e9", "#e66767"] as const;
+export const CHART_COLORS_LIGHT = [
+  "#2a78d6",
+  "#eb6834",
+  "#1baf7a",
+  "#eda100",
+  "#e87ba4",
+  "#008300",
+  "#6250d6",
+  "#e34948",
+] as const;
+export const CHART_COLORS_DARK = [
+  "#3987e5",
+  "#d95926",
+  "#199e70",
+  "#c98500",
+  "#d55181",
+  "#008300",
+  "#9085e9",
+  "#e66767",
+] as const;
 
 function chartColors(values: readonly string[]) {
   return Object.fromEntries(values.map((v, i) => [`chart-${i + 1}`, v])) as Record<
