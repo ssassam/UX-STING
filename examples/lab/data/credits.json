@@ -1,0 +1,38 @@
+[
+  {
+    "id": "met:436826",
+    "source": "met",
+    "title": "Winter Landscape, Holland, 1833",
+    "creator": "Barend Cornelis Koekkoek",
+    "license": "cc0",
+    "licenseVersion": null,
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "landingUrl": "https://www.metmuseum.org/art/collection/search/436826",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DP143197.jpg",
+    "width": null,
+    "height": null,
+    "file": "../public/images/winter-landscape-holland-1833.jpg",
+    "credit": "“Winter Landscape, Holland, 1833” by Barend Cornelis Koekkoek, CC0, via The Metropolitan Museum of Art",
+    "creditHtml": "<a href=\"https://www.metmuseum.org/art/collection/search/436826\">“Winter Landscape, Holland, 1833”</a> by Barend Cornelis Koekkoek, <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"license\">CC0</a>, via The Metropolitan Museum of Art",
+    "attributionRequired": false,
+    "altDraft": "Winter Landscape, Holland, 1833"
+  },
+  {
+    "id": "met:11127",
+    "source": "met",
+    "title": "Moonlight, Wood Island Light, 1894",
+    "creator": "Winslow Homer",
+    "license": "cc0",
+    "licenseVersion": null,
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "landingUrl": "https://www.metmuseum.org/art/collection/search/11127",
+    "url": "https://images.metmuseum.org/CRDImages/ad/original/DP232469.jpg",
+    "width": null,
+    "height": null,
+    "file": "../public/images/moonlight-wood-island-light-1894.jpg",
+    "credit": "“Moonlight, Wood Island Light, 1894” by Winslow Homer, CC0, via The Metropolitan Museum of Art",
+    "creditHtml": "<a href=\"https://www.metmuseum.org/art/collection/search/11127\">“Moonlight, Wood Island Light, 1894”</a> by Winslow Homer, <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"license\">CC0</a>, via The Metropolitan Museum of Art",
+    "attributionRequired": false,
+    "altDraft": "Moonlight, Wood Island Light, 1894"
+  }
+]
