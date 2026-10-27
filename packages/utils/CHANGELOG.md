@@ -1,5 +1,11 @@
 # @ux-sting/utils
 
+## 0.6.1
+
+### Patch Changes
+
+- e457688: Add a package README with installation instructions, usage examples, an API overview, and Veltein attribution so npm users can get started and discover the author.
+
 ## 0.6.0
 
 ## 0.5.0
