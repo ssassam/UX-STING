@@ -1,5 +1,13 @@
 # @ux-sting/primitives
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [e457688]
+  - @ux-sting/utils@0.6.1
+  - @ux-sting/hooks@0.6.1
+
 ## 0.6.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/qa",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Browser QA for agents: screenshots at 375/768/1440, axe, contrast, layout checks (overflow, margins, orphans, empty stretches, first-screen title), console errors and LCP/CLS, with a short markdown report and ranked top-3 fixes.",
   "license": "MIT",
   "type": "module",
