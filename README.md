@@ -208,7 +208,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 UX-STING by **[VELTEIN](https://veltein.com)** — the work of **Issam El Bani** across websites, applications, and automation.
 
-If UX-STING helps you build, you can support the work on **[Buy Me a Coffee](https://buymeacoffee.com/ssassamh)**.
+If UX-STING helps you build, you can support the work on **[Buy Me a Coffee](https://buymeacoffee.com/veltein)**.
 
 ## License
 

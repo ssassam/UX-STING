@@ -110,7 +110,7 @@ Explore the work and get in touch at **[veltein.com](https://veltein.com)**. Fol
 
 ## Hi, VELTEIN
 
-If UX-STING helps you build, you can support the work of Veltein on [Buy Me a Coffee](https://buymeacoffee.com/ssassamh).
+If UX-STING helps you build, you can support the work of Veltein on [Buy Me a Coffee](https://buymeacoffee.com/veltein).
 
 ## Contributing
 
