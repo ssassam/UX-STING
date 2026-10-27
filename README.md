@@ -204,6 +204,12 @@ pnpm ux-audit
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Hi, VELTEIN
+
+UX-STING by **[VELTEIN](https://veltein.com)** — the work of **Issam El Bani** across websites, applications, and automation.
+
+If UX-STING helps you build, you can support the work on **[Buy Me a Coffee](https://buymeacoffee.com/ssassamh)**.
+
 ## License
 
 MIT. Third-party licenses and attributions: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -108,6 +108,10 @@ UX-STING is a project by **Veltein**, the work of **Issam El Bani** across websi
 
 Explore the work and get in touch at **[veltein.com](https://veltein.com)**. Follow development on [GitHub](https://github.com/ssassam/UX-STING) or browse the [UX-STING demos](https://ssassam.github.io/UX-STING/).
 
+## Hi, VELTEIN
+
+If UX-STING helps you build, you can support the work of Veltein on [Buy Me a Coffee](https://buymeacoffee.com/ssassamh).
+
 ## Contributing
 
 Report bugs and suggest improvements through [GitHub issues](https://github.com/ssassam/UX-STING/issues). For local development and contribution guidelines, see [CONTRIBUTING.md](https://github.com/ssassam/UX-STING/blob/main/CONTRIBUTING.md).
