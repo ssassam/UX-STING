@@ -3,6 +3,14 @@
   "version": "0.6.1",
   "description": "CLI for ux-sting: copy accessible, themeable React components into your project.",
   "license": "MIT",
+  "author": {
+    "name": "Issam El Bani (VELTEIN)",
+    "url": "https://veltein.com"
+  },
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://buymeacoffee.com/veltein"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ssassam/UX-STING.git",
@@ -17,9 +25,12 @@
   "main": "./dist/index.js",
   "files": [
     "dist",
-    "registry.json"
+    "registry.json",
+    "README.md",
+    "scripts/check-readme.mjs"
   ],
   "scripts": {
+    "prepack": "node ./scripts/check-readme.mjs",
     "build": "node ../../scripts/build-registry.ts && tsc -p tsconfig.build.json && node ./scripts/add-shebang.mjs",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
