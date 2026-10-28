@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/motion",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Portable motion for UX-STING: a zero-dependency CSS catalog of transitions (card resize, number pop-in, notification stack, list reorder, accordion, tab indicator, toast, skeleton to content) with tiny helpers, plus an optional GSAP tier (useGSAP hooks, ScrollTrigger, SplitText, Flip, timeline presets).",
   "license": "MIT",
   "type": "module",

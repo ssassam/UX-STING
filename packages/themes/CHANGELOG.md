@@ -1,5 +1,11 @@
 # @ux-sting/themes
 
+## 0.6.2
+
+### Patch Changes
+
+- @ux-sting/tokens@0.6.2
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ux-sting/qa
 
+## 0.6.2
+
+### Patch Changes
+
+- @ux-sting/design-dna@0.6.2
+
 ## 0.6.1
 
 ### Patch Changes
