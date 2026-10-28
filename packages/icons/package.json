@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/icons",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Tree-shakeable SVG icons for ux-sting (icon data from Lucide, ISC).",
   "license": "MIT AND ISC",
   "repository": {
