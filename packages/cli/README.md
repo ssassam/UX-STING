@@ -130,7 +130,7 @@ Source: [`.claude/skills/`](https://github.com/ssassam/UX-STING/tree/main/.claud
 ## Documentation and demos
 
 - [Full project documentation](https://github.com/ssassam/UX-STING#readme)
-- [Live showcase](https://ssassam.github.io/UX-STING/)
+- [Live showcase](https://uxsting.veltein.com/)
 - [Design-system guide](https://github.com/ssassam/UX-STING/blob/main/docs/introduction.md)
 - [All npm packages](https://www.npmjs.com/org/ux-sting)
 - [Issues and contributions](https://github.com/ssassam/UX-STING/issues)

@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from "@ux-sting/icons";
 
 /** Links between the UX-STING demo sites (all hosted on GitHub Pages); open in a new tab. */
-const SITE = "https://ssassam.github.io/UX-STING";
+const SITE = "https://uxsting.veltein.com";
 
 export const demos = [
   { id: "travel", label: "Wayfare — travel", href: `${SITE}/` },

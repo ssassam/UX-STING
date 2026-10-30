@@ -188,7 +188,7 @@ import "@ux-sting/motion/motion.css";
 import { reorder, trackIndicator } from "@ux-sting/motion";
 ```
 
-Using pnpm or yarn? Replace `npm install` with `pnpm add` / `yarn add`. The [toolkit demo](https://ssassam.github.io/UX-STING/toolkit/) shows every tool with real output.
+Using pnpm or yarn? Replace `npm install` with `pnpm add` / `yarn add`. The [toolkit demo](https://uxsting.veltein.com/toolkit/) shows every tool with real output.
 
 ## Repository
 
@@ -222,17 +222,17 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 
 | Demo | What it shows | Live |
 | --- | --- | --- |
-| [**Wayfare**](examples/travel) — travel booking | Hero search, destinations, stay search with filters and map, booking, checkout | [open](https://ssassam.github.io/UX-STING/) |
-| [**Drivo**](examples/car-rental) — car rental | Pick-up search, fleet filters, car details, protection and extras, checkout | [open](https://ssassam.github.io/UX-STING/cars/) |
-| [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://ssassam.github.io/UX-STING/shop/) |
-| [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://ssassam.github.io/UX-STING/watch/) |
-| [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://ssassam.github.io/UX-STING/crypto/) |
-| [**Ember**](examples/ember) — restaurant reservations | Tasting menu with dietary tags, dining-experience tabs, full reservation form, opening hours with live status, map, reviews | [open](https://ssassam.github.io/UX-STING/ember/) |
-| [**Toolkit**](examples/toolkit) — UX-STING's agent tools | Real `ux-sting qa`, `extract`, `images` output, the taste pipeline, live motion demos | [open](https://ssassam.github.io/UX-STING/toolkit/) |
+| [**Wayfare**](examples/travel) — travel booking | Hero search, destinations, stay search with filters and map, booking, checkout | [open](https://uxsting.veltein.com/) |
+| [**Drivo**](examples/car-rental) — car rental | Pick-up search, fleet filters, car details, protection and extras, checkout | [open](https://uxsting.veltein.com/cars/) |
+| [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://uxsting.veltein.com/shop/) |
+| [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://uxsting.veltein.com/watch/) |
+| [**Chainlens**](examples/crypto) — crypto analytics | Market stats, interactive price charts, sortable asset table, news feed (sample data) | [open](https://uxsting.veltein.com/crypto/) |
+| [**Ember**](examples/ember) — restaurant reservations | Tasting menu with dietary tags, dining-experience tabs, full reservation form, opening hours with live status, map, reviews | [open](https://uxsting.veltein.com/ember/) |
+| [**Toolkit**](examples/toolkit) — UX-STING's agent tools | Real `ux-sting qa`, `extract`, `images` output, the taste pipeline, live motion demos | [open](https://uxsting.veltein.com/toolkit/) |
 
 ### Screenshots
 
-#### Wayfare — travel booking · [live demo](https://ssassam.github.io/UX-STING/)
+#### Wayfare — travel booking · [live demo](https://uxsting.veltein.com/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/travel/screenshots/1-home.webp"><img src="examples/travel/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/2-destinations.webp"><img src="examples/travel/screenshots/2-destinations.webp" alt="Popular destinations" width="100%"></a><br><sub>Popular destinations</sub></td></tr>
@@ -240,7 +240,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 <tr><td width="50%" align="center"><a href="examples/travel/screenshots/5-stay.webp"><img src="examples/travel/screenshots/5-stay.webp" alt="Stay details and booking" width="100%"></a><br><sub>Stay details and booking</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/6-checkout.webp"><img src="examples/travel/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
 </table>
 
-#### Drivo — car rental · [live demo](https://ssassam.github.io/UX-STING/cars/)
+#### Drivo — car rental · [live demo](https://uxsting.veltein.com/cars/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/car-rental/screenshots/1-home.webp"><img src="examples/car-rental/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/car-rental/screenshots/2-popular.webp"><img src="examples/car-rental/screenshots/2-popular.webp" alt="Most booked cars" width="100%"></a><br><sub>Most booked cars</sub></td></tr>
@@ -248,7 +248,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 <tr><td width="50%" align="center"><a href="examples/car-rental/screenshots/5-booking.webp"><img src="examples/car-rental/screenshots/5-booking.webp" alt="Specs, protection and extras" width="100%"></a><br><sub>Specs, protection and extras</sub></td><td width="50%" align="center"><a href="examples/car-rental/screenshots/6-checkout.webp"><img src="examples/car-rental/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
 </table>
 
-#### Maison Nord — e-commerce · [live demo](https://ssassam.github.io/UX-STING/shop/)
+#### Maison Nord — e-commerce · [live demo](https://uxsting.veltein.com/shop/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/shop/screenshots/1-home.webp"><img src="examples/shop/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/shop/screenshots/2-bestsellers.webp"><img src="examples/shop/screenshots/2-bestsellers.webp" alt="Bestsellers" width="100%"></a><br><sub>Bestsellers</sub></td></tr>
@@ -256,7 +256,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 <tr><td width="50%" align="center"><a href="examples/shop/screenshots/5-cart.webp"><img src="examples/shop/screenshots/5-cart.webp" alt="Cart drawer" width="100%"></a><br><sub>Cart drawer</sub></td><td width="50%" align="center"><a href="examples/shop/screenshots/6-checkout.webp"><img src="examples/shop/screenshots/6-checkout.webp" alt="Checkout" width="100%"></a><br><sub>Checkout</sub></td></tr>
 </table>
 
-#### Pulse One — product launch · [live demo](https://ssassam.github.io/UX-STING/watch/)
+#### Pulse One — product launch · [live demo](https://uxsting.veltein.com/watch/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/watch/screenshots/1-hero.webp"><img src="examples/watch/screenshots/1-hero.webp" alt="Hero with finish picker" width="100%"></a><br><sub>Hero with finish picker</sub></td><td width="50%" align="center"><a href="examples/watch/screenshots/2-features.webp"><img src="examples/watch/screenshots/2-features.webp" alt="Features" width="100%"></a><br><sub>Features</sub></td></tr>
@@ -264,7 +264,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 <tr><td width="50%" align="center"><a href="examples/watch/screenshots/5-preorder.webp"><img src="examples/watch/screenshots/5-preorder.webp" alt="Pre-order configurator" width="100%"></a><br><sub>Pre-order configurator</sub></td><td width="50%" align="center"><a href="examples/watch/screenshots/6-reviews.webp"><img src="examples/watch/screenshots/6-reviews.webp" alt="Reviews and FAQ" width="100%"></a><br><sub>Reviews and FAQ</sub></td></tr>
 </table>
 
-#### Chainlens — crypto analytics & news · [live demo](https://ssassam.github.io/UX-STING/crypto/)
+#### Chainlens — crypto analytics & news · [live demo](https://uxsting.veltein.com/crypto/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/crypto/screenshots/1-markets.webp"><img src="examples/crypto/screenshots/1-markets.webp" alt="Market overview" width="100%"></a><br><sub>Market overview</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/2-chart.webp"><img src="examples/crypto/screenshots/2-chart.webp" alt="Interactive price chart" width="100%"></a><br><sub>Interactive price chart</sub></td></tr>
@@ -272,7 +272,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 <tr><td width="50%" align="center"><a href="examples/crypto/screenshots/5-news.webp"><img src="examples/crypto/screenshots/5-news.webp" alt="News with images" width="100%"></a><br><sub>News with images</sub></td><td width="50%" align="center"><a href="examples/crypto/screenshots/6-light-mode.webp"><img src="examples/crypto/screenshots/6-light-mode.webp" alt="Light mode" width="100%"></a><br><sub>Light mode</sub></td></tr>
 </table>
 
-#### Ember — restaurant reservations · [live demo](https://ssassam.github.io/UX-STING/ember/)
+#### Ember — restaurant reservations · [live demo](https://uxsting.veltein.com/ember/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/ember/screenshots/1-hero.webp"><img src="examples/ember/screenshots/1-hero.webp" alt="Hero with tonight's menu preview" width="100%"></a><br><sub>Hero with tonight's menu preview</sub></td><td width="50%" align="center"><a href="examples/ember/screenshots/2-menu.webp"><img src="examples/ember/screenshots/2-menu.webp" alt="Tasting menu with dietary tags" width="100%"></a><br><sub>Tasting menu with dietary tags</sub></td></tr>
@@ -286,9 +286,9 @@ Build all of them as one static site with `scripts/build-pages.sh` (output in `p
 
 Every demo page ships a unique title and description, a canonical URL, Open Graph and Twitter preview images, and schema.org structured data (`WebSite`, `TravelAgency`, `AutoRental`, `OnlineStore`, `Hotel`, `Product` + `Offer`, `Restaurant`). Checkout and account pages are `noindex`. Each demo has a `sitemap.xml`, and one index covers all six:
 
-**https://ssassam.github.io/UX-STING/sitemap-index.xml**
+**https://uxsting.veltein.com/sitemap-index.xml**
 
-To speed up indexing, add `https://ssassam.github.io/UX-STING/` as a URL-prefix property in [Google Search Console](https://search.google.com/search-console) (and [Bing Webmaster Tools](https://www.bing.com/webmasters)), then submit the sitemap index above.
+To speed up indexing, add `https://uxsting.veltein.com/` as a URL-prefix property in [Google Search Console](https://search.google.com/search-console) (and [Bing Webmaster Tools](https://www.bing.com/webmasters)), then submit the sitemap index above.
 
 ## Documentation
 
