@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/tokens",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Design tokens for ux-sting: palettes, semantic colors, spacing, typography, motion and more — as TypeScript and CSS variables.",
   "license": "MIT",
   "repository": {
