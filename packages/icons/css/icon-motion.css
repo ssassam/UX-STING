@@ -18,7 +18,7 @@
 .ui-icon-anim {
   transform-box: fill-box;
   transform-origin: center;
-  --us-ico-duration: var(--ui-duration-base, 260ms);
+  --us-ico-duration: var(--ui-duration-slow, 300ms);
   --us-ico-ease: var(--ui-ease-emphasized, cubic-bezier(0.3, 0, 0, 1.2));
   --us-ico-loop-duration: var(--us-ico-loop, 1s);
 }
