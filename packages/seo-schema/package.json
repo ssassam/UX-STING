@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/seo-schema",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Typed schema.org JSON-LD builders, safe serialization and validation that separates schema.org validity from Google rich-result eligibility. Zero dependencies, framework-agnostic.",
   "license": "MIT",
   "repository": {
