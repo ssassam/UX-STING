@@ -6,3 +6,4 @@ export * from "./theme.js";
 export * from "./dna.js";
 export { extractUrl, type ExtractOptions } from "./run.js";
 export { extractCommand, themeCommand, dnaCommand } from "./command.js";
+export { tokensCommand, TOKENS_HELP } from "./tokens-command.js";
