@@ -143,10 +143,14 @@ export function Hero({ search }: { search: ReactNode }) {
         </div>
       </div>
 
+      {/* No edge fade and no see-through band: a half-faded glyph over the
+          hairpin photograph is unreadable and fails AA wherever it happens to be
+          when the strip is measured. */}
       <Marquee
         label="What is included on every Drivo rental"
         duration={38}
-        className="border-t border-white/15 bg-background/85 py-2.5 text-foreground"
+        fade={false}
+        className="border-t border-white/15 bg-background py-2.5 text-foreground"
       >
         {FACTS.map((fact) => (
           <span key={fact} className="roadbook-label inline-flex items-center gap-4 px-4">
