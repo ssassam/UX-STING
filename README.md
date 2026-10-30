@@ -2,16 +2,17 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
-[![npm](https://img.shields.io/npm/v/ux-sting)](https://www.npmjs.com/package/ux-sting)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
-[![Skills](https://img.shields.io/badge/skills-npx%20skills%20add-blue)](https://github.com/ssassam/UX-STING)
-![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-5C4B33)
-![Codex](https://img.shields.io/badge/Codex-supported-000000)
-![Cursor](https://img.shields.io/badge/Cursor-supported-1E1E1E)
-![VS Code](https://img.shields.io/badge/VS_Code-supported-007ACC)
-![Gemini](https://img.shields.io/badge/Gemini-supported-4285F4)
-![Qoder](https://img.shields.io/badge/Qoder-supported-0EA5E9)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-Support_VELTEIN-FFDD00?logo=buymeacoffee&logoColor=000000)](https://buymeacoffee.com/veltein)
+[![ux-sting](https://img.shields.io/npm/v/ux-sting?label=ux-sting&color=orange&style=flat-square)](https://www.npmjs.com/package/ux-sting)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
+[![skills](https://img.shields.io/badge/skills-8%20%2B%201%20agent-7c3aed?style=flat-square)](#agent-skills)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-2563eb?style=flat-square)
+![Codex](https://img.shields.io/badge/Codex-skills-d946ef?style=flat-square)
+![Cursor](https://img.shields.io/badge/Cursor-skills-d946ef?style=flat-square)
+![VS Code](https://img.shields.io/badge/VS%20Code-Copilot-2563eb?style=flat-square)
+![Gemini](https://img.shields.io/badge/Gemini-CLI-2563eb?style=flat-square)
+![Qoder](https://img.shields.io/badge/Qoder-plugin-d946ef?style=flat-square)
+
+Cross-host **Agent Skills** that teach coding agents to build accessible, themeable, art-directed UI with [UX-STING](https://github.com/ssassam/UX-STING), an MIT React design system for Next.js and any React app.
 
 - **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds); `@ux-sting/motion` adds a CSS transition catalog (resize, reorder, tabs, toast, skeleton…) and an optional GSAP adapter
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
