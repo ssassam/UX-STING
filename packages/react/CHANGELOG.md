@@ -1,5 +1,18 @@
 # @ux-sting/react
 
+## 0.8.1
+
+### Patch Changes
+
+- 7012160: fix(react): `Fieldset` description used `-mt-3` against the group's 16px gap, which left the hint sitting 4px under its legend. `-mt-2` restores a readable 8px separation.
+- Updated dependencies [7012160]
+  - @ux-sting/icons@0.8.1
+  - @ux-sting/hooks@0.8.1
+  - @ux-sting/primitives@0.8.1
+  - @ux-sting/themes@0.8.1
+  - @ux-sting/tokens@0.8.1
+  - @ux-sting/utils@0.8.1
+
 ## 0.8.0
 
 ### Patch Changes
