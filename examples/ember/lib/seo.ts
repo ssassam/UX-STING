@@ -4,7 +4,7 @@ import type { Metadata } from "next";
  * SEO helpers. The live site is served from GitHub Pages under a base path
  * (set by PAGES_BASE_PATH at build time and exposed as NEXT_PUBLIC_BASE_PATH).
  */
-export const SITE_ORIGIN = "https://ssassam.github.io";
+export const SITE_ORIGIN = "https://uxsting.veltein.com";
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /** Absolute URL of this demo's home page, always with a trailing slash. */

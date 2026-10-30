@@ -32,6 +32,7 @@ const REPO_SLUG = "UX-STING"; // the SEO-indexed main repo
 const PLUGIN_ID = "ux-sting"; // Claude plugin name
 const MARKETPLACE_NAME = "ux-sting"; // install => ux-sting@ux-sting
 const SITE_URL = "https://veltein.com"; // your website (credit target)
+const DOCS_URL = "https://uxsting.veltein.com"; // live demo/docs site
 const PROJECT_URL = "https://github.com/ssassam/UX-STING"; // UX-STING design system
 const AUTHOR = { name: "Issam El Bani — VELTEIN", url: SITE_URL };
 const REPO_URL = `https://github.com/${OWNER}/${REPO_SLUG}`;
@@ -187,7 +188,7 @@ const manifest = {
   descriptionZh:
     "让编码代理使用 UX-STING 构建设计无障碍、可主题化、有艺术指导的界面的设计系统技能。",
   author: { name: AUTHOR.name, url: AUTHOR.url },
-  homepage: SITE_URL,
+  homepage: DOCS_URL,
   repository: REPO_URL,
   logo: "./assets/avatar.svg",
   keywords: [
@@ -270,7 +271,7 @@ const CLAUDE_MANIFEST = {
   description: "Build accessible, themeable, art-directed UI with the UX-STING design system.",
   version: "0.1.0",
   author: { name: AUTHOR.name, url: AUTHOR.url },
-  homepage: SITE_URL,
+  homepage: DOCS_URL,
   repository: REPO_URL,
   license: "MIT",
   keywords: ["design-system", "accessibility", "react", "nextjs", "ux", "tailwind"],

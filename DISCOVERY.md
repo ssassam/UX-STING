@@ -149,7 +149,7 @@ Body:
 
 ## Verified proof (2026-10-30)
 
-Live axe-core audit of https://ssassam.github.io/UX-STING/ (the "Wayfare" demo), run in a real browser:
+Live axe-core audit of https://uxsting.veltein.com/ (the "Wayfare" demo), run in a real browser:
 - Design: renders as a polished, professional travel site (hero, real photography, structured sections).
 - Accessibility: **1 violation type — `color-contrast`, 16 elements, all "serious."**
 - Honest hook: "a good-looking UX-STING site still had 16 contrast failures that `ux-sting qa` catches." Fixing them to 0 is the ideal launch screenshot.

@@ -106,7 +106,7 @@ See the [TypeScript source](https://github.com/ssassam/UX-STING/tree/main/packag
 
 UX-STING is a project by **Veltein**, the work of **Issam El Bani** across websites, applications, and automation.
 
-Explore the work and get in touch at **[veltein.com](https://veltein.com)**. Follow development on [GitHub](https://github.com/ssassam/UX-STING) or browse the [UX-STING demos](https://ssassam.github.io/UX-STING/).
+Explore the work and get in touch at **[veltein.com](https://veltein.com)**. Follow development on [GitHub](https://github.com/ssassam/UX-STING) or browse the [UX-STING demos](https://uxsting.veltein.com/).
 
 ## Hi, VELTEIN
 

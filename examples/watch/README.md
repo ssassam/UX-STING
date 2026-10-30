@@ -8,7 +8,7 @@ pnpm --filter @ux-sting/example-watch dev
 
 - Product illustration and finishes: `components/watch-art.tsx`.
 - Pre-order configurator: `components/preorder.tsx`.
-- Live demo: https://ssassam.github.io/UX-STING/watch/
+- Live demo: https://uxsting.veltein.com/watch/
 
 ## Screenshots
 
