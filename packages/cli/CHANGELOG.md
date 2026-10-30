@@ -1,5 +1,11 @@
 # ux-sting
 
+## 0.6.3
+
+### Patch Changes
+
+- 1dd18d2: Advertise the UX-STING Agent Skills + Universal Design Agent in the CLI README (cross-host install: `npx skills add ssassam/UX-STING` and the Claude Code plugin), so people browsing the npm package page can discover them.
+
 ## 0.6.2
 
 ### Patch Changes

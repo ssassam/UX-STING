@@ -1,6 +1,6 @@
 {
   "name": "ux-sting",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "CLI for ux-sting: copy accessible, themeable React components into your project.",
   "license": "MIT",
   "author": {
