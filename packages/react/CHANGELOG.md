@@ -1,5 +1,17 @@
 # @ux-sting/react
 
+## 0.7.0
+
+### Patch Changes
+
+- Updated dependencies [e708ae5]
+  - @ux-sting/tokens@0.7.0
+  - @ux-sting/themes@0.7.0
+  - @ux-sting/hooks@0.7.0
+  - @ux-sting/icons@0.7.0
+  - @ux-sting/primitives@0.7.0
+  - @ux-sting/utils@0.7.0
+
 ## 0.6.3
 
 ### Patch Changes
