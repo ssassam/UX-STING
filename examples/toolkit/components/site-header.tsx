@@ -19,6 +19,7 @@ const links = [
   { href: "#images", label: "Images" },
   { href: "#taste", label: "Taste" },
   { href: "#motion", label: "Motion" },
+  { href: "#icons", label: "Icons" },
   { href: "#demos", label: "Demos" },
 ];
 
