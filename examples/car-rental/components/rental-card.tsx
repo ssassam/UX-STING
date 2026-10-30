@@ -1,12 +1,13 @@
 "use client";
-import { ShieldCheckIcon } from "@ux-sting/icons";
+import { AnimatedCheckIcon, ICON_ANCHOR_CLASS } from "@ux-sting/icons/animated";
+import { AnimatedNumber } from "@ux-sting/react/animated-number";
 import { Button } from "@ux-sting/react/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@ux-sting/react/card";
 import { Checkbox } from "@ux-sting/react/checkbox";
 import { DateRangePicker } from "@ux-sting/react/date-picker";
 import { Field, Fieldset } from "@ux-sting/react/field";
 import { NativeSelect } from "@ux-sting/react/native-select";
-import { Currency, Price } from "@ux-sting/react/price";
+import { Price } from "@ux-sting/react/price";
 import { RadioCard, RadioGroup } from "@ux-sting/react/radio-group";
 import { Text } from "@ux-sting/react/typography";
 import { useRouter } from "next/navigation";
@@ -29,10 +30,16 @@ export function RentalCard({ car }: { car: Car }) {
     .filter((e) => chosen.includes(e.id))
     .reduce((n, e) => n + e.perDay, 0);
   const total = days * (car.pricePerDay + coverPerDay + extrasPerDay);
+  const desk = locations.find((l) => l.id === pickup);
 
   return (
     <Card id="book" variant="elevated" className="h-fit scroll-mt-20 lg:sticky lg:top-24">
       <CardHeader>
+        <p className="roadbook-label text-muted-foreground">
+          {days
+            ? `${days} ${days === 1 ? "day" : "days"} · ${desk?.name ?? "one desk"}`
+            : "Two moves left"}
+        </p>
         <Price
           amount={car.pricePerDay}
           currency={CURRENCY}
@@ -90,14 +97,16 @@ export function RentalCard({ car }: { car: Car }) {
       <CardFooter className="grid gap-3">
         {days ? (
           <div className="flex items-baseline justify-between gap-2 border-t border-border pt-3">
-            <span className="text-sm text-muted-foreground">
+            <span className="roadbook-label normal-case tracking-normal text-muted-foreground">
               Total for {days} {days === 1 ? "day" : "days"}
             </span>
-            <Currency
+            <AnimatedNumber
               value={total}
-              currency={CURRENCY}
-              fractionDigits={0}
-              className="text-lg font-semibold text-foreground"
+              from={0}
+              duration={450}
+              startOnView={false}
+              format={{ style: "currency", currency: CURRENCY, maximumFractionDigits: 0 }}
+              className="font-display text-lg font-semibold text-foreground"
             />
           </div>
         ) : null}
@@ -117,10 +126,15 @@ export function RentalCard({ car }: { car: Car }) {
           size="sm"
           variant="muted"
           align="center"
-          className="flex items-center justify-center gap-1"
+          className={`${ICON_ANCHOR_CLASS} flex items-center justify-center gap-1.5`}
         >
-          <ShieldCheckIcon aria-hidden className="size-4 text-success" /> Free cancellation up to 48
-          h before pick-up
+          <AnimatedCheckIcon
+            aria-hidden
+            preset="draw"
+            trigger="in"
+            className="size-4 shrink-0 text-success"
+          />
+          <span>Free cancellation up to 48 h before pick-up</span>
         </Text>
       </CardFooter>
     </Card>

@@ -1,11 +1,162 @@
 @import "tailwindcss";
 @import "@ux-sting/react/tailwind.css";
+@import "@ux-sting/motion/motion.css";
+@import "@ux-sting/icons/animated.css";
+
+@source "../components";
+
+/* Tailwind's font utilities follow the active theme's font tokens. */
+@theme inline {
+  --font-sans: var(--ui-font-sans);
+  --font-mono: var(--ui-font-mono);
+}
 
 /*
- * Drivo dark mode: red *text* on near-black needs a lighter red than the
- * button fill to stay above 4.5:1, so text-level primary uses red-400.
+ * A `display: grid` with no explicit template columns has one auto-sized
+ * column: a wide child (the snap rail, a form row) then stretches the track to
+ * its max-content and the whole page scrolls sideways. Implicit tracks take
+ * the container width instead, and content that is too wide scrolls itself.
+ */
+main .grid {
+  grid-auto-columns: minmax(0, 1fr);
+}
+
+:root {
+  /* The roadbook display face: wide grotesk, tight tracking. */
+  --font-display: var(--font-archivo), Archivo, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+}
+
+/*
+ * Drivo dark mode: red *text* on asphalt needs a lighter red than the button
+ * fill to stay above 4.5:1, so text-level primary uses red-400.
  */
 [data-theme="dark"] .text-primary,
 [data-theme="dark"] .hover\:text-primary:hover {
   color: var(--ui-red-400);
+}
+
+/* One small-caps mono label style, used by every section index and metric. */
+.roadbook-label {
+  font-family: var(--ui-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * The route line — the page's structural device. A hairline that draws itself
+ * down the left of the roadbook gutter as the section scrolls past, using CSS
+ * scroll-driven animation where the browser has it. No JavaScript, and under
+ * reduced motion (or no support) it simply stays a full hairline.
+ */
+.route-line {
+  position: relative;
+  background: color-mix(in oklab, var(--ui-border) 100%, transparent);
+}
+
+.route-line-fill {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in oklab, var(--ui-primary) 65%, transparent) 12%,
+    color-mix(in oklab, var(--ui-primary) 65%, transparent) 88%,
+    transparent
+  );
+  transform-origin: top;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .route-line-fill {
+      animation: route-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 55%;
+      transform: scaleY(0);
+    }
+  }
+}
+
+@keyframes route-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Hero: the hairpin photograph holds the type, so the scrim is a flat field,
+   not a blurry wash — and it never moves under reduced motion.
+   Stacked (below 1024px) the copy sits on the photograph itself, so the whole
+   frame is held down to asphalt; from 1024px the left column carries the text
+   and the image is allowed to breathe. */
+.hero-scrim {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.17 0.008 40 / 0.9),
+    oklch(0.17 0.008 40 / 0.84) 45%,
+    oklch(0.17 0.008 40 / 0.95)
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-scrim {
+    background:
+      linear-gradient(to top, oklch(0.17 0.008 40 / 0.95), oklch(0.17 0.008 40 / 0.12) 62%),
+      linear-gradient(to right, oklch(0.17 0.008 40 / 0.85), transparent 74%);
+  }
+}
+
+@keyframes hero-push {
+  from {
+    transform: scale(1.08) translateY(1.2%);
+  }
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero-frame-img {
+  animation: hero-push 1.6s var(--ui-ease-out, cubic-bezier(0, 0, 0.2, 1)) both;
+}
+
+/* Car cards lift on hover; the accent is spent on the price rule, not the frame. */
+.fleet-card {
+  transition:
+    translate var(--ui-duration-slow, 300ms) var(--ui-ease-standard, ease),
+    box-shadow var(--ui-duration-slow, 300ms) var(--ui-ease-standard, ease);
+}
+
+.fleet-card:hover {
+  translate: 0 -3px;
+  box-shadow: 0 18px 40px -24px oklch(0 0 0 / 0.65);
+}
+
+/* The stage board in the pinned ascent sequence. */
+.stage-card[data-stage-active="true"] {
+  border-color: color-mix(in oklab, var(--ui-primary) 55%, var(--ui-border));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-frame-img {
+    animation: none;
+  }
+  .route-line-fill {
+    transform: none;
+  }
+  .fleet-card,
+  .fleet-card:hover {
+    transition: none;
+    translate: none;
+  }
 }
