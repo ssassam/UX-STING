@@ -1,6 +1,13 @@
+<div align="center">
+
 # UX-STING
 
-An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
+**Accessible components. Your code. Your design.**
+
+An accessible, themeable, tree-shakeable React design system for Next.js and any
+React app — shipped with cross-host **Agent Skills** and a **Universal Design
+Agent** that teach coding agents to build art-directed UI and verify every page
+in a browser before they say “done”.
 
 [![ux-sting](https://img.shields.io/npm/v/ux-sting?label=ux-sting&color=orange&style=flat-square)](https://www.npmjs.com/package/ux-sting)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
@@ -12,16 +19,25 @@ An accessible, themeable, tree-shakeable design system and React component libra
 ![Gemini](https://img.shields.io/badge/Gemini-CLI-2563eb?style=flat-square)
 ![Qoder](https://img.shields.io/badge/Qoder-plugin-d946ef?style=flat-square)
 
-Cross-host **Agent Skills** that teach coding agents to build accessible, themeable, art-directed UI with [UX-STING](https://github.com/ssassam/UX-STING), an MIT React design system for Next.js and any React app.
+</div>
 
-- **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds); `@ux-sting/motion` adds a CSS transition catalog (resize, reorder, tabs, toast, skeleton…) and an optional GSAP adapter
-- **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
-- **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
-- **Global** — RTL via logical properties, localized labels (en/fr/ar), `Intl` formatting everywhere
-- **Next.js-first** — App Router, RSC-friendly (server components by default), per-component entry points
-- **Own your code** — `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits
-- **Agent skills** — `.claude/skills/` teaches coding agents to build with UX-STING (`ux-sting`), art-direct pages from the client's specifics with real, credited images and browser self-critique — or take the quiet route for dashboards (`ux-sting-taste`), review with evidence (`ux-sting-review`), run browser QA and fix the top 3 findings in up to three rounds (`ux-sting-qa`), explore several directions side by side (`ux-sting-explore`) run the reference → Design DNA → page → browser QA pipeline (`ux-sting-universal`), add accessible three.js 3D and shader scenes (`ux-sting-3d`) and draw on-theme diagrams with [diagram-design](https://github.com/cathrynlavery/diagram-design) (`ux-sting-diagrams`; Claude Code offers to install the plugin when you trust the repo, other agents use `npx skills add cathrynlavery/diagram-design`)
-- **Tailwind v4 native, Tailwind optional** — use `tailwind.css` or the precompiled `styles.css`
+---
+
+## Why UX-STING
+
+| | |
+| --- | --- |
+| **~100 component families** | Layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects; `@ux-sting/motion` adds a CSS transition catalog and an optional GSAP adapter. |
+| **Accessible by default** | WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens. |
+| **Design tokens & themes** | OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web, Stripe, plus editorial / luxury / brutalist / terminal), custom themes, light / dark / high-contrast, 3 densities. |
+| **Global** | RTL via logical properties, localized labels (en / fr / ar), `Intl` formatting everywhere. |
+| **Next.js-first** | App Router, RSC-friendly (server components by default), per-component entry points. |
+| **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits. |
+| **Agent Skills** | Cross-host skills + a Universal Design Agent for Claude Code, Codex, Cursor, VS Code / Copilot, Gemini CLI and Qoder ([details ↓](#agent-skills)). |
+| **Tailwind v4 native, optional** | Use `tailwind.css` or the precompiled `styles.css`. |
+
+> **Works with your AI agent** — one line installs the skills into whatever editor you use:
+> `npx skills add ssassam/UX-STING` · see [Agent Skills](#agent-skills).
 
 ## Quick start
 
@@ -218,17 +234,20 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Agent Skills
 
-UX-STING ships cross-host **Agent Skills** and a **Universal Design Agent** (in
-[`.claude/skills/`](.claude/skills) and [`agents/`](agents)) that teach coding agents to
-build accessible, themeable, art-directed UI with this system — and verify every page in a
-browser with `npx ux-sting qa` before they say "done". One source installs into Claude Code,
-Cursor, Codex, GitHub Copilot / VS Code, Gemini CLI and Qoder.
+UX-STING ships cross-host **Agent Skills** and a **Universal Design Agent** —
+text and scripts in [`.claude/skills/`](.claude/skills) and [`agents/`](agents)
+that teach coding agents to build accessible, themeable, art-directed UI with this
+system, and to **verify every page in a browser** with `npx ux-sting qa` before they
+say “done”. One source installs into Claude Code, Cursor, Codex, GitHub Copilot /
+VS Code, Gemini CLI and Qoder.
+
+**Universal** — detects your agent:
 
 ```bash
-npx skills add ssassam/UX-STING            # universal — detects your agent
+npx skills add ssassam/UX-STING
 ```
 
-Claude Code (this repo doubles as a native plugin / marketplace):
+**Claude Code** — the repo doubles as a native plugin / marketplace:
 
 ```text
 /plugin marketplace add ssassam/UX-STING
@@ -237,20 +256,32 @@ Claude Code (this repo doubles as a native plugin / marketplace):
 
 | Skill | What it does |
 | --- | --- |
-| **ux-sting-design-agent** | Universal design agent — routes any UI task and always verifies |
-| **ux-sting** | Components, tokens/themes, wiring `@ux-sting/react` into an app |
+| **ux-sting-design-agent** | Universal design agent — routes any UI task to the right skill and always verifies |
+| **ux-sting** | Components, tokens & themes, wiring `@ux-sting/react` into an app |
 | **ux-sting-taste** | Art-direct pages that look designed, not generated |
 | **ux-sting-review** | Accessibility / UX / design review with severity ranking |
-| **ux-sting-explore · ux-sting-universal · ux-sting-3d · ux-sting-diagrams · logo-design** | Directions · reference→DNA→page · three.js · diagrams · logos |
+| **ux-sting-explore** | Explore several directions for one screen side by side |
+| **ux-sting-universal** | Reference → Design DNA → page → browser QA pipeline |
+| **ux-sting-3d** | three.js / WebGL shaders and scroll-driven 3D moments |
+| **ux-sting-diagrams** | Editorial diagrams (~40 types) styled with the active theme |
+| **logo-design** | Logos, wordmarks, monograms and brand marks as clean SVG |
 
-Regenerate the mirrors and plugin bundles after editing skills: `node scripts/build-agent-skills.mjs`.
+> Regenerate the mirrors and plugin bundles after editing skills:
+> `node scripts/build-agent-skills.mjs`.
 
-## Hi, VELTEIN
+---
 
-UX-STING by **[VELTEIN](https://veltein.com)** — the work of **Issam El Bani** across websites, applications, and automation.
+<div align="center">
 
-If UX-STING helps you build, you can support the work on **[Buy Me a Coffee](https://buymeacoffee.com/veltein)**.
+## Built by VELTEIN
 
-## License
+UX-STING is by **[VELTEIN](https://veltein.com)** — the work of **Issam El Bani**
+across websites, applications, and automation.
 
-MIT. Third-party licenses and attributions: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+If it helps you build, you can support the work on
+**[Buy Me a Coffee](https://buymeacoffee.com/veltein)**.
+
+**MIT** · third-party licenses and attributions in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+</div>
