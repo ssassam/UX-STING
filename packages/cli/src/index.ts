@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { add, diff, init, list } from "./commands.js";
 import { bold, dim, log } from "./log.js";
 import { runPlugin } from "./plugins.js";
@@ -14,6 +15,7 @@ ${bold("Usage")}
   npx ux-sting theme import <tokens.json> [--name <name>] [--out <dir>]
   npx ux-sting dna <url|tokens.json> [--json]
   npx ux-sting images <query> [--source commons,met,openverse] [--download 1,3]
+  npx ux-sting tokens export [--format dtcg,css,scss,tailwind] [--out <dir>]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -110,6 +112,12 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           async () => ({ run: (await import("@ux-sting/images")).imagesCommand }),
           argv.slice(argv.indexOf("images") + 1),
         );
+      case "tokens":
+        return await runPlugin(
+          "@ux-sting/extract",
+          async () => ({ run: (await import("@ux-sting/extract")).tokensCommand }),
+          argv.slice(argv.indexOf("tokens") + 1),
+        );
       case undefined:
       case "help":
         log.info(HELP);
@@ -125,14 +133,17 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
   }
 }
 
+// Compare with forward slashes so the check also works on Windows, where
+// `process.argv[1]` arrives with backslash separators.
+const toPosix = (path: string) => path.replace(/\\/g, "/");
+const self = toPosix(fileURLToPath(import.meta.url));
+const invoked = toPosix(process.argv[1] ?? "");
 const isEntry =
-  import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith("/ux-sting") ||
-  process.argv[1]?.endsWith("cli/dist/index.js");
+  invoked === self || invoked.endsWith("/ux-sting") || invoked.endsWith("/cli/dist/index.js");
 if (isEntry) {
   if (
     process.argv.includes("--help") &&
-    !["qa", "extract", "theme", "dna", "images"].includes(process.argv[2] ?? "")
+    !["qa", "extract", "theme", "dna", "images", "tokens"].includes(process.argv[2] ?? "")
   ) {
     log.info(HELP);
   } else {
