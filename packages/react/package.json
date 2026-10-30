@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/react",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "ux-sting React components: accessible, themeable, tree-shakeable and SSR/RSC-friendly.",
   "license": "MIT",
   "repository": {
