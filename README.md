@@ -39,6 +39,64 @@ in a browser before they say “done”.
 > **Works with your AI agent** — one line installs the skills into whatever editor you use:
 > `npx skills add ssassam/UX-STING` · see [Agent Skills](#agent-skills).
 
+<div align="center">
+
+**9 agent skills** · **~100 component families** · **17 theme presets** ·
+**WCAG 2.2 AA** · **axe-verified in a browser** · **6 AI hosts** ·
+**3 languages + RTL** · **7 live demos**
+
+</div>
+
+## What sets UX-STING apart
+
+Most "design" skills are **guidance-only**: a big style / palette / font catalog
+that tells the agent what to build — then the agent hand-writes the code and
+*hopes* it is accessible. UX-STING ships **real components and a verification
+loop that proves the result in a browser**.
+
+| | Guidance-only skills | **UX-STING** |
+| --- | --- | --- |
+| Output | A design spec; every component hand-written per prompt | ~100 production React components you copy and own |
+| Accessibility | A checklist the model is told to follow | `npx ux-sting qa` runs **axe-core**, contrast, layout, LCP/CLS and returns ranked fixes |
+| Feedback loop | None — "looks right" | Build → **render** → **audit** → **auto-fix** until serious issues clear |
+| Design input | Generate a system from a text brief | **Extract** real tokens / Design DNA from any live URL |
+| Images | Placeholders | **Real, openly-licensed images with automatic credits** |
+| Proof | Screenshots | **7 deployed demo sites** with SEO structured data |
+
+### The pipeline (how the agent works)
+
+```
+   brief or live URL
+          │
+          ▼
+  ┌────────────────┐   ┌───────────────┐   ┌───────────────┐
+  │ analyze / DNA  │──▶│ plan directions│──▶│  generate page │
+  └────────────────┘   └───────────────┘   └───────────────┘
+                                                  │
+          ┌───────────────────────────────────────┘
+          ▼
+  ┌────────────────┐   ┌───────────────┐   ┌────────────────────┐
+  │ render in      │──▶│ audit: axe /  │──▶│ apply deterministic │──▶ done
+  │ browser        │   │ contrast / fit│   │ fixes (loop)        │   (verified)
+  └────────────────┘   └───────────────┘   └────────────────────┘
+```
+
+### Works across AI coding agents
+
+| Host | How you get the skills |
+| --- | --- |
+| **Claude Code** | Native plugin / marketplace — `/plugin install ux-sting@ux-sting` |
+| **Qoder** | Native plugin |
+| **OpenAI Codex** | Auto-discovers `.agents/skills/` in the repo |
+| **Cursor** | Skills standard via `npx skills add`; `AGENTS.md` |
+| **VS Code / GitHub Copilot** | `.github/copilot-instructions.md` + `AGENTS.md` |
+| **Gemini CLI** | `GEMINI.md` |
+
+> **Honest scope:** the *component library* is React / Next.js. The *design
+> system* (tokens, themes, accessibility rules), the **QA / extract / DNA
+> toolchain** and the **agent skills** are stack-agnostic — `ux-sting qa`,
+> `extract` and `images` run against **any** site, in any framework.
+
 ## Quick start
 
 Install from npm (below), browse the [live demos](#showcase), or run everything from source.
