@@ -2,6 +2,17 @@
 
 An accessible, themeable, tree-shakeable design system and React component library for Next.js and any React app.
 
+[![npm](https://img.shields.io/npm/v/ux-sting)](https://www.npmjs.com/package/ux-sting)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
+[![Skills](https://img.shields.io/badge/skills-npx%20skills%20add-blue)](https://github.com/ssassam/UX-STING)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-5C4B33)
+![Codex](https://img.shields.io/badge/Codex-supported-000000)
+![Cursor](https://img.shields.io/badge/Cursor-supported-1E1E1E)
+![VS Code](https://img.shields.io/badge/VS_Code-supported-007ACC)
+![Gemini](https://img.shields.io/badge/Gemini-supported-4285F4)
+![Qoder](https://img.shields.io/badge/Qoder-supported-0EA5E9)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-Support_VELTEIN-FFDD00?logo=buymeacoffee&logoColor=000000)](https://buymeacoffee.com/veltein)
+
 - **~100 component families** — layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects (text effects, scroll reveal, counters, marquee, backgrounds); `@ux-sting/motion` adds a CSS transition catalog (resize, reorder, tabs, toast, skeleton…) and an optional GSAP adapter
 - **Accessible by default** — WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens
 - **Design tokens & themes** — OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles plus editorial, luxury, brutalist and terminal design directions), custom themes, light/dark/high-contrast, 3 densities
