@@ -1,0 +1,198 @@
+/*
+ * Animated icons — marks that respond with intent, not decoration.
+ *
+ *   import "@ux-sting/icons/animated.css";
+ *   import { AnimatedArrowRightIcon, ICON_ANCHOR_CLASS } from "@ux-sting/icons/animated";
+ *
+ *   <button className={ICON_ANCHOR_CLASS}>Next <AnimatedArrowRightIcon /></button>
+ *   <AnimatedCheckIcon />                       // "in" presets draw on mount
+ *   <AnimatedIcon icon={RefreshCwIcon} trigger="loop" />   // spinning loader
+ *
+ * The preset lives in [data-ico-anim] on the .ui-icon-anim svg and the trigger
+ * in [data-ico-trigger]: "hover" plays when the icon itself or an
+ * .us-ico-anchor ancestor is hovered/focused, "in" plays once when rendered,
+ * "loop" repeats. Durations and easing fall back to the shared UX-STING motion
+ * tokens, colour is always currentColor, and reduced motion plays nothing.
+ */
+
+.ui-icon-anim {
+  transform-box: fill-box;
+  transform-origin: center;
+  --us-ico-duration: var(--ui-duration-base, 260ms);
+  --us-ico-ease: var(--ui-ease-emphasized, cubic-bezier(0.3, 0, 0, 1.2));
+  --us-ico-loop-duration: var(--us-ico-loop, 1s);
+}
+
+/* preset → keyframe binding */
+.ui-icon-anim[data-ico-anim="nudge"] {
+  --us-ico-kf: us-ico-nudge;
+}
+.ui-icon-anim[data-ico-anim="draw"] {
+  --us-ico-kf: us-ico-draw;
+}
+.ui-icon-anim[data-ico-anim="shift"] {
+  --us-ico-kf: us-ico-shift;
+}
+.ui-icon-anim[data-ico-anim="launch"] {
+  --us-ico-kf: us-ico-launch;
+}
+.ui-icon-anim[data-ico-anim="drop"] {
+  --us-ico-kf: us-ico-drop;
+}
+.ui-icon-anim[data-ico-anim="ring"] {
+  --us-ico-kf: us-ico-ring;
+}
+.ui-icon-anim[data-ico-anim="beat"] {
+  --us-ico-kf: us-ico-beat;
+}
+.ui-icon-anim[data-ico-anim="twinkle"] {
+  --us-ico-kf: us-ico-twinkle;
+}
+.ui-icon-anim[data-ico-anim="spin"] {
+  --us-ico-kf: us-ico-spin;
+}
+.ui-icon-anim[data-ico-anim="peek"] {
+  --us-ico-kf: us-ico-peek;
+}
+.ui-icon-anim[data-ico-anim="flash"] {
+  --us-ico-kf: us-ico-flash;
+}
+
+/* "draw" needs a dash grid on the strokes; dashoffset is inherited by the
+   children from the animated svg. */
+.ui-icon-anim[data-ico-anim="draw"] > * {
+  stroke-dasharray: 120;
+}
+
+/* triggers */
+.ui-icon-anim[data-ico-trigger="in"] {
+  animation-name: var(--us-ico-kf);
+  animation-duration: var(--us-ico-duration);
+  animation-timing-function: var(--us-ico-ease);
+  animation-fill-mode: both;
+}
+
+.ui-icon-anim[data-ico-trigger="loop"] {
+  animation-name: var(--us-ico-kf);
+  animation-duration: var(--us-ico-loop-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.us-ico-anchor:is(:hover, :focus-visible) .ui-icon-anim[data-ico-trigger="hover"],
+.ui-icon-anim[data-ico-trigger="hover"]:hover {
+  animation-name: var(--us-ico-kf);
+  animation-duration: var(--us-ico-duration);
+  animation-timing-function: var(--us-ico-ease);
+  animation-fill-mode: both;
+}
+
+/* keyframes */
+@keyframes us-ico-nudge {
+  45% {
+    transform: translateX(0.16em);
+  }
+}
+
+@keyframes us-ico-draw {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes us-ico-shift {
+  40% {
+    transform: translate(0.14em, -0.14em);
+  }
+}
+
+@keyframes us-ico-launch {
+  40% {
+    transform: translate(0.22em, -0.22em);
+    opacity: 0.5;
+  }
+  65% {
+    transform: translate(-0.05em, 0.05em);
+    opacity: 1;
+  }
+}
+
+@keyframes us-ico-drop {
+  40% {
+    transform: translateY(0.16em);
+  }
+  70% {
+    transform: translateY(-0.05em);
+  }
+}
+
+@keyframes us-ico-ring {
+  20% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes us-ico-beat {
+  25% {
+    transform: scale(1.16);
+  }
+  45% {
+    transform: scale(0.96);
+  }
+  65% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes us-ico-twinkle {
+  50% {
+    transform: scale(0.88);
+    opacity: 0.72;
+  }
+}
+
+@keyframes us-ico-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes us-ico-peek {
+  45% {
+    transform: scaleY(0.12);
+  }
+}
+
+@keyframes us-ico-flash {
+  28% {
+    opacity: 0.35;
+  }
+  42% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0.45;
+  }
+  72% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-icon-anim,
+  .ui-icon-anim > * {
+    animation: none !important;
+  }
+}

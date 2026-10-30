@@ -1,7 +1,7 @@
 {
   "name": "@ux-sting/icons",
   "version": "0.7.0",
-  "description": "Tree-shakeable SVG icons for ux-sting (icon data from Lucide, ISC).",
+  "description": "Tree-shakeable SVG icons for ux-sting (icon data from Lucide, ISC), with an optional animated layer: intent-driven hover/mount/loop motions that are token-aware and reduced-motion safe.",
   "license": "MIT AND ISC",
   "repository": {
     "type": "git",
@@ -23,6 +23,11 @@
       "types": "./dist/icon.d.ts",
       "import": "./dist/icon.js"
     },
+    "./animated": {
+      "types": "./dist/animated.d.ts",
+      "import": "./dist/animated.js"
+    },
+    "./animated.css": "./dist/icon-motion.css",
     "./icons/*": {
       "types": "./dist/icons/*.d.ts",
       "import": "./dist/icons/*.js"
@@ -34,7 +39,7 @@
     "LICENSE-lucide"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
   "peerDependencies": {
