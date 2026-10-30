@@ -97,6 +97,25 @@ loop that proves the result in a browser**.
 > toolchain** and the **agent skills** are stack-agnostic — `ux-sting qa`,
 > `extract` and `images` run against **any** site, in any framework.
 
+### Tech stacks
+
+What UX-STING gives you, tiered honestly by stack:
+
+| Stack | Today |
+| --- | --- |
+| **React** | ✅ **Native components** — ~100 accessible, themeable, copy-and-own families (`@ux-sting/react`) |
+| **Next.js** | ✅ **Native** — App Router, RSC-friendly, per-component entry points |
+| **Tailwind v4** | ✅ **Native** — `tailwind.css` or precompiled `styles.css`, token-driven |
+| **HTML / any framework** | ◽ **Design system + verified** — OKLCH tokens as CSS variables apply anywhere; `ux-sting qa` audits any page in a browser |
+| **Vue / Nuxt** | ◽ Tokens + QA/extract + agent guidance — build with your own components (native adapter planned) |
+| **Svelte / SvelteKit** | ◽ Tokens + QA/extract + agent guidance (native adapter planned) |
+| **SwiftUI · React Native · Flutter** | ◽ Design tokens portable (colors / type / spacing); QA runs on web targets — native adapters planned |
+
+> ✅ ships real, production components today. ◽ means **no framework-specific
+> components yet** — you get the design system, the browser-verified QA loop and
+> agent guidance, not a ported component library. We say this plainly rather than
+> pad a "supported" count.
+
 ## Quick start
 
 Install from npm (below), browse the [live demos](#showcase), or run everything from source.
