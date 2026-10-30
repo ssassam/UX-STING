@@ -204,6 +204,35 @@ pnpm ux-audit
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Agent Skills
+
+UX-STING ships cross-host **Agent Skills** and a **Universal Design Agent** (in
+[`.claude/skills/`](.claude/skills) and [`agents/`](agents)) that teach coding agents to
+build accessible, themeable, art-directed UI with this system — and verify every page in a
+browser with `npx ux-sting qa` before they say "done". One source installs into Claude Code,
+Cursor, Codex, GitHub Copilot / VS Code, Gemini CLI and Qoder.
+
+```bash
+npx skills add ssassam/UX-STING            # universal — detects your agent
+```
+
+Claude Code (this repo doubles as a native plugin / marketplace):
+
+```text
+/plugin marketplace add ssassam/UX-STING
+/plugin install ux-sting@ux-sting
+```
+
+| Skill | What it does |
+| --- | --- |
+| **ux-sting-design-agent** | Universal design agent — routes any UI task and always verifies |
+| **ux-sting** | Components, tokens/themes, wiring `@ux-sting/react` into an app |
+| **ux-sting-taste** | Art-direct pages that look designed, not generated |
+| **ux-sting-review** | Accessibility / UX / design review with severity ranking |
+| **ux-sting-explore · ux-sting-universal · ux-sting-3d · ux-sting-diagrams · logo-design** | Directions · reference→DNA→page · three.js · diagrams · logos |
+
+Regenerate the mirrors and plugin bundles after editing skills: `node scripts/build-agent-skills.mjs`.
+
 ## Hi, VELTEIN
 
 UX-STING by **[VELTEIN](https://veltein.com)** — the work of **Issam El Bani** across websites, applications, and automation.

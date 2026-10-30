@@ -1,0 +1,20 @@
+{
+  "name": "ux-sting",
+  "owner": {
+    "name": "Issam El Bani — VELTEIN",
+    "url": "https://veltein.com"
+  },
+  "metadata": {
+    "description": "UX-STING agent skills for Claude Code.",
+    "version": "0.1.0",
+    "license": "MIT"
+  },
+  "plugins": [
+    {
+      "name": "ux-sting",
+      "description": "Build accessible, themeable, art-directed UI with the UX-STING design system.",
+      "category": "developer-tools",
+      "source": "./"
+    }
+  ]
+}

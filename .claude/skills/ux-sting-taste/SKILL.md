@@ -63,7 +63,7 @@ Build with UX-STING components, tokens and the chosen theme (preset, `createThem
 
 ## 8. Prove it in the browser
 
-Run the `ux-sting-qa` loop: `npx ux-sting qa <url> --out .ux-sting/qa/round-1`, fix the top 3, re-run (max 3 rounds). QA includes anti-slop checks (`slop:*`, `data:*` findings) next to accessibility and layout.
+Run the `ux-sting qa` loop: `npx ux-sting qa <url> --out .ux-sting/qa/round-1`, fix the top 3, re-run (max 3 rounds). QA includes anti-slop checks (`slop:*`, `data:*` findings) next to accessibility and layout.
 
 ## 9. Critique your own screenshots
 

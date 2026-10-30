@@ -1,11 +1,11 @@
 ---
-name: UX-STING
-description: "Build, review or extend interfaces with the UX-STING React system in this repository — choosing components, applying tokens/themes, and running the UX quality checks. Use when creating pages, components, examples or docs demos, fixing accessibility/responsive/RTL issues, or adding a new component to packages/react. Adapted from the MIT-licensed UI/UX Pro Max skill (see THIRD_PARTY_NOTICES.md)."
+name: ux-sting
+description: "Build, review or extend interfaces with the UX-STING React system (@ux-sting/react) — choosing components, applying tokens and themes, and running the UX quality checks. Use when creating pages, components or examples in an app, fixing accessibility/responsive/RTL issues, or wiring UX-STING into a Next.js or React project. Adapted from the MIT-licensed UI/UX Pro Max skill (see THIRD_PARTY_NOTICES.md)."
 ---
 
 # UX-STING — building and reviewing UI
 
-Use this skill whenever a task changes how something in this repo **looks, feels, moves, or is interacted with**. Skip it for pure build tooling or non-visual scripts.
+Use this skill whenever a task changes how your app **looks, feels, moves, or is interacted with**. Skip it for pure build tooling or non-visual scripts. Components, tokens and themes come from the installed `@ux-sting/*` packages, not from a local source folder.
 
 ## 1. Pick components, don't hand-roll
 
@@ -44,12 +44,12 @@ Import per component: `import { Button } from "@ux-sting/react/button"`.
 | 4 | Style | Semantic tokens only (`bg-primary`, `text-muted-foreground`), one icon family, one primary action per view | raw hex, emoji icons, random shadows |
 | 5 | Layout & responsive | Responsive props (`columns={{ base: 1, md: 3 }}`), `dvh`, safe areas, no horizontal scroll at 375px | fixed px widths, `100vh` |
 | 6 | Typography & color | 16px body/inputs on mobile, `tabular-nums` for numbers, `text-balance` headings | gray-on-gray text |
-| 7 | Motion | Motion tokens; exits faster than entries; transform/opacity only; reduced motion; expressive components within the budget in `docs/motion.md` | animating width/height, motion on every element |
+| 7 | Motion | Motion tokens; exits faster than entries; transform/opacity only; reduced motion; expressive components within the motion budget (UX-STING docs, `docs/motion.md`) | animating width/height, motion on every element |
 | 8 | Forms | `Form` + `Field` + `FormErrorSummary`, validate on blur, semantic `type`/`autoComplete` | errors only at top, keystroke validation |
 | 9 | Navigation | `aria-current`, breadcrumbs for 3+ levels, `SkipLink`, deep-linkable pagination (`getHref`) | modals for navigation |
 | 10 | Data | Sortable headers with `aria-sort`, locale formatting, trend arrows + text | color-only status |
 
-Full rule set with enforcement points: `docs/ux-quality.md`.
+Full rule set with enforcement points: `docs/ux-quality.md` in the UX-STING docs (github.com/ssassam/UX-STING).
 
 ## 3. Tokens, themes, RTL
 
@@ -63,11 +63,14 @@ Full rule set with enforcement points: `docs/ux-quality.md`.
 Run the automated checks:
 
 ```bash
-pnpm typecheck && pnpm lint && pnpm test
-pnpm ux-audit                                  # static UX rules
-pnpm --filter @ux-sting/docs build && (cd apps/docs && npx next start -p 3100 &)
-node scripts/browser-audit.ts http://localhost:3100 /components/<name>   # axe incl. contrast + overflow at 390/1280px, light/dark
+npm run build                              # your app's build (pnpm build / yarn build)
+npx tsc --noEmit                           # typecheck
+npm test                                   # your tests; add jest-axe or @axe-core/react for a11y
+npx ux-sting qa http://localhost:3000 --viewports 375,768,1440 --out .ux-sting/qa
+# ^ axe (incl. contrast) + layout overflow + console + LCP/CLS, ranked top-3 fixes, light/dark
 ```
+
+Start your dev server first (`npm run dev`). `npx ux-sting qa` needs `@ux-sting/qa` and one-time `npx playwright-core install chromium`.
 
 Then walk the pre-delivery checklist:
 
@@ -80,7 +83,7 @@ Then walk the pre-delivery checklist:
 - [ ] Forms: visible labels, specific errors with recovery, error summary focus after failed submit
 - [ ] Icons from `@ux-sting/icons` only; decorative icons hidden; icon buttons named
 - [ ] RTL (`locale="ar"`) layout and keyboard mirroring checked
-- [ ] Only semantic tokens — `pnpm ux-audit` passes
+- [ ] Only semantic tokens — no raw hex, `100vh`, or physical `ml-/pl-/left-` utilities
 
 ## 5. Related skills
 
@@ -88,6 +91,6 @@ Then walk the pre-delivery checklist:
 - **ux-sting-review** — severity-ranked review with evidence; fix critical and serious findings before handoff.
 - **ux-sting-explore** — build three different directions side by side and converge on one.
 
-## 6. Adding a component
+## 6. Own the code
 
-Follow `CONTRIBUTING.md` → "Component checklist": API conventions (`docs/api-consistency.md`), tests with `expectNoA11yViolations`, a story, a docs demo (`apps/docs/demos/<name>.tsx`), metadata in `registry/components.ts`, then `pnpm readmes && pnpm registry`.
+Import components from the package (`@ux-sting/react/<name>`). To bring source into your project and edit it directly — a bespoke component or a behavior you must fork — run `npx ux-sting init` once, then `npx ux-sting add <name…>`. This copies the component source with a lockfile that protects your edits (`npx ux-sting diff` flags upstream changes; `--overwrite` re-copies). Contribute a genuinely new, general component back to the UX-STING repo (`CONTRIBUTING.md`).

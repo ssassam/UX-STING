@@ -10,14 +10,14 @@ A review is not done until there is evidence. Run the tools first, then read the
 ## 1. Collect evidence
 
 ```bash
-pnpm ux-audit                         # tokens only, no 100vh, focus replacements, logical props, no emoji
-pnpm typecheck && pnpm lint           # includes jsx-a11y
-pnpm test                             # axe via expectNoA11yViolations
-pnpm --filter @ux-sting/docs build && (cd apps/docs && npx next start -p 3100 &)
-node scripts/browser-audit.ts http://localhost:3100 /components/<name>   # axe incl. contrast + overflow at 390/1280px, light/dark
+npx ux-sting qa http://localhost:3000/<page> --viewports 375,768,1440 --out .ux-sting/qa
+# ^ axe (incl. contrast) + layout overflow + console + LCP/CLS, ranked top-3 fixes, light/dark
+npx tsc --noEmit                    # typecheck
+npm run lint                        # your ESLint config; enable jsx-a11y
+npm test                            # your tests (add jest-axe / @axe-core/react for a11y)
 ```
 
-For an example app, build it and point `browser-audit.ts` at its pages. Take screenshots at 390px and 1280px in light and dark mode (Playwright is preinstalled) and look at them — do not review layout you have not seen.
+Start the dev server first (`npm run dev`); `npx ux-sting qa` needs `@ux-sting/qa` and one-time `npx playwright-core install chromium`. It writes screenshots at each viewport — open `375` and `1280` in light and dark and look at them. Do not review layout you have not seen.
 
 ## 2. Check, in priority order
 
@@ -56,6 +56,6 @@ One table, most severe first. Every finding needs a location and evidence, not a
 
 | Severity | Where | Problem | Evidence | Fix |
 | --- | --- | --- | --- | --- |
-| Critical | `examples/shop/app/page.tsx:42` | Icon button has no name | axe `button-name` | Add `aria-label="Remove item"` |
+| Critical | `src/app/shop/page.tsx:42` | Icon button has no name | axe `button-name` | Add `aria-label="Remove item"` |
 
 Then fix every critical and serious finding, re-run section 1, and say plainly what was fixed, what was left and why. Never report a check as passing if you did not run it.

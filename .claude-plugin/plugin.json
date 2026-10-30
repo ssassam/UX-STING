@@ -1,0 +1,21 @@
+{
+  "name": "ux-sting",
+  "description": "Build accessible, themeable, art-directed UI with the UX-STING design system.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Issam El Bani — VELTEIN",
+    "url": "https://veltein.com"
+  },
+  "homepage": "https://veltein.com",
+  "repository": "https://github.com/ssassam/UX-STING",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "accessibility",
+    "react",
+    "nextjs",
+    "ux",
+    "tailwind"
+  ],
+  "skills": "./.claude/skills/"
+}

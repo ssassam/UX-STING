@@ -23,7 +23,7 @@ Each variation differs in at least two of: theme preset, type pairing, layout st
 
 ## 3. Build them in parallel
 
-- Put each variation in its own route or file, e.g. `examples/<app>/app/explore/a/page.tsx`, `/b`, `/c`, or `apps/playground/src/explore/<name>-a.tsx`.
+- Put each variation in its own route or file in your app, e.g. `app/explore/a/page.tsx`, `/b`, `/c` (Next.js App Router) or `src/explore/<name>-a.tsx` (Vite / CRA).
 - Wrap each in its own `UIProvider theme="…"` (providers nest), so one page can show all three.
 - If subagents are available and the person asked for speed, build each variation in its own subagent with the same brief and fixed parts; otherwise build them one after another.
 - Keep shared content in one data file so the variations only differ in design.
