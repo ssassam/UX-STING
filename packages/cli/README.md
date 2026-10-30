@@ -98,6 +98,35 @@ npx ux-sting images "harbour at dawn" --download 1
 Image results include source and license information; review the attribution
 requirements for each asset you use.
 
+## Agent Skills
+
+Teach your AI coding agent to use UX-STING well. The repo ships cross-host
+**Agent Skills** and a **Universal Design Agent** that make agents build accessible,
+themeable, art-directed UI — and verify every page in a browser with `npx ux-sting qa`
+before they say "done". One source installs into Claude Code, Cursor, Codex, GitHub
+Copilot / VS Code, Gemini CLI and Qoder.
+
+```sh
+npx skills add ssassam/UX-STING
+```
+
+Claude Code (native plugin / marketplace):
+
+```
+/plugin marketplace add ssassam/UX-STING
+/plugin install ux-sting@ux-sting
+```
+
+| Skill | What it does |
+| --- | --- |
+| `ux-sting-design-agent` | Universal design agent — routes any UI task and always verifies |
+| `ux-sting` | Components, tokens/themes, wiring `@ux-sting/react` into an app |
+| `ux-sting-taste` | Art-direct pages that look designed, not generated |
+| `ux-sting-review` | Accessibility / UX / design review with severity ranking |
+| `ux-sting-explore` · `ux-sting-universal` · `ux-sting-3d` · `ux-sting-diagrams` · `logo-design` | Directions · reference→DNA→page · three.js · diagrams · logos |
+
+Source: [`.claude/skills/`](https://github.com/ssassam/UX-STING/tree/main/.claude/skills).
+
 ## Documentation and demos
 
 - [Full project documentation](https://github.com/ssassam/UX-STING#readme)
