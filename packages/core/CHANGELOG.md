@@ -1,5 +1,13 @@
 # @ux-sting/core
 
+## 0.8.1
+
+### Patch Changes
+
+- @ux-sting/themes@0.8.1
+- @ux-sting/tokens@0.8.1
+- @ux-sting/utils@0.8.1
+
 ## 0.8.0
 
 ### Patch Changes

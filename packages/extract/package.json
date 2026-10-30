@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/extract",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Extract a design system from any live URL (colors, type scale, spacing, radii, shadows, motion, breakpoints) as W3C DTCG tokens, import DTCG files from any tool into a UX-STING OKLCH theme, and match a design to the nearest UX-STING preset.",
   "license": "MIT",
   "type": "module",

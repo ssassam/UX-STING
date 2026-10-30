@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/icons",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Tree-shakeable SVG icons for ux-sting (icon data from Lucide, ISC), with an optional animated layer: intent-driven hover/mount/loop motions that are token-aware and reduced-motion safe.",
   "license": "MIT AND ISC",
   "repository": {

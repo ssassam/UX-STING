@@ -1,5 +1,11 @@
 # @ux-sting/icons
 
+## 0.8.1
+
+### Patch Changes
+
+- 7012160: fix(icons): the animated layer read `--ui-duration-base`, a token that does not exist, so icon motion never followed the theme's timing. It now uses `--ui-duration-slow` (300ms) with the same fallback chain.
+
 ## 0.8.0
 
 ### Minor Changes
