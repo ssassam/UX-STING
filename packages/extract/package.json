@@ -38,8 +38,8 @@
     "@ux-sting/tokens": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "typescript": "~6.0.3"
+    "@types/node": "^26.6.5",
+    "typescript": "~7.0.2"
   },
   "repository": {
     "type": "git",
