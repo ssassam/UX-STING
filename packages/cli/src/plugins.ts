@@ -17,7 +17,12 @@ export async function runPlugin(
     const code = (error as { code?: string }).code;
     if (code === "ERR_MODULE_NOT_FOUND" || code === "MODULE_NOT_FOUND") {
       log.error(`This command needs ${pkg}.`);
-      log.info(dim(`Install it with: npm i -D ${pkg}  (then: npx playwright install chromium)`));
+      const browser = pkg === "@ux-sting/qa" || pkg === "@ux-sting/extract";
+      log.info(
+        dim(
+          `Install it with: npm i -D ${pkg}${browser ? "  (then: npx playwright install chromium)" : ""}`,
+        ),
+      );
       return 1;
     }
     throw error;

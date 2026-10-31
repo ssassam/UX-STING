@@ -1,0 +1,57 @@
+{
+  "name": "@ux-sting/catalog",
+  "version": "0.8.0",
+  "description": "Design intelligence for UX-STING: searchable styles, industry palettes, font pairings, landing patterns, UX rules, chart and stack guidelines — and `brief`, which turns a product idea into a contrast-checked UX-STING theme.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./data/*": "./data/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "data",
+    "NOTICE.md"
+  ],
+  "keywords": [
+    "design-system",
+    "ui-styles",
+    "color-palette",
+    "typography",
+    "ux-guidelines",
+    "design-intelligence"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "import-data": "node scripts/import-data.mjs"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@ux-sting/extract": "workspace:^",
+    "@ux-sting/themes": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "~6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssassam/UX-STING.git",
+    "directory": "packages/catalog"
+  },
+  "homepage": "https://github.com/ssassam/UX-STING#readme",
+  "bugs": "https://github.com/ssassam/UX-STING/issues",
+  "publishConfig": {
+    "access": "public"
+  }
+}

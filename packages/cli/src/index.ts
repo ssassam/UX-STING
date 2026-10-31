@@ -16,6 +16,8 @@ ${bold("Usage")}
   npx ux-sting dna <url|tokens.json> [--json]
   npx ux-sting images <query> [--source commons,met,openverse] [--download 1,3]
   npx ux-sting tokens export [--format dtcg,css,scss,tailwind] [--out <dir>]
+  npx ux-sting brief "<product idea>" [--out <dir>] [--style <name>] [--stack <name>]
+  npx ux-sting search <domain> "<query>" [--limit <n>] [--stack <name>]
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -118,6 +120,18 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           async () => ({ run: (await import("@ux-sting/extract")).tokensCommand }),
           argv.slice(argv.indexOf("tokens") + 1),
         );
+      case "brief":
+      case "search": {
+        const rest = argv.slice(argv.indexOf(command) + 1);
+        return await runPlugin(
+          "@ux-sting/catalog",
+          async () => {
+            const m = await import("@ux-sting/catalog");
+            return { run: command === "brief" ? m.briefCommand : m.searchCommand };
+          },
+          rest,
+        );
+      }
       case undefined:
       case "help":
         log.info(HELP);
@@ -143,7 +157,9 @@ const isEntry =
 if (isEntry) {
   if (
     process.argv.includes("--help") &&
-    !["qa", "extract", "theme", "dna", "images", "tokens"].includes(process.argv[2] ?? "")
+    !["qa", "extract", "theme", "dna", "images", "tokens", "brief", "search"].includes(
+      process.argv[2] ?? "",
+    )
   ) {
     log.info(HELP);
   } else {

@@ -48,6 +48,12 @@ pre-delivery checklist in `docs/ux-quality.md` and
 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 (`.claude/skills/ui-ux-pro-max/SKILL.md` and its `references/`).
 
+The design knowledge base in `packages/catalog/data/` (product types, UI
+reasoning rules, styles, color palettes, font pairings, landing patterns, UX,
+chart, motion, icon, app-interface, React performance and stack guidelines) is
+converted from the CSV files in that project's `src/ui-ux-pro-max/data/` by
+`packages/catalog/scripts/import-data.mjs`, under the same license.
+
 ```
 MIT License
 Copyright (c) 2024 Next Level Builder

@@ -53,6 +53,17 @@ Full rule set with enforcement points: `docs/ux-quality.md` in the UX-STING docs
 
 ## 3. Tokens, themes, RTL
 
+Start a new product from its industry, not from a blank palette:
+
+```bash
+npx ux-sting brief "<product idea>" --out src/theme [--stack nextjs] [--style <name>]
+# → page pattern, style, AA-checked palette, font pairing, effects, anti-patterns,
+#   plus <name>.theme.ts / .css and design-system.md (keep it as the source of truth)
+npx ux-sting search <styles|colors|typography|landing|ux|charts|motion|icons|stacks> "<query>"
+```
+
+Respect the brief's **Avoid** list and decision rules; when the brief and the user disagree, the user wins.
+
 - Never hard-code colors or dark-mode styles; use semantic tokens. Dark/high-contrast come for free.
 - Use logical utilities: `ms-* me-* ps-* pe-* start-* end-* text-start border-s`. Rotate directional icons with `rtl:rotate-180`.
 - User-facing strings in reusable components come from `useMessages()` (en/fr/ar) or props.

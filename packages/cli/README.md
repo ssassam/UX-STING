@@ -84,13 +84,15 @@ export function App() {
 Install only the tools you need:
 
 ```sh
-npm install -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images
+npm install -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images @ux-sting/catalog
 npx playwright-core install chromium
 
 npx ux-sting qa http://localhost:3000
 npx ux-sting extract https://example.com
 npx ux-sting theme import ux-sting-extract/tokens.json
 npx ux-sting dna https://example.com
+npx ux-sting brief "beauty spa booking" --out src/theme   # needs @ux-sting/catalog
+npx ux-sting search styles "glass dark premium"
 npx ux-sting images "harbour at dawn" --download 1
 ```
 

@@ -779,11 +779,30 @@ importers:
         specifier: ~6.0.3
         version: 6.0.3
 
+  packages/catalog:
+    dependencies:
+      '@ux-sting/extract':
+        specifier: workspace:^
+        version: link:../extract
+      '@ux-sting/themes':
+        specifier: workspace:^
+        version: link:../themes
+    devDependencies:
+      '@types/node':
+        specifier: ^24.0.0
+        version: 24.19.0
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
   packages/cli:
     devDependencies:
       '@types/node':
         specifier: ^24.0.0
         version: 24.19.0
+      '@ux-sting/catalog':
+        specifier: workspace:^
+        version: link:../catalog
       '@ux-sting/extract':
         specifier: workspace:^
         version: link:../extract

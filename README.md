@@ -59,7 +59,8 @@ loop that proves the result in a browser**.
 | Output | A design spec; every component hand-written per prompt | ~100 production React components you copy and own |
 | Accessibility | A checklist the model is told to follow | `npx ux-sting qa` runs **axe-core**, contrast, layout, LCP/CLS and returns ranked fixes |
 | Feedback loop | None — "looks right" | Build → **render** → **audit** → **auto-fix** until serious issues clear |
-| Design input | Generate a system from a text brief | **Extract** real tokens / Design DNA from any live URL |
+| Design input | Generate a system from a text brief | **Both:** `ux-sting brief "<idea>"` (192 industry rules, 80+ styles, 192 palettes, 74 font pairings) **and** extract real tokens / Design DNA from any live URL |
+| Brief → code | A palette to copy by hand | `brief` writes a **contrast-checked UX-STING theme** (`.theme.ts`, `.css`, DTCG) plus `design-system.md` |
 | Images | Placeholders | **Real, openly-licensed images with automatic credits** |
 | Proof | Screenshots | **7 deployed demo sites** with SEO structured data |
 
@@ -206,6 +207,7 @@ Using pnpm or yarn? Replace `npm install` with `pnpm add` / `yarn add`. The [too
 | `packages/design-dna` | `@ux-sting/design-dna` — prototype: Design DNA analysis, planning, generation and visual QA (see `docs/UNIVERSAL_VISION.md`) |
 | `packages/qa` | `@ux-sting/qa` — browser QA for agents (`ux-sting qa <url\|path>`): axe, contrast, layout checks, console, LCP/CLS, ranked top-3 fixes |
 | `packages/extract` | `@ux-sting/extract` — `ux-sting extract <url>` → W3C DTCG tokens, `ux-sting theme import` → OKLCH theme, `ux-sting dna` → nearest preset |
+| `packages/catalog` | `@ux-sting/catalog` — design intelligence: `ux-sting brief "<idea>"` → industry-aware design system + AA-checked theme; `ux-sting search <domain> <query>` over styles, palettes, fonts, landing patterns, UX/chart/motion/icon rules and 22 stack guides |
 | `packages/images` | `@ux-sting/images` — `ux-sting images <query>`: openly licensed images (Commons, Met, Openverse) with automatic credits |
 | `packages/motion` | `@ux-sting/motion` — CSS transition catalog (resize, number pop, stack, reorder, accordion, tabs, toast, skeleton) + helpers, optional GSAP adapter (`/gsap`) |
 | `packages/seo-schema` | `@ux-sting/seo-schema` — typed JSON-LD builders and validation (schema.org vs Google eligibility) |
