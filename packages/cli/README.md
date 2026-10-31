@@ -81,6 +81,14 @@ export function App() {
 
 ## Optional agent tools
 
+Install the agent skills into your AI coding tool (24 supported; auto-detected when `--ai` is omitted):
+
+```sh
+npx ux-sting init --ai cursor        # claude, codex, copilot, gemini, windsurf, kiro, roocode, trae, … or all
+npx ux-sting skills --ai all --global
+npx ux-sting skills list
+```
+
 Install only the tools you need:
 
 ```sh

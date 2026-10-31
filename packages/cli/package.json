@@ -26,12 +26,13 @@
   "files": [
     "dist",
     "registry.json",
+    "skills",
     "README.md",
     "scripts/check-readme.mjs"
   ],
   "scripts": {
     "prepack": "node ./scripts/check-readme.mjs",
-    "build": "node ../../scripts/build-registry.ts && tsc -p tsconfig.build.json && node ./scripts/add-shebang.mjs",
+    "build": "node ../../scripts/build-registry.ts && node ./scripts/copy-skills.mjs && tsc -p tsconfig.build.json && node ./scripts/add-shebang.mjs",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
   "engines": {

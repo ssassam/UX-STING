@@ -2,11 +2,14 @@ import { fileURLToPath } from "node:url";
 import { add, diff, init, list } from "./commands.js";
 import { bold, dim, log } from "./log.js";
 import { runPlugin } from "./plugins.js";
+import { skillsCommand } from "./skills.js";
 
 const HELP = `${bold("ux-sting")} — copy accessible React components into your project
 
 ${bold("Usage")}
   npx ux-sting init [--dir <path>] [--css <file>] [--force]
+  npx ux-sting init --ai <cursor|claude|windsurf|copilot|gemini|kiro|…|all>
+  npx ux-sting skills [--ai <tool,…>] [--global] [--force] | skills list
   npx ux-sting add <component...> [--overwrite] [--dry-run]
   npx ux-sting list
   npx ux-sting diff [component...]
@@ -64,6 +67,9 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
   try {
     switch (command) {
       case "init":
+        // `init --ai <tool>` installs the agent skills, like other skill CLIs.
+        if (argv.some((a) => a === "--ai" || a.startsWith("--ai=")))
+          return await skillsCommand(argv.slice(argv.indexOf("init") + 1), common.cwd);
         await init({
           ...common,
           dir: flags.dir as string | undefined,
@@ -120,6 +126,8 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           async () => ({ run: (await import("@ux-sting/extract")).tokensCommand }),
           argv.slice(argv.indexOf("tokens") + 1),
         );
+      case "skills":
+        return await skillsCommand(argv.slice(argv.indexOf("skills") + 1), common.cwd);
       case "brief":
       case "search": {
         const rest = argv.slice(argv.indexOf(command) + 1);

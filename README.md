@@ -4,6 +4,8 @@
 
 **Accessible components. Your code. Your design.**
 
+English · [Français](README.fr.md) · [العربية](README.ar.md)
+
 An accessible, themeable, tree-shakeable React design system for Next.js and any
 React app — shipped with cross-host **Agent Skills** and a **Universal Design
 Agent** that teach coding agents to build art-directed UI and verify every page
@@ -18,6 +20,8 @@ in a browser before they say “done”.
 ![VS Code](https://img.shields.io/badge/VS%20Code-Copilot-2563eb?style=flat-square)
 ![Gemini](https://img.shields.io/badge/Gemini-CLI-2563eb?style=flat-square)
 ![Qoder](https://img.shields.io/badge/Qoder-plugin-d946ef?style=flat-square)
+[![AI tools](https://img.shields.io/badge/AI%20tools-24-2563eb?style=flat-square)](#works-across-ai-coding-agents)
+[![design rules](https://img.shields.io/badge/industry%20rules-192-16a34a?style=flat-square)](packages/catalog)
 
 </div>
 
@@ -33,16 +37,17 @@ in a browser before they say “done”.
 | **Global** | RTL via logical properties, localized labels (en / fr / ar), `Intl` formatting everywhere. |
 | **Next.js-first** | App Router, RSC-friendly (server components by default), per-component entry points. |
 | **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits. |
-| **Agent Skills** | Cross-host skills + a Universal Design Agent for Claude Code, Codex, Cursor, VS Code / Copilot, Gemini CLI and Qoder ([details ↓](#agent-skills)). |
+| **Agent Skills** | Cross-host skills + a Universal Design Agent for 24 AI coding tools — Claude Code, Codex, Cursor, Copilot, Gemini, Windsurf, Kiro and more ([details ↓](#agent-skills)). |
+| **Design intelligence** | `npx ux-sting brief "<idea>"`: 192 industry rules, 80+ styles, 192 palettes, 74 font pairings → a contrast-checked UX-STING theme. |
 | **Tailwind v4 native, optional** | Use `tailwind.css` or the precompiled `styles.css`. |
 
 > **Works with your AI agent** — one line installs the skills into whatever editor you use:
-> `npx skills add ssassam/UX-STING` · see [Agent Skills](#agent-skills).
+> `npx ux-sting init --ai cursor` (or `claude`, `windsurf`, `copilot`, `gemini`, `kiro`, `all`…) · see [Agent Skills](#agent-skills).
 
 <div align="center">
 
 **9 agent skills** · **~100 component families** · **17 theme presets** ·
-**WCAG 2.2 AA** · **axe-verified in a browser** · **6 AI hosts** ·
+**WCAG 2.2 AA** · **axe-verified in a browser** · **24 AI tools** · **192 industry rules** ·
 **3 languages + RTL** · **7 live demos**
 
 </div>
@@ -92,6 +97,15 @@ loop that proves the result in a browser**.
 | **Cursor** | Skills standard via `npx skills add`; `AGENTS.md` |
 | **VS Code / GitHub Copilot** | `.github/copilot-instructions.md` + `AGENTS.md` |
 | **Gemini CLI** | `GEMINI.md` |
+| **Windsurf · Kiro · Roo Code · Kilo Code · Trae · OpenCode · Continue · Augment · Warp · Droid · CodeBuddy · Kimi · ZCode · CodeWhale · Antigravity · OpenClaw · Amazon Q** | `npx ux-sting init --ai <tool>` writes the skills into the tool's own folder |
+
+One command for any of them — it auto-detects the tools in your project when `--ai` is omitted:
+
+```bash
+npx ux-sting init --ai cursor            # or: claude, windsurf, copilot, gemini, kiro, all…
+npx ux-sting skills --ai all --global    # every tool, every project
+npx ux-sting skills list
+```
 
 > **Honest scope:** the *component library* is React / Next.js. The *design
 > system* (tokens, themes, accessibility rules), the **QA / extract / DNA
@@ -168,8 +182,11 @@ npx ux-sting add button dialog data-table
 **Agent tools** — the CLI loads each tool from its own package, so install the ones you use:
 
 ```bash
-npm install -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images
+npm install -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images @ux-sting/catalog
 npx playwright-core install chromium    # one-time browser download for qa and extract
+
+npx ux-sting brief "beauty spa booking" --out src/theme   # industry design system + AA theme
+npx ux-sting search styles "glass dark premium"           # styles, palettes, fonts, UX, charts, stacks
 
 npx ux-sting qa http://localhost:3000             # browser QA: report + top-3 fixes
 npx ux-sting extract https://example.com          # design tokens (W3C DTCG)
@@ -317,10 +334,15 @@ UX-STING ships cross-host **Agent Skills** and a **Universal Design Agent** —
 text and scripts in [`.claude/skills/`](.claude/skills) and [`agents/`](agents)
 that teach coding agents to build accessible, themeable, art-directed UI with this
 system, and to **verify every page in a browser** with `npx ux-sting qa` before they
-say “done”. One source installs into Claude Code, Cursor, Codex, GitHub Copilot /
-VS Code, Gemini CLI and Qoder.
+say “done”. One source installs into 24 AI coding tools.
 
-**Universal** — detects your agent:
+**UX-STING CLI** — bundled skills, works offline, auto-detects your tools:
+
+```bash
+npx ux-sting init --ai cursor      # claude, codex, copilot, gemini, windsurf, kiro, roocode, trae, … or all
+```
+
+**Universal** — via the open skills installer:
 
 ```bash
 npx skills add ssassam/UX-STING

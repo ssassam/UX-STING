@@ -47,9 +47,7 @@ function parseFrontmatter(md) {
   const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(md);
   const block = m ? m[1] : "";
   const name = /^\s*name:\s*(.+?)\s*$/m.exec(block)?.[1]?.replace(/^["']|["']$/g, "");
-  const desc = /^\s*description:\s*(.+?)\s*$/m
-    .exec(md.slice(m ? m[0].length : 0))?.[1]
-    ?.replace(/^["']|["']$/g, "");
+  const desc = /^\s*description:\s*(.+?)\s*$/m.exec(block)?.[1]?.replace(/^["']|["']$/g, "");
   return { name, description: desc };
 }
 
