@@ -9,7 +9,7 @@ Source of truth for three.js APIs is the library's own LLM guide: <https://three
 
 ## 1. Decide if 3D belongs
 - One signature 3D moment per page (hero, product viewer, one section). Not on app UI, forms, or anything people need to read first.
-- If a `MeshGradient`, `Grain`, `Spotlight`, `Tilt` or CSS effect from `packages/react` gives the same feeling, use that instead (zero JS cost).
+- If a `MeshGradient`, `Grain`, `Spotlight`, `Tilt` or CSS effect from `@ux-sting/react` gives the same feeling, use that instead (zero JS cost).
 - State the direction first (`ux-sting-taste`): the 3D style must match the type, palette and composition, not be bolted on.
 
 ## 2. three.js rules (from the official guide)

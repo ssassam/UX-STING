@@ -9,7 +9,7 @@ pnpm --filter @ux-sting/example-crypto dev
 ```
 
 - Chart: `components/price-chart.tsx` (dependency-free SVG).
-- Live demo: https://ssassam.github.io/UX-STING/crypto/
+- Live demo: https://uxsting.veltein.com/crypto/
 
 ## Screenshots
 

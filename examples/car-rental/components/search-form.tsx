@@ -33,7 +33,10 @@ export function SearchForm() {
       }}
       className="grid gap-4 rounded-2xl border border-border bg-background p-4 text-foreground shadow-xl sm:p-5"
     >
-      <div className="grid gap-3 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.3fr)_7rem_auto] md:items-end">
+      <div className="grid gap-3">
+        {/* The desk names are long ("Paris Charles de Gaulle Airport") and the hero
+            card is narrow, so the location gets its own row instead of being
+            truncated inside a four-up strip. */}
         <Field label="Pick-up location">
           <NativeSelect size="lg" value={pickup} onChange={(e) => setPickup(e.target.value)}>
             {locations.map((l) => (
@@ -43,26 +46,28 @@ export function SearchForm() {
             ))}
           </NativeSelect>
         </Field>
-        <Field label="Pick-up and return dates">
-          <DateRangePicker
-            size="lg"
-            value={dates}
-            onValueChange={setDates}
-            min={today}
-            numberOfMonths={2}
-            placeholder="Select dates"
-          />
-        </Field>
-        <Field label="Time">
-          <NativeSelect size="lg" value={time} onChange={(e) => setTime(e.target.value)}>
-            {times.map((t) => (
-              <option key={t}>{t}</option>
-            ))}
-          </NativeSelect>
-        </Field>
-        <Button type="submit" size="lg" startIcon={<SearchIcon />}>
-          Show cars
-        </Button>
+        <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_7rem_auto] sm:items-end">
+          <Field label="Pick-up and return dates">
+            <DateRangePicker
+              size="lg"
+              value={dates}
+              onValueChange={setDates}
+              min={today}
+              numberOfMonths={2}
+              placeholder="Select dates"
+            />
+          </Field>
+          <Field label="Time">
+            <NativeSelect size="lg" value={time} onChange={(e) => setTime(e.target.value)}>
+              {times.map((t) => (
+                <option key={t}>{t}</option>
+              ))}
+            </NativeSelect>
+          </Field>
+          <Button type="submit" size="lg" startIcon={<SearchIcon />}>
+            Show cars
+          </Button>
+        </div>
       </div>
       <div className="flex flex-wrap items-end gap-4">
         <Switch

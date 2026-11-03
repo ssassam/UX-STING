@@ -8,7 +8,7 @@ pnpm --filter @ux-sting/example-car-rental dev
 
 - Brand theme: `app/providers.tsx` (orange on slate).
 - Fleet, locations, extras and protection plans: `lib/data.ts`.
-- Live demo: https://ssassam.github.io/UX-STING/cars/
+- Live demo: https://uxsting.veltein.com/cars/
 
 ## Screenshots
 

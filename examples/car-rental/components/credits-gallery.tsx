@@ -9,19 +9,23 @@ import { sized, type Photo } from "../lib/photos";
 
 const PAGE_SIZE = 12;
 
-/** Paginated photo grid; each tile opens a lightbox and shows its credit. */
-export function CreditsGallery({ photos }: { photos: Photo[] }) {
-  const params = useSearchParams();
+/**
+ * Paginated photo grid; each tile opens a lightbox and shows its credit.
+ * Purely presentational so the page can render page 1 as the Suspense fallback
+ * (see `app/credits/page.tsx`): the static HTML then already holds the grid and
+ * nothing moves when the `?page=` filter applies after load.
+ */
+export function CreditsGallery({ photos, page = 1 }: { photos: Photo[]; page?: number }) {
   const pages = Math.max(1, Math.ceil(photos.length / PAGE_SIZE));
-  const page = Math.min(Math.max(1, Number(params.get("page")) || 1), pages);
-  const start = (page - 1) * PAGE_SIZE;
+  const current = Math.min(Math.max(1, page), pages);
+  const start = (current - 1) * PAGE_SIZE;
   const visible = photos.slice(start, start + PAGE_SIZE);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
   return (
     <div className="grid gap-6">
-      <p role="status" className="text-sm text-muted-foreground">
+      <p role="status" className="roadbook-label text-muted-foreground">
         Showing {start + 1}–{start + visible.length} of {photos.length} photos
       </p>
       <ul
@@ -29,7 +33,7 @@ export function CreditsGallery({ photos }: { photos: Photo[] }) {
         className="grid scroll-mt-24 grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
       >
         {visible.map((p, i) => (
-          <li key={p.page} className="grid content-start gap-2">
+          <li key={p.page} className="fleet-card grid content-start gap-2">
             <button
               type="button"
               onClick={() => {
@@ -70,7 +74,7 @@ export function CreditsGallery({ photos }: { photos: Photo[] }) {
       {pages > 1 ? (
         <Pagination
           totalPages={pages}
-          page={page}
+          page={current}
           getHref={(n) => (n === 1 ? "?" : `?page=${n}`) + "#gallery"}
           renderLink={({ href, children, ...rest }) => (
             <NextLink href={href} {...rest}>
@@ -93,4 +97,10 @@ export function CreditsGallery({ photos }: { photos: Photo[] }) {
       />
     </div>
   );
+}
+
+/** Reads `?page=` from the URL; the page renders `CreditsGallery` as its fallback. */
+export function CreditsGalleryFromUrl({ photos }: { photos: Photo[] }) {
+  const params = useSearchParams();
+  return <CreditsGallery photos={photos} page={Number(params.get("page")) || 1} />;
 }

@@ -9,7 +9,7 @@ pnpm --filter @ux-sting/example-shop dev
 - Brand theme: `app/providers.tsx` (ink on warm neutrals, serif display type).
 - Cart state (saved in the browser): `app/providers.tsx`.
 - Catalogue: `lib/data.ts`.
-- Live demo: https://ssassam.github.io/UX-STING/shop/
+- Live demo: https://uxsting.veltein.com/shop/
 
 ## Screenshots
 

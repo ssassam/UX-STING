@@ -8,13 +8,13 @@ description: "Add editorial diagrams (architecture, flowchart, sequence, timelin
 Diagrams are drawn by the third-party **diagram-design** skill (MIT, Cathryn Lavery). This skill only connects it to UX-STING: theme, embedding, accessibility and review.
 
 ## 1. Make sure diagram-design is available
-- **Claude Code:** `.claude/settings.json` registers its marketplace and enables `diagram-design@diagram-design`. Accept the install prompt when the project is trusted, or run `/plugin install diagram-design@diagram-design`.
-- **Cursor, Codex, Copilot, Gemini CLI and other Agent Skills hosts:** `npx skills add cathrynlavery/diagram-design`.
+- **Any Agent Skills host (Cursor, Codex, Copilot, Gemini CLI, Qoder, VS Code…):** `npx skills add cathrynlavery/diagram-design`.
+- **Claude Code in the UX-STING repo:** `.claude/settings.json` registers its marketplace and enables `diagram-design@diagram-design`. Accept the install prompt when the project is trusted, or run `/plugin install diagram-design@diagram-design`.
 - If neither works, stop and say so. Do not fall back to Mermaid or hand-drawn SVG without telling the person.
 
 ## 2. Onboard it to the theme once per project
 diagram-design asks to customize its style guide on the first diagram. Choose **(c) local folder/design-system** and point it at:
-- `packages/tokens/dist/tokens.css` (build first: `pnpm --filter @ux-sting/tokens build`) for the `--ui-*` colors, radius and fonts, or the site's own theme CSS when it uses a preset from `packages/themes` or `dnaToUxStingTheme(dna)`.
+- Your app's theme CSS: the `--ui-*` colors, radius and fonts from `@ux-sting/react/tailwind.css` (or the precompiled `@ux-sting/react/styles.css`) in `node_modules`, or your generated theme when it uses a preset from `@ux-sting/themes` or `dnaToUxStingTheme(dna)`.
 - Map roles: paper → `--ui-background`, ink → `--ui-foreground`, muted → `--ui-muted-foreground`, rules → `--ui-border`, accent (1–2 focal nodes only) → `--ui-primary`.
 - Tokens are OKLCH. When a tool needs hex, convert with `oklchToHex()` from `@ux-sting/tokens`; never guess.
 - Save it as a named profile (one per site/theme) so later diagrams match without re-asking.

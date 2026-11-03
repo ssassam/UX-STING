@@ -3,3 +3,5 @@ export * from "./palette.js";
 export * from "./semantic.js";
 export * from "./scales.js";
 export * from "./css.js";
+export * from "./export-dtcg.js";
+export * from "./export-scss.js";

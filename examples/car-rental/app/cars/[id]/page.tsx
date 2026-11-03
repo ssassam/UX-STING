@@ -1,6 +1,8 @@
-import { CheckIcon } from "@ux-sting/icons";
+import { GaugeIcon } from "@ux-sting/icons";
+import { AnimatedCheckIcon, AnimatedIcon, ICON_ANCHOR_CLASS } from "@ux-sting/icons/animated";
 import { Badge } from "@ux-sting/react/badge";
 import { Button } from "@ux-sting/react/button";
+import { Reveal } from "@ux-sting/react/reveal";
 import { Image } from "@ux-sting/react/media";
 import { Price } from "@ux-sting/react/price";
 import { ReviewStars } from "@ux-sting/react/rating";
@@ -77,26 +79,38 @@ export default async function CarPage({ params }: { params: Promise<{ id: string
       />
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_24rem]">
         <div className="grid content-start gap-8">
-          <header className="grid gap-2">
+          <header className="grid gap-3">
+            <p className="roadbook-label text-primary">
+              <span className="text-muted-foreground">STAGE 09</span> · {category.name} ·{" "}
+              {car.seats} seats
+            </p>
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <Heading level={1} size="3xl" className="font-display text-balance tracking-tight">
+                {car.name}
+              </Heading>
+              <ReviewStars value={car.rating} count={car.reviews} showValue />
+            </div>
             <div className="flex flex-wrap gap-2">
               <Badge>{category.name}</Badge>
               <Badge variant="success">Unlimited km</Badge>
+              {car.fuel === "Electric" ? <Badge variant="success">Electric</Badge> : null}
             </div>
-            <Heading level={1} size="3xl">
-              {car.name}
-            </Heading>
             <Text variant="muted">{car.similar}</Text>
-            <ReviewStars value={car.rating} count={car.reviews} showValue />
           </header>
           <Image src={car.photo.src} alt={car.photo.alt} ratio={16 / 9} radius="xl" />
           <section aria-labelledby="specs-title" className="grid gap-3">
-            <Heading level={2} size="lg" id="specs-title">
-              Specifications
+            <Heading level={2} size="lg" id="specs-title" className="font-display tracking-tight">
+              The numbers
             </Heading>
             <CarSpecs car={car} className="sm:grid-cols-3" />
           </section>
           <section aria-labelledby="included-title" className="grid gap-3">
-            <Heading level={2} size="lg" id="included-title">
+            <Heading
+              level={2}
+              size="lg"
+              id="included-title"
+              className="font-display tracking-tight"
+            >
               Features and what&apos;s included
             </Heading>
             <ul className="grid gap-2 sm:grid-cols-2">
@@ -106,29 +120,44 @@ export default async function CarPage({ params }: { params: Promise<{ id: string
                 "Roadside assistance 24/7",
                 "Third-party insurance",
               ].map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <CheckIcon aria-hidden className="size-4 text-success" /> {f}
+                <li key={f} className={`${ICON_ANCHOR_CLASS} flex items-center gap-2 text-sm`}>
+                  <AnimatedCheckIcon
+                    aria-hidden
+                    preset="draw"
+                    trigger="in"
+                    className="size-4 text-success"
+                  />
+                  {f}
                 </li>
               ))}
             </ul>
-            <Text size="sm" variant="muted">
-              Deposit of €{car.deposit.toLocaleString("en")} held on a credit card at pick-up and
-              released on return.
+            <Text size="sm" variant="muted" className="flex items-start gap-2">
+              <AnimatedIcon
+                icon={GaugeIcon}
+                preset="spin"
+                trigger="in"
+                className="mt-0.5 size-4 shrink-0 text-primary"
+              />
+              <span>
+                Deposit of €{car.deposit.toLocaleString("en")} held on a credit card at pick-up and
+                released on return.
+              </span>
             </Text>
           </section>
           <section aria-labelledby="reviews-title" className="grid gap-4">
-            <Heading level={2} size="lg" id="reviews-title">
+            <Heading level={2} size="lg" id="reviews-title" className="font-display tracking-tight">
               Recent reviews
             </Heading>
             <div className="grid gap-4 md:grid-cols-2">
-              {reviews.slice(0, 2).map((r) => (
-                <ReviewCard
-                  key={r.name}
-                  author={{ name: r.name, subtitle: r.trip }}
-                  rating={r.rating}
-                  date={{ display: r.display, dateTime: r.date }}
-                  body={r.body}
-                />
+              {reviews.slice(0, 2).map((r, i) => (
+                <Reveal key={r.name} delay={i * 90} preset="slide-up">
+                  <ReviewCard
+                    author={{ name: r.name, subtitle: r.trip }}
+                    rating={r.rating}
+                    date={{ display: r.display, dateTime: r.date }}
+                    body={r.body}
+                  />
+                </Reveal>
               ))}
             </div>
           </section>
@@ -139,14 +168,20 @@ export default async function CarPage({ params }: { params: Promise<{ id: string
         <>
           <Separator />
           <section aria-labelledby="similar-title" className="grid gap-4">
-            <Heading level={2} size="lg" id="similar-title">
-              Similar cars
+            <Heading level={2} size="lg" id="similar-title" className="font-display tracking-tight">
+              Same class, other keys
             </Heading>
             <ul className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {similar.map((c) => (
-                <li key={c.id} className="grid">
+              {similar.map((c, i) => (
+                <Reveal
+                  key={c.id}
+                  as="li"
+                  delay={i * 80}
+                  preset="slide-up"
+                  className="fleet-card grid content-start"
+                >
                   <CarCard car={c} />
-                </li>
+                </Reveal>
               ))}
             </ul>
           </section>

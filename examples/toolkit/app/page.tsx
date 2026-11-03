@@ -1,6 +1,7 @@
 import { DemosSection } from "../components/demos-section";
 import { ExtractSection } from "../components/extract-section";
 import { Hero } from "../components/hero";
+import { IconsSection } from "../components/icons-section";
 import { ImagesSection } from "../components/images-section";
 import { Ledger } from "../components/ledger";
 import { MotionSection } from "../components/motion-section";
@@ -21,6 +22,7 @@ export default function Home() {
         <ImagesSection />
         <TasteSection />
         <MotionSection />
+        <IconsSection />
         <DemosSection />
       </main>
       <SiteFooter />

@@ -124,5 +124,5 @@
 
 | File | Raw | Gzipped |
 | --- | ---: | ---: |
-| `@ux-sting/react/styles.css` | 265.0 kB | 26.7 kB |
+| `@ux-sting/react/styles.css` | 264.9 kB | 26.7 kB |
 | `@ux-sting/react/components.css` | 22.4 kB | 5.1 kB |

@@ -28,7 +28,7 @@ jobs:
       - name: Build UX-STING packages
         run: pnpm build
       - name: Export all demo sites
-        run: scripts/build-pages.sh /${{ github.event.repository.name }}
+        run: scripts/build-pages.sh
       - uses: actions/upload-pages-artifact@v5
         with:
           path: pages-dist

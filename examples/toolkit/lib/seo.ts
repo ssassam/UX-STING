@@ -1,4 +1,4 @@
-export const SITE_ORIGIN = "https://ssassam.github.io";
+export const SITE_ORIGIN = "https://uxsting.veltein.com";
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 /** Absolute URL of this demo's home page, always with a trailing slash. */
 export const SITE_URL = `${SITE_ORIGIN}${BASE_PATH}/`;

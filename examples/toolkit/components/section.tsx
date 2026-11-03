@@ -24,7 +24,7 @@ export function Section({
     >
       <header className="grid gap-3 md:grid-cols-[6rem_minmax(0,1fr)] md:gap-6">
         <p aria-hidden={number ? undefined : true} className="font-mono text-sm text-primary">
-          {number ? `${number} / 05` : ""}
+          {number ? `${number} / 06` : ""}
         </p>
         <div className="grid max-w-3xl gap-3">
           {kicker ? (

@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join, relative } from "node:path";
+import { dirname, join, relative, sep } from "node:path";
 import {
   CONFIG_FILE,
   defaultConfig,
@@ -33,6 +33,10 @@ const BASE_PACKAGES = [
 ];
 
 const CSS_MARKER = "/* ux-sting */";
+
+// Lockfile keys and reported paths use forward slashes on every OS, so a lock
+// written on Windows stays valid for teammates (and CI) on POSIX and vice versa.
+const toPosix = (path: string) => path.split(sep).join("/");
 
 function cssImports(config: Config): string {
   const componentsCss = config.css
@@ -150,7 +154,7 @@ export async function add(names: string[], options: AddOptions): Promise<AddResu
   for (const item of items) {
     for (const file of item.files) {
       const target = join(cwd, config.dir, file.path);
-      const rel = relative(cwd, target);
+      const rel = toPosix(relative(cwd, target));
       const content = transformSource(file.content, config);
       const nextHash = hash(content);
       if (existsSync(target)) {
@@ -228,7 +232,7 @@ export async function diff(names: string[], options: CommonOptions): Promise<Dif
   for (const item of registry.items.filter((i) => targets.includes(i.name))) {
     for (const file of item.files) {
       const target = join(cwd, config.dir, file.path);
-      const rel = relative(cwd, target);
+      const rel = toPosix(relative(cwd, target));
       if (!existsSync(target)) {
         entries.push({ file: rel, status: "missing" });
         continue;

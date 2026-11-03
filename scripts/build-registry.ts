@@ -6,7 +6,7 @@
  * Output: packages/cli/registry.json (embedded in the CLI package).
  */
 import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { dirname, join, relative } from "node:path";
+import { dirname, join, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { components } from "../registry/components.ts";
 
@@ -34,6 +34,10 @@ export interface RegistryItem {
 }
 
 const IGNORE = /\.(test|stories)\.tsx?$|README\.md$/;
+// Registry paths and dependency keys are always stored with forward slashes so the
+// generated registry.json is identical whether it is built on POSIX or Windows
+// (`path.relative` returns backslashes on Windows).
+const toPosix = (path: string) => path.split(sep).join("/");
 const IMPORT_RE =
   /(?:import|export)\s[^'"]*?from\s+["']([^"']+)["']|import\(\s*["']([^"']+)["']\s*\)/g;
 
@@ -66,7 +70,7 @@ function analyze(files: string[], selfName: string) {
       const spec = match[1] ?? match[2]!;
       if (spec.startsWith(".")) {
         const target = join(dirname(file), spec);
-        const rel = relative(src, target).split("/");
+        const rel = toPosix(relative(src, target)).split("/");
         if (rel[0] === "components" && rel[1] && rel[1] !== selfName) regDeps.add(rel[1]);
         else if (rel[0] === "lib") regDeps.add(`lib/${rel[1]!.replace(/\.js$/, "")}`);
         else if (rel[0] === "provider") regDeps.add("provider");
@@ -86,7 +90,7 @@ function analyze(files: string[], selfName: string) {
 }
 
 const toFiles = (files: string[]): RegistryFile[] =>
-  files.map((f) => ({ path: relative(src, f), content: readFileSync(f, "utf8") }));
+  files.map((f) => ({ path: toPosix(relative(src, f)), content: readFileSync(f, "utf8") }));
 
 const items: RegistryItem[] = [];
 

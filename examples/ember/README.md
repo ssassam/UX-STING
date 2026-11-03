@@ -8,7 +8,7 @@ pnpm --filter @ux-sting/example-ember dev
 
 - Reservation form: `components/reservation.tsx`.
 - Dining-experience tabs: `components/experience.tsx`.
-- Live demo: https://ssassam.github.io/UX-STING/ember/
+- Live demo: https://uxsting.veltein.com/ember/
 
 ## Screenshots
 

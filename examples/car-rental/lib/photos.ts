@@ -13,14 +13,25 @@ export interface Photo {
 }
 
 export const photos = {
+  /** The Col de Turini: a Monte-Carlo Rally stage, 40 minutes from Drivo's Nice desk. */
   hero: {
-    src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Central_Californian_Coastline%2C_Big_Sur_-_May_2013.jpg/1280px-Central_Californian_Coastline%2C_Big_Sur_-_May_2013.jpg",
-    alt: "Coastal highway winding along the cliffs of Big Sur, California",
-    title: "Central Californian Coastline, Big Sur - May 2013.jpg",
-    page: "https://commons.wikimedia.org/wiki/File:Central_Californian_Coastline,_Big_Sur_-_May_2013.jpg",
-    author: "Diliff",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+    src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Col_de_Turini_06-_Since_Camp_d%27Argent_road.jpg/1280px-Col_de_Turini_06-_Since_Camp_d%27Argent_road.jpg",
+    alt: "Hairpin bends cut into the hillside above the Col de Turini, seen from the Camp d'Argent side",
+    title: "Col de Turini 06- Since Camp d'Argent road.jpg",
+    page: "https://commons.wikimedia.org/wiki/File:Col_de_Turini_06-_Since_Camp_d'Argent_road.jpg",
+    author: "Anthospace",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+  },
+  /** The last kilometres of the same climb, from the forest below the summit. */
+  ascent: {
+    src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/For%C3%AAt_col_de_Turini-_Derniers_km_Sud-Est.jpg/1280px-For%C3%AAt_col_de_Turini-_Derniers_km_Sud-Est.jpg",
+    alt: "Road climbing through pine forest towards the summit of the Col de Turini",
+    title: "Forêt col de Turini- Derniers km Sud-Est.jpg",
+    page: "https://commons.wikimedia.org/wiki/File:For%C3%AAt_col_de_Turini-_Derniers_km_Sud-Est.jpg",
+    author: "Anthospace",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
   },
   fiat500: {
     src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Fiat_500_%282007%29_02.JPG/1280px-Fiat_500_%282007%29_02.JPG",

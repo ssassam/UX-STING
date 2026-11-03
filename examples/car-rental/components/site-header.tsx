@@ -1,5 +1,5 @@
 "use client";
-import { CarIcon, PhoneIcon } from "@ux-sting/icons";
+import { PhoneIcon } from "@ux-sting/icons";
 import { Button } from "@ux-sting/react/button";
 import { ColorModeToggle } from "@ux-sting/react/color-mode-toggle";
 import {
@@ -13,11 +13,13 @@ import {
 } from "@ux-sting/react/navbar";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
+import { DrivoLogo } from "./brand";
 
 const links = [
-  { href: "/cars", label: "Our fleet" },
+  { href: "/cars", label: "Fleet" },
+  { href: "/#stages", label: "How it works" },
   { href: "/#locations", label: "Locations" },
-  { href: "/#faq", label: "Help" },
+  { href: "/#reviews", label: "Drivers" },
 ];
 
 export function SiteHeader() {
@@ -27,9 +29,9 @@ export function SiteHeader() {
       <NavbarBrand asChild>
         <NextLink
           href="/"
-          className="rounded-sm text-lg font-bold tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <CarIcon className="size-6 text-primary" /> Drivo
+          <DrivoLogo size="md" />
         </NextLink>
       </NavbarBrand>
       <NavbarContent label="Main">
@@ -46,9 +48,16 @@ export function SiteHeader() {
           size="sm"
           variant="outline"
           startIcon={<PhoneIcon />}
-          className="hidden sm:inline-flex"
+          className="hidden lg:inline-flex"
         >
-          <a href="tel:+33100000000">24/7 support</a>
+          <a href="tel:+33100000000">
+            <span className="roadbook-label normal-case tracking-normal">
+              24/7 · +33 1 00 00 00 00
+            </span>
+          </a>
+        </Button>
+        <Button asChild size="sm" className="hidden sm:inline-flex">
+          <NextLink href="/cars">Find a car</NextLink>
         </Button>
         <NavbarMobileMenu title="Drivo">
           {links.map((l) => (
@@ -56,6 +65,9 @@ export function SiteHeader() {
               <NextLink href={l.href}>{l.label}</NextLink>
             </NavbarMobileLink>
           ))}
+          <NavbarMobileLink asChild>
+            <NextLink href="/cars">Find a car</NextLink>
+          </NavbarMobileLink>
         </NavbarMobileMenu>
       </NavbarActions>
     </Navbar>
