@@ -27,6 +27,7 @@
     "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test",
     "api": "node scripts/extract-api.ts",
     "ux-audit": "node scripts/ux-audit.ts",
+    "skills:check": "node scripts/validate-skills.ts && node scripts/validate-skills.ts .agents/skills",
     "dna": "node scripts/design-dna/run.ts",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only",

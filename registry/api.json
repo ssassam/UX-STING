@@ -12511,7 +12511,7 @@
   "text-effect": {
     "TextEffect": {
       "kind": "component",
-      "description": "Staggered text entrance in pure CSS: a server component with no client\nJavaScript. Screen readers get the whole sentence once; the animated pieces\nare hidden from them. Nothing moves under reduced motion. Inside a\n`Reveal`, the animation waits until the text scrolls into view.",
+      "description": "Staggered text entrance in pure CSS: a server component with no client\nJavaScript. Screen readers get the whole sentence once; the animated pieces\nare hidden from them. Nothing moves under reduced motion. Inside a\n`Reveal`, the animation waits until the text scrolls into view; with\n`trigger=\"scroll\"` it follows the scroll position instead.",
       "props": [
         {
           "name": "children",
@@ -12538,7 +12538,7 @@
           "type": "number",
           "required": false,
           "default": "600",
-          "description": "Duration of each piece, in ms. Default 600."
+          "description": "Duration of each piece, in ms. Default 600. Ignored with `trigger=\"scroll\"`."
         },
         {
           "name": "per",
@@ -12559,6 +12559,13 @@
           "type": "number",
           "required": false,
           "description": "Delay between pieces, in ms. Defaults to 60 (word) or 25 (char)."
+        },
+        {
+          "name": "trigger",
+          "type": "\"load\" | \"scroll\"",
+          "required": false,
+          "default": "\"load\"",
+          "description": "`load` (default): play the entrance once (inside a `Reveal`, when it scrolls\ninto view). `scroll`: tie it to scroll position: pieces ink from muted to\nfull, in reading order, as the block crosses the viewport. For one large\ntagline or benefit statement per page. `preset`, `delay`, `stagger` and\n`duration` do not apply; browsers without scroll-driven animations and\nreduced motion show the final text."
         }
       ],
       "inherits": "279 standard HTML/React attributes (className, style, aria-*, event handlers…)"

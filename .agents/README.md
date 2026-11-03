@@ -11,6 +11,7 @@ Edit the source in `.claude/skills/` and re-run `node scripts/build-agent-skills
 - **ux-sting-design-agent** — 
 - **ux-sting-diagrams** — 
 - **ux-sting-explore** — 
+- **ux-sting-qa** — 
 - **ux-sting-review** — 
 - **ux-sting-taste** — 
 - **ux-sting-universal** — 

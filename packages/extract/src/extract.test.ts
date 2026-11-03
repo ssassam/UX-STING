@@ -1,7 +1,7 @@
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { createTheme } from "@ux-sting/themes";
+import { createTheme, presetConfigs, type ThemeConfig } from "@ux-sting/themes";
 import { contrastRatio } from "@ux-sting/tokens";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { contrast, deltaE, parseColor, rgbToOklch, toHex, toOklchString } from "./color.js";
@@ -9,6 +9,7 @@ import { mediaWidths, type RawExtraction } from "./collect.js";
 import { themeCommand } from "./command.js";
 import { dnaFromDtcg, nearestPresets, presetVector, vectorDistance } from "./dna.js";
 import { flattenDtcg, toMs, toPx } from "./dtcg.js";
+import { dtcgColorValue, themeToDtcg } from "./export.js";
 import { dtcgToTheme } from "./theme.js";
 import { cubicBezier, EXT, extractionToDtcg, parseShadow, spacingUnit } from "./tokens.js";
 
@@ -346,6 +347,95 @@ describe("theme import command", () => {
       expect(readFileSync(join(dir, "acme.theme.ts"), "utf8")).toContain("satisfies ThemeConfig");
       expect(readFileSync(join(dir, "acme.css"), "utf8")).toContain('[data-ui-theme="acme"]');
       expect(lines.join("\n")).toContain("semantic.color.action.primary");
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe("themeToDtcg (theme export)", () => {
+  const hex = (v: unknown) => toHex(parseColor(v)!);
+
+  it("writes OKLCH values with a hex fallback, keeping alpha", () => {
+    expect(dtcgColorValue("oklch(0.5 0.1 250)")).toMatchObject({
+      colorSpace: "oklch",
+      components: [0.5, 0.1, 250],
+    });
+    expect(dtcgColorValue("oklch(0.2 0.01 260 / 0.45)")).toMatchObject({ alpha: 0.45 });
+    expect(dtcgColorValue("#2a78d6")).toMatchObject({ colorSpace: "srgb", hex: "#2a78d6" });
+    expect(dtcgColorValue("not a color")).toBeNull();
+  });
+
+  it("aliases semantic roles into the palette and resolves to the theme's own colors", () => {
+    const theme = createTheme({ name: "default" });
+    const out = themeToDtcg({ name: "default" });
+    const light = out.modes.light as { color: Record<string, { $value: unknown }> };
+    expect(light.color.primary!.$value).toBe("{palette.primary.600}");
+    expect(light.color.background!.$value).toBe("{palette.base.white}");
+    // Charts use their own fixed palette, so they stay raw values.
+    expect(out.unaliased.light).toContain("chart-1");
+
+    for (const mode of ["light", "dark", "high-contrast"] as const) {
+      const set = mode === "high-contrast" ? theme.highContrast : theme[mode];
+      const flat = flattenDtcg({ ...out.palette, ...out.modes[mode] });
+      for (const [role, css] of Object.entries(set)) {
+        const t = flat.find((x) => x.path === `color.${role}`);
+        expect(t, `${mode} ${role}`).toBeDefined();
+        expect(hex(t!.value), `${mode} ${role}`).toBe(hex(css));
+      }
+    }
+  });
+
+  it("round-trips through theme import with the same core roles", () => {
+    const config = presetConfigs.editorial as ThemeConfig;
+    const theme = createTheme(config);
+    const out = themeToDtcg(config);
+    const back = dtcgToTheme({ ...out.palette, ...out.modes.light }, { name: "rt" });
+    const map = Object.fromEntries(back.mapping.map((m) => [m.role, m]));
+    for (const role of ["background", "foreground", "primary", "border"] as const) {
+      expect(map[role]?.path, role).toBe(`color.${role}`);
+      expect(hex(map[role]!.value), role).toBe(hex(theme.light[role]));
+    }
+  });
+
+  it("exports raw colors only with resolved, and carries radius and fonts", () => {
+    const config: ThemeConfig = {
+      name: "brand",
+      primary: "teal",
+      radius: "0.75rem",
+      fontFamily: { sans: '"Inter", system-ui, sans-serif' },
+    };
+    const out = themeToDtcg(config, { resolved: true });
+    expect(JSON.stringify(out.modes)).not.toMatch(/\{palette\./);
+    expect(out.palette.radius).toEqual({
+      base: { $type: "dimension", $value: { value: 0.75, unit: "rem" } },
+    });
+    expect(out.palette.font).toEqual({
+      sans: { $type: "fontFamily", $value: ["Inter", "system-ui", "sans-serif"] },
+    });
+  });
+});
+
+describe("theme export command", () => {
+  it("writes the palette and one file per mode, and refuses unknown sources", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "uxexp-"));
+    const lines: string[] = [];
+    try {
+      expect(await themeCommand(["export", "stripe", "--out", dir], (l) => lines.push(l))).toBe(0);
+      for (const f of ["palette", "light", "dark", "high-contrast"])
+        expect(existsSync(join(dir, `stripe.${f}.tokens.json`)), f).toBe(true);
+      const light = JSON.parse(readFileSync(join(dir, "stripe.light.tokens.json"), "utf8"));
+      expect(light.color.primary.$value).toMatch(/^\{palette\./);
+      expect(await themeCommand(["export", join(dir, "nope.json")], () => {})).toBe(1);
+
+      // Palette + one mode, merged in order, re-import as the same theme name and roles.
+      const files = ["palette", "light"].map((f) => join(dir, `stripe.${f}.tokens.json`));
+      expect(await themeCommand(["import", ...files, "--out", dir], () => {})).toBe(0);
+      const back = JSON.parse(readFileSync(join(dir, "stripe.theme.json"), "utf8"));
+      const theme = createTheme(presetConfigs.stripe as ThemeConfig);
+      expect(toHex(parseColor(back.colors.light.primary)!)).toBe(
+        toHex(parseColor(theme.light.primary)!),
+      );
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

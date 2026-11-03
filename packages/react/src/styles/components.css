@@ -373,6 +373,11 @@
       transform: translateY(0.4em);
     }
   }
+  @keyframes ui-te-ink {
+    from {
+      opacity: var(--ui-te-muted, 0.3);
+    }
+  }
   @keyframes ui-te-scale {
     from {
       opacity: 0;
@@ -443,6 +448,30 @@
     /* Inside a Reveal, wait until it scrolls into view. */
     .ui-reveal:not([data-visible]) .ui-text-effect-piece {
       animation-play-state: paused;
+    }
+    /* trigger="scroll": each word inks from muted to full in reading order as
+     * the block crosses the viewport (scroll-driven, no JavaScript). */
+    @supports (animation-timeline: view()) {
+      .ui-text-effect[data-trigger="scroll"] {
+        view-timeline: --ui-te block;
+      }
+      .ui-text-effect[data-trigger="scroll"] .ui-text-effect-piece {
+        animation: ui-te-ink linear both;
+        animation-timeline: --ui-te;
+        animation-range: cover
+          calc(var(--ui-te-start, 15%) + var(--ui-te-span, 35%) * var(--ui-i, 0) / var(--ui-n, 1))
+          cover
+          calc(
+            var(--ui-te-start, 15%) + var(--ui-te-span, 35%) * (var(--ui-i, 0) + 1) /
+              var(--ui-n, 1) + 2%
+          );
+        animation-play-state: running;
+      }
+    }
+    @supports not (animation-timeline: view()) {
+      .ui-text-effect[data-trigger="scroll"] .ui-text-effect-piece {
+        animation: none;
+      }
     }
   }
 

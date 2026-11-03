@@ -1,4 +1,11 @@
-import type { Finding, QaReport, Severity, TasteMeasurement, ViewportResult } from "./types.js";
+import type {
+  Finding,
+  QaReport,
+  Severity,
+  ShipMeasurement,
+  TasteMeasurement,
+  ViewportResult,
+} from "./types.js";
 
 const WEIGHT: Record<Severity, number> = { critical: 8, serious: 4, moderate: 2, minor: 1 };
 
@@ -22,6 +29,7 @@ type Draft = Omit<Finding, "viewports" | "targets" | "count"> & {
 export function analyze(
   viewports: ViewportResult[],
   console: QaReport["console"] = { errors: [], failedRequests: [] },
+  ship?: ShipMeasurement,
 ): Finding[] {
   const drafts: Draft[] = [];
   for (const v of viewports) {
@@ -192,7 +200,72 @@ export function analyze(
       count: console.failedRequests.length,
     });
 
+  if (ship) drafts.push(...shipDrafts(ship));
+
   return merge(drafts);
+}
+
+/**
+ * Launch-readiness rules. Page-level (no viewport) and never serious: a
+ * missing favicon should not fail a build, but it should be on the list.
+ */
+function shipDrafts(s: ShipMeasurement): Draft[] {
+  const out: Draft[] = [];
+  const add = (d: Omit<Draft, "category">) => out.push({ ...d, category: "ship" });
+  if (!s.description)
+    add({
+      id: "ship:meta-description",
+      severity: "moderate",
+      message:
+        "No meta description: search results and link previews will show whatever text they find.",
+      fix: 'Add `<meta name="description">` (about 150 characters) that says what this page offers and for whom.',
+    });
+  if (s.socialMissing.length)
+    add({
+      id: "ship:social-tags",
+      severity: "minor",
+      message: `Missing social sharing tags: ${s.socialMissing.join(", ")}.`,
+      fix: "Add Open Graph tags (og:title, og:description and a 1200×630 og:image) so shared links get a real preview card.",
+      count: s.socialMissing.length,
+    });
+  if (!s.favicon)
+    add({
+      id: "ship:favicon",
+      severity: "minor",
+      message: "No favicon: the tab and bookmarks show a blank page icon.",
+      fix: 'Add `<link rel="icon" href="/icon.svg">` (and a 180px apple-touch-icon) from the brand mark.',
+    });
+  if (!s.legalLinks)
+    add({
+      id: "ship:legal-links",
+      severity: "minor",
+      message: "No privacy, terms or legal link found on the page.",
+      fix: "Link the privacy policy and terms (or the local equivalent, such as mentions légales or Impressum) from the footer.",
+    });
+  if (s.deadLinks.count)
+    add({
+      id: "ship:dead-links",
+      severity: "minor",
+      message: `${s.deadLinks.count} link(s) go nowhere (\`href="#"\` or \`javascript:\`).`,
+      fix: 'Point each link at a real page, use a `<button>` for actions, or mark unfinished items `aria-disabled="true"` and style them as disabled.',
+      targets: s.deadLinks.targets,
+      count: s.deadLinks.count,
+    });
+  if (s.notFound && s.notFound.status < 400)
+    add({
+      id: "ship:soft-404",
+      severity: "moderate",
+      message: `A made-up URL answers ${s.notFound.status} instead of 404: search engines may index error pages as real ones.`,
+      fix: "Return HTTP 404 for unknown paths (Next.js: `notFound()` and an app/not-found.tsx page).",
+    });
+  else if (s.notFound && !s.notFound.linksBack)
+    add({
+      id: "ship:404-dead-end",
+      severity: "minor",
+      message: "The not-found page has no link back into the site.",
+      fix: "Give the 404 page the site header or at least a link home and to search, in the brand's own layout.",
+    });
+  return out;
 }
 
 /**
@@ -258,6 +331,14 @@ function tasteDrafts(t: TasteMeasurement, viewport: number): Draft[] {
       severity: "moderate",
       message: "Placeholder text (lorem ipsum) is on the page.",
       fix: "Write the real copy; content decides the layout.",
+    });
+  if (t.placeholders.length)
+    add({
+      id: "slop:placeholder",
+      severity: "moderate",
+      message: `Template placeholders on the page: ${t.placeholders.map((p) => `“${p}”`).join(", ")}.`,
+      fix: "Fill each one with the client's real content (price, quote, name) or remove the slot; never ship an invented fact in its place.",
+      count: t.placeholders.length,
     });
   if (t.glass > 4)
     add({

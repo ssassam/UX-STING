@@ -30,6 +30,7 @@ jobs:
       - run: pnpm format:check
       - run: pnpm test
       - run: pnpm ux-audit
+      - run: pnpm skills:check
       - run: pnpm audit --audit-level high
       - run: pnpm size
       # Packs every publishable package exactly as `changeset publish` would,

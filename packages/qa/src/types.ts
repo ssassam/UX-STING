@@ -2,7 +2,8 @@
 export const DEFAULT_VIEWPORTS = [375, 768, 1440] as const;
 
 export type Severity = "critical" | "serious" | "moderate" | "minor";
-export type Category = "a11y" | "contrast" | "layout" | "console" | "performance" | "taste";
+export type Category =
+  "a11y" | "contrast" | "layout" | "console" | "performance" | "taste" | "ship";
 
 /** A short CSS path to an element, e.g. `main > section.pricing`. */
 export type Target = string;
@@ -78,12 +79,36 @@ export interface TasteMeasurement {
   /** Round, unsourced numbers ("10,000+ users", "99.9%", "10x"). */
   fakeStats: string[];
   lorem: boolean;
+  /** Template leftovers in visible text: `{{price}}`, "Your headline here", "[Company name]". */
+  placeholders: string[];
   /** Elements with backdrop-filter blur. */
   glass: number;
   /** Container of three equal cards right below a centered hero, or null. */
   centeredHeroCards: Target | null;
   /** Numeric table cells, and how many are not end-aligned / not tabular figures. */
   numbers: { cells: number; misaligned: number; proportional: number };
+}
+
+/**
+ * Launch-readiness signals, measured once per page (they do not depend on the
+ * viewport): the things that make a page feel unfinished when forgotten.
+ */
+export interface ShipMeasurement {
+  /** A non-empty `<meta name="description">`. */
+  description: boolean;
+  /** Social sharing tags that are missing (`og:title`, `og:description`, `og:image`). */
+  socialMissing: string[];
+  /** A `<link rel="icon">` or a `/favicon.ico` that answers 200. */
+  favicon: boolean;
+  /** A visible link to a privacy, terms or legal page. */
+  legalLinks: boolean;
+  /** Visible links that go nowhere (`href="#"` or `javascript:`) and are not marked disabled. */
+  deadLinks: { targets: Target[]; count: number };
+  /**
+   * What a made-up URL on the same site returns: the HTTP status and whether
+   * that page links anywhere. Null when not probed (single-file targets).
+   */
+  notFound: { status: number; linksBack: boolean } | null;
 }
 
 export interface AxeViolation {
@@ -135,6 +160,8 @@ export interface QaReport {
   createdAt: string;
   viewports: ViewportResult[];
   console: { errors: string[]; failedRequests: string[] };
+  /** Launch-readiness signals; absent when ship checks are off. */
+  ship?: ShipMeasurement;
   findings: Finding[];
   /** The three most valuable fixes, best first. */
   top: Finding[];
@@ -156,6 +183,8 @@ export interface QaOptions {
   screenshots?: boolean;
   /** Run anti-slop (taste) checks. Default true. */
   taste?: boolean;
+  /** Run launch-readiness (ship) checks: meta and social tags, favicon, legal links, dead links, 404. Default true. */
+  ship?: boolean;
   /** Milliseconds to wait after load for late content and animations. */
   settleMs?: number;
 }

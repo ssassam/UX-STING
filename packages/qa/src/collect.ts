@@ -1,4 +1,4 @@
-import type { LayoutMeasurement, TasteMeasurement } from "./types.js";
+import type { LayoutMeasurement, ShipMeasurement, TasteMeasurement } from "./types.js";
 
 /**
  * In-page layout collector, passed to Playwright's `page.evaluate`. It must
@@ -456,6 +456,15 @@ export function collectTaste(): TasteMeasurement {
     .map((m) => m[0])
     .slice(0, 5);
   const lorem = /lorem ipsum|dolor sit amet/i.test(text);
+  const PLACEHOLDER = [
+    /\{\{\s*[^{}]{1,60}?\s*\}\}/g,
+    /\byour (?:headline|tagline|title|subtitle|text|copy|company|logo) (?:goes )?here\b/gi,
+    /\[(?:company|brand|product|client|business|your) ?name\]/gi,
+    /\b(?:john|jane) doe\b/gi,
+  ];
+  const placeholders = [
+    ...new Set(PLACEHOLDER.flatMap((re) => [...text.matchAll(re)].map((m) => m[0].slice(0, 40)))),
+  ].slice(0, 5);
 
   // Centered hero followed by exactly three equal cards.
   let centeredHeroCards: string | null = null;
@@ -514,8 +523,64 @@ export function collectTaste(): TasteMeasurement {
     genericCopy,
     fakeStats,
     lorem,
+    placeholders,
     glass,
     centeredHeroCards,
     numbers: { cells: numericCells, misaligned, proportional },
+  };
+}
+
+/** What `collectShip` measures in the page; `run.ts` adds the favicon fetch and the 404 probe. */
+export type ShipPageMeasurement = Omit<ShipMeasurement, "favicon" | "notFound"> & {
+  /** A `<link rel="icon">` (or `apple-touch-icon`) with an href. */
+  iconLink: boolean;
+};
+
+/**
+ * In-page launch-readiness collector (see `collectLayout` for why it is
+ * self-contained). Reads head tags and visible links only.
+ */
+export function collectShip(): ShipPageMeasurement {
+  const meta = (key: string) => {
+    const el = document.querySelector(`meta[name="${key}"], meta[property="${key}"]`);
+    return (el?.getAttribute("content") ?? "").trim();
+  };
+  const visible = (el: Element) => {
+    const r = el.getBoundingClientRect();
+    const s = getComputedStyle(el);
+    return r.width > 0 && r.height > 0 && s.visibility !== "hidden" && s.display !== "none";
+  };
+  const label = (el: Element) => {
+    const text = (el.textContent ?? "").trim().replace(/\s+/g, " ").slice(0, 30);
+    return text ? `a "${text}"` : (el.getAttribute("aria-label") ?? "a");
+  };
+
+  const iconLink = Array.from(
+    document.querySelectorAll('link[rel~="icon" i], link[rel="apple-touch-icon" i]'),
+  ).some((l) => Boolean(l.getAttribute("href")?.trim()));
+
+  const links = Array.from(document.querySelectorAll("a"));
+  const LEGAL =
+    /privacy|terms|legal|cookie|imprint|impressum|datenschutz|\bagb\b|confidentialit|mentions[\s-]*l[ée]gales|\bcgu\b|\bcgv\b|privacidad|t[ée]rminos|aviso[\s-]legal|سياسة|الخصوصية|الشروط/i;
+  const legalLinks = links.some(
+    (a) => a.getAttribute("href") && LEGAL.test(`${a.textContent ?? ""} ${a.getAttribute("href")}`),
+  );
+
+  const dead = links.filter((a) => {
+    const href = (a.getAttribute("href") ?? "").trim();
+    if (href !== "#" && !/^javascript:/i.test(href)) return false;
+    if (a.getAttribute("aria-disabled") === "true" || a.getAttribute("role") === "button")
+      return false;
+    // Injected by AdSense "ad intents" (handled by its script), not the site's own markup.
+    if (a.classList.contains("google-anno") || a.hasAttribute("data-google-vignette")) return false;
+    return visible(a);
+  });
+
+  return {
+    description: Boolean(meta("description")),
+    socialMissing: ["og:title", "og:description", "og:image"].filter((k) => !meta(k)),
+    iconLink,
+    legalLinks,
+    deadLinks: { targets: [...new Set(dead.map(label))].slice(0, 5), count: dead.length },
   };
 }

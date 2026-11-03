@@ -6,7 +6,13 @@ import { analyze, passed, rank, score } from "./analyze.js";
 import { qaCommand } from "./command.js";
 import { toMarkdown } from "./report.js";
 import { serveStatic } from "./serve.js";
-import type { Finding, LayoutMeasurement, QaReport, ViewportResult } from "./types.js";
+import type {
+  Finding,
+  LayoutMeasurement,
+  QaReport,
+  ShipMeasurement,
+  ViewportResult,
+} from "./types.js";
 
 const layout = (over: Partial<LayoutMeasurement> = {}): LayoutMeasurement => ({
   width: 375,
@@ -240,6 +246,21 @@ describe("serveStatic", () => {
       rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  it("serves the export's 404.html with a 404 status, like static hosts do", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "uxqa-"));
+    writeFileSync(join(dir, "index.html"), "<h1>hi</h1>");
+    writeFileSync(join(dir, "404.html"), '<h1>Lost</h1><a href="/">Home</a>');
+    const server = await serveStatic(dir);
+    try {
+      const res = await fetch(`${server.url}nope`);
+      expect(res.status).toBe(404);
+      expect(await res.text()).toContain("Home");
+    } finally {
+      await server.close();
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe("qaCommand", () => {
@@ -263,6 +284,7 @@ describe("taste (anti-slop)", () => {
     genericCopy: [],
     fakeStats: [],
     lorem: false,
+    placeholders: [],
     glass: 0,
     centeredHeroCards: null,
     numbers: { cells: 0, misaligned: 0, proportional: 0 },
@@ -283,6 +305,7 @@ describe("taste (anti-slop)", () => {
             genericCopy: ["seamless"],
             fakeStats: ["10,000+ teams"],
             lorem: true,
+            placeholders: ["{{price}}"],
             glass: 6,
             centeredHeroCards: "section.cards",
             numbers: { cells: 8, misaligned: 8, proportional: 0 },
@@ -297,10 +320,59 @@ describe("taste (anti-slop)", () => {
       "slop:generic-copy",
       "slop:glass-everywhere",
       "slop:lorem-ipsum",
+      "slop:placeholder",
       "slop:purple-gradient",
       "slop:unsourced-stats",
     ]);
     expect(findings.every((f) => f.category === "taste")).toBe(true);
     expect(passed(findings)).toBe(true);
+  });
+});
+
+describe("ship (launch readiness)", () => {
+  const ready: ShipMeasurement = {
+    description: true,
+    socialMissing: [],
+    favicon: true,
+    legalLinks: true,
+    deadLinks: { targets: [], count: 0 },
+    notFound: { status: 404, linksBack: true },
+  };
+  it("is silent on a page that is ready to ship, and when not measured", () => {
+    expect(analyze([vp(1440)], undefined, ready)).toEqual([]);
+    expect(analyze([vp(1440)], undefined, { ...ready, notFound: null })).toEqual([]);
+    expect(analyze([vp(1440)])).toEqual([]);
+  });
+  it("flags what makes a page feel unfinished, once per page, without failing the run", () => {
+    const findings = analyze([vp(375), vp(1440)], undefined, {
+      description: false,
+      socialMissing: ["og:image"],
+      favicon: false,
+      legalLinks: false,
+      deadLinks: { targets: ['a "Pricing"'], count: 2 },
+      notFound: { status: 200, linksBack: true },
+    });
+    expect(findings.map((f) => f.id).sort()).toEqual([
+      "ship:dead-links",
+      "ship:favicon",
+      "ship:legal-links",
+      "ship:meta-description",
+      "ship:social-tags",
+      "ship:soft-404",
+    ]);
+    expect(findings.every((f) => f.category === "ship" && f.viewports.length === 0)).toBe(true);
+    expect(findings.find((f) => f.id === "ship:dead-links")).toMatchObject({
+      count: 2,
+      targets: ['a "Pricing"'],
+    });
+    expect(passed(findings)).toBe(true);
+  });
+  it("flags a 404 page with no way back only when it really answers 404", () => {
+    const ids = (status: number) =>
+      analyze([vp(1440)], undefined, { ...ready, notFound: { status, linksBack: false } }).map(
+        (f) => f.id,
+      );
+    expect(ids(404)).toEqual(["ship:404-dead-end"]);
+    expect(ids(200)).toEqual(["ship:soft-404"]);
   });
 });

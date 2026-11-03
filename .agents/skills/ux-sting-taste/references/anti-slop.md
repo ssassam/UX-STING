@@ -33,6 +33,13 @@ Patterns that make a page look generated. Each is banned **unless the design rea
 | Lorem ipsum or "Feature one / Feature two" | Real copy first; it decides the layout | `slop:lorem-ipsum` |
 | Testimonials from "Sarah J., CEO" with a stock face | Real quotes with permission, or leave them out | — |
 | Buttons that say "Get started" / "Learn more" everywhere | Verb + object: "Book a table", "See the 2026 menu" | — |
+| Template leftovers: `{{price}}`, "Your headline here", "[Company name]", "Feature one" | Fill them from the client, or ship nothing in that slot | `slop:placeholder` |
+
+### Facts
+
+On a real client's page, **never invent facts**: prices, guarantees, statistics, customer counts, ratings, awards, testimonials and logos come from the client or a cited source. When one is missing, leave a clearly marked placeholder (`{{price}}`, `{{testimonial: owner, 1–2 lines}}`) and list it in the hand-off. QA reports any left on the page as `slop:placeholder`, so they cannot ship by accident.
+
+In fictional demos and examples (UX-STING's own `examples/`), invented names and figures are fine but must read as real: names that fit the audience and region (never "Acme", "John Doe"); companies that sound like the client's industry; no suspiciously round numbers (`€1,240`, `4.7★ from 312 reviews`, not `€1,000` and `5★`); dates that vary across a list; one face per person.
 
 ## Icons and imagery
 

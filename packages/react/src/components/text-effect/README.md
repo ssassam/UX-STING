@@ -33,17 +33,18 @@ npx ux-sting add text-effect
 
 ### TextEffect
 
-Staggered text entrance in pure CSS: a server component with no client JavaScript. Screen readers get the whole sentence once; the animated pieces are hidden from them. Nothing moves under reduced motion. Inside a `Reveal`, the animation waits until the text scrolls into view.
+Staggered text entrance in pure CSS: a server component with no client JavaScript. Screen readers get the whole sentence once; the animated pieces are hidden from them. Nothing moves under reduced motion. Inside a `Reveal`, the animation waits until the text scrolls into view; with `trigger="scroll"` it follows the scroll position instead.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `children` * | `string` | — | The text to animate. Plain text only, so it can be split safely. |
 | `as` | `ElementType` | `"p"` | Element to render. Default `p`. |
 | `delay` | `number` | `0` | Delay before the first piece, in ms. |
-| `duration` | `number` | `600` | Duration of each piece, in ms. Default 600. |
+| `duration` | `number` | `600` | Duration of each piece, in ms. Default 600. Ignored with `trigger="scroll"`. |
 | `per` | `"word" \| "char"` | `"word"` | Animate per word or per character. Default `word`. |
 | `preset` | `TextEffectPreset` | `"fade"` | Entrance style. Default `fade`. |
 | `stagger` | `number` | — | Delay between pieces, in ms. Defaults to 60 (word) or 25 (char). |
+| `trigger` | `"load" \| "scroll"` | `"load"` | `load` (default): play the entrance once (inside a `Reveal`, when it scrolls into view). `scroll`: tie it to scroll position: pieces ink from muted to full, in reading order, as the block crosses the viewport. For one large tagline or benefit statement per page. `preset`, `delay`, `stagger` and `duration` do not apply; browsers without scroll-driven animations and reduced motion show the final text. |
 
 _Also accepts 279 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 
