@@ -571,6 +571,9 @@ export function collectShip(): ShipPageMeasurement {
     if (href !== "#" && !/^javascript:/i.test(href)) return false;
     if (a.getAttribute("aria-disabled") === "true" || a.getAttribute("role") === "button")
       return false;
+    // Injected by AdSense "ad intents" (handled by its script), not the site's own markup.
+    if (a.classList.contains("google-anno") || a.hasAttribute("data-google-vignette"))
+      return false;
     return visible(a);
   });
 
