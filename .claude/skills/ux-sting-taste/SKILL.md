@@ -1,6 +1,6 @@
 ---
 name: ux-sting-taste
-description: "Art-direct a UX-STING page so it looks designed for this client, not generated: read the brief, list what is unique to the client, deal three researched art directions and pick one, write a one-sentence concept, build with real openly licensed images (credited automatically), run browser QA, critique the screenshots and fix. Use for landing pages, marketing and editorial sites, portfolios, redesigns, hero sections and demo examples, or when someone says it looks generic, templated, AI-made, bland, 'make it premium' or 'more personality'. Dashboards and app screens take the quiet route in references/app-screens.md. Ideas adapted from the MIT-licensed taste-skill, design-taste and Better Design projects (see THIRD_PARTY_NOTICES.md)."
+description: "Art-direct a UX-STING page so it looks designed for this client, not generated: read the brief, list what is unique to the client, deal three researched art directions and pick one, write a one-sentence concept, build with real openly licensed images (credited automatically), run browser QA, critique the screenshots and fix. Use for landing pages, marketing and editorial sites, portfolios, redesigns, hero sections and demo examples, or when someone says it looks generic, templated, AI-made, bland, 'make it premium' or 'more personality'. Landing and other conversion pages also get an intake and a written copy plan (references/conversion.md). Dashboards and app screens take the quiet route in references/app-screens.md. Ideas adapted from the MIT-licensed taste-skill, design-taste and Better Design projects (see THIRD_PARTY_NOTICES.md)."
 ---
 
 # UX-STING taste — a direction, a concept, real pictures, proof
@@ -10,6 +10,7 @@ The ux-sting skill makes a screen correct. This one makes it belong to one clien
 ## 0. Route
 
 - **Marketing, editorial, portfolio, event, product launch** → this pipeline.
+- **Conversion page** (landing page, launch, pricing, waitlist, sign-up, lead generation) → this pipeline, plus `references/conversion.md` for the intake (step 1) and the plan (step 5b).
 - **Dashboard, admin, settings, data table, internal tool, app screen** → follow `references/app-screens.md` instead. Quiet panels, aligned numbers, color spent on data. No hero, no art direction deck.
 - **Existing brand** (site, guidelines, tokens) → `npx ux-sting extract <their-url>` then `npx ux-sting theme import` (see `ux-sting-universal`). The brand wins over any direction you would prefer.
 
@@ -43,6 +44,20 @@ Choose the direction that serves the most items in `unique.md` with acceptable r
 
 e.g. "A Ghent tasting-menu restaurant as a printed nightly menu card, because the menu changes every morning." Every later decision should serve this sentence; when a section doesn't, cut or change it.
 
+## 5b. Plan the page → `plan.md` (conversion pages)
+
+Before any code, write what the page says. Copy decides the layout, not the other way round:
+
+1. **Outline**: sections in order, each with its job (see `references/conversion.md` §3).
+2. **Hero copy**: headline, subheadline, primary action, proof line.
+3. **Benefits**: three to five, outcome first.
+4. **How it works**: three steps.
+5. **FAQ**: six to twelve questions with answers.
+6. **Index or noindex**; if indexed, the `<title>` and meta description.
+7. **Page type** (A–D) and why.
+
+Every fact in it (price, number, quote, logo, guarantee) comes from the brief or a cited source, or stays a marked placeholder like `{{price}}`. If the person is available, let them correct `plan.md` before you build: changing copy is cheaper than changing a page.
+
 ## 6. Real images, credited
 
 ```bash
@@ -59,7 +74,7 @@ npx ux-sting images "ghent canal night" --source commons --download 2,5 --dir pu
 
 ## 7. Build
 
-Build with UX-STING components, tokens and the chosen theme (preset, `createTheme`, or `ux-sting theme import`). Follow the craft rules in `references/craft.md` and avoid everything in `references/anti-slop.md`. Motion comes from the direction's budget (`references/craft.md`); `ux-sting-3d` for one signature moment.
+Build section by section, hero first, and look at each one before starting the next; never regenerate the whole page to change one part. Build with UX-STING components, tokens and the chosen theme (preset, `createTheme`, or `ux-sting theme import`). Follow the craft rules in `references/craft.md` and avoid everything in `references/anti-slop.md`. Motion comes from the direction's budget (`references/craft.md`); `ux-sting-3d` for one signature moment.
 
 ## 8. Prove it in the browser
 
@@ -81,4 +96,4 @@ Turn the three weakest answers into concrete fixes, apply them, re-run QA. At mo
 
 ## 10. Hand off
 
-Report: the concept sentence, the chosen direction (plus one line per rejected one), the image credits, the QA table per round and anything left undone with the reason. Taste never overrides accessibility — run `ux-sting-review` before calling it done.
+Report: the concept sentence, the open `{{placeholders}}` the client still has to fill, the chosen direction (plus one line per rejected one), the image credits, the QA table per round and anything left undone with the reason. Taste never overrides accessibility — run `ux-sting-review` before calling it done.

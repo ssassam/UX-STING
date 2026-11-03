@@ -1,8 +1,15 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join, resolve } from "node:path";
-import { createTheme, themeToCss } from "@ux-sting/themes";
+import {
+  createTheme,
+  presetConfigs,
+  themeToCss,
+  type PresetName,
+  type ThemeConfig,
+} from "@ux-sting/themes";
 import { dnaFromDtcg, nearestPresets } from "./dna.js";
 import type { DtcgDocument } from "./dtcg.js";
+import { EXPORT_MODES, themeToDtcg } from "./export.js";
 import { extractUrl } from "./run.js";
 import { dtcgToTheme, hexOf } from "./theme.js";
 import { EXT } from "./tokens.js";
@@ -70,21 +77,39 @@ export async function extractCommand(argv: string[], print: Print = console.log)
   return 0;
 }
 
-export const THEME_HELP = `ux-sting theme import <tokens.json> — DTCG tokens → UX-STING theme
+export const THEME_HELP = `ux-sting theme import <tokens.json…> — DTCG tokens → UX-STING theme
+ux-sting theme export <preset|name.theme.json> — UX-STING theme → DTCG tokens
 
+import
   --name <name>     Theme name (default: from the file)
   --out <dir>       Output folder (default: current directory)
 
-Accepts DTCG from UX-STING's extractor, designlang, Figma or Style Dictionary.
-Writes <name>.theme.json (createTheme config), <name>.theme.ts and <name>.css.`;
+  Accepts DTCG from UX-STING's extractor, designlang, Figma or Style Dictionary.
+  Several files are merged in order (e.g. a palette file, then one mode file).
+  Writes <name>.theme.json (createTheme config), <name>.theme.ts and <name>.css.
+
+export
+  --out <dir>       Output folder (default: current directory)
+  --resolved        Write raw colors instead of {palette.*} aliases (for tools
+                    that cannot resolve references across files)
+
+  Two layers, as Figma variables and Tokens Studio expect:
+  <name>.palette.tokens.json (scales, radius, fonts) and one semantic file per
+  mode: <name>.light|dark|high-contrast.tokens.json, aliasing the palette.
+  Presets: ${Object.keys(presetConfigs).join(", ")}.`;
 
 export async function themeCommand(argv: string[], print: Print = console.log): Promise<number> {
-  const [sub, file] = positional(argv, ["--name", "--out"]);
-  if (sub !== "import" || !file || argv.includes("--help")) {
+  const [sub, file, ...more] = positional(argv, ["--name", "--out"]);
+  const known = sub === "import" || sub === "export";
+  if (!known || !file || argv.includes("--help")) {
     print(THEME_HELP);
-    return sub === "import" && file ? 0 : 1;
+    return known && file ? 0 : 1;
   }
-  const doc = JSON.parse(readFileSync(file, "utf8")) as DtcgDocument;
+  if (sub === "export") return exportTheme(file, argv, print);
+  // Later files win on conflicting paths, so `palette.json light.json` resolves the aliases.
+  const doc = [file, ...more]
+    .map((f) => JSON.parse(readFileSync(f, "utf8")) as DtcgDocument)
+    .reduce(deepMerge, {} as DtcgDocument);
   const named = option(argv, "name") ?? fileName(file);
   const result = dtcgToTheme(doc, named === "imported" ? {} : { name: named });
   const { config } = result;
@@ -95,7 +120,7 @@ export async function themeCommand(argv: string[], print: Print = console.log): 
   const id = config.name.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
   writeFileSync(
     join(out, `${config.name}.theme.ts`),
-    `import { createTheme, type ThemeConfig } from "@ux-sting/themes";\n\n// Imported from ${basename(file)} by \`ux-sting theme import\`.\nexport const ${id}Config = ${json} satisfies ThemeConfig;\n\nexport const ${id} = createTheme(${id}Config);\n`,
+    `import { createTheme, type ThemeConfig } from "@ux-sting/themes";\n\n// Imported from ${[file, ...more].map((f) => basename(f)).join(", ")} by \`ux-sting theme import\`.\nexport const ${id}Config = ${json} satisfies ThemeConfig;\n\nexport const ${id} = createTheme(${id}Config);\n`,
   );
   writeFileSync(join(out, `${config.name}.css`), themeToCss(createTheme(config)) + "\n");
 
@@ -116,6 +141,68 @@ export async function themeCommand(argv: string[], print: Print = console.log): 
     `Use: <UIProvider theme={${id}}> or import "${config.name}.css" and set data-ui-theme="${config.name}".`,
   );
   return 0;
+}
+
+function exportTheme(source: string, argv: string[], print: Print): number {
+  let config: ThemeConfig;
+  if (source in presetConfigs) config = presetConfigs[source as PresetName] as ThemeConfig;
+  else {
+    try {
+      config = JSON.parse(readFileSync(source, "utf8")) as ThemeConfig;
+    } catch {
+      print(
+        `"${source}" is neither a preset (${Object.keys(presetConfigs).join(", ")}) nor a readable .theme.json file.`,
+      );
+      return 1;
+    }
+    if (typeof config?.name !== "string") {
+      print(`${source} has no "name": expected a createTheme config (*.theme.json).`);
+      return 1;
+    }
+  }
+  const resolved = argv.includes("--resolved");
+  const result = themeToDtcg(config, { resolved });
+  const out = resolve(option(argv, "out") ?? ".");
+  mkdirSync(out, { recursive: true });
+  const write = (file: string, doc: DtcgDocument) =>
+    writeFileSync(join(out, file), JSON.stringify(doc, null, 2) + "\n");
+  write(`${result.name}.palette.tokens.json`, result.palette);
+  for (const mode of EXPORT_MODES) write(`${result.name}.${mode}.tokens.json`, result.modes[mode]);
+
+  print(
+    `Theme "${result.name}" → DTCG (${resolved ? "raw colors" : "semantic → palette aliases"})`,
+  );
+  print("");
+  print("| File | Layer |");
+  print("| --- | --- |");
+  print(`| ${result.name}.palette.tokens.json | palette: scales, radius, fonts |`);
+  for (const mode of EXPORT_MODES) {
+    const raw = result.unaliased[mode];
+    print(
+      `| ${result.name}.${mode}.tokens.json | semantic, ${mode}${raw.length ? ` (${raw.length} raw: ${raw.slice(0, 4).join(", ")}${raw.length > 4 ? "…" : ""})` : ""} |`,
+    );
+  }
+  print(`Wrote ${out}`);
+  print(
+    "Figma: import the palette into one variable collection, then each mode file as a mode of a second collection. Tokens Studio / Style Dictionary: load all four.",
+  );
+  return 0;
+}
+
+const isPlain = (v: unknown): v is Record<string, unknown> =>
+  Boolean(v) && typeof v === "object" && !Array.isArray(v);
+
+/** Merges DTCG groups; a token (anything with `$value`) is replaced whole, never mixed. */
+function deepMerge(a: DtcgDocument, b: DtcgDocument): DtcgDocument {
+  const out: Record<string, unknown> = { ...a };
+  for (const [k, v] of Object.entries(b)) {
+    const prev = out[k];
+    out[k] =
+      isPlain(prev) && isPlain(v) && !("$value" in v) && !("$value" in prev)
+        ? deepMerge(prev, v)
+        : v;
+  }
+  return out;
 }
 
 export const DNA_HELP = `ux-sting dna <url|tokens.json> — design feature vector + nearest UX-STING preset
@@ -155,4 +242,5 @@ export async function dnaCommand(argv: string[], print: Print = console.log): Pr
 const fileName = (file: string) =>
   basename(file)
     .replace(/(\.tokens)?\.json$/i, "")
+    .replace(/\.(palette|light|dark|high-contrast)$/i, "")
     .replace(/^tokens$/, "imported");

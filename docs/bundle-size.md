@@ -1,6 +1,6 @@
 # Bundle size report
 
-114 component entry points. Median 11.4 kB gzipped; largest data-table (51.8 kB). React/react-dom excluded; shared dependencies are counted in every entry that uses them, so real apps pay them once.
+115 component entry points. Median 11.4 kB gzipped; largest data-table (51.8 kB). React/react-dom excluded; shared dependencies are counted in every entry that uses them, so real apps pay them once.
 
 | Entry point | Minified | Gzipped |
 | --- | ---: | ---: |
@@ -36,6 +36,7 @@
 | `@ux-sting/react/tabs` | 54.6 kB | 17.8 kB |
 | `@ux-sting/react/accordion` | 54.2 kB | 17.8 kB |
 | `@ux-sting/react/toggle` | 52.8 kB | 17.4 kB |
+| `@ux-sting/react/chart` | 47.6 kB | 16.1 kB |
 | `@ux-sting/react/checkbox` | 47.3 kB | 15.8 kB |
 | `@ux-sting/react/scroll-area` | 49.9 kB | 15.8 kB |
 | `@ux-sting/react/cart-line-item` | 43.0 kB | 14.5 kB |
@@ -105,11 +106,11 @@
 | `@ux-sting/react/timeline` | 28.5 kB | 9.0 kB |
 | `@ux-sting/react/background` | 28.6 kB | 9.0 kB |
 | `@ux-sting/react/logo` | 28.4 kB | 9.0 kB |
+| `@ux-sting/react/text-effect` | 28.2 kB | 9.0 kB |
 | `@ux-sting/react/box` | 28.2 kB | 9.0 kB |
 | `@ux-sting/react/reveal` | 28.1 kB | 9.0 kB |
 | `@ux-sting/react/spotlight` | 28.3 kB | 9.0 kB |
 | `@ux-sting/react/scroll-progress` | 28.1 kB | 8.9 kB |
-| `@ux-sting/react/text-effect` | 28.1 kB | 8.9 kB |
 | `@ux-sting/react/spinner` | 28.0 kB | 8.9 kB |
 | `@ux-sting/react/input-group` | 28.2 kB | 8.9 kB |
 | `@ux-sting/react/highlight` | 27.9 kB | 8.9 kB |
@@ -123,5 +124,5 @@
 
 | File | Raw | Gzipped |
 | --- | ---: | ---: |
-| `@ux-sting/react/styles.css` | 251.3 kB | 25.7 kB |
-| `@ux-sting/react/components.css` | 21.4 kB | 4.8 kB |
+| `@ux-sting/react/styles.css` | 265.0 kB | 26.7 kB |
+| `@ux-sting/react/components.css` | 22.4 kB | 5.1 kB |

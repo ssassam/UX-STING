@@ -1,6 +1,13 @@
 export * from "./types.js";
 export { analyze, priority, rank, score, passed, VITALS } from "./analyze.js";
-export { collectLayout, collectTaste, installVitals, readVitals } from "./collect.js";
+export {
+  collectLayout,
+  collectShip,
+  collectTaste,
+  installVitals,
+  readVitals,
+  type ShipPageMeasurement,
+} from "./collect.js";
 export { toMarkdown } from "./report.js";
 export { serveStatic, type StaticServer } from "./serve.js";
 export { launchBrowser, guardTarget, guardPage, settle } from "./browser.js";

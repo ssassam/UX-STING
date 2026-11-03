@@ -48,7 +48,13 @@ export async function serveStatic(path: string): Promise<StaticServer> {
     if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
     else if (!existsSync(file) && existsSync(`${file}.html`)) file = `${file}.html`;
     if (!existsSync(file)) {
-      res.writeHead(404).end("Not found");
+      // Static hosts (Cloudflare Pages, GitHub Pages, Netlify) serve the
+      // export's 404.html with a 404 status; do the same so QA sees the real page.
+      const notFound = join(root, "404.html");
+      if (existsSync(notFound)) {
+        res.writeHead(404, { "content-type": TYPES[".html"] ?? "text/html; charset=utf-8" });
+        createReadStream(notFound).pipe(res);
+      } else res.writeHead(404).end("Not found");
       return;
     }
     res.writeHead(200, {

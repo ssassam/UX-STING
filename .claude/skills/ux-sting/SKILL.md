@@ -1,5 +1,5 @@
 ---
-name: UX-STING
+name: ux-sting
 description: "Build, review or extend interfaces with the UX-STING React system in this repository — choosing components, applying tokens/themes, and running the UX quality checks. Use when creating pages, components, examples or docs demos, fixing accessibility/responsive/RTL issues, or adding a new component to packages/react. Adapted from the MIT-licensed UI/UX Pro Max skill (see THIRD_PARTY_NOTICES.md)."
 ---
 

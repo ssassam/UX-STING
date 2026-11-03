@@ -36,6 +36,7 @@ For an example app, build it and point `browser-audit.ts` at its pages. Take scr
 - Raw colors, physical `ml-/pl-/left-` utilities, `100vh`, `"use client"` on static components.
 - Motion that ignores reduced motion, animates width/height/top/left, or loops without purpose.
 - More than one primary action per view; ambiguous button copy ("Submit", "Click here").
+- Invented facts on a real client's page (prices, ratings, customer counts, testimonials, logos not supplied by the client or a source), or `{{placeholder}}` / "Your headline here" text left on the page (QA `slop:placeholder`).
 
 **Moderate — visual design**
 - No clear hierarchy: the eye has nowhere to land first; more than ~3 type sizes per section.
@@ -48,6 +49,7 @@ For an example app, build it and point `browser-audit.ts` at its pages. Take scr
 - Numbers without `tabular-nums`; dates or currency not formatted with `Intl`.
 - Long words or URLs that overflow (`ui-wrap-anywhere`).
 - Missing empty, loading or error states (`EmptyState`, `ErrorState`, `Skeleton`).
+- Launch gaps from QA `ship:*`: meta description, social tags, favicon, legal links, `href="#"` links, a 404 page with no way back.
 - RTL: directional icons not mirrored (`rtl:rotate-180`), text alignment not logical.
 
 ## 3. Report

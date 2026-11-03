@@ -107,6 +107,33 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 ```
 
+### ai-design-skills — MIT License
+
+`.claude/skills/ux-sting-taste/references/conversion.md` (intake, page types,
+section order, conversion and copy rules), the `plan.md` step in
+`.claude/skills/ux-sting-taste/SKILL.md`, the "Facts" rules in
+`references/anti-slop.md`, the launch-readiness (`ship:*`) checks and the
+`slop:placeholder` check in `packages/qa`, the `scripts/validate-skills.ts`
+spec check, the two-layer `ux-sting theme export` and `TextEffect`'s
+`trigger="scroll"` are adapted from ideas in
+[elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills)
+(`skills/landing-page-design/SKILL.md`, `skills/figma-designer/SKILL.md`,
+`scripts/validate_skills.py`). Its fixed visual rules were not adopted.
+
+```
+MIT License
+Copyright (c) 2026 Elaya
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
 ### Claude SEO — MIT License
 
 The list of retired Google rich-result features and several validation checks

@@ -18,6 +18,7 @@ npx ux-sting qa ./out                                          # static export f
 | Title on first screen | The h1 (else first heading) is visible and starts inside the first viewport |
 | Console | `console.error`, uncaught exceptions and failed requests |
 | LCP / CLS | PerformanceObserver during load (lab values; good ≤ 2.5 s / ≤ 0.1) |
+| Ready to ship | Once per page: meta description, `og:title`/`og:description`/`og:image`, favicon (`<link rel="icon">` or `/favicon.ico`), a privacy/terms/legal link, links that go nowhere (`href="#"`, `javascript:`), and a made-up URL that must answer 404 and link back into the site. Never fails a run; `--no-ship` turns it off |
 
 Findings merge across viewports, are ranked by severity × breadth and become a 0–100 score. Exit code 1 when a serious or critical finding remains (`--fail-on`).
 
@@ -31,8 +32,8 @@ const report = await runQa("http://localhost:3000/", { outDir: "qa", viewports: 
 report.top; // three ranked findings with concrete `fix` text
 ```
 
-`analyze()`, `rank()` and `score()` are pure and work on stored measurements. `collectLayout` is the self-contained in-page collector if you drive Playwright yourself.
+`analyze()`, `rank()` and `score()` are pure and work on stored measurements. `collectLayout`, `collectTaste` and `collectShip` are the self-contained in-page collectors if you drive Playwright yourself.
 
 ## Security
 
-The URL you pass is allowlisted; navigation and subrequests to other local, private or cloud-metadata addresses are blocked (`--allow-host host:port` to add one). Local files are served from 127.0.0.1 with path traversal refused.
+The URL you pass is allowlisted; navigation and subrequests to other local, private or cloud-metadata addresses are blocked (`--allow-host host:port` to add one). Local files are served from 127.0.0.1 with path traversal refused; a folder's `404.html` is served with status 404, as static hosts do.

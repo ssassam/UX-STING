@@ -56,6 +56,24 @@ describe("TextEffect", () => {
     await expectNoA11yViolations(container);
   });
 
+  it("ties pieces to scroll with trigger=scroll and counts them for the ranges", () => {
+    const { container } = render(
+      <TextEffect as="h2" trigger="scroll">
+        Rooms around one courtyard
+      </TextEffect>,
+    );
+    const root = container.firstElementChild as HTMLElement;
+    expect(root).toHaveAttribute("data-trigger", "scroll");
+    expect(root.style.getPropertyValue("--ui-n")).toBe("4");
+    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+      "Rooms around one courtyard",
+    );
+    const chars = render(<TextEffect per="char">Hi you</TextEffect>).container
+      .firstElementChild as HTMLElement;
+    expect(chars.style.getPropertyValue("--ui-n")).toBe("5");
+    expect(chars).not.toHaveAttribute("data-trigger");
+  });
+
   it("splits per character but keeps words together", () => {
     const { container } = render(<TextEffect per="char">Hi you</TextEffect>);
     expect(container.querySelectorAll(".ui-text-effect-piece")).toHaveLength(5);

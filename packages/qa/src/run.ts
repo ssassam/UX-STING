@@ -1,9 +1,9 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 import { analyze, passed, score } from "./analyze.js";
 import { guardPage, guardTarget, launchBrowser, settle } from "./browser.js";
-import { collectLayout, collectTaste, installVitals, readVitals } from "./collect.js";
+import { collectLayout, collectShip, collectTaste, installVitals, readVitals } from "./collect.js";
 import { toMarkdown } from "./report.js";
 import { measurePixelContrast } from "./pixels.js";
 import { serveStatic, type StaticServer } from "./serve.js";
@@ -13,6 +13,7 @@ import {
   type QaOptions,
   type QaReport,
   type Severity,
+  type ShipMeasurement,
   type ViewportResult,
 } from "./types.js";
 
@@ -43,6 +44,10 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
   const errors = new Set<string>();
   const failedRequests = new Set<string>();
   const results: ViewportResult[] = [];
+  const checkShip = options.ship !== false;
+  // A single .html file has no site around it, so there is no 404 page to probe.
+  const probe404 = isUrl(target) || statSync(target).isDirectory();
+  let ship: ShipMeasurement | undefined;
   try {
     for (const width of viewports) {
       const context = await browser.newContext({
@@ -115,6 +120,8 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
         });
       }
       results.push({ width, layout, axe, vitals, screenshots, ...(taste ? { taste } : {}) });
+      // Page-level checks run once, on the first viewport, after its screenshots.
+      if (checkShip && !ship) ship = await measureShip(page, url, probe404);
       await context.close();
     }
   } finally {
@@ -123,13 +130,14 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
   }
 
   const consoleResult = { errors: [...errors], failedRequests: [...failedRequests] };
-  const findings = analyze(results, consoleResult);
+  const findings = analyze(results, consoleResult, ship);
   const report: QaReport = {
     target,
     url,
     createdAt: new Date().toISOString(),
     viewports: results,
     console: consoleResult,
+    ...(ship ? { ship } : {}),
     findings,
     top: findings.slice(0, 3),
     score: score(findings),
@@ -140,4 +148,45 @@ export async function runQa(target: string, options: QaOptions = {}): Promise<Qa
     writeFileSync(join(options.outDir, "report.md"), toMarkdown(report));
   }
   return report;
+}
+
+type Page = Parameters<typeof guardPage>[0];
+
+/**
+ * Launch-readiness: head tags and links from the loaded page, a `/favicon.ico`
+ * fallback request, then a visit to a made-up URL on the same site to see
+ * whether it answers 404 and links back. Navigates `page` away; call last.
+ */
+async function measureShip(page: Page, url: string, probe404: boolean): Promise<ShipMeasurement> {
+  const { iconLink, ...rest } = await page.evaluate(collectShip);
+  let favicon = iconLink;
+  if (!favicon) {
+    const res = await page.request
+      .get(new URL("/favicon.ico", url).href, { timeout: 8_000, maxRedirects: 3 })
+      .catch(() => null);
+    favicon = Boolean(
+      res?.ok() && /image|icon|octet-stream/i.test(res.headers()["content-type"] ?? ""),
+    );
+  }
+  let notFound: ShipMeasurement["notFound"] = null;
+  if (probe404) {
+    // The probe's own 404 (and the error page's assets) must not be reported as
+    // console errors or failed requests of the page under test.
+    for (const event of ["console", "pageerror", "response", "requestfailed"] as const)
+      page.removeAllListeners(event);
+    const missing = new URL(`/ux-sting-qa-missing-${Date.now().toString(36)}`, url).href;
+    const res = await page.goto(missing, { waitUntil: "load", timeout: 30_000 }).catch(() => null);
+    if (res) {
+      await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
+      const linksBack = await page.evaluate(() =>
+        Array.from(document.querySelectorAll("a[href]")).some((a) => {
+          const href = a.getAttribute("href")!.trim();
+          const r = a.getBoundingClientRect();
+          return href !== "#" && !/^javascript:/i.test(href) && r.width > 0 && r.height > 0;
+        }),
+      );
+      notFound = { status: res.status(), linksBack };
+    }
+  }
+  return { ...rest, favicon, notFound };
 }
