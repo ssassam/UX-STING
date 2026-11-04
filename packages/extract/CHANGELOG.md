@@ -1,5 +1,18 @@
 # @ux-sting/extract
 
+## 0.9.0
+
+### Minor Changes
+
+- 565bec0: Add `ux-sting theme export <preset|name.theme.json>`: a UX-STING theme becomes W3C DTCG 2025.10 tokens in two layers, a palette file (every intent scale in OKLCH with a hex fallback, plus radius and fonts) and one semantic file per mode (light, dark, high-contrast) whose roles alias the palette (`{palette.primary.600}`). `--resolved` writes raw colors for tools that cannot resolve references across files. Re-importing with `theme import` gives back the same core roles. New API: `themeToDtcg`, `dtcgColorValue`, `themeScales`.
+
+### Patch Changes
+
+- Updated dependencies [565bec0]
+  - @ux-sting/qa@0.9.0
+  - @ux-sting/themes@0.9.0
+  - @ux-sting/tokens@0.9.0
+
 ## 0.8.0
 
 ### Patch Changes
