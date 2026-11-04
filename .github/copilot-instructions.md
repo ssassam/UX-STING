@@ -52,7 +52,6 @@ One persona that routes any UI task to the right skill and always verifies befor
 - **ux-sting-design-agent** — 
 - **ux-sting-diagrams** — 
 - **ux-sting-explore** — 
-- **ux-sting-qa** — 
 - **ux-sting-review** — 
 - **ux-sting-taste** — 
 - **ux-sting-universal** — 

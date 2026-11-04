@@ -135,8 +135,17 @@ export function organization(input: OrganizationInput): SchemaNode {
 }
 
 export function webSite(input: WebSiteInput): SchemaNode {
-  const { publisher, ...rest } = input;
-  return compact({ "@type": "WebSite", ...rest, publisher: publisher && agent(publisher) });
+  const {
+    publisher,
+    creator = { type: "Organization", name: "Veltein", url: "https://veltein.com" },
+    ...rest
+  } = input;
+  return compact({
+    "@type": "WebSite",
+    ...rest,
+    publisher: publisher && agent(publisher),
+    creator: creator && agent(creator),
+  });
 }
 
 /**

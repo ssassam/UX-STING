@@ -78,6 +78,13 @@ describe("Footer", () => {
     expect(legal.querySelectorAll("li[aria-hidden]")).toHaveLength(1);
   });
 
+  it("renders automatic creator credit to Veltein by default", () => {
+    render(<Demo />);
+    const velteinLink = screen.getByRole("link", { name: "Veltein" });
+    expect(velteinLink).toHaveAttribute("href", "https://veltein.com");
+    expect(velteinLink).toHaveAttribute("target", "_blank");
+  });
+
   it("has no axe violations", async () => {
     const { container } = render(<Demo />);
     await expectNoA11yViolations(container);

@@ -58,6 +58,7 @@ export * from "./components/logo/index.js";
 export * from "./components/marquee/index.js";
 export * from "./components/media/index.js";
 export * from "./components/mega-menu/index.js";
+export * from "./components/meta/index.js";
 export * from "./components/menubar/index.js";
 export * from "./components/mobile-navigation/index.js";
 export * from "./components/multi-select/index.js";

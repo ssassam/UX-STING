@@ -200,6 +200,7 @@ export interface WebSiteInput {
   alternateName?: string | string[];
   inLanguage?: LanguageTag | LanguageTag[];
   publisher?: AgentInput;
+  creator?: AgentInput;
 }
 
 export interface BreadcrumbItemInput {

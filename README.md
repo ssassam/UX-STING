@@ -358,7 +358,12 @@ across websites, applications, and automation.
 If it helps you build, you can support the work on
 **[Buy Me a Coffee](https://buymeacoffee.com/veltein)**.
 
-**MIT** · third-party licenses and attributions in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## License
+
+**VELTEIN Fair-Source License (Business Model)**:
+- **Free for everyone** (personal, community, and commercial) as long as the visible Veltein footer credit link (`https://veltein.com`) and creator metadata tags remain intact.
+- **Commercial White-Label License**: Required if you wish to remove or white-label the Veltein branding for client work or enterprise deployments. Contact [VELTEIN](https://veltein.com).
+
+Third-party licenses and attributions in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 </div>

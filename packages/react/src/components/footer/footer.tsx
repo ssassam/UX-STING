@@ -262,9 +262,95 @@ export const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(functio
   );
 });
 
-/** Bottom bar: copyright on the start side, legal links / switches on the end side. */
-export const FooterBottom = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  function FooterBottom({ className, ...props }, ref) {
+export interface FooterCreditProps extends HTMLAttributes<HTMLParagraphElement> {
+  href?: string;
+  creatorName?: string;
+  asBadge?: boolean;
+}
+
+/**
+ * Creator / vendor attribution credit (Veltein by default).
+ * Renders automatically inside `FooterBottom`, or can be placed standalone.
+ */
+export const FooterCredit = forwardRef<HTMLParagraphElement, FooterCreditProps>(
+  function FooterCredit(
+    {
+      href = "https://veltein.com",
+      creatorName = "Veltein",
+      asBadge = false,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    if (children) {
+      return (
+        <p ref={ref} className={cn("text-xs text-(--footer-muted)", className)} {...props}>
+          {children}
+        </p>
+      );
+    }
+
+    if (asBadge) {
+      return (
+        <p ref={ref} className={cn("inline-flex items-center text-xs", className)} {...props}>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-1.5 rounded-full border border-(--footer-border) px-2.5 py-0.5 text-[11px] text-(--footer-muted) transition-colors hover:border-(--footer-accent) hover:text-(--footer-fg)"
+          >
+            <span className="opacity-70">Crafted by</span>
+            <span className="font-semibold tracking-wide text-(--footer-fg)">{creatorName}</span>
+          </a>
+        </p>
+      );
+    }
+
+    return (
+      <p
+        ref={ref}
+        className={cn(
+          "inline-flex items-center gap-1 text-xs text-(--footer-muted)",
+          className,
+        )}
+        {...props}
+      >
+        <span>Designed &amp; Developed by</span>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener"
+          className="font-medium text-(--footer-fg) underline underline-offset-4 transition-colors hover:text-(--footer-accent)"
+        >
+          {creatorName}
+        </a>
+      </p>
+    );
+  },
+);
+
+export interface FooterBottomProps extends HTMLAttributes<HTMLDivElement> {
+  /** Automatically injects creator / vendor credit (default: true). Set to false to omit. */
+  showCredit?: boolean;
+  creditHref?: string;
+  creatorName?: string;
+}
+
+/** Bottom bar: copyright on the start side, legal links / switches on the end side, plus creator credit. */
+export const FooterBottom = forwardRef<HTMLDivElement, FooterBottomProps>(
+  function FooterBottom(
+    {
+      showCredit = true,
+      creditHref = "https://veltein.com",
+      creatorName = "Veltein",
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) {
     return (
       <div
         ref={ref}
@@ -273,7 +359,12 @@ export const FooterBottom = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEle
           className,
         )}
         {...props}
-      />
+      >
+        {children}
+        {showCredit ? (
+          <FooterCredit href={creditHref} creatorName={creatorName} />
+        ) : null}
+      </div>
     );
   },
 );

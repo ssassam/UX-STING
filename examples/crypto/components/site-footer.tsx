@@ -33,6 +33,15 @@ export function SiteFooter() {
         >
           UX-STING design system
           <span className="sr-only"> on GitHub (opens in a new tab)</span>
+        </a>{" "}
+        by{" "}
+        <a
+          href="https://veltein.com"
+          target="_blank"
+          rel="noopener"
+          className="rounded-sm font-medium text-foreground underline underline-offset-2 outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Veltein
         </a>
       </p>
     </footer>

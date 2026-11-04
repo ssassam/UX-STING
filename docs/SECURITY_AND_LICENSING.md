@@ -2,7 +2,12 @@
 
 ## Licensing
 
-### Rules
+### UX-STING License (Fair-Source Business Model)
+UX-STING is released under the **VELTEIN Fair-Source License**:
+1. **Free Tier**: Free to use for personal, open-source, and commercial projects provided that the **Veltein footer attribution** (`https://veltein.com`) and `<meta name="author" content="Veltein">` tags remain in place.
+2. **Commercial White-Label Tier**: If a company, client, or agency wants to remove the Veltein branding, they must purchase a white-label commercial license from Veltein (https://veltein.com).
+
+### Rules for Third-Party Material
 1. Only material under MIT, ISC, BSD or Apache-2.0 may be adapted or bundled. Each adaptation is credited in `THIRD_PARTY_NOTICES.md` with the copyright line and licence text; Apache-2.0 NOTICE files travel with any redistribution.
 2. "No licence file" means all rights reserved: **research only**.
 3. Licences with redistribution restrictions (Commons Clause, proprietary effect licences) or copyleft (AGPL) are **research only** for a library — no code, no ports, no data.
