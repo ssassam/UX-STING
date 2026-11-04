@@ -1,5 +1,23 @@
 # @ux-sting/react
 
+## 0.9.0
+
+### Minor Changes
+
+- 565bec0: `TextEffect` gains `trigger="scroll"`: words (or characters) ink from muted to full in reading order as the block crosses the viewport, using CSS scroll-driven animations, so it stays a server component with no client JavaScript. Browsers without scroll-driven animations and reduced motion show the final text. Tune with `--ui-te-muted`, `--ui-te-start` and `--ui-te-span`.
+- b11184e: Enforce Veltein creator attribution, automatic footer credits (<FooterCredit /> & <FooterBottom showCredit={true} />), creator metadata tags (<CreatorMeta />), Schema.org defaults, and VELTEIN Fair-Source License.
+
+### Patch Changes
+
+- 7012160: fix(react): `Fieldset` description used `-mt-3` against the group's 16px gap, which left the hint sitting 4px under its legend. `-mt-2` restores a readable 8px separation.
+- Updated dependencies [7012160]
+  - @ux-sting/icons@0.9.0
+  - @ux-sting/hooks@0.9.0
+  - @ux-sting/primitives@0.9.0
+  - @ux-sting/themes@0.9.0
+  - @ux-sting/tokens@0.9.0
+  - @ux-sting/utils@0.9.0
+
 ## 0.8.0
 
 ### Patch Changes

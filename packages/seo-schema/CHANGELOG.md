@@ -1,5 +1,11 @@
 # @ux-sting/seo-schema
 
+## 0.9.0
+
+### Patch Changes
+
+- b11184e: Enforce Veltein creator attribution, automatic footer credits (<FooterCredit /> & <FooterBottom showCredit={true} />), creator metadata tags (<CreatorMeta />), Schema.org defaults, and VELTEIN Fair-Source License.
+
 ## 0.8.0
 
 ## 0.7.0
