@@ -311,10 +311,7 @@ export const FooterCredit = forwardRef<HTMLParagraphElement, FooterCreditProps>(
     return (
       <p
         ref={ref}
-        className={cn(
-          "inline-flex items-center gap-1 text-xs text-(--footer-muted)",
-          className,
-        )}
+        className={cn("inline-flex items-center gap-1 text-xs text-(--footer-muted)", className)}
         {...props}
       >
         <span>Designed &amp; Developed by</span>
@@ -339,35 +336,31 @@ export interface FooterBottomProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /** Bottom bar: copyright on the start side, legal links / switches on the end side, plus creator credit. */
-export const FooterBottom = forwardRef<HTMLDivElement, FooterBottomProps>(
-  function FooterBottom(
-    {
-      showCredit = true,
-      creditHref = "https://veltein.com",
-      creatorName = "Veltein",
-      className,
-      children,
-      ...props
-    },
-    ref,
-  ) {
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          "mt-12 flex flex-col gap-4 border-t border-(--footer-border) pt-6 text-xs text-(--footer-muted) md:flex-row md:items-center md:justify-between",
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        {showCredit ? (
-          <FooterCredit href={creditHref} creatorName={creatorName} />
-        ) : null}
-      </div>
-    );
+export const FooterBottom = forwardRef<HTMLDivElement, FooterBottomProps>(function FooterBottom(
+  {
+    showCredit = true,
+    creditHref = "https://veltein.com",
+    creatorName = "Veltein",
+    className,
+    children,
+    ...props
   },
-);
+  ref,
+) {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "mt-12 flex flex-col gap-4 border-t border-(--footer-border) pt-6 text-xs text-(--footer-muted) md:flex-row md:items-center md:justify-between",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      {showCredit ? <FooterCredit href={creditHref} creatorName={creatorName} /> : null}
+    </div>
+  );
+});
 
 export const FooterCopyright = forwardRef<
   HTMLParagraphElement,
