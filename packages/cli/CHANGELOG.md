@@ -1,5 +1,11 @@
 # ux-sting
 
+## 0.11.0
+
+### Minor Changes
+
+- e373939: `ux-sting skills add|remove|hosts`: install the bundled UX-STING agent skills (design agent, taste with offline design data, review, QA, 3D, diagrams…) into 24 AI coding hosts, auto-detected from the project or chosen with `--ai`, project or `--global`.
+
 ## 0.10.0
 
 ### Minor Changes
