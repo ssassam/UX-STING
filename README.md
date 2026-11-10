@@ -27,12 +27,12 @@ in a browser before they say “done”.
 
 | | |
 | --- | --- |
-| **~100 component families** | Layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, data table/grid, media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects; `@ux-sting/motion` adds a CSS transition catalog and an optional GSAP adapter. |
-| **Accessible by default** | WCAG 2.2 AA, keyboard support, focus management, axe-tested, contrast-tested tokens. |
+| **115 components** | Layout, typography, buttons, a complete form system, date/time, navigation, overlays, feedback, a data grid (multi-sort, 10k-row virtualization, resizable columns, expandable rows), media, command palette, commerce / local-discovery / editorial patterns, and zero-dependency motion & effects; `@ux-sting/motion` adds a CSS transition catalog and an optional GSAP adapter. |
+| **Accessible by default** | WCAG 2.2 AA, keyboard support, focus management, contrast-tested tokens; every docs demo is axe-tested in LTR **and** RTL on each commit. |
 | **Design tokens & themes** | OKLCH semantic tokens as CSS variables, 17 presets (Material, Fluent, Carbon, Polaris, Apple, Base Web, Stripe, plus editorial / luxury / brutalist / terminal), custom themes, light / dark / high-contrast, 3 densities. |
 | **Global** | RTL via logical properties, localized labels (en / fr / ar), `Intl` formatting everywhere. |
 | **Next.js-first** | App Router, RSC-friendly (server components by default), per-component entry points. |
-| **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits. |
+| **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits; on the npm package, `npx ux-sting eject combobox` takes over one component and `ux-sting update` merges upstream fixes later. |
 | **Agent Skills** | Cross-host skills + a Universal Design Agent for Claude Code, Codex, Cursor, VS Code / Copilot, Gemini CLI and Qoder ([details ↓](#agent-skills)). |
 | **Tailwind v4 native, optional** | Use `tailwind.css` or the precompiled `styles.css`. |
 
@@ -62,6 +62,22 @@ loop that proves the result in a browser**.
 | Design input | Generate a system from a text brief | **Extract** real tokens / Design DNA from any live URL |
 | Images | Placeholders | **Real, openly-licensed images with automatic credits** |
 | Proof | Screenshots | **7 deployed demo sites** with SEO structured data |
+
+### Where it fits
+
+Large product-UI design systems are built for dense internal tools: a neutral
+look, very deep data components and big teams. UX-STING is the **design layer**
+for products that have to look like *their* brand: art-directed pages, motion,
+charts, 3D and diagrams, plus an agent workflow that verifies the result in a
+browser. It covers the product side too (forms, overlays, a full data grid), so
+one system can run both the marketing site and the app.
+
+| Need | Reach for |
+| --- | --- |
+| A branded site, landing page, storefront or editorial product | UX-STING |
+| An app that must match that brand (dashboards, forms, data grids) | UX-STING |
+| A coding agent that designs, builds and proves the UI in a browser | UX-STING skills + `ux-sting qa` |
+| One component that needs to work differently | `npx ux-sting eject <component>` |
 
 ### The pipeline (how the agent works)
 
