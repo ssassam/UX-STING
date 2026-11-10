@@ -2,6 +2,7 @@
 import { MapIcon, MapPinIcon } from "@ux-sting/icons";
 import { cn } from "@ux-sting/utils";
 import type { HTMLAttributes, ReactNode } from "react";
+import { useMessages } from "../../provider/context.js";
 
 export interface MapPin {
   id: string;
@@ -29,17 +30,18 @@ export interface MapPlaceholderProps extends HTMLAttributes<HTMLDivElement> {
 export function MapPlaceholder({
   pins = [],
   onPinClick,
-  label = "Map",
+  label,
   ratio,
   className,
   children,
   style,
   ...props
 }: MapPlaceholderProps) {
+  const messages = useMessages();
   return (
     <div
       role="region"
-      aria-label={label}
+      aria-label={label ?? messages.map}
       className={cn(
         "relative overflow-hidden rounded-xl border border-border bg-surface",
         "bg-[linear-gradient(var(--ui-border)_1px,transparent_1px),linear-gradient(90deg,var(--ui-border)_1px,transparent_1px)] bg-[size:32px_32px]",

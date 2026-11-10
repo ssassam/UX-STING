@@ -57,7 +57,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
     <div
       ref={ref}
       role="region"
-      aria-label={props["aria-label"] ?? "Announcement"}
+      aria-label={props["aria-label"] ?? messages.announcement}
       className={bannerVariants({ variant, className })}
       {...props}
     >

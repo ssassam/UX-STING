@@ -45,7 +45,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(function
     value: valueProp,
     defaultValue = [],
     onValueChange,
-    placeholder = "Select…",
+    placeholder: placeholderProp,
     searchPlaceholder,
     emptyText,
     maxVisible = 3,
@@ -67,6 +67,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(function
   });
   const container = usePortalContainer();
   const messages = useMessages();
+  const placeholder = placeholderProp ?? messages.selectPlaceholder;
   const fieldProps = useFieldControlProps({ id, disabled, "aria-invalid": invalid || undefined });
   const selected = value
     .map((v) => options.find((o) => o.value === v))

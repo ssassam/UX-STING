@@ -56,7 +56,7 @@ Searchable single-select for long lists (countries, categories, users). Supports
 | `name` | `string` | — | Name for a hidden input so the value is submitted with forms. |
 | `onSearchChange` | `(search: string) => void` | — | Async search: receives the query; set `loading` and update `options`. |
 | `onValueChange` | `(value: string \| null) => void` | — |  |
-| `placeholder` | `string` | `"Select…"` |  |
+| `placeholder` | `string` | — |  |
 | `renderOption` | `(option: ComboboxOption) => ReactNode` | — |  |
 | `searchPlaceholder` | `string` | — |  |
 | `size` | `ControlSize` | — |  |

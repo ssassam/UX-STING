@@ -5,7 +5,7 @@ import { VisuallyHidden } from "@ux-sting/primitives";
 import { cn } from "@ux-sting/utils";
 import type { ReactNode } from "react";
 import { overlayClass } from "../../lib/overlay.js";
-import { usePortalContainer } from "../../provider/context.js";
+import { useMessages, usePortalContainer } from "../../provider/context.js";
 import { Command, type CommandProps } from "./command.js";
 
 export interface CommandDialogProps extends Omit<CommandProps, "title"> {
@@ -24,7 +24,7 @@ export function CommandDialog({
   defaultOpen = false,
   onOpenChange,
   shortcut = "mod+k",
-  title = "Command menu",
+  title,
   className,
   children,
   ...props
@@ -35,6 +35,8 @@ export function CommandDialog({
     onChange: onOpenChange,
   });
   const container = usePortalContainer();
+  const messages = useMessages();
+  const dialogTitle = title ?? messages.commandMenu;
   useHotkey(shortcut || "", () => setOpen(!open), {
     enabled: Boolean(shortcut),
     enableInInputs: true,
@@ -48,10 +50,10 @@ export function CommandDialog({
           className="ui-anim-pop fixed start-1/2 top-[12dvh] z-(--ui-z-modal) w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 overflow-hidden rounded-xl border border-border shadow-xl outline-none rtl:translate-x-1/2"
         >
           <VisuallyHidden>
-            <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
+            <DialogPrimitive.Title>{dialogTitle}</DialogPrimitive.Title>
           </VisuallyHidden>
           <Command
-            label={typeof title === "string" ? title : undefined}
+            label={typeof dialogTitle === "string" ? dialogTitle : undefined}
             className={cn(className)}
             {...props}
           >

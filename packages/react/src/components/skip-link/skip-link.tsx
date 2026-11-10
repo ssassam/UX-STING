@@ -1,4 +1,6 @@
+"use client";
 import { cn } from "@ux-sting/utils";
+import { useMessages } from "../../provider/context.js";
 import type { AnchorHTMLAttributes } from "react";
 
 /**
@@ -7,10 +9,11 @@ import type { AnchorHTMLAttributes } from "react";
  */
 export function SkipLink({
   href = "#main",
-  children = "Skip to content",
+  children,
   className,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const messages = useMessages();
   return (
     <a
       href={href}
@@ -20,7 +23,7 @@ export function SkipLink({
       )}
       {...props}
     >
-      {children}
+      {children ?? messages.skipToContent}
     </a>
   );
 }

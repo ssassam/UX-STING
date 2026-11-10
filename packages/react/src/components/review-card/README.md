@@ -41,8 +41,8 @@ Customer review with rating, expandable text and optional owner reply.
 | `className` | `string` | — |  |
 | `date` | `{ display: ReactNode; dateTime: string }` | — |  |
 | `footer` | `ReactNode` | — | Owner response, photos, helpful votes… |
-| `readLessLabel` | `string` | `"Show less"` |  |
-| `readMoreLabel` | `string` | `"Read more"` |  |
+| `readLessLabel` | `string` | — |  |
+| `readMoreLabel` | `string` | — |  |
 | `title` | `ReactNode` | — |  |
 | `truncateAt` | `number` | `280` | Characters shown before "Read more". |
 

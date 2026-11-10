@@ -35,8 +35,8 @@ Weekly hours table, localized day names, today highlighted.
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `periods` * | `OpeningPeriod[]` | — |  |
-| `caption` | `string` | `"Opening hours"` |  |
-| `closedLabel` | `string` | `"Closed"` |  |
+| `caption` | `string` | — |  |
+| `closedLabel` | `string` | — |  |
 
 _Also accepts 278 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

@@ -39,7 +39,7 @@ Lightweight, dependency-free map stand-in: grid background with positioned, keyb
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `children` | `ReactNode` | — |  |
-| `label` | `string` | `"Map"` | Accessible description of what the map shows. |
+| `label` | `string` | — | Accessible description of what the map shows. |
 | `onPinClick` | `(id: string) => void` | — |  |
 | `pins` | `MapPin[]` | `[]` |  |
 | `ratio` | `number` | — |  |

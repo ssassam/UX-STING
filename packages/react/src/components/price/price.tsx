@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@ux-sting/utils";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { useLocale } from "../../provider/context.js";
+import { useLocale, useMessages } from "../../provider/context.js";
 
 export interface PriceProps extends HTMLAttributes<HTMLSpanElement> {
   amount: number;
@@ -28,7 +28,7 @@ export const Price = forwardRef<HTMLSpanElement, PriceProps>(function Price(
     compareAt,
     period,
     size = "md",
-    compareAtLabel = "Original price",
+    compareAtLabel,
     fractionDigits,
     locale: localeProp,
     className,
@@ -36,6 +36,7 @@ export const Price = forwardRef<HTMLSpanElement, PriceProps>(function Price(
   },
   ref,
 ) {
+  const messages = useMessages();
   const { locale } = useLocale();
   const fmt = new Intl.NumberFormat(localeProp ?? locale, {
     style: "currency",
@@ -54,7 +55,7 @@ export const Price = forwardRef<HTMLSpanElement, PriceProps>(function Price(
       </span>
       {compareAt !== undefined && compareAt > amount ? (
         <span className="text-sm tabular-nums text-muted-foreground line-through">
-          <span className="sr-only">{compareAtLabel}: </span>
+          <span className="sr-only">{`${compareAtLabel ?? messages.originalPrice}: `}</span>
           {fmt.format(compareAt)}
         </span>
       ) : null}

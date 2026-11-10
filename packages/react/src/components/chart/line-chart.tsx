@@ -9,6 +9,7 @@ import {
   useChartFormat,
   useElementWidth,
 } from "./chart-core.js";
+import { useMessages } from "../../provider/context.js";
 import { niceTicks, slotColor, textWidth, tickIndices, type ChartSeries } from "./chart-utils.js";
 
 export interface LineChartProps<T extends object> extends Omit<
@@ -59,6 +60,7 @@ function LineChartInner<T extends object>(
   }: LineChartProps<T>,
   ref: Ref<HTMLDivElement>,
 ) {
+  const messages = useMessages();
   const [boxRef, width] = useElementWidth<HTMLDivElement>();
   const { active, setActive, onKeyDown } = useActiveIndex(data.length);
   const fmt = useChartFormat(valueFormatter);
@@ -131,7 +133,7 @@ function LineChartInner<T extends object>(
           className="flex items-center justify-center rounded-md border border-dashed border-border text-sm text-muted-foreground"
           style={{ height }}
         >
-          {empty ?? "No data"}
+          {empty ?? messages.noData}
         </div>
       ) : (
         <div

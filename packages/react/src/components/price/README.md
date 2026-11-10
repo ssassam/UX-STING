@@ -37,7 +37,7 @@ Locale-aware price with optional discount and period. Tabular figures.
 | `amount` * | `number` | — |  |
 | `currency` * | `string` | — | ISO 4217 code, e.g. "USD", "EUR", "MAD". |
 | `compareAt` | `number` | — | Previous price; rendered struck through with an accessible label. |
-| `compareAtLabel` | `string` | `"Original price"` | Label for the previous price (localize). |
+| `compareAtLabel` | `string` | — | Label for the previous price (localize). |
 | `fractionDigits` | `number` | — |  |
 | `locale` | `string` | — |  |
 | `period` | `ReactNode` | — | Suffix such as "/ night" or "per month". |

@@ -109,27 +109,27 @@ A footer link inside `FooterColumn` (renders its own `<li>`).
 
 _Also accepts 288 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 
+### FooterCredit
+
+Creator / vendor attribution credit (Veltein by default). Renders automatically inside `FooterBottom`, or can be placed standalone.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `asBadge` | `boolean` | `false` |  |
+| `creatorName` | `string` | `"Veltein"` |  |
+| `href` | `string` | `"https://veltein.com"` |  |
+
+_Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
 ### FooterBottom
 
 Bottom bar: copyright on the start side, legal links / switches on the end side, plus creator credit.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `showCredit` | `boolean` | `true` | Automatically injects creator / vendor credit to Veltein. Set false to omit. |
-| `creditHref` | `string` | `"https://veltein.com"` | URL of creator company. |
-| `creatorName` | `string` | `"Veltein"` | Name of creator company. |
-
-_Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
-
-### FooterCredit
-
-Creator / vendor attribution link to Veltein.
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `href` | `string` | `"https://veltein.com"` | Link destination. |
-| `creatorName` | `string` | `"Veltein"` | Creator brand name. |
-| `asBadge` | `boolean` | `false` | Render as pill badge rather than text link. |
+| `creatorName` | `string` | `"Veltein"` |  |
+| `creditHref` | `string` | `"https://veltein.com"` |  |
+| `showCredit` | `boolean` | `true` | Automatically injects creator / vendor credit (default: true). Set to false to omit. |
 
 _Also accepts 280 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

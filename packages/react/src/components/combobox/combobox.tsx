@@ -54,7 +54,7 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
     value: valueProp,
     defaultValue = null,
     onValueChange,
-    placeholder = "Select…",
+    placeholder: placeholderProp,
     searchPlaceholder,
     emptyText,
     size,
@@ -79,6 +79,7 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
   });
   const container = usePortalContainer();
   const messages = useMessages();
+  const placeholder = placeholderProp ?? messages.selectPlaceholder;
   const fieldProps = useFieldControlProps({
     id,
     disabled,

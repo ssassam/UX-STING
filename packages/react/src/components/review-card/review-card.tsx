@@ -3,6 +3,7 @@ import { cn } from "@ux-sting/utils";
 import { useState, type ReactNode } from "react";
 import { Avatar } from "../avatar/avatar.js";
 import { ReviewStars } from "../rating/rating.js";
+import { useMessages } from "../../provider/context.js";
 
 export interface ReviewCardProps {
   author: { name: string; avatar?: string; subtitle?: ReactNode };
@@ -30,11 +31,12 @@ export function ReviewCard({
   truncateAt = 280,
   footer,
   badges,
-  readMoreLabel = "Read more",
-  readLessLabel = "Show less",
+  readMoreLabel,
+  readLessLabel,
   className,
 }: ReviewCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const messages = useMessages();
   const long = body.length > truncateAt;
   const text = long && !expanded ? `${body.slice(0, truncateAt).trimEnd()}…` : body;
   return (
@@ -71,7 +73,7 @@ export function ReviewCard({
           onClick={() => setExpanded(!expanded)}
           className="justify-self-start rounded-xs text-sm font-medium text-primary underline-offset-4 outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring"
         >
-          {expanded ? readLessLabel : readMoreLabel}
+          {expanded ? (readLessLabel ?? messages.showLess) : (readMoreLabel ?? messages.readMore)}
         </button>
       ) : null}
       {footer}

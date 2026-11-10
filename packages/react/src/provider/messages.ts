@@ -46,6 +46,25 @@ export interface Messages {
   toggleSidebar: string;
   openMenu: string;
   notifications: string;
+  /** Default landmark name for Banner. */
+  announcement: string;
+  code: string;
+  commandMenu: string;
+  noData: string;
+  readMore: string;
+  showLess: string;
+  selectPlaceholder: string;
+  filters: string;
+  activeFilters: string;
+  clearAll: string;
+  showResults: string;
+  map: string;
+  open: string;
+  closed: string;
+  closesAt: (time: string) => string;
+  opensAt: (time: string) => string;
+  openingHours: string;
+  originalPrice: string;
   skipToContent: string;
   expand: string;
   collapse: string;
@@ -110,6 +129,24 @@ export const en: Messages = {
   toggleSidebar: "Toggle sidebar",
   openMenu: "Open menu",
   notifications: "Notifications",
+  announcement: "Announcement",
+  code: "Code",
+  commandMenu: "Command menu",
+  noData: "No data",
+  readMore: "Read more",
+  showLess: "Show less",
+  selectPlaceholder: "Select…",
+  filters: "Filters",
+  activeFilters: "Active filters",
+  clearAll: "Clear all",
+  showResults: "Show results",
+  map: "Map",
+  open: "Open",
+  closed: "Closed",
+  closesAt: (t) => `closes ${t}`,
+  opensAt: (t) => `opens ${t}`,
+  openingHours: "Opening hours",
+  originalPrice: "Original price",
   skipToContent: "Skip to content",
   expand: "Expand",
   collapse: "Collapse",
@@ -174,6 +211,24 @@ export const fr: Messages = {
   toggleSidebar: "Afficher/masquer la barre latérale",
   openMenu: "Ouvrir le menu",
   notifications: "Notifications",
+  announcement: "Annonce",
+  code: "Code",
+  commandMenu: "Menu de commandes",
+  noData: "Aucune donnée",
+  readMore: "Lire la suite",
+  showLess: "Afficher moins",
+  selectPlaceholder: "Sélectionner…",
+  filters: "Filtres",
+  activeFilters: "Filtres actifs",
+  clearAll: "Tout effacer",
+  showResults: "Afficher les résultats",
+  map: "Carte",
+  open: "Ouvert",
+  closed: "Fermé",
+  closesAt: (t) => `ferme à ${t}`,
+  opensAt: (t) => `ouvre à ${t}`,
+  openingHours: "Horaires d'ouverture",
+  originalPrice: "Prix initial",
   skipToContent: "Aller au contenu",
   expand: "Développer",
   collapse: "Réduire",
@@ -238,6 +293,24 @@ export const ar: Messages = {
   toggleSidebar: "إظهار/إخفاء الشريط الجانبي",
   openMenu: "فتح القائمة",
   notifications: "الإشعارات",
+  announcement: "إعلان",
+  code: "الرمز",
+  commandMenu: "قائمة الأوامر",
+  noData: "لا توجد بيانات",
+  readMore: "اقرأ المزيد",
+  showLess: "عرض أقل",
+  selectPlaceholder: "اختر…",
+  filters: "عوامل التصفية",
+  activeFilters: "عوامل التصفية النشطة",
+  clearAll: "مسح الكل",
+  showResults: "عرض النتائج",
+  map: "الخريطة",
+  open: "مفتوح",
+  closed: "مغلق",
+  closesAt: (t) => `يغلق ${t}`,
+  opensAt: (t) => `يفتح ${t}`,
+  openingHours: "ساعات العمل",
+  originalPrice: "السعر الأصلي",
   skipToContent: "انتقل إلى المحتوى",
   expand: "توسيع",
   collapse: "طي",

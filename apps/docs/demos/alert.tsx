@@ -45,7 +45,7 @@ export function Banners() {
       >
         Spring promotion: list your business free for 3 months.
       </Banner>
-      <Banner variant="neutral" dismissible>
+      <Banner variant="neutral" dismissible aria-label="Cookie notice">
         We use cookies to improve your experience.
       </Banner>
     </div>

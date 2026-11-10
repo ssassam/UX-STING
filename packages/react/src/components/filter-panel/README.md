@@ -40,12 +40,12 @@ Filters as a sidebar on desktop and a bottom/side sheet on mobile, from the same
 | --- | --- | --- | --- |
 | `children` * | `ReactNode` | — |  |
 | `activeCount` | `number` | `0` | Number of active filters (shown on the mobile trigger). |
-| `applyLabel` | `ReactNode` | `"Show results"` | Mobile "Show results" button label and handler. |
+| `applyLabel` | `ReactNode` | — | Mobile "Show results" button label and handler. |
 | `className` | `string` | — |  |
-| `clearLabel` | `string` | `"Clear all"` |  |
+| `clearLabel` | `string` | — |  |
 | `onApply` | `() => void` | — |  |
 | `onClear` | `() => void` | — |  |
-| `title` | `ReactNode` | `"Filters"` |  |
+| `title` | `ReactNode` | — |  |
 
 ### FilterSection
 
@@ -67,7 +67,7 @@ Applied filters as removable tags, announced as a group.
 | `filters` * | `FilterChip[]` | — |  |
 | `onRemove` * | `(id: string) => void` | — |  |
 | `className` | `string` | — |  |
-| `clearLabel` | `string` | `"Clear all"` |  |
+| `clearLabel` | `string` | — |  |
 | `onClearAll` | `() => void` | — |  |
 
 ---
