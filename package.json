@@ -32,7 +32,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only",
     "release": "pnpm build && changeset publish",
-    "publish:dry": "pnpm -r --filter \"./packages/*\" publish --dry-run --no-git-checks"
+    "publish:dry": "pnpm -r --filter \"./packages/*\" publish --dry-run --no-git-checks",
+    "stories": "node scripts/generate-demo-stories.mjs && prettier --write --log-level warn apps/storybook/stories"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",

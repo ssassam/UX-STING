@@ -19,6 +19,18 @@ const stories = Object.values(index.entries).filter(
 for (const story of stories) {
   for (const mode of ["light", "dark"] as const) {
     test(`${story.id} (${mode})`, async ({ page }) => {
+      // Remote images load (or not) at random speeds: block them so every run shows the
+      // same fallback (initials, alt text). Local Storybook assets are unaffected.
+      await page.route(
+        (url) => url.hostname !== "127.0.0.1" && url.hostname !== "localhost",
+        (route) =>
+          ["image", "media"].includes(route.request().resourceType())
+            ? route.abort()
+            : route.continue(),
+      );
+      // Stories that render "today" (calendars, opening hours) need a stable clock.
+      if (story.tags?.includes("fixed-clock"))
+        await page.clock.setFixedTime(new Date("2026-01-14T10:30:00"));
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story&globals=mode:${mode}`);
       await page.waitForSelector("#storybook-root > *", { state: "attached" });
       await page.evaluate(() => document.fonts.ready);
