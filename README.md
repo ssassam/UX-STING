@@ -4,6 +4,8 @@
 
 **Accessible components. Your code. Your design.**
 
+English · [Français](README.fr.md) · [العربية](README.ar.md)
+
 An accessible, themeable, tree-shakeable React design system for Next.js and any
 React app — shipped with cross-host **Agent Skills** and a **Universal Design
 Agent** that teach coding agents to build art-directed UI and verify every page
