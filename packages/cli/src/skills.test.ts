@@ -40,7 +40,9 @@ describe("skills", () => {
     expect(
       existsSync(join(cwd, ".agents/skills/ux-sting-design-agent/references/stacks/vue.csv")),
     ).toBe(true);
-    expect(existsSync(join(cwd, ".cursor/skills/ux-sting-slides/scripts/slide_data.py"))).toBe(true);
+    expect(existsSync(join(cwd, ".cursor/skills/ux-sting-slides/scripts/slide_data.py"))).toBe(
+      true,
+    );
     expect(
       existsSync(join(cwd, ".cursor/skills/logo-design/references/data/logo-industries.csv")),
     ).toBe(true);
