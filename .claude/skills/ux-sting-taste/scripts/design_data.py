@@ -88,13 +88,15 @@ def bm25(rows: list[dict], cols: list[str], query: str, n: int) -> list[tuple[fl
     q = tokens(query)
     scored = []
     for r, d in zip(rows, docs):
-        s = 0.0
+        s, hit = 0.0, 0
         for t in q:
             tf = d.count(t)
             if tf:
+                hit += 1
                 idf = math.log(1 + (len(docs) - df[t] + 0.5) / (df[t] + 0.5))
                 s += idf * tf * 2.2 / (tf + 1.2 * (0.25 + 0.75 * len(d) / avg))
         if s > 0:
+            s *= 1 + hit / max(len(set(q)), 1)  # favour rows that cover more of the query
             scored.append((s, r))
     scored.sort(key=lambda x: -x[0])
     return scored[:n]

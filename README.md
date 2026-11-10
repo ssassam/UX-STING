@@ -33,16 +33,18 @@ in a browser before they say “done”.
 | **Global** | RTL via logical properties, localized labels (en / fr / ar), `Intl` formatting everywhere. |
 | **Next.js-first** | App Router, RSC-friendly (server components by default), per-component entry points. |
 | **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits; on the npm package, `npx ux-sting eject combobox` takes over one component and `ux-sting update` merges upstream fixes later. |
-| **Agent Skills** | Cross-host skills + a Universal Design Agent for Claude Code, Codex, Cursor, VS Code / Copilot, Gemini CLI and Qoder ([details ↓](#agent-skills)). |
+| **Agent Skills** | Cross-host skills + a Universal Design Agent for **24 AI coding hosts** via `npx ux-sting skills add` ([details ↓](#agent-skills)). |
+| **Design intelligence** | Offline: 192 industry conventions with anti-patterns, 80 styles, 192 palettes, 74 font pairings, 34 landing patterns, chart / UX / motion rules and 22 stack guideline sets, searched by `design_data.py` and persisted as a `MASTER.md` design system. |
 | **Tailwind v4 native, optional** | Use `tailwind.css` or the precompiled `styles.css`. |
 
 > **Works with your AI agent** — one line installs the skills into whatever editor you use:
-> `npx skills add ssassam/UX-STING` · see [Agent Skills](#agent-skills).
+> `npx ux-sting skills add` (24 hosts, auto-detected) or `npx skills add ssassam/UX-STING` · see [Agent Skills](#agent-skills).
 
 <div align="center">
 
 **9 agent skills** · **~100 component families** · **17 theme presets** ·
-**WCAG 2.2 AA** · **axe-verified in a browser** · **6 AI hosts** ·
+**WCAG 2.2 AA** · **axe-verified in a browser** · **24 AI hosts** ·
+**192 industry rules** · **80 styles** · **192 palettes** · **74 font pairings** · **22 stacks** ·
 **3 languages + RTL** · **7 live demos**
 
 </div>
@@ -51,15 +53,17 @@ in a browser before they say “done”.
 
 Most "design" skills are **guidance-only**: a big style / palette / font catalog
 that tells the agent what to build — then the agent hand-writes the code and
-*hopes* it is accessible. UX-STING ships **real components and a verification
-loop that proves the result in a browser**.
+*hopes* it is accessible. UX-STING ships **the same depth of catalog** (industry
+conventions, styles, palettes, fonts, stacks) **plus real components and a
+verification loop that proves the result in a browser**.
 
 | | Guidance-only skills | **UX-STING** |
 | --- | --- | --- |
 | Output | A design spec; every component hand-written per prompt | ~100 production React components you copy and own |
 | Accessibility | A checklist the model is told to follow | `npx ux-sting qa` runs **axe-core**, contrast, layout, LCP/CLS and returns ranked fixes |
 | Feedback loop | None — "looks right" | Build → **render** → **audit** → **auto-fix** until serious issues clear |
-| Design input | Generate a system from a text brief | **Extract** real tokens / Design DNA from any live URL |
+| Design input | Generate a system from a text brief | A brief → contrast-checked design system (`design_data.py system`), **or extract** real tokens / Design DNA from any live URL |
+| Taste | Default style for the category | Category convention used as a baseline, then **three art directions** that break it on purpose |
 | Images | Placeholders | **Real, openly-licensed images with automatic credits** |
 | Proof | Screenshots | **7 deployed demo sites** with SEO structured data |
 
@@ -107,6 +111,7 @@ one system can run both the marketing site and the app.
 | **Cursor** | Skills standard via `npx skills add`; `AGENTS.md` |
 | **VS Code / GitHub Copilot** | `.github/copilot-instructions.md` + `AGENTS.md` |
 | **Gemini CLI** | `GEMINI.md` |
+| **Any of 24 hosts** | `npx ux-sting skills add [--ai cursor,windsurf,…\|all] [--global]`: Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini, Antigravity, Qoder, Kiro, Roo Code, KiloCode, Cline, Continue, OpenCode, Trae, Augment, CodeBuddy, Warp, Droid, Amazon Q, Kimi, ZCode, CodeWhale, OpenClaw |
 
 > **Honest scope:** the *component library* is React / Next.js. The *design
 > system* (tokens, themes, accessibility rules), the **QA / extract / DNA
@@ -331,13 +336,16 @@ UX-STING ships cross-host **Agent Skills** and a **Universal Design Agent** —
 text and scripts in [`.claude/skills/`](.claude/skills) and [`agents/`](agents)
 that teach coding agents to build accessible, themeable, art-directed UI with this
 system, and to **verify every page in a browser** with `npx ux-sting qa` before they
-say “done”. One source installs into Claude Code, Cursor, Codex, GitHub Copilot /
-VS Code, Gemini CLI and Qoder.
+say “done”. One source installs into 24 hosts.
 
-**Universal** — detects your agent:
+**Universal** — detects your agents from the project and installs into each:
 
 ```bash
-npx skills add ssassam/UX-STING
+npx ux-sting skills add                    # detected hosts (fallback: Claude Code + Codex)
+npx ux-sting skills add --ai all           # every supported host
+npx ux-sting skills add --ai windsurf,kiro --global
+npx ux-sting skills hosts                  # list the 24 hosts
+npx skills add ssassam/UX-STING            # or the skills.sh installer
 ```
 
 **Claude Code** — the repo doubles as a native plugin / marketplace:

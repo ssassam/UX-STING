@@ -3,6 +3,7 @@ import { add, diff, init, list } from "./commands.js";
 import { eject, update } from "./eject.js";
 import { bold, dim, log } from "./log.js";
 import { runPlugin } from "./plugins.js";
+import { installSkills, listHosts } from "./skills.js";
 
 const HELP = `${bold("ux-sting")} — copy accessible React components into your project
 
@@ -20,6 +21,9 @@ ${bold("Usage")}
   npx ux-sting dna <url|tokens.json> [--json]
   npx ux-sting images <query> [--source commons,met,openverse] [--download 1,3]
   npx ux-sting tokens export [--format dtcg,css,scss,tailwind] [--out <dir>]
+  npx ux-sting skills add [--ai <host,…|all>] [--global] [--only <skill,…>] [--dry-run]
+  npx ux-sting skills remove [--ai <host,…|all>] [--global]
+  npx ux-sting skills hosts
 
 ${bold("Options")}
   --cwd <path>        Project root (default: current directory)
@@ -27,6 +31,12 @@ ${bold("Options")}
   --registry <src>    Registry file or URL (default: bundled registry)
   -y, --yes           Accept defaults
   -h, --help          Show help
+
+${bold("Skills")}  Installs the 9 UX-STING agent skills (design agent, taste + design data,
+  review, QA, 3D, diagrams…) into 24 AI coding hosts: Claude Code, Codex, Cursor,
+  Windsurf, Copilot, Gemini, Antigravity, Qoder, Kiro, Roo, KiloCode, Cline, Continue,
+  OpenCode, Trae, Augment, CodeBuddy, Warp, Droid, Amazon Q, Kimi, ZCode, CodeWhale,
+  OpenClaw. Without --ai it detects the hosts used in the project.
 
 ${bold("Eject")}  For apps using the @ux-sting/react package: copies the component's source
   into your project (its other dependencies stay on the package so React context
@@ -49,7 +59,11 @@ export function parseArgs(argv: string[]): Parsed {
       const [key, inline] = arg.slice(2).split("=");
       const next = argv[i + 1];
       if (inline !== undefined) parsed.flags[key!] = inline;
-      else if (["dir", "css", "cwd", "registry"].includes(key!) && next && !next.startsWith("-"))
+      else if (
+        ["dir", "css", "cwd", "registry", "ai", "only"].includes(key!) &&
+        next &&
+        !next.startsWith("-")
+      )
         parsed.flags[key!] = argv[++i]!;
       else parsed.flags[key!] = true;
     } else if (arg === "-y") parsed.flags.yes = true;
@@ -139,6 +153,26 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           async () => ({ run: (await import("@ux-sting/extract")).tokensCommand }),
           argv.slice(argv.indexOf("tokens") + 1),
         );
+      case "skills": {
+        const sub = args[0] ?? "add";
+        if (sub === "hosts" || sub === "list") {
+          listHosts(common.cwd);
+          return 0;
+        }
+        if (sub !== "add" && sub !== "remove") {
+          log.error(`Unknown skills command "${sub}". Use add, remove or hosts.`);
+          return 1;
+        }
+        installSkills({
+          cwd: common.cwd,
+          ai: typeof flags.ai === "string" ? flags.ai : flags.ai === true ? "all" : undefined,
+          global: Boolean(flags.global),
+          only: typeof flags.only === "string" ? flags.only : undefined,
+          dryRun: Boolean(flags["dry-run"]),
+          remove: sub === "remove",
+        });
+        return 0;
+      }
       case undefined:
       case "help":
         log.info(HELP);
