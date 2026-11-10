@@ -1,5 +1,13 @@
 # @ux-sting/core
 
+## 0.13.0
+
+### Patch Changes
+
+- @ux-sting/themes@0.13.0
+  - @ux-sting/tokens@0.13.0
+  - @ux-sting/utils@0.13.0
+
 ## 0.12.0
 
 ### Patch Changes
