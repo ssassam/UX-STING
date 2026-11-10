@@ -1,5 +1,20 @@
 # @ux-sting/react
 
+## 0.13.0
+
+### Minor Changes
+
+- c6a2205: Add SaaS dashboard layout, toolbar, metric, board, agenda, conversation and authentication compositions. Expand charts with pie/semicircle, gauge, concentric rings, segments, grouped/stacked horizontal comparisons, scatter/bubble and mixed bar/line/lollipop charts. Support explicit persistent colors and dashed comparison series in line/bar primitives. Include accessible data equivalents, interactions, demos and reference coverage documentation.
+
+### Patch Changes
+
+- @ux-sting/hooks@0.13.0
+  - @ux-sting/icons@0.13.0
+  - @ux-sting/primitives@0.13.0
+  - @ux-sting/themes@0.13.0
+  - @ux-sting/tokens@0.13.0
+  - @ux-sting/utils@0.13.0
+
 ## 0.12.0
 
 ### Patch Changes
