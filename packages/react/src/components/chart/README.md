@@ -2,13 +2,13 @@
 
 > Data display · `@ux-sting/react/chart`
 
-Dependency-free SVG charts on the --ui-chart-1…8 categorical palette: LineChart/AreaChart (crosshair tooltip over every series), BarChart (side-by-side or stacked columns), BarList (ranked horizontal bars), DonutChart, Sparkline and ChartMetrics (Search Console-style metric picker).
+Dependency-free SVG charts on the --ui-chart-1…8 categorical palette: LineChart/AreaChart (crosshair tooltip over every series), BarChart (side-by-side or stacked columns), BarList (ranked horizontal bars), DonutChart, PieChart, GaugeChart, RingChart, SegmentChart, HorizontalBarChart, ScatterChart, ComboChart, Sparkline and ChartMetrics (Search Console-style metric picker).
 
 ## When to use
 
 Use LineChart/AreaChart for change over time, BarChart for magnitude by period or category, BarList for top-N rankings, DonutChart for a few parts of a whole and Sparkline inside stat tiles. Put ChartMetrics above a chart to switch the plotted metric.
 
-**Consider alternatives:** Never plot two measures on two y axes: switch metrics with ChartMetrics or use two charts. Do not cycle colors past eight series; fold the rest into "Other" (colorSlot: "muted").
+**Consider alternatives:** Never plot two measures on two y axes: switch metrics with ChartMetrics or use two charts. For more than eight entity series, supply persistent explicit CSS colors; never cycle categorical slots.
 
 ## Installation
 
@@ -185,6 +185,127 @@ Row of metric tiles that picks what the chart below plots (the Search Console pa
 | `value` | `string` | — |  |
 
 _Also accepts 278 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### PieChart
+
+Pie, doughnut and semicircle with keyboard-accessible category values.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `RadialDatum[]` | — |  |
+| `label` * | `string` | — |  |
+| `center` | `ReactNode` | — |  |
+| `empty` | `ReactNode` | `"No data"` |  |
+| `innerRadius` | `number` | `0` |  |
+| `semicircle` | `boolean` | `false` |  |
+| `size` | `number` | `180` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### GaugeChart
+
+A bounded half-ring; unavailable values are never represented as zero.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `label` * | `string` | — |  |
+| `value` * | `number \| null` | — |  |
+| `color` | `string` | — |  |
+| `colorSlot` | `ChartSlot` | `1` |  |
+| `detail` | `ReactNode` | — |  |
+| `max` | `number` | `100` |  |
+| `min` | `number` | `0` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 276 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### RingChart
+
+Independent concentric progress rings, each with its own explicit maximum.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `(RadialDatum & { max: number })[]` | — |  |
+| `label` * | `string` | — |  |
+| `size` | `number` | `180` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### SegmentChart
+
+A compact composition/qualification bar with all values available in text.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `RadialDatum[]` | — |  |
+| `label` * | `string` | — |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### HorizontalBarChart
+
+Grouped, stacked or percentage horizontal comparisons with full text values.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `T[]` | — |  |
+| `index` * | `Extract<keyof T, string>` | — |  |
+| `label` * | `string` | — |  |
+| `series` * | `ChartSeries<T>[]` | — |  |
+| `empty` | `ReactNode` | `"No data"` |  |
+| `normalized` | `boolean` | `false` |  |
+| `rowColor` | `(row: T) => string` | — | Optional persistent entity color for single-series ranked rows. |
+| `stacked` | `boolean` | `false` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### ScatterChart
+
+Scatter or bubble distribution; arrow keys walk observations, not pixels.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `ScatterDatum[]` | — |  |
+| `label` * | `string` | — |  |
+| `xLabel` * | `string` | — |  |
+| `yLabel` * | `string` | — |  |
+| `empty` | `ReactNode` | `"No data"` |  |
+| `height` | `number` | `260` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### ComboChart
+
+Bars, lines and lollipops share one unit and one y axis. Nulls remain gaps.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `T[]` | — |  |
+| `index` * | `Extract<keyof T, string>` | — |  |
+| `label` * | `string` | — |  |
+| `series` * | `ComboSeries<T>[]` | — |  |
+| `height` | `number` | `260` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
+
+### RangeChart
+
+Candlestick/range chart: the wick encodes low/high; the body encodes open/close.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` * | `RangeDatum[]` | — |  |
+| `label` * | `string` | — |  |
+| `height` | `number` | `240` |  |
+| `valueFormatter` | `(value: number) => string` | — |  |
+
+_Also accepts 277 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 
 ---
 

@@ -6,3 +6,7 @@ export * from "./bar-list.js";
 export * from "./donut-chart.js";
 export * from "./sparkline.js";
 export * from "./chart-metrics.js";
+export * from "./radial-chart.js";
+export * from "./comparison-chart.js";
+export * from "./combo-chart.js";
+export * from "./range-chart.js";

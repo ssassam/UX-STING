@@ -6,6 +6,25 @@ import type { ComponentMeta } from "./types.ts";
  * the guidance that types cannot express: when, why, accessibility, keyboard.
  */
 export const components: ComponentMeta[] = [
+  {
+    name: "saas-dashboard",
+    title: "SaaS dashboard",
+    primary: "DashboardPanel",
+    category: "patterns",
+    description:
+      "Composable dashboard panels, compact toolbars, grids, metric summaries, controlled work boards, agendas, conversations and authentication layouts.",
+    when: "Build analytics, CRM, billing, scheduling, task and chat screens using existing data tables, forms, dialogs and calendars.",
+    avoid:
+      "These compositions do not invent business data or supply authentication/backends. Connect real APIs in the consumer.",
+    a11y: [
+      "Panels have labelled headings. Filter controls keep native Tab order.",
+      "Every board move has a native select alternative. Conversation drafts survive failed sends.",
+      "Pass translated labels, locale and error text to data-driven compositions.",
+    ],
+    responsive: "One-column phone layouts; dashboard and board grids expand at larger breakpoints.",
+    related: ["chart", "data-table", "calendar", "dialog", "field", "sidebar"],
+  },
+
   // ───────────────────────── Foundations ─────────────────────────
   {
     name: "box",
@@ -785,10 +804,10 @@ export const components: ComponentMeta[] = [
     title: "Chart",
     category: "data-display",
     description:
-      "Dependency-free SVG charts on the --ui-chart-1…8 categorical palette: LineChart/AreaChart (crosshair tooltip over every series), BarChart (side-by-side or stacked columns), BarList (ranked horizontal bars), DonutChart, Sparkline and ChartMetrics (Search Console-style metric picker).",
+      "Dependency-free SVG charts on the --ui-chart-1…8 categorical palette: LineChart/AreaChart (crosshair tooltip over every series), BarChart (side-by-side or stacked columns), BarList (ranked horizontal bars), DonutChart, PieChart, GaugeChart, RingChart, SegmentChart, HorizontalBarChart, ScatterChart, ComboChart, RangeChart, Sparkline and ChartMetrics (Search Console-style metric picker).",
     when: "Use LineChart/AreaChart for change over time, BarChart for magnitude by period or category, BarList for top-N rankings, DonutChart for a few parts of a whole and Sparkline inside stat tiles. Put ChartMetrics above a chart to switch the plotted metric.",
     avoid:
-      'Never plot two measures on two y axes: switch metrics with ChartMetrics or use two charts. Do not cycle colors past eight series; fold the rest into "Other" (colorSlot: "muted").',
+      "Never plot two measures on two y axes: switch metrics with ChartMetrics or use two charts. For more than eight entity series, supply persistent explicit CSS colors; never cycle categorical slots.",
     a11y: [
       "Every chart renders a visually hidden data table; values are also in the legend, labels or tooltip, never color alone.",
       "Line and bar charts are focusable: arrow keys, Home and End walk the points and the current values are announced in a live region.",

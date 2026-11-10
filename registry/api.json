@@ -1,4 +1,506 @@
 {
+  "saas-dashboard": {
+    "DashboardPanel": {
+      "kind": "component",
+      "description": "Flat analytics surface with a labelled heading and responsive actions.",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "DashboardToolbar": {
+      "kind": "component",
+      "description": "One filter surface; regular controls keep native Tab order and wrap on narrow screens.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "summary",
+          "type": "ReactNode",
+          "required": false
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "DashboardGrid": {
+      "kind": "component",
+      "description": "Source-order-preserving SaaS content grid, single column on phones.",
+      "props": [
+        {
+          "name": "layout",
+          "type": "\"balanced\" | \"wide-main\" | \"metrics\"",
+          "required": false,
+          "default": "\"balanced\""
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "MetricSummary": {
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "change",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "chart",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "detail",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "trend",
+          "type": "\"up\" | \"down\" | \"neutral\"",
+          "required": false,
+          "default": "\"neutral\""
+        }
+      ],
+      "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "WorkBoard": {
+      "kind": "component",
+      "description": "Controlled Kanban with a native move menu: every move works without dragging.",
+      "props": [
+        {
+          "name": "columns",
+          "type": "BoardColumn[]",
+          "required": true
+        },
+        {
+          "name": "items",
+          "type": "BoardItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onMove",
+          "type": "(itemId: string, columnId: string) => void",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No items\""
+        },
+        {
+          "name": "moveLabel",
+          "type": "(title: string) => string",
+          "required": false,
+          "default": "(title) => `Move ${title}`"
+        },
+        {
+          "name": "onOpen",
+          "type": "(item: BoardItem) => void",
+          "required": false
+        }
+      ]
+    },
+    "ScheduleView": {
+      "kind": "component",
+      "description": "Chronological agenda. Callers supply ISO datetimes; no artificial events are created.",
+      "props": [
+        {
+          "name": "items",
+          "type": "ScheduleItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No scheduled items\""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "default": "\"en\""
+        },
+        {
+          "name": "onOpen",
+          "type": "(item: ScheduleItem) => void",
+          "required": false
+        }
+      ]
+    },
+    "Conversation": {
+      "kind": "component",
+      "description": "Controlled message history and async composer; failures preserve the draft.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "ConversationMessage[]",
+          "required": true
+        },
+        {
+          "name": "onSend",
+          "type": "(message: string) => void | Promise<void>",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "errorLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Message could not be sent. Try again.\""
+        },
+        {
+          "name": "inputLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Message\""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "default": "\"en\""
+        },
+        {
+          "name": "sendLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Send\""
+        }
+      ]
+    },
+    "AuthPanel": {
+      "kind": "component",
+      "description": "Auth composition for sign-up, login, recovery or confirmation. Consumer owns authentication.",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "aside",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false
+        }
+      ]
+    },
+    "RecordEditor": {
+      "kind": "component",
+      "description": "Reusable customer, product and event form. Consumer owns validation beyond native constraints and persistence.",
+      "props": [
+        {
+          "name": "fields",
+          "type": "RecordField[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "(key: string, value: string) => void",
+          "required": true
+        },
+        {
+          "name": "onSave",
+          "type": "(values: Record<string, string>) => void | Promise<void>",
+          "required": true
+        },
+        {
+          "name": "values",
+          "type": "Record<string, string>",
+          "required": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "errorLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Could not save. Try again.\""
+        },
+        {
+          "name": "saveLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Save\""
+        }
+      ]
+    },
+    "InvoiceComposer": {
+      "kind": "component",
+      "description": "Controlled invoice rows and currency totals. Tax rate is an explicit decimal (0.2 = 20%).",
+      "props": [
+        {
+          "name": "currency",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "items",
+          "type": "InvoiceLine[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "(items: InvoiceLine[]) => void",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "Partial< Record< \"description\" | \"quantity\" | \"unitPrice\" | \"add\" | \"remove\" | \"subtotal\" | \"tax\" | \"total\", string > >",
+          "required": false,
+          "default": "{}"
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "default": "\"en\""
+        },
+        {
+          "name": "taxRate",
+          "type": "number",
+          "required": false,
+          "default": "0"
+        }
+      ]
+    },
+    "ScheduleCalendar": {
+      "kind": "component",
+      "description": "Controlled month/year/day scheduler composed from the existing accessible Calendar.",
+      "props": [
+        {
+          "name": "date",
+          "type": "Date",
+          "required": true
+        },
+        {
+          "name": "items",
+          "type": "ScheduleItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onDateChange",
+          "type": "(date: Date) => void",
+          "required": true
+        },
+        {
+          "name": "view",
+          "type": "\"month\" | \"year\" | \"day\"",
+          "required": true
+        },
+        {
+          "name": "agendaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dateLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"Date\""
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No events\""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "default": "\"en\""
+        },
+        {
+          "name": "onOpen",
+          "type": "(item: ScheduleItem) => void",
+          "required": false
+        }
+      ]
+    },
+    "TaskTimeline": {
+      "kind": "component",
+      "description": "Date-proportional task spans, with explicit dates and a keyboard-operable task action.",
+      "props": [
+        {
+          "name": "end",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "start",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "tasks",
+          "type": "TimelineTask[]",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No tasks\""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "default": "\"en\""
+        },
+        {
+          "name": "onOpen",
+          "type": "(task: TimelineTask) => void",
+          "required": false
+        }
+      ]
+    }
+  },
   "box": {
     "Box": {
       "kind": "component",
@@ -397,7 +899,7 @@
         },
         {
           "name": "orientation",
-          "type": "'horizontal' | 'vertical'",
+          "type": "Orientation",
           "required": false,
           "default": "\"vertical\""
         }
@@ -907,7 +1409,7 @@
       "props": [
         {
           "name": "type",
-          "type": "'single'",
+          "type": "typeof ToggleGroupType.Single",
           "required": true
         },
         {
@@ -939,7 +1441,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "((value: string) => void) | ((value: string[]) => void)",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false,
           "description": "The callback that fires when the value of the toggle group changes.\nThe callback that fires when the state of the toggle group changes."
         },
@@ -1458,7 +1960,7 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "(checked: CheckedState) => void",
+          "type": "{ bivarianceHack(checked: CheckedState): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -1744,7 +2246,7 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "(checked: boolean) => void",
+          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -1809,12 +2311,12 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -1951,7 +2453,7 @@
         },
         {
           "name": "position",
-          "type": "'item-aligned' | 'popper'",
+          "type": "Position",
           "required": false,
           "default": "\"popper\""
         },
@@ -1967,12 +2469,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -2391,18 +2893,24 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: number[]) => void",
+          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onValueCommit",
-          "type": "(value: number[]) => void",
+          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "orientation",
-          "type": "React.AriaAttributes['aria-orientation']",
+          "type": "Orientation",
           "required": false
+        },
+        {
+          "name": "preserveThumbOrder",
+          "type": "boolean",
+          "required": false,
+          "description": "When `true`, thumbs keep their relative order and won't cross over one\nanother while dragging. Each thumb is constrained to the values of its\nneighbors instead of swapping positions when dragged past them."
         },
         {
           "name": "showValue",
@@ -2491,18 +2999,24 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: number[]) => void",
+          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onValueCommit",
-          "type": "(value: number[]) => void",
+          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "orientation",
-          "type": "React.AriaAttributes['aria-orientation']",
+          "type": "Orientation",
           "required": false
+        },
+        {
+          "name": "preserveThumbOrder",
+          "type": "boolean",
+          "required": false,
+          "description": "When `true`, thumbs keep their relative order and won't cross over one\nanother while dragging. Each thumb is constrained to the values of its\nneighbors instead of swapping positions when dragged past them."
         },
         {
           "name": "showValue",
@@ -3640,6 +4154,12 @@
       "description": "Website navigation with dropdown panels (mega menus). Links remain\nreachable by keyboard; panels open on hover and on click/Enter.",
       "props": [
         {
+          "name": "activationMode",
+          "type": "ActivationMode",
+          "required": false,
+          "description": "Whether an item is activated automatically or manually.\n- `\"automatic\"`: hovering or focusing a trigger opens its item, and moving\n  away closes it after a short delay.\n- `\"manual\"`: clicking a trigger toggles the item; hover and focus are ignored"
+        },
+        {
           "name": "asChild",
           "type": "boolean",
           "required": false
@@ -3653,7 +4173,7 @@
           "name": "delayDuration",
           "type": "number",
           "required": false,
-          "description": "The duration from when the pointer enters the trigger until the tooltip gets opened."
+          "description": "The duration from when the pointer enters the trigger until the tooltip\ngets opened. When `activationMode` is `manual`, this prop is ignored."
         },
         {
           "name": "dir",
@@ -3662,7 +4182,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -3674,7 +4194,7 @@
           "name": "skipDelayDuration",
           "type": "number",
           "required": false,
-          "description": "How much time a user has to enter another trigger without incurring a delay again."
+          "description": "How much time a user has to enter another trigger without incurring a delay\nagain. When `activationMode` is `manual`, this prop is ignored."
         },
         {
           "name": "value",
@@ -3744,25 +4264,25 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         }
@@ -3784,7 +4304,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         }
       ],
@@ -3976,7 +4496,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4034,7 +4554,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4060,7 +4580,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4163,12 +4683,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -4200,7 +4720,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4243,12 +4763,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "(checked: boolean) => void",
+          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4279,7 +4799,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4431,12 +4951,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -4565,7 +5085,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4668,19 +5188,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -4692,7 +5212,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -4770,7 +5290,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4819,19 +5339,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -4843,7 +5363,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -4927,7 +5447,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -4976,13 +5496,13 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5100,7 +5620,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5164,19 +5684,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5188,7 +5708,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5278,7 +5798,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5344,19 +5864,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5368,7 +5888,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         }
@@ -5435,7 +5955,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5548,19 +6068,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "(event: KeyboardEvent) => void",
+          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "(event: FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5572,7 +6092,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "(event: PointerDownOutsideEvent) => void",
+          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5589,12 +6109,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -5641,7 +6161,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5713,7 +6233,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5814,12 +6334,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -5848,7 +6368,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -5961,12 +6481,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -5999,7 +6519,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6041,7 +6561,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6067,7 +6587,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6170,12 +6690,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -6207,7 +6727,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6250,12 +6770,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "(checked: boolean) => void",
+          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6286,7 +6806,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6438,12 +6958,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -6480,7 +7000,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6594,12 +7114,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -6631,7 +7151,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6676,7 +7196,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6723,7 +7243,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6749,7 +7269,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6762,6 +7282,11 @@
     "ContextMenuContent": {
       "kind": "component",
       "props": [
+        {
+          "name": "align",
+          "type": "Align",
+          "required": false
+        },
         {
           "name": "alignOffset",
           "type": "number",
@@ -6836,13 +7361,23 @@
           "required": false
         },
         {
+          "name": "side",
+          "type": "Side",
+          "required": false
+        },
+        {
+          "name": "sideOffset",
+          "type": "number",
+          "required": false
+        },
+        {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -6874,7 +7409,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6917,12 +7452,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "(checked: boolean) => void",
+          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -6953,7 +7488,7 @@
         },
         {
           "name": "onSelect",
-          "type": "(event: Event) => void",
+          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -7105,12 +7640,12 @@
         },
         {
           "name": "sticky",
-          "type": "'partial' | 'always'",
+          "type": "Sticky",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "'optimized' | 'always'",
+          "type": "UpdatePositionStrategy",
           "required": false
         }
       ],
@@ -7215,7 +7750,7 @@
         },
         {
           "name": "variant",
-          "type": "\"default\" | \"destructive\" | \"success\" | \"warning\" | \"info\" | \"neutral\"",
+          "type": "\"neutral\" | \"default\" | \"destructive\" | \"success\" | \"warning\" | \"info\"",
           "required": false
         }
       ],
@@ -9151,6 +9686,323 @@
         }
       ],
       "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "PieChart": {
+      "kind": "component",
+      "description": "Pie, doughnut and semicircle with keyboard-accessible category values.",
+      "props": [
+        {
+          "name": "data",
+          "type": "RadialDatum[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "center",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No data\""
+        },
+        {
+          "name": "innerRadius",
+          "type": "number",
+          "required": false,
+          "default": "0"
+        },
+        {
+          "name": "semicircle",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "180"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "GaugeChart": {
+      "kind": "component",
+      "description": "A bounded half-ring; unavailable values are never represented as zero.",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "number | null",
+          "required": true
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "colorSlot",
+          "type": "ChartSlot",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "detail",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "default": "100"
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "default": "0"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "276 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "RingChart": {
+      "kind": "component",
+      "description": "Independent concentric progress rings, each with its own explicit maximum.",
+      "props": [
+        {
+          "name": "data",
+          "type": "(RadialDatum & { max: number })[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "180"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "SegmentChart": {
+      "kind": "component",
+      "description": "A compact composition/qualification bar with all values available in text.",
+      "props": [
+        {
+          "name": "data",
+          "type": "RadialDatum[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "HorizontalBarChart": {
+      "kind": "component",
+      "description": "Grouped, stacked or percentage horizontal comparisons with full text values.",
+      "props": [
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "index",
+          "type": "Extract<keyof T, string>",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "series",
+          "type": "ChartSeries<T>[]",
+          "required": true
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No data\""
+        },
+        {
+          "name": "normalized",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "rowColor",
+          "type": "(row: T) => string",
+          "required": false,
+          "description": "Optional persistent entity color for single-series ranked rows."
+        },
+        {
+          "name": "stacked",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "ScatterChart": {
+      "kind": "component",
+      "description": "Scatter or bubble distribution; arrow keys walk observations, not pixels.",
+      "props": [
+        {
+          "name": "data",
+          "type": "ScatterDatum[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "xLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "yLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "default": "\"No data\""
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "default": "260"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "ComboChart": {
+      "kind": "component",
+      "description": "Bars, lines and lollipops share one unit and one y axis. Nulls remain gaps.",
+      "props": [
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "index",
+          "type": "Extract<keyof T, string>",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "series",
+          "type": "ComboSeries<T>[]",
+          "required": true
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "default": "260"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
+    "RangeChart": {
+      "kind": "component",
+      "description": "Candlestick/range chart: the wick encodes low/high; the body encodes open/close.",
+      "props": [
+        {
+          "name": "data",
+          "type": "RangeDatum[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "default": "240"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(value: number) => string",
+          "required": false
+        }
+      ],
+      "inherits": "277 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     }
   },
   "timeline": {
@@ -9266,7 +10118,7 @@
       "props": [
         {
           "name": "type",
-          "type": "'single'",
+          "type": "typeof AccordionType.Single",
           "required": true
         },
         {
@@ -9294,13 +10146,13 @@
         },
         {
           "name": "onValueChange",
-          "type": "((value: string) => void) | ((value: string[]) => void)",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false,
           "description": "The callback that fires when the state of the accordion changes."
         },
         {
           "name": "orientation",
-          "type": "React.AriaAttributes['aria-orientation']",
+          "type": "Orientation",
           "required": false,
           "description": "The layout in which the Accordion operates."
         },
@@ -9399,7 +10251,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "(open: boolean) => void",
+          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
           "required": false
         },
         {
@@ -9446,7 +10298,7 @@
       "props": [
         {
           "name": "activationMode",
-          "type": "'automatic' | 'manual'",
+          "type": "ActivationMode",
           "required": false,
           "description": "Whether a tab is activated automatically or manually."
         },
@@ -9469,7 +10321,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "(value: string) => void",
+          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
           "required": false,
           "description": "A function called when a new tab is selected"
         },

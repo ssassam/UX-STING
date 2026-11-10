@@ -21,6 +21,10 @@ export interface ChartSeries<T> {
    * it when a filter can hide series, so survivors keep their color.
    */
   colorSlot?: ChartSlot;
+  /** Explicit CSS color for persistent entity palettes larger than eight series. */
+  color?: string;
+  /** Distinguish previous periods by pattern as well as color. */
+  dashed?: boolean;
   /** Per-series value format (tooltip, table, ticks when it is the only series). */
   format?: (value: number) => string;
 }
