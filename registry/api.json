@@ -7919,6 +7919,17 @@
           "required": false
         },
         {
+          "name": "containerProps",
+          "type": "HTMLAttributes<HTMLDivElement>",
+          "required": false,
+          "description": "Extra props for the scroll container (e.g. `style`, `onScroll` for virtualization)."
+        },
+        {
+          "name": "containerRef",
+          "type": "Ref<HTMLDivElement>",
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "required": false,
@@ -7976,6 +7987,12 @@
       "kind": "component",
       "props": [
         {
+          "name": "adornment",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Rendered after the label, outside the sort button (e.g. a column resizer)."
+        },
+        {
           "name": "align",
           "type": "\"start\" | \"center\" | \"end\"",
           "required": false,
@@ -7983,8 +8000,9 @@
         },
         {
           "name": "onSort",
-          "type": "() => void",
-          "required": false
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false,
+          "description": "Receives the click event (e.g. Shift+click for multi-sort)."
         },
         {
           "name": "sortDirection",
@@ -8016,7 +8034,7 @@
   "data-table": {
     "DataTable": {
       "kind": "component",
-      "description": "Feature-complete data table: search, sort, filter, pagination, row\nselection with bulk actions, column visibility, loading and empty states,\nresponsive stacking. Works client-side or in `manual` (server) mode.",
+      "description": "Feature-complete data table: search, single or multi-column sort, filter,\npagination or row virtualization, row selection (Shift+click for ranges)\nwith bulk actions, expandable rows, resizable and hideable columns, loading\nand empty states, responsive stacking. Works client-side or in `manual`\n(server) mode. With `grid`, it is one Tab stop with arrow-key cell navigation.",
       "props": [
         {
           "name": "columns",
@@ -8058,14 +8076,30 @@
           "description": "Show the column visibility menu."
         },
         {
+          "name": "defaultExpandedIds",
+          "type": "string[]",
+          "required": false,
+          "default": "[]"
+        },
+        {
           "name": "defaultSort",
           "type": "SortState | null",
           "required": false,
           "default": "null"
         },
         {
+          "name": "defaultSortBy",
+          "type": "SortState[]",
+          "required": false
+        },
+        {
           "name": "empty",
           "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "expandedIds",
+          "type": "string[]",
           "required": false
         },
         {
@@ -8092,6 +8126,22 @@
           "description": "Server-side mode: data is already filtered/sorted/paged."
         },
         {
+          "name": "multiSort",
+          "type": "boolean",
+          "required": false,
+          "description": "Shift+click a header to add secondary sorts."
+        },
+        {
+          "name": "onColumnWidthsChange",
+          "type": "(widths: Record<string, number>) => void",
+          "required": false
+        },
+        {
+          "name": "onExpandedIdsChange",
+          "type": "(ids: string[]) => void",
+          "required": false
+        },
+        {
           "name": "onPageChange",
           "type": "(page: number) => void",
           "required": false
@@ -8104,6 +8154,11 @@
         {
           "name": "onSelectedIdsChange",
           "type": "(ids: string[]) => void",
+          "required": false
+        },
+        {
+          "name": "onSortByChange",
+          "type": "(sortBy: SortState[]) => void",
           "required": false
         },
         {
@@ -8128,6 +8183,18 @@
           "type": "number[]",
           "required": false,
           "default": "[10, 25, 50]"
+        },
+        {
+          "name": "renderRowDetail",
+          "type": "(row: T) => ReactNode",
+          "required": false,
+          "description": "Expandable detail panel under each row."
+        },
+        {
+          "name": "resizableColumns",
+          "type": "boolean",
+          "required": false,
+          "description": "Drag or arrow-key resizable column widths."
         },
         {
           "name": "responsive",
@@ -8163,6 +8230,12 @@
           "required": false
         },
         {
+          "name": "sortBy",
+          "type": "SortState[]",
+          "required": false,
+          "description": "Controlled multi-column sort (first entry is the primary sort)."
+        },
+        {
           "name": "stickyHeader",
           "type": "boolean",
           "required": false
@@ -8183,6 +8256,12 @@
           "type": "number",
           "required": false,
           "description": "Total rows for server-side pagination."
+        },
+        {
+          "name": "virtual",
+          "type": "{ rowHeight: number; height: number | string; overscan?: number }",
+          "required": false,
+          "description": "Render only the rows in view. Rows must have a fixed height. Disables\npagination; ignored with `renderRowDetail` and `responsive=\"stack\"`."
         }
       ]
     },
@@ -8230,13 +8309,28 @@
           "description": "Show the column visibility menu."
         },
         {
+          "name": "defaultExpandedIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
           "name": "defaultSort",
           "type": "SortState | null",
           "required": false
         },
         {
+          "name": "defaultSortBy",
+          "type": "SortState[]",
+          "required": false
+        },
+        {
           "name": "empty",
           "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "expandedIds",
+          "type": "string[]",
           "required": false
         },
         {
@@ -8257,6 +8351,22 @@
           "description": "Server-side mode: data is already filtered/sorted/paged."
         },
         {
+          "name": "multiSort",
+          "type": "boolean",
+          "required": false,
+          "description": "Shift+click a header to add secondary sorts."
+        },
+        {
+          "name": "onColumnWidthsChange",
+          "type": "(widths: Record<string, number>) => void",
+          "required": false
+        },
+        {
+          "name": "onExpandedIdsChange",
+          "type": "(ids: string[]) => void",
+          "required": false
+        },
+        {
           "name": "onPageChange",
           "type": "(page: number) => void",
           "required": false
@@ -8269,6 +8379,11 @@
         {
           "name": "onSelectedIdsChange",
           "type": "(ids: string[]) => void",
+          "required": false
+        },
+        {
+          "name": "onSortByChange",
+          "type": "(sortBy: SortState[]) => void",
           "required": false
         },
         {
@@ -8291,6 +8406,18 @@
           "name": "pageSizeOptions",
           "type": "number[]",
           "required": false
+        },
+        {
+          "name": "renderRowDetail",
+          "type": "(row: T) => ReactNode",
+          "required": false,
+          "description": "Expandable detail panel under each row."
+        },
+        {
+          "name": "resizableColumns",
+          "type": "boolean",
+          "required": false,
+          "description": "Drag or arrow-key resizable column widths."
         },
         {
           "name": "responsive",
@@ -8325,6 +8452,12 @@
           "required": false
         },
         {
+          "name": "sortBy",
+          "type": "SortState[]",
+          "required": false,
+          "description": "Controlled multi-column sort (first entry is the primary sort)."
+        },
+        {
           "name": "stickyHeader",
           "type": "boolean",
           "required": false
@@ -8345,6 +8478,12 @@
           "type": "number",
           "required": false,
           "description": "Total rows for server-side pagination."
+        },
+        {
+          "name": "virtual",
+          "type": "{ rowHeight: number; height: number | string; overscan?: number }",
+          "required": false,
+          "description": "Render only the rows in view. Rows must have a fixed height. Disables\npagination; ignored with `renderRowDetail` and `responsive=\"stack\"`."
         }
       ]
     }
@@ -10076,10 +10215,55 @@
       ],
       "inherits": "288 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     },
+    "FooterCredit": {
+      "kind": "component",
+      "description": "Creator / vendor attribution credit (Veltein by default).\nRenders automatically inside `FooterBottom`, or can be placed standalone.",
+      "props": [
+        {
+          "name": "asBadge",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "creatorName",
+          "type": "string",
+          "required": false,
+          "default": "\"Veltein\""
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "default": "\"https://veltein.com\""
+        }
+      ],
+      "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
+    },
     "FooterBottom": {
       "kind": "component",
-      "description": "Bottom bar: copyright on the start side, legal links / switches on the end side.",
-      "props": [],
+      "description": "Bottom bar: copyright on the start side, legal links / switches on the end side, plus creator credit.",
+      "props": [
+        {
+          "name": "creatorName",
+          "type": "string",
+          "required": false,
+          "default": "\"Veltein\""
+        },
+        {
+          "name": "creditHref",
+          "type": "string",
+          "required": false,
+          "default": "\"https://veltein.com\""
+        },
+        {
+          "name": "showCredit",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Automatically injects creator / vendor credit (default: true). Set to false to omit."
+        }
+      ],
       "inherits": "280 standard HTML/React attributes (className, style, aria-*, event handlers…)"
     },
     "FooterCopyright": {

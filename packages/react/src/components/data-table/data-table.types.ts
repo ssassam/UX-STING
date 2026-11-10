@@ -18,6 +18,12 @@ export interface DataTableColumn<T> {
   className?: string;
   /** Label for stacked (mobile) layout; defaults to `header` when it is a string. */
   mobileLabel?: string;
+  /** Initial width in px (used when `resizableColumns` is on). Defaults to 160. */
+  width?: number;
+  minWidth?: number;
+  maxWidth?: number;
+  /** Set to false to lock this column's width when `resizableColumns` is on. */
+  resizable?: boolean;
 }
 
 export interface SortState {
@@ -46,6 +52,12 @@ export interface DataTableProps<T> {
   sort?: SortState | null;
   defaultSort?: SortState | null;
   onSortChange?: (sort: SortState | null) => void;
+  /** Shift+click a header to add secondary sorts. */
+  multiSort?: boolean;
+  /** Controlled multi-column sort (first entry is the primary sort). */
+  sortBy?: SortState[];
+  defaultSortBy?: SortState[];
+  onSortByChange?: (sortBy: SortState[]) => void;
   /** Rows per page; `false` disables pagination. */
   pageSize?: number | false;
   pageSizeOptions?: number[];
@@ -68,4 +80,17 @@ export interface DataTableProps<T> {
   className?: string;
   /** Enables grid keyboard navigation (arrow keys between cells). */
   grid?: boolean;
+  /** Drag or arrow-key resizable column widths. */
+  resizableColumns?: boolean;
+  onColumnWidthsChange?: (widths: Record<string, number>) => void;
+  /**
+   * Render only the rows in view. Rows must have a fixed height. Disables
+   * pagination; ignored with `renderRowDetail` and `responsive="stack"`.
+   */
+  virtual?: { rowHeight: number; height: number | string; overscan?: number };
+  /** Expandable detail panel under each row. */
+  renderRowDetail?: (row: T) => ReactNode;
+  expandedIds?: string[];
+  defaultExpandedIds?: string[];
+  onExpandedIdsChange?: (ids: string[]) => void;
 }
