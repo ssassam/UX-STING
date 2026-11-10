@@ -44,7 +44,7 @@ export function writeConfig(cwd: string, config: Config): void {
   writeFileSync(join(cwd, CONFIG_FILE), JSON.stringify(config, null, 2) + "\n");
 }
 
-export type Lock = Record<string, { item: string; hash: string }>;
+export type Lock = Record<string, { item: string; hash: string; ejected?: boolean }>;
 
 export function readLock(cwd: string): Lock {
   const file = join(cwd, LOCK_FILE);
