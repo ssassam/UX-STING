@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Badge } from "../badge/badge.js";
 import { Button } from "../button/button.js";
-import { DataTable } from "./data-table.js";
+import { DataGrid, DataTable } from "./data-table.js";
 import type { DataTableColumn } from "./data-table.types.js";
 
 interface Row {
@@ -90,4 +90,54 @@ export const MobileStacked: Story = {
     />
   ),
   parameters: { viewport: { defaultViewport: "mobile" } },
+};
+
+/** Shift+click headers for multi-sort, Shift+click checkboxes for ranges, drag column edges. */
+export const PowerGrid: Story = {
+  ...FullFeatured,
+  render: () => (
+    <DataGrid
+      label="Places"
+      data={rows}
+      columns={columns}
+      getRowId={(r) => r.id}
+      selectable
+      multiSort
+      resizableColumns
+      defaultSortBy={[
+        { id: "city", direction: "asc" },
+        { id: "rating", direction: "desc" },
+      ]}
+      renderRowDetail={(r) => (
+        <p className="text-sm text-muted-foreground">
+          {r.name} in {r.city}, rated {r.rating.toFixed(1)}.
+        </p>
+      )}
+      pageSize={10}
+    />
+  ),
+};
+
+const manyRows: Row[] = Array.from({ length: 10_000 }, (_, i) => ({
+  id: String(i + 1),
+  name: `Place ${i + 1}`,
+  city: ["Casablanca", "Rabat", "Paris", "Fes"][i % 4]!,
+  rating: 3 + (i % 20) / 10,
+  status: i % 3 ? "published" : "draft",
+}));
+
+/** 10,000 rows, only the visible window is in the DOM. */
+export const Virtualized: Story = {
+  ...FullFeatured,
+  render: () => (
+    <DataGrid
+      label="Places"
+      data={manyRows}
+      columns={columns}
+      getRowId={(r) => r.id}
+      searchable
+      selectable
+      virtual={{ rowHeight: 44, height: 480 }}
+    />
+  ),
 };
