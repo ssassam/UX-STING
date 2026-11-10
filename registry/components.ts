@@ -754,7 +754,7 @@ export const components: ComponentMeta[] = [
     title: "DataTable",
     category: "data-display",
     description:
-      "Sorting, search, filtering, pagination, row selection, bulk actions, column visibility, loading and empty states. DataGrid adds cell navigation.",
+      "Sorting (Shift+click multi-sort), search, filtering, pagination or 10k+ row virtualization, row selection with Shift+click ranges and bulk actions, expandable rows, resizable and hideable columns, loading and empty states. DataGrid adds a single Tab stop with arrow/Home/End/PageUp/PageDown cell navigation.",
     when: "Use for admin lists and dashboards; `manual` mode for server-side data.",
     avoid: "For very large datasets (10k+ rows) add virtualization or server paging.",
     a11y: [

@@ -3,6 +3,9 @@ import { cn } from "@ux-sting/utils";
 import {
   forwardRef,
   type HTMLAttributes,
+  type MouseEvent,
+  type ReactNode,
+  type Ref,
   type TdHTMLAttributes,
   type ThHTMLAttributes,
 } from "react";
@@ -20,15 +23,30 @@ export interface TableProps extends HTMLAttributes<HTMLTableElement> {
    */
   responsive?: "scroll" | "stack";
   containerClassName?: string;
+  /** Extra props for the scroll container (e.g. `style`, `onScroll` for virtualization). */
+  containerProps?: HTMLAttributes<HTMLDivElement>;
+  containerRef?: Ref<HTMLDivElement>;
 }
 
 /** Semantic data table. Density-aware paddings; server component. */
 export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
-  { label, striped, stickyHeader, responsive = "scroll", className, containerClassName, ...props },
+  {
+    label,
+    striped,
+    stickyHeader,
+    responsive = "scroll",
+    className,
+    containerClassName,
+    containerProps,
+    containerRef,
+    ...props
+  },
   ref,
 ) {
   return (
     <div
+      {...containerProps}
+      ref={containerRef}
       role={label ? "region" : undefined}
       aria-label={label}
       // A labelled scroll container must be keyboard-focusable so it can be scrolled (WCAG 2.1.1).
@@ -39,6 +57,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
         "relative w-full overflow-auto rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring",
         stickyHeader && "max-h-[inherit]",
         containerClassName,
+        containerProps?.className,
       )}
     >
       <table
@@ -111,12 +130,24 @@ export type SortDirection = "asc" | "desc" | false;
 export interface TableHeadProps extends Omit<ThHTMLAttributes<HTMLTableCellElement>, "align"> {
   /** Current sort; renders `aria-sort` and a sort button when `onSort` is set. */
   sortDirection?: SortDirection;
-  onSort?: () => void;
+  /** Receives the click event (e.g. Shift+click for multi-sort). */
+  onSort?: (event: MouseEvent<HTMLButtonElement>) => void;
   align?: "start" | "center" | "end";
+  /** Rendered after the label, outside the sort button (e.g. a column resizer). */
+  adornment?: ReactNode;
 }
 
 export const TableHead = forwardRef<HTMLTableCellElement, TableHeadProps>(function TableHead(
-  { sortDirection, onSort, align = "start", className, children, scope = "col", ...props },
+  {
+    sortDirection,
+    onSort,
+    align = "start",
+    adornment,
+    className,
+    children,
+    scope = "col",
+    ...props
+  },
   ref,
 ) {
   const alignClass =
@@ -137,6 +168,7 @@ export const TableHead = forwardRef<HTMLTableCellElement, TableHeadProps>(functi
       className={cn(
         "h-10 whitespace-nowrap px-(--ui-cell-px) align-middle text-xs font-semibold uppercase tracking-wide text-muted-foreground",
         alignClass,
+        adornment ? "relative" : undefined,
         className,
       )}
       {...props}
@@ -162,6 +194,7 @@ export const TableHead = forwardRef<HTMLTableCellElement, TableHeadProps>(functi
       ) : (
         children
       )}
+      {adornment}
     </th>
   );
 });

@@ -39,6 +39,8 @@ Semantic data table. Density-aware paddings; server component.
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `containerClassName` | `string` | — |  |
+| `containerProps` | `HTMLAttributes<HTMLDivElement>` | — | Extra props for the scroll container (e.g. `style`, `onScroll` for virtualization). |
+| `containerRef` | `Ref<HTMLDivElement>` | — |  |
 | `label` | `string` | — | Accessible name for the scroll region (required when it can scroll). |
 | `responsive` | `"scroll" \| "stack"` | `"scroll"` | `stack`: below `md`, rows become cards with inline labels (uses each cell's `data-label`). `scroll` (default): horizontal scrolling. |
 | `stickyHeader` | `boolean` | — | Stick the header while scrolling the container. |
@@ -76,8 +78,9 @@ _Also accepts 280 standard HTML/React attributes (className, style, aria-*, even
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
+| `adornment` | `ReactNode` | — | Rendered after the label, outside the sort button (e.g. a column resizer). |
 | `align` | `"start" \| "center" \| "end"` | `"start"` |  |
-| `onSort` | `() => void` | — |  |
+| `onSort` | `(event: MouseEvent<HTMLButtonElement>) => void` | — | Receives the click event (e.g. Shift+click for multi-sort). |
 | `sortDirection` | `SortDirection` | — | Current sort; renders `aria-sort` and a sort button when `onSort` is set. |
 
 _Also accepts 285 standard HTML/React attributes (className, style, aria-*, event handlers…)._

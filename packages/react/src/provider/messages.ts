@@ -23,6 +23,8 @@ export interface Messages {
   selected: (count: number) => string;
   sortAscending: string;
   sortDescending: string;
+  sortPriority: (priority: number) => string;
+  resizeColumn: (column: string) => string;
   columns: string;
   showPassword: string;
   hidePassword: string;
@@ -106,6 +108,8 @@ export const en: Messages = {
   selected: (n) => `${n} selected`,
   sortAscending: "Sort ascending",
   sortDescending: "Sort descending",
+  sortPriority: (n) => `sort priority ${n}`,
+  resizeColumn: (c) => `Resize ${c} column`,
   columns: "Columns",
   showPassword: "Show password",
   hidePassword: "Hide password",
@@ -188,6 +192,8 @@ export const fr: Messages = {
   selected: (n) => `${n} sélectionné${n > 1 ? "s" : ""}`,
   sortAscending: "Tri croissant",
   sortDescending: "Tri décroissant",
+  sortPriority: (n) => `priorité de tri ${n}`,
+  resizeColumn: (c) => `Redimensionner la colonne ${c}`,
   columns: "Colonnes",
   showPassword: "Afficher le mot de passe",
   hidePassword: "Masquer le mot de passe",
@@ -270,6 +276,8 @@ export const ar: Messages = {
   selected: (n) => `تم تحديد ${n}`,
   sortAscending: "ترتيب تصاعدي",
   sortDescending: "ترتيب تنازلي",
+  sortPriority: (n) => `أولوية الترتيب ${n}`,
+  resizeColumn: (c) => `تغيير حجم العمود ${c}`,
   columns: "الأعمدة",
   showPassword: "إظهار كلمة المرور",
   hidePassword: "إخفاء كلمة المرور",
