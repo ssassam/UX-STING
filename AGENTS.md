@@ -32,7 +32,7 @@ Source of truth lives in `.claude/skills/`.
 
 - `@ux-sting/react` + React 18/19 and Tailwind CSS 4 for the UI skills.
 - The `ux-sting` CLI for QA / token extraction / images: `npm i -D ux-sting @ux-sting/qa @ux-sting/extract @ux-sting/images` then `npx playwright-core install chromium`.
-- Python 3 for the `logo-design` scripts (dependency-free stdlib only).
+- Python 3 for the `logo-design` scripts and `ux-sting-taste/scripts/design_data.py` (dependency-free stdlib only).
 
 ## Credit
 

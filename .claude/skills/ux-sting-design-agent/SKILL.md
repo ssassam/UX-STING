@@ -24,6 +24,8 @@ npx ux-sting tokens export --out ux-sting-tokens
 ```
 Feed `tokens.json` to Style Dictionary or the stack's native token tooling; drop `tokens.css` / `tailwind.css` straight into web builds. Only the **component library** is React-only — the design system (tokens, theming, accessibility rules, QA pipeline) is stack-agnostic, so §2–§4 still apply.
 
+For that stack's own idioms (state, forms, routing, a11y APIs), read its guidelines: `python3 ../ux-sting-taste/scripts/design_data.py stack <vue|nuxtjs|nuxt-ui|svelte|astro|angular|laravel|html-tailwind|shadcn|nextjs|react|react-native|flutter|swiftui|jetpack-compose|threejs|wpf|winui|uwp|uno|avalonia|javafx> "<topic>"` (CSV files in `references/stacks/`).
+
 ## 2. Route the task
 
 | The user wants… | Go to |
