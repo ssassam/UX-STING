@@ -11,27 +11,25 @@ export interface CreatorMetaProps extends HTMLAttributes<HTMLDivElement> {
  * Standard creator & vendor meta tags for UX-STING pages.
  * Injects author, creator, generator, and author link into page head.
  */
-export const CreatorMeta = forwardRef<HTMLDivElement, CreatorMetaProps>(
-  function CreatorMeta(
-    {
-      author = "Veltein",
-      creator = "Veltein (https://veltein.com)",
-      generator = "UX-STING by Veltein",
-      authorUrl = "https://veltein.com",
-    },
-    _ref,
-  ) {
-    return (
-      <>
-        <meta name="author" content={author} />
-        <meta name="creator" content={creator} />
-        <meta name="generator" content={generator} />
-        <meta name="publisher" content={author} />
-        {authorUrl ? <link rel="author" href={authorUrl} /> : null}
-      </>
-    );
+export const CreatorMeta = forwardRef<HTMLDivElement, CreatorMetaProps>(function CreatorMeta(
+  {
+    author = "Veltein",
+    creator = "Veltein (https://veltein.com)",
+    generator = "UX-STING by Veltein",
+    authorUrl = "https://veltein.com",
   },
-);
+  _ref,
+) {
+  return (
+    <>
+      <meta name="author" content={author} />
+      <meta name="creator" content={creator} />
+      <meta name="generator" content={generator} />
+      <meta name="publisher" content={author} />
+      {authorUrl ? <link rel="author" href={authorUrl} /> : null}
+    </>
+  );
+});
 
 /**
  * Returns raw HTML string of creator meta tags for templates (Astro, Svelte, Vue, vanilla HTML).

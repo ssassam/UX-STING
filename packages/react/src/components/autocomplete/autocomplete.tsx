@@ -129,6 +129,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(func
       </PopoverPrimitive.Anchor>
       <PopoverPrimitive.Portal container={container}>
         <PopoverPrimitive.Content
+          aria-labelledby={props["aria-labelledby"]}
+          aria-label={
+            props["aria-labelledby"] ? undefined : (props["aria-label"] ?? messages.options)
+          }
           align="start"
           sideOffset={6}
           onOpenAutoFocus={(e) => e.preventDefault()}

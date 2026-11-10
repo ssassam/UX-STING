@@ -140,6 +140,10 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(function
       {name ? value.map((v) => <input key={v} type="hidden" name={name} value={v} />) : null}
       <PopoverPrimitive.Portal container={container}>
         <PopoverPrimitive.Content
+          aria-labelledby={aria["aria-labelledby"]}
+          aria-label={
+            aria["aria-labelledby"] ? undefined : (aria["aria-label"] ?? messages.options)
+          }
           align="start"
           sideOffset={6}
           collisionPadding={8}
@@ -168,6 +172,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(function
                             value.length >= (maxSelected ?? 0))
                         }
                         selected={isSelected}
+                        aria-selected={isSelected}
                         onSelect={() => toggle(option.value)}
                       >
                         <span
