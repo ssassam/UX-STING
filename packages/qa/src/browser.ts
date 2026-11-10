@@ -16,6 +16,7 @@ export async function launchBrowser(executablePath = process.env.CHROMIUM_PATH):
     if (/Executable doesn't exist|executable/i.test(message))
       throw new Error(
         "No Chromium found. Run `npx playwright install chromium` or set CHROMIUM_PATH.",
+        { cause: error },
       );
     throw error;
   }
