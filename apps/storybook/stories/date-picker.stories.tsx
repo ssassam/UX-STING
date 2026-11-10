@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Basic, Range, WithTime } from "../../docs/demos/date-picker.js";
 
-const meta = { title: "Date time/DatePicker" } satisfies Meta;
+const meta = { title: "Date time/DatePicker", tags: ["fixed-clock"] } satisfies Meta;
 export default meta;
 
 export const BasicStory: StoryObj = { name: "Basic", render: () => <Basic /> };

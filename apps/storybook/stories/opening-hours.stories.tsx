@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Weekly } from "../../docs/demos/opening-hours.js";
 
-const meta = { title: "Patterns/OpeningHours" } satisfies Meta;
+const meta = { title: "Patterns/OpeningHours", tags: ["fixed-clock"] } satisfies Meta;
 export default meta;
 
 export const WeeklyStory: StoryObj = { name: "Weekly", render: () => <Weekly /> };
