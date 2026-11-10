@@ -40,6 +40,10 @@ describe("skills", () => {
     expect(
       existsSync(join(cwd, ".agents/skills/ux-sting-design-agent/references/stacks/vue.csv")),
     ).toBe(true);
+    expect(existsSync(join(cwd, ".cursor/skills/ux-sting-slides/scripts/slide_data.py"))).toBe(true);
+    expect(
+      existsSync(join(cwd, ".cursor/skills/logo-design/references/data/logo-industries.csv")),
+    ).toBe(true);
     const rules = readFileSync(join(cwd, ".amazonq/rules/ux-sting.md"), "utf8");
     expect(rules).toContain("../skills/ux-sting-design-agent/SKILL.md");
   });

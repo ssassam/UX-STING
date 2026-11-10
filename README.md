@@ -11,7 +11,7 @@ in a browser before they say “done”.
 
 [![ux-sting](https://img.shields.io/npm/v/ux-sting?label=ux-sting&color=orange&style=flat-square)](https://www.npmjs.com/package/ux-sting)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
-[![skills](https://img.shields.io/badge/skills-8%20%2B%201%20agent-7c3aed?style=flat-square)](#agent-skills)
+[![skills](https://img.shields.io/badge/skills-9%20%2B%201%20agent-7c3aed?style=flat-square)](#agent-skills)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-2563eb?style=flat-square)
 ![Codex](https://img.shields.io/badge/Codex-skills-d946ef?style=flat-square)
 ![Cursor](https://img.shields.io/badge/Cursor-skills-d946ef?style=flat-square)
@@ -34,7 +34,7 @@ in a browser before they say “done”.
 | **Next.js-first** | App Router, RSC-friendly (server components by default), per-component entry points. |
 | **Own your code** | `npx ux-sting add dialog` copies source into your project, with a lockfile that protects your edits; on the npm package, `npx ux-sting eject combobox` takes over one component and `ux-sting update` merges upstream fixes later. |
 | **Agent Skills** | Cross-host skills + a Universal Design Agent for **24 AI coding hosts** via `npx ux-sting skills add` ([details ↓](#agent-skills)). |
-| **Design intelligence** | Offline: 192 industry conventions with anti-patterns, 80 styles, 192 palettes, 74 font pairings, 34 landing patterns, chart / UX / motion rules and 22 stack guideline sets, searched by `design_data.py` and persisted as a `MASTER.md` design system. |
+| **Design intelligence** | Offline: 192 industry conventions with anti-patterns, 80 styles, 192 palettes, 74 font pairings, 34 landing patterns, chart / UX / motion rules, 22 stack guideline sets, 15 deck strategies and 55 logo industries, searched by `design_data.py` and persisted as a `MASTER.md` design system. |
 | **Tailwind v4 native, optional** | Use `tailwind.css` or the precompiled `styles.css`. |
 
 > **Works with your AI agent** — one line installs the skills into whatever editor you use:
@@ -42,7 +42,7 @@ in a browser before they say “done”.
 
 <div align="center">
 
-**9 agent skills** · **~100 component families** · **17 theme presets** ·
+**10 agent skills** · **~100 component families** · **17 theme presets** ·
 **WCAG 2.2 AA** · **axe-verified in a browser** · **24 AI hosts** ·
 **192 industry rules** · **80 styles** · **192 palettes** · **74 font pairings** · **22 stacks** ·
 **3 languages + RTL** · **7 live demos**
@@ -365,7 +365,8 @@ npx skills add ssassam/UX-STING            # or the skills.sh installer
 | **ux-sting-universal** | Reference → Design DNA → page → browser QA pipeline |
 | **ux-sting-3d** | three.js / WebGL shaders and scroll-driven 3D moments |
 | **ux-sting-diagrams** | Editorial diagrams (~40 types) styled with the active theme |
-| **logo-design** | Logos, wordmarks, monograms and brand marks as clean SVG |
+| **ux-sting-slides** | Pitch, sales, QBR and talk decks: 15 deck strategies, per-slide beats, layouts, copy formulas, charts → a web deck with PDF export |
+| **logo-design** | Logos, wordmarks, monograms and brand marks as clean SVG, with category data (55 industries, styles, palettes) and identity kits (50 deliverables, 20 mockup scenes) |
 
 > Regenerate the mirrors and plugin bundles after editing skills:
 > `node scripts/build-agent-skills.mjs`.

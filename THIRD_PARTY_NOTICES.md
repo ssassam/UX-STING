@@ -48,7 +48,7 @@ pre-delivery checklist in `docs/ux-quality.md` and
 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 (`.claude/skills/ui-ux-pro-max/SKILL.md` and its `references/`).
 
-The design data in `.claude/skills/ux-sting-taste/references/data/*.csv` (industry conventions, styles, palettes, font pairings, landing patterns, charts, UX, app-interface, motion, icon-role and React-performance rules) and `.claude/skills/ux-sting-design-agent/references/stacks/*.csv` are redistributed from the same project's `src/ui-ux-pro-max/data/` (commit `6ae86f6`, 2026-11-10) with columns trimmed, the products / ui-reasoning / colors tables merged into one, deprecated styles and Phosphor import code removed. `scripts/design_data.py` is original code.
+The design data in `.claude/skills/ux-sting-taste/references/data/*.csv` (industry conventions, styles, palettes, font pairings, landing patterns, charts, UX, app-interface, motion, icon-role and React-performance rules) and `.claude/skills/ux-sting-design-agent/references/stacks/*.csv` are redistributed from the same project's `src/ui-ux-pro-max/data/` (commit `6ae86f6`, 2026-11-10) with columns trimmed, the products / ui-reasoning / colors tables merged into one, deprecated styles and Phosphor import code removed. `scripts/design_data.py` is original code. Likewise `.claude/skills/ux-sting-slides/references/data/slide-*.csv` (from `.claude/skills/design-system/data/`) and `.claude/skills/logo-design/references/data/*.csv` (from `.claude/skills/design/data/logo|cip|icon/`), same commit, column names normalised; `slide_data.py` and `brand_data.py` are original code.
 
 ```
 MIT License

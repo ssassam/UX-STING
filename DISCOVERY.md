@@ -101,7 +101,7 @@ It ships contrast failures, generic purple-gradient heroes, uncredited stock, an
 
 So I packaged UX-STING's design rules as Agent Skills. Now any agent designs like a senior product designer.
 
-2/ It's 9 skills — 8 that teach UI/brand work, plus a "Universal Design Agent" that reads the brief, routes to the right one, and won't stop until it has rendered and audited the page.
+2/ It's 10 skills — 9 that teach UI/brand work, plus a "Universal Design Agent" that reads the brief, routes to the right one, and won't stop until it has rendered and audited the page.
 
 Install (detects your tool):
 npx skills add ssassam/UX-STING
@@ -139,7 +139,7 @@ Made by veltein.com
 Title: Show HN: UX-STING Agent Skills – make AI coding agents build accessible, designed UI
 
 Body:
-> We ship the same 9 skills + a "Universal Design Agent" to Claude Code, Cursor, Codex, Copilot/VS Code, Gemini and Qoder from one Markdown source (a folder of SKILL.md files).
+> We ship the same 10 skills + a "Universal Design Agent" to Claude Code, Cursor, Codex, Copilot/VS Code, Gemini and Qoder from one Markdown source (a folder of SKILL.md files).
 >
 > The agent reads the brief, uses real design-system tokens (never raw hex), enforces WCAG 2.2 AA, picks openly-licensed images with credit, and always renders + audits the page with `npx ux-sting qa <url> --viewports 375,768,1440` before it reports done — so the accessibility numbers are measured, not assumed.
 >

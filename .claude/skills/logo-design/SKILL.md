@@ -72,6 +72,7 @@ On Windows, `python3` is often the Microsoft Store stub; use `python` (or `py -3
 | `preview_sheet.py` | HTML test sheet: size ladder, 16/32 px pixel test, backgrounds, one-colour, squint blur, mirror/rotate, favicon/app-icon/header/card contexts, side-by-side, shelf test vs. competitors |
 | `presentation_board.py` | Client presentation (brief, each concept with rationale + 6 **industry-specific** mockups — cup, packaging, payment card, README, terminal, signage…; comparison, recommendation) from a JSON spec (`templates/presentation-spec.example.json`); `--png-dir` exports every slide as PNG; `--list-mockups` |
 | `render_png.py` | Render SVG → transparent PNG at exact sizes (for looking at your work and for deliverables); screenshots HTML sheets/boards (Chrome); builds `favicon.ico`; `--which` lists renderers |
+| `brand_data.py` | Category data (55 logo industries, 55 logo styles, 55 palettes, 20 identity industries + styles, 50 deliverables, 20 mockup scenes, 15 icon styles): `brief "<client>"` = the category's clichés, usual styles/colours/type and what to avoid; `kit "<client>" [--as <industry>]` = identity deliverables + mockup scenes; `search` |
 | `export_variants.py` | Black, white, brand-mono, square, favicon and app-icon SVGs; `--png` sizes; `--web-icons` = favicon.ico + PNG icon set + webmanifest + `<head>` snippet; `--favicon-source` for a simplified small-size drawing |
 
 **Look at your work.** Drawing in SVG code is drawing blind. After writing or changing a logo, render it and look:
@@ -91,7 +92,8 @@ assumptions. Adjectives are the most valuable input — they become visual cues.
 
 ### Phase 2 — Research & strategy
 1. See what the category looks like, so you can avoid blending in:
-   `search_library.py --industry <closest> --summary` (and look at a few files). The library skews to tech; for
+   `brand_data.py brief "<what the client is>"` (its common symbols, styles, colours and type are the category's
+   defaults) and `search_library.py --industry <closest> --summary` (and look at a few files). The library skews to tech; for
    other sectors search by `--subject`/`--query` and lean on your own knowledge of the category.
 2. List the category's **clichés** explicitly (e.g. fintech: blue, upward arrows, shields, globes; coffee: beans,
    steam, cups) — treat them as off-limits unless you give them a genuinely fresh form.
@@ -169,7 +171,10 @@ If they want changes instead, iterate on the concepts (back to Phase 4–5) and 
    python3 scripts/export_variants.py final-symbol.svg --title "Brand logo" --mono "#HEX" --icon-bg "#HEX" --web-icons --favicon-source final-symbol-small.svg
    python3 scripts/export_variants.py final-horizontal.svg --title "Brand logo" --only black white mono --mono "#HEX" --png 1200
    ```
-6. **Guidelines & handover**: compact guidelines (`templates/brand-guidelines-template.md`: clear space from a logo
+6. **Identity kit** (when asked for more than the logo): `brand_data.py kit "<client>"` lists the deliverables for
+   the sector (sizes, formats, logo placement, best practices) and mockup scenes; build them as a system
+   (`references/identity-system.md`).
+7. **Guidelines & handover**: compact guidelines (`templates/brand-guidelines-template.md`: clear space from a logo
    element, minimum sizes, colour codes, approved backgrounds, misuse), masters (SVG; PDF/AI/EPS if the user has the
    tools), and handover notes (rationale, test results, open items). Run the final checklist in `references/process.md`
    §7. For bigger brands, extend into a system (`references/identity-system.md`).
@@ -242,4 +247,5 @@ Keep it short: the image does the work. Don't attach variants, boards or icon se
 | `references/identity-system.md` | Kit of parts, sub-brands, dynamic identities, patterns, motion, guidelines, rollout |
 | `references/redesign.md` | Refresh vs. rebrand, equity audit, refresh techniques |
 | `references/critique.md` | Structured logo critique with scorecard and fixes |
+| `references/data/*.csv` | Raw category data behind `brand_data.py` (adapted from MIT-licensed UI/UX Pro Max) |
 | `references/library-guide.md` | What's in the 1,400+ logo library, insights, curated examples by technique |
