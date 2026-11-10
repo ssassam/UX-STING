@@ -286,7 +286,7 @@ describe("patterns", () => {
       </UIProvider>,
     );
     expect(screen.getByText(/49,90/)).toBeInTheDocument();
-    expect(screen.getByText("Original price:", { exact: false })).toHaveClass("sr-only");
+    expect(screen.getByText("Prix initial:", { exact: false })).toHaveClass("sr-only");
   });
 
   it("computes opening status across midnight", () => {

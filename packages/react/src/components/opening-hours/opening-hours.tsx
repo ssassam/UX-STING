@@ -2,7 +2,7 @@
 import { getWeekdayNames, getWeekStart } from "@ux-sting/primitives";
 import { cn } from "@ux-sting/utils";
 import { useEffect, useState, type HTMLAttributes } from "react";
-import { useLocale } from "../../provider/context.js";
+import { useLocale, useMessages } from "../../provider/context.js";
 
 export interface OpeningPeriod {
   /** 0 = Sunday … 6 = Saturday. */
@@ -67,6 +67,7 @@ export interface OpenStatusProps extends HTMLAttributes<HTMLSpanElement> {
 /** "Open · closes 18:00" / "Closed · opens 09:00" with a status dot and text. */
 export function OpenStatus({ periods, labels = {}, className, ...props }: OpenStatusProps) {
   const { locale } = useLocale();
+  const messages = useMessages();
   const now = useNow();
   if (!now) return <span className={cn("inline-block h-5 w-24", className)} aria-hidden />;
   const status = getOpeningStatus(periods, now);
@@ -86,15 +87,15 @@ export function OpenStatus({ periods, labels = {}, className, ...props }: OpenSt
         )}
       />
       <span className={cn("font-medium", status.open ? "text-success" : "text-destructive")}>
-        {status.open ? (labels.open ?? "Open") : (labels.closed ?? "Closed")}
+        {status.open ? (labels.open ?? messages.open) : (labels.closed ?? messages.closed)}
       </span>
       {status.next ? (
         <span className="text-muted-foreground">
           {" "}
           ·{" "}
           {status.open
-            ? (labels.closes ?? ((t) => `closes ${t}`))(fmt(status.next))
-            : (labels.opens ?? ((t) => `opens ${t}`))(fmt(status.next))}
+            ? (labels.closes ?? messages.closesAt)(fmt(status.next))
+            : (labels.opens ?? messages.opensAt)(fmt(status.next))}
         </span>
       ) : null}
     </span>
@@ -110,12 +111,13 @@ export interface OpeningHoursProps extends HTMLAttributes<HTMLTableElement> {
 /** Weekly hours table, localized day names, today highlighted. */
 export function OpeningHours({
   periods,
-  closedLabel = "Closed",
-  caption = "Opening hours",
+  closedLabel,
+  caption,
   className,
   ...props
 }: OpeningHoursProps) {
   const { locale } = useLocale();
+  const messages = useMessages();
   const now = useNow();
   const weekStart = getWeekStart(locale);
   const names = getWeekdayNames(locale, 0, "long");
@@ -128,7 +130,7 @@ export function OpeningHours({
   };
   return (
     <table className={cn("w-full text-sm", className)} {...props}>
-      <caption className="sr-only">{caption}</caption>
+      <caption className="sr-only">{caption ?? messages.openingHours}</caption>
       <tbody>
         {order.map((day) => {
           const today = now?.getDay() === day;
@@ -145,7 +147,7 @@ export function OpeningHours({
               <td className="py-1.5 text-end tabular-nums text-muted-foreground">
                 {list.length
                   ? list.map((p) => `${fmt(p.open)} – ${fmt(p.close)}`).join(", ")
-                  : closedLabel}
+                  : (closedLabel ?? messages.closed)}
               </td>
             </tr>
           );

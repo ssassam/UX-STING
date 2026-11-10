@@ -128,7 +128,7 @@ Command palette in a modal dialog, opened with ⌘K / Ctrl+K by default.
 | `search` | `string` | — | Controlled search value. |
 | `shortcut` | `string \| false` | `"mod+k"` | Global shortcut to open the palette. Defaults to `mod+k`; `false` disables. |
 | `shouldFilter` | `boolean` | — | Disable built-in filtering (e.g. for async/server results). |
-| `title` | `ReactNode` | `"Command menu"` |  |
+| `title` | `ReactNode` | — |  |
 
 _Also accepts 275 standard HTML/React attributes (className, style, aria-*, event handlers…)._
 

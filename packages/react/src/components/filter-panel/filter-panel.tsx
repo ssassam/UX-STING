@@ -34,16 +34,20 @@ export interface FilterPanelProps {
  * the same children. Pair with `FilterChips` to show applied filters.
  */
 export function FilterPanel({
-  title = "Filters",
+  title: titleProp,
   children,
   activeCount = 0,
   onClear,
-  clearLabel = "Clear all",
-  applyLabel = "Show results",
+  clearLabel: clearLabelProp,
+  applyLabel: applyLabelProp,
   onApply,
   className,
 }: FilterPanelProps) {
   const [open, setOpen] = useState(false);
+  const messages = useMessages();
+  const title = titleProp ?? messages.filters;
+  const clearLabel = clearLabelProp ?? messages.clearAll;
+  const applyLabel = applyLabelProp ?? messages.showResults;
   const header = (
     <div className="flex items-center justify-between gap-2">
       <h2 className="text-md font-semibold">{title}</h2>
@@ -167,15 +171,16 @@ export function FilterChips({
   filters,
   onRemove,
   onClearAll,
-  clearLabel = "Clear all",
+  clearLabel: clearLabelProp,
   className,
 }: FilterChipsProps) {
   const messages = useMessages();
+  const clearLabel = clearLabelProp ?? messages.clearAll;
   if (!filters.length) return null;
   return (
     <div
       role="group"
-      aria-label="Active filters"
+      aria-label={messages.activeFilters}
       className={cn("flex flex-wrap items-center gap-2", className)}
     >
       {filters.map((f) => (

@@ -47,7 +47,7 @@ Searchable multiple selection with removable chips.
 | `maxVisible` | `number` | `3` | Maximum chips shown in the trigger before a `+n` summary. |
 | `name` | `string` | — |  |
 | `onValueChange` | `(value: string[]) => void` | — |  |
-| `placeholder` | `string` | `"Select…"` |  |
+| `placeholder` | `string` | — |  |
 | `searchPlaceholder` | `string` | — |  |
 | `value` | `string[]` | — |  |
 

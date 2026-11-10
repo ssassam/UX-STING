@@ -2128,8 +2128,7 @@
         {
           "name": "placeholder",
           "type": "string",
-          "required": false,
-          "default": "\"Select…\""
+          "required": false
         },
         {
           "name": "renderOption",
@@ -2236,8 +2235,7 @@
         {
           "name": "placeholder",
           "type": "string",
-          "required": false,
-          "default": "\"Select…\""
+          "required": false
         },
         {
           "name": "searchPlaceholder",
@@ -10047,8 +10045,7 @@
         {
           "name": "title",
           "type": "ReactNode",
-          "required": false,
-          "default": "\"Command menu\""
+          "required": false
         }
       ],
       "inherits": "275 standard HTML/React attributes (className, style, aria-*, event handlers…)"
@@ -11175,14 +11172,12 @@
         {
           "name": "readLessLabel",
           "type": "string",
-          "required": false,
-          "default": "\"Show less\""
+          "required": false
         },
         {
           "name": "readMoreLabel",
           "type": "string",
-          "required": false,
-          "default": "\"Read more\""
+          "required": false
         },
         {
           "name": "title",
@@ -11413,7 +11408,6 @@
           "name": "compareAtLabel",
           "type": "string",
           "required": false,
-          "default": "\"Original price\"",
           "description": "Label for the previous price (localize)."
         },
         {
@@ -11602,14 +11596,12 @@
         {
           "name": "caption",
           "type": "string",
-          "required": false,
-          "default": "\"Opening hours\""
+          "required": false
         },
         {
           "name": "closedLabel",
           "type": "string",
-          "required": false,
-          "default": "\"Closed\""
+          "required": false
         }
       ],
       "inherits": "278 standard HTML/React attributes (className, style, aria-*, event handlers…)"
@@ -11636,7 +11628,6 @@
           "name": "applyLabel",
           "type": "ReactNode",
           "required": false,
-          "default": "\"Show results\"",
           "description": "Mobile \"Show results\" button label and handler."
         },
         {
@@ -11647,8 +11638,7 @@
         {
           "name": "clearLabel",
           "type": "string",
-          "required": false,
-          "default": "\"Clear all\""
+          "required": false
         },
         {
           "name": "onApply",
@@ -11663,8 +11653,7 @@
         {
           "name": "title",
           "type": "ReactNode",
-          "required": false,
-          "default": "\"Filters\""
+          "required": false
         }
       ]
     },
@@ -11718,8 +11707,7 @@
         {
           "name": "clearLabel",
           "type": "string",
-          "required": false,
-          "default": "\"Clear all\""
+          "required": false
         },
         {
           "name": "onClearAll",
@@ -11825,7 +11813,6 @@
           "name": "label",
           "type": "string",
           "required": false,
-          "default": "\"Map\"",
           "description": "Accessible description of what the map shows."
         },
         {

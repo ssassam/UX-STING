@@ -3,6 +3,7 @@ import { useControllableState } from "@ux-sting/hooks";
 import { cn } from "@ux-sting/utils";
 import { forwardRef, useRef, type ClipboardEvent, type KeyboardEvent } from "react";
 import { useFieldControlProps } from "../../lib/field.js";
+import { useMessages } from "../../provider/context.js";
 
 export interface OTPInputProps {
   length?: number;
@@ -49,6 +50,7 @@ export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(function OTPIn
   },
   ref,
 ) {
+  const messages = useMessages();
   const [value, setValue] = useControllableState({
     value: valueProp,
     defaultValue,
@@ -123,7 +125,7 @@ export const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(function OTPIn
             disabled={fieldProps.disabled}
             aria-invalid={fieldProps["aria-invalid"]}
             aria-describedby={i === 0 ? fieldProps["aria-describedby"] : undefined}
-            aria-label={`${aria["aria-label"] ?? "Code"} ${i + 1}/${length}`}
+            aria-label={`${aria["aria-label"] ?? messages.code} ${i + 1}/${length}`}
             value={value[i]?.trim() ?? ""}
             onFocus={(e) => e.currentTarget.select()}
             onChange={(e) => {
