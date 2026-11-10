@@ -1,5 +1,48 @@
 # @ux-sting/react
 
+## 0.10.0
+
+### Minor Changes
+
+- f27c97e: Eject and update:
+
+  - `npx ux-sting eject <component…>`: for apps that use the `@ux-sting/react` package. It copies only the component's own folder into the project, points its other imports at the package (`@ux-sting/react/<sibling>`, `/provider`, `/internal`) so React context stays shared, and rewrites the app's imports to the local copy (splitting named root imports). Supports `--dry-run`, `--overwrite` and `--no-codemod`.
+  - `npx ux-sting update [component…]`: re-applies the registry to copied and ejected components. Unedited files are updated; edited files are kept and the new version is written to `<file>.upstream`. Exits 1 when there are conflicts.
+  - `@ux-sting/react/internal`: new entry point exporting the shared `lib/*` building blocks (field wiring, overlay and menu parts, control styles) that ejected components import.
+
+- 953a738: DataTable / DataGrid become a full data grid:
+
+  - **Multi-column sort**: `multiSort` + Shift+click, controlled via `sortBy` / `defaultSortBy` / `onSortByChange` (the `sort` API still works). Sort priority is shown and announced; `aria-sort` stays on the primary column.
+  - **Virtualization**: `virtual={{ rowHeight, height }}` renders only visible rows (10k+), with `aria-rowcount` / `aria-rowindex`, and grid navigation scrolls the target into view.
+  - **Resizable columns**: `resizableColumns` adds focusable separators (drag, Arrow keys, Shift ×5, Home/End, RTL-aware); per-column `width` / `minWidth` / `maxWidth` / `resizable`, plus `onColumnWidthsChange`.
+  - **Expandable rows**: `renderRowDetail` plus `expandedIds` / `defaultExpandedIds` / `onExpandedIdsChange`.
+  - **Range selection**: Shift+click a row checkbox to select from the last clicked row.
+  - **Grid keyboard model**: one Tab stop (roving tabindex), Ctrl+Home/End, PageUp/PageDown, and no arrow-key hijacking while typing in cell inputs.
+  - Fixes: `getRowId` now receives the index in `data` (it was the index within the page); `aria-rowcount` includes the header row.
+  - Table: `containerProps` / `containerRef`; TableHead `adornment` slot, and `onSort` receives the click event.
+  - New messages: `sortPriority`, `resizeColumn` (en/fr/ar).
+
+### Patch Changes
+
+- 44be8ee: Localize every built-in label (found by the new LTR/RTL accessibility matrix):
+
+  - Banner's landmark name, OTPInput cell labels, CommandDialog title, chart empty state, ReviewCard read more/less, Combobox/MultiSelect placeholder, FilterPanel/FilterChips labels, MapPlaceholder name, OpeningHours/OpenStatus text, Price compare-at label and SkipLink text now come from `UIProvider` messages (en/fr/ar) instead of hard-coded English. Explicit props still win.
+  - SkipLink is now a client component (it reads messages).
+  - New messages: `announcement`, `code`, `commandMenu`, `noData`, `readMore`, `showLess`, `selectPlaceholder`, `filters`, `activeFilters`, `clearAll`, `showResults`, `map`, `open`, `closed`, `closesAt`, `opensAt`, `openingHours`, `originalPrice`.
+
+- 236b822: Accessibility fixes found by new interaction tests:
+
+  - Slider: `aria-valuetext` and the `showValue` output now follow the thumb when uncontrolled (they were stuck at `defaultValue`).
+  - MultiSelect: `aria-selected` on options now reflects the selection, as the APG multi-select listbox pattern requires (it tracked the keyboard highlight).
+  - Combobox, MultiSelect, Autocomplete, DatePicker, DateRangePicker: popup dialogs now have an accessible name (the control's label, or the localized `messages.options` / `messages.chooseDate`).
+  - New `options` message (en/fr/ar).
+  - @ux-sting/hooks@0.10.0
+  - @ux-sting/icons@0.10.0
+  - @ux-sting/primitives@0.10.0
+  - @ux-sting/themes@0.10.0
+  - @ux-sting/tokens@0.10.0
+  - @ux-sting/utils@0.10.0
+
 ## 0.9.0
 
 ### Minor Changes

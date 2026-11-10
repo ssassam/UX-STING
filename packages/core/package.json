@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/core",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Framework-agnostic entry point for ux-sting: tokens, theme engine and utilities in one import.",
   "license": "MIT",
   "repository": {
