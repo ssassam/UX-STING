@@ -32,7 +32,7 @@ ${bold("Options")}
   -y, --yes           Accept defaults
   -h, --help          Show help
 
-${bold("Skills")}  Installs the 9 UX-STING agent skills (design agent, taste + design data,
+${bold("Skills")}  Installs the 10 UX-STING agent skills (design agent, taste + design data, slides, logo,
   review, QA, 3D, diagrams…) into 24 AI coding hosts: Claude Code, Codex, Cursor,
   Windsurf, Copilot, Gemini, Antigravity, Qoder, Kiro, Roo, KiloCode, Cline, Continue,
   OpenCode, Trae, Augment, CodeBuddy, Warp, Droid, Amazon Q, Kimi, ZCode, CodeWhale,

@@ -1,6 +1,6 @@
 ---
 name: ux-sting-design-agent
-description: "Universal design agent for web UI — native in React/Next.js apps built with UX-STING, and for any other stack (Vue, Svelte, Astro, plain HTML/Tailwind, native) via exported design tokens: takes any build, redesign, art-direction, review, 3D, diagram or match-this-site task, first detects the stack, then routes it to the right UX-STING skill and enforces browser verification and an accessibility/UX review. Use this whenever the request is visual or UI design work — design, build or improve a page, make it look premium or less generic, redesign, fix or audit the UI, add motion/3D/diagrams, or reconstruct a site. Dashboards, marketing pages, components, examples and demos alike."
+description: "Universal design agent for web UI — native in React/Next.js apps built with UX-STING, and for any other stack (Vue, Svelte, Astro, plain HTML/Tailwind, native) via exported design tokens: takes any build, redesign, art-direction, review, 3D, diagram or match-this-site task, first detects the stack, then routes it to the right UX-STING skill and enforces browser verification and an accessibility/UX review. Use this whenever the request is visual or UI design work — design, build or improve a page, make it look premium or less generic, redesign, fix or audit the UI, add motion/3D/diagrams, make a slide deck or logo, or reconstruct a site. Dashboards, marketing pages, components, examples and demos alike."
 ---
 
 # UX-STING Universal Design Agent
@@ -37,6 +37,8 @@ For that stack's own idioms (state, forms, routing, a11y APIs), read its guideli
 | match/reconstruct a site they own, or extract design tokens from a page | **ux-sting-universal** |
 | a three.js / shader / immersive hero or product viewer | **ux-sting-3d** |
 | an architecture, flow, sequence or data-story diagram | **ux-sting-diagrams** |
+| a presentation, slides, pitch / investor / sales deck, keynote, QBR or talk | **ux-sting-slides** |
+| a logo, wordmark, brand mark, favicon or identity kit | **logo-design** |
 | review, audit, critique, QA or polish | **ux-sting-review** |
 
 If several apply, sequence them: **design read → build → verify → review**. On a non-React stack, **ux-sting** still informs token/theme choices even though you hand-build components.

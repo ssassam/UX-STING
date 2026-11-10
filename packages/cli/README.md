@@ -122,11 +122,14 @@ requirements for each asset you use.
 Teach your AI coding agent to use UX-STING well. The repo ships cross-host
 **Agent Skills** and a **Universal Design Agent** that make agents build accessible,
 themeable, art-directed UI — and verify every page in a browser with `npx ux-sting qa`
-before they say "done". One source installs into Claude Code, Cursor, Codex, GitHub
-Copilot / VS Code, Gemini CLI and Qoder.
+before they say "done". One source installs into 24 AI coding hosts.
 
 ```sh
-npx skills add ssassam/UX-STING
+npx ux-sting skills add                 # hosts detected in this project (fallback: Claude Code + Codex)
+npx ux-sting skills add --ai all        # Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini, Kiro, Roo, Cline, Trae…
+npx ux-sting skills add --ai cursor --global
+npx ux-sting skills hosts               # list all 24
+npx skills add ssassam/UX-STING         # or the skills.sh installer
 ```
 
 Claude Code (native plugin / marketplace):
@@ -142,7 +145,8 @@ Claude Code (native plugin / marketplace):
 | `ux-sting` | Components, tokens/themes, wiring `@ux-sting/react` into an app |
 | `ux-sting-taste` | Art-direct pages that look designed, not generated |
 | `ux-sting-review` | Accessibility / UX / design review with severity ranking |
-| `ux-sting-explore` · `ux-sting-universal` · `ux-sting-3d` · `ux-sting-diagrams` · `logo-design` | Directions · reference→DNA→page · three.js · diagrams · logos |
+| `ux-sting-slides` | Pitch / sales / QBR / talk decks planned slide by slide, built as a web deck with PDF export |
+| `ux-sting-explore` · `ux-sting-universal` · `ux-sting-3d` · `ux-sting-diagrams` · `logo-design` | Directions · reference→DNA→page · three.js · diagrams · logos + identity kits |
 
 Source: [`.claude/skills/`](https://github.com/ssassam/UX-STING/tree/main/.claude/skills).
 
