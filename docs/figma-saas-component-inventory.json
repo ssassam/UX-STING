@@ -1,0 +1,323 @@
+{
+  "status": "public-reference-implementation-built-private-variants-unverified",
+  "date": "2026-11-05",
+  "library": {
+    "package": "@ux-sting/react",
+    "version": "0.8.0",
+    "existingFamilies": [
+      "accordion",
+      "alert",
+      "alert-dialog",
+      "animated-number",
+      "article-card",
+      "aspect-ratio",
+      "autocomplete",
+      "avatar",
+      "background",
+      "badge",
+      "box",
+      "breadcrumb",
+      "business-card",
+      "button",
+      "calendar",
+      "card",
+      "carousel",
+      "cart-line-item",
+      "category-card",
+      "chart",
+      "checkbox",
+      "checkout-fields",
+      "collapsible",
+      "color-mode-toggle",
+      "combobox",
+      "command",
+      "container",
+      "context-menu",
+      "data-table",
+      "date-picker",
+      "dialog",
+      "drawer",
+      "dropdown-menu",
+      "event-card",
+      "field",
+      "file-upload",
+      "filter-panel",
+      "footer",
+      "form",
+      "grid",
+      "highlight",
+      "hover-card",
+      "icon",
+      "image-comparison",
+      "input",
+      "input-group",
+      "lead-form",
+      "list",
+      "location",
+      "logo",
+      "map-placeholder",
+      "marquee",
+      "media",
+      "mega-menu",
+      "menubar",
+      "mobile-navigation",
+      "multi-select",
+      "native-select",
+      "navbar",
+      "navigation-menu",
+      "navigation-rail",
+      "number-input",
+      "opening-hours",
+      "order-summary",
+      "otp-input",
+      "pagination",
+      "password-input",
+      "popover",
+      "premium-badge",
+      "price",
+      "product-card",
+      "product-details",
+      "product-gallery",
+      "product-listing",
+      "profile-card",
+      "progress",
+      "quantity-selector",
+      "radio-group",
+      "rating",
+      "resizable",
+      "reveal",
+      "review-card",
+      "rotating-text",
+      "scroll-area",
+      "scroll-progress",
+      "search-input",
+      "search-result",
+      "select",
+      "separator",
+      "sheet",
+      "sidebar",
+      "skeleton",
+      "skip-link",
+      "slider",
+      "spinner",
+      "spotlight",
+      "stack",
+      "stat",
+      "state",
+      "stepper",
+      "swatch",
+      "switch",
+      "table",
+      "tabs",
+      "tag",
+      "text-effect",
+      "textarea",
+      "time-picker",
+      "timeline",
+      "toast",
+      "toggle",
+      "tooltip",
+      "tree",
+      "typography",
+      "visually-hidden"
+    ],
+    "addedFamilies": ["saas-dashboard"],
+    "newExports": [
+      "DashboardPanel",
+      "DashboardToolbar",
+      "DashboardGrid",
+      "MetricSummary",
+      "WorkBoard",
+      "ScheduleView",
+      "Conversation",
+      "AuthPanel",
+      "RecordEditor",
+      "InvoiceComposer",
+      "ScheduleCalendar",
+      "TaskTimeline",
+      "PieChart",
+      "GaugeChart",
+      "RingChart",
+      "SegmentChart",
+      "HorizontalBarChart",
+      "ScatterChart",
+      "ComboChart",
+      "RangeChart"
+    ]
+  },
+  "sources": [
+    {
+      "fileKey": "eDja80FSqE1nJAHSJfl9y3",
+      "nodeId": "9:47",
+      "title": "30+ Chart UI Components | BRIX Templates (Community)",
+      "url": "https://www.figma.com/design/eDja80FSqE1nJAHSJfl9y3/?node-id=9-47",
+      "publicPreview": "viewed",
+      "visibleGroups": ["Bar Charts", "Line Charts", "Pie Charts", "Others"],
+      "completeComponentAndVariantInventory": false
+    },
+    {
+      "fileKey": "EdqkBItc03fRE0IWY3e5dD",
+      "nodeId": "0:1",
+      "title": "SAAS Dashboard (Community)",
+      "url": "https://www.figma.com/design/EdqkBItc03fRE0IWY3e5dD/?node-id=0-1",
+      "publicPreview": "viewed",
+      "visibleScreenLabels": [
+        "Dashboard Navigation",
+        "Dashboard",
+        "Invoice List",
+        "Invoice List-Dropdown",
+        "Schedule List",
+        "Board List",
+        "Customer List",
+        "Add Customer",
+        "Create event",
+        "Product",
+        "Add Product",
+        "Create Invoice",
+        "Calendar Month",
+        "Task view",
+        "Calendar year",
+        "Task preview timeline",
+        "Calendar day",
+        "Sign Up",
+        "Login",
+        "Recover",
+        "Confirm",
+        "Chat"
+      ],
+      "completeComponentAndVariantInventory": false
+    }
+  ],
+  "consumerRequirements": [
+    "Preserve all real GA4 and Search Console integrations and synchronization",
+    "Persistent per-website colors and line visibility",
+    "Growth-sorted comparison legend",
+    "Centered Website column with aligned favicon slots and categories beneath names",
+    "Icon-only colored/gray Google connection states",
+    "Two-line date and 24-hour sync time",
+    "No Revenue column in the website table",
+    "Icon-only Manage actions",
+    "Notification bell and unread state",
+    "Compact table counts with exact hover values",
+    "Persistent screenshot privacy mode",
+    "Owner cream surface token and Veltein attribution",
+    "Categories, SVG icons and favicons remain visible in screenshot mode",
+    "First letter + exactly five stars + domain extension",
+    "Compact unified global filters/status/performance/export and summary",
+    "Portfolio popup navigation replaces duplicate page tabs",
+    "Remove redundant website code badges"
+  ],
+  "completionGate": "Do not claim exhaustive private Figma component/variant parity without authenticated inspection. The independently implemented public-reference template can ship after functional, accessibility, responsive and real-data checks.",
+  "screenCoverage": [
+    {
+      "screen": "Dashboard Navigation",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Dashboard",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Invoice List",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Invoice List-Dropdown",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Schedule List",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Board List",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Customer List",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Add Customer",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Create event",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Product",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Add Product",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Create Invoice",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Calendar Month",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Task view",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Calendar year",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Task preview timeline",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Calendar day",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Sign Up",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Login",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Recover",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Confirm",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    },
+    {
+      "screen": "Chat",
+      "implementation": "apps/docs/demos/_saas-workspace.tsx#Workspace",
+      "status": "implemented-and-browser-rendered"
+    }
+  ]
+}

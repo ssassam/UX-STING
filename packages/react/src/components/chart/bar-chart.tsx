@@ -73,7 +73,7 @@ function BarChartInner<T extends object>(
     const v = (d as Record<string, unknown>)[key];
     return typeof v === "number" && Number.isFinite(v) ? Math.max(0, v) : 0;
   };
-  const colors = series.map((s, i) => slotColor(s.colorSlot, i));
+  const colors = series.map((s, i) => s.color || slotColor(s.colorSlot, i));
   const legend = showLegend ?? series.length > 1;
   const fmtFor = (s: ChartSeries<T>) => s.format ?? fmt.value;
 

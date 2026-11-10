@@ -70,7 +70,7 @@ function LineChartInner<T extends object>(
     const v = (d as Record<string, unknown>)[key];
     return typeof v === "number" && Number.isFinite(v) ? v : null;
   };
-  const colors = series.map((s, i) => slotColor(s.colorSlot, i));
+  const colors = series.map((s, i) => s.color || slotColor(s.colorSlot, i));
   const legend = showLegend ?? series.length > 1;
 
   const all = data.flatMap((d) =>
@@ -232,6 +232,7 @@ function LineChartInner<T extends object>(
                   fill="none"
                   stroke={colors[i]}
                   strokeWidth={2}
+                  strokeDasharray={s.dashed ? "5 4" : undefined}
                   strokeLinejoin="round"
                   strokeLinecap="round"
                 />

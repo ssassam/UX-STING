@@ -120,3 +120,5 @@ export * from "./components/tooltip/index.js";
 export * from "./components/tree/index.js";
 export * from "./components/typography/index.js";
 export * from "./components/visually-hidden/index.js";
+
+export * from "./components/saas-dashboard/index.js";
