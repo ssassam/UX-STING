@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { add, diff, init, list } from "./commands.js";
+import { eject, update } from "./eject.js";
 import { bold, dim, log } from "./log.js";
 import { runPlugin } from "./plugins.js";
 
@@ -10,6 +11,8 @@ ${bold("Usage")}
   npx ux-sting add <component...> [--overwrite] [--dry-run]
   npx ux-sting list
   npx ux-sting diff [component...]
+  npx ux-sting update [component...] [--dry-run]
+  npx ux-sting eject <component...> [--overwrite] [--dry-run] [--no-codemod]
   npx ux-sting qa <url|path> [--out <dir>] [--viewports 375,768,1440] [--json]
   npx ux-sting extract <url> [--out <dir>]
   npx ux-sting theme import <tokens.json…> [--name <name>] [--out <dir>]
@@ -24,6 +27,11 @@ ${bold("Options")}
   --registry <src>    Registry file or URL (default: bundled registry)
   -y, --yes           Accept defaults
   -h, --help          Show help
+
+${bold("Eject")}  For apps using the @ux-sting/react package: copies the component's source
+  into your project (its other dependencies stay on the package so React context
+  is shared) and rewrites your imports to the local copy. \`update\` later merges
+  upstream changes; edited files get a <file>.upstream next to them.
 `;
 
 interface Parsed {
@@ -81,6 +89,18 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
       case "ls":
         await list(common);
         return 0;
+      case "eject":
+        await eject(args, {
+          ...common,
+          overwrite: Boolean(flags.overwrite),
+          dryRun: Boolean(flags["dry-run"]),
+          noCodemod: flags.codemod === false,
+        });
+        return 0;
+      case "update": {
+        const res = await update(args, { ...common, dryRun: Boolean(flags["dry-run"]) });
+        return res.conflicts.length ? 1 : 0;
+      }
       case "diff": {
         const entries = await diff(args, common);
         return entries.some((e) => e.status === "outdated") ? 1 : 0;

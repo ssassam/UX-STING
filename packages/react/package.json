@@ -25,6 +25,10 @@
       "types": "./dist/provider/index.d.ts",
       "import": "./dist/provider/index.js"
     },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "import": "./dist/internal.js"
+    },
     "./styles.css": "./dist/styles.css",
     "./tailwind.css": "./dist/tailwind.css",
     "./components.css": "./dist/components.css",

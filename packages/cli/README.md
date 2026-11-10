@@ -48,6 +48,8 @@ npx ux-sting --help
 | `npx ux-sting add button dialog` | Copy components and their dependencies. |
 | `npx ux-sting add button --dry-run` | Preview the installation. |
 | `npx ux-sting diff` | Compare installed components against the registry. |
+| `npx ux-sting update` | Update copied/ejected components; edited files get a `.upstream` copy to merge. |
+| `npx ux-sting eject combobox` | Package users: copy one component's source and rewrite your imports to it. |
 | `npx ux-sting --help` | Show CLI commands and options. |
 
 Common options include `--cwd <path>`, `--registry <file-or-url>`, `--no-install`,
@@ -78,6 +80,23 @@ export function App() {
   );
 }
 ```
+
+### Eject one component
+
+Using the package but need to change one component? Eject it:
+
+```sh
+npx ux-sting eject combobox        # --dry-run to preview, --no-codemod to keep your imports
+```
+
+The component's own folder is copied into your project. Its other imports
+(`@ux-sting/react/command`, `@ux-sting/react/provider`,
+`@ux-sting/react/internal`) stay on the package, so it still shares React
+context with `UIProvider`, `Field` and every other component. Your
+`@ux-sting/react` imports of it are rewritten to the local copy (named root
+imports are split). Later, `npx ux-sting update` pulls upstream fixes into
+files you have not edited and writes `<file>.upstream` next to the ones you
+have.
 
 ## Optional agent tools
 
