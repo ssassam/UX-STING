@@ -397,7 +397,7 @@
         },
         {
           "name": "orientation",
-          "type": "Orientation",
+          "type": "'horizontal' | 'vertical'",
           "required": false,
           "default": "\"vertical\""
         }
@@ -907,7 +907,7 @@
       "props": [
         {
           "name": "type",
-          "type": "typeof ToggleGroupType.Single",
+          "type": "'single'",
           "required": true
         },
         {
@@ -939,7 +939,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "((value: string) => void) | ((value: string[]) => void)",
           "required": false,
           "description": "The callback that fires when the value of the toggle group changes.\nThe callback that fires when the state of the toggle group changes."
         },
@@ -1458,7 +1458,7 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "{ bivarianceHack(checked: CheckedState): void; }['bivarianceHack']",
+          "type": "(checked: CheckedState) => void",
           "required": false
         },
         {
@@ -1744,7 +1744,7 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
+          "type": "(checked: boolean) => void",
           "required": false
         },
         {
@@ -1809,12 +1809,12 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -1951,7 +1951,7 @@
         },
         {
           "name": "position",
-          "type": "Position",
+          "type": "'item-aligned' | 'popper'",
           "required": false,
           "default": "\"popper\""
         },
@@ -1967,12 +1967,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -2391,24 +2391,18 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
+          "type": "(value: number[]) => void",
           "required": false
         },
         {
           "name": "onValueCommit",
-          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
+          "type": "(value: number[]) => void",
           "required": false
         },
         {
           "name": "orientation",
-          "type": "Orientation",
+          "type": "React.AriaAttributes['aria-orientation']",
           "required": false
-        },
-        {
-          "name": "preserveThumbOrder",
-          "type": "boolean",
-          "required": false,
-          "description": "When `true`, thumbs keep their relative order and won't cross over one\nanother while dragging. Each thumb is constrained to the values of its\nneighbors instead of swapping positions when dragged past them."
         },
         {
           "name": "showValue",
@@ -2497,24 +2491,18 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
+          "type": "(value: number[]) => void",
           "required": false
         },
         {
           "name": "onValueCommit",
-          "type": "{ bivarianceHack(value: number[]): void; }['bivarianceHack']",
+          "type": "(value: number[]) => void",
           "required": false
         },
         {
           "name": "orientation",
-          "type": "Orientation",
+          "type": "React.AriaAttributes['aria-orientation']",
           "required": false
-        },
-        {
-          "name": "preserveThumbOrder",
-          "type": "boolean",
-          "required": false,
-          "description": "When `true`, thumbs keep their relative order and won't cross over one\nanother while dragging. Each thumb is constrained to the values of its\nneighbors instead of swapping positions when dragged past them."
         },
         {
           "name": "showValue",
@@ -3652,12 +3640,6 @@
       "description": "Website navigation with dropdown panels (mega menus). Links remain\nreachable by keyboard; panels open on hover and on click/Enter.",
       "props": [
         {
-          "name": "activationMode",
-          "type": "ActivationMode",
-          "required": false,
-          "description": "Whether an item is activated automatically or manually.\n- `\"automatic\"`: hovering or focusing a trigger opens its item, and moving\n  away closes it after a short delay.\n- `\"manual\"`: clicking a trigger toggles the item; hover and focus are ignored"
-        },
-        {
           "name": "asChild",
           "type": "boolean",
           "required": false
@@ -3671,7 +3653,7 @@
           "name": "delayDuration",
           "type": "number",
           "required": false,
-          "description": "The duration from when the pointer enters the trigger until the tooltip\ngets opened. When `activationMode` is `manual`, this prop is ignored."
+          "description": "The duration from when the pointer enters the trigger until the tooltip gets opened."
         },
         {
           "name": "dir",
@@ -3680,7 +3662,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -3692,7 +3674,7 @@
           "name": "skipDelayDuration",
           "type": "number",
           "required": false,
-          "description": "How much time a user has to enter another trigger without incurring a delay\nagain. When `activationMode` is `manual`, this prop is ignored."
+          "description": "How much time a user has to enter another trigger without incurring a delay again."
         },
         {
           "name": "value",
@@ -3762,25 +3744,25 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         }
@@ -3802,7 +3784,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         }
       ],
@@ -3994,7 +3976,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -4052,7 +4034,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -4078,7 +4060,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -4181,12 +4163,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -4218,7 +4200,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -4261,12 +4243,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
+          "type": "(checked: boolean) => void",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -4297,7 +4279,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -4449,12 +4431,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -4583,7 +4565,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -4686,19 +4668,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -4710,7 +4692,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -4788,7 +4770,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -4837,19 +4819,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -4861,7 +4843,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -4945,7 +4927,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -4994,13 +4976,13 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5118,7 +5100,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5182,19 +5164,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5206,7 +5188,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5296,7 +5278,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5362,19 +5344,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5386,7 +5368,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         }
@@ -5453,7 +5435,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5566,19 +5548,19 @@
         },
         {
           "name": "onEscapeKeyDown",
-          "type": "{ bivarianceHack(event: KeyboardEvent): void; }['bivarianceHack']",
+          "type": "(event: KeyboardEvent) => void",
           "required": false,
           "description": "Event handler called when the escape key is down.\nCan be prevented."
         },
         {
           "name": "onFocusOutside",
-          "type": "{ bivarianceHack(event: FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented."
         },
         {
           "name": "onInteractOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent | FocusOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented."
         },
@@ -5590,7 +5572,7 @@
         },
         {
           "name": "onPointerDownOutside",
-          "type": "{ bivarianceHack(event: PointerDownOutsideEvent): void; }['bivarianceHack']",
+          "type": "(event: PointerDownOutsideEvent) => void",
           "required": false,
           "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented."
         },
@@ -5607,12 +5589,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -5659,7 +5641,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5731,7 +5713,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5832,12 +5814,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -5866,7 +5848,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -5979,12 +5961,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -6017,7 +5999,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -6059,7 +6041,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -6085,7 +6067,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -6188,12 +6170,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -6225,7 +6207,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6268,12 +6250,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
+          "type": "(checked: boolean) => void",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6304,7 +6286,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6456,12 +6438,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -6498,7 +6480,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -6612,12 +6594,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -6649,7 +6631,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6694,7 +6676,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -6741,7 +6723,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false
         },
         {
@@ -6767,7 +6749,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -6780,11 +6762,6 @@
     "ContextMenuContent": {
       "kind": "component",
       "props": [
-        {
-          "name": "align",
-          "type": "Align",
-          "required": false
-        },
         {
           "name": "alignOffset",
           "type": "number",
@@ -6859,23 +6836,13 @@
           "required": false
         },
         {
-          "name": "side",
-          "type": "Side",
-          "required": false
-        },
-        {
-          "name": "sideOffset",
-          "type": "number",
-          "required": false
-        },
-        {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -6907,7 +6874,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6950,12 +6917,12 @@
         },
         {
           "name": "onCheckedChange",
-          "type": "{ bivarianceHack(checked: boolean): void; }['bivarianceHack']",
+          "type": "(checked: boolean) => void",
           "required": false
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -6986,7 +6953,7 @@
         },
         {
           "name": "onSelect",
-          "type": "{ bivarianceHack(event: Event): void; }['bivarianceHack']",
+          "type": "(event: Event) => void",
           "required": false
         },
         {
@@ -7138,12 +7105,12 @@
         },
         {
           "name": "sticky",
-          "type": "Sticky",
+          "type": "'partial' | 'always'",
           "required": false
         },
         {
           "name": "updatePositionStrategy",
-          "type": "UpdatePositionStrategy",
+          "type": "'optimized' | 'always'",
           "required": false
         }
       ],
@@ -9299,7 +9266,7 @@
       "props": [
         {
           "name": "type",
-          "type": "typeof AccordionType.Single",
+          "type": "'single'",
           "required": true
         },
         {
@@ -9327,13 +9294,13 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "((value: string) => void) | ((value: string[]) => void)",
           "required": false,
           "description": "The callback that fires when the state of the accordion changes."
         },
         {
           "name": "orientation",
-          "type": "Orientation",
+          "type": "React.AriaAttributes['aria-orientation']",
           "required": false,
           "description": "The layout in which the Accordion operates."
         },
@@ -9432,7 +9399,7 @@
         },
         {
           "name": "onOpenChange",
-          "type": "{ bivarianceHack(open: boolean): void; }['bivarianceHack']",
+          "type": "(open: boolean) => void",
           "required": false
         },
         {
@@ -9479,7 +9446,7 @@
       "props": [
         {
           "name": "activationMode",
-          "type": "ActivationMode",
+          "type": "'automatic' | 'manual'",
           "required": false,
           "description": "Whether a tab is activated automatically or manually."
         },
@@ -9502,7 +9469,7 @@
         },
         {
           "name": "onValueChange",
-          "type": "{ bivarianceHack(value: string): void; }['bivarianceHack']",
+          "type": "(value: string) => void",
           "required": false,
           "description": "A function called when a new tab is selected"
         },
