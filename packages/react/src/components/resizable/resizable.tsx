@@ -176,7 +176,7 @@ export const ResizableHandle = forwardRef<HTMLDivElement, ResizableHandleProps &
     const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
       const dec = horizontal ? (dir === "rtl" ? "ArrowRight" : "ArrowLeft") : "ArrowUp";
       const inc = horizontal ? (dir === "rtl" ? "ArrowLeft" : "ArrowRight") : "ArrowDown";
-      let delta = 0;
+      let delta: number;
       if (event.key === dec) delta = -step;
       else if (event.key === inc) delta = step;
       else if (event.key === "Home") delta = -100;

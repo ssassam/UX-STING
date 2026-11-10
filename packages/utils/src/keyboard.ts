@@ -45,7 +45,7 @@ export function getNextIndex(
   const forwardKey = dir === "rtl" ? Keys.ArrowLeft : Keys.ArrowRight;
   const backwardKey = dir === "rtl" ? Keys.ArrowRight : Keys.ArrowLeft;
 
-  let delta = 0;
+  let delta: number;
   if ((vertical && key === Keys.ArrowDown) || (horizontal && key === forwardKey)) delta = 1;
   else if ((vertical && key === Keys.ArrowUp) || (horizontal && key === backwardKey)) delta = -1;
   else if (key === Keys.Home) return 0;

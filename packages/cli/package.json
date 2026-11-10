@@ -41,7 +41,7 @@
     "@ux-sting/images": "workspace:^",
     "@ux-sting/extract": "workspace:^",
     "@ux-sting/qa": "workspace:^",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.6.6",
     "typescript": "~6.0.3"
   },
   "publishConfig": {
