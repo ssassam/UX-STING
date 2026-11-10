@@ -67,7 +67,7 @@ describe("cli", () => {
     expect(existsSync(dialog)).toBe(true);
     expect(existsSync(join(cwd, "components/ui/lib/overlay.tsx"))).toBe(true);
     expect(readFileSync(dialog, "utf8")).not.toMatch(/from "\.\.?\/[^"]+\.js"/);
-    expect(result.dependencies).toContain("@radix-ui/react-dialog@^1.1.23");
+    expect(result.dependencies).toContain("@radix-ui/react-dialog@^1.3.1");
     expect(result.dependencies.some((d) => d.startsWith("@ux-sting/utils"))).toBe(false);
 
     writeFileSync(dialog, readFileSync(dialog, "utf8") + "\n// my change\n");
