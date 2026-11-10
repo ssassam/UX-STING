@@ -1,6 +1,6 @@
 ---
 name: ux-sting-taste
-description: "Art-direct a UX-STING page so it looks designed for this client, not generated: read the brief, list what is unique to the client, deal three researched art directions and pick one, write a one-sentence concept, build with real openly licensed images (credited automatically), run browser QA, critique the screenshots and fix. Use for landing pages, marketing and editorial sites, portfolios, redesigns, hero sections and demo examples, or when someone says it looks generic, templated, AI-made, bland, 'make it premium' or 'more personality'. Landing and other conversion pages also get an intake and a written copy plan (references/conversion.md). Dashboards and app screens take the quiet route in references/app-screens.md. Ideas adapted from the MIT-licensed taste-skill, design-taste and Better Design projects (see THIRD_PARTY_NOTICES.md)."
+description: "Art-direct a UX-STING page so it looks designed for this client, not generated: read the brief, list what is unique to the client, deal three researched art directions and pick one, write a one-sentence concept, build with real openly licensed images (credited automatically), run browser QA, critique the screenshots and fix. Use for landing pages, marketing and editorial sites, portfolios, redesigns, hero sections and demo examples, or when someone says it looks generic, templated, AI-made, bland, 'make it premium' or 'more personality'. Landing and other conversion pages also get an intake and a written copy plan (references/conversion.md). Dashboards and app screens take the quiet route in references/app-screens.md. Offline design data via scripts/design_data.py: 192 industry conventions + anti-patterns, 80 styles, 192 palettes, 74 font pairings. Ideas and data adapted from the MIT-licensed taste-skill, design-taste and Better Design projects."
 ---
 
 # UX-STING taste — a direction, a concept, real pictures, proof
@@ -28,9 +28,11 @@ These specifics are the raw material for the direction, the copy and the image s
 
 ## 3. Deal three researched directions → `directions.md`
 
+First get the category convention: `python3 scripts/design_data.py system "<what the client is>" [--rtl] [--mode dark] > .ux-sting/taste/convention.md` (industry anti-patterns, styles, a contrast-checked palette as a `createTheme` snippet, font pairings, landing order; see `references/design-data.md`). Its anti-patterns bind every direction. **At most one** direction may follow the convention; the other two break at least two of style, palette and type on purpose, with the reason taken from `unique.md`. Note "convention: follows / breaks X because Y" on each.
+
 Research before you design: look at what the client's world actually looks like (its city's signage, its trade's print history, the materials it works with, archives of its subject). Then deal three directions. Start from the cards in `references/directions.md` but bend each one toward the unique list.
 
-Each direction: **name** · **rooted in** (a real reference from the client's world, with a link) · **type** (display + body pairing) · **palette logic** (theme preset or extracted tokens + one accent) · **layout device** (the one structural idea: index, split, full-bleed, ledger, poster…) · **image plan** (what to search for, from which archive) · **motion budget** · **risk**.
+Each direction: **name** · **rooted in** (a real reference from the client's world, with a link) · **type** (display + body pairing; `design_data.py search "<mood>" --domain font`) · **palette logic** (theme preset or extracted tokens + one accent) · **layout device** (the one structural idea: index, split, full-bleed, ledger, poster…) · **image plan** (what to search for, from which archive) · **motion budget** · **risk**.
 
 The three must differ on at least two of: type, palette, composition. If two feel alike, replace one.
 
