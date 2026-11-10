@@ -1,5 +1,16 @@
 # @ux-sting/react
 
+## 0.12.0
+
+### Patch Changes
+
+- @ux-sting/hooks@0.12.0
+  - @ux-sting/icons@0.12.0
+  - @ux-sting/primitives@0.12.0
+  - @ux-sting/themes@0.12.0
+  - @ux-sting/tokens@0.12.0
+  - @ux-sting/utils@0.12.0
+
 ## 0.11.0
 
 ### Patch Changes

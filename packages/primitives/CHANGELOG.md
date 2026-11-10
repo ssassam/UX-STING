@@ -1,5 +1,12 @@
 # @ux-sting/primitives
 
+## 0.12.0
+
+### Patch Changes
+
+- @ux-sting/hooks@0.12.0
+  - @ux-sting/utils@0.12.0
+
 ## 0.11.0
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @ux-sting/extract
 
+## 0.12.0
+
+### Patch Changes
+
+- @ux-sting/qa@0.12.0
+  - @ux-sting/themes@0.12.0
+  - @ux-sting/tokens@0.12.0
+
 ## 0.11.0
 
 ### Patch Changes
