@@ -79,11 +79,13 @@ export function SiteHeader({
             size="sm"
             onClick={() => setOpen(true)}
             startIcon={<SearchIcon />}
-            aria-label="Search documentation"
             className="text-muted-foreground"
           >
-            <span className="hidden sm:inline">Search…</span>
-            <Kbd className="hidden sm:inline-flex">⌘K</Kbd>
+            {/* Named by its own text (not aria-label) so voice users can say what they see. */}
+            <span className="sr-only sm:not-sr-only">Search docs…</span>
+            <Kbd aria-hidden="true" className="hidden sm:inline-flex">
+              ⌘K
+            </Kbd>
           </Button>
           <div className="hidden items-center gap-1 lg:flex">
             <NativeSelect
