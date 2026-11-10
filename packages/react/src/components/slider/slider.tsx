@@ -1,7 +1,7 @@
 "use client";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import { cn } from "@ux-sting/utils";
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
+import { forwardRef, useState, type ComponentPropsWithoutRef } from "react";
 import { useLocale } from "../../provider/context.js";
 
 export interface SliderProps extends ComponentPropsWithoutRef<typeof SliderPrimitive.Root> {
@@ -17,11 +17,13 @@ export interface SliderProps extends ComponentPropsWithoutRef<typeof SliderPrimi
  * arrows, PageUp/Down, Home/End; mirrored in RTL.
  */
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
-  { className, thumbLabels, formatValue, showValue, value, defaultValue, ...props },
+  { className, thumbLabels, formatValue, showValue, value, defaultValue, onValueChange, ...props },
   ref,
 ) {
   const { dir } = useLocale();
-  const values = value ?? defaultValue ?? [props.min ?? 0];
+  // Mirror the uncontrolled value so aria-valuetext and the visible output follow the thumb.
+  const [inner, setInner] = useState(() => defaultValue ?? [props.min ?? 0]);
+  const values = value ?? inner;
   return (
     <div className={cn("grid gap-2", className)}>
       <SliderPrimitive.Root
@@ -29,6 +31,10 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
         dir={dir}
         value={value}
         defaultValue={defaultValue}
+        onValueChange={(next) => {
+          if (value === undefined) setInner(next);
+          onValueChange?.(next);
+        }}
         className="relative flex w-full touch-none select-none items-center py-2 data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col"
         {...props}
       >

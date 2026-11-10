@@ -132,6 +132,10 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(function D
         />
         <PopoverPrimitive.Portal container={container}>
           <PopoverPrimitive.Content
+            aria-labelledby={aria["aria-labelledby"]}
+            aria-label={
+              aria["aria-labelledby"] ? undefined : (aria["aria-label"] ?? messages.chooseDate)
+            }
             align="start"
             sideOffset={6}
             collisionPadding={8}
@@ -219,6 +223,10 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
           />
           <PopoverPrimitive.Portal container={container}>
             <PopoverPrimitive.Content
+              aria-labelledby={aria["aria-labelledby"]}
+              aria-label={
+                aria["aria-labelledby"] ? undefined : (aria["aria-label"] ?? messages.chooseDate)
+              }
               align="start"
               sideOffset={6}
               collisionPadding={8}

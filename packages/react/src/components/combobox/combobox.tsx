@@ -123,6 +123,10 @@ export const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(function Co
       {name ? <input type="hidden" name={name} value={value ?? ""} /> : null}
       <PopoverPrimitive.Portal container={container}>
         <PopoverPrimitive.Content
+          aria-labelledby={aria["aria-labelledby"]}
+          aria-label={
+            aria["aria-labelledby"] ? undefined : (aria["aria-label"] ?? messages.options)
+          }
           align="start"
           sideOffset={6}
           collisionPadding={8}

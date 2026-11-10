@@ -8,6 +8,8 @@ export interface Messages {
   clear: string;
   search: string;
   noResults: string;
+  /** Accessible name for a picker's popup list when the control has none. */
+  options: string;
   previous: string;
   next: string;
   more: string;
@@ -71,6 +73,7 @@ export const en: Messages = {
   clear: "Clear",
   search: "Search",
   noResults: "No results found",
+  options: "Options",
   previous: "Previous",
   next: "Next",
   more: "More",
@@ -134,6 +137,7 @@ export const fr: Messages = {
   clear: "Effacer",
   search: "Rechercher",
   noResults: "Aucun résultat",
+  options: "Options",
   previous: "Précédent",
   next: "Suivant",
   more: "Plus",
@@ -197,6 +201,7 @@ export const ar: Messages = {
   clear: "مسح",
   search: "بحث",
   noResults: "لا توجد نتائج",
+  options: "الخيارات",
   previous: "السابق",
   next: "التالي",
   more: "المزيد",
