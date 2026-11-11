@@ -1,0 +1,135 @@
+{
+  "$comment": "Sources UX-STING was built from. app.rankcortex.com (My repos tab) compares each commit with the source's latest and opens an issue when a data or adapted source changes. After you review or re-import, update commit + checked.",
+  "upstreams": [
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "branch": "main",
+      "commit": "6ae86f61f520",
+      "kind": "data",
+      "paths": [
+        "src/ui-ux-pro-max/data",
+        ".claude/skills/design-system/data",
+        ".claude/skills/design/data"
+      ],
+      "used_for": "Design data in ux-sting-taste, ux-sting-slides, logo-design and the design agent's stacks; re-import with the column mapping in THIRD_PARTY_NOTICES.md",
+      "checked": "2026-11-10"
+    },
+    {
+      "repo": "lucide-icons/lucide",
+      "branch": "main",
+      "commit": "03eae6069edf",
+      "kind": "data",
+      "paths": ["icons"],
+      "used_for": "packages/icons is generated from the lucide npm package by scripts/generate-icons.mjs",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "madebymustafa/design-taste",
+      "branch": "main",
+      "commit": "c4a6bff0871e",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "Banned AI defaults, craft rules, pre-flight checklist in ux-sting-taste / ux-sting-review",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "marvkr/better-design",
+      "branch": "main",
+      "commit": "175e7ba49bcf",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "Critique / QA loop in ux-sting-taste",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "elayadesign/ai-design-skills",
+      "branch": "main",
+      "commit": "456d9e0d3e2d",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "Adapted guidance (see THIRD_PARTY_NOTICES.md)",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "AgriciDaniel/claude-seo",
+      "branch": "main",
+      "commit": "734998e5fdbb",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "SEO guidance behind @ux-sting/seo-schema and the conversion plan",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "vuestorefront/storefront-ui",
+      "branch": "v2-develop",
+      "commit": "bfa337e2b516",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "Commerce component patterns",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "kaankiziltug/logo-design-skill",
+      "branch": "main",
+      "commit": "bbf31e521d76",
+      "kind": "adapted",
+      "paths": [],
+      "used_for": "Base of the logo-design skill",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "branch": "main",
+      "commit": "f6b76575f949",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas only",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "greensock/gsap-skills",
+      "branch": "main",
+      "commit": "aed9cfd32777",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas only; @ux-sting/motion GSAP adapter",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "DavidHDev/react-bits",
+      "branch": "main",
+      "commit": "9d9c687dc4f5",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas only (MIT + Commons Clause: never copy code)",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "Manavarya09/design-extract",
+      "branch": "main",
+      "commit": "6050fdb470d8",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas for @ux-sting/extract",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "microsoft/playwright-cli",
+      "branch": "main",
+      "commit": "8297c9b12432",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas for @ux-sting/qa",
+      "checked": "2026-11-11"
+    },
+    {
+      "repo": "remotion-dev/remotion",
+      "branch": "main",
+      "commit": "2ea8df9dd71a",
+      "kind": "ideas",
+      "paths": [],
+      "used_for": "Ideas only; Remotion License, never redistributed",
+      "checked": "2026-11-11"
+    }
+  ]
+}
