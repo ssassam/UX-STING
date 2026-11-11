@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@ux-sting/react/tailwind.css";
+
+/* Spec-sheet details: hazard tape, ledger rules and measured numbers. */
+@layer components {
+  .hazard {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--ui-primary, oklch(0.8 0.17 75)) 0 10px,
+      transparent 10px 20px
+    );
+  }
+  .ledger > * + * {
+    border-top: 1px dashed var(--ui-border, currentColor);
+  }
+  .measure {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .spec-label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}

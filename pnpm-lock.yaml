@@ -494,6 +494,49 @@ importers:
         specifier: ~6.0.3
         version: 6.0.3
 
+  examples/home:
+    dependencies:
+      '@ux-sting/icons':
+        specifier: workspace:^
+        version: link:../../packages/icons
+      '@ux-sting/react':
+        specifier: workspace:^
+        version: link:../../packages/react
+      '@ux-sting/tokens':
+        specifier: workspace:^
+        version: link:../../packages/tokens
+      '@ux-sting/utils':
+        specifier: workspace:^
+        version: link:../../packages/utils
+      next:
+        specifier: ^16.4.5
+        version: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.65.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react:
+        specifier: ^19.3.1
+        version: 19.3.1
+      react-dom:
+        specifier: ^19.3.1
+        version: 19.3.1(react@19.3.1)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: ^4.3.5
+        version: 4.3.5
+      '@types/node':
+        specifier: ^26.6.6
+        version: 26.6.6
+      '@types/react':
+        specifier: ^19.2.0
+        version: 19.3.0
+      '@types/react-dom':
+        specifier: ^19.2.0
+        version: 19.3.0(@types/react@19.3.0)
+      tailwindcss:
+        specifier: ^4.3.5
+        version: 4.3.5
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
   examples/marketplace:
     dependencies:
       '@ux-sting/icons':
