@@ -4,12 +4,12 @@ import { Toaster } from "@ux-sting/react/toast";
 import { TooltipProvider } from "@ux-sting/react/tooltip";
 import type { ReactNode } from "react";
 
-/** Spec-sheet brand: wasp amber "proof" marks on graphite ink, tight radius, dark-first. */
+/** Electric canvas with accessible UX-STING semantic tokens. */
 const stingTheme = {
   name: "sting",
-  primary: "amber",
-  neutral: "gray",
-  radius: "small",
+  primary: "sky",
+  neutral: "slate",
+  radius: "large",
   fontFamily: {
     sans: "var(--font-grotesk), ui-sans-serif, system-ui, sans-serif",
     mono: "var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace",

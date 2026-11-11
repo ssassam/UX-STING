@@ -206,63 +206,53 @@ export default function Page() {
         {/* HERO */}
         <section
           aria-labelledby="hero-title"
-          className="hero-stage relative overflow-hidden border-b border-border"
+          className="hero-stage relative overflow-hidden"
         >
+          <HeroArt />
           <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(var(--ui-border)_1px,transparent_1px),linear-gradient(90deg,var(--ui-border)_1px,transparent_1px)] [background-size:32px_32px]"
-          />
-          <div
-            className={`${wrap} relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[720px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24`}
+            className={`${wrap} hero-content relative z-10 flex min-h-[670px] items-center py-20 sm:min-h-[780px] lg:min-h-[850px]`}
           >
-            <div className="grid min-w-0 gap-6">
+            <div className="grid max-w-3xl min-w-0 gap-7">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="primary">v{NPM_VERSION}</Badge>
                 <span className="spec-label text-muted-foreground">
-                  React design system · agent skills · design data
+                  Interface system for a new generation
                 </span>
               </div>
               <Heading
                 level={1}
                 id="hero-title"
-                className="text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
+                className="hero-title text-6xl leading-[.98] sm:text-7xl lg:text-[clamp(6rem,9vw,9.5rem)]"
               >
-                Make the interface <span className="text-primary">feel alive.</span>
+                Interfaces<br />that <span className="hero-gradient-word">feel alive.</span>
               </Heading>
-              <Text size="lg" variant="muted" className="max-w-xl">
-                An accessible React system with motion, charts, data grids and 17 live themes.
-                Agent skills turn the design into working code and verify it in a real browser.
+              <Text size="lg" variant="muted" className="hero-intro max-w-xl">
+                Explore motion, color and components in one accessible React system. Build with UX-STING, then prove the experience in a real browser.
               </Text>
-              <div id="install" className="grid max-w-xl scroll-mt-28 gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" endIcon={<ArrowRightIcon aria-hidden className="rtl:rotate-180" />}>
+                  <a href="#lab">Explore the system</a>
+                </Button>
+                <Button asChild size="lg" variant="ghost"><a href="#templates">See what it builds</a></Button>
+              </div>
+              <div id="install" className="hero-install max-w-lg scroll-mt-28">
+                <span className="spec-label text-muted-foreground">Start building</span>
                 <CopyCommand command={INSTALL_CMD} />
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  <Button
-                    asChild
-                    variant="ghost"
-                    endIcon={<ArrowRightIcon className="rtl:rotate-180" />}
-                  >
-                    <a href="#lab">Try the live system</a>
-                  </Button>
-                  <span className="spec-label text-muted-foreground">
-                    WCAG 2.2 AA · axe LTR + RTL · free with credit
-                  </span>
-                </div>
               </div>
             </div>
-            <HeroArt />
           </div>
         </section>
 
         {/* MEASURES */}
-        <section aria-label="UX-STING in numbers" className={`${wrap} py-10 sm:py-14`}>
+        <section aria-label="UX-STING in numbers" className={`${wrap} measures-section py-10 sm:py-14`}>
           <Measures />
         </section>
 
-        <section id="lab" aria-labelledby="lab-title" className="scroll-mt-20 border-y border-border py-16 sm:py-24">
+        <section id="lab" aria-labelledby="lab-title" className="lab-section scroll-mt-20 py-20 sm:py-28">
           <div className={`${wrap} grid gap-9`}>
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <SectionHead id="lab" eyebrow="Live, in your browser" title="A design system you can touch." intro="Switch a theme. Move your pointer. Explore real chart and grid components." />
-              <span className="spec-label text-muted-foreground">Not a mockup / interact below ↘</span>
+              <SectionHead id="lab" eyebrow="The interactive canvas" title="Explore the system. Change its atmosphere." intro="Select a color. Follow the light. Explore a real chart and a sortable data grid." />
+              <span className="spec-label text-muted-foreground">Live UX-STING / interact below ↘</span>
             </div>
             <LiveLab />
           </div>
@@ -272,15 +262,15 @@ export default function Page() {
         <section
           id="inside"
           aria-labelledby="inside-title"
-          className={`${wrap} grid scroll-mt-20 gap-10 py-14 sm:py-20`}
+          className={`${wrap} inside-section grid scroll-mt-20 gap-10 py-20 sm:py-28`}
         >
           <SectionHead
             id="inside"
             eyebrow="What's inside"
-            title="Everything a page needs, measured."
+            title="The craft behind the feeling."
             intro="Components, themes, the design knowledge to choose between them and the checks that prove the result — in one toolkit."
           />
-          <Reveal as="ol" stagger={70} className="ledger grid border-y border-border">
+          <Reveal as="ol" stagger={70} className="ledger grid">
             {inside.map((row) => (
               <li
                 key={row.no}
@@ -291,7 +281,7 @@ export default function Page() {
                   {row.title}
                 </Heading>
                 <Text variant="muted">{row.body}</Text>
-                <code className="measure w-fit rounded-sm border border-border bg-muted px-2 py-1 text-xs md:justify-self-end">
+                <code className="measure w-fit rounded-full bg-muted px-3 py-1 text-xs md:justify-self-end">
                   {row.spec}
                 </code>
               </li>
@@ -300,7 +290,7 @@ export default function Page() {
         </section>
 
         {/* HOSTS */}
-        <section aria-labelledby="hosts-title" className="border-y border-border bg-muted/40 py-10">
+        <section aria-labelledby="hosts-title" className="hosts-section py-14">
           <div className={`${wrap} mb-6 flex flex-wrap items-baseline justify-between gap-3`}>
             <Heading level={2} size="lg" id="hosts-title">
               One install. 24 AI coding hosts.
@@ -311,7 +301,7 @@ export default function Page() {
             {hosts.map((h) => (
               <span
                 key={h}
-                className="measure mx-3 inline-flex items-center gap-2 whitespace-nowrap rounded-sm border border-border bg-background px-3 py-1.5 text-sm"
+                className="measure mx-2 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-border/50 bg-background/50 px-4 py-2 text-sm"
               >
                 <span aria-hidden className="size-1.5 rounded-full bg-primary" />
                 {h}
@@ -324,7 +314,7 @@ export default function Page() {
         <section
           id="how"
           aria-labelledby="how-title"
-          className={`${wrap} grid scroll-mt-20 gap-10 py-14 sm:py-20`}
+          className={`${wrap} how-section grid scroll-mt-20 gap-10 py-20 sm:py-28`}
         >
           <SectionHead
             id="how"
@@ -334,10 +324,10 @@ export default function Page() {
           <Reveal
             as="ol"
             stagger={90}
-            className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-4"
+            className="how-steps grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
             {steps.map((s, i) => (
-              <li key={s.title} className="grid content-start gap-3 bg-background p-6">
+              <li key={s.title} className="grid content-start gap-3 p-3 sm:p-4">
                 <span className="measure text-5xl font-semibold text-primary">{i + 1}</span>
                 <Heading level={3} size="sm">
                   {s.title}
@@ -345,7 +335,7 @@ export default function Page() {
                 <Text variant="muted" size="sm">
                   {s.body}
                 </Text>
-                <code className="measure mt-auto w-fit rounded-sm bg-muted px-2 py-1 text-xs">
+                <code className="measure mt-auto w-fit rounded-full bg-muted px-3 py-1 text-xs">
                   {s.cmd}
                 </code>
               </li>
@@ -357,7 +347,7 @@ export default function Page() {
         <section
           id="templates"
           aria-labelledby="templates-title"
-          className="scroll-mt-20 border-t border-border py-14 sm:py-20"
+          className="templates-section scroll-mt-20 py-20 sm:py-28"
         >
           <div className={`${wrap} grid gap-10`}>
             <SectionHead
@@ -371,7 +361,7 @@ export default function Page() {
                 <li key={d.id}>
                   <a
                     href={d.href}
-                    className="group grid h-full overflow-hidden rounded-sm border border-border bg-card outline-none transition hover:border-primary focus-visible:ring-2 focus-visible:ring-ring"
+                    className="template-link group grid h-full overflow-hidden rounded-3xl bg-card outline-none transition focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <img
                       src={withBase(`/${d.image}`)}
@@ -379,7 +369,7 @@ export default function Page() {
                       width={1280}
                       height={800}
                       loading="lazy"
-                      className="aspect-[16/10] w-full border-b border-border object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                      className="aspect-[16/10] w-full object-cover object-top transition duration-700 group-hover:scale-[1.04]"
                     />
                     <span className="grid gap-1.5 p-5">
                       <span className="spec-label text-muted-foreground">{d.kind}</span>
@@ -413,7 +403,7 @@ export default function Page() {
         <section
           id="pricing"
           aria-labelledby="pricing-title"
-          className="scroll-mt-20 border-t border-border bg-muted/30 py-14 sm:py-20"
+          className="pricing-section scroll-mt-20 py-20 sm:py-28"
         >
           <div className={`${wrap} grid gap-10`}>
             <SectionHead
