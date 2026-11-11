@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Builds every demo as a static export and assembles one GitHub Pages site,
 # served at the root of https://uxsting.veltein.com (CNAME written below):
-#   /          Wayfare travel
+#   /          UX-STING home (one-page presentation, premium templates)
+#   /travel/   Wayfare travel
 #   /cars/     Drivo car rental
 #   /shop/     Maison Nord shop
 #   /watch/    Pulse One product landing page
@@ -24,7 +25,8 @@ build() { # <example dir> <sub path>
   echo "built $dir -> $BASE$sub/"
 }
 
-build travel ""
+build home ""
+build travel /travel
 build car-rental /cars
 build shop /shop
 build watch /watch
@@ -42,7 +44,7 @@ SITE="https://uxsting.veltein.com"
 {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-  for sub in "" /cars /shop /watch /crypto /ember /toolkit; do
+  for sub in "" /travel /cars /shop /watch /crypto /ember /toolkit; do
     echo "  <sitemap><loc>$SITE$sub/sitemap.xml</loc></sitemap>"
   done
   echo '</sitemapindex>'

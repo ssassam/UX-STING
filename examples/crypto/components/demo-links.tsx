@@ -4,7 +4,8 @@ import { ExternalLinkIcon } from "@ux-sting/icons";
 const SITE = "https://uxsting.veltein.com";
 
 export const demos = [
-  { id: "travel", label: "Wayfare — travel", href: `${SITE}/` },
+  { id: "home", label: "UX-STING — home", href: `${SITE}/` },
+  { id: "travel", label: "Wayfare — travel", href: `${SITE}/travel/` },
   { id: "cars", label: "Drivo — car rental", href: `${SITE}/cars/` },
   { id: "shop", label: "Maison Nord — shop", href: `${SITE}/shop/` },
   { id: "watch", label: "Pulse One — product launch", href: `${SITE}/watch/` },

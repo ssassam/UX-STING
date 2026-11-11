@@ -245,7 +245,8 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 
 | Demo | What it shows | Live |
 | --- | --- | --- |
-| [**Wayfare**](examples/travel) — travel booking | Hero search, destinations, stay search with filters and map, booking, checkout | [open](https://uxsting.veltein.com/) |
+| [**UX-STING home**](examples/home) — one-page product presentation | Spec-sheet hero with a live LTR/RTL preview, measured stats, install command, live templates, Free / Premium / White-label, FAQ with FAQPage schema | [open](https://uxsting.veltein.com/) |
+| [**Wayfare**](examples/travel) — travel booking | Hero search, destinations, stay search with filters and map, booking, checkout | [open](https://uxsting.veltein.com/travel/) |
 | [**Drivo**](examples/car-rental) — car rental | Pick-up search, fleet filters, car details, protection and extras, checkout | [open](https://uxsting.veltein.com/cars/) |
 | [**Maison Nord**](examples/shop) — e-commerce | Catalogue with filters and pagination, product variants, cart drawer, checkout | [open](https://uxsting.veltein.com/shop/) |
 | [**Pulse One**](examples/watch) — product launch | Landing page with a recolourable product illustration, specs comparison, pre-order | [open](https://uxsting.veltein.com/watch/) |
@@ -255,7 +256,7 @@ Six complete demo sites, built only with UX-STING and deployed to GitHub Pages, 
 
 ### Screenshots
 
-#### Wayfare — travel booking · [live demo](https://uxsting.veltein.com/)
+#### Wayfare — travel booking · [live demo](https://uxsting.veltein.com/travel/)
 
 <table>
 <tr><td width="50%" align="center"><a href="examples/travel/screenshots/1-home.webp"><img src="examples/travel/screenshots/1-home.webp" alt="Home" width="100%"></a><br><sub>Home</sub></td><td width="50%" align="center"><a href="examples/travel/screenshots/2-destinations.webp"><img src="examples/travel/screenshots/2-destinations.webp" alt="Popular destinations" width="100%"></a><br><sub>Popular destinations</sub></td></tr>
