@@ -24,4 +24,94 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
+
+  .hero-stage {
+    background: radial-gradient(circle at 79% 46%, color-mix(in oklch, var(--ui-primary) 15%, transparent), transparent 38%), var(--ui-background);
+  }
+  .hero-art {
+    isolation: isolate;
+    perspective: 850px;
+  }
+  .hero-art::before {
+    content: "";
+    position: absolute;
+    width: min(90%, 520px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in oklch, var(--ui-primary) 16%, transparent), transparent 65%);
+    filter: blur(24px);
+  }
+  .hero-art-orbit {
+    position: absolute;
+    width: min(94%, 510px);
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in oklch, var(--ui-primary) 33%, transparent);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    animation: hero-spin 24s linear infinite;
+  }
+  .hero-art-orbit::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ui-primary);
+    box-shadow: 0 0 22px 6px color-mix(in oklch, var(--ui-primary) 50%, transparent);
+  }
+  .hero-art-orbit-a { transform: rotateX(70deg) rotateZ(-28deg); }
+  .hero-art-orbit-b { width: min(80%, 435px); transform: rotateY(64deg) rotateZ(15deg); animation-duration: 32s; animation-direction: reverse; }
+  .hero-art-orbit-c { width: min(62%, 340px); transform: rotateX(48deg) rotateY(30deg); animation-duration: 18s; }
+  .hero-art-axis { position: absolute; width: min(96%, 530px); height: 1px; background: linear-gradient(90deg, transparent, var(--ui-primary), transparent); transform: rotate(-24deg); opacity: .55; }
+  .hero-art-core {
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    gap: .45rem;
+    width: min(70%, 350px);
+    aspect-ratio: 1.25;
+    border: 1px solid color-mix(in oklch, var(--ui-primary) 60%, transparent);
+    background: linear-gradient(135deg, color-mix(in oklch, var(--ui-primary) 15%, var(--ui-background)), var(--ui-background) 75%);
+    box-shadow: 0 32px 90px color-mix(in oklch, var(--ui-primary) 16%, transparent), inset 0 0 36px color-mix(in oklch, var(--ui-primary) 9%, transparent);
+    clip-path: polygon(13% 0, 87% 0, 100% 50%, 87% 100%, 13% 100%, 0 50%);
+    transform: rotate(-9deg);
+    animation: hero-float 7s ease-in-out infinite;
+  }
+  .hero-art-core strong { font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.1em; white-space: nowrap; }
+  .hero-art-core strong span { color: var(--ui-primary); }
+  .hero-art-core-small { font-family: var(--font-mono), monospace; font-size: .56rem; letter-spacing: .18em; color: var(--ui-primary); }
+  .hero-art-marker { position: absolute; z-index: 2; font-family: var(--font-mono), monospace; font-size: .62rem; letter-spacing: .12em; color: var(--ui-muted-foreground); }
+  .hero-art-marker-a { top: 12%; inset-inline-start: 12%; }
+  .hero-art-marker-b { top: 20%; inset-inline-end: 5%; }
+  .hero-art-marker-c { bottom: 12%; inset-inline-end: 16%; }
+  .hero-motion-button { inset-inline-start: .5rem; left: auto; }
+
+  .lab-shell { overflow: hidden; border: 1px solid var(--ui-border); border-radius: 1.25rem; background: var(--ui-card); box-shadow: 0 32px 90px color-mix(in oklch, var(--ui-primary) 7%, transparent); }
+  .lab-preview { background: var(--ui-background); color: var(--ui-foreground); }
+  .lab-preview-grid { position: absolute; inset: 0; pointer-events: none; opacity: .13; background-image: linear-gradient(var(--ui-border) 1px, transparent 1px), linear-gradient(90deg, var(--ui-border) 1px, transparent 1px); background-size: 26px 26px; }
+  .lab-theme-button { display: inline-flex; align-items: center; gap: .55rem; }
+  .lab-theme-button[aria-pressed="true"] { border-color: var(--ui-primary); background: color-mix(in oklch, var(--ui-primary) 15%, var(--ui-background)); }
+  .lab-swatch { width: .7rem; height: .7rem; border-radius: 50%; }
+  .lab-swatch-0 { background: oklch(.77 .16 75); }
+  .lab-swatch-1 { background: oklch(.68 .18 295); }
+  .lab-swatch-2 { background: oklch(.77 .14 205); }
+  .lab-orbit { background-image: radial-gradient(circle at center, color-mix(in oklch, var(--ui-primary) 18%, transparent), transparent 60%); }
+  .lab-orbit-ring { position: absolute; width: 235px; aspect-ratio: 1; border: 1px solid color-mix(in oklch, var(--ui-primary) 50%, transparent); border-radius: 50%; animation: hero-spin 18s linear infinite; }
+  .lab-orbit-ring::after { content: ""; position: absolute; top: 15%; left: 14%; width: 9px; height: 9px; border-radius: 50%; background: var(--ui-primary); box-shadow: 0 0 16px var(--ui-primary); }
+  .lab-orbit-ring-outer { width: 330px; transform: rotateX(65deg); }
+  .lab-orbit-ring-inner { transform: rotateY(58deg); animation-direction: reverse; animation-duration: 13s; }
+  .lab-orbit-line { position: absolute; width: 110%; height: 1px; background: linear-gradient(90deg, transparent, var(--ui-primary), transparent); transform: rotate(-15deg); opacity: .55; }
+  .lab-core { transform: rotate(-8deg); }
+  .lab-paused *, .lab-paused::before, .lab-paused::after { animation-play-state: paused !important; }
+  /* Give the chart's screen-reader table an explicit surface for automated contrast checks. */
+  .lab-preview table.sr-only { color: var(--ui-foreground); background: var(--ui-background); font-variant-numeric: tabular-nums; }
+  .lab-preview table.sr-only td { text-align: end; }
+  @keyframes hero-spin { to { rotate: 360deg; } }
+  @keyframes hero-float { 50% { transform: translateY(-13px) rotate(-6deg); } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art *, .lab-orbit * { animation: none !important; transition: none !important; }
 }

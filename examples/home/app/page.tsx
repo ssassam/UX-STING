@@ -11,10 +11,11 @@ import { Marquee } from "@ux-sting/react/marquee";
 import { Reveal } from "@ux-sting/react/reveal";
 import { Heading, Text } from "@ux-sting/react/typography";
 import { CopyCommand } from "../components/copy-command";
+import { HeroArt } from "../components/hero-art";
+import { LiveLab } from "../components/live-lab";
 import { Measures } from "../components/measures";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
-import { SpecCard } from "../components/spec-card";
 import { CONTACT_EMAIL, premiumTemplates } from "../content/premium";
 import { demos, GITHUB_URL, hosts, INSTALL_CMD, NPM_VERSION, SITE } from "../content/site";
 import { withBase } from "../lib/base";
@@ -22,7 +23,7 @@ import { jsonLd, pageMeta, SITE_URL } from "../lib/seo";
 
 export const metadata = pageMeta({
   description:
-    "115 accessible React components, 17 theme presets and agent skills for 24 AI coding hosts. Your agent builds art-directed UI and verifies every page in a browser before it says done.",
+    "A live React design system: 115 accessible components, 17 themes, motion, charts, data grids and agent skills that verify the result in a browser.",
 });
 
 const inside = [
@@ -205,14 +206,14 @@ export default function Page() {
         {/* HERO */}
         <section
           aria-labelledby="hero-title"
-          className="relative overflow-hidden border-b border-border"
+          className="hero-stage relative overflow-hidden border-b border-border"
         >
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(var(--ui-border)_1px,transparent_1px),linear-gradient(90deg,var(--ui-border)_1px,transparent_1px)] [background-size:32px_32px]"
           />
           <div
-            className={`${wrap} relative grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:py-24`}
+            className={`${wrap} relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[720px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24`}
           >
             <div className="grid min-w-0 gap-6">
               <div className="flex flex-wrap items-center gap-2">
@@ -226,13 +227,11 @@ export default function Page() {
                 id="hero-title"
                 className="text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
               >
-                Accessible React UI your AI agent has to <span className="text-primary">prove</span>
-                .
+                Make the interface <span className="text-primary">feel alive.</span>
               </Heading>
               <Text size="lg" variant="muted" className="max-w-xl">
-                115 components, 17 themes and offline design data, plus skills that make Claude
-                Code, Codex, Cursor and 21 other agents check every page in a real browser before
-                they call it done.
+                An accessible React system with motion, charts, data grids and 17 live themes.
+                Agent skills turn the design into working code and verify it in a real browser.
               </Text>
               <div id="install" className="grid max-w-xl scroll-mt-28 gap-3">
                 <CopyCommand command={INSTALL_CMD} />
@@ -242,7 +241,7 @@ export default function Page() {
                     variant="ghost"
                     endIcon={<ArrowRightIcon className="rtl:rotate-180" />}
                   >
-                    <a href="#templates">See live templates</a>
+                    <a href="#lab">Try the live system</a>
                   </Button>
                   <span className="spec-label text-muted-foreground">
                     WCAG 2.2 AA · axe LTR + RTL · free with credit
@@ -250,15 +249,23 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <Reveal preset="slide-up" className="min-w-0">
-              <SpecCard />
-            </Reveal>
+            <HeroArt />
           </div>
         </section>
 
         {/* MEASURES */}
         <section aria-label="UX-STING in numbers" className={`${wrap} py-10 sm:py-14`}>
           <Measures />
+        </section>
+
+        <section id="lab" aria-labelledby="lab-title" className="scroll-mt-20 border-y border-border py-16 sm:py-24">
+          <div className={`${wrap} grid gap-9`}>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <SectionHead id="lab" eyebrow="Live, in your browser" title="A design system you can touch." intro="Switch a theme. Move your pointer. Explore real chart and grid components." />
+              <span className="spec-label text-muted-foreground">Not a mockup / interact below ↘</span>
+            </div>
+            <LiveLab />
+          </div>
         </section>
 
         {/* INSIDE */}
