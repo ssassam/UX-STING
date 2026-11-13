@@ -1,5 +1,17 @@
 # @ux-sting/react
 
+## 0.13.1
+
+### Patch Changes
+
+- 3c8094d: Menu items (`DropdownMenuItem`, `ContextMenuItem`, `MenubarItem`, checkbox/radio items and sub-triggers) now support `asChild`. Before, they always rendered their icon/shortcut next to the children, so `asChild` crashed with "Primitive.div failed to slot onto its children". With `asChild` the icon, shortcut and indicator are placed inside the child element, e.g. `<DropdownMenuItem asChild icon={<UserIcon />}><Link to="/account">Account</Link></DropdownMenuItem>`.
+- @ux-sting/hooks@0.13.1
+  - @ux-sting/icons@0.13.1
+  - @ux-sting/primitives@0.13.1
+  - @ux-sting/themes@0.13.1
+  - @ux-sting/tokens@0.13.1
+  - @ux-sting/utils@0.13.1
+
 ## 0.13.0
 
 ### Minor Changes
