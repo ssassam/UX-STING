@@ -204,10 +204,7 @@ export default function Page() {
         />
 
         {/* HERO */}
-        <section
-          aria-labelledby="hero-title"
-          className="hero-stage relative overflow-hidden"
-        >
+        <section aria-labelledby="hero-title" className="hero-stage relative overflow-hidden">
           <HeroArt />
           <div
             className={`${wrap} hero-content relative z-10 flex min-h-[670px] items-center py-20 sm:min-h-[780px] lg:min-h-[850px]`}
@@ -224,16 +221,25 @@ export default function Page() {
                 id="hero-title"
                 className="hero-title text-6xl leading-[.98] sm:text-7xl lg:text-[clamp(6rem,9vw,9.5rem)]"
               >
-                Interfaces<br />that <span className="hero-gradient-word">feel alive.</span>
+                Interfaces
+                <br />
+                that <span className="hero-gradient-word">feel alive.</span>
               </Heading>
               <Text size="lg" variant="muted" className="hero-intro max-w-xl">
-                Explore motion, color and components in one accessible React system. Build with UX-STING, then prove the experience in a real browser.
+                Explore motion, color and components in one accessible React system. Build with
+                UX-STING, then prove the experience in a real browser.
               </Text>
               <div className="flex flex-wrap items-center gap-3">
-                <Button asChild size="lg" endIcon={<ArrowRightIcon aria-hidden className="rtl:rotate-180" />}>
+                <Button
+                  asChild
+                  size="lg"
+                  endIcon={<ArrowRightIcon aria-hidden className="rtl:rotate-180" />}
+                >
                   <a href="#lab">Explore the system</a>
                 </Button>
-                <Button asChild size="lg" variant="ghost"><a href="#templates">See what it builds</a></Button>
+                <Button asChild size="lg" variant="ghost">
+                  <a href="#templates">See what it builds</a>
+                </Button>
               </div>
               <div id="install" className="hero-install max-w-lg scroll-mt-28">
                 <span className="spec-label text-muted-foreground">Start building</span>
@@ -244,15 +250,29 @@ export default function Page() {
         </section>
 
         {/* MEASURES */}
-        <section aria-label="UX-STING in numbers" className={`${wrap} measures-section py-10 sm:py-14`}>
+        <section
+          aria-label="UX-STING in numbers"
+          className={`${wrap} measures-section py-10 sm:py-14`}
+        >
           <Measures />
         </section>
 
-        <section id="lab" aria-labelledby="lab-title" className="lab-section scroll-mt-20 py-20 sm:py-28">
+        <section
+          id="lab"
+          aria-labelledby="lab-title"
+          className="lab-section scroll-mt-20 py-20 sm:py-28"
+        >
           <div className={`${wrap} grid gap-9`}>
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <SectionHead id="lab" eyebrow="The interactive canvas" title="Explore the system. Change its atmosphere." intro="Select a color. Follow the light. Explore a real chart and a sortable data grid." />
-              <span className="spec-label text-muted-foreground">Live UX-STING / interact below ↘</span>
+              <SectionHead
+                id="lab"
+                eyebrow="The interactive canvas"
+                title="Explore the system. Change its atmosphere."
+                intro="Select a color. Follow the light. Explore a real chart and a sortable data grid."
+              />
+              <span className="spec-label text-muted-foreground">
+                Live UX-STING / interact below ↘
+              </span>
             </div>
             <LiveLab />
           </div>
