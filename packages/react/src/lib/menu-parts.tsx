@@ -2,7 +2,9 @@
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "@ux-sting/icons";
 import { cn } from "@ux-sting/utils";
 import {
+  cloneElement,
   forwardRef,
+  isValidElement,
   type ComponentPropsWithoutRef,
   type ElementType,
   type HTMLAttributes,
@@ -46,7 +48,32 @@ export interface MenuItemExtraProps {
   inset?: boolean;
 }
 
-type Props = { className?: string; children?: ReactNode };
+type Props = { className?: string; children?: ReactNode; asChild?: boolean };
+
+/**
+ * Radix's `asChild` needs exactly one element child, but menu items add their
+ * own decorations (icon, shortcut, indicator). With `asChild`, put those
+ * decorations inside the child element instead, so
+ * `<DropdownMenuItem asChild icon={<UserIcon />}><Link …>Profile</Link></DropdownMenuItem>`
+ * renders a single `<a>` holding the icon, the label and the shortcut.
+ */
+function decorate(
+  asChild: boolean | undefined,
+  children: ReactNode,
+  before: ReactNode,
+  after: ReactNode,
+) {
+  if (asChild && isValidElement<{ children?: ReactNode }>(children)) {
+    return cloneElement(children, undefined, before, children.props.children, after);
+  }
+  return (
+    <>
+      {before}
+      {children}
+      {after}
+    </>
+  );
+}
 
 export function createMenuParts<P extends MenuPrimitives>(
   P: P,
@@ -71,7 +98,7 @@ export function createMenuParts<P extends MenuPrimitives>(
   });
 
   const Item = forwardRef<HTMLDivElement, Props & MenuItemExtraProps>(function MenuItem(
-    { className, variant = "default", icon, shortcut, inset, children, ...props },
+    { className, variant = "default", icon, shortcut, inset, asChild, children, ...props },
     ref,
   ) {
     return (
@@ -79,43 +106,65 @@ export function createMenuParts<P extends MenuPrimitives>(
         ref={ref}
         data-variant={variant}
         className={cn(menuItemClass, inset && "ps-8", className)}
+        asChild={asChild}
         {...props}
       >
-        {icon}
-        {children}
-        {shortcut ? <span className={menuShortcutClass}>{shortcut}</span> : null}
+        {decorate(
+          asChild,
+          children,
+          icon,
+          shortcut ? <span className={menuShortcutClass}>{shortcut}</span> : null,
+        )}
       </P.Item>
     );
   });
 
   const CheckboxItem = forwardRef<HTMLDivElement, Props>(function MenuCheckboxItem(
-    { className, children, ...props },
+    { className, asChild, children, ...props },
     ref,
   ) {
     return (
-      <P.CheckboxItem ref={ref} className={cn(menuItemClass, "ps-8", className)} {...props}>
-        <span className={cn(menuIndicatorClass, "absolute start-2")}>
-          <P.ItemIndicator>
-            <CheckIcon />
-          </P.ItemIndicator>
-        </span>
-        {children}
+      <P.CheckboxItem
+        ref={ref}
+        className={cn(menuItemClass, "ps-8", className)}
+        asChild={asChild}
+        {...props}
+      >
+        {decorate(
+          asChild,
+          children,
+          <span className={cn(menuIndicatorClass, "absolute start-2")}>
+            <P.ItemIndicator>
+              <CheckIcon />
+            </P.ItemIndicator>
+          </span>,
+          null,
+        )}
       </P.CheckboxItem>
     );
   });
 
   const RadioItem = forwardRef<HTMLDivElement, Props>(function MenuRadioItem(
-    { className, children, ...props },
+    { className, asChild, children, ...props },
     ref,
   ) {
     return (
-      <P.RadioItem ref={ref} className={cn(menuItemClass, "ps-8", className)} {...props}>
-        <span className={cn(menuIndicatorClass, "absolute start-2")}>
-          <P.ItemIndicator>
-            <CircleIcon className="size-2 fill-current" />
-          </P.ItemIndicator>
-        </span>
-        {children}
+      <P.RadioItem
+        ref={ref}
+        className={cn(menuItemClass, "ps-8", className)}
+        asChild={asChild}
+        {...props}
+      >
+        {decorate(
+          asChild,
+          children,
+          <span className={cn(menuIndicatorClass, "absolute start-2")}>
+            <P.ItemIndicator>
+              <CircleIcon className="size-2 fill-current" />
+            </P.ItemIndicator>
+          </span>,
+          null,
+        )}
       </P.RadioItem>
     );
   });
@@ -137,16 +186,20 @@ export function createMenuParts<P extends MenuPrimitives>(
   });
 
   const SubTrigger = forwardRef<HTMLDivElement, Props & { icon?: ReactNode; inset?: boolean }>(
-    function MenuSubTrigger({ className, icon, inset, children, ...props }, ref) {
+    function MenuSubTrigger({ className, icon, inset, asChild, children, ...props }, ref) {
       return (
         <P.SubTrigger
           ref={ref}
           className={cn(menuItemClass, "data-[state=open]:bg-accent", inset && "ps-8", className)}
+          asChild={asChild}
           {...props}
         >
-          {icon}
-          {children}
-          <ChevronRightIcon className="ms-auto rtl:rotate-180" />
+          {decorate(
+            asChild,
+            children,
+            icon,
+            <ChevronRightIcon className="ms-auto rtl:rotate-180" />,
+          )}
         </P.SubTrigger>
       );
     },
