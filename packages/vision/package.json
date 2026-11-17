@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/vision",
-  "version": "0.6.2",
+  "version": "0.14.0",
   "description": "Screenshot comparison with perceptual and structural metrics.",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
