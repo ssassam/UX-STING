@@ -2,7 +2,7 @@
   "name": "@ux-sting/effects",
   "version": "0.6.2",
   "description": "Accessible decorative React effects with CSS motion and cleanup.",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "sideEffects": [
     "*.css"

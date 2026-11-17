@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "ux-sting — an accessible, themeable, tree-shakeable React UI system.",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "engines": {

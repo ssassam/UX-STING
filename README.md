@@ -12,7 +12,7 @@ Agent** that teach coding agents to build art-directed UI and verify every page
 in a browser before they say “done”.
 
 [![ux-sting](https://img.shields.io/npm/v/ux-sting?label=ux-sting&color=orange&style=flat-square)](https://www.npmjs.com/package/ux-sting)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-Fair--Source-blue?style=flat-square)](https://github.com/ssassam/UX-STING/blob/main/LICENSE)
 [![skills](https://img.shields.io/badge/skills-9%20%2B%201%20agent-7c3aed?style=flat-square)](#agent-skills)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-2563eb?style=flat-square)
 ![Codex](https://img.shields.io/badge/Codex-skills-d946ef?style=flat-square)
