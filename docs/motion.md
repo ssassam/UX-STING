@@ -68,7 +68,7 @@ Functional motion uses the tokens (`--ui-duration-fast` 120ms to `--ui-duration-
 
 ## Transitions and GSAP — `@ux-sting/motion`
 
-`@ux-sting/motion` adds two tiers on top of the components above. Both use the same duration and easing tokens and both respect `prefers-reduced-motion`.
+`@ux-sting/motion` adds three tiers on top of the components above. The CSS catalog has no dependencies; the GSAP and anime.js adapters are optional. All three use the same duration and easing tokens and respect `prefers-reduced-motion`.
 
 ### Tier 1 — CSS transition catalog (zero dependencies)
 
@@ -130,4 +130,41 @@ export function Story() {
 ```
 
 Rules the adapter follows (from GSAP's own guidance): scope every selector, revert on unmount, put ScrollTrigger on timelines rather than child tweens, animate transforms and opacity, animate the children of a pinned element, and call `ScrollTrigger.refresh()` after layout changes you make yourself. Under reduced motion nothing is pinned or split, and presets jump to their end state.
+
+### Tier 3 — anime.js adapter (optional, beta)
+
+`@ux-sting/motion/anime` is an alternative to the GSAP tier for projects that want a smaller, MIT-licensed engine. It needs the peer dependency `animejs` (4.x). It is in beta: the API may still change before 1.0.
+
+| Hook / preset | Does |
+| --- | --- |
+| `useAnimeMotion(build, { scope, dependencies })` | Runs `build` inside `createScope()` with `reduced` in its context; everything reverts on unmount or when `dependencies` change |
+| `useScrollReveal(scope, options)` | `[data-reveal]` children reveal once as they enter the viewport (`onScroll`), staggered; default start is `85% top` |
+| `useSplitHeading(ref, { type, onScroll })` | Splits a heading into lines, words or chars (accessible mode) and staggers it in; reverted on unmount |
+| `fadeUp(targets, options)` | Staggered fade and rise, returns the animation; jumps to the end state under reduced motion |
+
+It re-exports `animate`, `createTimeline`, `onScroll`, `set`, `splitText` and `stagger` for anything the hooks don't cover.
+
+```tsx
+"use client";
+import { useRef } from "react";
+import { useScrollReveal, useSplitHeading } from "@ux-sting/motion/anime";
+
+export function Features() {
+  const scope = useRef<HTMLElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  useSplitHeading(title, { type: "words" });
+  useScrollReveal(scope);
+  return (
+    <section ref={scope}>
+      <h2 ref={title}>Everything in one place</h2>
+      <article data-reveal>…</article>
+      <article data-reveal>…</article>
+    </section>
+  );
+}
+```
+
+What it does not cover: pinned scroll scrubbing and FLIP layouts. Use the GSAP tier for those, or the CSS catalog's `flip` and `reorder` helpers.
+
+Size, measured with esbuild on the built adapter (minified, gzip): the full adapter with animejs is about 24 KB. `fadeUp` on its own is about 15 KB, against about 28 KB for GSAP core on a similar task. The engine is most of that weight, so this tier saves size mainly against the full GSAP tier (about 58 KB with ScrollTrigger, SplitText and Flip). Measure your own bundle before deciding.
 

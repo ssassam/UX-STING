@@ -24,6 +24,7 @@ export default defineConfig({
       { find: "@ux-sting/images", replacement: `${pkg("images")}/index.ts` },
       { find: "@ux-sting/motion/react", replacement: `${pkg("motion")}/react.ts` },
       { find: "@ux-sting/motion/gsap", replacement: `${pkg("motion")}/gsap/index.ts` },
+      { find: "@ux-sting/motion/anime", replacement: `${pkg("motion")}/anime/index.ts` },
       { find: "@ux-sting/motion", replacement: `${pkg("motion")}/index.ts` },
       { find: "@ux-sting/react", replacement: `${pkg("react")}/index.ts` },
     ],

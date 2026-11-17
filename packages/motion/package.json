@@ -22,6 +22,10 @@
       "types": "./dist/gsap/index.d.ts",
       "import": "./dist/gsap/index.js"
     },
+    "./anime": {
+      "types": "./dist/anime/index.d.ts",
+      "import": "./dist/anime/index.js"
+    },
     "./motion.css": "./dist/motion.css",
     "./css/*": "./css/*",
     "./package.json": "./package.json"
@@ -45,12 +49,16 @@
   },
   "peerDependencies": {
     "@gsap/react": "^2.1.0",
+    "animejs": "^4.5.0",
     "gsap": "^3.13.0",
     "react": "^18.3.0 || ^19.0.0",
     "react-dom": "^18.3.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
     "@gsap/react": {
+      "optional": true
+    },
+    "animejs": {
       "optional": true
     },
     "gsap": {
@@ -67,6 +75,7 @@
     "@gsap/react": "2.1.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "animejs": "4.5.0",
     "gsap": "3.15.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
