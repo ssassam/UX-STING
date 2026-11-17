@@ -10,6 +10,8 @@ export default defineConfig({
     alias: [
       { find: /^@ux-sting\/react\/(.*)$/, replacement: `${pkg("react")}/components/$1/index.ts` },
       { find: "@ux-sting/icons/dynamic", replacement: `${pkg("icons")}/icon.tsx` },
+      { find: "@ux-sting/vision", replacement: `${pkg("vision")}/index.ts` },
+      { find: "@ux-sting/universal", replacement: `${pkg("universal")}/index.ts` },
       { find: "@ux-sting/tokens", replacement: `${pkg("tokens")}/index.ts` },
       { find: "@ux-sting/themes", replacement: `${pkg("themes")}/index.ts` },
       { find: "@ux-sting/utils", replacement: `${pkg("utils")}/index.ts` },

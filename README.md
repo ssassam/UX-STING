@@ -395,3 +395,7 @@ If it helps you build, you can support the work on
 Third-party licenses and attributions in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 </div>
+
+## Universal tooling additions
+
+See [implementation status and usage](docs/GAP_IMPLEMENTATION_STATUS.md) for DESIGN.md interchange, MCP tools, static multi-page Next.js generation, screenshot comparison, Lighthouse, the comparison board and optional effects. The document distinguishes working APIs from remaining roadmap items.

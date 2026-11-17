@@ -63,6 +63,8 @@ export function generatePage(dna: DesignDNA, content: PageContent): GeneratedPag
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(content.title)}</title>
 <meta name="description" content="${esc(content.description)}">
+<meta name="author" content="Veltein">
+<link rel="author" href="https://veltein.com/">
 <style>
 ${css}
 </style>
@@ -78,7 +80,7 @@ ${nav ? `<nav aria-label="Main"><ul>${nav}</ul></nav>` : ""}
 <main id="main" tabindex="-1">
 ${sections.join("\n")}
 </main>
-<footer class="site-footer"><div class="wrap"><p>${esc(content.footer ?? `© ${content.siteName}`)}</p></div></footer>
+<footer class="site-footer"><div class="wrap"><p>${esc(content.footer ?? `© ${content.siteName}`)}</p><p><a href="https://veltein.com/" target="_blank" rel="noopener noreferrer">Made with love by Veltein</a></p></div></footer>
 </body>
 </html>
 `;
