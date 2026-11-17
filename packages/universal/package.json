@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/universal",
-  "version": "0.6.2",
+  "version": "0.14.0",
   "description": "Design planning and multi-page Next.js App Router generation.",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",

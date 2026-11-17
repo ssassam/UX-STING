@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/mcp",
-  "version": "0.6.2",
+  "version": "0.14.0",
   "description": "UX-STING design tools exposed through MCP stdio.",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/effects",
-  "version": "0.6.2",
+  "version": "0.14.0",
   "description": "Accessible decorative React effects with CSS motion and cleanup.",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",

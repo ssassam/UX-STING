@@ -1,5 +1,12 @@
 # @ux-sting/images
 
+## 0.14.0
+
+### Patch Changes
+
+- Updated dependencies [08a4880]
+  - @ux-sting/design-dna@0.14.0
+
 ## 0.13.1
 
 ### Patch Changes

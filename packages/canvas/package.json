@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/canvas",
-  "version": "0.6.2",
+  "version": "0.14.0",
   "description": "Local visual comparison board for UX-STING generated directions.",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",

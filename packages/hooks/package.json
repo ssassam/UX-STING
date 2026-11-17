@@ -1,6 +1,6 @@
 {
   "name": "@ux-sting/hooks",
-  "version": "0.13.1",
+  "version": "0.14.0",
   "description": "React hooks for ux-sting: controllable state, disclosure, media queries, clipboard, reduced motion and more.",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
