@@ -23,17 +23,21 @@
     },
     "./package.json": "./package.json",
     "./themes.css": "./dist/themes.css",
-    "./*.css": "./dist/*.css"
+    "./*.css": "./dist/*.css",
+    "./designs/*": "./designs/*"
   },
   "files": [
-    "dist"
+    "dist",
+    "designs"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs",
-    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs && node scripts/build-designs.mjs",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "designs": "node scripts/build-designs.mjs"
   },
   "dependencies": {
-    "@ux-sting/tokens": "workspace:^"
+    "@ux-sting/tokens": "workspace:^",
+    "yaml": "^2.8.0"
   },
   "peerDependencies": {},
   "devDependencies": {
