@@ -2,7 +2,7 @@
   "name": "@ux-sting/images",
   "version": "0.13.1",
   "description": "Find openly licensed images (Openverse, Wikimedia Commons, The Met Open Access) — public domain, CC0, CC BY and CC BY-SA only — download them and record TASL credits automatically.",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",

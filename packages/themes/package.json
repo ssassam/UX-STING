@@ -2,7 +2,7 @@
   "name": "@ux-sting/themes",
   "version": "0.13.1",
   "description": "Theme engine and presets for ux-sting (default, neutral, modern, compact, soft, high-contrast, plus Material, Fluent, Carbon, Polaris, Apple, Base Web and Stripe styles).",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ssassam/UX-STING.git",

@@ -1,21 +1,32 @@
-MIT License
+VELTEIN Fair-Source License (Business & Attribution Model)
+Copyright (c) 2026 VELTEIN (Issam El Bani) — https://veltein.com
 
-Copyright (c) 2026 ux-sting contributors
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of this software and associated documentation files (the "Software"),
+to use, copy, modify, merge, publish, distribute, and/or sublicense the Software,
+subject to the following conditions:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. FREE USE WITH ATTRIBUTION (COMMUNITY & STANDARD TIER):
+   Use of the Software for any project (personal, open-source, educational, or
+   production/commercial) is completely free of charge, PROVIDED THAT:
+   (a) A visible and clickable attribution link to Veltein ("Designed & Developed by Veltein",
+       "Crafted by Veltein", or "Built with UX-STING by Veltein") linking to
+       https://veltein.com is prominently displayed in the website or application footer.
+   (b) The creator metadata tags (<meta name="author" content="Veltein"> and
+       <meta name="generator" content="UX-STING by Veltein">) are preserved in the HTML head.
+   (c) The above copyright notice and this permission notice appear in all copies or
+       substantial portions of the Software.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. COMMERCIAL WHITE-LABEL EXCEPTION (PAID TIER):
+   Any entity wishing to remove, alter, hide, or white-label the visible Veltein
+   credit or creator metadata from their client sites or commercial products must
+   obtain a Commercial White-Label License from VELTEIN (https://veltein.com).
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+3. DISCLAIMER OF WARRANTY:
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
