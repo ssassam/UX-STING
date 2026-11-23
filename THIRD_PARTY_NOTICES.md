@@ -283,15 +283,3 @@ is third-party trademarks and is **not** included. Full license:
 MIT License
 Copyright (c) 2026 kaankiziltug
 ```
-
-## Standalone tools (separate license)
-
-### kariddi — GPL-3.0-or-later
-
-`tools/kariddi/` is a standalone Go command-line tool, not part of the
-UX-STING packages and not covered by the MIT license above. It links
-[edoardottt/cariddi](https://github.com/edoardottt/cariddi) (GPL-3.0) for its
-detection rules and [projectdiscovery/katana](https://github.com/projectdiscovery/katana)
-(MIT, Copyright (c) 2022 ProjectDiscovery) as its crawl engine, so the tool as
-a whole is distributed under the GNU General Public License v3.0 or later.
-Full license: `tools/kariddi/LICENSE`.
